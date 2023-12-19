@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dot_size">10.8889dp</dimen>
+    <dimen name="updating_dot_liner_top_padding">91.7778dp</dimen>
+    <dimen name="updating_footer_buttons_bottom_padding">41.2222dp</dimen>
+    <dimen name="updating_footer_buttons_second_button_top_padding">15.5555dp</dimen>
+    <dimen name="updating_header_bottom_padding">35.7778dp</dimen>
+    <dimen name="updating_header_font">28dp</dimen>
+    <dimen name="updating_header_horizontal_padding">18.6667dp</dimen>
+    <dimen name="updating_header_line_height">34.2222dp</dimen>
+    <dimen name="updating_header_top_padding">15.5555dp</dimen>
+    <dimen name="updating_looking_version_dot_liner_top_padding">107.3333dp</dimen>
+</resources>

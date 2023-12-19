@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dialog_background">@android:color/Red_800</color>
+    <color name="dialog_button_text">@android:color/GM2_grey_800</color>
+    <color name="dialog_message_text">@android:color/accent_device_default_dark_60_percent_opacity</color>
+    <color name="dialog_title_text">@android:color/GM2_grey_800</color>
+    <color name="dot_normal">@android:color/Red_800</color>
+    <color name="ic_top_bar_navigation">@android:color/GM2_grey_800</color>
+    <color name="subtitle1_text">@android:color/GM2_grey_800</color>
+    <color name="subtitle2_text">@android:color/accent_device_default_dark_60_percent_opacity</color>
+    <color name="up_to_date_text">@android:color/GM2_grey_800</color>
+    <color name="updating_button_border_border">@android:color/Red_700</color>
+    <color name="updating_button_border_text">@android:color/GM2_grey_800</color>
+    <color name="updating_button_filled_border">@android:color/GM2_grey_800</color>
+    <color name="updating_button_filled_color">@android:color/GM2_grey_800</color>
+    <color name="updating_button_filled_text">@android:color/Teal_700</color>
+    <color name="updating_button_transparent_text">@android:color/GM2_grey_800</color>
+    <color name="updating_screen_background">@android:color/Teal_700</color>
+    <color name="updating_screen_header_color">@android:color/GM2_grey_800</color>
+</resources>
