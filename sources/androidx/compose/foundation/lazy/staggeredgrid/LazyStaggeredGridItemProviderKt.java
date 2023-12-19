@@ -1,12 +1,12 @@
 package androidx.compose.foundation.lazy.staggeredgrid;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.lazy.layout.IntervalList;
 import androidx.compose.foundation.lazy.layout.LazyLayoutItemProvider;
 import androidx.compose.foundation.lazy.layout.LazyLayoutItemProviderKt;
 import androidx.compose.foundation.lazy.layout.LazyLayoutPinnableItemKt;
-import androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt;
-import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1;
+import androidx.compose.foundation.lazy.layout.LazyNearestItemsRange;
+import androidx.compose.foundation.lazy.staggeredgrid.C0360x6d2c3253;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.SnapshotStateKt;
@@ -15,15 +15,15 @@ import androidx.compose.runtime.internal.ComposableLambdaKt;
 import java.util.Map;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function4;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.IntRange;
 
 /* compiled from: LazyStaggeredGridItemProvider.kt */
-@Metadata(d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a.\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0017\u0010\u0004\u001a\u0013\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\u0002\b\bH\u0001¢\u0006\u0002\u0010\t¨\u0006\n"}, d2 = {"rememberStaggeredGridItemProvider", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridItemProvider;", "state", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridScope;", "", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridItemProvider;", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a.\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0017\u0010\u0004\u001a\u0013\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00070\u0005¢\u0006\u0002\b\bH\u0001¢\u0006\u0002\u0010\t¨\u0006\n"}, m40d2 = {"rememberStaggeredGridItemProvider", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridItemProvider;", "state", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridScope;", "", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridItemProvider;", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyStaggeredGridItemProviderKt {
     public static final LazyStaggeredGridItemProvider rememberStaggeredGridItemProvider(final LazyStaggeredGridState state, Function1<? super LazyStaggeredGridScope, Unit> content, Composer composer, int i) {
@@ -35,26 +35,26 @@ public final class LazyStaggeredGridItemProviderKt {
             ComposerKt.traceEventStart(2039920307, i, -1, "androidx.compose.foundation.lazy.staggeredgrid.rememberStaggeredGridItemProvider (LazyStaggeredGridItemProvider.kt:35)");
         }
         final State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(content, composer, (i >> 3) & 14);
-        final State<IntRange> rememberLazyNearestItemsRangeState = LazyNearestItemsRangeKt.rememberLazyNearestItemsRangeState(new Function0<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$1
+        final State<IntRange> rememberLazyNearestItemsRangeState = LazyNearestItemsRange.rememberLazyNearestItemsRangeState(new Functions<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(0);
             }
 
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final Integer invoke() {
                 return Integer.valueOf(LazyStaggeredGridState.this.getFirstVisibleItemIndex());
             }
-        }, new Function0<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$2
+        }, new Functions<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$2
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final Integer invoke() {
                 return 90;
             }
-        }, new Function0<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$3
+        }, new Functions<Integer>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$nearestItemsRangeState$3
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final Integer invoke() {
                 return Integer.valueOf((int) ComposerKt.invocationKey);
             }
@@ -64,7 +64,7 @@ public final class LazyStaggeredGridItemProviderKt {
         boolean changed = composer.changed(state);
         Object rememberedValue = composer.rememberedValue();
         if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = new LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$1(SnapshotStateKt.derivedStateOf(new Function0<LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1.AnonymousClass1>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1
+            rememberedValue = new C0359x329c90aa(SnapshotStateKt.derivedStateOf(new Functions<C0360x6d2c3253.C03611>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -73,12 +73,12 @@ public final class LazyStaggeredGridItemProviderKt {
                 }
 
                 /* compiled from: LazyStaggeredGridItemProvider.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                /* renamed from: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1$1  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                /* renamed from: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$itemProviderState$1$1 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass1 implements LazyLayoutItemProvider, LazyStaggeredGridItemProvider {
+                public static final class C03611 implements LazyLayoutItemProvider, LazyStaggeredGridItemProvider {
                     private final /* synthetic */ LazyLayoutItemProvider $$delegate_0;
-                    private final LazyStaggeredGridSpanProvider spanProvider;
+                    private final LazyStaggeredGridSpan spanProvider;
 
                     @Override // androidx.compose.foundation.lazy.layout.LazyLayoutItemProvider
                     public void Item(int i, Composer composer, int i2) {
@@ -114,7 +114,7 @@ public final class LazyStaggeredGridItemProviderKt {
                         return this.$$delegate_0.getKeyToIndexMap();
                     }
 
-                    AnonymousClass1(LazyStaggeredGridScopeImpl lazyStaggeredGridScopeImpl, State<IntRange> state, final LazyStaggeredGridState lazyStaggeredGridState) {
+                    C03611(LazyStaggeredGridScopeImpl lazyStaggeredGridScopeImpl, State<IntRange> state, final LazyStaggeredGridState lazyStaggeredGridState) {
                         this.$$delegate_0 = LazyLayoutItemProviderKt.LazyLayoutItemProvider(lazyStaggeredGridScopeImpl.getIntervals(), state.getValue(), ComposableLambdaKt.composableLambdaInstance(-364721306, true, new Function4<IntervalList.Interval<? extends LazyStaggeredGridIntervalContent>, Integer, Composer, Integer, Unit>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProviderKt.rememberStaggeredGridItemProvider.1.itemProviderState.1.1.1
                             {
                                 super(4);
@@ -135,7 +135,7 @@ public final class LazyStaggeredGridItemProviderKt {
                                 } else {
                                     i3 = i2;
                                 }
-                                if ((i2 & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+                                if ((i2 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
                                     i3 |= composer.changed(i) ? 32 : 16;
                                 }
                                 if ((i3 & 731) != 146 || !composer.getSkipping()) {
@@ -170,7 +170,7 @@ public final class LazyStaggeredGridItemProviderKt {
                                                 ComposerKt.traceEventEnd();
                                             }
                                         }
-                                    }), composer, (i3 & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 3592);
+                                    }), composer, (i3 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 3592);
                                     if (ComposerKt.isTraceInProgress()) {
                                         ComposerKt.traceEventEnd();
                                         return;
@@ -180,31 +180,31 @@ public final class LazyStaggeredGridItemProviderKt {
                                 composer.skipToGroupEnd();
                             }
                         }));
-                        this.spanProvider = new LazyStaggeredGridSpanProvider(lazyStaggeredGridScopeImpl.getIntervals());
+                        this.spanProvider = new LazyStaggeredGridSpan(lazyStaggeredGridScopeImpl.getIntervals());
                     }
 
                     @Override // androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridItemProvider
-                    public LazyStaggeredGridSpanProvider getSpanProvider() {
+                    public LazyStaggeredGridSpan getSpanProvider() {
                         return this.spanProvider;
                     }
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
-                public final AnonymousClass1 invoke() {
+                @Override // kotlin.jvm.functions.Functions
+                public final C03611 invoke() {
                     LazyStaggeredGridScopeImpl lazyStaggeredGridScopeImpl = new LazyStaggeredGridScopeImpl();
                     rememberUpdatedState.getValue().invoke(lazyStaggeredGridScopeImpl);
-                    return new AnonymousClass1(lazyStaggeredGridScopeImpl, rememberLazyNearestItemsRangeState, state);
+                    return new C03611(lazyStaggeredGridScopeImpl, rememberLazyNearestItemsRangeState, state);
                 }
             }));
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$1 lazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$1 = (LazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$1) rememberedValue;
+        C0359x329c90aa c0359x329c90aa = (C0359x329c90aa) rememberedValue;
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
         composer.endReplaceableGroup();
-        return lazyStaggeredGridItemProviderKt$rememberStaggeredGridItemProvider$1$1;
+        return c0359x329c90aa;
     }
 }

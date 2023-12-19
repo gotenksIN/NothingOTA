@@ -7,17 +7,17 @@ import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Sequences.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@"}, d2 = {"<anonymous>", "", "T", "C", "R", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", f = "Sequences.kt", i = {0, 0}, l = {332}, m = "invokeSuspend", n = {"$this$sequence", "index"}, s = {"L$0", "I$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "C", "R", "Lkotlin/sequences/SequenceScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.sequences.SequencesKt__SequencesKt$flatMapIndexed$1", m30f = "Sequences.kt", m29i = {0, 0}, m28l = {332}, m27m = "invokeSuspend", m26n = {"$this$sequence", "index"}, m25s = {"L$0", "I$0"})
 /* loaded from: classes2.dex */
 public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function1<C, Iterator<R>> $iterator;
@@ -82,7 +82,7 @@ public final class SequencesKt__SequencesKt$flatMapIndexed$1<R> extends Restrict
             if (i < 0) {
                 CollectionsKt.throwIndexOverflow();
             }
-            Object invoke = function2.invoke(Boxing.boxInt(i), next);
+            Object invoke = function2.invoke(boxing.boxInt(i), next);
             this.L$0 = sequenceScope;
             this.L$1 = it;
             this.I$0 = i4;

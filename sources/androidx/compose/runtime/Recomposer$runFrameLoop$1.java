@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Recomposer.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.Recomposer", f = "Recomposer.kt", i = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1}, l = {822, 829}, m = "runFrameLoop", n = {"this", "parentFrameClock", "frameSignal", "toRecompose", "toApply", "this", "parentFrameClock", "frameSignal", "toRecompose", "toApply"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$0", "L$1", "L$2", "L$3", "L$4"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.Recomposer", m30f = "Recomposer.kt", m29i = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1}, m28l = {822, 829}, m27m = "runFrameLoop", m26n = {"this", "parentFrameClock", "frameSignal", "toRecompose", "toApply", "this", "parentFrameClock", "frameSignal", "toRecompose", "toApply"}, m25s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$0", "L$1", "L$2", "L$3", "L$4"})
 /* loaded from: classes.dex */
 public final class Recomposer$runFrameLoop$1 extends ContinuationImpl {
     Object L$0;

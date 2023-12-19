@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Limit.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt", f = "Limit.kt", i = {0}, l = {136}, m = "collectWhile", n = {"collector"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__LimitKt", m30f = "Limit.kt", m29i = {0}, m28l = {136}, m27m = "collectWhile", m26n = {"collector"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class FlowKt__LimitKt$collectWhile$1<T> extends ContinuationImpl {
     Object L$0;
@@ -24,6 +24,6 @@ public final class FlowKt__LimitKt$collectWhile$1<T> extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return FlowKt__LimitKt.collectWhile(null, null, this);
+        return Limit.collectWhile(null, null, this);
     }
 }

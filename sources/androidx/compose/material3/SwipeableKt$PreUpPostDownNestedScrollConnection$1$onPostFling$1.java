@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Swipeable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1", f = "Swipeable.kt", i = {0}, l = {878}, m = "onPostFling-RZ2iAVY", n = {"available"}, s = {"J$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1", m30f = "Swipeable.kt", m29i = {0}, m28l = {878}, m27m = "onPostFling-RZ2iAVY", m26n = {"available"}, m25s = {"J$0"})
 /* loaded from: classes.dex */
 public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1$onPostFling$1 extends ContinuationImpl {
     long J$0;
@@ -27,6 +27,6 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1$onPostFling
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return this.this$0.mo308onPostFlingRZ2iAVY(0L, 0L, this);
+        return this.this$0.mo609onPostFlingRZ2iAVY(0L, 0L, this);
     }
 }

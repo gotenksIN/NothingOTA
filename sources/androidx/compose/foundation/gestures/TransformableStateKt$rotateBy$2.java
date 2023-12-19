@@ -1,6 +1,6 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.Offset;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -11,8 +11,8 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: TransformableState.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/TransformScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableStateKt$rotateBy$2", f = "TransformableState.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/TransformScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableStateKt$rotateBy$2", m30f = "TransformableState.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class TransformableStateKt$rotateBy$2 extends SuspendLambda implements Function2<TransformScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ float $degrees;
@@ -45,7 +45,7 @@ final class TransformableStateKt$rotateBy$2 extends SuspendLambda implements Fun
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
         ResultKt.throwOnFailure(obj);
-        ((TransformScope) this.L$0).mo226transformByd4ec7I(1.0f, Offset.Companion.m2334getZeroF1C5BW0(), this.$degrees);
+        ((TransformScope) this.L$0).mo527transformByd4ec7I(1.0f, Offset.Companion.m2635getZeroF1C5BW0(), this.$degrees);
         return Unit.INSTANCE;
     }
 }

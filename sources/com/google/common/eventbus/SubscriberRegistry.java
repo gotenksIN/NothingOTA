@@ -46,7 +46,7 @@ public final class SubscriberRegistry {
     private static final LoadingCache<Class<?>, ImmutableSet<Class<?>>> flattenHierarchyCache = CacheBuilder.newBuilder().weakKeys().build(new CacheLoader<Class<?>, ImmutableSet<Class<?>>>() { // from class: com.google.common.eventbus.SubscriberRegistry.2
         @Override // com.google.common.cache.CacheLoader
         public ImmutableSet<Class<?>> load(Class<?> cls) {
-            return ImmutableSet.copyOf((Collection) TypeToken.of((Class) cls).getTypes().rawTypes());
+            return ImmutableSet.copyOf((Collection) TypeToken.m58of((Class) cls).getTypes().rawTypes());
         }
     });
 
@@ -121,7 +121,7 @@ public final class SubscriberRegistry {
     }
 
     Set<Subscriber> getSubscribersForTesting(Class<?> cls) {
-        return (Set) MoreObjects.firstNonNull(this.subscribers.get(cls), ImmutableSet.of());
+        return (Set) MoreObjects.firstNonNull(this.subscribers.get(cls), ImmutableSet.m164of());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -160,7 +160,7 @@ public final class SubscriberRegistry {
     /* JADX INFO: Access modifiers changed from: private */
     public static ImmutableList<Method> getAnnotatedMethodsNotCached(Class<?> cls) {
         Method[] declaredMethods;
-        Set<Class> rawTypes = TypeToken.of((Class) cls).getTypes().rawTypes();
+        Set<Class> rawTypes = TypeToken.m58of((Class) cls).getTypes().rawTypes();
         HashMap newHashMap = Maps.newHashMap();
         for (Class cls2 : rawTypes) {
             for (Method method : cls2.getDeclaredMethods()) {

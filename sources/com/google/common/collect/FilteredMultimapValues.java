@@ -51,12 +51,12 @@ final class FilteredMultimapValues<K, V> extends AbstractCollection<V> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean removeAll(Collection<?> collection) {
-        return Iterables.removeIf(this.multimap.unfiltered().entries(), Predicates.and(this.multimap.entryPredicate(), Maps.valuePredicateOnEntries(Predicates.in(collection))));
+        return Iterables.removeIf(this.multimap.unfiltered().entries(), Predicates.and(this.multimap.entryPredicate(), Maps.valuePredicateOnEntries(Predicates.m240in(collection))));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean retainAll(Collection<?> collection) {
-        return Iterables.removeIf(this.multimap.unfiltered().entries(), Predicates.and(this.multimap.entryPredicate(), Maps.valuePredicateOnEntries(Predicates.not(Predicates.in(collection)))));
+        return Iterables.removeIf(this.multimap.unfiltered().entries(), Predicates.and(this.multimap.entryPredicate(), Maps.valuePredicateOnEntries(Predicates.not(Predicates.m240in(collection)))));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection

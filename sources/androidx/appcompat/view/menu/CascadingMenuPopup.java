@@ -18,7 +18,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.appcompat.widget.MenuItemHoverListener;
 import androidx.appcompat.widget.MenuPopupWindow;
@@ -33,7 +33,7 @@ import java.util.List;
 final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.OnKeyListener, PopupWindow.OnDismissListener {
     static final int HORIZ_POSITION_LEFT = 0;
     static final int HORIZ_POSITION_RIGHT = 1;
-    private static final int ITEM_LAYOUT = R.layout.abc_cascading_menu_item_layout;
+    private static final int ITEM_LAYOUT = C0032R.C0036layout.abc_cascading_menu_item_layout;
     static final int SUBMENU_TIMEOUT_MS = 200;
     private View mAnchorView;
     private final Context mContext;
@@ -163,7 +163,7 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
         this.mPopupStyleRes = i2;
         this.mOverflowOnly = z;
         Resources resources = context.getResources();
-        this.mMenuMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R.dimen.abc_config_prefDialogWidth));
+        this.mMenuMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(C0032R.dimen.abc_config_prefDialogWidth));
         this.mSubMenuHoverHandler = new Handler();
     }
 
@@ -314,7 +314,7 @@ final class CascadingMenuPopup extends MenuPopup implements MenuPresenter, View.
         ListView listView = createPopupWindow.getListView();
         listView.setOnKeyListener(this);
         if (cascadingMenuInfo == null && this.mShowTitle && menuBuilder.getHeaderTitle() != null) {
-            FrameLayout frameLayout = (FrameLayout) from.inflate(R.layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
+            FrameLayout frameLayout = (FrameLayout) from.inflate(C0032R.C0036layout.abc_popup_menu_header_item_layout, (ViewGroup) listView, false);
             frameLayout.setEnabled(false);
             ((TextView) frameLayout.findViewById(16908310)).setText(menuBuilder.getHeaderTitle());
             listView.addHeaderView(frameLayout, null, false);

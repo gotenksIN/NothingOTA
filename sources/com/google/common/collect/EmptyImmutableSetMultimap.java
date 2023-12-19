@@ -8,7 +8,7 @@ public class EmptyImmutableSetMultimap extends ImmutableSetMultimap<Object, Obje
     private static final long serialVersionUID = 0;
 
     private EmptyImmutableSetMultimap() {
-        super(ImmutableMap.of(), 0, null);
+        super(ImmutableMap.m192of(), 0, null);
     }
 
     private Object readResolve() {

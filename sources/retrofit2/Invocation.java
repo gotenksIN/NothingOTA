@@ -11,7 +11,8 @@ public final class Invocation {
     private final List<?> arguments;
     private final Method method;
 
-    public static Invocation of(Method method, List<?> list) {
+    /* renamed from: of */
+    public static Invocation m0of(Method method, List<?> list) {
         Objects.requireNonNull(method, "method == null");
         Objects.requireNonNull(list, "arguments == null");
         return new Invocation(method, new ArrayList(list));

@@ -6,7 +6,7 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LazyStaggeredGridState.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public /* synthetic */ class LazyStaggeredGridState$scrollPosition$1 extends FunctionReferenceImpl implements Function2<Integer, Integer, int[]> {
     /* JADX INFO: Access modifiers changed from: package-private */

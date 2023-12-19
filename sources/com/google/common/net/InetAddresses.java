@@ -4,7 +4,7 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Preconditions;
 import com.google.common.hash.Hashing;
-import com.google.common.io.ByteStreams;
+import com.google.common.p006io.ByteStreams;
 import com.google.common.primitives.Ints;
 import java.math.BigInteger;
 import java.net.Inet4Address;
@@ -23,9 +23,9 @@ public final class InetAddresses {
     private static final int IPV4_PART_COUNT = 4;
     private static final int IPV6_PART_COUNT = 8;
     private static final char IPV4_DELIMITER = '.';
-    private static final CharMatcher IPV4_DELIMITER_MATCHER = CharMatcher.is(IPV4_DELIMITER);
+    private static final CharMatcher IPV4_DELIMITER_MATCHER = CharMatcher.m245is(IPV4_DELIMITER);
     private static final char IPV6_DELIMITER = ':';
-    private static final CharMatcher IPV6_DELIMITER_MATCHER = CharMatcher.is(IPV6_DELIMITER);
+    private static final CharMatcher IPV6_DELIMITER_MATCHER = CharMatcher.m245is(IPV6_DELIMITER);
     private static final Inet4Address LOOPBACK4 = (Inet4Address) forString("127.0.0.1");
     private static final Inet4Address ANY4 = (Inet4Address) forString("0.0.0.0");
 

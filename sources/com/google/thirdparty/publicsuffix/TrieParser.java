@@ -6,7 +6,7 @@ import com.google.common.collect.Queues;
 
 /* loaded from: classes2.dex */
 final class TrieParser {
-    private static final Joiner PREFIX_JOINER = Joiner.on("");
+    private static final Joiner PREFIX_JOINER = Joiner.m242on("");
 
     TrieParser() {
     }

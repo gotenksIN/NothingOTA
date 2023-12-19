@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageButton;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableImageSourceView;
 
@@ -23,7 +23,7 @@ public class AppCompatImageButton extends ImageButton implements TintableBackgro
     }
 
     public AppCompatImageButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.imageButtonStyle);
+        this(context, attributeSet, C0032R.attr.imageButtonStyle);
     }
 
     public AppCompatImageButton(Context context, AttributeSet attributeSet, int i) {

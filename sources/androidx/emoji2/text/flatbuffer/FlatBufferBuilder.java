@@ -10,7 +10,9 @@ import java.util.Arrays;
 /* loaded from: classes.dex */
 public class FlatBufferBuilder {
     static final /* synthetic */ boolean $assertionsDisabled = false;
-    ByteBuffer bb;
+
+    /* renamed from: bb */
+    ByteBuffer f175bb;
     ByteBufferFactory bb_factory;
     boolean finished;
     boolean force_defaults;
@@ -50,14 +52,14 @@ public class FlatBufferBuilder {
         i = i <= 0 ? 1 : i;
         this.bb_factory = byteBufferFactory;
         if (byteBuffer != null) {
-            this.bb = byteBuffer;
+            this.f175bb = byteBuffer;
             byteBuffer.clear();
-            this.bb.order(ByteOrder.LITTLE_ENDIAN);
+            this.f175bb.order(ByteOrder.LITTLE_ENDIAN);
         } else {
-            this.bb = byteBufferFactory.newByteBuffer(i);
+            this.f175bb = byteBufferFactory.newByteBuffer(i);
         }
         this.utf8 = utf8;
-        this.space = this.bb.capacity();
+        this.space = this.f175bb.capacity();
     }
 
     public FlatBufferBuilder(int i) {
@@ -78,11 +80,11 @@ public class FlatBufferBuilder {
 
     public FlatBufferBuilder init(ByteBuffer byteBuffer, ByteBufferFactory byteBufferFactory) {
         this.bb_factory = byteBufferFactory;
-        this.bb = byteBuffer;
+        this.f175bb = byteBuffer;
         byteBuffer.clear();
-        this.bb.order(ByteOrder.LITTLE_ENDIAN);
+        this.f175bb.order(ByteOrder.LITTLE_ENDIAN);
         this.minalign = 1;
-        this.space = this.bb.capacity();
+        this.space = this.f175bb.capacity();
         this.vtable_in_use = 0;
         this.nested = false;
         this.finished = false;
@@ -107,8 +109,8 @@ public class FlatBufferBuilder {
     }
 
     public void clear() {
-        this.space = this.bb.capacity();
-        this.bb.clear();
+        this.space = this.f175bb.capacity();
+        this.f175bb.clear();
         this.minalign = 1;
         while (true) {
             int i = this.vtable_in_use;
@@ -142,12 +144,12 @@ public class FlatBufferBuilder {
     }
 
     public int offset() {
-        return this.bb.capacity() - this.space;
+        return this.f175bb.capacity() - this.space;
     }
 
     public void pad(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            ByteBuffer byteBuffer = this.bb;
+            ByteBuffer byteBuffer = this.f175bb;
             int i3 = this.space - 1;
             this.space = i3;
             byteBuffer.put(i3, (byte) 0);
@@ -158,64 +160,64 @@ public class FlatBufferBuilder {
         if (i > this.minalign) {
             this.minalign = i;
         }
-        int i3 = ((~((this.bb.capacity() - this.space) + i2)) + 1) & (i - 1);
+        int i3 = ((~((this.f175bb.capacity() - this.space) + i2)) + 1) & (i - 1);
         while (this.space < i3 + i + i2) {
-            int capacity = this.bb.capacity();
-            ByteBuffer byteBuffer = this.bb;
+            int capacity = this.f175bb.capacity();
+            ByteBuffer byteBuffer = this.f175bb;
             ByteBuffer growByteBuffer = growByteBuffer(byteBuffer, this.bb_factory);
-            this.bb = growByteBuffer;
+            this.f175bb = growByteBuffer;
             if (byteBuffer != growByteBuffer) {
                 this.bb_factory.releaseByteBuffer(byteBuffer);
             }
-            this.space += this.bb.capacity() - capacity;
+            this.space += this.f175bb.capacity() - capacity;
         }
         pad(i3);
     }
 
     public void putBoolean(boolean z) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 1;
         this.space = i;
         byteBuffer.put(i, z ? (byte) 1 : (byte) 0);
     }
 
     public void putByte(byte b) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 1;
         this.space = i;
         byteBuffer.put(i, b);
     }
 
     public void putShort(short s) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 2;
         this.space = i;
         byteBuffer.putShort(i, s);
     }
 
     public void putInt(int i) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i2 = this.space - 4;
         this.space = i2;
         byteBuffer.putInt(i2, i);
     }
 
     public void putLong(long j) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 8;
         this.space = i;
         byteBuffer.putLong(i, j);
     }
 
     public void putFloat(float f) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 4;
         this.space = i;
         byteBuffer.putFloat(i, f);
     }
 
     public void putDouble(double d) {
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - 8;
         this.space = i;
         byteBuffer.putDouble(i, d);
@@ -282,11 +284,11 @@ public class FlatBufferBuilder {
     public ByteBuffer createUnintializedVector(int i, int i2, int i3) {
         int i4 = i * i2;
         startVector(i, i2, i3);
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i5 = this.space - i4;
         this.space = i5;
         byteBuffer.position(i5);
-        ByteBuffer order = this.bb.slice().order(ByteOrder.LITTLE_ENDIAN);
+        ByteBuffer order = this.f175bb.slice().order(ByteOrder.LITTLE_ENDIAN);
         order.limit(i4);
         return order;
     }
@@ -301,7 +303,7 @@ public class FlatBufferBuilder {
     }
 
     public <T extends Table> int createSortedVectorOfTables(T t, int[] iArr) {
-        t.sortTables(iArr, this.bb);
+        t.sortTables(iArr, this.f175bb);
         return createVectorOfTables(iArr);
     }
 
@@ -309,11 +311,11 @@ public class FlatBufferBuilder {
         int encodedLength = this.utf8.encodedLength(charSequence);
         addByte((byte) 0);
         startVector(1, encodedLength, 1);
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - encodedLength;
         this.space = i;
         byteBuffer.position(i);
-        this.utf8.encodeUtf8(charSequence, this.bb);
+        this.utf8.encodeUtf8(charSequence, this.f175bb);
         return endVector();
     }
 
@@ -321,43 +323,43 @@ public class FlatBufferBuilder {
         int remaining = byteBuffer.remaining();
         addByte((byte) 0);
         startVector(1, remaining, 1);
-        ByteBuffer byteBuffer2 = this.bb;
+        ByteBuffer byteBuffer2 = this.f175bb;
         int i = this.space - remaining;
         this.space = i;
         byteBuffer2.position(i);
-        this.bb.put(byteBuffer);
+        this.f175bb.put(byteBuffer);
         return endVector();
     }
 
     public int createByteVector(byte[] bArr) {
         int length = bArr.length;
         startVector(1, length, 1);
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i = this.space - length;
         this.space = i;
         byteBuffer.position(i);
-        this.bb.put(bArr);
+        this.f175bb.put(bArr);
         return endVector();
     }
 
     public int createByteVector(byte[] bArr, int i, int i2) {
         startVector(1, i2, 1);
-        ByteBuffer byteBuffer = this.bb;
+        ByteBuffer byteBuffer = this.f175bb;
         int i3 = this.space - i2;
         this.space = i3;
         byteBuffer.position(i3);
-        this.bb.put(bArr, i, i2);
+        this.f175bb.put(bArr, i, i2);
         return endVector();
     }
 
     public int createByteVector(ByteBuffer byteBuffer) {
         int remaining = byteBuffer.remaining();
         startVector(1, remaining, 1);
-        ByteBuffer byteBuffer2 = this.bb;
+        ByteBuffer byteBuffer2 = this.f175bb;
         int i = this.space - remaining;
         this.space = i;
         byteBuffer2.position(i);
-        this.bb.put(byteBuffer);
+        this.f175bb.put(byteBuffer);
         return endVector();
     }
 
@@ -483,12 +485,12 @@ public class FlatBufferBuilder {
                 i = 0;
                 break;
             }
-            int capacity = this.bb.capacity() - this.vtables[i5];
+            int capacity = this.f175bb.capacity() - this.vtables[i5];
             int i6 = this.space;
-            short s = this.bb.getShort(capacity);
-            if (s == this.bb.getShort(i6)) {
+            short s = this.f175bb.getShort(capacity);
+            if (s == this.f175bb.getShort(i6)) {
                 for (int i7 = 2; i7 < s; i7 += 2) {
-                    if (this.bb.getShort(capacity + i7) != this.bb.getShort(i6 + i7)) {
+                    if (this.f175bb.getShort(capacity + i7) != this.f175bb.getShort(i6 + i7)) {
                         break;
                     }
                 }
@@ -498,9 +500,9 @@ public class FlatBufferBuilder {
             i5++;
         }
         if (i != 0) {
-            int capacity2 = this.bb.capacity() - offset;
+            int capacity2 = this.f175bb.capacity() - offset;
             this.space = capacity2;
-            this.bb.putInt(capacity2, i - offset);
+            this.f175bb.putInt(capacity2, i - offset);
         } else {
             int i8 = this.num_vtables;
             int[] iArr = this.vtables;
@@ -511,7 +513,7 @@ public class FlatBufferBuilder {
             int i9 = this.num_vtables;
             this.num_vtables = i9 + 1;
             iArr2[i9] = offset();
-            ByteBuffer byteBuffer = this.bb;
+            ByteBuffer byteBuffer = this.f175bb;
             byteBuffer.putInt(byteBuffer.capacity() - offset, offset() - offset);
         }
         this.nested = false;
@@ -519,8 +521,8 @@ public class FlatBufferBuilder {
     }
 
     public void required(int i, int i2) {
-        int capacity = this.bb.capacity() - i;
-        if (!(this.bb.getShort((capacity - this.bb.getInt(capacity)) + i2) != 0)) {
+        int capacity = this.f175bb.capacity() - i;
+        if (!(this.f175bb.getShort((capacity - this.f175bb.getInt(capacity)) + i2) != 0)) {
             throw new AssertionError("FlatBuffers: field " + i2 + " must be set");
         }
     }
@@ -529,9 +531,9 @@ public class FlatBufferBuilder {
         prep(this.minalign, (z ? 4 : 0) + 4);
         addOffset(i);
         if (z) {
-            addInt(this.bb.capacity() - this.space);
+            addInt(this.f175bb.capacity() - this.space);
         }
-        this.bb.position(this.space);
+        this.f175bb.position(this.space);
         this.finished = true;
     }
 
@@ -569,7 +571,7 @@ public class FlatBufferBuilder {
 
     public ByteBuffer dataBuffer() {
         finished();
-        return this.bb;
+        return this.f175bb;
     }
 
     @Deprecated
@@ -581,20 +583,20 @@ public class FlatBufferBuilder {
     public byte[] sizedByteArray(int i, int i2) {
         finished();
         byte[] bArr = new byte[i2];
-        this.bb.position(i);
-        this.bb.get(bArr);
+        this.f175bb.position(i);
+        this.f175bb.get(bArr);
         return bArr;
     }
 
     public byte[] sizedByteArray() {
-        return sizedByteArray(this.space, this.bb.capacity() - this.space);
+        return sizedByteArray(this.space, this.f175bb.capacity() - this.space);
     }
 
     public InputStream sizedInputStream() {
         finished();
-        ByteBuffer duplicate = this.bb.duplicate();
+        ByteBuffer duplicate = this.f175bb.duplicate();
         duplicate.position(this.space);
-        duplicate.limit(this.bb.capacity());
+        duplicate.limit(this.f175bb.capacity());
         return new ByteBufferBackedInputStream(duplicate);
     }
 

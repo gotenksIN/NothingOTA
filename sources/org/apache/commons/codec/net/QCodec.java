@@ -1,6 +1,6 @@
 package org.apache.commons.codec.net;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.io.UnsupportedEncodingException;
 import java.util.BitSet;
 import org.apache.commons.codec.DecoderException;
@@ -62,9 +62,9 @@ public class QCodec extends RFC1522Codec implements StringEncoder, StringDecoder
             PRINTABLE_CHARS.set(i3);
         }
         BitSet bitSet4 = PRINTABLE_CHARS;
-        bitSet4.set(R.styleable.AppCompatTheme_windowFixedWidthMinor);
-        bitSet4.set(R.styleable.AppCompatTheme_windowMinWidthMajor);
-        bitSet4.set(R.styleable.AppCompatTheme_windowMinWidthMinor);
+        bitSet4.set(C0032R.styleable.AppCompatTheme_windowFixedWidthMinor);
+        bitSet4.set(C0032R.styleable.AppCompatTheme_windowMinWidthMajor);
+        bitSet4.set(C0032R.styleable.AppCompatTheme_windowMinWidthMinor);
         bitSet4.set(126);
     }
 

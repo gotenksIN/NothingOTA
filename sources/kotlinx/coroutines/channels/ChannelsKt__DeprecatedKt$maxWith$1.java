@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Deprecated.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", f = "Deprecated.kt", i = {0, 0, 0, 1, 1, 1, 1}, l = {420, 422}, m = "maxWith", n = {"comparator", "$this$consume$iv", "iterator", "comparator", "$this$consume$iv", "iterator", "max"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$3"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", m30f = "Deprecated.kt", m29i = {0, 0, 0, 1, 1, 1, 1}, m28l = {420, 422}, m27m = "maxWith", m26n = {"comparator", "$this$consume$iv", "iterator", "comparator", "$this$consume$iv", "iterator", "max"}, m25s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$maxWith$1<E> extends ContinuationImpl {
     Object L$0;
@@ -28,7 +28,7 @@ public final class ChannelsKt__DeprecatedKt$maxWith$1<E> extends ContinuationImp
         Object maxWith;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        maxWith = ChannelsKt__DeprecatedKt.maxWith(null, null, this);
+        maxWith = Deprecated.maxWith(null, null, this);
         return maxWith;
     }
 }

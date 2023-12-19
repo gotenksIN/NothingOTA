@@ -165,7 +165,7 @@ public final class ClosingFuture<V> {
     }
 
     public static Combiner whenAllSucceed(ClosingFuture<?> closingFuture, ClosingFuture<?> closingFuture2, ClosingFuture<?> closingFuture3, ClosingFuture<?> closingFuture4, ClosingFuture<?> closingFuture5, ClosingFuture<?> closingFuture6, ClosingFuture<?>... closingFutureArr) {
-        return whenAllSucceed(FluentIterable.of(closingFuture, closingFuture2, closingFuture3, closingFuture4, closingFuture5, closingFuture6).append(closingFutureArr));
+        return whenAllSucceed(FluentIterable.m225of(closingFuture, closingFuture2, closingFuture3, closingFuture4, closingFuture5, closingFuture6).append(closingFutureArr));
     }
 
     private ClosingFuture(ListenableFuture<V> listenableFuture) {
@@ -314,7 +314,7 @@ public final class ClosingFuture<V> {
                 }
             }, MoreExecutors.directExecutor());
         } else {
-            switch (AnonymousClass12.$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State[this.state.get().ordinal()]) {
+            switch (C150112.$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State[this.state.get().ordinal()]) {
                 case 1:
                     throw new IllegalStateException("Cannot call finishToFuture() after deriving another step");
                 case 2:
@@ -331,9 +331,9 @@ public final class ClosingFuture<V> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.util.concurrent.ClosingFuture$12  reason: invalid class name */
+    /* renamed from: com.google.common.util.concurrent.ClosingFuture$12 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass12 {
+    public static /* synthetic */ class C150112 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$util$concurrent$ClosingFuture$State;
 
         static {
@@ -369,7 +369,7 @@ public final class ClosingFuture<V> {
     public void finishToValueAndCloser(final ValueAndCloserConsumer<? super V> valueAndCloserConsumer, Executor executor) {
         Preconditions.checkNotNull(valueAndCloserConsumer);
         if (!compareAndUpdateState(State.OPEN, State.WILL_CREATE_VALUE_AND_CLOSER)) {
-            int i = AnonymousClass12.$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State[this.state.get().ordinal()];
+            int i = C150112.$SwitchMap$com$google$common$util$concurrent$ClosingFuture$State[this.state.get().ordinal()];
             if (i == 1) {
                 throw new IllegalStateException("Cannot call finishToValueAndCloser() after deriving another step");
             }
@@ -558,7 +558,7 @@ public final class ClosingFuture<V> {
         }
 
         private Combiner2(ClosingFuture<V1> closingFuture, ClosingFuture<V2> closingFuture2) {
-            super(true, ImmutableList.of((ClosingFuture<V2>) closingFuture, closingFuture2));
+            super(true, ImmutableList.m209of((ClosingFuture<V2>) closingFuture, closingFuture2));
             this.future1 = closingFuture;
             this.future2 = closingFuture2;
         }
@@ -611,7 +611,7 @@ public final class ClosingFuture<V> {
         }
 
         private Combiner3(ClosingFuture<V1> closingFuture, ClosingFuture<V2> closingFuture2, ClosingFuture<V3> closingFuture3) {
-            super(true, ImmutableList.of((ClosingFuture<V3>) closingFuture, (ClosingFuture<V3>) closingFuture2, closingFuture3));
+            super(true, ImmutableList.m208of((ClosingFuture<V3>) closingFuture, (ClosingFuture<V3>) closingFuture2, closingFuture3));
             this.future1 = closingFuture;
             this.future2 = closingFuture2;
             this.future3 = closingFuture3;
@@ -666,7 +666,7 @@ public final class ClosingFuture<V> {
         }
 
         private Combiner4(ClosingFuture<V1> closingFuture, ClosingFuture<V2> closingFuture2, ClosingFuture<V3> closingFuture3, ClosingFuture<V4> closingFuture4) {
-            super(true, ImmutableList.of((ClosingFuture<V4>) closingFuture, (ClosingFuture<V4>) closingFuture2, (ClosingFuture<V4>) closingFuture3, closingFuture4));
+            super(true, ImmutableList.m207of((ClosingFuture<V4>) closingFuture, (ClosingFuture<V4>) closingFuture2, (ClosingFuture<V4>) closingFuture3, closingFuture4));
             this.future1 = closingFuture;
             this.future2 = closingFuture2;
             this.future3 = closingFuture3;
@@ -723,7 +723,7 @@ public final class ClosingFuture<V> {
         }
 
         private Combiner5(ClosingFuture<V1> closingFuture, ClosingFuture<V2> closingFuture2, ClosingFuture<V3> closingFuture3, ClosingFuture<V4> closingFuture4, ClosingFuture<V5> closingFuture5) {
-            super(true, ImmutableList.of((ClosingFuture<V5>) closingFuture, (ClosingFuture<V5>) closingFuture2, (ClosingFuture<V5>) closingFuture3, (ClosingFuture<V5>) closingFuture4, closingFuture5));
+            super(true, ImmutableList.m206of((ClosingFuture<V5>) closingFuture, (ClosingFuture<V5>) closingFuture2, (ClosingFuture<V5>) closingFuture3, (ClosingFuture<V5>) closingFuture4, closingFuture5));
             this.future1 = closingFuture;
             this.future2 = closingFuture2;
             this.future3 = closingFuture3;
@@ -803,7 +803,7 @@ public final class ClosingFuture<V> {
     }
 
     private boolean compareAndUpdateState(State state, State state2) {
-        return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.state, state, state2);
+        return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(this.state, state, state2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

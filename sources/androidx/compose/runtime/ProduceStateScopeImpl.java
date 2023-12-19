@@ -8,33 +8,33 @@ import kotlin.jvm.internal.Intrinsics;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ProduceState.kt */
-@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003B\u001b\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001f\u0010\u000f\u001a\u00020\u00102\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00130\u0012H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0014J\u000e\u0010\u0015\u001a\u00028\u0000H\u0096\u0003¢\u0006\u0002\u0010\fJ\u0015\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00130\u0017H\u0096\u0003R\u0014\u0010\u0005\u001a\u00020\u0006X\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0018\u0010\n\u001a\u00028\u0000X\u0096\u000f¢\u0006\f\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000e\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0018"}, d2 = {"Landroidx/compose/runtime/ProduceStateScopeImpl;", "T", "Landroidx/compose/runtime/ProduceStateScope;", "Landroidx/compose/runtime/MutableState;", "state", "coroutineContext", "Lkotlin/coroutines/CoroutineContext;", "(Landroidx/compose/runtime/MutableState;Lkotlin/coroutines/CoroutineContext;)V", "getCoroutineContext", "()Lkotlin/coroutines/CoroutineContext;", "value", "getValue", "()Ljava/lang/Object;", "setValue", "(Ljava/lang/Object;)V", "awaitDispose", "", "onDispose", "Lkotlin/Function0;", "", "(Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "component1", "component2", "Lkotlin/Function1;", "runtime_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\b\u0002\u0018\u0000*\u0004\b\u0000\u0010\u00012\b\u0012\u0004\u0012\u0002H\u00010\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003B\u001b\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u001f\u0010\u000f\u001a\u00020\u00102\f\u0010\u0011\u001a\b\u0012\u0004\u0012\u00020\u00130\u0012H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0014J\u000e\u0010\u0015\u001a\u00028\u0000H\u0096\u0003¢\u0006\u0002\u0010\fJ\u0015\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00130\u0017H\u0096\u0003R\u0014\u0010\u0005\u001a\u00020\u0006X\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0018\u0010\n\u001a\u00028\u0000X\u0096\u000f¢\u0006\f\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000e\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0018"}, m40d2 = {"Landroidx/compose/runtime/ProduceStateScopeImpl;", "T", "Landroidx/compose/runtime/ProduceStateScope;", "Landroidx/compose/runtime/MutableState;", "state", "coroutineContext", "Lkotlin/coroutines/CoroutineContext;", "(Landroidx/compose/runtime/MutableState;Lkotlin/coroutines/CoroutineContext;)V", "getCoroutineContext", "()Lkotlin/coroutines/CoroutineContext;", "value", "getValue", "()Ljava/lang/Object;", "setValue", "(Ljava/lang/Object;)V", "awaitDispose", "", "onDispose", "Lkotlin/Function0;", "", "(Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "component1", "component2", "Lkotlin/Function1;", "runtime_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
-public final class ProduceStateScopeImpl<T> implements ProduceStateScope<T>, MutableState<T> {
-    private final /* synthetic */ MutableState<T> $$delegate_0;
+public final class ProduceStateScopeImpl<T> implements ProduceState<T>, SnapshotState<T> {
+    private final /* synthetic */ SnapshotState<T> $$delegate_0;
     private final CoroutineContext coroutineContext;
 
-    @Override // androidx.compose.runtime.MutableState
+    @Override // androidx.compose.runtime.SnapshotState
     public T component1() {
         return this.$$delegate_0.component1();
     }
 
-    @Override // androidx.compose.runtime.MutableState
+    @Override // androidx.compose.runtime.SnapshotState
     public Function1<T, Unit> component2() {
         return this.$$delegate_0.component2();
     }
 
-    @Override // androidx.compose.runtime.MutableState, androidx.compose.runtime.State
+    @Override // androidx.compose.runtime.SnapshotState, androidx.compose.runtime.State
     public T getValue() {
         return this.$$delegate_0.getValue();
     }
 
-    @Override // androidx.compose.runtime.MutableState
+    @Override // androidx.compose.runtime.SnapshotState
     public void setValue(T t) {
         this.$$delegate_0.setValue(t);
     }
 
-    public ProduceStateScopeImpl(MutableState<T> state, CoroutineContext coroutineContext) {
+    public ProduceStateScopeImpl(SnapshotState<T> state, CoroutineContext coroutineContext) {
         Intrinsics.checkNotNullParameter(state, "state");
         Intrinsics.checkNotNullParameter(coroutineContext, "coroutineContext");
         this.coroutineContext = coroutineContext;
@@ -48,12 +48,12 @@ public final class ProduceStateScopeImpl<T> implements ProduceStateScope<T>, Mut
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
-    @Override // androidx.compose.runtime.ProduceStateScope
+    @Override // androidx.compose.runtime.ProduceState
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public java.lang.Object awaitDispose(kotlin.jvm.functions.Function0<kotlin.Unit> r5, kotlin.coroutines.Continuation<?> r6) {
+    public java.lang.Object awaitDispose(kotlin.jvm.functions.Functions<kotlin.Unit> r5, kotlin.coroutines.Continuation<?> r6) {
         /*
             r4 = this;
             boolean r0 = r6 instanceof androidx.compose.runtime.ProduceStateScopeImpl$awaitDispose$1
@@ -84,7 +84,7 @@ public final class ProduceStateScopeImpl<T> implements ProduceStateScope<T>, Mut
             throw r5
         L2e:
             java.lang.Object r5 = r0.L$0
-            kotlin.jvm.functions.Function0 r5 = (kotlin.jvm.functions.Function0) r5
+            kotlin.jvm.functions.Function0 r5 = (kotlin.jvm.functions.Functions) r5
             kotlin.ResultKt.throwOnFailure(r6)     // Catch: java.lang.Throwable -> L62
             goto L5c
         L36:
@@ -100,7 +100,7 @@ public final class ProduceStateScopeImpl<T> implements ProduceStateScope<T>, Mut
             java.lang.Object r6 = r6.getResult()     // Catch: java.lang.Throwable -> L62
             java.lang.Object r2 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()     // Catch: java.lang.Throwable -> L62
             if (r6 != r2) goto L59
-            kotlin.coroutines.jvm.internal.DebugProbesKt.probeCoroutineSuspended(r0)     // Catch: java.lang.Throwable -> L62
+            kotlin.coroutines.jvm.internal.DebugProbes.probeCoroutineSuspended(r0)     // Catch: java.lang.Throwable -> L62
         L59:
             if (r6 != r1) goto L5c
             return r1

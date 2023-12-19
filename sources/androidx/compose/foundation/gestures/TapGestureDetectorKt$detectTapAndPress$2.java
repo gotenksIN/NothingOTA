@@ -1,9 +1,9 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputChange;
-import androidx.compose.ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -19,11 +19,11 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TapGestureDetector.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2", f = "TapGestureDetector.kt", i = {}, l = {232}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {232}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Function3<PressGestureScope, Offset, Continuation<? super Unit>, Object> $onPress;
+    final /* synthetic */ Function3<TapGestureDetector, Offset, Continuation<? super Unit>, Object> $onPress;
     final /* synthetic */ Function1<Offset, Unit> $onTap;
     final /* synthetic */ PressGestureScopeImpl $pressScope;
     final /* synthetic */ PointerInputScope $this_detectTapAndPress;
@@ -33,7 +33,7 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public TapGestureDetectorKt$detectTapAndPress$2(PointerInputScope pointerInputScope, Function3<? super PressGestureScope, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, Function1<? super Offset, Unit> function1, PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super TapGestureDetectorKt$detectTapAndPress$2> continuation) {
+    public TapGestureDetectorKt$detectTapAndPress$2(PointerInputScope pointerInputScope, Function3<? super TapGestureDetector, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, Function1<? super Offset, Unit> function1, PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super TapGestureDetectorKt$detectTapAndPress$2> continuation) {
         super(2, continuation);
         this.$this_detectTapAndPress = pointerInputScope;
         this.$onPress = function3;
@@ -55,13 +55,13 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: TapGestureDetector.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1", f = "TapGestureDetector.kt", i = {0}, l = {237, 245}, m = "invokeSuspend", n = {"$this$awaitEachGesture"}, s = {"L$0"})
-    /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1", m30f = "TapGestureDetector.kt", m29i = {0}, m28l = {237, 245}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture"}, m25s = {"L$0"})
+    /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+    public static final class C02251 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ CoroutineScope $$this$coroutineScope;
-        final /* synthetic */ Function3<PressGestureScope, Offset, Continuation<? super Unit>, Object> $onPress;
+        final /* synthetic */ Function3<TapGestureDetector, Offset, Continuation<? super Unit>, Object> $onPress;
         final /* synthetic */ Function1<Offset, Unit> $onTap;
         final /* synthetic */ PressGestureScopeImpl $pressScope;
         private /* synthetic */ Object L$0;
@@ -69,7 +69,7 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(CoroutineScope coroutineScope, Function3<? super PressGestureScope, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, Function1<? super Offset, Unit> function1, PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super AnonymousClass1> continuation) {
+        C02251(CoroutineScope coroutineScope, Function3<? super TapGestureDetector, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, Function1<? super Offset, Unit> function1, PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super C02251> continuation) {
             super(2, continuation);
             this.$$this$coroutineScope = coroutineScope;
             this.$onPress = function3;
@@ -79,40 +79,40 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$$this$coroutineScope, this.$onPress, this.$onTap, this.$pressScope, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C02251 c02251 = new C02251(this.$$this$coroutineScope, this.$onPress, this.$onTap, this.$pressScope, continuation);
+            c02251.L$0 = obj;
+            return c02251;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C02251) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: TapGestureDetector.kt */
-        @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$1", f = "TapGestureDetector.kt", i = {}, l = {234}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$1  reason: invalid class name and collision with other inner class name */
+        @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$1", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {234}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$1 */
         /* loaded from: classes.dex */
-        public static final class C00081 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        public static final class C02261 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ PressGestureScopeImpl $pressScope;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            C00081(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super C00081> continuation) {
+            C02261(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super C02261> continuation) {
                 super(2, continuation);
                 this.$pressScope = pressGestureScopeImpl;
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new C00081(this.$pressScope, continuation);
+                return new C02261(this.$pressScope, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                return ((C00081) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C02261) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -163,14 +163,14 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
                 throw r1
             L1f:
                 java.lang.Object r2 = r0.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r2
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r2
                 kotlin.ResultKt.throwOnFailure(r19)
                 r6 = r19
                 goto L52
             L29:
                 kotlin.ResultKt.throwOnFailure(r19)
                 java.lang.Object r2 = r0.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r2
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r2
                 kotlinx.coroutines.CoroutineScope r6 = r0.$$this$coroutineScope
                 r7 = 0
                 r8 = 0
@@ -191,7 +191,7 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
                 if (r6 != r1) goto L52
                 return r1
             L52:
-                androidx.compose.ui.input.pointer.PointerInputChange r6 = (androidx.compose.ui.input.pointer.PointerInputChange) r6
+                androidx.compose.ui.input.pointer.PointerInputChange r6 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r6
                 r6.consume()
                 kotlin.jvm.functions.Function3<androidx.compose.foundation.gestures.PressGestureScope, androidx.compose.ui.geometry.Offset, kotlin.coroutines.Continuation<? super kotlin.Unit>, java.lang.Object> r7 = r0.$onPress
                 kotlin.jvm.functions.Function3 r8 = androidx.compose.foundation.gestures.TapGestureDetectorKt.access$getNoPressGesture$p()
@@ -217,7 +217,7 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
                 if (r2 != r1) goto L82
                 return r1
             L82:
-                androidx.compose.ui.input.pointer.PointerInputChange r2 = (androidx.compose.ui.input.pointer.PointerInputChange) r2
+                androidx.compose.ui.input.pointer.PointerInputChange r2 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r2
                 if (r2 != 0) goto L9a
                 kotlinx.coroutines.CoroutineScope r6 = r0.$$this$coroutineScope
                 r7 = 0
@@ -246,31 +246,31 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
                 kotlinx.coroutines.BuildersKt.launch$default(r12, r13, r14, r15, r16, r17)
                 kotlin.jvm.functions.Function1<androidx.compose.ui.geometry.Offset, kotlin.Unit> r1 = r0.$onTap
                 if (r1 == 0) goto Lc1
-                long r2 = r2.m3957getPositionF1C5BW0()
-                androidx.compose.ui.geometry.Offset r2 = androidx.compose.ui.geometry.Offset.m2307boximpl(r2)
+                long r2 = r2.m4258getPositionF1C5BW0()
+                androidx.compose.ui.geometry.Offset r2 = androidx.compose.p002ui.geometry.Offset.m2608boximpl(r2)
                 r1.invoke(r2)
             Lc1:
                 kotlin.Unit r1 = kotlin.Unit.INSTANCE
                 return r1
             */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2.C02251.invokeSuspend(java.lang.Object):java.lang.Object");
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: TapGestureDetector.kt */
-        @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$2", f = "TapGestureDetector.kt", i = {}, l = {241}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$2  reason: invalid class name */
+        @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$2", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {241}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$2 */
         /* loaded from: classes.dex */
-        public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        public static final class C02272 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ PointerInputChange $down;
-            final /* synthetic */ Function3<PressGestureScope, Offset, Continuation<? super Unit>, Object> $onPress;
+            final /* synthetic */ Function3<TapGestureDetector, Offset, Continuation<? super Unit>, Object> $onPress;
             final /* synthetic */ PressGestureScopeImpl $pressScope;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             /* JADX WARN: Multi-variable type inference failed */
-            AnonymousClass2(Function3<? super PressGestureScope, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, PressGestureScopeImpl pressGestureScopeImpl, PointerInputChange pointerInputChange, Continuation<? super AnonymousClass2> continuation) {
+            C02272(Function3<? super TapGestureDetector, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> function3, PressGestureScopeImpl pressGestureScopeImpl, PointerInputChange pointerInputChange, Continuation<? super C02272> continuation) {
                 super(2, continuation);
                 this.$onPress = function3;
                 this.$pressScope = pressGestureScopeImpl;
@@ -279,12 +279,12 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new AnonymousClass2(this.$onPress, this.$pressScope, this.$down, continuation);
+                return new C02272(this.$onPress, this.$pressScope, this.$down, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C02272) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -293,11 +293,11 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
                 int i = this.label;
                 if (i == 0) {
                     ResultKt.throwOnFailure(obj);
-                    Function3<PressGestureScope, Offset, Continuation<? super Unit>, Object> function3 = this.$onPress;
+                    Function3<TapGestureDetector, Offset, Continuation<? super Unit>, Object> function3 = this.$onPress;
                     PressGestureScopeImpl pressGestureScopeImpl = this.$pressScope;
-                    Offset m2307boximpl = Offset.m2307boximpl(this.$down.m3957getPositionF1C5BW0());
+                    Offset m2608boximpl = Offset.m2608boximpl(this.$down.m4258getPositionF1C5BW0());
                     this.label = 1;
-                    if (function3.invoke(pressGestureScopeImpl, m2307boximpl, this) == coroutine_suspended) {
+                    if (function3.invoke(pressGestureScopeImpl, m2608boximpl, this) == coroutine_suspended) {
                         return coroutine_suspended;
                     }
                 } else if (i != 1) {
@@ -311,28 +311,28 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: TapGestureDetector.kt */
-        @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$3", f = "TapGestureDetector.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$3  reason: invalid class name */
+        @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$3", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$3 */
         /* loaded from: classes.dex */
-        public static final class AnonymousClass3 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        public static final class C02283 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ PressGestureScopeImpl $pressScope;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            AnonymousClass3(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super AnonymousClass3> continuation) {
+            C02283(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super C02283> continuation) {
                 super(2, continuation);
                 this.$pressScope = pressGestureScopeImpl;
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new AnonymousClass3(this.$pressScope, continuation);
+                return new C02283(this.$pressScope, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                return ((AnonymousClass3) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C02283) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -349,28 +349,28 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: TapGestureDetector.kt */
-        @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$4", f = "TapGestureDetector.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$4  reason: invalid class name */
+        @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$4", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.gestures.TapGestureDetectorKt$detectTapAndPress$2$1$4 */
         /* loaded from: classes.dex */
-        public static final class AnonymousClass4 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        public static final class C02294 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ PressGestureScopeImpl $pressScope;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            AnonymousClass4(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super AnonymousClass4> continuation) {
+            C02294(PressGestureScopeImpl pressGestureScopeImpl, Continuation<? super C02294> continuation) {
                 super(2, continuation);
                 this.$pressScope = pressGestureScopeImpl;
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new AnonymousClass4(this.$pressScope, continuation);
+                return new C02294(this.$pressScope, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                return ((AnonymousClass4) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C02294) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -394,7 +394,7 @@ public final class TapGestureDetectorKt$detectTapAndPress$2 extends SuspendLambd
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
             this.label = 1;
-            if (ForEachGestureKt.awaitEachGesture(this.$this_detectTapAndPress, new AnonymousClass1(coroutineScope, this.$onPress, this.$onTap, this.$pressScope, null), this) == coroutine_suspended) {
+            if (ForEachGesture.awaitEachGesture(this.$this_detectTapAndPress, new C02251(coroutineScope, this.$onPress, this.$onTap, this.$pressScope, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

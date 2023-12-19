@@ -30,31 +30,36 @@ public final class Stats implements Serializable {
         this.max = d4;
     }
 
-    public static Stats of(Iterable<? extends Number> iterable) {
+    /* renamed from: of */
+    public static Stats m91of(Iterable<? extends Number> iterable) {
         StatsAccumulator statsAccumulator = new StatsAccumulator();
         statsAccumulator.addAll(iterable);
         return statsAccumulator.snapshot();
     }
 
-    public static Stats of(Iterator<? extends Number> it) {
+    /* renamed from: of */
+    public static Stats m90of(Iterator<? extends Number> it) {
         StatsAccumulator statsAccumulator = new StatsAccumulator();
         statsAccumulator.addAll(it);
         return statsAccumulator.snapshot();
     }
 
-    public static Stats of(double... dArr) {
+    /* renamed from: of */
+    public static Stats m89of(double... dArr) {
         StatsAccumulator statsAccumulator = new StatsAccumulator();
         statsAccumulator.addAll(dArr);
         return statsAccumulator.snapshot();
     }
 
-    public static Stats of(int... iArr) {
+    /* renamed from: of */
+    public static Stats m88of(int... iArr) {
         StatsAccumulator statsAccumulator = new StatsAccumulator();
         statsAccumulator.addAll(iArr);
         return statsAccumulator.snapshot();
     }
 
-    public static Stats of(long... jArr) {
+    /* renamed from: of */
+    public static Stats m87of(long... jArr) {
         StatsAccumulator statsAccumulator = new StatsAccumulator();
         statsAccumulator.addAll(jArr);
         return statsAccumulator.snapshot();

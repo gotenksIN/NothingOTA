@@ -8,9 +8,9 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.CoroutineScope;
@@ -18,8 +18,8 @@ import kotlinx.coroutines.Dispatchers;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTAUpdateViewModel.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel$onUpdaterStateChange$1", f = "OTAUpdateViewModel.kt", i = {}, l = {582}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel$onUpdaterStateChange$1", m30f = "OTAUpdateViewModel.kt", m29i = {}, m28l = {662}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class OTAUpdateViewModel$onUpdaterStateChange$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ int $state;
@@ -57,14 +57,11 @@ public final class OTAUpdateViewModel$onUpdaterStateChange$1 extends SuspendLamb
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            mutableLiveData = this.this$0._handlingActionLive;
-            mutableLiveData.setValue(Boxing.boxBoolean(true));
+            mutableLiveData = this.this$0._handleUpdaterStateChangeLive;
+            mutableLiveData.setValue(boxing.boxBoolean(true));
             mutableLiveData2 = this.this$0._updaterStateLive;
-            mutableLiveData2.setValue(Boxing.boxInt(this.$state));
-            int i2 = this.$state;
-            if (i2 == 3) {
-                this.this$0._lockProgress = true;
-            } else if (i2 == 5) {
+            mutableLiveData2.setValue(boxing.boxInt(this.$state));
+            if (this.$state == 5) {
                 updateUtils = this.this$0.updateUtils;
                 updateUtils.releaseWakeLock();
                 this.label = 1;
@@ -73,8 +70,8 @@ public final class OTAUpdateViewModel$onUpdaterStateChange$1 extends SuspendLamb
                     return coroutine_suspended;
                 }
             }
-            mutableLiveData3 = this.this$0._handlingActionLive;
-            mutableLiveData3.setValue(Boxing.boxBoolean(false));
+            mutableLiveData3 = this.this$0._handleUpdaterStateChangeLive;
+            mutableLiveData3.setValue(boxing.boxBoolean(false));
             return Unit.INSTANCE;
         } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -88,9 +85,9 @@ public final class OTAUpdateViewModel$onUpdaterStateChange$1 extends SuspendLamb
         oTAPrefs2.resetUpdatingBuildNumber();
         this.this$0._readyToInstallOtaFileId = "";
         mutableLiveData4 = this.this$0._showInstallSuccessLive;
-        mutableLiveData4.setValue(Boxing.boxBoolean(true));
-        mutableLiveData3 = this.this$0._handlingActionLive;
-        mutableLiveData3.setValue(Boxing.boxBoolean(false));
+        mutableLiveData4.setValue(boxing.boxBoolean(true));
+        mutableLiveData3 = this.this$0._handleUpdaterStateChangeLive;
+        mutableLiveData3.setValue(boxing.boxBoolean(false));
         return Unit.INSTANCE;
     }
 }

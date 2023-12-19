@@ -1,18 +1,30 @@
 package androidx.compose.material3;
 
-import androidx.compose.foundation.ClickableKt;
+import androidx.appcompat.C0032R;
+import androidx.compose.foundation.Clickable;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
 import androidx.compose.foundation.layout.Arrangement;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScopeInstance;
-import androidx.compose.foundation.layout.PaddingKt;
+import androidx.compose.foundation.layout.Padding;
 import androidx.compose.foundation.layout.PaddingValues;
-import androidx.compose.foundation.layout.RowKt;
+import androidx.compose.foundation.layout.Row;
 import androidx.compose.foundation.layout.RowScope;
 import androidx.compose.foundation.layout.RowScopeInstance;
 import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.material.ripple.RippleKt;
 import androidx.compose.material3.tokens.MenuTokens;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -26,35 +38,24 @@ import androidx.compose.runtime.SkippableUpdater;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: Menu.kt */
-@Metadata(d1 = {"\u0000j\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aT\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u00132\b\b\u0002\u0010\u0015\u001a\u00020\u00162\u001c\u0010\u0017\u001a\u0018\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u000e0\u0018¢\u0006\u0002\b\u001a¢\u0006\u0002\b\u001bH\u0001ø\u0001\u0000¢\u0006\u0002\u0010\u001c\u001a\u0080\u0001\u0010\u001d\u001a\u00020\u000e2\u0011\u0010\u001e\u001a\r\u0012\u0004\u0012\u00020\u000e0\u001f¢\u0006\u0002\b\u001a2\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\u000e0\u001f2\u0006\u0010\u0015\u001a\u00020\u00162\u0013\u0010!\u001a\u000f\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001f¢\u0006\u0002\b\u001a2\u0013\u0010\"\u001a\u000f\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001f¢\u0006\u0002\b\u001a2\u0006\u0010#\u001a\u00020\u00112\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)H\u0001¢\u0006\u0002\u0010*\u001a \u0010+\u001a\u00020\u00142\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020-H\u0000ø\u0001\u0000¢\u0006\u0002\u0010/\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0003\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0004\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0019\u0010\u0005\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0006\u0010\u0007\"\u000e\u0010\b\u001a\u00020\tX\u0080T¢\u0006\u0002\n\u0000\"\u0019\u0010\n\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u000b\u0010\u0007\"\u000e\u0010\f\u001a\u00020\tX\u0080T¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u00060"}, d2 = {"DropdownMenuItemDefaultMaxWidth", "Landroidx/compose/ui/unit/Dp;", "F", "DropdownMenuItemDefaultMinWidth", "DropdownMenuItemHorizontalPadding", "DropdownMenuVerticalPadding", "getDropdownMenuVerticalPadding", "()F", "InTransitionDuration", "", "MenuVerticalMargin", "getMenuVerticalMargin", "OutTransitionDuration", "DropdownMenuContent", "", "expandedStates", "Landroidx/compose/animation/core/MutableTransitionState;", "", "transformOriginState", "Landroidx/compose/runtime/MutableState;", "Landroidx/compose/ui/graphics/TransformOrigin;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/layout/ColumnScope;", "Landroidx/compose/runtime/Composable;", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/animation/core/MutableTransitionState;Landroidx/compose/runtime/MutableState;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "DropdownMenuItemContent", "text", "Lkotlin/Function0;", "onClick", "leadingIcon", "trailingIcon", "enabled", "colors", "Landroidx/compose/material3/MenuItemColors;", "contentPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/material3/MenuItemColors;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;I)V", "calculateTransformOrigin", "parentBounds", "Landroidx/compose/ui/unit/IntRect;", "menuBounds", "(Landroidx/compose/ui/unit/IntRect;Landroidx/compose/ui/unit/IntRect;)J", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000j\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aT\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u00132\b\b\u0002\u0010\u0015\u001a\u00020\u00162\u001c\u0010\u0017\u001a\u0018\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u000e0\u0018¢\u0006\u0002\b\u001a¢\u0006\u0002\b\u001bH\u0001ø\u0001\u0000¢\u0006\u0002\u0010\u001c\u001a\u0080\u0001\u0010\u001d\u001a\u00020\u000e2\u0011\u0010\u001e\u001a\r\u0012\u0004\u0012\u00020\u000e0\u001f¢\u0006\u0002\b\u001a2\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\u000e0\u001f2\u0006\u0010\u0015\u001a\u00020\u00162\u0013\u0010!\u001a\u000f\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001f¢\u0006\u0002\b\u001a2\u0013\u0010\"\u001a\u000f\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001f¢\u0006\u0002\b\u001a2\u0006\u0010#\u001a\u00020\u00112\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020)H\u0001¢\u0006\u0002\u0010*\u001a \u0010+\u001a\u00020\u00142\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020-H\u0000ø\u0001\u0000¢\u0006\u0002\u0010/\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0003\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0004\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0019\u0010\u0005\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0006\u0010\u0007\"\u000e\u0010\b\u001a\u00020\tX\u0080T¢\u0006\u0002\n\u0000\"\u0019\u0010\n\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u000b\u0010\u0007\"\u000e\u0010\f\u001a\u00020\tX\u0080T¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u00060"}, m40d2 = {"DropdownMenuItemDefaultMaxWidth", "Landroidx/compose/ui/unit/Dp;", "F", "DropdownMenuItemDefaultMinWidth", "DropdownMenuItemHorizontalPadding", "DropdownMenuVerticalPadding", "getDropdownMenuVerticalPadding", "()F", "InTransitionDuration", "", "MenuVerticalMargin", "getMenuVerticalMargin", "OutTransitionDuration", "DropdownMenuContent", "", "expandedStates", "Landroidx/compose/animation/core/MutableTransitionState;", "", "transformOriginState", "Landroidx/compose/runtime/MutableState;", "Landroidx/compose/ui/graphics/TransformOrigin;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/layout/ColumnScope;", "Landroidx/compose/runtime/Composable;", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/animation/core/MutableTransitionState;Landroidx/compose/runtime/MutableState;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "DropdownMenuItemContent", "text", "Lkotlin/Function0;", "onClick", "leadingIcon", "trailingIcon", "enabled", "colors", "Landroidx/compose/material3/MenuItemColors;", "contentPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/material3/MenuItemColors;Landroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;I)V", "calculateTransformOrigin", "parentBounds", "Landroidx/compose/ui/unit/IntRect;", "menuBounds", "(Landroidx/compose/ui/unit/IntRect;Landroidx/compose/ui/unit/IntRect;)J", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class MenuKt {
     public static final int InTransitionDuration = 120;
     public static final int OutTransitionDuration = 75;
-    private static final float MenuVerticalMargin = Dp.m5050constructorimpl(48);
-    private static final float DropdownMenuItemHorizontalPadding = Dp.m5050constructorimpl(12);
-    private static final float DropdownMenuVerticalPadding = Dp.m5050constructorimpl(8);
-    private static final float DropdownMenuItemDefaultMinWidth = Dp.m5050constructorimpl((float) androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle);
-    private static final float DropdownMenuItemDefaultMaxWidth = Dp.m5050constructorimpl(280);
+    private static final float MenuVerticalMargin = C0780Dp.m5351constructorimpl(48);
+    private static final float DropdownMenuItemHorizontalPadding = C0780Dp.m5351constructorimpl(12);
+    private static final float DropdownMenuVerticalPadding = C0780Dp.m5351constructorimpl(8);
+    private static final float DropdownMenuItemDefaultMinWidth = C0780Dp.m5351constructorimpl((float) C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle);
+    private static final float DropdownMenuItemDefaultMaxWidth = C0780Dp.m5351constructorimpl(280);
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x02b2  */
     /* JADX WARN: Removed duplicated region for block: B:106:0x02bd  */
@@ -83,7 +84,7 @@ public final class MenuKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void DropdownMenuContent(final androidx.compose.animation.core.MutableTransitionState<java.lang.Boolean> r22, final androidx.compose.runtime.MutableState<androidx.compose.ui.graphics.TransformOrigin> r23, androidx.compose.ui.Modifier r24, final kotlin.jvm.functions.Function3<? super androidx.compose.foundation.layout.ColumnScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r25, androidx.compose.runtime.Composer r26, final int r27, final int r28) {
+    public static final void DropdownMenuContent(final androidx.compose.animation.core.MutableTransitionState<java.lang.Boolean> r22, final androidx.compose.runtime.SnapshotState<androidx.compose.p002ui.graphics.TransformOrigin> r23, androidx.compose.p002ui.Modifier r24, final kotlin.jvm.functions.Function3<? super androidx.compose.foundation.layout.ColumnScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r25, androidx.compose.runtime.Composer r26, final int r27, final int r28) {
         /*
             Method dump skipped, instructions count: 724
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -91,7 +92,7 @@ public final class MenuKt {
         throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.MenuKt.DropdownMenuContent(androidx.compose.animation.core.MutableTransitionState, androidx.compose.runtime.MutableState, androidx.compose.ui.Modifier, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int):void");
     }
 
-    public static final void DropdownMenuItemContent(final Function2<? super Composer, ? super Integer, Unit> text, final Function0<Unit> onClick, final Modifier modifier, final Function2<? super Composer, ? super Integer, Unit> function2, final Function2<? super Composer, ? super Integer, Unit> function22, final boolean z, final MenuItemColors colors, final PaddingValues contentPadding, final MutableInteractionSource interactionSource, Composer composer, final int i) {
+    public static final void DropdownMenuItemContent(final Function2<? super Composer, ? super Integer, Unit> text, final Functions<Unit> onClick, final Modifier modifier, final Function2<? super Composer, ? super Integer, Unit> function2, final Function2<? super Composer, ? super Integer, Unit> function22, final boolean z, final MenuItemColors colors, final PaddingValues contentPadding, final MutableInteractionSource interactionSource, Composer composer, final int i) {
         int i2;
         Composer composer2;
         Intrinsics.checkNotNullParameter(text, "text");
@@ -107,7 +108,7 @@ public final class MenuKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changedInstance(onClick) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -136,26 +137,26 @@ public final class MenuKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(-1564716777, i3, -1, "androidx.compose.material3.DropdownMenuItemContent (Menu.kt:142)");
             }
-            Modifier padding = PaddingKt.padding(SizeKt.m462sizeInqDBjuR0$default(SizeKt.fillMaxWidth$default(ClickableKt.m174clickableO2vRcR0$default(modifier, interactionSource, RippleKt.m898rememberRipple9IZ8Weo(true, 0.0f, 0L, startRestartGroup, 6, 6), z, null, null, onClick, 24, null), 0.0f, 1, null), DropdownMenuItemDefaultMinWidth, MenuTokens.INSTANCE.m1892getListItemContainerHeightD9Ej5fM(), DropdownMenuItemDefaultMaxWidth, 0.0f, 8, null), contentPadding);
+            Modifier padding = Padding.padding(SizeKt.m763sizeInqDBjuR0$default(SizeKt.fillMaxWidth$default(Clickable.m475clickableO2vRcR0$default(modifier, interactionSource, RippleKt.m1199rememberRipple9IZ8Weo(true, 0.0f, 0L, startRestartGroup, 6, 6), z, null, null, onClick, 24, null), 0.0f, 1, null), DropdownMenuItemDefaultMinWidth, MenuTokens.INSTANCE.m2193getListItemContainerHeightD9Ej5fM(), DropdownMenuItemDefaultMaxWidth, 0.0f, 8, null), contentPadding);
             Alignment.Vertical centerVertically = Alignment.Companion.getCenterVertically();
             startRestartGroup.startReplaceableGroup(693286680);
             ComposerKt.sourceInformation(startRestartGroup, "CC(Row)P(2,1,3)78@3913L58,79@3976L130:Row.kt#2w3rfo");
-            MeasurePolicy rowMeasurePolicy = RowKt.rowMeasurePolicy(Arrangement.INSTANCE.getStart(), centerVertically, startRestartGroup, 48);
+            MeasurePolicy rowMeasurePolicy = Row.rowMeasurePolicy(Arrangement.INSTANCE.getStart(), centerVertically, startRestartGroup, 48);
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density = (Density) consume;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection = (LayoutDirection) consume2;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume3 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(padding);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -167,19 +168,19 @@ public final class MenuKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl, rowMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl, rowMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -326682283, "C80@4021L9:Row.kt#2w3rfo");
             final RowScopeInstance rowScopeInstance = RowScopeInstance.INSTANCE;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 1557318497, "C171@6130L10,171@6099L1647:Menu.kt#uh7d8r");
             composer2 = startRestartGroup;
-            TextKt.ProvideTextStyle(TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), MenuTokens.INSTANCE.getListItemLabelTextFont()), ComposableLambdaKt.composableLambda(composer2, 1065051884, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.MenuKt$DropdownMenuItemContent$1$1
+            Text.ProvideTextStyle(TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), MenuTokens.INSTANCE.getListItemLabelTextFont()), ComposableLambdaKt.composableLambda(composer2, 1065051884, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.MenuKt$DropdownMenuItemContent$1$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -202,11 +203,11 @@ public final class MenuKt {
                         composer3.startReplaceableGroup(1426254055);
                         ComposerKt.sourceInformation(composer3, "174@6323L25,173@6243L308");
                         if (function2 != null) {
-                            ProvidableCompositionLocal<Color> localContentColor = ContentColorKt.getLocalContentColor();
+                            ProvidableCompositionLocal<Color> localContentColor = ContentColor.getLocalContentColor();
                             MenuItemColors menuItemColors = colors;
                             boolean z2 = z;
                             int i5 = i3;
-                            ProvidedValue[] providedValueArr = {localContentColor.provides(menuItemColors.leadingIconColor$material3_release(z2, composer3, ((i5 >> 15) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i5 >> 15) & 14)).getValue())};
+                            ProvidedValue[] providedValueArr = {localContentColor.provides(menuItemColors.leadingIconColor$material3_release(z2, composer3, ((i5 >> 15) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i5 >> 15) & 14)).getValue())};
                             final Function2<Composer, Integer, Unit> function23 = function2;
                             final int i6 = i3;
                             CompositionLocalKt.CompositionLocalProvider(providedValueArr, ComposableLambdaKt.composableLambda(composer3, 2035552199, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.MenuKt$DropdownMenuItemContent$1$1.1
@@ -228,7 +229,7 @@ public final class MenuKt {
                                         if (ComposerKt.isTraceInProgress()) {
                                             ComposerKt.traceEventStart(2035552199, i7, -1, "androidx.compose.material3.DropdownMenuItemContent.<anonymous>.<anonymous>.<anonymous> (Menu.kt:175)");
                                         }
-                                        Modifier m443defaultMinSizeVpY3zN4$default = SizeKt.m443defaultMinSizeVpY3zN4$default(Modifier.Companion, MenuTokens.INSTANCE.m1893getListItemLeadingIconSizeD9Ej5fM(), 0.0f, 2, null);
+                                        Modifier m744defaultMinSizeVpY3zN4$default = SizeKt.m744defaultMinSizeVpY3zN4$default(Modifier.Companion, MenuTokens.INSTANCE.m2194getListItemLeadingIconSizeD9Ej5fM(), 0.0f, 2, null);
                                         Function2<Composer, Integer, Unit> function24 = function23;
                                         int i8 = i6;
                                         composer4.startReplaceableGroup(733328855);
@@ -237,19 +238,19 @@ public final class MenuKt {
                                         composer4.startReplaceableGroup(-1323940314);
                                         ComposerKt.sourceInformation(composer4, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume4 = composer4.consume(CompositionLocalsKt.getLocalDensity());
+                                        Object consume4 = composer4.consume(CompositionLocals.getLocalDensity());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         Density density2 = (Density) consume4;
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume5 = composer4.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                                        Object consume5 = composer4.consume(CompositionLocals.getLocalLayoutDirection());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         LayoutDirection layoutDirection2 = (LayoutDirection) consume5;
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume6 = composer4.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                                        Object consume6 = composer4.consume(CompositionLocals.getLocalViewConfiguration());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         ViewConfiguration viewConfiguration2 = (ViewConfiguration) consume6;
-                                        Function0<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
-                                        Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m443defaultMinSizeVpY3zN4$default);
+                                        Functions<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
+                                        Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m744defaultMinSizeVpY3zN4$default);
                                         if (!(composer4.getApplier() instanceof Applier)) {
                                             ComposablesKt.invalidApplier();
                                         }
@@ -260,13 +261,13 @@ public final class MenuKt {
                                             composer4.useNode();
                                         }
                                         composer4.disableReusing();
-                                        Composer m2195constructorimpl2 = Updater.m2195constructorimpl(composer4);
-                                        Updater.m2202setimpl(m2195constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                                        Updater.m2202setimpl(m2195constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
-                                        Updater.m2202setimpl(m2195constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
-                                        Updater.m2202setimpl(m2195constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
+                                        Composer m2496constructorimpl2 = Updater.m2496constructorimpl(composer4);
+                                        Updater.m2503setimpl(m2496constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                                        Updater.m2503setimpl(m2496constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
+                                        Updater.m2503setimpl(m2496constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
+                                        Updater.m2503setimpl(m2496constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
                                         composer4.enableReusing();
-                                        materializerOf2.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer4)), composer4, 0);
+                                        materializerOf2.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer4)), composer4, 0);
                                         composer4.startReplaceableGroup(2058660585);
                                         ComposerKt.sourceInformationMarkerStart(composer4, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                                         BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
@@ -289,11 +290,11 @@ public final class MenuKt {
                             }), composer3, 56);
                         }
                         composer3.endReplaceableGroup();
-                        ProvidableCompositionLocal<Color> localContentColor2 = ContentColorKt.getLocalContentColor();
+                        ProvidableCompositionLocal<Color> localContentColor2 = ContentColor.getLocalContentColor();
                         MenuItemColors menuItemColors2 = colors;
                         boolean z3 = z;
                         int i7 = i3;
-                        ProvidedValue[] providedValueArr2 = {localContentColor2.provides(menuItemColors2.textColor$material3_release(z3, composer3, ((i7 >> 15) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i7 >> 15) & 14)).getValue())};
+                        ProvidedValue[] providedValueArr2 = {localContentColor2.provides(menuItemColors2.textColor$material3_release(z3, composer3, ((i7 >> 15) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i7 >> 15) & 14)).getValue())};
                         final RowScope rowScope = rowScopeInstance;
                         final Function2<Composer, Integer, Unit> function24 = function2;
                         final Function2<Composer, Integer, Unit> function25 = function22;
@@ -313,8 +314,8 @@ public final class MenuKt {
                             }
 
                             public final void invoke(Composer composer4, int i9) {
-                                float m5050constructorimpl;
-                                float m5050constructorimpl2;
+                                float m5351constructorimpl;
+                                float m5351constructorimpl2;
                                 ComposerKt.sourceInformation(composer4, "C182@6681L660:Menu.kt#uh7d8r");
                                 if ((i9 & 11) != 2 || !composer4.getSkipping()) {
                                     if (ComposerKt.isTraceInProgress()) {
@@ -322,17 +323,17 @@ public final class MenuKt {
                                     }
                                     Modifier weight$default = RowScope.weight$default(RowScope.this, Modifier.Companion, 1.0f, false, 2, null);
                                     if (function24 != null) {
-                                        m5050constructorimpl = MenuKt.DropdownMenuItemHorizontalPadding;
+                                        m5351constructorimpl = MenuKt.DropdownMenuItemHorizontalPadding;
                                     } else {
-                                        m5050constructorimpl = Dp.m5050constructorimpl(0);
+                                        m5351constructorimpl = C0780Dp.m5351constructorimpl(0);
                                     }
-                                    float f = m5050constructorimpl;
+                                    float f = m5351constructorimpl;
                                     if (function25 != null) {
-                                        m5050constructorimpl2 = MenuKt.DropdownMenuItemHorizontalPadding;
+                                        m5351constructorimpl2 = MenuKt.DropdownMenuItemHorizontalPadding;
                                     } else {
-                                        m5050constructorimpl2 = Dp.m5050constructorimpl(0);
+                                        m5351constructorimpl2 = C0780Dp.m5351constructorimpl(0);
                                     }
-                                    Modifier m419paddingqDBjuR0$default = PaddingKt.m419paddingqDBjuR0$default(weight$default, f, 0.0f, m5050constructorimpl2, 0.0f, 10, null);
+                                    Modifier m720paddingqDBjuR0$default = Padding.m720paddingqDBjuR0$default(weight$default, f, 0.0f, m5351constructorimpl2, 0.0f, 10, null);
                                     Function2<Composer, Integer, Unit> function27 = function26;
                                     int i10 = i8;
                                     composer4.startReplaceableGroup(733328855);
@@ -341,19 +342,19 @@ public final class MenuKt {
                                     composer4.startReplaceableGroup(-1323940314);
                                     ComposerKt.sourceInformation(composer4, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                                     ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                    Object consume4 = composer4.consume(CompositionLocalsKt.getLocalDensity());
+                                    Object consume4 = composer4.consume(CompositionLocals.getLocalDensity());
                                     ComposerKt.sourceInformationMarkerEnd(composer4);
                                     Density density2 = (Density) consume4;
                                     ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                    Object consume5 = composer4.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                                    Object consume5 = composer4.consume(CompositionLocals.getLocalLayoutDirection());
                                     ComposerKt.sourceInformationMarkerEnd(composer4);
                                     LayoutDirection layoutDirection2 = (LayoutDirection) consume5;
                                     ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                    Object consume6 = composer4.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                                    Object consume6 = composer4.consume(CompositionLocals.getLocalViewConfiguration());
                                     ComposerKt.sourceInformationMarkerEnd(composer4);
                                     ViewConfiguration viewConfiguration2 = (ViewConfiguration) consume6;
-                                    Function0<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
-                                    Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m419paddingqDBjuR0$default);
+                                    Functions<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
+                                    Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m720paddingqDBjuR0$default);
                                     if (!(composer4.getApplier() instanceof Applier)) {
                                         ComposablesKt.invalidApplier();
                                     }
@@ -364,13 +365,13 @@ public final class MenuKt {
                                         composer4.useNode();
                                     }
                                     composer4.disableReusing();
-                                    Composer m2195constructorimpl2 = Updater.m2195constructorimpl(composer4);
-                                    Updater.m2202setimpl(m2195constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                                    Updater.m2202setimpl(m2195constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
-                                    Updater.m2202setimpl(m2195constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
-                                    Updater.m2202setimpl(m2195constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
+                                    Composer m2496constructorimpl2 = Updater.m2496constructorimpl(composer4);
+                                    Updater.m2503setimpl(m2496constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                                    Updater.m2503setimpl(m2496constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
+                                    Updater.m2503setimpl(m2496constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
+                                    Updater.m2503setimpl(m2496constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
                                     composer4.enableReusing();
-                                    materializerOf2.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer4)), composer4, 0);
+                                    materializerOf2.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer4)), composer4, 0);
                                     composer4.startReplaceableGroup(2058660585);
                                     ComposerKt.sourceInformationMarkerStart(composer4, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                                     BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
@@ -392,11 +393,11 @@ public final class MenuKt {
                             }
                         }), composer3, 56);
                         if (function22 != null) {
-                            ProvidableCompositionLocal<Color> localContentColor3 = ContentColorKt.getLocalContentColor();
+                            ProvidableCompositionLocal<Color> localContentColor3 = ContentColor.getLocalContentColor();
                             MenuItemColors menuItemColors3 = colors;
                             boolean z4 = z;
                             int i9 = i3;
-                            ProvidedValue[] providedValueArr3 = {localContentColor3.provides(menuItemColors3.trailingIconColor$material3_release(z4, composer3, ((i9 >> 15) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 15) & 14)).getValue())};
+                            ProvidedValue[] providedValueArr3 = {localContentColor3.provides(menuItemColors3.trailingIconColor$material3_release(z4, composer3, ((i9 >> 15) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 15) & 14)).getValue())};
                             final Function2<Composer, Integer, Unit> function27 = function22;
                             final int i10 = i3;
                             CompositionLocalKt.CompositionLocalProvider(providedValueArr3, ComposableLambdaKt.composableLambda(composer3, 580312062, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.MenuKt$DropdownMenuItemContent$1$1.3
@@ -418,7 +419,7 @@ public final class MenuKt {
                                         if (ComposerKt.isTraceInProgress()) {
                                             ComposerKt.traceEventStart(580312062, i11, -1, "androidx.compose.material3.DropdownMenuItemContent.<anonymous>.<anonymous>.<anonymous> (Menu.kt:204)");
                                         }
-                                        Modifier m443defaultMinSizeVpY3zN4$default = SizeKt.m443defaultMinSizeVpY3zN4$default(Modifier.Companion, MenuTokens.INSTANCE.m1894getListItemTrailingIconSizeD9Ej5fM(), 0.0f, 2, null);
+                                        Modifier m744defaultMinSizeVpY3zN4$default = SizeKt.m744defaultMinSizeVpY3zN4$default(Modifier.Companion, MenuTokens.INSTANCE.m2195getListItemTrailingIconSizeD9Ej5fM(), 0.0f, 2, null);
                                         Function2<Composer, Integer, Unit> function28 = function27;
                                         int i12 = i10;
                                         composer4.startReplaceableGroup(733328855);
@@ -427,19 +428,19 @@ public final class MenuKt {
                                         composer4.startReplaceableGroup(-1323940314);
                                         ComposerKt.sourceInformation(composer4, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume4 = composer4.consume(CompositionLocalsKt.getLocalDensity());
+                                        Object consume4 = composer4.consume(CompositionLocals.getLocalDensity());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         Density density2 = (Density) consume4;
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume5 = composer4.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                                        Object consume5 = composer4.consume(CompositionLocals.getLocalLayoutDirection());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         LayoutDirection layoutDirection2 = (LayoutDirection) consume5;
                                         ComposerKt.sourceInformationMarkerStart(composer4, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                                        Object consume6 = composer4.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                                        Object consume6 = composer4.consume(CompositionLocals.getLocalViewConfiguration());
                                         ComposerKt.sourceInformationMarkerEnd(composer4);
                                         ViewConfiguration viewConfiguration2 = (ViewConfiguration) consume6;
-                                        Function0<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
-                                        Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m443defaultMinSizeVpY3zN4$default);
+                                        Functions<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
+                                        Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m744defaultMinSizeVpY3zN4$default);
                                         if (!(composer4.getApplier() instanceof Applier)) {
                                             ComposablesKt.invalidApplier();
                                         }
@@ -450,13 +451,13 @@ public final class MenuKt {
                                             composer4.useNode();
                                         }
                                         composer4.disableReusing();
-                                        Composer m2195constructorimpl2 = Updater.m2195constructorimpl(composer4);
-                                        Updater.m2202setimpl(m2195constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                                        Updater.m2202setimpl(m2195constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
-                                        Updater.m2202setimpl(m2195constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
-                                        Updater.m2202setimpl(m2195constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
+                                        Composer m2496constructorimpl2 = Updater.m2496constructorimpl(composer4);
+                                        Updater.m2503setimpl(m2496constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                                        Updater.m2503setimpl(m2496constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
+                                        Updater.m2503setimpl(m2496constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
+                                        Updater.m2503setimpl(m2496constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
                                         composer4.enableReusing();
-                                        materializerOf2.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer4)), composer4, 0);
+                                        materializerOf2.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer4)), composer4, 0);
                                         composer4.startReplaceableGroup(2058660585);
                                         ComposerKt.sourceInformationMarkerStart(composer4, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                                         BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
@@ -529,7 +530,7 @@ public final class MenuKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final long calculateTransformOrigin(androidx.compose.ui.unit.IntRect r5, androidx.compose.ui.unit.IntRect r6) {
+    public static final long calculateTransformOrigin(androidx.compose.p002ui.unit.IntRect r5, androidx.compose.p002ui.unit.IntRect r6) {
         /*
             java.lang.String r0 = "parentBounds"
             kotlin.jvm.internal.Intrinsics.checkNotNullParameter(r5, r0)
@@ -600,7 +601,7 @@ public final class MenuKt {
             float r6 = (float) r6
             float r2 = r5 / r6
         L99:
-            long r5 = androidx.compose.ui.graphics.TransformOriginKt.TransformOrigin(r0, r2)
+            long r5 = androidx.compose.p002ui.graphics.TransformOriginKt.TransformOrigin(r0, r2)
             return r5
         */
         throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.MenuKt.calculateTransformOrigin(androidx.compose.ui.unit.IntRect, androidx.compose.ui.unit.IntRect):long");

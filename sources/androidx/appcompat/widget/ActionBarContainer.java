@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.ViewCompat;
 
 /* loaded from: classes.dex */
@@ -37,14 +37,14 @@ public class ActionBarContainer extends FrameLayout {
     public ActionBarContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         ViewCompat.setBackground(this, new ActionBarBackgroundDrawable(this));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBar);
-        this.mBackground = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_background);
-        this.mStackedBackground = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundStacked);
-        this.mHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ActionBar_height, -1);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0032R.styleable.ActionBar);
+        this.mBackground = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_background);
+        this.mStackedBackground = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_backgroundStacked);
+        this.mHeight = obtainStyledAttributes.getDimensionPixelSize(C0032R.styleable.ActionBar_height, -1);
         boolean z = true;
-        if (getId() == R.id.split_action_bar) {
+        if (getId() == C0032R.C0034id.split_action_bar) {
             this.mIsSplit = true;
-            this.mSplitBackground = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_backgroundSplit);
+            this.mSplitBackground = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_backgroundSplit);
         }
         obtainStyledAttributes.recycle();
         if (!this.mIsSplit ? this.mBackground != null || this.mStackedBackground != null : this.mSplitBackground != null) {
@@ -56,8 +56,8 @@ public class ActionBarContainer extends FrameLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.mActionBarView = findViewById(R.id.action_bar);
-        this.mContextView = findViewById(R.id.action_context_bar);
+        this.mActionBarView = findViewById(C0032R.C0034id.action_bar);
+        this.mContextView = findViewById(C0032R.C0034id.action_context_bar);
     }
 
     public void setPrimaryBackground(Drawable drawable) {

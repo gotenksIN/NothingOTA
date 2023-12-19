@@ -1,7 +1,7 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -9,8 +9,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ForEachGesture.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ForEachGestureKt", f = "ForEachGesture.kt", i = {0}, l = {R.styleable.AppCompatTheme_panelBackground}, m = "awaitAllPointersUp", n = {"$this$awaitAllPointersUp"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ForEachGestureKt", m30f = "ForEachGesture.kt", m29i = {0}, m28l = {C0032R.styleable.AppCompatTheme_panelBackground}, m27m = "awaitAllPointersUp", m26n = {"$this$awaitAllPointersUp"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class ForEachGestureKt$awaitAllPointersUp$3 extends ContinuationImpl {
     Object L$0;
@@ -26,6 +26,6 @@ public final class ForEachGestureKt$awaitAllPointersUp$3 extends ContinuationImp
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return ForEachGestureKt.awaitAllPointersUp((AwaitPointerEventScope) null, this);
+        return ForEachGesture.awaitAllPointersUp((AwaitPointerEventScope) null, this);
     }
 }

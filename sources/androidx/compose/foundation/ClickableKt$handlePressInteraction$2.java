@@ -1,29 +1,29 @@
 package androidx.compose.foundation;
 
-import androidx.compose.foundation.gestures.PressGestureScope;
+import androidx.compose.foundation.gestures.TapGestureDetector;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
 import androidx.compose.foundation.interaction.PressInteraction;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.State;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Clickable.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.ClickableKt$handlePressInteraction$2", f = "Clickable.kt", i = {0, 1, 2}, l = {445, 447, 454, 455, 464}, m = "invokeSuspend", n = {"delayJob", "success", "releaseInteraction"}, s = {"L$0", "Z$0", "L$0"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.ClickableKt$handlePressInteraction$2", m30f = "Clickable.kt", m29i = {0, 1, 2}, m28l = {445, 447, 454, 455, 464}, m27m = "invokeSuspend", m26n = {"delayJob", "success", "releaseInteraction"}, m25s = {"L$0", "Z$0", "L$0"})
 /* loaded from: classes.dex */
 final class ClickableKt$handlePressInteraction$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ State<Function0<Boolean>> $delayPressInteraction;
+    final /* synthetic */ State<Functions<Boolean>> $delayPressInteraction;
     final /* synthetic */ MutableInteractionSource $interactionSource;
     final /* synthetic */ long $pressPoint;
-    final /* synthetic */ MutableState<PressInteraction.Press> $pressedInteraction;
-    final /* synthetic */ PressGestureScope $this_handlePressInteraction;
+    final /* synthetic */ SnapshotState<PressInteraction.Press> $pressedInteraction;
+    final /* synthetic */ TapGestureDetector $this_handlePressInteraction;
     private /* synthetic */ Object L$0;
     boolean Z$0;
     int label;
@@ -31,12 +31,12 @@ final class ClickableKt$handlePressInteraction$2 extends SuspendLambda implement
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public ClickableKt$handlePressInteraction$2(PressGestureScope pressGestureScope, long j, MutableInteractionSource mutableInteractionSource, MutableState<PressInteraction.Press> mutableState, State<? extends Function0<Boolean>> state, Continuation<? super ClickableKt$handlePressInteraction$2> continuation) {
+    public ClickableKt$handlePressInteraction$2(TapGestureDetector tapGestureDetector, long j, MutableInteractionSource mutableInteractionSource, SnapshotState<PressInteraction.Press> snapshotState, State<? extends Functions<Boolean>> state, Continuation<? super ClickableKt$handlePressInteraction$2> continuation) {
         super(2, continuation);
-        this.$this_handlePressInteraction = pressGestureScope;
+        this.$this_handlePressInteraction = tapGestureDetector;
         this.$pressPoint = j;
         this.$interactionSource = mutableInteractionSource;
-        this.$pressedInteraction = mutableState;
+        this.$pressedInteraction = snapshotState;
         this.$delayPressInteraction = state;
     }
 

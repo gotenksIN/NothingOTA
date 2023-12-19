@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
 import java.util.ArrayList;
@@ -704,7 +704,7 @@ public class FragmentTransition {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    private static void addToFirstInLastOut(androidx.fragment.app.BackStackRecord r8, androidx.fragment.app.FragmentTransaction.Op r9, android.util.SparseArray<androidx.fragment.app.FragmentTransition.FragmentContainerTransition> r10, boolean r11, boolean r12) {
+    private static void addToFirstInLastOut(androidx.fragment.app.BackStackRecord r8, androidx.fragment.app.FragmentTransaction.C0951Op r9, android.util.SparseArray<androidx.fragment.app.FragmentTransition.FragmentContainerTransition> r10, boolean r11, boolean r12) {
         /*
             Method dump skipped, instructions count: 231
             To view this dump change 'Code comments level' option to 'DEBUG'

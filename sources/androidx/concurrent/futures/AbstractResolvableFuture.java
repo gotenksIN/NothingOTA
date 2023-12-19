@@ -659,17 +659,17 @@ public abstract class AbstractResolvableFuture<V> implements ListenableFuture<V>
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
         boolean casWaiters(AbstractResolvableFuture<?> abstractResolvableFuture, Waiter waiter, Waiter waiter2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.waitersUpdater, abstractResolvableFuture, waiter, waiter2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.waitersUpdater, abstractResolvableFuture, waiter, waiter2);
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
         boolean casListeners(AbstractResolvableFuture<?> abstractResolvableFuture, Listener listener, Listener listener2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.listenersUpdater, abstractResolvableFuture, listener, listener2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.listenersUpdater, abstractResolvableFuture, listener, listener2);
         }
 
         @Override // androidx.concurrent.futures.AbstractResolvableFuture.AtomicHelper
         boolean casValue(AbstractResolvableFuture<?> abstractResolvableFuture, Object obj, Object obj2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.valueUpdater, abstractResolvableFuture, obj, obj2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.valueUpdater, abstractResolvableFuture, obj, obj2);
         }
     }
 

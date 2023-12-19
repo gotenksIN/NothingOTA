@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -9,25 +9,25 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: SafeCollector.common.kt */
-@Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, m40d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1<T> implements Flow<T> {
     final /* synthetic */ Function2 $action$inlined;
     final /* synthetic */ Flow $this_onStart$inlined;
 
     /* compiled from: SafeCollector.common.kt */
-    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1", f = "Emitters.kt", i = {0, 0, 0}, l = {R.styleable.AppCompatTheme_viewInflaterClass, 120}, m = "collect", n = {"this", "$this$onStart_u24lambda_u2d1", "safeCollector"}, s = {"L$0", "L$1", "L$2"})
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1", m30f = "Emitters.kt", m29i = {0, 0, 0}, m28l = {C0032R.styleable.AppCompatTheme_viewInflaterClass, 120}, m27m = "collect", m26n = {"this", "$this$onStart_u24lambda_u2d1", "safeCollector"}, m25s = {"L$0", "L$1", "L$2"})
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1 extends ContinuationImpl {
+    public static final class C17201 extends ContinuationImpl {
         Object L$0;
         Object L$1;
         Object L$2;
         int label;
         /* synthetic */ Object result;
 
-        public AnonymousClass1(Continuation continuation) {
+        public C17201(Continuation continuation) {
             super(continuation);
         }
 
@@ -50,10 +50,10 @@ public final class FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1<T> implement
     public java.lang.Object collect(kotlinx.coroutines.flow.FlowCollector<? super T> r7, kotlin.coroutines.Continuation<? super kotlin.Unit> r8) {
         /*
             r6 = this;
-            boolean r0 = r8 instanceof kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1.AnonymousClass1
+            boolean r0 = r8 instanceof kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1.C17201
             if (r0 == 0) goto L14
             r0 = r8
-            kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1$1 r0 = (kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1.AnonymousClass1) r0
+            kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1$1 r0 = (kotlinx.coroutines.flow.FlowKt__EmittersKt$onStart$$inlined$unsafeFlow$1.C17201) r0
             int r1 = r0.label
             r2 = -2147483648(0xffffffff80000000, float:-0.0)
             r1 = r1 & r2

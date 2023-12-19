@@ -10,8 +10,8 @@ import kotlinx.coroutines.channels.ProducerScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$fixedPeriodTicker$3", f = "Delay.kt", i = {0, 1, 2}, l = {314, 316, 317}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "$this$produce"}, s = {"L$0", "L$0", "L$0"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/channels/ProducerScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$fixedPeriodTicker$3", m30f = "Delay.kt", m29i = {0, 1, 2}, m28l = {314, 316, 317}, m27m = "invokeSuspend", m26n = {"$this$produce", "$this$produce", "$this$produce"}, m25s = {"L$0", "L$0", "L$0"})
 /* loaded from: classes2.dex */
 public final class FlowKt__DelayKt$fixedPeriodTicker$3 extends SuspendLambda implements Function2<ProducerScope<? super Unit>, Continuation<? super Unit>, Object> {
     final /* synthetic */ long $delayMillis;

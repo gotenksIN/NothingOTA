@@ -1,23 +1,23 @@
 package kotlinx.coroutines.flow;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* compiled from: SafeCollector.common.kt */
-@Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\u0000"}, m40d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7 implements Flow<Integer> {
     final /* synthetic */ int[] $this_asFlow$inlined;
 
     /* compiled from: SafeCollector.common.kt */
-    @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7", f = "Builders.kt", i = {0, 0}, l = {R.styleable.AppCompatTheme_tooltipFrameBackground}, m = "collect", n = {"$this$asFlow_u24lambda_u2d13", "$this$forEach$iv"}, s = {"L$0", "L$1"})
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7", m30f = "Builders.kt", m29i = {0, 0}, m28l = {C0032R.styleable.AppCompatTheme_tooltipFrameBackground}, m27m = "collect", m26n = {"$this$asFlow_u24lambda_u2d13", "$this$forEach$iv"}, m25s = {"L$0", "L$1"})
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1 extends ContinuationImpl {
+    public static final class C17121 extends ContinuationImpl {
         int I$0;
         int I$1;
         Object L$0;
@@ -25,7 +25,7 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7 implements Fl
         int label;
         /* synthetic */ Object result;
 
-        public AnonymousClass1(Continuation continuation) {
+        public C17121(Continuation continuation) {
             super(continuation);
         }
 
@@ -50,10 +50,10 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7 implements Fl
     public java.lang.Object collect(kotlinx.coroutines.flow.FlowCollector<? super java.lang.Integer> r8, kotlin.coroutines.Continuation<? super kotlin.Unit> r9) {
         /*
             r7 = this;
-            boolean r0 = r9 instanceof kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7.AnonymousClass1
+            boolean r0 = r9 instanceof kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7.C17121
             if (r0 == 0) goto L14
             r0 = r9
-            kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7$1 r0 = (kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7.AnonymousClass1) r0
+            kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7$1 r0 = (kotlinx.coroutines.flow.FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7.C17121) r0
             int r1 = r0.label
             r2 = -2147483648(0xffffffff80000000, float:-0.0)
             r1 = r1 & r2
@@ -101,7 +101,7 @@ public final class FlowKt__BuildersKt$asFlow$$inlined$unsafeFlow$7 implements Fl
         L4e:
             if (r2 >= r8) goto L69
             r5 = r4[r2]
-            java.lang.Integer r5 = kotlin.coroutines.jvm.internal.Boxing.boxInt(r5)
+            java.lang.Integer r5 = kotlin.coroutines.jvm.internal.boxing.boxInt(r5)
             r0.L$0 = r9
             r0.L$1 = r4
             r0.I$0 = r2

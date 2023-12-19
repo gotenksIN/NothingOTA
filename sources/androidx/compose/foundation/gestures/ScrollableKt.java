@@ -1,42 +1,42 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.foundation.FocusableKt;
+import androidx.compose.foundation.Focusable;
 import androidx.compose.foundation.OverscrollEffect;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.MotionDurationScale;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollDispatcher;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollModifierKt;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.input.pointer.PointerType;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.modifier.ModifierLocalKt;
+import androidx.compose.p002ui.modifier.ProvidableModifierLocal;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionScopedCoroutineScopeCanceller;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.MotionDurationScale;
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection;
-import androidx.compose.ui.input.nestedscroll.NestedScrollDispatcher;
-import androidx.compose.ui.input.nestedscroll.NestedScrollModifierKt;
-import androidx.compose.ui.input.pointer.PointerInputChange;
-import androidx.compose.ui.input.pointer.PointerType;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.modifier.ModifierLocalKt;
-import androidx.compose.ui.modifier.ProvidableModifierLocal;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.EmptyCoroutineContext;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Scrollable.kt */
-@Metadata(d1 = {"\u0000r\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a\u001e\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u0012\u001a\u00020\bH\u0002\u001a\u0015\u0010\u0013\u001a\u00020\u0014*\u00020\u0015H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0016\u001a\"\u0010\u0017\u001a\u00020\u0018*\u00020\u00182\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u001a\u001a\u00020\u001bH\u0002\u001aO\u0010\u001c\u001a\u00020\u0018*\u00020\u00182\b\u0010\u001d\u001a\u0004\u0018\u00010\u001e2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\b2\u0006\u0010\"\u001a\u00020#2\b\u0010$\u001a\u0004\u0018\u00010%2\b\u0010&\u001a\u0004\u0018\u00010'2\u0006\u0010\u0012\u001a\u00020\bH\u0003¢\u0006\u0002\u0010(\u001aR\u0010)\u001a\u00020\u0018*\u00020\u00182\u0006\u0010*\u001a\u00020#2\u0006\u0010\u001f\u001a\u00020 2\b\u0010&\u001a\u0004\u0018\u00010'2\b\b\u0002\u0010\u0012\u001a\u00020\b2\b\b\u0002\u0010!\u001a\u00020\b2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\n\b\u0002\u0010\u001d\u001a\u0004\u0018\u00010\u001eH\u0007\u001aF\u0010)\u001a\u00020\u0018*\u00020\u00182\u0006\u0010*\u001a\u00020#2\u0006\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010\u0012\u001a\u00020\b2\b\b\u0002\u0010!\u001a\u00020\b2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\n\b\u0002\u0010\u001d\u001a\u0004\u0018\u00010\u001e\"\u0014\u0010\u0000\u001a\u00020\u0001X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\u0003\"\u000e\u0010\u0004\u001a\u00020\u0005X\u0082T¢\u0006\u0002\n\u0000\"\u001a\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n\"\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006+"}, d2 = {"DefaultScrollMotionDurationScale", "Landroidx/compose/ui/MotionDurationScale;", "getDefaultScrollMotionDurationScale", "()Landroidx/compose/ui/MotionDurationScale;", "DefaultScrollMotionDurationScaleFactor", "", "ModifierLocalScrollableContainer", "Landroidx/compose/ui/modifier/ProvidableModifierLocal;", "", "getModifierLocalScrollableContainer", "()Landroidx/compose/ui/modifier/ProvidableModifierLocal;", "NoOpScrollScope", "Landroidx/compose/foundation/gestures/ScrollScope;", "scrollableNestedScrollConnection", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "scrollLogic", "Landroidx/compose/runtime/State;", "Landroidx/compose/foundation/gestures/ScrollingLogic;", "enabled", "awaitScrollEvent", "Landroidx/compose/ui/input/pointer/PointerEvent;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "mouseWheelScroll", "Landroidx/compose/ui/Modifier;", "scrollingLogicState", "mouseWheelScrollConfig", "Landroidx/compose/foundation/gestures/ScrollConfig;", "pointerScrollable", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "reverseDirection", "controller", "Landroidx/compose/foundation/gestures/ScrollableState;", "flingBehavior", "Landroidx/compose/foundation/gestures/FlingBehavior;", "overscrollEffect", "Landroidx/compose/foundation/OverscrollEffect;", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/gestures/ScrollableState;Landroidx/compose/foundation/gestures/FlingBehavior;Landroidx/compose/foundation/OverscrollEffect;ZLandroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "scrollable", "state", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000r\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a\u001e\u0010\r\u001a\u00020\u000e2\f\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u0012\u001a\u00020\bH\u0002\u001a\u0015\u0010\u0013\u001a\u00020\u0014*\u00020\u0015H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0016\u001a\"\u0010\u0017\u001a\u00020\u0018*\u00020\u00182\f\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00110\u00102\u0006\u0010\u001a\u001a\u00020\u001bH\u0002\u001aO\u0010\u001c\u001a\u00020\u0018*\u00020\u00182\b\u0010\u001d\u001a\u0004\u0018\u00010\u001e2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\b2\u0006\u0010\"\u001a\u00020#2\b\u0010$\u001a\u0004\u0018\u00010%2\b\u0010&\u001a\u0004\u0018\u00010'2\u0006\u0010\u0012\u001a\u00020\bH\u0003¢\u0006\u0002\u0010(\u001aR\u0010)\u001a\u00020\u0018*\u00020\u00182\u0006\u0010*\u001a\u00020#2\u0006\u0010\u001f\u001a\u00020 2\b\u0010&\u001a\u0004\u0018\u00010'2\b\b\u0002\u0010\u0012\u001a\u00020\b2\b\b\u0002\u0010!\u001a\u00020\b2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\n\b\u0002\u0010\u001d\u001a\u0004\u0018\u00010\u001eH\u0007\u001aF\u0010)\u001a\u00020\u0018*\u00020\u00182\u0006\u0010*\u001a\u00020#2\u0006\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010\u0012\u001a\u00020\b2\b\b\u0002\u0010!\u001a\u00020\b2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\n\b\u0002\u0010\u001d\u001a\u0004\u0018\u00010\u001e\"\u0014\u0010\u0000\u001a\u00020\u0001X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\u0003\"\u000e\u0010\u0004\u001a\u00020\u0005X\u0082T¢\u0006\u0002\n\u0000\"\u001a\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n\"\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006+"}, m40d2 = {"DefaultScrollMotionDurationScale", "Landroidx/compose/ui/MotionDurationScale;", "getDefaultScrollMotionDurationScale", "()Landroidx/compose/ui/MotionDurationScale;", "DefaultScrollMotionDurationScaleFactor", "", "ModifierLocalScrollableContainer", "Landroidx/compose/ui/modifier/ProvidableModifierLocal;", "", "getModifierLocalScrollableContainer", "()Landroidx/compose/ui/modifier/ProvidableModifierLocal;", "NoOpScrollScope", "Landroidx/compose/foundation/gestures/ScrollScope;", "scrollableNestedScrollConnection", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "scrollLogic", "Landroidx/compose/runtime/State;", "Landroidx/compose/foundation/gestures/ScrollingLogic;", "enabled", "awaitScrollEvent", "Landroidx/compose/ui/input/pointer/PointerEvent;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "mouseWheelScroll", "Landroidx/compose/ui/Modifier;", "scrollingLogicState", "mouseWheelScrollConfig", "Landroidx/compose/foundation/gestures/ScrollConfig;", "pointerScrollable", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "reverseDirection", "controller", "Landroidx/compose/foundation/gestures/ScrollableState;", "flingBehavior", "Landroidx/compose/foundation/gestures/FlingBehavior;", "overscrollEffect", "Landroidx/compose/foundation/OverscrollEffect;", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/gestures/ScrollableState;Landroidx/compose/foundation/gestures/FlingBehavior;Landroidx/compose/foundation/OverscrollEffect;ZLandroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "scrollable", "state", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ScrollableKt {
     private static final float DefaultScrollMotionDurationScaleFactor = 1.0f;
@@ -46,15 +46,15 @@ public final class ScrollableKt {
             return f;
         }
     };
-    private static final ProvidableModifierLocal<Boolean> ModifierLocalScrollableContainer = ModifierLocalKt.modifierLocalOf(new Function0<Boolean>() { // from class: androidx.compose.foundation.gestures.ScrollableKt$ModifierLocalScrollableContainer$1
+    private static final ProvidableModifierLocal<Boolean> ModifierLocalScrollableContainer = ModifierLocalKt.modifierLocalOf(new Functions<Boolean>() { // from class: androidx.compose.foundation.gestures.ScrollableKt$ModifierLocalScrollableContainer$1
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // kotlin.jvm.functions.Function0
+        @Override // kotlin.jvm.functions.Functions
         public final Boolean invoke() {
             return false;
         }
     });
     private static final MotionDurationScale DefaultScrollMotionDurationScale = new MotionDurationScale() { // from class: androidx.compose.foundation.gestures.ScrollableKt$DefaultScrollMotionDurationScale$1
-        @Override // androidx.compose.ui.MotionDurationScale
+        @Override // androidx.compose.p002ui.MotionDurationScale
         public float getScaleFactor() {
             return 1.0f;
         }
@@ -121,8 +121,8 @@ public final class ScrollableKt {
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        MutableState mutableState = (MutableState) rememberedValue;
-        final State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(new ScrollingLogic(orientation, z, mutableState, scrollableState, flingBehavior2, overscrollEffect), composer, 0);
+        SnapshotState snapshotState = (SnapshotState) rememberedValue;
+        final State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(new ScrollingLogic(orientation, z, snapshotState, scrollableState, flingBehavior2, overscrollEffect), composer, 0);
         Boolean valueOf = Boolean.valueOf(z2);
         composer.startReplaceableGroup(1157296644);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1):Composables.kt#9igjgp");
@@ -133,7 +133,7 @@ public final class ScrollableKt {
             composer.updateRememberedValue(rememberedValue2);
         }
         composer.endReplaceableGroup();
-        NestedScrollConnection nestedScrollConnection = (NestedScrollConnection) rememberedValue2;
+        NestedScrollModifier nestedScrollModifier = (NestedScrollModifier) rememberedValue2;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue3 = composer.rememberedValue();
@@ -148,7 +148,7 @@ public final class ScrollableKt {
             @Override // kotlin.jvm.functions.Function1
             public final Boolean invoke(PointerInputChange down) {
                 Intrinsics.checkNotNullParameter(down, "down");
-                return Boolean.valueOf(!PointerType.m4028equalsimpl0(down.m3960getTypeT8wyACA(), PointerType.Companion.m4033getMouseT8wyACA()));
+                return Boolean.valueOf(!PointerType.m4329equalsimpl0(down.m4261getTypeT8wyACA(), PointerType.Companion.m4334getMouseT8wyACA()));
             }
         };
         composer.startReplaceableGroup(1157296644);
@@ -156,7 +156,7 @@ public final class ScrollableKt {
         boolean changed2 = composer.changed(rememberUpdatedState);
         Object rememberedValue4 = composer.rememberedValue();
         if (changed2 || rememberedValue4 == Composer.Companion.getEmpty()) {
-            rememberedValue4 = (Function0) new Function0<Boolean>() { // from class: androidx.compose.foundation.gestures.ScrollableKt$pointerScrollable$2$1
+            rememberedValue4 = (Functions) new Functions<Boolean>() { // from class: androidx.compose.foundation.gestures.ScrollableKt$pointerScrollable$2$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -164,7 +164,7 @@ public final class ScrollableKt {
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Boolean invoke() {
                     return Boolean.valueOf(rememberUpdatedState.getValue().shouldScrollImmediately());
                 }
@@ -172,17 +172,17 @@ public final class ScrollableKt {
             composer.updateRememberedValue(rememberedValue4);
         }
         composer.endReplaceableGroup();
-        Function0 function0 = rememberedValue4;
+        Functions functions = rememberedValue4;
         composer.startReplaceableGroup(511388516);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1,2):Composables.kt#9igjgp");
-        boolean changed3 = composer.changed(mutableState) | composer.changed(rememberUpdatedState);
+        boolean changed3 = composer.changed(snapshotState) | composer.changed(rememberUpdatedState);
         ScrollableKt$pointerScrollable$3$1 rememberedValue5 = composer.rememberedValue();
         if (changed3 || rememberedValue5 == Composer.Companion.getEmpty()) {
-            rememberedValue5 = new ScrollableKt$pointerScrollable$3$1(mutableState, rememberUpdatedState, null);
+            rememberedValue5 = new ScrollableKt$pointerScrollable$3$1(snapshotState, rememberUpdatedState, null);
             composer.updateRememberedValue(rememberedValue5);
         }
         composer.endReplaceableGroup();
-        Modifier nestedScroll = NestedScrollModifierKt.nestedScroll(mouseWheelScroll(DraggableKt.draggable$default(modifier, scrollDraggableState, scrollableKt$pointerScrollable$1, orientation, z2, mutableInteractionSource, function0, null, rememberedValue5, false, 64, null), rememberUpdatedState, platformScrollConfig), nestedScrollConnection, (NestedScrollDispatcher) mutableState.getValue());
+        Modifier nestedScroll = NestedScrollModifierKt.nestedScroll(mouseWheelScroll(DraggableKt.draggable$default(modifier, scrollDraggableState, scrollableKt$pointerScrollable$1, orientation, z2, mutableInteractionSource, functions, null, rememberedValue5, false, 64, null), rememberUpdatedState, platformScrollConfig), nestedScrollModifier, (NestedScrollDispatcher) snapshotState.getValue());
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -208,7 +208,7 @@ public final class ScrollableKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object awaitScrollEvent(androidx.compose.ui.input.pointer.AwaitPointerEventScope r5, kotlin.coroutines.Continuation<? super androidx.compose.ui.input.pointer.PointerEvent> r6) {
+    public static final java.lang.Object awaitScrollEvent(androidx.compose.p002ui.input.pointer.AwaitPointerEventScope r5, kotlin.coroutines.Continuation<? super androidx.compose.p002ui.input.pointer.PointerEvent> r6) {
         /*
             boolean r0 = r6 instanceof androidx.compose.foundation.gestures.ScrollableKt$awaitScrollEvent$1
             if (r0 == 0) goto L14
@@ -233,7 +233,7 @@ public final class ScrollableKt {
             if (r2 == 0) goto L36
             if (r2 != r3) goto L2e
             java.lang.Object r5 = r0.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r5 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r5
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r5 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r5
             kotlin.ResultKt.throwOnFailure(r6)
             goto L45
         L2e:
@@ -247,15 +247,15 @@ public final class ScrollableKt {
             r0.L$0 = r5
             r0.label = r3
             r6 = 0
-            java.lang.Object r6 = androidx.compose.ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r5, r6, r0, r3, r6)
+            java.lang.Object r6 = androidx.compose.p002ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r5, r6, r0, r3, r6)
             if (r6 != r1) goto L45
             return r1
         L45:
-            androidx.compose.ui.input.pointer.PointerEvent r6 = (androidx.compose.ui.input.pointer.PointerEvent) r6
-            int r2 = r6.m3902getType7fucELk()
-            androidx.compose.ui.input.pointer.PointerEventType$Companion r4 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-            int r4 = r4.m3918getScroll7fucELk()
-            boolean r2 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r2, r4)
+            androidx.compose.ui.input.pointer.PointerEvent r6 = (androidx.compose.p002ui.input.pointer.PointerEvent) r6
+            int r2 = r6.m4203getType7fucELk()
+            androidx.compose.ui.input.pointer.PointerEventType$Companion r4 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+            int r4 = r4.m4219getScroll7fucELk()
+            boolean r2 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r2, r4)
             if (r2 == 0) goto L39
             return r6
         */
@@ -263,7 +263,7 @@ public final class ScrollableKt {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final NestedScrollConnection scrollableNestedScrollConnection(State<ScrollingLogic> state, boolean z) {
+    public static final NestedScrollModifier scrollableNestedScrollConnection(State<ScrollingLogic> state, boolean z) {
         return new ScrollableKt$scrollableNestedScrollConnection$1(state, z);
     }
 
@@ -352,7 +352,7 @@ public final class ScrollableKt {
                     composer.updateRememberedValue(rememberedValue2);
                 }
                 composer.endReplaceableGroup();
-                pointerScrollable = ScrollableKt.pointerScrollable(FocusableKt.focusGroup(Modifier.Companion).then(((ContentInViewModifier) rememberedValue2).getModifier()), mutableInteractionSource, Orientation.this, z2, state, flingBehavior, overscrollEffect, z, composer, 0);
+                pointerScrollable = ScrollableKt.pointerScrollable(Focusable.focusGroup(Modifier.Companion).then(((ContentInViewModifier) rememberedValue2).getModifier()), mutableInteractionSource, Orientation.this, z2, state, flingBehavior, overscrollEffect, z, composer, 0);
                 Modifier then = pointerScrollable.then(z ? ModifierLocalScrollableContainerProvider.INSTANCE : Modifier.Companion);
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();

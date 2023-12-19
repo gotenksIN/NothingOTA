@@ -41,7 +41,7 @@ public final class MediaType {
     private String toString;
     private final String type;
     private static final String CHARSET_ATTRIBUTE = "charset";
-    private static final ImmutableListMultimap<String, String> UTF_8_CONSTANT_PARAMETERS = ImmutableListMultimap.of(CHARSET_ATTRIBUTE, Ascii.toLowerCase(Charsets.UTF_8.name()));
+    private static final ImmutableListMultimap<String, String> UTF_8_CONSTANT_PARAMETERS = ImmutableListMultimap.m197of(CHARSET_ATTRIBUTE, Ascii.toLowerCase(Charsets.UTF_8.name()));
     private static final CharMatcher TOKEN_MATCHER = CharMatcher.ascii().and(CharMatcher.javaIsoControl().negate()).and(CharMatcher.isNot(' ')).and(CharMatcher.noneOf("()<>@,;:\\\"/[]?="));
     private static final CharMatcher QUOTED_TEXT_MATCHER = CharMatcher.ascii().and(CharMatcher.noneOf("\"\\\r"));
     private static final CharMatcher LINEAR_WHITE_SPACE = CharMatcher.anyOf(" \t\r\n");
@@ -167,17 +167,17 @@ public final class MediaType {
     public static final MediaType FONT_TTF = createConstant(FONT_TYPE, "ttf");
     public static final MediaType FONT_WOFF = createConstant(FONT_TYPE, "woff");
     public static final MediaType FONT_WOFF2 = createConstant(FONT_TYPE, "woff2");
-    private static final Joiner.MapJoiner PARAMETER_JOINER = Joiner.on("; ").withKeyValueSeparator("=");
+    private static final Joiner.MapJoiner PARAMETER_JOINER = Joiner.m242on("; ").withKeyValueSeparator("=");
 
     private static MediaType createConstant(String str, String str2) {
-        MediaType addKnownType = addKnownType(new MediaType(str, str2, ImmutableListMultimap.of()));
+        MediaType addKnownType = addKnownType(new MediaType(str, str2, ImmutableListMultimap.m198of()));
         addKnownType.parsedCharset = Optional.absent();
         return addKnownType;
     }
 
     private static MediaType createConstantUtf8(String str, String str2) {
         MediaType addKnownType = addKnownType(new MediaType(str, str2, UTF_8_CONSTANT_PARAMETERS));
-        addKnownType.parsedCharset = Optional.of(Charsets.UTF_8);
+        addKnownType.parsedCharset = Optional.m241of(Charsets.UTF_8);
         return addKnownType;
     }
 
@@ -222,7 +222,7 @@ public final class MediaType {
             while (it.hasNext()) {
                 String next = it.next();
                 if (str == null) {
-                    optional = Optional.of(Charset.forName(next));
+                    optional = Optional.m241of(Charset.forName(next));
                     str = next;
                 } else if (!str.equals(next)) {
                     throw new IllegalStateException(new StringBuilder(String.valueOf(str).length() + 35 + String.valueOf(next).length()).append("Multiple charset values defined: ").append(str).append(", ").append(next).toString());
@@ -265,13 +265,13 @@ public final class MediaType {
     }
 
     public MediaType withParameter(String str, String str2) {
-        return withParameters(str, ImmutableSet.of(str2));
+        return withParameters(str, ImmutableSet.m163of(str2));
     }
 
     public MediaType withCharset(Charset charset) {
         Preconditions.checkNotNull(charset);
         MediaType withParameter = withParameter(CHARSET_ATTRIBUTE, charset.name());
-        withParameter.parsedCharset = Optional.of(charset);
+        withParameter.parsedCharset = Optional.m241of(charset);
         return withParameter;
     }
 
@@ -279,12 +279,13 @@ public final class MediaType {
         return WILDCARD.equals(this.type) || WILDCARD.equals(this.subtype);
     }
 
-    public boolean is(MediaType mediaType) {
+    /* renamed from: is */
+    public boolean m86is(MediaType mediaType) {
         return (mediaType.type.equals(WILDCARD) || mediaType.type.equals(this.type)) && (mediaType.subtype.equals(WILDCARD) || mediaType.subtype.equals(this.subtype)) && this.parameters.entries().containsAll(mediaType.parameters.entries());
     }
 
     public static MediaType create(String str, String str2) {
-        MediaType create = create(str, str2, ImmutableListMultimap.of());
+        MediaType create = create(str, str2, ImmutableListMultimap.m198of());
         create.parsedCharset = Optional.absent();
         return create;
     }

@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -9,8 +9,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Merge.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MergeKt$flattenConcat$1$1", f = "Merge.kt", i = {}, l = {R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m = "emit", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__MergeKt$flattenConcat$1$1", m30f = "Merge.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m27m = "emit", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__MergeKt$flattenConcat$1$1$emit$1 extends ContinuationImpl {
     int label;

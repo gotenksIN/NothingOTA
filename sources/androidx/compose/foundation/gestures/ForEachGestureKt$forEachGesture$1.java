@@ -1,6 +1,6 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ForEachGesture.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ForEachGestureKt", f = "ForEachGesture.kt", i = {0, 0, 0, 1, 1, 1, 2, 2, 2}, l = {48, R.styleable.AppCompatTheme_colorBackgroundFloating, R.styleable.AppCompatTheme_colorError}, m = "forEachGesture", n = {"$this$forEachGesture", "block", "currentContext", "$this$forEachGesture", "block", "currentContext", "$this$forEachGesture", "block", "currentContext"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ForEachGestureKt", m30f = "ForEachGesture.kt", m29i = {0, 0, 0, 1, 1, 1, 2, 2, 2}, m28l = {48, C0032R.styleable.AppCompatTheme_colorBackgroundFloating, C0032R.styleable.AppCompatTheme_colorError}, m27m = "forEachGesture", m26n = {"$this$forEachGesture", "block", "currentContext", "$this$forEachGesture", "block", "currentContext", "$this$forEachGesture", "block", "currentContext"}, m25s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
 /* loaded from: classes.dex */
 public final class ForEachGestureKt$forEachGesture$1 extends ContinuationImpl {
     Object L$0;
@@ -27,6 +27,6 @@ public final class ForEachGestureKt$forEachGesture$1 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return ForEachGestureKt.forEachGesture(null, null, this);
+        return ForEachGesture.forEachGesture(null, null, this);
     }
 }

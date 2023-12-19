@@ -154,7 +154,7 @@ public abstract class AbstractService implements Service {
         if (this.monitor.enterIf(this.isStoppable)) {
             try {
                 Service.State state = state();
-                switch (AnonymousClass6.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
+                switch (C14956.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
                     case 1:
                         this.snapshot = new StateSnapshot(Service.State.TERMINATED);
                         enqueueTerminatedEvent(Service.State.NEW);
@@ -185,9 +185,9 @@ public abstract class AbstractService implements Service {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.util.concurrent.AbstractService$6  reason: invalid class name */
+    /* renamed from: com.google.common.util.concurrent.AbstractService$6 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass6 {
+    public static /* synthetic */ class C14956 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$util$concurrent$Service$State;
 
         static {
@@ -312,7 +312,7 @@ public abstract class AbstractService implements Service {
         this.monitor.enter();
         try {
             Service.State state = state();
-            switch (AnonymousClass6.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
+            switch (C14956.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
                 case 1:
                 case 5:
                 case 6:
@@ -337,7 +337,7 @@ public abstract class AbstractService implements Service {
         this.monitor.enter();
         try {
             Service.State state = state();
-            int i = AnonymousClass6.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()];
+            int i = C14956.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()];
             if (i != 1) {
                 if (i == 2 || i == 3 || i == 4) {
                     this.snapshot = new StateSnapshot(Service.State.FAILED, false, th);
@@ -406,7 +406,7 @@ public abstract class AbstractService implements Service {
     }
 
     private void enqueueTerminatedEvent(Service.State state) {
-        switch (AnonymousClass6.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
+        switch (C14956.$SwitchMap$com$google$common$util$concurrent$Service$State[state.ordinal()]) {
             case 1:
                 this.listeners.enqueue(TERMINATED_FROM_NEW_EVENT);
                 return;

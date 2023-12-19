@@ -30,11 +30,11 @@ final class ImmutableEnumSet<E extends Enum<E>> extends ImmutableSet<E> {
         int size = enumSet.size();
         if (size != 0) {
             if (size == 1) {
-                return ImmutableSet.of(Iterables.getOnlyElement(enumSet));
+                return ImmutableSet.m163of(Iterables.getOnlyElement(enumSet));
             }
             return new ImmutableEnumSet(enumSet);
         }
-        return ImmutableSet.of();
+        return ImmutableSet.m164of();
     }
 
     private ImmutableEnumSet(EnumSet<E> enumSet) {

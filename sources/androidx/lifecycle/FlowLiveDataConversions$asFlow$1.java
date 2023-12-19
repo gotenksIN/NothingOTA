@@ -1,6 +1,6 @@
 package androidx.lifecycle;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -8,20 +8,20 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.Dispatchers;
 import kotlinx.coroutines.GlobalScope;
-import kotlinx.coroutines.channels.ProduceKt;
+import kotlinx.coroutines.channels.Produce;
 import kotlinx.coroutines.channels.ProducerScope;
 
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: FlowLiveData.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/channels/ProducerScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1", f = "FlowLiveData.kt", i = {0, 0}, l = {R.styleable.AppCompatTheme_textColorAlertDialogListItem, R.styleable.AppCompatTheme_tooltipForegroundColor}, m = "invokeSuspend", n = {"$this$callbackFlow", "observer"}, s = {"L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/channels/ProducerScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1", m30f = "FlowLiveData.kt", m29i = {0, 0}, m28l = {C0032R.styleable.AppCompatTheme_textColorAlertDialogListItem, C0032R.styleable.AppCompatTheme_tooltipForegroundColor}, m27m = "invokeSuspend", m26n = {"$this$callbackFlow", "observer"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes.dex */
 final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements Function2<ProducerScope<? super T>, Continuation<? super Unit>, Object> {
     final /* synthetic */ LiveData<T> $this_asFlow;
@@ -64,13 +64,13 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
             observer = new Observer() { // from class: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$$ExternalSyntheticLambda0
                 @Override // androidx.lifecycle.Observer
                 public final void onChanged(Object obj2) {
-                    ProducerScope.this.mo6880trySendJP2dKIU(obj2);
+                    ProducerScope.this.mo7156trySendJP2dKIU(obj2);
                 }
             };
             this.L$0 = producerScope2;
             this.L$1 = observer;
             this.label = 1;
-            if (BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new AnonymousClass1(this.$this_asFlow, observer, null), this) == coroutine_suspended) {
+            if (BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new C09771(this.$this_asFlow, observer, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
             producerScope = producerScope2;
@@ -89,7 +89,7 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
         this.L$0 = null;
         this.L$1 = null;
         this.label = 2;
-        if (ProduceKt.awaitClose(producerScope, new Function0<Unit>() { // from class: androidx.lifecycle.FlowLiveDataConversions$asFlow$1.2
+        if (Produce.awaitClose(producerScope, new Functions<Unit>() { // from class: androidx.lifecycle.FlowLiveDataConversions$asFlow$1.2
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(0);
@@ -97,17 +97,17 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: FlowLiveData.kt */
-            @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1$2$1", f = "FlowLiveData.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$2$1  reason: invalid class name */
+            @Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1$2$1", m30f = "FlowLiveData.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$2$1 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+            public static final class C09791 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ Observer<T> $observer;
                 final /* synthetic */ LiveData<T> $this_asFlow;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass1(LiveData<T> liveData, Observer<T> observer, Continuation<? super AnonymousClass1> continuation) {
+                C09791(LiveData<T> liveData, Observer<T> observer, Continuation<? super C09791> continuation) {
                     super(2, continuation);
                     this.$this_asFlow = liveData;
                     this.$observer = observer;
@@ -115,12 +115,12 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass1(this.$this_asFlow, this.$observer, continuation);
+                    return new C09791(this.$this_asFlow, this.$observer, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C09791) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -135,7 +135,7 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
                 }
             }
 
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public /* bridge */ /* synthetic */ Unit invoke() {
                 invoke2();
                 return Unit.INSTANCE;
@@ -143,7 +143,7 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                BuildersKt__Builders_commonKt.launch$default(GlobalScope.INSTANCE, Dispatchers.getMain().getImmediate(), null, new AnonymousClass1(liveData, observer, null), 2, null);
+                BuildersKt__Builders_commonKt.launch$default(GlobalScope.INSTANCE, Dispatchers.getMain().getImmediate(), null, new C09791(liveData, observer, null), 2, null);
             }
         }, this) == coroutine_suspended) {
             return coroutine_suspended;
@@ -153,17 +153,17 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: FlowLiveData.kt */
-    @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1$1", f = "FlowLiveData.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.lifecycle.FlowLiveDataConversions$asFlow$1$1", m30f = "FlowLiveData.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.lifecycle.FlowLiveDataConversions$asFlow$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C09771 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ Observer<T> $observer;
         final /* synthetic */ LiveData<T> $this_asFlow;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(LiveData<T> liveData, Observer<T> observer, Continuation<? super AnonymousClass1> continuation) {
+        C09771(LiveData<T> liveData, Observer<T> observer, Continuation<? super C09771> continuation) {
             super(2, continuation);
             this.$this_asFlow = liveData;
             this.$observer = observer;
@@ -171,12 +171,12 @@ final class FlowLiveDataConversions$asFlow$1<T> extends SuspendLambda implements
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$this_asFlow, this.$observer, continuation);
+            return new C09771(this.$this_asFlow, this.$observer, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C09771) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

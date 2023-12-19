@@ -1,6 +1,6 @@
 package org.apache.commons.codec.language;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
@@ -56,15 +56,15 @@ public class DoubleMetaphone implements StringEncoder {
                 doubleMetaphoneResult.append('S');
             } else if (charAt != 209) {
                 switch (charAt) {
-                    case R.styleable.AppCompatTheme_dividerVertical /* 65 */:
-                    case R.styleable.AppCompatTheme_editTextColor /* 69 */:
-                    case R.styleable.AppCompatTheme_listChoiceBackgroundIndicator /* 73 */:
-                    case R.styleable.AppCompatTheme_listPreferredItemHeight /* 79 */:
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingStart /* 85 */:
-                    case R.styleable.AppCompatTheme_popupMenuStyle /* 89 */:
+                    case C0032R.styleable.AppCompatTheme_dividerVertical /* 65 */:
+                    case C0032R.styleable.AppCompatTheme_editTextColor /* 69 */:
+                    case C0032R.styleable.AppCompatTheme_listChoiceBackgroundIndicator /* 73 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeight /* 79 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingStart /* 85 */:
+                    case C0032R.styleable.AppCompatTheme_popupMenuStyle /* 89 */:
                         isSilentStart = handleAEIOUY(doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_dropDownListViewStyle /* 66 */:
+                    case C0032R.styleable.AppCompatTheme_dropDownListViewStyle /* 66 */:
                         doubleMetaphoneResult.append('P');
                         i = isSilentStart + 1;
                         if (charAt(cleanInput, i) != 'B') {
@@ -74,13 +74,13 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
+                    case C0032R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
                         isSilentStart = handleC(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_editTextBackground /* 68 */:
+                    case C0032R.styleable.AppCompatTheme_editTextBackground /* 68 */:
                         isSilentStart = handleD(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_editTextStyle /* 70 */:
+                    case C0032R.styleable.AppCompatTheme_editTextStyle /* 70 */:
                         doubleMetaphoneResult.append('F');
                         i = isSilentStart + 1;
                         if (charAt(cleanInput, i) != 'F') {
@@ -90,13 +90,13 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_homeAsUpIndicator /* 71 */:
+                    case C0032R.styleable.AppCompatTheme_homeAsUpIndicator /* 71 */:
                         isSilentStart = handleG(cleanInput, doubleMetaphoneResult, isSilentStart, isSlavoGermanic);
                         break;
-                    case R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
+                    case C0032R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
                         isSilentStart = handleH(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated /* 74 */:
+                    case C0032R.styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated /* 74 */:
                         isSilentStart = handleJ(cleanInput, doubleMetaphoneResult, isSilentStart, isSlavoGermanic);
                         break;
                     case 'K':
@@ -112,7 +112,7 @@ public class DoubleMetaphone implements StringEncoder {
                     case 'L':
                         isSilentStart = handleL(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
+                    case C0032R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
                         doubleMetaphoneResult.append('M');
                         if (!conditionM0(cleanInput, isSilentStart)) {
                             break;
@@ -120,7 +120,7 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_listPopupWindowStyle /* 78 */:
+                    case C0032R.styleable.AppCompatTheme_listPopupWindowStyle /* 78 */:
                         doubleMetaphoneResult.append('N');
                         i = isSilentStart + 1;
                         if (charAt(cleanInput, i) != 'N') {
@@ -130,10 +130,10 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_listPreferredItemHeightLarge /* 80 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeightLarge /* 80 */:
                         isSilentStart = handleP(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
                         doubleMetaphoneResult.append('K');
                         i = isSilentStart + 1;
                         if (charAt(cleanInput, i) != 'Q') {
@@ -143,16 +143,16 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingEnd /* 82 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingEnd /* 82 */:
                         isSilentStart = handleR(cleanInput, doubleMetaphoneResult, isSilentStart, isSlavoGermanic);
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
                         isSilentStart = handleS(cleanInput, doubleMetaphoneResult, isSilentStart, isSlavoGermanic);
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
                         isSilentStart = handleT(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_panelBackground /* 86 */:
+                    case C0032R.styleable.AppCompatTheme_panelBackground /* 86 */:
                         doubleMetaphoneResult.append('F');
                         i = isSilentStart + 1;
                         if (charAt(cleanInput, i) != 'V') {
@@ -162,13 +162,13 @@ public class DoubleMetaphone implements StringEncoder {
                             isSilentStart += 2;
                             break;
                         }
-                    case R.styleable.AppCompatTheme_panelMenuListTheme /* 87 */:
+                    case C0032R.styleable.AppCompatTheme_panelMenuListTheme /* 87 */:
                         isSilentStart = handleW(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_panelMenuListWidth /* 88 */:
+                    case C0032R.styleable.AppCompatTheme_panelMenuListWidth /* 88 */:
                         isSilentStart = handleX(cleanInput, doubleMetaphoneResult, isSilentStart);
                         break;
-                    case R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
+                    case C0032R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
                         isSilentStart = handleZ(cleanInput, doubleMetaphoneResult, isSilentStart, isSlavoGermanic);
                         break;
                 }

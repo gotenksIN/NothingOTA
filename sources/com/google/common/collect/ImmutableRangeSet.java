@@ -22,8 +22,8 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
     @LazyInit
     private transient ImmutableRangeSet<C> complement;
     private final transient ImmutableList<Range<C>> ranges;
-    private static final ImmutableRangeSet<Comparable<?>> EMPTY = new ImmutableRangeSet<>(ImmutableList.of());
-    private static final ImmutableRangeSet<Comparable<?>> ALL = new ImmutableRangeSet<>(ImmutableList.of(Range.all()));
+    private static final ImmutableRangeSet<Comparable<?>> EMPTY = new ImmutableRangeSet<>(ImmutableList.m211of());
+    private static final ImmutableRangeSet<Comparable<?>> ALL = new ImmutableRangeSet<>(ImmutableList.m210of(Range.all()));
 
     @Override // com.google.common.collect.AbstractRangeSet, com.google.common.collect.RangeSet
     public /* bridge */ /* synthetic */ void clear() {
@@ -51,19 +51,21 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
         return super.equals(obj);
     }
 
-    public static <C extends Comparable> ImmutableRangeSet<C> of() {
+    /* renamed from: of */
+    public static <C extends Comparable> ImmutableRangeSet<C> m166of() {
         return EMPTY;
     }
 
-    public static <C extends Comparable> ImmutableRangeSet<C> of(Range<C> range) {
+    /* renamed from: of */
+    public static <C extends Comparable> ImmutableRangeSet<C> m165of(Range<C> range) {
         Preconditions.checkNotNull(range);
         if (range.isEmpty()) {
-            return of();
+            return m166of();
         }
         if (range.equals(Range.all())) {
             return all();
         }
-        return new ImmutableRangeSet<>(ImmutableList.of(range));
+        return new ImmutableRangeSet<>(ImmutableList.m210of(range));
     }
 
     static <C extends Comparable> ImmutableRangeSet<C> all() {
@@ -73,7 +75,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
     public static <C extends Comparable> ImmutableRangeSet<C> copyOf(RangeSet<C> rangeSet) {
         Preconditions.checkNotNull(rangeSet);
         if (rangeSet.isEmpty()) {
-            return of();
+            return m166of();
         }
         if (rangeSet.encloses(Range.all())) {
             return all();
@@ -193,7 +195,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
     @Override // com.google.common.collect.RangeSet
     public ImmutableSet<Range<C>> asRanges() {
         if (this.ranges.isEmpty()) {
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
         return new RegularImmutableSortedSet(this.ranges, Range.rangeLexOrdering());
     }
@@ -201,7 +203,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
     @Override // com.google.common.collect.RangeSet
     public ImmutableSet<Range<C>> asDescendingSetOfRanges() {
         if (this.ranges.isEmpty()) {
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
         return new RegularImmutableSortedSet(this.ranges.reverse(), Range.rangeLexOrdering().reverse());
     }
@@ -264,9 +266,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
             this.complement = all;
             return all;
         } else if (this.ranges.size() == 1 && this.ranges.get(0).equals(Range.all())) {
-            ImmutableRangeSet<C> of = of();
-            this.complement = of;
-            return of;
+            ImmutableRangeSet<C> m166of = m166of();
+            this.complement = m166of;
+            return m166of;
         } else {
             ImmutableRangeSet<C> immutableRangeSet2 = new ImmutableRangeSet<>(new ComplementRanges(), this);
             this.complement = immutableRangeSet2;
@@ -293,7 +295,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
     private ImmutableList<Range<C>> intersectRanges(final Range<C> range) {
         int size;
         if (this.ranges.isEmpty() || range.isEmpty()) {
-            return ImmutableList.of();
+            return ImmutableList.m211of();
         }
         if (range.encloses(span())) {
             return this.ranges;
@@ -306,7 +308,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
         }
         final int i = size - binarySearch;
         if (i == 0) {
-            return ImmutableList.of();
+            return ImmutableList.m211of();
         }
         return (ImmutableList<Range<C>>) new ImmutableList<Range<C>>() { // from class: com.google.common.collect.ImmutableRangeSet.1
             /* JADX INFO: Access modifiers changed from: package-private */
@@ -339,13 +341,13 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
                 return new ImmutableRangeSet<>(intersectRanges(range));
             }
         }
-        return of();
+        return m166of();
     }
 
     public ImmutableSortedSet<C> asSet(DiscreteDomain<C> discreteDomain) {
         Preconditions.checkNotNull(discreteDomain);
         if (isEmpty()) {
-            return ImmutableSortedSet.of();
+            return ImmutableSortedSet.m116of();
         }
         Range<C> canonical = span().canonical(discreteDomain);
         if (!canonical.hasLowerBound()) {
@@ -472,7 +474,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
 
         ImmutableSortedSet<C> subSetImpl(C c, boolean z, C c2, boolean z2) {
             if (!z && !z2 && Range.compareOrThrow(c, c2) == 0) {
-                return ImmutableSortedSet.of();
+                return ImmutableSortedSet.m116of();
             }
             return subSet(Range.range(c, BoundType.forBoolean(z), c2, BoundType.forBoolean(z2)));
         }
@@ -601,7 +603,7 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
             }
             ImmutableList build = builder.build();
             if (build.isEmpty()) {
-                return ImmutableRangeSet.of();
+                return ImmutableRangeSet.m166of();
             }
             if (build.size() == 1 && ((Range) Iterables.getOnlyElement(build)).equals(Range.all())) {
                 return ImmutableRangeSet.all();
@@ -620,9 +622,9 @@ public final class ImmutableRangeSet<C extends Comparable> extends AbstractRange
 
         Object readResolve() {
             if (this.ranges.isEmpty()) {
-                return ImmutableRangeSet.of();
+                return ImmutableRangeSet.m166of();
             }
-            if (this.ranges.equals(ImmutableList.of(Range.all()))) {
+            if (this.ranges.equals(ImmutableList.m210of(Range.all()))) {
                 return ImmutableRangeSet.all();
             }
             return new ImmutableRangeSet(this.ranges);

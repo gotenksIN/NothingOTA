@@ -1,19 +1,20 @@
 package androidx.compose.foundation;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.HoverInteraction;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionScopedCoroutineScopeCanceller;
 import androidx.compose.runtime.DisposableEffectResult;
 import androidx.compose.runtime.DisposableEffectScope;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -33,7 +34,7 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Hoverable.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, m40d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class HoverableKt$hoverable$2 extends Lambda implements Function3<Modifier, Composer, Integer, Modifier> {
     final /* synthetic */ boolean $enabled;
@@ -81,11 +82,11 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
             composer.updateRememberedValue(rememberedValue2);
         }
         composer.endReplaceableGroup();
-        final MutableState mutableState = (MutableState) rememberedValue2;
+        final SnapshotState snapshotState = (SnapshotState) rememberedValue2;
         final MutableInteractionSource mutableInteractionSource = this.$interactionSource;
         composer.startReplaceableGroup(511388516);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1,2):Composables.kt#9igjgp");
-        boolean changed = composer.changed(mutableState) | composer.changed(mutableInteractionSource);
+        boolean changed = composer.changed(snapshotState) | composer.changed(mutableInteractionSource);
         Object rememberedValue3 = composer.rememberedValue();
         if (changed || rememberedValue3 == Composer.Companion.getEmpty()) {
             rememberedValue3 = (Function1) new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.foundation.HoverableKt$hoverable$2$1$1
@@ -98,12 +99,12 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                 @Override // kotlin.jvm.functions.Function1
                 public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                     Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
-                    final MutableState<HoverInteraction.Enter> mutableState2 = mutableState;
+                    final SnapshotState<HoverInteraction.Enter> snapshotState2 = snapshotState;
                     final MutableInteractionSource mutableInteractionSource2 = mutableInteractionSource;
                     return new DisposableEffectResult() { // from class: androidx.compose.foundation.HoverableKt$hoverable$2$1$1$invoke$$inlined$onDispose$1
                         @Override // androidx.compose.runtime.DisposableEffectResult
                         public void dispose() {
-                            HoverableKt$hoverable$2.invoke$tryEmitExit(MutableState.this, mutableInteractionSource2);
+                            HoverableKt$hoverable$2.invoke$tryEmitExit(SnapshotState.this, mutableInteractionSource2);
                         }
                     };
                 }
@@ -118,16 +119,16 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
         boolean z = this.$enabled;
         composer.startReplaceableGroup(1618982084);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1,2,3):Composables.kt#9igjgp");
-        boolean changed2 = composer.changed(valueOf2) | composer.changed(mutableState) | composer.changed(mutableInteractionSource2);
+        boolean changed2 = composer.changed(valueOf2) | composer.changed(snapshotState) | composer.changed(mutableInteractionSource2);
         Object rememberedValue4 = composer.rememberedValue();
         if (changed2 || rememberedValue4 == Composer.Companion.getEmpty()) {
-            rememberedValue4 = (Function2) new HoverableKt$hoverable$2$2$1(z, mutableState, mutableInteractionSource2, null);
+            rememberedValue4 = (Function2) new HoverableKt$hoverable$2$2$1(z, snapshotState, mutableInteractionSource2, null);
             composer.updateRememberedValue(rememberedValue4);
         }
         composer.endReplaceableGroup();
         EffectsKt.LaunchedEffect(valueOf, (Function2) rememberedValue4, composer, 64);
         if (this.$enabled) {
-            companion = SuspendingPointerInputFilterKt.pointerInput(Modifier.Companion, this.$interactionSource, new AnonymousClass3(coroutineScope, this.$interactionSource, mutableState, null));
+            companion = SuspendingPointerInputFilterKt.pointerInput(Modifier.Companion, this.$interactionSource, new C01903(coroutineScope, this.$interactionSource, snapshotState, null));
         } else {
             companion = Modifier.Companion;
         }
@@ -138,8 +139,8 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
         return companion;
     }
 
-    private static final HoverInteraction.Enter invoke$lambda$1(MutableState<HoverInteraction.Enter> mutableState) {
-        return mutableState.getValue();
+    private static final HoverInteraction.Enter invoke$lambda$1(SnapshotState<HoverInteraction.Enter> snapshotState) {
+        return snapshotState.getValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -149,7 +150,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object invoke$emitEnter(androidx.compose.foundation.interaction.MutableInteractionSource r4, androidx.compose.runtime.MutableState<androidx.compose.foundation.interaction.HoverInteraction.Enter> r5, kotlin.coroutines.Continuation<? super kotlin.Unit> r6) {
+    public static final java.lang.Object invoke$emitEnter(androidx.compose.foundation.interaction.MutableInteractionSource r4, androidx.compose.runtime.SnapshotState<androidx.compose.foundation.interaction.HoverInteraction.Enter> r5, kotlin.coroutines.Continuation<? super kotlin.Unit> r6) {
         /*
             boolean r0 = r6 instanceof androidx.compose.foundation.HoverableKt$hoverable$2$invoke$emitEnter$1
             if (r0 == 0) goto L14
@@ -176,7 +177,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
             java.lang.Object r4 = r0.L$1
             androidx.compose.foundation.interaction.HoverInteraction$Enter r4 = (androidx.compose.foundation.interaction.HoverInteraction.Enter) r4
             java.lang.Object r5 = r0.L$0
-            androidx.compose.runtime.MutableState r5 = (androidx.compose.runtime.MutableState) r5
+            androidx.compose.runtime.MutableState r5 = (androidx.compose.runtime.SnapshotState) r5
             kotlin.ResultKt.throwOnFailure(r6)
             goto L59
         L32:
@@ -216,7 +217,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object invoke$emitExit(androidx.compose.runtime.MutableState<androidx.compose.foundation.interaction.HoverInteraction.Enter> r4, androidx.compose.foundation.interaction.MutableInteractionSource r5, kotlin.coroutines.Continuation<? super kotlin.Unit> r6) {
+    public static final java.lang.Object invoke$emitExit(androidx.compose.runtime.SnapshotState<androidx.compose.foundation.interaction.HoverInteraction.Enter> r4, androidx.compose.foundation.interaction.MutableInteractionSource r5, kotlin.coroutines.Continuation<? super kotlin.Unit> r6) {
         /*
             boolean r0 = r6 instanceof androidx.compose.foundation.HoverableKt$hoverable$2$invoke$emitExit$1
             if (r0 == 0) goto L14
@@ -241,7 +242,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
             if (r2 == 0) goto L36
             if (r2 != r3) goto L2e
             java.lang.Object r4 = r0.L$0
-            androidx.compose.runtime.MutableState r4 = (androidx.compose.runtime.MutableState) r4
+            androidx.compose.runtime.MutableState r4 = (androidx.compose.runtime.SnapshotState) r4
             kotlin.ResultKt.throwOnFailure(r6)
             goto L51
         L2e:
@@ -272,108 +273,108 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$tryEmitExit(MutableState<HoverInteraction.Enter> mutableState, MutableInteractionSource mutableInteractionSource) {
-        HoverInteraction.Enter invoke$lambda$1 = invoke$lambda$1(mutableState);
+    public static final void invoke$tryEmitExit(SnapshotState<HoverInteraction.Enter> snapshotState, MutableInteractionSource mutableInteractionSource) {
+        HoverInteraction.Enter invoke$lambda$1 = invoke$lambda$1(snapshotState);
         if (invoke$lambda$1 != null) {
             mutableInteractionSource.tryEmit(new HoverInteraction.Exit(invoke$lambda$1));
-            mutableState.setValue(null);
+            snapshotState.setValue(null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Hoverable.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.HoverableKt$hoverable$2$3", f = "Hoverable.kt", i = {}, l = {102}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.HoverableKt$hoverable$2$3", m30f = "Hoverable.kt", m29i = {}, m28l = {102}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass3 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
-        final /* synthetic */ MutableState<HoverInteraction.Enter> $hoverInteraction$delegate;
+    public static final class C01903 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
+        final /* synthetic */ SnapshotState<HoverInteraction.Enter> $hoverInteraction$delegate;
         final /* synthetic */ MutableInteractionSource $interactionSource;
         final /* synthetic */ CoroutineScope $scope;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass3(CoroutineScope coroutineScope, MutableInteractionSource mutableInteractionSource, MutableState<HoverInteraction.Enter> mutableState, Continuation<? super AnonymousClass3> continuation) {
+        C01903(CoroutineScope coroutineScope, MutableInteractionSource mutableInteractionSource, SnapshotState<HoverInteraction.Enter> snapshotState, Continuation<? super C01903> continuation) {
             super(2, continuation);
             this.$scope = coroutineScope;
             this.$interactionSource = mutableInteractionSource;
-            this.$hoverInteraction$delegate = mutableState;
+            this.$hoverInteraction$delegate = snapshotState;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass3 anonymousClass3 = new AnonymousClass3(this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, continuation);
-            anonymousClass3.L$0 = obj;
-            return anonymousClass3;
+            C01903 c01903 = new C01903(this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, continuation);
+            c01903.L$0 = obj;
+            return c01903;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(PointerInputScope pointerInputScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass3) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C01903) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: Hoverable.kt */
-        @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1", f = "Hoverable.kt", i = {0}, l = {104}, m = "invokeSuspend", n = {"$this$awaitPointerEventScope"}, s = {"L$0"})
-        /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1  reason: invalid class name */
+        @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1", m30f = "Hoverable.kt", m29i = {0}, m28l = {104}, m27m = "invokeSuspend", m26n = {"$this$awaitPointerEventScope"}, m25s = {"L$0"})
+        /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1 */
         /* loaded from: classes.dex */
-        public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+        public static final class C01911 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ CoroutineContext $currentContext;
-            final /* synthetic */ MutableState<HoverInteraction.Enter> $hoverInteraction$delegate;
+            final /* synthetic */ SnapshotState<HoverInteraction.Enter> $hoverInteraction$delegate;
             final /* synthetic */ MutableInteractionSource $interactionSource;
             final /* synthetic */ CoroutineScope $scope;
             private /* synthetic */ Object L$0;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            AnonymousClass1(CoroutineContext coroutineContext, CoroutineScope coroutineScope, MutableInteractionSource mutableInteractionSource, MutableState<HoverInteraction.Enter> mutableState, Continuation<? super AnonymousClass1> continuation) {
+            C01911(CoroutineContext coroutineContext, CoroutineScope coroutineScope, MutableInteractionSource mutableInteractionSource, SnapshotState<HoverInteraction.Enter> snapshotState, Continuation<? super C01911> continuation) {
                 super(2, continuation);
                 this.$currentContext = coroutineContext;
                 this.$scope = coroutineScope;
                 this.$interactionSource = mutableInteractionSource;
-                this.$hoverInteraction$delegate = mutableState;
+                this.$hoverInteraction$delegate = snapshotState;
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$currentContext, this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, continuation);
-                anonymousClass1.L$0 = obj;
-                return anonymousClass1;
+                C01911 c01911 = new C01911(this.$currentContext, this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, continuation);
+                c01911.L$0 = obj;
+                return c01911;
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-                return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C01911) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Hoverable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1$1", f = "Hoverable.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_textAppearancePopupMenuHeader}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1$1  reason: invalid class name and collision with other inner class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1$1", m30f = "Hoverable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_textAppearancePopupMenuHeader}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1$1 */
             /* loaded from: classes.dex */
-            public static final class C00021 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-                final /* synthetic */ MutableState<HoverInteraction.Enter> $hoverInteraction$delegate;
+            public static final class C01921 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                final /* synthetic */ SnapshotState<HoverInteraction.Enter> $hoverInteraction$delegate;
                 final /* synthetic */ MutableInteractionSource $interactionSource;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                C00021(MutableInteractionSource mutableInteractionSource, MutableState<HoverInteraction.Enter> mutableState, Continuation<? super C00021> continuation) {
+                C01921(MutableInteractionSource mutableInteractionSource, SnapshotState<HoverInteraction.Enter> snapshotState, Continuation<? super C01921> continuation) {
                     super(2, continuation);
                     this.$interactionSource = mutableInteractionSource;
-                    this.$hoverInteraction$delegate = mutableState;
+                    this.$hoverInteraction$delegate = snapshotState;
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new C00021(this.$interactionSource, this.$hoverInteraction$delegate, continuation);
+                    return new C01921(this.$interactionSource, this.$hoverInteraction$delegate, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((C00021) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C01921) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -397,30 +398,30 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Hoverable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1$2", f = "Hoverable.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_textAppearanceSearchResultSubtitle}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1$2  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.HoverableKt$hoverable$2$3$1$2", m30f = "Hoverable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_textAppearanceSearchResultSubtitle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.foundation.HoverableKt$hoverable$2$3$1$2 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-                final /* synthetic */ MutableState<HoverInteraction.Enter> $hoverInteraction$delegate;
+            public static final class C01932 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                final /* synthetic */ SnapshotState<HoverInteraction.Enter> $hoverInteraction$delegate;
                 final /* synthetic */ MutableInteractionSource $interactionSource;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass2(MutableState<HoverInteraction.Enter> mutableState, MutableInteractionSource mutableInteractionSource, Continuation<? super AnonymousClass2> continuation) {
+                C01932(SnapshotState<HoverInteraction.Enter> snapshotState, MutableInteractionSource mutableInteractionSource, Continuation<? super C01932> continuation) {
                     super(2, continuation);
-                    this.$hoverInteraction$delegate = mutableState;
+                    this.$hoverInteraction$delegate = snapshotState;
                     this.$interactionSource = mutableInteractionSource;
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass2(this.$hoverInteraction$delegate, this.$interactionSource, continuation);
+                    return new C01932(this.$hoverInteraction$delegate, this.$interactionSource, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C01932) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -462,7 +463,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                     if (r1 == 0) goto L1f
                     if (r1 != r2) goto L17
                     java.lang.Object r1 = r13.L$0
-                    androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+                    androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
                     kotlin.ResultKt.throwOnFailure(r14)
                     r4 = r1
                     r1 = r0
@@ -476,7 +477,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                 L1f:
                     kotlin.ResultKt.throwOnFailure(r14)
                     java.lang.Object r14 = r13.L$0
-                    androidx.compose.ui.input.pointer.AwaitPointerEventScope r14 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r14
+                    androidx.compose.ui.input.pointer.AwaitPointerEventScope r14 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r14
                     r1 = r14
                     r14 = r13
                 L28:
@@ -487,7 +488,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                     kotlin.coroutines.Continuation r4 = (kotlin.coroutines.Continuation) r4
                     r14.L$0 = r1
                     r14.label = r2
-                    java.lang.Object r4 = androidx.compose.ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r1, r3, r4, r2, r3)
+                    java.lang.Object r4 = androidx.compose.p002ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r1, r3, r4, r2, r3)
                     if (r4 != r0) goto L3e
                     return r0
                 L3e:
@@ -497,11 +498,11 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                     r4 = r1
                     r1 = r12
                 L43:
-                    androidx.compose.ui.input.pointer.PointerEvent r14 = (androidx.compose.ui.input.pointer.PointerEvent) r14
-                    int r14 = r14.m3902getType7fucELk()
-                    androidx.compose.ui.input.pointer.PointerEventType$Companion r5 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-                    int r5 = r5.m3913getEnter7fucELk()
-                    boolean r5 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r14, r5)
+                    androidx.compose.ui.input.pointer.PointerEvent r14 = (androidx.compose.p002ui.input.pointer.PointerEvent) r14
+                    int r14 = r14.m4203getType7fucELk()
+                    androidx.compose.ui.input.pointer.PointerEventType$Companion r5 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+                    int r5 = r5.m4214getEnter7fucELk()
+                    boolean r5 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r14, r5)
                     if (r5 == 0) goto L6b
                     kotlinx.coroutines.CoroutineScope r6 = r0.$scope
                     r7 = 0
@@ -517,9 +518,9 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                     kotlinx.coroutines.BuildersKt.launch$default(r6, r7, r8, r9, r10, r11)
                     goto L8c
                 L6b:
-                    androidx.compose.ui.input.pointer.PointerEventType$Companion r5 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-                    int r5 = r5.m3914getExit7fucELk()
-                    boolean r14 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r14, r5)
+                    androidx.compose.ui.input.pointer.PointerEventType$Companion r5 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+                    int r5 = r5.m4215getExit7fucELk()
+                    boolean r14 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r14, r5)
                     if (r14 == 0) goto L8c
                     kotlinx.coroutines.CoroutineScope r5 = r0.$scope
                     r6 = 0
@@ -542,7 +543,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
                     kotlin.Unit r14 = kotlin.Unit.INSTANCE
                     return r14
                 */
-                throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.HoverableKt$hoverable$2.AnonymousClass3.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+                throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.HoverableKt$hoverable$2.C01903.C01911.invokeSuspend(java.lang.Object):java.lang.Object");
             }
         }
 
@@ -553,7 +554,7 @@ public final class HoverableKt$hoverable$2 extends Lambda implements Function3<M
             if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 this.label = 1;
-                if (((PointerInputScope) this.L$0).awaitPointerEventScope(new AnonymousClass1(getContext(), this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, null), this) == coroutine_suspended) {
+                if (((PointerInputScope) this.L$0).awaitPointerEventScope(new C01911(getContext(), this.$scope, this.$interactionSource, this.$hoverInteraction$delegate, null), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i != 1) {

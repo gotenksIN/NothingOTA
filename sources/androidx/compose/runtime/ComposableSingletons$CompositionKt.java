@@ -6,13 +6,13 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: Composition.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ComposableSingletons$CompositionKt {
     public static final ComposableSingletons$CompositionKt INSTANCE = new ComposableSingletons$CompositionKt();
 
     /* renamed from: lambda-1  reason: not valid java name */
-    public static Function2<Composer, Integer, Unit> f38lambda1 = ComposableLambdaKt.composableLambdaInstance(954879418, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.runtime.ComposableSingletons$CompositionKt$lambda-1$1
+    public static Function2<Composer, Integer, Unit> f354lambda1 = ComposableLambdaKt.composableLambdaInstance(954879418, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.runtime.ComposableSingletons$CompositionKt$lambda-1$1
         @Override // kotlin.jvm.functions.Function2
         public /* bridge */ /* synthetic */ Unit invoke(Composer composer, Integer num) {
             invoke(composer, num.intValue());
@@ -35,7 +35,7 @@ public final class ComposableSingletons$CompositionKt {
     });
 
     /* renamed from: lambda-2  reason: not valid java name */
-    public static Function2<Composer, Integer, Unit> f39lambda2 = ComposableLambdaKt.composableLambdaInstance(1918065384, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.runtime.ComposableSingletons$CompositionKt$lambda-2$1
+    public static Function2<Composer, Integer, Unit> f355lambda2 = ComposableLambdaKt.composableLambdaInstance(1918065384, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.runtime.ComposableSingletons$CompositionKt$lambda-2$1
         @Override // kotlin.jvm.functions.Function2
         public /* bridge */ /* synthetic */ Unit invoke(Composer composer, Integer num) {
             invoke(composer, num.intValue());
@@ -58,12 +58,12 @@ public final class ComposableSingletons$CompositionKt {
     });
 
     /* renamed from: getLambda-1$runtime_release  reason: not valid java name */
-    public final Function2<Composer, Integer, Unit> m2170getLambda1$runtime_release() {
-        return f38lambda1;
+    public final Function2<Composer, Integer, Unit> m2471getLambda1$runtime_release() {
+        return f354lambda1;
     }
 
     /* renamed from: getLambda-2$runtime_release  reason: not valid java name */
-    public final Function2<Composer, Integer, Unit> m2171getLambda2$runtime_release() {
-        return f39lambda2;
+    public final Function2<Composer, Integer, Unit> m2472getLambda2$runtime_release() {
+        return f355lambda2;
     }
 }

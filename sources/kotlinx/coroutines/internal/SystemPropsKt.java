@@ -2,11 +2,11 @@ package kotlinx.coroutines.internal;
 
 import kotlin.Metadata;
 
-@Metadata(d1 = {"kotlinx/coroutines/internal/SystemPropsKt__SystemPropsKt", "kotlinx/coroutines/internal/SystemPropsKt__SystemProps_commonKt"}, k = 4, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"kotlinx/coroutines/internal/SystemPropsKt__SystemPropsKt", "kotlinx/coroutines/internal/SystemPropsKt__SystemProps_commonKt"}, m39k = 4, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class SystemPropsKt {
     public static final int getAVAILABLE_PROCESSORS() {
-        return SystemPropsKt__SystemPropsKt.getAVAILABLE_PROCESSORS();
+        return SystemProps.getAVAILABLE_PROCESSORS();
     }
 
     public static final int systemProp(String str, int i, int i2, int i3) {
@@ -18,7 +18,7 @@ public final class SystemPropsKt {
     }
 
     public static final String systemProp(String str) {
-        return SystemPropsKt__SystemPropsKt.systemProp(str);
+        return SystemProps.systemProp(str);
     }
 
     public static final boolean systemProp(String str, boolean z) {

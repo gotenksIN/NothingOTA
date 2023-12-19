@@ -12,8 +12,8 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: SwipeableV2.kt */
-@Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@"}, d2 = {"<anonymous>", "", "T"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableV2State$swipeDraggableState$1$drag$2", f = "SwipeableV2.kt", i = {}, l = {188}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "T"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableV2State$swipeDraggableState$1$drag$2", m30f = "SwipeableV2.kt", m29i = {}, m28l = {188}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SwipeableV2State$swipeDraggableState$1$drag$2 extends SuspendLambda implements Function1<Continuation<? super Unit>, Object> {
     final /* synthetic */ Function2<DragScope, Continuation<? super Unit>, Object> $block;

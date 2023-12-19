@@ -1,5 +1,6 @@
 package androidx.compose.runtime;
 
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -14,8 +15,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Recomposer.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2", f = "Recomposer.kt", i = {0}, l = {androidx.appcompat.R.styleable.AppCompatTheme_editTextBackground, androidx.appcompat.R.styleable.AppCompatTheme_editTextStyle}, m = "invokeSuspend", n = {"recomposer"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2", m30f = "Recomposer.kt", m29i = {0}, m28l = {C0032R.styleable.AppCompatTheme_editTextBackground, C0032R.styleable.AppCompatTheme_editTextStyle}, m27m = "invokeSuspend", m26n = {"recomposer"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 final class RecomposerKt$withRunningRecomposer$2<R> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super R>, Object> {
     final /* synthetic */ Function3<CoroutineScope, Recomposer, Continuation<? super R>, Object> $block;
@@ -55,7 +56,7 @@ final class RecomposerKt$withRunningRecomposer$2<R> extends SuspendLambda implem
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
             recomposer = new Recomposer(coroutineScope.getCoroutineContext());
-            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(recomposer, null), 3, null);
+            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C06751(recomposer, null), 3, null);
             Function3<CoroutineScope, Recomposer, Continuation<? super R>, Object> function3 = this.$block;
             this.L$0 = recomposer;
             this.label = 1;
@@ -82,28 +83,28 @@ final class RecomposerKt$withRunningRecomposer$2<R> extends SuspendLambda implem
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Recomposer.kt */
-    @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2$1", f = "Recomposer.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_dropdownListPreferredItemHeight}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2$1", m30f = "Recomposer.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_dropdownListPreferredItemHeight}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.runtime.RecomposerKt$withRunningRecomposer$2$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C06751 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ Recomposer $recomposer;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(Recomposer recomposer, Continuation<? super AnonymousClass1> continuation) {
+        C06751(Recomposer recomposer, Continuation<? super C06751> continuation) {
             super(2, continuation);
             this.$recomposer = recomposer;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$recomposer, continuation);
+            return new C06751(this.$recomposer, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06751) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

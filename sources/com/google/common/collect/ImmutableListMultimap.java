@@ -62,24 +62,28 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         return replaceValues((ImmutableListMultimap<K, V>) obj, iterable);
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of() {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m198of() {
         return EmptyImmutableListMultimap.INSTANCE;
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v) {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m197of(K k, V v) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         return builder.build();
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2) {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m196of(K k, V v, K k2, V v2) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
         return builder.build();
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m195of(K k, V v, K k2, V v2, K k3, V v3) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -87,7 +91,8 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         return builder.build();
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m194of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -96,7 +101,8 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
         return builder.build();
     }
 
-    public static <K, V> ImmutableListMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    /* renamed from: of */
+    public static <K, V> ImmutableListMultimap<K, V> m193of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -193,7 +199,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
 
     public static <K, V> ImmutableListMultimap<K, V> copyOf(Multimap<? extends K, ? extends V> multimap) {
         if (multimap.isEmpty()) {
-            return of();
+            return m198of();
         }
         if (multimap instanceof ImmutableListMultimap) {
             ImmutableListMultimap<K, V> immutableListMultimap = (ImmutableListMultimap) multimap;
@@ -212,7 +218,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
     public static <K, V> ImmutableListMultimap<K, V> fromMapEntries(Collection<? extends Map.Entry<? extends K, ? extends Collection<? extends V>>> collection, Comparator<? super V> comparator) {
         ImmutableList sortedCopyOf;
         if (collection.isEmpty()) {
-            return of();
+            return m198of();
         }
         ImmutableMap.Builder builder = new ImmutableMap.Builder(collection.size());
         int i = 0;
@@ -240,7 +246,7 @@ public class ImmutableListMultimap<K, V> extends ImmutableMultimap<K, V> impleme
     @Override // com.google.common.collect.ImmutableMultimap, com.google.common.collect.Multimap, com.google.common.collect.ListMultimap
     public ImmutableList<V> get(K k) {
         ImmutableList<V> immutableList = (ImmutableList) this.map.get(k);
-        return immutableList == null ? ImmutableList.of() : immutableList;
+        return immutableList == null ? ImmutableList.m211of() : immutableList;
     }
 
     @Override // com.google.common.collect.ImmutableMultimap

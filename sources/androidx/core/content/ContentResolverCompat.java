@@ -4,7 +4,7 @@ import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.OperationCanceledException;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 
 /* loaded from: classes.dex */
 public final class ContentResolverCompat {
@@ -18,7 +18,7 @@ public final class ContentResolverCompat {
                 cancellationSignalObject = cancellationSignal.getCancellationSignalObject();
             } catch (Exception e) {
                 if (e instanceof OperationCanceledException) {
-                    throw new androidx.core.os.OperationCanceledException();
+                    throw new androidx.core.p004os.OperationCanceledException();
                 }
                 throw e;
             }

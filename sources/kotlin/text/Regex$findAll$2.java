@@ -7,7 +7,7 @@ import kotlin.jvm.internal.Intrinsics;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Regex.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public /* synthetic */ class Regex$findAll$2 extends FunctionReferenceImpl implements Function1<MatchResult, MatchResult> {
     public static final Regex$findAll$2 INSTANCE = new Regex$findAll$2();

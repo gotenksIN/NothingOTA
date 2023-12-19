@@ -13,11 +13,11 @@ import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.channels.ChannelResult;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.internal.ChildCancelledException;
-import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+import kotlinx.coroutines.flow.internal.NullSurrogate;
 
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "result", "Lkotlinx/coroutines/channels/ChannelResult;", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$1$1", f = "Delay.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "result", "Lkotlinx/coroutines/channels/ChannelResult;", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$1$1", m30f = "Delay.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements Function2<ChannelResult<? extends Object>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Ref.ObjectRef<Object> $lastValue;
@@ -42,12 +42,12 @@ final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements Functi
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(ChannelResult<? extends Object> channelResult, Continuation<? super Unit> continuation) {
-        return m6909invokeWpGqRn0(channelResult.m6897unboximpl(), continuation);
+        return m7185invokeWpGqRn0(channelResult.m7173unboximpl(), continuation);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m6909invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
-        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m6885boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m7185invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$sample$2$1$1) create(ChannelResult.m7161boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Type inference failed for: r4v4, types: [T, java.lang.Object] */
@@ -57,21 +57,21 @@ final class FlowKt__DelayKt$sample$2$1$1 extends SuspendLambda implements Functi
         IntrinsicsKt.getCOROUTINE_SUSPENDED();
         if (this.label == 0) {
             ResultKt.throwOnFailure(obj);
-            ?? m6897unboximpl = ((ChannelResult) this.L$0).m6897unboximpl();
+            ?? m7173unboximpl = ((ChannelResult) this.L$0).m7173unboximpl();
             Ref.ObjectRef<Object> objectRef = this.$lastValue;
-            boolean z = m6897unboximpl instanceof ChannelResult.Failed;
+            boolean z = m7173unboximpl instanceof ChannelResult.Failed;
             if (!z) {
-                objectRef.element = m6897unboximpl;
+                objectRef.element = m7173unboximpl;
             }
             ReceiveChannel<Unit> receiveChannel = this.$ticker;
             Ref.ObjectRef<Object> objectRef2 = this.$lastValue;
             if (z) {
-                Throwable m6889exceptionOrNullimpl = ChannelResult.m6889exceptionOrNullimpl(m6897unboximpl);
-                if (m6889exceptionOrNullimpl != null) {
-                    throw m6889exceptionOrNullimpl;
+                Throwable m7165exceptionOrNullimpl = ChannelResult.m7165exceptionOrNullimpl(m7173unboximpl);
+                if (m7165exceptionOrNullimpl != null) {
+                    throw m7165exceptionOrNullimpl;
                 }
                 receiveChannel.cancel((CancellationException) new ChildCancelledException());
-                objectRef2.element = NullSurrogateKt.DONE;
+                objectRef2.element = NullSurrogate.DONE;
             }
             return Unit.INSTANCE;
         }

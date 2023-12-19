@@ -1,7 +1,7 @@
 package androidx.compose.foundation.gestures;
 
 import androidx.compose.animation.core.AnimationSpec;
-import androidx.compose.animation.core.SuspendAnimationKt;
+import androidx.compose.animation.core.SuspendAnimation;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -14,8 +14,8 @@ import kotlin.jvm.internal.Ref;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ScrollExtensions.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/ScrollScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollExtensionsKt$animateScrollBy$2", f = "ScrollExtensions.kt", i = {}, l = {41}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/ScrollScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollExtensionsKt$animateScrollBy$2", m30f = "ScrollExtensions.kt", m29i = {}, m28l = {41}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class ScrollExtensionsKt$animateScrollBy$2 extends SuspendLambda implements Function2<ScrollScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ AnimationSpec<Float> $animationSpec;
@@ -56,7 +56,7 @@ public final class ScrollExtensionsKt$animateScrollBy$2 extends SuspendLambda im
             AnimationSpec<Float> animationSpec = this.$animationSpec;
             final Ref.FloatRef floatRef = this.$previousValue;
             this.label = 1;
-            if (SuspendAnimationKt.animate$default(0.0f, f, 0.0f, animationSpec, new Function2<Float, Float, Unit>() { // from class: androidx.compose.foundation.gestures.ScrollExtensionsKt$animateScrollBy$2.1
+            if (SuspendAnimation.animate$default(0.0f, f, 0.0f, animationSpec, new Function2<Float, Float, Unit>() { // from class: androidx.compose.foundation.gestures.ScrollExtensionsKt$animateScrollBy$2.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(2);

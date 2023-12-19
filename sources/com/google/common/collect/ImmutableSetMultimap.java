@@ -70,24 +70,28 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of() {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m157of() {
         return EmptyImmutableSetMultimap.INSTANCE;
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m156of(K k, V v) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         return builder.build();
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m155of(K k, V v, K k2, V v2) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
         return builder.build();
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m154of(K k, V v, K k2, V v2, K k3, V v3) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -95,7 +99,8 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return builder.build();
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m153of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -104,7 +109,8 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return builder.build();
     }
 
-    public static <K, V> ImmutableSetMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSetMultimap<K, V> m152of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         Builder builder = builder();
         builder.put((Builder) k, (K) v);
         builder.put((Builder) k2, (K) v2);
@@ -216,7 +222,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     private static <K, V> ImmutableSetMultimap<K, V> copyOf(Multimap<? extends K, ? extends V> multimap, @CheckForNull Comparator<? super V> comparator) {
         Preconditions.checkNotNull(multimap);
         if (multimap.isEmpty() && comparator == null) {
-            return of();
+            return m157of();
         }
         if (multimap instanceof ImmutableSetMultimap) {
             ImmutableSetMultimap<K, V> immutableSetMultimap = (ImmutableSetMultimap) multimap;
@@ -233,7 +239,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     static <K, V> ImmutableSetMultimap<K, V> fromMapEntries(Collection<? extends Map.Entry<? extends K, ? extends Collection<? extends V>>> collection, @CheckForNull Comparator<? super V> comparator) {
         if (collection.isEmpty()) {
-            return of();
+            return m157of();
         }
         ImmutableMap.Builder builder = new ImmutableMap.Builder(collection.size());
         int i = 0;
@@ -350,7 +356,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     private static <V> ImmutableSet<V> emptySet(@CheckForNull Comparator<? super V> comparator) {
         if (comparator == null) {
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
         return ImmutableSortedSet.emptySet(comparator);
     }

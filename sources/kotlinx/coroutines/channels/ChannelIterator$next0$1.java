@@ -8,8 +8,8 @@ import kotlinx.coroutines.channels.ChannelIterator;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Channel.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelIterator$DefaultImpls", f = "Channel.kt", i = {0}, l = {584}, m = "next", n = {"this"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelIterator$DefaultImpls", m30f = "Channel.kt", m29i = {0}, m28l = {584}, m27m = "next", m26n = {"this"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class ChannelIterator$next0$1<E> extends ContinuationImpl {
     Object L$0;

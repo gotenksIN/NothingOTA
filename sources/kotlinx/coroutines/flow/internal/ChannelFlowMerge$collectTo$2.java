@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow.internal;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -18,7 +18,7 @@ import kotlinx.coroutines.sync.Semaphore;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Merge.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "inner", "Lkotlinx/coroutines/flow/Flow;", "emit", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, m40d2 = {"<anonymous>", "", "T", "inner", "Lkotlinx/coroutines/flow/Flow;", "emit", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class ChannelFlowMerge$collectTo$2<T> implements FlowCollector {
     final /* synthetic */ SendingCollector<T> $collector;
@@ -121,11 +121,11 @@ public final class ChannelFlowMerge$collectTo$2<T> implements FlowCollector {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Merge.kt */
-    @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2$1", f = "Merge.kt", i = {}, l = {R.styleable.AppCompatTheme_editTextColor}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2$1", m30f = "Merge.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_editTextColor}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C17811 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ SendingCollector<T> $collector;
         final /* synthetic */ Flow<T> $inner;
         final /* synthetic */ Semaphore $semaphore;
@@ -133,7 +133,7 @@ public final class ChannelFlowMerge$collectTo$2<T> implements FlowCollector {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(Flow<? extends T> flow, SendingCollector<T> sendingCollector, Semaphore semaphore, Continuation<? super AnonymousClass1> continuation) {
+        C17811(Flow<? extends T> flow, SendingCollector<T> sendingCollector, Semaphore semaphore, Continuation<? super C17811> continuation) {
             super(2, continuation);
             this.$inner = flow;
             this.$collector = sendingCollector;
@@ -142,12 +142,12 @@ public final class ChannelFlowMerge$collectTo$2<T> implements FlowCollector {
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$inner, this.$collector, this.$semaphore, continuation);
+            return new C17811(this.$inner, this.$collector, this.$semaphore, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C17811) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

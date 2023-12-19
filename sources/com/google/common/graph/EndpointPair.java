@@ -39,12 +39,14 @@ public abstract class EndpointPair<N> implements Iterable<N> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N> EndpointPair<N> of(Graph<?> graph, N n, N n2) {
+    /* renamed from: of */
+    public static <N> EndpointPair<N> m98of(Graph<?> graph, N n, N n2) {
         return graph.isDirected() ? ordered(n, n2) : unordered(n, n2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N> EndpointPair<N> of(Network<?, ?> network, N n, N n2) {
+    /* renamed from: of */
+    public static <N> EndpointPair<N> m97of(Network<?, ?> network, N n, N n2) {
         return network.isDirected() ? ordered(n, n2) : unordered(n, n2);
     }
 

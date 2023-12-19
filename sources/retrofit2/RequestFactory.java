@@ -507,7 +507,7 @@ public final class RequestFactory {
                         throw Utils.parameterError(this.method, i, "@Part annotation must supply a name or use MultipartBody.Part parameter type.", new Object[0]);
                     }
                 }
-                Headers of = Headers.of(HttpHeaders.CONTENT_DISPOSITION, "form-data; name=\"" + value5 + "\"", "Content-Transfer-Encoding", part.encoding());
+                Headers m16of = Headers.m16of(HttpHeaders.CONTENT_DISPOSITION, "form-data; name=\"" + value5 + "\"", "Content-Transfer-Encoding", part.encoding());
                 if (Iterable.class.isAssignableFrom(rawType8)) {
                     if (!(type instanceof ParameterizedType)) {
                         throw Utils.parameterError(this.method, i, rawType8.getSimpleName() + " must include generic type (e.g., " + rawType8.getSimpleName() + "<String>)", new Object[0]);
@@ -516,17 +516,17 @@ public final class RequestFactory {
                     if (MultipartBody.Part.class.isAssignableFrom(Utils.getRawType(parameterUpperBound4))) {
                         throw Utils.parameterError(this.method, i, "@Part parameters using the MultipartBody.Part must not include a part name in the annotation.", new Object[0]);
                     }
-                    return new ParameterHandler.Part(this.method, i, of, this.retrofit.requestBodyConverter(parameterUpperBound4, annotationArr, this.methodAnnotations)).iterable();
+                    return new ParameterHandler.Part(this.method, i, m16of, this.retrofit.requestBodyConverter(parameterUpperBound4, annotationArr, this.methodAnnotations)).iterable();
                 } else if (rawType8.isArray()) {
                     Class<?> boxIfPrimitive = boxIfPrimitive(rawType8.getComponentType());
                     if (MultipartBody.Part.class.isAssignableFrom(boxIfPrimitive)) {
                         throw Utils.parameterError(this.method, i, "@Part parameters using the MultipartBody.Part must not include a part name in the annotation.", new Object[0]);
                     }
-                    return new ParameterHandler.Part(this.method, i, of, this.retrofit.requestBodyConverter(boxIfPrimitive, annotationArr, this.methodAnnotations)).array();
+                    return new ParameterHandler.Part(this.method, i, m16of, this.retrofit.requestBodyConverter(boxIfPrimitive, annotationArr, this.methodAnnotations)).array();
                 } else if (MultipartBody.Part.class.isAssignableFrom(rawType8)) {
                     throw Utils.parameterError(this.method, i, "@Part parameters using the MultipartBody.Part must not include a part name in the annotation.", new Object[0]);
                 } else {
-                    return new ParameterHandler.Part(this.method, i, of, this.retrofit.requestBodyConverter(type, annotationArr, this.methodAnnotations));
+                    return new ParameterHandler.Part(this.method, i, m16of, this.retrofit.requestBodyConverter(type, annotationArr, this.methodAnnotations));
                 }
             } else if (annotation instanceof PartMap) {
                 validateResolvableType(i, type);

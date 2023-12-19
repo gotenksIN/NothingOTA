@@ -1,5 +1,6 @@
 package androidx.compose.runtime;
 
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -19,10 +20,10 @@ import kotlinx.coroutines.flow.FlowCollector;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: SnapshotFlow.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u0002H\u0003\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Landroidx/compose/runtime/ProduceStateScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1", f = "SnapshotFlow.kt", i = {}, l = {64, androidx.appcompat.R.styleable.AppCompatTheme_dividerVertical}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u0002H\u0003\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Landroidx/compose/runtime/ProduceStateScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1", m30f = "SnapshotFlow.kt", m29i = {}, m28l = {64, C0032R.styleable.AppCompatTheme_dividerVertical}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
-public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends SuspendLambda implements Function2<ProduceStateScope<R>, Continuation<? super Unit>, Object> {
+public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends SuspendLambda implements Function2<ProduceState<R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ CoroutineContext $context;
     final /* synthetic */ Flow<T> $this_collectAsState;
     private /* synthetic */ Object L$0;
@@ -44,42 +45,42 @@ public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends S
         return snapshotStateKt__SnapshotFlowKt$collectAsState$1;
     }
 
-    public final Object invoke(ProduceStateScope<R> produceStateScope, Continuation<? super Unit> continuation) {
-        return ((SnapshotStateKt__SnapshotFlowKt$collectAsState$1) create(produceStateScope, continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object invoke(ProduceState<R> produceState, Continuation<? super Unit> continuation) {
+        return ((SnapshotStateKt__SnapshotFlowKt$collectAsState$1) create(produceState, continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(Object obj, Continuation<? super Unit> continuation) {
-        return invoke((ProduceStateScope) ((ProduceStateScope) obj), continuation);
+        return invoke((ProduceState) ((ProduceState) obj), continuation);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: SnapshotFlow.kt */
-    @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u0002H\u0003\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1$2", f = "SnapshotFlow.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_dropDownListViewStyle}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1$2  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\b\b\u0000\u0010\u0002*\u0002H\u0003\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1$2", m30f = "SnapshotFlow.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_dropDownListViewStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1$2 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-        final /* synthetic */ ProduceStateScope<R> $$this$produceState;
+    public static final class C06772 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        final /* synthetic */ ProduceState<R> $$this$produceState;
         final /* synthetic */ Flow<T> $this_collectAsState;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass2(Flow<? extends T> flow, ProduceStateScope<R> produceStateScope, Continuation<? super AnonymousClass2> continuation) {
+        C06772(Flow<? extends T> flow, ProduceState<R> produceState, Continuation<? super C06772> continuation) {
             super(2, continuation);
             this.$this_collectAsState = flow;
-            this.$$this$produceState = produceStateScope;
+            this.$$this$produceState = produceState;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass2(this.$this_collectAsState, this.$$this$produceState, continuation);
+            return new C06772(this.$this_collectAsState, this.$$this$produceState, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06772) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -89,12 +90,12 @@ public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends S
             if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 Flow<T> flow = this.$this_collectAsState;
-                final ProduceStateScope<R> produceStateScope = this.$$this$produceState;
+                final ProduceState<R> produceState = this.$$this$produceState;
                 this.label = 1;
                 if (flow.collect(new FlowCollector<T>() { // from class: androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt.collectAsState.1.2.1
                     @Override // kotlinx.coroutines.flow.FlowCollector
                     public final Object emit(T t, Continuation<? super Unit> continuation) {
-                        produceStateScope.setValue(t);
+                        produceState.setValue(t);
                         return Unit.INSTANCE;
                     }
                 }, this) == coroutine_suspended) {
@@ -115,13 +116,13 @@ public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends S
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            final ProduceStateScope produceStateScope = (ProduceStateScope) this.L$0;
+            final ProduceState produceState = (ProduceState) this.L$0;
             if (Intrinsics.areEqual(this.$context, EmptyCoroutineContext.INSTANCE)) {
                 this.label = 1;
                 if (this.$this_collectAsState.collect(new FlowCollector<T>() { // from class: androidx.compose.runtime.SnapshotStateKt__SnapshotFlowKt$collectAsState$1.1
                     @Override // kotlinx.coroutines.flow.FlowCollector
                     public final Object emit(T t, Continuation<? super Unit> continuation) {
-                        produceStateScope.setValue(t);
+                        produceState.setValue(t);
                         return Unit.INSTANCE;
                     }
                 }, this) == coroutine_suspended) {
@@ -129,7 +130,7 @@ public final class SnapshotStateKt__SnapshotFlowKt$collectAsState$1<R> extends S
                 }
             } else {
                 this.label = 2;
-                if (BuildersKt.withContext(this.$context, new AnonymousClass2(this.$this_collectAsState, produceStateScope, null), this) == coroutine_suspended) {
+                if (BuildersKt.withContext(this.$context, new C06772(this.$this_collectAsState, produceState, null), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             }

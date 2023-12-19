@@ -13,9 +13,8 @@ import javax.annotation.Nullable;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public class Platform {
+class Platform {
     private static final Platform PLATFORM = findPlatform();
     private final boolean hasJava8Types;
     @Nullable

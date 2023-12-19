@@ -95,6 +95,8 @@
     <string name="expanded">Expanded</string>
     <string name="fetch_ota_update_information_error_default">Fail to fetch update info</string>
     <string name="fetch_ota_update_information_error_encrypt">Fail to encrypt build info</string>
+    <string name="fetch_ota_update_information_too_old_dialog_message">Please update your system to newest stable version first before you update to the beta version. You could go to Settings - System - System update to check new versions.</string>
+    <string name="fetch_ota_update_information_too_old_dialog_title">Please update your system</string>
     <string name="finish_update_info">To finish the update press the button below</string>
     <string name="header_category_system">System</string>
     <string name="in_progress">In progress</string>

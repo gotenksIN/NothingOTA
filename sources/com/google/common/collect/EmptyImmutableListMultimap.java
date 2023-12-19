@@ -8,7 +8,7 @@ public class EmptyImmutableListMultimap extends ImmutableListMultimap<Object, Ob
     private static final long serialVersionUID = 0;
 
     private EmptyImmutableListMultimap() {
-        super(ImmutableMap.of(), 0);
+        super(ImmutableMap.m192of(), 0);
     }
 
     private Object readResolve() {

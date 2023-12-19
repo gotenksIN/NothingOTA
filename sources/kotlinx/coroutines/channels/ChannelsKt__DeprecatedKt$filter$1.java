@@ -10,8 +10,8 @@ import kotlin.jvm.functions.Function2;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [E] */
 /* compiled from: Deprecated.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt$filter$1", f = "Deprecated.kt", i = {0, 1, 1, 2}, l = {198, 199, 199}, m = "invokeSuspend", n = {"$this$produce", "$this$produce", "e", "$this$produce"}, s = {"L$0", "L$0", "L$2", "L$0"})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt$filter$1", m30f = "Deprecated.kt", m29i = {0, 1, 1, 2}, m28l = {198, 199, 199}, m27m = "invokeSuspend", m26n = {"$this$produce", "$this$produce", "e", "$this$produce"}, m25s = {"L$0", "L$0", "L$2", "L$0"})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$filter$1<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function2<E, Continuation<? super Boolean>, Object> $predicate;

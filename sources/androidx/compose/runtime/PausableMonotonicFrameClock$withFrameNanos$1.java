@@ -1,5 +1,6 @@
 package androidx.compose.runtime;
 
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -7,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: PausableMonotonicFrameClock.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.PausableMonotonicFrameClock", f = "PausableMonotonicFrameClock.kt", i = {0, 0}, l = {androidx.appcompat.R.styleable.AppCompatTheme_dialogPreferredPadding, 63}, m = "withFrameNanos", n = {"this", "onFrame"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.PausableMonotonicFrameClock", m30f = "PausableMonotonicFrameClock.kt", m29i = {0, 0}, m28l = {C0032R.styleable.AppCompatTheme_dialogPreferredPadding, 63}, m27m = "withFrameNanos", m26n = {"this", "onFrame"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class PausableMonotonicFrameClock$withFrameNanos$1<R> extends ContinuationImpl {
     Object L$0;

@@ -179,7 +179,7 @@ public class CycleDetectingLockFactory {
     /* loaded from: classes2.dex */
     public static class ExampleStackTrace extends IllegalStateException {
         static final StackTraceElement[] EMPTY_STACK_TRACE = new StackTraceElement[0];
-        static final ImmutableSet<String> EXCLUDED_CLASS_NAMES = ImmutableSet.of(CycleDetectingLockFactory.class.getName(), ExampleStackTrace.class.getName(), LockGraphNode.class.getName());
+        static final ImmutableSet<String> EXCLUDED_CLASS_NAMES = ImmutableSet.m161of(CycleDetectingLockFactory.class.getName(), ExampleStackTrace.class.getName(), LockGraphNode.class.getName());
 
         /* JADX WARN: Illegal instructions before constructor call */
         /*

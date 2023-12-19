@@ -10,9 +10,8 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.http.Streaming;
 
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public final class BuiltInConverters extends Converter.Factory {
+final class BuiltInConverters extends Converter.Factory {
     private boolean checkForKotlinUnit = true;
 
     @Override // retrofit2.Converter.Factory

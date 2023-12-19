@@ -17,7 +17,9 @@ public final class TopKSelector<T> {
     private final T[] buffer;
     private int bufferSize;
     private final Comparator<? super T> comparator;
-    private final int k;
+
+    /* renamed from: k */
+    private final int f229k;
     @CheckForNull
     private T threshold;
 
@@ -39,7 +41,7 @@ public final class TopKSelector<T> {
 
     private TopKSelector(Comparator<? super T> comparator, int i) {
         this.comparator = (Comparator) Preconditions.checkNotNull(comparator, "comparator");
-        this.k = i;
+        this.f229k = i;
         Preconditions.checkArgument(i >= 0, "k (%s) must be >= 0", i);
         Preconditions.checkArgument(i <= 1073741823, "k (%s) must be <= Integer.MAX_VALUE / 2", i);
         this.buffer = (T[]) new Object[IntMath.checkedMultiply(i, 2)];
@@ -48,7 +50,7 @@ public final class TopKSelector<T> {
     }
 
     public void offer(@ParametricNullness T t) {
-        int i = this.k;
+        int i = this.f229k;
         if (i == 0) {
             return;
         }
@@ -70,14 +72,14 @@ public final class TopKSelector<T> {
             int i4 = i3 + 1;
             this.bufferSize = i4;
             tArr2[i3] = t;
-            if (i4 == this.k * 2) {
+            if (i4 == this.f229k * 2) {
                 trim();
             }
         }
     }
 
     private void trim() {
-        int i = (this.k * 2) - 1;
+        int i = (this.f229k * 2) - 1;
         int log2 = IntMath.log2(i + 0, RoundingMode.CEILING) * 3;
         int i2 = 0;
         int i3 = 0;
@@ -85,7 +87,7 @@ public final class TopKSelector<T> {
         while (true) {
             if (i2 < i) {
                 int partition = partition(i2, i, ((i2 + i) + 1) >>> 1);
-                int i5 = this.k;
+                int i5 = this.f229k;
                 if (partition <= i5) {
                     if (partition >= i5) {
                         break;
@@ -104,11 +106,11 @@ public final class TopKSelector<T> {
                 break;
             }
         }
-        this.bufferSize = this.k;
+        this.bufferSize = this.f229k;
         this.threshold = (T) NullnessCasts.uncheckedCastNullableTToT(this.buffer[i4]);
         while (true) {
             i4++;
-            if (i4 >= this.k) {
+            if (i4 >= this.f229k) {
                 return;
             }
             if (this.comparator.compare((Object) NullnessCasts.uncheckedCastNullableTToT(this.buffer[i4]), (Object) NullnessCasts.uncheckedCastNullableTToT(this.threshold)) > 0) {
@@ -155,11 +157,11 @@ public final class TopKSelector<T> {
     public List<T> topK() {
         Arrays.sort(this.buffer, 0, this.bufferSize, this.comparator);
         int i = this.bufferSize;
-        int i2 = this.k;
+        int i2 = this.f229k;
         if (i > i2) {
             T[] tArr = this.buffer;
             Arrays.fill(tArr, i2, tArr.length, (Object) null);
-            int i3 = this.k;
+            int i3 = this.f229k;
             this.bufferSize = i3;
             this.threshold = this.buffer[i3 - 1];
         }

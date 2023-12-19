@@ -11,32 +11,38 @@ abstract class ImmutableSortedMultisetFauxverideShim<E> extends ImmutableMultise
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m122of(E e) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e, E e2) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m121of(E e, E e2) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e, E e2, E e3) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m120of(E e, E e2, E e3) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e, E e2, E e3, E e4) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m119of(E e, E e2, E e3, E e4) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e, E e2, E e3, E e4, E e5) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m118of(E e, E e2, E e3, E e4, E e5) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedMultiset<E> of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m117of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
         throw new UnsupportedOperationException();
     }
 

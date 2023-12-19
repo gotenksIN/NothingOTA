@@ -12,8 +12,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: AppBar.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.AppBarKt$SingleRowTopAppBar$appBarDragModifier$2$1", f = "AppBar.kt", i = {}, l = {1071}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.AppBarKt$SingleRowTopAppBar$appBarDragModifier$2$1", m30f = "AppBar.kt", m29i = {}, m28l = {1071}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class AppBarKt$SingleRowTopAppBar$appBarDragModifier$2$1 extends SuspendLambda implements Function3<CoroutineScope, Float, Continuation<? super Unit>, Object> {
     final /* synthetic */ TopAppBarScrollBehavior $scrollBehavior;
@@ -47,7 +47,7 @@ public final class AppBarKt$SingleRowTopAppBar$appBarDragModifier$2$1 extends Su
             ResultKt.throwOnFailure(obj);
             float f = this.F$0;
             this.label = 1;
-            obj2 = AppBarKt.settleAppBar(this.$scrollBehavior.getState(), f, this.$scrollBehavior.getFlingAnimationSpec(), this.$scrollBehavior.getSnapAnimationSpec(), this);
+            obj2 = AppBar.settleAppBar(this.$scrollBehavior.getState(), f, this.$scrollBehavior.getFlingAnimationSpec(), this.$scrollBehavior.getSnapAnimationSpec(), this);
             if (obj2 == coroutine_suspended) {
                 return coroutine_suspended;
             }

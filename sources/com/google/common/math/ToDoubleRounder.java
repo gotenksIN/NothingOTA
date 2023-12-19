@@ -24,7 +24,7 @@ abstract class ToDoubleRounder<X extends Number & Comparable<X>> {
         Preconditions.checkNotNull(roundingMode, "mode");
         double roundToDoubleArbitrarily = roundToDoubleArbitrarily(x);
         if (Double.isInfinite(roundToDoubleArbitrarily)) {
-            switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+            switch (C14431.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
@@ -43,7 +43,7 @@ abstract class ToDoubleRounder<X extends Number & Comparable<X>> {
         }
         X x3 = toX(roundToDoubleArbitrarily, RoundingMode.UNNECESSARY);
         int compareTo = ((Comparable) x).compareTo(x3);
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14431.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 return sign(x) >= 0 ? compareTo >= 0 ? roundToDoubleArbitrarily : DoubleUtils.nextDown(roundToDoubleArbitrarily) : compareTo <= 0 ? roundToDoubleArbitrarily : Math.nextUp(roundToDoubleArbitrarily);
             case 2:
@@ -73,7 +73,7 @@ abstract class ToDoubleRounder<X extends Number & Comparable<X>> {
                 if (compareTo2 > 0) {
                     return d;
                 }
-                int i = AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()];
+                int i = C14431.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()];
                 if (i == 2) {
                     return (Double.doubleToRawLongBits(roundToDoubleArbitrarily) & 1) == 0 ? roundToDoubleArbitrarily : d;
                 } else if (i == 3) {
@@ -97,9 +97,9 @@ abstract class ToDoubleRounder<X extends Number & Comparable<X>> {
         }
     }
 
-    /* renamed from: com.google.common.math.ToDoubleRounder$1  reason: invalid class name */
+    /* renamed from: com.google.common.math.ToDoubleRounder$1 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class C14431 {
         static final /* synthetic */ int[] $SwitchMap$java$math$RoundingMode;
 
         static {

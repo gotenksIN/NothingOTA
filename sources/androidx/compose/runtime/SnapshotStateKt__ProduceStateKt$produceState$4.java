@@ -12,22 +12,22 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ProduceState.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.SnapshotStateKt__ProduceStateKt$produceState$4", f = "ProduceState.kt", i = {}, l = {185}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.SnapshotStateKt__ProduceStateKt$produceState$4", m30f = "ProduceState.kt", m29i = {}, m28l = {185}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class SnapshotStateKt__ProduceStateKt$produceState$4 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Function2<ProduceStateScope<T>, Continuation<? super Unit>, Object> $producer;
-    final /* synthetic */ MutableState<T> $result;
+    final /* synthetic */ Function2<ProduceState<T>, Continuation<? super Unit>, Object> $producer;
+    final /* synthetic */ SnapshotState<T> $result;
     private /* synthetic */ Object L$0;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public SnapshotStateKt__ProduceStateKt$produceState$4(Function2<? super ProduceStateScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2, MutableState<T> mutableState, Continuation<? super SnapshotStateKt__ProduceStateKt$produceState$4> continuation) {
+    public SnapshotStateKt__ProduceStateKt$produceState$4(Function2<? super ProduceState<T>, ? super Continuation<? super Unit>, ? extends Object> function2, SnapshotState<T> snapshotState, Continuation<? super SnapshotStateKt__ProduceStateKt$produceState$4> continuation) {
         super(2, continuation);
         this.$producer = function2;
-        this.$result = mutableState;
+        this.$result = snapshotState;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -48,7 +48,7 @@ public final class SnapshotStateKt__ProduceStateKt$produceState$4 extends Suspen
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            Function2<ProduceStateScope<T>, Continuation<? super Unit>, Object> function2 = this.$producer;
+            Function2<ProduceState<T>, Continuation<? super Unit>, Object> function2 = this.$producer;
             ProduceStateScopeImpl produceStateScopeImpl = new ProduceStateScopeImpl(this.$result, ((CoroutineScope) this.L$0).getCoroutineContext());
             this.label = 1;
             if (function2.invoke(produceStateScopeImpl, this) == coroutine_suspended) {

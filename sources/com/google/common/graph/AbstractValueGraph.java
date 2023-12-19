@@ -60,12 +60,12 @@ public abstract class AbstractValueGraph<N, V> extends AbstractBaseGraph<N> impl
         return new AbstractGraph<N>() { // from class: com.google.common.graph.AbstractValueGraph.1
             @Override // com.google.common.graph.BaseGraph, com.google.common.graph.PredecessorsFunction, com.google.common.graph.Graph
             public /* bridge */ /* synthetic */ Iterable predecessors(Object obj) {
-                return predecessors((AnonymousClass1) obj);
+                return predecessors((C13641) obj);
             }
 
             @Override // com.google.common.graph.BaseGraph, com.google.common.graph.SuccessorsFunction, com.google.common.graph.Graph
             public /* bridge */ /* synthetic */ Iterable successors(Object obj) {
-                return successors((AnonymousClass1) obj);
+                return successors((C13641) obj);
             }
 
             @Override // com.google.common.graph.BaseGraph, com.google.common.graph.Graph

@@ -39,8 +39,8 @@ public final class StandardMutableNetwork<N, E> extends StandardNetwork<N, E> im
         boolean z = false;
         if (containsEdge(e)) {
             EndpointPair<N> incidentNodes = incidentNodes(e);
-            EndpointPair of = EndpointPair.of(this, n, n2);
-            Preconditions.checkArgument(incidentNodes.equals(of), "Edge %s already exists between the following nodes: %s, so it cannot be reused to connect the following nodes: %s.", e, incidentNodes, of);
+            EndpointPair m97of = EndpointPair.m97of(this, n, n2);
+            Preconditions.checkArgument(incidentNodes.equals(m97of), "Edge %s already exists between the following nodes: %s, so it cannot be reused to connect the following nodes: %s.", e, incidentNodes, m97of);
             return false;
         }
         NetworkConnections<N, E> networkConnections = this.nodeConnections.get(n);
@@ -111,13 +111,13 @@ public final class StandardMutableNetwork<N, E> extends StandardNetwork<N, E> im
     private NetworkConnections<N, E> newConnections() {
         if (isDirected()) {
             if (allowsParallelEdges()) {
-                return DirectedMultiNetworkConnections.of();
+                return DirectedMultiNetworkConnections.m100of();
             }
-            return DirectedNetworkConnections.of();
+            return DirectedNetworkConnections.m99of();
         } else if (allowsParallelEdges()) {
-            return UndirectedMultiNetworkConnections.of();
+            return UndirectedMultiNetworkConnections.m94of();
         } else {
-            return UndirectedNetworkConnections.of();
+            return UndirectedNetworkConnections.m93of();
         }
     }
 }

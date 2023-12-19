@@ -110,13 +110,13 @@ public final class InputConnectionCompat {
         };
     }
 
-    /* renamed from: androidx.core.view.inputmethod.InputConnectionCompat$2  reason: invalid class name */
+    /* renamed from: androidx.core.view.inputmethod.InputConnectionCompat$2 */
     /* loaded from: classes.dex */
-    class AnonymousClass2 extends InputConnectionWrapper {
+    class C08562 extends InputConnectionWrapper {
         final /* synthetic */ OnCommitContentListener val$listener;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass2(InputConnection inputConnection, boolean z, OnCommitContentListener onCommitContentListener) {
+        C08562(InputConnection inputConnection, boolean z, OnCommitContentListener onCommitContentListener) {
             super(inputConnection, z);
             this.val$listener = onCommitContentListener;
         }

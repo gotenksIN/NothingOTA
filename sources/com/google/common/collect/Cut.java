@@ -299,7 +299,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         Cut<C> withLowerBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+            int i = C11501.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     C previous = discreteDomain.previous(this.endpoint);
@@ -312,7 +312,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         Cut<C> withUpperBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+            int i = C11501.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
             if (i == 1) {
                 C previous = discreteDomain.previous(this.endpoint);
                 return previous == null ? Cut.aboveAll() : new AboveValue(previous);
@@ -355,9 +355,9 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
         }
     }
 
-    /* renamed from: com.google.common.collect.Cut$1  reason: invalid class name */
+    /* renamed from: com.google.common.collect.Cut$1 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class C11501 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$collect$BoundType;
 
         static {
@@ -410,7 +410,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         Cut<C> withLowerBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+            int i = C11501.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
             if (i == 1) {
                 C next = discreteDomain.next(this.endpoint);
                 return next == null ? Cut.belowAll() : belowValue(next);
@@ -423,7 +423,7 @@ public abstract class Cut<C extends Comparable> implements Comparable<Cut<C>>, S
 
         @Override // com.google.common.collect.Cut
         Cut<C> withUpperBoundType(BoundType boundType, DiscreteDomain<C> discreteDomain) {
-            int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+            int i = C11501.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     C next = discreteDomain.next(this.endpoint);

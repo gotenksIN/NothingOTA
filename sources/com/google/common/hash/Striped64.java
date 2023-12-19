@@ -22,7 +22,8 @@ abstract class Striped64 extends Number {
     static final Random rng = new Random();
     static final int NCPU = Runtime.getRuntime().availableProcessors();
 
-    abstract long fn(long j, long j2);
+    /* renamed from: fn */
+    abstract long mo92fn(long j, long j2);
 
     static /* synthetic */ Unsafe access$000() {
         return getUnsafe();
@@ -32,20 +33,48 @@ abstract class Striped64 extends Number {
     static final class Cell {
         private static final Unsafe UNSAFE;
         private static final long valueOffset;
-        volatile long p0;
-        volatile long p1;
-        volatile long p2;
-        volatile long p3;
-        volatile long p4;
-        volatile long p5;
-        volatile long p6;
-        volatile long q0;
-        volatile long q1;
-        volatile long q2;
-        volatile long q3;
-        volatile long q4;
-        volatile long q5;
-        volatile long q6;
+
+        /* renamed from: p0 */
+        volatile long f255p0;
+
+        /* renamed from: p1 */
+        volatile long f256p1;
+
+        /* renamed from: p2 */
+        volatile long f257p2;
+
+        /* renamed from: p3 */
+        volatile long f258p3;
+
+        /* renamed from: p4 */
+        volatile long f259p4;
+
+        /* renamed from: p5 */
+        volatile long f260p5;
+
+        /* renamed from: p6 */
+        volatile long f261p6;
+
+        /* renamed from: q0 */
+        volatile long f262q0;
+
+        /* renamed from: q1 */
+        volatile long f263q1;
+
+        /* renamed from: q2 */
+        volatile long f264q2;
+
+        /* renamed from: q3 */
+        volatile long f265q3;
+
+        /* renamed from: q4 */
+        volatile long f266q4;
+
+        /* renamed from: q5 */
+        volatile long f267q5;
+
+        /* renamed from: q6 */
+        volatile long f268q6;
         volatile long value;
 
         Cell(long j) {

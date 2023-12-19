@@ -8,7 +8,7 @@ import kotlin.text.MatchGroupCollection;
 import kotlin.text.MatchNamedGroupCollection;
 
 /* compiled from: RegexExtensions.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u001a\u0017\u0010\u0000\u001a\u0004\u0018\u00010\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\u0002¨\u0006\u0005"}, d2 = {"get", "Lkotlin/text/MatchGroup;", "Lkotlin/text/MatchGroupCollection;", HintConstants.AUTOFILL_HINT_NAME, "", "kotlin-stdlib"}, k = 2, mv = {1, 9, 0}, pn = "kotlin.text", xi = 48)
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\u001a\u0017\u0010\u0000\u001a\u0004\u0018\u00010\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u0087\u0002¨\u0006\u0005"}, m40d2 = {"get", "Lkotlin/text/MatchGroup;", "Lkotlin/text/MatchGroupCollection;", HintConstants.AUTOFILL_HINT_NAME, "", "kotlin-stdlib"}, m39k = 2, m38mv = {1, 9, 0}, m37pn = "kotlin.text", m36xi = 48)
 /* loaded from: classes2.dex */
 public final class RegexExtensionsJDK8Kt {
     public static final MatchGroup get(MatchGroupCollection matchGroupCollection, String name) {

@@ -16,7 +16,7 @@ public class InitializationProvider extends ContentProvider {
                 AppInitializer.getInstance(context).discoverAndInitialize();
                 return true;
             }
-            StartupLogger.w("Deferring initialization because `applicationContext` is null.");
+            StartupLogger.m247w("Deferring initialization because `applicationContext` is null.");
             return true;
         }
         throw new StartupException("Context cannot be null");

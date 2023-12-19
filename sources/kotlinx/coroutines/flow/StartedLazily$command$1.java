@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow;
 
-import kotlin.KotlinNothingValueException;
+import kotlin.ExceptionsH;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -12,8 +12,8 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 
 /* compiled from: SharingStarted.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/flow/FlowCollector;", "Lkotlinx/coroutines/flow/SharingCommand;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.StartedLazily$command$1", f = "SharingStarted.kt", i = {}, l = {155}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/flow/FlowCollector;", "Lkotlinx/coroutines/flow/SharingCommand;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.StartedLazily$command$1", m30f = "SharingStarted.kt", m29i = {}, m28l = {155}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class StartedLazily$command$1 extends SuspendLambda implements Function2<FlowCollector<? super SharingCommand>, Continuation<? super Unit>, Object> {
     final /* synthetic */ StateFlow<Integer> $subscriptionCount;
@@ -47,7 +47,7 @@ final class StartedLazily$command$1 extends SuspendLambda implements Function2<F
             ResultKt.throwOnFailure(obj);
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             this.label = 1;
-            if (this.$subscriptionCount.collect(new AnonymousClass1(booleanRef, (FlowCollector) this.L$0), this) == coroutine_suspended) {
+            if (this.$subscriptionCount.collect(new C17801(booleanRef, (FlowCollector) this.L$0), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i == 1) {
@@ -55,20 +55,20 @@ final class StartedLazily$command$1 extends SuspendLambda implements Function2<F
         } else {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
-        throw new KotlinNothingValueException();
+        throw new ExceptionsH();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: SharingStarted.kt */
-    @Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "count", "", "emit", "(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    /* renamed from: kotlinx.coroutines.flow.StartedLazily$command$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, m40d2 = {"<anonymous>", "", "count", "", "emit", "(ILkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    /* renamed from: kotlinx.coroutines.flow.StartedLazily$command$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> implements FlowCollector {
+    public static final class C17801<T> implements FlowCollector {
         final /* synthetic */ FlowCollector<SharingCommand> $$this$flow;
         final /* synthetic */ Ref.BooleanRef $started;
 
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(Ref.BooleanRef booleanRef, FlowCollector<? super SharingCommand> flowCollector) {
+        C17801(Ref.BooleanRef booleanRef, FlowCollector<? super SharingCommand> flowCollector) {
             this.$started = booleanRef;
             this.$$this$flow = flowCollector;
         }
@@ -132,7 +132,7 @@ final class StartedLazily$command$1 extends SuspendLambda implements Function2<F
                 kotlin.Unit r5 = kotlin.Unit.INSTANCE
                 return r5
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.StartedLazily$command$1.AnonymousClass1.emit(int, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.StartedLazily$command$1.C17801.emit(int, kotlin.coroutines.Continuation):java.lang.Object");
         }
 
         @Override // kotlinx.coroutines.flow.FlowCollector

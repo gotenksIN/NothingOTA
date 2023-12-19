@@ -38,18 +38,18 @@ public final class SimpleTimeLimiter implements TimeLimiter {
         Preconditions.checkNotNull(timeUnit);
         checkPositiveTimeout(j);
         Preconditions.checkArgument(cls.isInterface(), "interfaceType must be an interface type");
-        return (T) newProxy(cls, new AnonymousClass1(t, j, timeUnit, findInterruptibleMethods(cls)));
+        return (T) newProxy(cls, new C15471(t, j, timeUnit, findInterruptibleMethods(cls)));
     }
 
-    /* renamed from: com.google.common.util.concurrent.SimpleTimeLimiter$1  reason: invalid class name */
+    /* renamed from: com.google.common.util.concurrent.SimpleTimeLimiter$1 */
     /* loaded from: classes2.dex */
-    class AnonymousClass1 implements InvocationHandler {
+    class C15471 implements InvocationHandler {
         final /* synthetic */ Set val$interruptibleMethods;
         final /* synthetic */ Object val$target;
         final /* synthetic */ long val$timeoutDuration;
         final /* synthetic */ TimeUnit val$timeoutUnit;
 
-        AnonymousClass1(Object obj, long j, TimeUnit timeUnit, Set set) {
+        C15471(Object obj, long j, TimeUnit timeUnit, Set set) {
             this.val$target = obj;
             this.val$timeoutDuration = j;
             this.val$timeoutUnit = timeUnit;
@@ -63,7 +63,7 @@ public final class SimpleTimeLimiter implements TimeLimiter {
             return SimpleTimeLimiter.this.callWithTimeout(new Callable() { // from class: com.google.common.util.concurrent.SimpleTimeLimiter$1$$ExternalSyntheticLambda0
                 @Override // java.util.concurrent.Callable
                 public final Object call() {
-                    return SimpleTimeLimiter.AnonymousClass1.lambda$invoke$0(method, obj2, objArr);
+                    return SimpleTimeLimiter.C15471.lambda$invoke$0(method, obj2, objArr);
                 }
             }, this.val$timeoutDuration, this.val$timeoutUnit, this.val$interruptibleMethods.contains(method));
         }

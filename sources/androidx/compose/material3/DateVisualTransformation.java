@@ -1,16 +1,16 @@
 package androidx.compose.material3;
 
-import androidx.compose.ui.text.AnnotatedString;
-import androidx.compose.ui.text.input.OffsetMapping;
-import androidx.compose.ui.text.input.TransformedText;
-import androidx.compose.ui.text.input.VisualTransformation;
+import androidx.compose.p002ui.text.AnnotatedString;
+import androidx.compose.p002ui.text.input.OffsetMapping;
+import androidx.compose.p002ui.text.input.TransformedText;
+import androidx.compose.p002ui.text.input.VisualTransformation;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 import kotlin.text.StringsKt;
 
 /* compiled from: DateInput.kt */
-@Metadata(d1 = {"\u0000+\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000*\u0001\b\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000fH\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\tR\u000e\u0010\n\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Landroidx/compose/material3/DateVisualTransformation;", "Landroidx/compose/ui/text/input/VisualTransformation;", "dateInputFormat", "Landroidx/compose/material3/DateInputFormat;", "(Landroidx/compose/material3/DateInputFormat;)V", "dateFormatLength", "", "dateOffsetTranslator", "androidx/compose/material3/DateVisualTransformation$dateOffsetTranslator$1", "Landroidx/compose/material3/DateVisualTransformation$dateOffsetTranslator$1;", "firstDelimiterOffset", "secondDelimiterOffset", "filter", "Landroidx/compose/ui/text/input/TransformedText;", "text", "Landroidx/compose/ui/text/AnnotatedString;", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000+\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000*\u0001\b\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000fH\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\tR\u000e\u0010\n\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0010"}, m40d2 = {"Landroidx/compose/material3/DateVisualTransformation;", "Landroidx/compose/ui/text/input/VisualTransformation;", "dateInputFormat", "Landroidx/compose/material3/DateInputFormat;", "(Landroidx/compose/material3/DateInputFormat;)V", "dateFormatLength", "", "dateOffsetTranslator", "androidx/compose/material3/DateVisualTransformation$dateOffsetTranslator$1", "Landroidx/compose/material3/DateVisualTransformation$dateOffsetTranslator$1;", "firstDelimiterOffset", "secondDelimiterOffset", "filter", "Landroidx/compose/ui/text/input/TransformedText;", "text", "Landroidx/compose/ui/text/AnnotatedString;", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 final class DateVisualTransformation implements VisualTransformation {
     private final int dateFormatLength;
@@ -27,7 +27,7 @@ final class DateVisualTransformation implements VisualTransformation {
         this.secondDelimiterOffset = StringsKt.lastIndexOf$default((CharSequence) dateInputFormat.getPatternWithDelimiters(), dateInputFormat.getDelimiter(), 0, false, 6, (Object) null);
         this.dateFormatLength = dateInputFormat.getPatternWithoutDelimiters().length();
         this.dateOffsetTranslator = new OffsetMapping() { // from class: androidx.compose.material3.DateVisualTransformation$dateOffsetTranslator$1
-            @Override // androidx.compose.ui.text.input.OffsetMapping
+            @Override // androidx.compose.p002ui.text.input.OffsetMapping
             public int originalToTransformed(int i) {
                 int i2;
                 int i3;
@@ -47,7 +47,7 @@ final class DateVisualTransformation implements VisualTransformation {
                 return i + 2;
             }
 
-            @Override // androidx.compose.ui.text.input.OffsetMapping
+            @Override // androidx.compose.p002ui.text.input.OffsetMapping
             public int transformedToOriginal(int i) {
                 int i2;
                 int i3;
@@ -71,7 +71,7 @@ final class DateVisualTransformation implements VisualTransformation {
         };
     }
 
-    @Override // androidx.compose.ui.text.input.VisualTransformation
+    @Override // androidx.compose.p002ui.text.input.VisualTransformation
     public TransformedText filter(AnnotatedString text) {
         String text2;
         Intrinsics.checkNotNullParameter(text, "text");

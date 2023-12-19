@@ -24,7 +24,7 @@ import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.NestedScrollingChild3;
@@ -106,7 +106,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
     }
 
     public NestedScrollView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.nestedScrollViewStyle);
+        this(context, attributeSet, C0795R.attr.nestedScrollViewStyle);
     }
 
     public NestedScrollView(Context context, AttributeSet attributeSet, int i) {

@@ -252,7 +252,8 @@ public final class ViewPropertyAnimatorCompat {
         }
     }
 
-    public ViewPropertyAnimatorCompat x(float f) {
+    /* renamed from: x */
+    public ViewPropertyAnimatorCompat m257x(float f) {
         View view = this.mView.get();
         if (view != null) {
             view.animate().x(f);
@@ -268,7 +269,8 @@ public final class ViewPropertyAnimatorCompat {
         return this;
     }
 
-    public ViewPropertyAnimatorCompat y(float f) {
+    /* renamed from: y */
+    public ViewPropertyAnimatorCompat m256y(float f) {
         View view = this.mView.get();
         if (view != null) {
             view.animate().y(f);
@@ -316,10 +318,11 @@ public final class ViewPropertyAnimatorCompat {
         return this;
     }
 
-    public ViewPropertyAnimatorCompat z(float f) {
+    /* renamed from: z */
+    public ViewPropertyAnimatorCompat m255z(float f) {
         View view = this.mView.get();
         if (view != null) {
-            Api21Impl.z(view.animate(), f);
+            Api21Impl.m254z(view.animate(), f);
         }
         return this;
     }
@@ -440,7 +443,8 @@ public final class ViewPropertyAnimatorCompat {
             return viewPropertyAnimator.translationZ(f);
         }
 
-        static ViewPropertyAnimator z(ViewPropertyAnimator viewPropertyAnimator, float f) {
+        /* renamed from: z */
+        static ViewPropertyAnimator m254z(ViewPropertyAnimator viewPropertyAnimator, float f) {
             return viewPropertyAnimator.z(f);
         }
 

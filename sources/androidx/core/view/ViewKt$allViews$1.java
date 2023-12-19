@@ -13,8 +13,8 @@ import kotlin.jvm.functions.Function2;
 import kotlin.sequences.SequenceScope;
 
 /* compiled from: View.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Landroid/view/View;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.core.view.ViewKt$allViews$1", f = "View.kt", i = {0}, l = {414, 416}, m = "invokeSuspend", n = {"$this$sequence"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Landroid/view/View;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.core.view.ViewKt$allViews$1", m30f = "View.kt", m29i = {0}, m28l = {414, 416}, m27m = "invokeSuspend", m26n = {"$this$sequence"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 final class ViewKt$allViews$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super View>, Continuation<? super Unit>, Object> {
     final /* synthetic */ View $this_allViews;
@@ -67,7 +67,7 @@ final class ViewKt$allViews$1 extends RestrictedSuspendLambda implements Functio
         if (view instanceof ViewGroup) {
             this.L$0 = null;
             this.label = 2;
-            if (sequenceScope.yieldAll(ViewGroupKt.getDescendants((ViewGroup) view), this) == coroutine_suspended) {
+            if (sequenceScope.yieldAll(ViewGroup.getDescendants((ViewGroup) view), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         }

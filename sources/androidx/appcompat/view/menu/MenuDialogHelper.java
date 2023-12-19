@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.PointerIconCompat;
@@ -25,7 +25,7 @@ class MenuDialogHelper implements DialogInterface.OnKeyListener, DialogInterface
     public void show(IBinder iBinder) {
         MenuBuilder menuBuilder = this.mMenu;
         AlertDialog.Builder builder = new AlertDialog.Builder(menuBuilder.getContext());
-        ListMenuPresenter listMenuPresenter = new ListMenuPresenter(builder.getContext(), R.layout.abc_list_menu_item_layout);
+        ListMenuPresenter listMenuPresenter = new ListMenuPresenter(builder.getContext(), C0032R.C0036layout.abc_list_menu_item_layout);
         this.mPresenter = listMenuPresenter;
         listMenuPresenter.setCallback(this);
         this.mMenu.addMenuPresenter(this.mPresenter);

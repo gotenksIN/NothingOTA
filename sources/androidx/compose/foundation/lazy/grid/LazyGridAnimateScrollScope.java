@@ -3,9 +3,9 @@ package androidx.compose.foundation.lazy.grid;
 import androidx.compose.foundation.gestures.ScrollScope;
 import androidx.compose.foundation.gestures.ScrollableState;
 import androidx.compose.foundation.lazy.layout.LazyAnimateScrollScope;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.IntOffset;
-import androidx.compose.ui.unit.IntSize;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntSize;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -17,7 +17,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: LazyGridAnimateScrollScope.kt */
-@Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u001e\u0010\u0015\u001a\u00020\n2\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00180\u00172\u0006\u0010\u0019\u001a\u00020\u001aH\u0002J\u0018\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\n2\u0006\u0010\u001e\u001a\u00020\nH\u0016J\u0017\u0010\u001f\u001a\u0004\u0018\u00010\n2\u0006\u0010\u001d\u001a\u00020\nH\u0016¢\u0006\u0002\u0010 J:\u0010!\u001a\u00020\"2'\u0010#\u001a#\b\u0001\u0012\u0004\u0012\u00020%\u0012\n\u0012\b\u0012\u0004\u0012\u00020\"0&\u0012\u0006\u0012\u0004\u0018\u00010'0$¢\u0006\u0002\b(H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010)J\u001c\u0010*\u001a\u00020\"*\u00020%2\u0006\u0010\u001d\u001a\u00020\n2\u0006\u0010+\u001a\u00020\nH\u0016R\u0014\u0010\u0005\u001a\u00020\u00068VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u0014\u0010\t\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u000b\u0010\fR\u0014\u0010\r\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u000e\u0010\fR\u0014\u0010\u000f\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0010\u0010\fR\u0014\u0010\u0011\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0012\u0010\fR\u0014\u0010\u0013\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\fR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006,"}, d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridAnimateScrollScope;", "Landroidx/compose/foundation/lazy/layout/LazyAnimateScrollScope;", "state", "Landroidx/compose/foundation/lazy/grid/LazyGridState;", "(Landroidx/compose/foundation/lazy/grid/LazyGridState;)V", "density", "Landroidx/compose/ui/unit/Density;", "getDensity", "()Landroidx/compose/ui/unit/Density;", "firstVisibleItemIndex", "", "getFirstVisibleItemIndex", "()I", "firstVisibleItemScrollOffset", "getFirstVisibleItemScrollOffset", "itemCount", "getItemCount", "lastVisibleItemIndex", "getLastVisibleItemIndex", "numOfItemsForTeleport", "getNumOfItemsForTeleport", "calculateLineAverageMainAxisSize", "visibleItems", "", "Landroidx/compose/foundation/lazy/grid/LazyGridItemInfo;", "isVertical", "", "expectedDistanceTo", "", "index", "targetScrollOffset", "getTargetItemOffset", "(I)Ljava/lang/Integer;", "scroll", "", "block", "Lkotlin/Function2;", "Landroidx/compose/foundation/gestures/ScrollScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "snapToItem", "scrollOffset", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u001e\u0010\u0015\u001a\u00020\n2\f\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00180\u00172\u0006\u0010\u0019\u001a\u00020\u001aH\u0002J\u0018\u0010\u001b\u001a\u00020\u001c2\u0006\u0010\u001d\u001a\u00020\n2\u0006\u0010\u001e\u001a\u00020\nH\u0016J\u0017\u0010\u001f\u001a\u0004\u0018\u00010\n2\u0006\u0010\u001d\u001a\u00020\nH\u0016¢\u0006\u0002\u0010 J:\u0010!\u001a\u00020\"2'\u0010#\u001a#\b\u0001\u0012\u0004\u0012\u00020%\u0012\n\u0012\b\u0012\u0004\u0012\u00020\"0&\u0012\u0006\u0012\u0004\u0018\u00010'0$¢\u0006\u0002\b(H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010)J\u001c\u0010*\u001a\u00020\"*\u00020%2\u0006\u0010\u001d\u001a\u00020\n2\u0006\u0010+\u001a\u00020\nH\u0016R\u0014\u0010\u0005\u001a\u00020\u00068VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u0014\u0010\t\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u000b\u0010\fR\u0014\u0010\r\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u000e\u0010\fR\u0014\u0010\u000f\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0010\u0010\fR\u0014\u0010\u0011\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0012\u0010\fR\u0014\u0010\u0013\u001a\u00020\n8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b\u0014\u0010\fR\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006,"}, m40d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridAnimateScrollScope;", "Landroidx/compose/foundation/lazy/layout/LazyAnimateScrollScope;", "state", "Landroidx/compose/foundation/lazy/grid/LazyGridState;", "(Landroidx/compose/foundation/lazy/grid/LazyGridState;)V", "density", "Landroidx/compose/ui/unit/Density;", "getDensity", "()Landroidx/compose/ui/unit/Density;", "firstVisibleItemIndex", "", "getFirstVisibleItemIndex", "()I", "firstVisibleItemScrollOffset", "getFirstVisibleItemScrollOffset", "itemCount", "getItemCount", "lastVisibleItemIndex", "getLastVisibleItemIndex", "numOfItemsForTeleport", "getNumOfItemsForTeleport", "calculateLineAverageMainAxisSize", "visibleItems", "", "Landroidx/compose/foundation/lazy/grid/LazyGridItemInfo;", "isVertical", "", "expectedDistanceTo", "", "index", "targetScrollOffset", "getTargetItemOffset", "(I)Ljava/lang/Integer;", "scroll", "", "block", "Lkotlin/Function2;", "Landroidx/compose/foundation/gestures/ScrollScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "(Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "snapToItem", "scrollOffset", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyGridAnimateScrollScope implements LazyAnimateScrollScope {
     private final LazyGridState state;
@@ -59,7 +59,7 @@ public final class LazyGridAnimateScrollScope implements LazyAnimateScrollScope 
     @Override // androidx.compose.foundation.lazy.layout.LazyAnimateScrollScope
     public Integer getTargetItemOffset(int i) {
         LazyGridItemInfo lazyGridItemInfo;
-        int m5168getXimpl;
+        int m5469getXimpl;
         List<LazyGridItemInfo> visibleItemsInfo = this.state.getLayoutInfo().getVisibleItemsInfo();
         int size = visibleItemsInfo.size();
         int i2 = 0;
@@ -77,11 +77,11 @@ public final class LazyGridAnimateScrollScope implements LazyAnimateScrollScope 
         LazyGridItemInfo lazyGridItemInfo2 = lazyGridItemInfo;
         if (lazyGridItemInfo2 != null) {
             if (this.state.isVertical$foundation_release()) {
-                m5168getXimpl = IntOffset.m5169getYimpl(lazyGridItemInfo2.mo570getOffsetnOccac());
+                m5469getXimpl = IntOffset.m5470getYimpl(lazyGridItemInfo2.mo871getOffsetnOccac());
             } else {
-                m5168getXimpl = IntOffset.m5168getXimpl(lazyGridItemInfo2.mo570getOffsetnOccac());
+                m5469getXimpl = IntOffset.m5469getXimpl(lazyGridItemInfo2.mo871getOffsetnOccac());
             }
-            return Integer.valueOf(m5168getXimpl);
+            return Integer.valueOf(m5469getXimpl);
         }
         return null;
     }
@@ -111,7 +111,7 @@ public final class LazyGridAnimateScrollScope implements LazyAnimateScrollScope 
     }
 
     private final int calculateLineAverageMainAxisSize(final List<? extends LazyGridItemInfo> list, final boolean z) {
-        int m5210getWidthimpl;
+        int m5511getWidthimpl;
         Function1<Integer, Integer> function1 = new Function1<Integer, Integer>() { // from class: androidx.compose.foundation.lazy.grid.LazyGridAnimateScrollScope$calculateLineAverageMainAxisSize$lineOf$1
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -140,11 +140,11 @@ public final class LazyGridAnimateScrollScope implements LazyAnimateScrollScope 
                 int i4 = 0;
                 while (i < list.size() && function1.invoke(Integer.valueOf(i)).intValue() == intValue) {
                     if (z) {
-                        m5210getWidthimpl = IntSize.m5209getHeightimpl(list.get(i).mo571getSizeYbymL2g());
+                        m5511getWidthimpl = IntSize.m5510getHeightimpl(list.get(i).mo872getSizeYbymL2g());
                     } else {
-                        m5210getWidthimpl = IntSize.m5210getWidthimpl(list.get(i).mo571getSizeYbymL2g());
+                        m5511getWidthimpl = IntSize.m5511getWidthimpl(list.get(i).mo872getSizeYbymL2g());
                     }
-                    i4 = Math.max(i4, m5210getWidthimpl);
+                    i4 = Math.max(i4, m5511getWidthimpl);
                     i++;
                 }
                 i2 += i4;

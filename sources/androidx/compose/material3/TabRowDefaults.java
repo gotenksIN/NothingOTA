@@ -1,20 +1,20 @@
 package androidx.compose.material3;
 
-import androidx.compose.animation.core.AnimateAsStateKt;
+import androidx.compose.animation.core.AnimateAsState;
 import androidx.compose.animation.core.AnimationSpecKt;
 import androidx.compose.animation.core.EasingKt;
-import androidx.compose.foundation.layout.OffsetKt;
+import androidx.compose.foundation.layout.Offset;
 import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.material3.tokens.PrimaryNavigationTabTokens;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
+import androidx.compose.p002ui.unit.C0780Dp;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
-import androidx.compose.ui.unit.Dp;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -22,7 +22,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: TabRow.kt */
-@Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\bÇ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J3\u0010\t\u001a\u00020\n2\b\b\u0002\u0010\u000b\u001a\u00020\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u0004H\u0007ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011J\u0012\u0010\u0012\u001a\u00020\f*\u00020\f2\u0006\u0010\u0013\u001a\u00020\u0014R\u001a\u0010\u0003\u001a\u00020\u00048Gø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\u00048Gø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\b\u0010\u0006\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0015"}, d2 = {"Landroidx/compose/material3/TabRowDefaults;", "", "()V", "containerColor", "Landroidx/compose/ui/graphics/Color;", "getContainerColor", "(Landroidx/compose/runtime/Composer;I)J", "contentColor", "getContentColor", "Indicator", "", "modifier", "Landroidx/compose/ui/Modifier;", "height", "Landroidx/compose/ui/unit/Dp;", "color", "Indicator-9IZ8Weo", "(Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V", "tabIndicatorOffset", "currentTabPosition", "Landroidx/compose/material3/TabPosition;", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\bÇ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J3\u0010\t\u001a\u00020\n2\b\b\u0002\u0010\u000b\u001a\u00020\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u0004H\u0007ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011J\u0012\u0010\u0012\u001a\u00020\f*\u00020\f2\u0006\u0010\u0013\u001a\u00020\u0014R\u001a\u0010\u0003\u001a\u00020\u00048Gø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\u00048Gø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\b\u0010\u0006\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0015"}, m40d2 = {"Landroidx/compose/material3/TabRowDefaults;", "", "()V", "containerColor", "Landroidx/compose/ui/graphics/Color;", "getContainerColor", "(Landroidx/compose/runtime/Composer;I)J", "contentColor", "getContentColor", "Indicator", "", "modifier", "Landroidx/compose/ui/Modifier;", "height", "Landroidx/compose/ui/unit/Dp;", "color", "Indicator-9IZ8Weo", "(Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V", "tabIndicatorOffset", "currentTabPosition", "Landroidx/compose/material3/TabPosition;", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TabRowDefaults {
     public static final int $stable = 0;
@@ -75,12 +75,12 @@ public final class TabRowDefaults {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public final void m1439Indicator9IZ8Weo(androidx.compose.ui.Modifier r14, float r15, long r16, androidx.compose.runtime.Composer r18, final int r19, final int r20) {
+    public final void m1740Indicator9IZ8Weo(androidx.compose.p002ui.Modifier r14, float r15, long r16, androidx.compose.runtime.Composer r18, final int r19, final int r20) {
         /*
             Method dump skipped, instructions count: 248
             To view this dump change 'Code comments level' option to 'DEBUG'
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.TabRowDefaults.m1439Indicator9IZ8Weo(androidx.compose.ui.Modifier, float, long, androidx.compose.runtime.Composer, int, int):void");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.TabRowDefaults.m1740Indicator9IZ8Weo(androidx.compose.ui.Modifier, float, long, androidx.compose.runtime.Composer, int, int):void");
     }
 
     public final Modifier tabIndicatorOffset(Modifier modifier, final TabPosition currentTabPosition) {
@@ -121,21 +121,21 @@ public final class TabRowDefaults {
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventStart(-1541271084, i, -1, "androidx.compose.material3.TabRowDefaults.tabIndicatorOffset.<anonymous> (TabRow.kt:410)");
                 }
-                State<Dp> m81animateDpAsStateAjpBEmI = AnimateAsStateKt.m81animateDpAsStateAjpBEmI(TabPosition.this.m1438getWidthD9Ej5fM(), AnimationSpecKt.tween$default(250, 0, EasingKt.getFastOutSlowInEasing(), 2, null), null, null, composer, 0, 12);
-                Modifier m463width3ABfNKs = SizeKt.m463width3ABfNKs(OffsetKt.m404offsetVpY3zN4$default(SizeKt.wrapContentSize$default(SizeKt.fillMaxWidth$default(composed, 0.0f, 1, null), Alignment.Companion.getBottomStart(), false, 2, null), invoke$lambda$1(AnimateAsStateKt.m81animateDpAsStateAjpBEmI(TabPosition.this.m1436getLeftD9Ej5fM(), AnimationSpecKt.tween$default(250, 0, EasingKt.getFastOutSlowInEasing(), 2, null), null, null, composer, 0, 12)), 0.0f, 2, null), invoke$lambda$0(m81animateDpAsStateAjpBEmI));
+                State<C0780Dp> m382animateDpAsStateAjpBEmI = AnimateAsState.m382animateDpAsStateAjpBEmI(TabPosition.this.m1739getWidthD9Ej5fM(), AnimationSpecKt.tween$default(250, 0, EasingKt.getFastOutSlowInEasing(), 2, null), null, null, composer, 0, 12);
+                Modifier m764width3ABfNKs = SizeKt.m764width3ABfNKs(Offset.m705offsetVpY3zN4$default(SizeKt.wrapContentSize$default(SizeKt.fillMaxWidth$default(composed, 0.0f, 1, null), Alignment.Companion.getBottomStart(), false, 2, null), invoke$lambda$1(AnimateAsState.m382animateDpAsStateAjpBEmI(TabPosition.this.m1737getLeftD9Ej5fM(), AnimationSpecKt.tween$default(250, 0, EasingKt.getFastOutSlowInEasing(), 2, null), null, null, composer, 0, 12)), 0.0f, 2, null), invoke$lambda$0(m382animateDpAsStateAjpBEmI));
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                return m463width3ABfNKs;
+                return m764width3ABfNKs;
             }
 
-            private static final float invoke$lambda$0(State<Dp> state) {
-                return state.getValue().m5064unboximpl();
+            private static final float invoke$lambda$0(State<C0780Dp> state) {
+                return state.getValue().m5365unboximpl();
             }
 
-            private static final float invoke$lambda$1(State<Dp> state) {
-                return state.getValue().m5064unboximpl();
+            private static final float invoke$lambda$1(State<C0780Dp> state) {
+                return state.getValue().m5365unboximpl();
             }
         });
     }

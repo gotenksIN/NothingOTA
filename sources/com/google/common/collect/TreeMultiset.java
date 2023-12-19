@@ -177,7 +177,7 @@ public final class TreeMultiset<E> extends AbstractSortedMultiset<E> implements 
             return aggregateBelowRange(aggregate, ((AvlNode) avlNode).left);
         }
         if (compare == 0) {
-            int i = AnonymousClass4.$SwitchMap$com$google$common$collect$BoundType[this.range.getLowerBoundType().ordinal()];
+            int i = C13254.$SwitchMap$com$google$common$collect$BoundType[this.range.getLowerBoundType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     throw new AssertionError();
@@ -194,9 +194,9 @@ public final class TreeMultiset<E> extends AbstractSortedMultiset<E> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.collect.TreeMultiset$4  reason: invalid class name */
+    /* renamed from: com.google.common.collect.TreeMultiset$4 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass4 {
+    public static /* synthetic */ class C13254 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$collect$BoundType;
 
         static {
@@ -224,7 +224,7 @@ public final class TreeMultiset<E> extends AbstractSortedMultiset<E> implements 
             return aggregateAboveRange(aggregate, ((AvlNode) avlNode).right);
         }
         if (compare == 0) {
-            int i = AnonymousClass4.$SwitchMap$com$google$common$collect$BoundType[this.range.getUpperBoundType().ordinal()];
+            int i = C13254.$SwitchMap$com$google$common$collect$BoundType[this.range.getUpperBoundType().ordinal()];
             if (i != 1) {
                 if (i != 2) {
                     throw new AssertionError();

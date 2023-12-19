@@ -1,6 +1,6 @@
 package kotlin.collections;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.Iterator;
 import java.util.List;
 import kotlin.Metadata;
@@ -14,8 +14,8 @@ import kotlin.sequences.SequenceScope;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: SlidingWindow.kt */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;", ""}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", f = "SlidingWindow.kt", i = {0, 0, 0, 2, 2, 3, 3}, l = {34, 40, R.styleable.AppCompatTheme_checkedTextViewStyle, R.styleable.AppCompatTheme_colorControlNormal, R.styleable.AppCompatTheme_colorPrimaryDark}, m = "invokeSuspend", n = {"$this$iterator", "buffer", "gap", "$this$iterator", "buffer", "$this$iterator", "buffer"}, s = {"L$0", "L$1", "I$0", "L$0", "L$1", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u0002H\u00020\u00040\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;", ""}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.collections.SlidingWindowKt$windowedIterator$1", m30f = "SlidingWindow.kt", m29i = {0, 0, 0, 2, 2, 3, 3}, m28l = {34, 40, C0032R.styleable.AppCompatTheme_checkedTextViewStyle, C0032R.styleable.AppCompatTheme_colorControlNormal, C0032R.styleable.AppCompatTheme_colorPrimaryDark}, m27m = "invokeSuspend", m26n = {"$this$iterator", "buffer", "gap", "$this$iterator", "buffer", "$this$iterator", "buffer"}, m25s = {"L$0", "L$1", "I$0", "L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class SlidingWindowKt$windowedIterator$1<T> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super List<? extends T>>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Iterator<T> $iterator;

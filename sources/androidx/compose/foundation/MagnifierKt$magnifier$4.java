@@ -1,30 +1,30 @@
 package androidx.compose.foundation;
 
 import android.view.View;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.draw.DrawModifierKt;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.layout.LayoutCoordinates;
+import androidx.compose.p002ui.layout.LayoutCoordinatesKt;
+import androidx.compose.p002ui.layout.OnGloballyPositionedModifierKt;
+import androidx.compose.p002ui.platform.AndroidCompositionLocals_androidKt;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyKey;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.DpSize;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.IntSizeKt;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.draw.DrawModifierKt;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.layout.LayoutCoordinates;
-import androidx.compose.ui.layout.LayoutCoordinatesKt;
-import androidx.compose.ui.layout.OnGloballyPositionedModifierKt;
-import androidx.compose.ui.platform.AndroidCompositionLocals_androidKt;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertyKey;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.DpSize;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.IntSizeKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -32,10 +32,10 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
@@ -47,7 +47,7 @@ import kotlinx.coroutines.flow.SharedFlowKt;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Magnifier.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, m40d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<Modifier, Composer, Integer, Modifier> {
     final /* synthetic */ Function1<Density, Offset> $magnifierCenter;
@@ -87,18 +87,18 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
         ComposerKt.sourceInformationMarkerEnd(composer);
         View view = (View) consume;
         ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-        Object consume2 = composer.consume(CompositionLocalsKt.getLocalDensity());
+        Object consume2 = composer.consume(CompositionLocals.getLocalDensity());
         ComposerKt.sourceInformationMarkerEnd(composer);
         final Density density = (Density) consume2;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue = composer.rememberedValue();
         if (rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Offset.m2307boximpl(Offset.Companion.m2333getUnspecifiedF1C5BW0()), null, 2, null);
+            rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Offset.m2608boximpl(Offset.Companion.m2634getUnspecifiedF1C5BW0()), null, 2, null);
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        final MutableState mutableState = (MutableState) rememberedValue;
+        final SnapshotState snapshotState = (SnapshotState) rememberedValue;
         final State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(this.$sourceCenter, composer, 0);
         State rememberUpdatedState2 = SnapshotStateKt.rememberUpdatedState(this.$magnifierCenter, composer, 0);
         State rememberUpdatedState3 = SnapshotStateKt.rememberUpdatedState(Float.valueOf(this.$zoom), composer, 0);
@@ -107,7 +107,7 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue2 = composer.rememberedValue();
         if (rememberedValue2 == Composer.Companion.getEmpty()) {
-            rememberedValue2 = SnapshotStateKt.derivedStateOf(new Function0<Offset>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$sourceCenterInRoot$2$1
+            rememberedValue2 = SnapshotStateKt.derivedStateOf(new Functions<Offset>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$sourceCenterInRoot$2$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -115,20 +115,20 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
                     super(0);
                 }
 
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public /* bridge */ /* synthetic */ Offset invoke() {
-                    return Offset.m2307boximpl(m198invokeF1C5BW0());
+                    return Offset.m2608boximpl(m499invokeF1C5BW0());
                 }
 
                 /* renamed from: invoke-F1C5BW0  reason: not valid java name */
-                public final long m198invokeF1C5BW0() {
+                public final long m499invokeF1C5BW0() {
                     Function1 invoke$lambda$3;
                     invoke$lambda$3 = MagnifierKt$magnifier$4.invoke$lambda$3(rememberUpdatedState);
-                    long m2328unboximpl = ((Offset) invoke$lambda$3.invoke(Density.this)).m2328unboximpl();
-                    if (OffsetKt.m2337isSpecifiedk4lQ0M(MagnifierKt$magnifier$4.invoke$lambda$1(mutableState)) && OffsetKt.m2337isSpecifiedk4lQ0M(m2328unboximpl)) {
-                        return Offset.m2323plusMKHz9U(MagnifierKt$magnifier$4.invoke$lambda$1(mutableState), m2328unboximpl);
+                    long m2629unboximpl = ((Offset) invoke$lambda$3.invoke(Density.this)).m2629unboximpl();
+                    if (OffsetKt.m2638isSpecifiedk4lQ0M(MagnifierKt$magnifier$4.invoke$lambda$1(snapshotState)) && OffsetKt.m2638isSpecifiedk4lQ0M(m2629unboximpl)) {
+                        return Offset.m2624plusMKHz9U(MagnifierKt$magnifier$4.invoke$lambda$1(snapshotState), m2629unboximpl);
                     }
-                    return Offset.Companion.m2333getUnspecifiedF1C5BW0();
+                    return Offset.Companion.m2634getUnspecifiedF1C5BW0();
                 }
             });
             composer.updateRememberedValue(rememberedValue2);
@@ -139,7 +139,7 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue3 = composer.rememberedValue();
         if (rememberedValue3 == Composer.Companion.getEmpty()) {
-            rememberedValue3 = SnapshotStateKt.derivedStateOf(new Function0<Boolean>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$isMagnifierShown$2$1
+            rememberedValue3 = SnapshotStateKt.derivedStateOf(new Functions<Boolean>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$isMagnifierShown$2$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -147,9 +147,9 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Boolean invoke() {
-                    return Boolean.valueOf(OffsetKt.m2337isSpecifiedk4lQ0M(MagnifierKt$magnifier$4.invoke$lambda$8(state)));
+                    return Boolean.valueOf(OffsetKt.m2638isSpecifiedk4lQ0M(MagnifierKt$magnifier$4.invoke$lambda$8(state)));
                 }
             });
             composer.updateRememberedValue(rememberedValue3);
@@ -167,10 +167,10 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
         final MutableSharedFlow mutableSharedFlow = (MutableSharedFlow) rememberedValue4;
         float f = this.$platformMagnifierFactory.getCanUpdateZoom() ? 0.0f : this.$zoom;
         MagnifierStyle magnifierStyle = this.$style;
-        EffectsKt.LaunchedEffect(new Object[]{view, density, Float.valueOf(f), magnifierStyle, Boolean.valueOf(Intrinsics.areEqual(magnifierStyle, MagnifierStyle.Companion.getTextDefault()))}, (Function2<? super CoroutineScope, ? super Continuation<? super Unit>, ? extends Object>) new AnonymousClass1(this.$platformMagnifierFactory, this.$style, view, density, this.$zoom, mutableSharedFlow, rememberUpdatedState4, state2, state, rememberUpdatedState2, mutableState, rememberUpdatedState3, null), composer, 72);
+        EffectsKt.LaunchedEffect(new Object[]{view, density, Float.valueOf(f), magnifierStyle, Boolean.valueOf(Intrinsics.areEqual(magnifierStyle, MagnifierStyle.Companion.getTextDefault()))}, (Function2<? super CoroutineScope, ? super Continuation<? super Unit>, ? extends Object>) new C01941(this.$platformMagnifierFactory, this.$style, view, density, this.$zoom, mutableSharedFlow, rememberUpdatedState4, state2, state, rememberUpdatedState2, snapshotState, rememberUpdatedState3, null), composer, 72);
         composer.startReplaceableGroup(1157296644);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1):Composables.kt#9igjgp");
-        boolean changed = composer.changed(mutableState);
+        boolean changed = composer.changed(snapshotState);
         Object rememberedValue5 = composer.rememberedValue();
         if (changed || rememberedValue5 == Composer.Companion.getEmpty()) {
             rememberedValue5 = (Function1) new Function1<LayoutCoordinates, Unit>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$2$1
@@ -189,7 +189,7 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(LayoutCoordinates it) {
                     Intrinsics.checkNotNullParameter(it, "it");
-                    MagnifierKt$magnifier$4.invoke$lambda$2(mutableState, LayoutCoordinatesKt.positionInRoot(it));
+                    MagnifierKt$magnifier$4.invoke$lambda$2(snapshotState, LayoutCoordinatesKt.positionInRoot(it));
                 }
             };
             composer.updateRememberedValue(rememberedValue5);
@@ -234,21 +234,21 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(SemanticsPropertyReceiver semantics) {
                     Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
-                    SemanticsPropertyKey<Function0<Offset>> magnifierPositionInRoot = MagnifierKt.getMagnifierPositionInRoot();
+                    SemanticsPropertyKey<Functions<Offset>> magnifierPositionInRoot = Magnifier.getMagnifierPositionInRoot();
                     final State<Offset> state3 = state;
-                    semantics.set(magnifierPositionInRoot, new Function0<Offset>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$4$1.1
+                    semantics.set(magnifierPositionInRoot, new Functions<Offset>() { // from class: androidx.compose.foundation.MagnifierKt$magnifier$4$4$1.1
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
                             super(0);
                         }
 
-                        @Override // kotlin.jvm.functions.Function0
+                        @Override // kotlin.jvm.functions.Functions
                         public /* bridge */ /* synthetic */ Offset invoke() {
-                            return Offset.m2307boximpl(m197invokeF1C5BW0());
+                            return Offset.m2608boximpl(m498invokeF1C5BW0());
                         }
 
                         /* renamed from: invoke-F1C5BW0  reason: not valid java name */
-                        public final long m197invokeF1C5BW0() {
+                        public final long m498invokeF1C5BW0() {
                             return MagnifierKt$magnifier$4.invoke$lambda$8(state3);
                         }
                     });
@@ -266,13 +266,13 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final long invoke$lambda$1(MutableState<Offset> mutableState) {
-        return mutableState.getValue().m2328unboximpl();
+    public static final long invoke$lambda$1(SnapshotState<Offset> snapshotState) {
+        return snapshotState.getValue().m2629unboximpl();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$lambda$2(MutableState<Offset> mutableState, long j) {
-        mutableState.setValue(Offset.m2307boximpl(j));
+    public static final void invoke$lambda$2(SnapshotState<Offset> snapshotState, long j) {
+        snapshotState.setValue(Offset.m2608boximpl(j));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -297,7 +297,7 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final long invoke$lambda$8(State<Offset> state) {
-        return state.getValue().m2328unboximpl();
+        return state.getValue().m2629unboximpl();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -307,12 +307,12 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Magnifier.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.MagnifierKt$magnifier$4$1", f = "Magnifier.kt", i = {0}, l = {365}, m = "invokeSuspend", n = {"magnifier"}, s = {"L$0"})
-    /* renamed from: androidx.compose.foundation.MagnifierKt$magnifier$4$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.MagnifierKt$magnifier$4$1", m30f = "Magnifier.kt", m29i = {0}, m28l = {365}, m27m = "invokeSuspend", m26n = {"magnifier"}, m25s = {"L$0"})
+    /* renamed from: androidx.compose.foundation.MagnifierKt$magnifier$4$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-        final /* synthetic */ MutableState<Offset> $anchorPositionInRoot$delegate;
+    public static final class C01941 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        final /* synthetic */ SnapshotState<Offset> $anchorPositionInRoot$delegate;
         final /* synthetic */ Density $density;
         final /* synthetic */ State<Boolean> $isMagnifierShown$delegate;
         final /* synthetic */ MutableSharedFlow<Unit> $onNeedsUpdate;
@@ -329,7 +329,7 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(PlatformMagnifierFactory platformMagnifierFactory, MagnifierStyle magnifierStyle, View view, Density density, float f, MutableSharedFlow<Unit> mutableSharedFlow, State<? extends Function1<? super DpSize, Unit>> state, State<Boolean> state2, State<Offset> state3, State<? extends Function1<? super Density, Offset>> state4, MutableState<Offset> mutableState, State<Float> state5, Continuation<? super AnonymousClass1> continuation) {
+        C01941(PlatformMagnifierFactory platformMagnifierFactory, MagnifierStyle magnifierStyle, View view, Density density, float f, MutableSharedFlow<Unit> mutableSharedFlow, State<? extends Function1<? super DpSize, Unit>> state, State<Boolean> state2, State<Offset> state3, State<? extends Function1<? super Density, Offset>> state4, SnapshotState<Offset> snapshotState, State<Float> state5, Continuation<? super C01941> continuation) {
             super(2, continuation);
             this.$platformMagnifierFactory = platformMagnifierFactory;
             this.$style = magnifierStyle;
@@ -341,46 +341,46 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
             this.$isMagnifierShown$delegate = state2;
             this.$sourceCenterInRoot$delegate = state3;
             this.$updatedMagnifierCenter$delegate = state4;
-            this.$anchorPositionInRoot$delegate = mutableState;
+            this.$anchorPositionInRoot$delegate = snapshotState;
             this.$updatedZoom$delegate = state5;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$platformMagnifierFactory, this.$style, this.$view, this.$density, this.$zoom, this.$onNeedsUpdate, this.$updatedOnSizeChanged$delegate, this.$isMagnifierShown$delegate, this.$sourceCenterInRoot$delegate, this.$updatedMagnifierCenter$delegate, this.$anchorPositionInRoot$delegate, this.$updatedZoom$delegate, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C01941 c01941 = new C01941(this.$platformMagnifierFactory, this.$style, this.$view, this.$density, this.$zoom, this.$onNeedsUpdate, this.$updatedOnSizeChanged$delegate, this.$isMagnifierShown$delegate, this.$sourceCenterInRoot$delegate, this.$updatedMagnifierCenter$delegate, this.$anchorPositionInRoot$delegate, this.$updatedZoom$delegate, continuation);
+            c01941.L$0 = obj;
+            return c01941;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C01941) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: Magnifier.kt */
-        @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.MagnifierKt$magnifier$4$1$1", f = "Magnifier.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.MagnifierKt$magnifier$4$1$1  reason: invalid class name and collision with other inner class name */
+        @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.MagnifierKt$magnifier$4$1$1", m30f = "Magnifier.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.MagnifierKt$magnifier$4$1$1 */
         /* loaded from: classes.dex */
-        public static final class C00031 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
+        public static final class C01951 extends SuspendLambda implements Function2<Unit, Continuation<? super Unit>, Object> {
             final /* synthetic */ PlatformMagnifier $magnifier;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            C00031(PlatformMagnifier platformMagnifier, Continuation<? super C00031> continuation) {
+            C01951(PlatformMagnifier platformMagnifier, Continuation<? super C01951> continuation) {
                 super(2, continuation);
                 this.$magnifier = platformMagnifier;
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new C00031(this.$magnifier, continuation);
+                return new C01951(this.$magnifier, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(Unit unit, Continuation<? super Unit> continuation) {
-                return ((C00031) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C01951) create(unit, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -405,32 +405,32 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
                 CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
                 final PlatformMagnifier create = this.$platformMagnifierFactory.create(this.$style, this.$view, this.$density, this.$zoom);
                 final Ref.LongRef longRef = new Ref.LongRef();
-                long mo216getSizeYbymL2g = create.mo216getSizeYbymL2g();
+                long mo517getSizeYbymL2g = create.mo517getSizeYbymL2g();
                 Density density = this.$density;
                 Function1 invoke$lambda$6 = MagnifierKt$magnifier$4.invoke$lambda$6(this.$updatedOnSizeChanged$delegate);
                 if (invoke$lambda$6 != null) {
-                    invoke$lambda$6.invoke(DpSize.m5136boximpl(density.mo300toDpSizekrfVVM(IntSizeKt.m5220toSizeozmzZPI(mo216getSizeYbymL2g))));
+                    invoke$lambda$6.invoke(DpSize.m5437boximpl(density.mo601toDpSizekrfVVM(IntSizeKt.m5521toSizeozmzZPI(mo517getSizeYbymL2g))));
                 }
-                longRef.element = mo216getSizeYbymL2g;
-                FlowKt.launchIn(FlowKt.onEach(this.$onNeedsUpdate, new C00031(create, null)), coroutineScope);
+                longRef.element = mo517getSizeYbymL2g;
+                FlowKt.launchIn(FlowKt.onEach(this.$onNeedsUpdate, new C01951(create, null)), coroutineScope);
                 try {
                     final Density density2 = this.$density;
                     final State<Boolean> state = this.$isMagnifierShown$delegate;
                     final State<Offset> state2 = this.$sourceCenterInRoot$delegate;
                     final State<Function1<Density, Offset>> state3 = this.$updatedMagnifierCenter$delegate;
-                    final MutableState<Offset> mutableState = this.$anchorPositionInRoot$delegate;
+                    final SnapshotState<Offset> snapshotState = this.$anchorPositionInRoot$delegate;
                     final State<Float> state4 = this.$updatedZoom$delegate;
                     final State<Function1<DpSize, Unit>> state5 = this.$updatedOnSizeChanged$delegate;
                     this.L$0 = create;
                     this.label = 1;
-                    if (FlowKt.collect(SnapshotStateKt.snapshotFlow(new Function0<Unit>() { // from class: androidx.compose.foundation.MagnifierKt.magnifier.4.1.2
+                    if (FlowKt.collect(SnapshotStateKt.snapshotFlow(new Functions<Unit>() { // from class: androidx.compose.foundation.MagnifierKt.magnifier.4.1.2
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         /* JADX WARN: Multi-variable type inference failed */
                         {
                             super(0);
                         }
 
-                        @Override // kotlin.jvm.functions.Function0
+                        @Override // kotlin.jvm.functions.Functions
                         public /* bridge */ /* synthetic */ Unit invoke() {
                             invoke2();
                             return Unit.INSTANCE;
@@ -438,30 +438,30 @@ public final class MagnifierKt$magnifier$4 extends Lambda implements Function3<M
 
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2() {
-                            long m2333getUnspecifiedF1C5BW0;
+                            long m2634getUnspecifiedF1C5BW0;
                             if (MagnifierKt$magnifier$4.invoke$lambda$10(state)) {
                                 PlatformMagnifier platformMagnifier2 = PlatformMagnifier.this;
                                 long invoke$lambda$8 = MagnifierKt$magnifier$4.invoke$lambda$8(state2);
                                 Object invoke = MagnifierKt$magnifier$4.invoke$lambda$4(state3).invoke(density2);
-                                MutableState<Offset> mutableState2 = mutableState;
-                                long m2328unboximpl = ((Offset) invoke).m2328unboximpl();
-                                if (OffsetKt.m2337isSpecifiedk4lQ0M(m2328unboximpl)) {
-                                    m2333getUnspecifiedF1C5BW0 = Offset.m2323plusMKHz9U(MagnifierKt$magnifier$4.invoke$lambda$1(mutableState2), m2328unboximpl);
+                                SnapshotState<Offset> snapshotState2 = snapshotState;
+                                long m2629unboximpl = ((Offset) invoke).m2629unboximpl();
+                                if (OffsetKt.m2638isSpecifiedk4lQ0M(m2629unboximpl)) {
+                                    m2634getUnspecifiedF1C5BW0 = Offset.m2624plusMKHz9U(MagnifierKt$magnifier$4.invoke$lambda$1(snapshotState2), m2629unboximpl);
                                 } else {
-                                    m2333getUnspecifiedF1C5BW0 = Offset.Companion.m2333getUnspecifiedF1C5BW0();
+                                    m2634getUnspecifiedF1C5BW0 = Offset.Companion.m2634getUnspecifiedF1C5BW0();
                                 }
-                                platformMagnifier2.mo217updateWko1d7g(invoke$lambda$8, m2333getUnspecifiedF1C5BW0, MagnifierKt$magnifier$4.invoke$lambda$5(state4));
-                                long mo216getSizeYbymL2g2 = PlatformMagnifier.this.mo216getSizeYbymL2g();
+                                platformMagnifier2.mo518updateWko1d7g(invoke$lambda$8, m2634getUnspecifiedF1C5BW0, MagnifierKt$magnifier$4.invoke$lambda$5(state4));
+                                long mo517getSizeYbymL2g2 = PlatformMagnifier.this.mo517getSizeYbymL2g();
                                 Ref.LongRef longRef2 = longRef;
                                 Density density3 = density2;
                                 State<Function1<DpSize, Unit>> state6 = state5;
-                                if (IntSize.m5208equalsimpl0(mo216getSizeYbymL2g2, longRef2.element)) {
+                                if (IntSize.m5509equalsimpl0(mo517getSizeYbymL2g2, longRef2.element)) {
                                     return;
                                 }
-                                longRef2.element = mo216getSizeYbymL2g2;
+                                longRef2.element = mo517getSizeYbymL2g2;
                                 Function1 invoke$lambda$62 = MagnifierKt$magnifier$4.invoke$lambda$6(state6);
                                 if (invoke$lambda$62 != null) {
-                                    invoke$lambda$62.invoke(DpSize.m5136boximpl(density3.mo300toDpSizekrfVVM(IntSizeKt.m5220toSizeozmzZPI(mo216getSizeYbymL2g2))));
+                                    invoke$lambda$62.invoke(DpSize.m5437boximpl(density3.mo601toDpSizekrfVVM(IntSizeKt.m5521toSizeozmzZPI(mo517getSizeYbymL2g2))));
                                     return;
                                 }
                                 return;

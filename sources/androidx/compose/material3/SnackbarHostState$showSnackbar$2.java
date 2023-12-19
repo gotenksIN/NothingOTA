@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: SnackbarHost.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SnackbarHostState", f = "SnackbarHost.kt", i = {0, 0, 0, 1, 1, 1, 1}, l = {462, 465}, m = "showSnackbar", n = {"this", "visuals", "$this$withLock_u24default$iv", "this", "visuals", "$this$withLock_u24default$iv", "$completion$iv"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$3"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SnackbarHostState", m30f = "SnackbarHost.kt", m29i = {0, 0, 0, 1, 1, 1, 1}, m28l = {462, 465}, m27m = "showSnackbar", m26n = {"this", "visuals", "$this$withLock_u24default$iv", "this", "visuals", "$this$withLock_u24default$iv", "$completion$iv"}, m25s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes.dex */
 public final class SnackbarHostState$showSnackbar$2 extends ContinuationImpl {
     Object L$0;

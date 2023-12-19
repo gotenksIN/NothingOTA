@@ -1,6 +1,6 @@
 package androidx.compose.foundation.text;
 
-import androidx.compose.ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -11,8 +11,8 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: CoreTextField.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.CoreTextFieldKt$TextFieldCursorHandle$1", f = "CoreTextField.kt", i = {}, l = {1043}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.CoreTextFieldKt$TextFieldCursorHandle$1", m30f = "CoreTextField.kt", m29i = {}, m28l = {1043}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class CoreTextFieldKt$TextFieldCursorHandle$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ TextDragObserver $observer;
@@ -45,7 +45,7 @@ final class CoreTextFieldKt$TextFieldCursorHandle$1 extends SuspendLambda implem
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (LongPressTextDragObserverKt.detectDownAndDragGesturesWithObserver((PointerInputScope) this.L$0, this.$observer, this) == coroutine_suspended) {
+            if (LongPressTextDragObserver.detectDownAndDragGesturesWithObserver((PointerInputScope) this.L$0, this.$observer, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

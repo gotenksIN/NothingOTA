@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import androidx.collection.SimpleArrayMap;
-import androidx.core.os.BuildCompat;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.view.KeyEventDispatcher;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;

@@ -6,8 +6,8 @@ import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* compiled from: Limit.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$collectWhile$collector$1", f = "Limit.kt", i = {0}, l = {130}, m = "emit", n = {"this"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__LimitKt$collectWhile$collector$1", m30f = "Limit.kt", m29i = {0}, m28l = {130}, m27m = "emit", m26n = {"this"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class FlowKt__LimitKt$collectWhile$collector$1$emit$1 extends ContinuationImpl {
     Object L$0;

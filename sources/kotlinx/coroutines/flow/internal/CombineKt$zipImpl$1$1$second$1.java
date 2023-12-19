@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow.internal;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 
 /* compiled from: Combine.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u00020\u00060\u0005H\u008a@"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/channels/ProducerScope;", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1", f = "Combine.kt", i = {}, l = {R.styleable.AppCompatTheme_ratingBarStyle}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u00020\u00060\u0005H\u008a@"}, m40d2 = {"<anonymous>", "", "T1", "T2", "R", "Lkotlinx/coroutines/channels/ProducerScope;", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1", m30f = "Combine.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_ratingBarStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class CombineKt$zipImpl$1$1$second$1 extends SuspendLambda implements Function2<ProducerScope<? super Object>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow<T2> $flow2;
@@ -49,13 +49,13 @@ final class CombineKt$zipImpl$1$1$second$1 extends SuspendLambda implements Func
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Combine.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u0002H\u0003H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, m40d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    /* renamed from: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> implements FlowCollector {
+    public static final class C17901<T> implements FlowCollector {
         final /* synthetic */ ProducerScope<Object> $$this$produce;
 
-        AnonymousClass1(ProducerScope<Object> producerScope) {
+        C17901(ProducerScope<Object> producerScope) {
             this.$$this$produce = producerScope;
         }
 
@@ -104,7 +104,7 @@ final class CombineKt$zipImpl$1$1$second$1 extends SuspendLambda implements Func
                 kotlinx.coroutines.channels.ProducerScope<java.lang.Object> r6 = r4.$$this$produce
                 kotlinx.coroutines.channels.SendChannel r6 = r6.getChannel()
                 if (r5 != 0) goto L3f
-                kotlinx.coroutines.internal.Symbol r5 = kotlinx.coroutines.flow.internal.NullSurrogateKt.NULL
+                kotlinx.coroutines.internal.Symbol r5 = kotlinx.coroutines.flow.internal.NullSurrogate.NULL
             L3f:
                 r0.label = r3
                 java.lang.Object r5 = r6.send(r5, r0)
@@ -114,7 +114,7 @@ final class CombineKt$zipImpl$1$1$second$1 extends SuspendLambda implements Func
                 kotlin.Unit r5 = kotlin.Unit.INSTANCE
                 return r5
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1.AnonymousClass1.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$1$1$second$1.C17901.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
         }
     }
 
@@ -125,7 +125,7 @@ final class CombineKt$zipImpl$1$1$second$1 extends SuspendLambda implements Func
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (this.$flow2.collect(new AnonymousClass1((ProducerScope) this.L$0), this) == coroutine_suspended) {
+            if (this.$flow2.collect(new C17901((ProducerScope) this.L$0), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

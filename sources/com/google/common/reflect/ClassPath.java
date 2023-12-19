@@ -11,9 +11,9 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.google.common.collect.UnmodifiableIterator;
-import com.google.common.io.ByteSource;
-import com.google.common.io.CharSource;
-import com.google.common.io.Resources;
+import com.google.common.p006io.ByteSource;
+import com.google.common.p006io.CharSource;
+import com.google.common.p006io.Resources;
 import com.google.common.reflect.ClassPath;
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public final class ClassPath {
     private static final String CLASS_FILE_NAME_EXTENSION = ".class";
     private final ImmutableSet<ResourceInfo> resources;
     private static final Logger logger = Logger.getLogger(ClassPath.class.getName());
-    private static final Splitter CLASS_PATH_ATTRIBUTE_SEPARATOR = Splitter.on(" ").omitEmptyStrings();
+    private static final Splitter CLASS_PATH_ATTRIBUTE_SEPARATOR = Splitter.m230on(" ").omitEmptyStrings();
 
     private ClassPath(ImmutableSet<ResourceInfo> immutableSet) {
         this.resources = immutableSet;
@@ -113,7 +113,8 @@ public final class ClassPath {
         final ClassLoader loader;
         private final String resourceName;
 
-        static ResourceInfo of(File file, String str, ClassLoader classLoader) {
+        /* renamed from: of */
+        static ResourceInfo m61of(File file, String str, ClassLoader classLoader) {
             if (str.endsWith(ClassPath.CLASS_FILE_NAME_EXTENSION)) {
                 return new ClassInfo(file, str, classLoader);
             }
@@ -294,7 +295,7 @@ public final class ClassPath {
             while (entries.hasMoreElements()) {
                 JarEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && !nextElement.getName().equals("META-INF/MANIFEST.MF")) {
-                    builder.add((ImmutableSet.Builder<ResourceInfo>) ResourceInfo.of(new File(jarFile.getName()), nextElement.getName(), this.classloader));
+                    builder.add((ImmutableSet.Builder<ResourceInfo>) ResourceInfo.m61of(new File(jarFile.getName()), nextElement.getName(), this.classloader));
                 }
             }
         }
@@ -326,7 +327,7 @@ public final class ClassPath {
                     String valueOf3 = String.valueOf(name);
                     String concat = valueOf3.length() != 0 ? valueOf2.concat(valueOf3) : new String(valueOf2);
                     if (!concat.equals("META-INF/MANIFEST.MF")) {
-                        builder.add((ImmutableSet.Builder<ResourceInfo>) ResourceInfo.of(file2, concat, this.classloader));
+                        builder.add((ImmutableSet.Builder<ResourceInfo>) ResourceInfo.m61of(file2, concat, this.classloader));
                     }
                 }
             }
@@ -351,7 +352,7 @@ public final class ClassPath {
 
     static ImmutableSet<File> getClassPathFromManifest(File file, @CheckForNull Manifest manifest) {
         if (manifest == null) {
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
         ImmutableSet.Builder builder = ImmutableSet.builder();
         String value = manifest.getMainAttributes().getValue(Attributes.Name.CLASS_PATH.toString());
@@ -398,12 +399,12 @@ public final class ClassPath {
         if (classLoader.equals(ClassLoader.getSystemClassLoader())) {
             return parseJavaClassPath();
         }
-        return ImmutableList.of();
+        return ImmutableList.m211of();
     }
 
     static ImmutableList<URL> parseJavaClassPath() {
         ImmutableList.Builder builder = ImmutableList.builder();
-        for (String str : Splitter.on(StandardSystemProperty.PATH_SEPARATOR.value()).split(StandardSystemProperty.JAVA_CLASS_PATH.value())) {
+        for (String str : Splitter.m230on(StandardSystemProperty.PATH_SEPARATOR.value()).split(StandardSystemProperty.JAVA_CLASS_PATH.value())) {
             try {
                 try {
                     builder.add((ImmutableList.Builder) new File(str).toURI().toURL());

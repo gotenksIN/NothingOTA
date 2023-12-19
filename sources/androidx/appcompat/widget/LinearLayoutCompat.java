@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.LinearLayout;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import com.google.common.primitives.Ints;
@@ -91,26 +91,26 @@ public class LinearLayoutCompat extends ViewGroup {
         this.mBaselineAlignedChildIndex = -1;
         this.mBaselineChildTop = 0;
         this.mGravity = 8388659;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R.styleable.LinearLayoutCompat, i, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R.styleable.LinearLayoutCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-        int i2 = obtainStyledAttributes.getInt(R.styleable.LinearLayoutCompat_android_orientation, -1);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, C0032R.styleable.LinearLayoutCompat, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, C0032R.styleable.LinearLayoutCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+        int i2 = obtainStyledAttributes.getInt(C0032R.styleable.LinearLayoutCompat_android_orientation, -1);
         if (i2 >= 0) {
             setOrientation(i2);
         }
-        int i3 = obtainStyledAttributes.getInt(R.styleable.LinearLayoutCompat_android_gravity, -1);
+        int i3 = obtainStyledAttributes.getInt(C0032R.styleable.LinearLayoutCompat_android_gravity, -1);
         if (i3 >= 0) {
             setGravity(i3);
         }
-        boolean z = obtainStyledAttributes.getBoolean(R.styleable.LinearLayoutCompat_android_baselineAligned, true);
+        boolean z = obtainStyledAttributes.getBoolean(C0032R.styleable.LinearLayoutCompat_android_baselineAligned, true);
         if (!z) {
             setBaselineAligned(z);
         }
-        this.mWeightSum = obtainStyledAttributes.getFloat(R.styleable.LinearLayoutCompat_android_weightSum, -1.0f);
-        this.mBaselineAlignedChildIndex = obtainStyledAttributes.getInt(R.styleable.LinearLayoutCompat_android_baselineAlignedChildIndex, -1);
-        this.mUseLargestChild = obtainStyledAttributes.getBoolean(R.styleable.LinearLayoutCompat_measureWithLargestChild, false);
-        setDividerDrawable(obtainStyledAttributes.getDrawable(R.styleable.LinearLayoutCompat_divider));
-        this.mShowDividers = obtainStyledAttributes.getInt(R.styleable.LinearLayoutCompat_showDividers, 0);
-        this.mDividerPadding = obtainStyledAttributes.getDimensionPixelSize(R.styleable.LinearLayoutCompat_dividerPadding, 0);
+        this.mWeightSum = obtainStyledAttributes.getFloat(C0032R.styleable.LinearLayoutCompat_android_weightSum, -1.0f);
+        this.mBaselineAlignedChildIndex = obtainStyledAttributes.getInt(C0032R.styleable.LinearLayoutCompat_android_baselineAlignedChildIndex, -1);
+        this.mUseLargestChild = obtainStyledAttributes.getBoolean(C0032R.styleable.LinearLayoutCompat_measureWithLargestChild, false);
+        setDividerDrawable(obtainStyledAttributes.getDrawable(C0032R.styleable.LinearLayoutCompat_divider));
+        this.mShowDividers = obtainStyledAttributes.getInt(C0032R.styleable.LinearLayoutCompat_showDividers, 0);
+        this.mDividerPadding = obtainStyledAttributes.getDimensionPixelSize(C0032R.styleable.LinearLayoutCompat_dividerPadding, 0);
         obtainStyledAttributes.recycle();
     }
 
@@ -276,7 +276,7 @@ public class LinearLayoutCompat extends ViewGroup {
             throw new RuntimeException("mBaselineAlignedChildIndex of LinearLayout points to a View that doesn't know how to get its baseline.");
         }
         int i3 = this.mBaselineChildTop;
-        if (this.mOrientation == 1 && (i = this.mGravity & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) != 48) {
+        if (this.mOrientation == 1 && (i = this.mGravity & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) != 48) {
             if (i == 16) {
                 i3 += ((((getBottom() - getTop()) - getPaddingTop()) - getPaddingBottom()) - this.mTotalLength) / 2;
             } else if (i == 80) {
@@ -578,7 +578,7 @@ public class LinearLayoutCompat extends ViewGroup {
             if ((8388615 & i) == 0) {
                 i |= GravityCompat.START;
             }
-            if ((i & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+            if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
                 i |= 48;
             }
             this.mGravity = i;
@@ -600,9 +600,9 @@ public class LinearLayoutCompat extends ViewGroup {
     }
 
     public void setVerticalGravity(int i) {
-        int i2 = i & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+        int i2 = i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
         int i3 = this.mGravity;
-        if ((i3 & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) != i2) {
+        if ((i3 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) != i2) {
             this.mGravity = i2 | (i3 & (-113));
             requestLayout();
         }

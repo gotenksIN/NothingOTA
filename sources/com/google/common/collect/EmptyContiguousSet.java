@@ -129,7 +129,7 @@ public final class EmptyContiguousSet<C extends Comparable> extends ContiguousSe
 
     @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection
     public ImmutableList<C> asList() {
-        return ImmutableList.of();
+        return ImmutableList.m211of();
     }
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set

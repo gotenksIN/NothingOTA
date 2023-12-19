@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: WhileSelect.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.selects.WhileSelectKt", f = "WhileSelect.kt", i = {0}, l = {37}, m = "whileSelect", n = {"builder"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.selects.WhileSelectKt", m30f = "WhileSelect.kt", m29i = {0}, m28l = {37}, m27m = "whileSelect", m26n = {"builder"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class WhileSelectKt$whileSelect$1 extends ContinuationImpl {
     Object L$0;
@@ -24,6 +24,6 @@ public final class WhileSelectKt$whileSelect$1 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return WhileSelectKt.whileSelect(null, this);
+        return WhileSelect.whileSelect(null, this);
     }
 }

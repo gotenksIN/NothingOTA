@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Deprecated.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", f = "Deprecated.kt", i = {0, 0}, l = {75}, m = "firstOrNull", n = {"$this$consume$iv", "iterator"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", m30f = "Deprecated.kt", m29i = {0, 0}, m28l = {75}, m27m = "firstOrNull", m26n = {"$this$consume$iv", "iterator"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$firstOrNull$1<E> extends ContinuationImpl {
     Object L$0;
@@ -26,7 +26,7 @@ public final class ChannelsKt__DeprecatedKt$firstOrNull$1<E> extends Continuatio
         Object firstOrNull;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        firstOrNull = ChannelsKt__DeprecatedKt.firstOrNull(null, this);
+        firstOrNull = Deprecated.firstOrNull(null, this);
         return firstOrNull;
     }
 }

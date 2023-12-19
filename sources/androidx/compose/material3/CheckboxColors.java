@@ -1,20 +1,20 @@
 package androidx.compose.material3;
 
-import androidx.compose.animation.SingleValueAnimationKt;
+import androidx.compose.animation.SingleValueAnimation;
 import androidx.compose.animation.core.AnimationSpecKt;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.state.ToggleableState;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.state.ToggleableState;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: Checkbox.kt */
-@Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\b\n\u0000\b\u0007\u0018\u00002\u00020\u0001Bb\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003\u0012\u0006\u0010\n\u001a\u00020\u0003\u0012\u0006\u0010\u000b\u001a\u00020\u0003\u0012\u0006\u0010\f\u001a\u00020\u0003\u0012\u0006\u0010\r\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u000eJ(\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0016\u0010\u0017J(\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0017J \u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001cJ\u0013\u0010\u001d\u001a\u00020\u00132\b\u0010\u001e\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u001f\u001a\u00020 H\u0016R\u0019\u0010\n\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\r\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u000b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000f\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006!"}, d2 = {"Landroidx/compose/material3/CheckboxColors;", "", "checkedCheckmarkColor", "Landroidx/compose/ui/graphics/Color;", "uncheckedCheckmarkColor", "checkedBoxColor", "uncheckedBoxColor", "disabledCheckedBoxColor", "disabledUncheckedBoxColor", "disabledIndeterminateBoxColor", "checkedBorderColor", "uncheckedBorderColor", "disabledBorderColor", "disabledIndeterminateBorderColor", "(JJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "borderColor", "Landroidx/compose/runtime/State;", "enabled", "", "state", "Landroidx/compose/ui/state/ToggleableState;", "borderColor$material3_release", "(ZLandroidx/compose/ui/state/ToggleableState;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "boxColor", "boxColor$material3_release", "checkmarkColor", "checkmarkColor$material3_release", "(Landroidx/compose/ui/state/ToggleableState;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "equals", "other", "hashCode", "", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\b\n\u0000\b\u0007\u0018\u00002\u00020\u0001Bb\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003\u0012\u0006\u0010\n\u001a\u00020\u0003\u0012\u0006\u0010\u000b\u001a\u00020\u0003\u0012\u0006\u0010\f\u001a\u00020\u0003\u0012\u0006\u0010\r\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u000eJ(\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0016\u0010\u0017J(\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0017J \u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00030\u00112\u0006\u0010\u0014\u001a\u00020\u0015H\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001cJ\u0013\u0010\u001d\u001a\u00020\u00132\b\u0010\u001e\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u001f\u001a\u00020 H\u0016R\u0019\u0010\n\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\r\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u000b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000fR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000f\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006!"}, m40d2 = {"Landroidx/compose/material3/CheckboxColors;", "", "checkedCheckmarkColor", "Landroidx/compose/ui/graphics/Color;", "uncheckedCheckmarkColor", "checkedBoxColor", "uncheckedBoxColor", "disabledCheckedBoxColor", "disabledUncheckedBoxColor", "disabledIndeterminateBoxColor", "checkedBorderColor", "uncheckedBorderColor", "disabledBorderColor", "disabledIndeterminateBorderColor", "(JJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "borderColor", "Landroidx/compose/runtime/State;", "enabled", "", "state", "Landroidx/compose/ui/state/ToggleableState;", "borderColor$material3_release", "(ZLandroidx/compose/ui/state/ToggleableState;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "boxColor", "boxColor$material3_release", "checkmarkColor", "checkmarkColor$material3_release", "(Landroidx/compose/ui/state/ToggleableState;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "equals", "other", "hashCode", "", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class CheckboxColors {
     public static final int $stable = 0;
@@ -31,7 +31,7 @@ public final class CheckboxColors {
     private final long uncheckedCheckmarkColor;
 
     /* compiled from: Checkbox.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
     /* loaded from: classes.dex */
     public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -85,12 +85,12 @@ public final class CheckboxColors {
         } else {
             j = this.checkedCheckmarkColor;
         }
-        State<Color> m69animateColorAsStateeuL9pac = SingleValueAnimationKt.m69animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
+        State<Color> m370animateColorAsStateeuL9pac = SingleValueAnimation.m370animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
         composer.endReplaceableGroup();
-        return m69animateColorAsStateeuL9pac;
+        return m370animateColorAsStateeuL9pac;
     }
 
     public final State<Color> boxColor$material3_release(boolean z, ToggleableState state, Composer composer, int i) {
@@ -127,12 +127,12 @@ public final class CheckboxColors {
         if (z) {
             composer.startReplaceableGroup(1143718427);
             ComposerKt.sourceInformation(composer, "435@17432L61");
-            rememberUpdatedState = SingleValueAnimationKt.m69animateColorAsStateeuL9pac(j2, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
+            rememberUpdatedState = SingleValueAnimation.m370animateColorAsStateeuL9pac(j2, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
             composer.endReplaceableGroup();
         } else {
             composer.startReplaceableGroup(1143718613);
             ComposerKt.sourceInformation(composer, "437@17523L28");
-            rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(Color.m2546boximpl(j2), composer, 0);
+            rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(Color.m2847boximpl(j2), composer, 0);
             composer.endReplaceableGroup();
         }
         if (ComposerKt.isTraceInProgress()) {
@@ -175,12 +175,12 @@ public final class CheckboxColors {
         if (z) {
             composer.startReplaceableGroup(1209369567);
             ComposerKt.sourceInformation(composer, "465@18635L61");
-            rememberUpdatedState = SingleValueAnimationKt.m69animateColorAsStateeuL9pac(j2, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
+            rememberUpdatedState = SingleValueAnimation.m370animateColorAsStateeuL9pac(j2, AnimationSpecKt.tween$default(state == ToggleableState.Off ? 100 : 50, 0, null, 6, null), null, null, composer, 0, 12);
             composer.endReplaceableGroup();
         } else {
             composer.startReplaceableGroup(1209369753);
             ComposerKt.sourceInformation(composer, "467@18726L28");
-            rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(Color.m2546boximpl(j2), composer, 0);
+            rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(Color.m2847boximpl(j2), composer, 0);
             composer.endReplaceableGroup();
         }
         if (ComposerKt.isTraceInProgress()) {
@@ -198,10 +198,10 @@ public final class CheckboxColors {
             return false;
         }
         CheckboxColors checkboxColors = (CheckboxColors) obj;
-        return Color.m2557equalsimpl0(this.checkedCheckmarkColor, checkboxColors.checkedCheckmarkColor) && Color.m2557equalsimpl0(this.uncheckedCheckmarkColor, checkboxColors.uncheckedCheckmarkColor) && Color.m2557equalsimpl0(this.checkedBoxColor, checkboxColors.checkedBoxColor) && Color.m2557equalsimpl0(this.uncheckedBoxColor, checkboxColors.uncheckedBoxColor) && Color.m2557equalsimpl0(this.disabledCheckedBoxColor, checkboxColors.disabledCheckedBoxColor) && Color.m2557equalsimpl0(this.disabledUncheckedBoxColor, checkboxColors.disabledUncheckedBoxColor) && Color.m2557equalsimpl0(this.disabledIndeterminateBoxColor, checkboxColors.disabledIndeterminateBoxColor) && Color.m2557equalsimpl0(this.checkedBorderColor, checkboxColors.checkedBorderColor) && Color.m2557equalsimpl0(this.uncheckedBorderColor, checkboxColors.uncheckedBorderColor) && Color.m2557equalsimpl0(this.disabledBorderColor, checkboxColors.disabledBorderColor) && Color.m2557equalsimpl0(this.disabledIndeterminateBorderColor, checkboxColors.disabledIndeterminateBorderColor);
+        return Color.m2858equalsimpl0(this.checkedCheckmarkColor, checkboxColors.checkedCheckmarkColor) && Color.m2858equalsimpl0(this.uncheckedCheckmarkColor, checkboxColors.uncheckedCheckmarkColor) && Color.m2858equalsimpl0(this.checkedBoxColor, checkboxColors.checkedBoxColor) && Color.m2858equalsimpl0(this.uncheckedBoxColor, checkboxColors.uncheckedBoxColor) && Color.m2858equalsimpl0(this.disabledCheckedBoxColor, checkboxColors.disabledCheckedBoxColor) && Color.m2858equalsimpl0(this.disabledUncheckedBoxColor, checkboxColors.disabledUncheckedBoxColor) && Color.m2858equalsimpl0(this.disabledIndeterminateBoxColor, checkboxColors.disabledIndeterminateBoxColor) && Color.m2858equalsimpl0(this.checkedBorderColor, checkboxColors.checkedBorderColor) && Color.m2858equalsimpl0(this.uncheckedBorderColor, checkboxColors.uncheckedBorderColor) && Color.m2858equalsimpl0(this.disabledBorderColor, checkboxColors.disabledBorderColor) && Color.m2858equalsimpl0(this.disabledIndeterminateBorderColor, checkboxColors.disabledIndeterminateBorderColor);
     }
 
     public int hashCode() {
-        return (((((((((((((((((((Color.m2563hashCodeimpl(this.checkedCheckmarkColor) * 31) + Color.m2563hashCodeimpl(this.uncheckedCheckmarkColor)) * 31) + Color.m2563hashCodeimpl(this.checkedBoxColor)) * 31) + Color.m2563hashCodeimpl(this.uncheckedBoxColor)) * 31) + Color.m2563hashCodeimpl(this.disabledCheckedBoxColor)) * 31) + Color.m2563hashCodeimpl(this.disabledUncheckedBoxColor)) * 31) + Color.m2563hashCodeimpl(this.disabledIndeterminateBoxColor)) * 31) + Color.m2563hashCodeimpl(this.checkedBorderColor)) * 31) + Color.m2563hashCodeimpl(this.uncheckedBorderColor)) * 31) + Color.m2563hashCodeimpl(this.disabledBorderColor)) * 31) + Color.m2563hashCodeimpl(this.disabledIndeterminateBorderColor);
+        return (((((((((((((((((((Color.m2864hashCodeimpl(this.checkedCheckmarkColor) * 31) + Color.m2864hashCodeimpl(this.uncheckedCheckmarkColor)) * 31) + Color.m2864hashCodeimpl(this.checkedBoxColor)) * 31) + Color.m2864hashCodeimpl(this.uncheckedBoxColor)) * 31) + Color.m2864hashCodeimpl(this.disabledCheckedBoxColor)) * 31) + Color.m2864hashCodeimpl(this.disabledUncheckedBoxColor)) * 31) + Color.m2864hashCodeimpl(this.disabledIndeterminateBoxColor)) * 31) + Color.m2864hashCodeimpl(this.checkedBorderColor)) * 31) + Color.m2864hashCodeimpl(this.uncheckedBorderColor)) * 31) + Color.m2864hashCodeimpl(this.disabledBorderColor)) * 31) + Color.m2864hashCodeimpl(this.disabledIndeterminateBorderColor);
     }
 }

@@ -857,12 +857,12 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casWaiters(AbstractFuture<?> abstractFuture, @CheckForNull Waiter waiter, @CheckForNull Waiter waiter2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(UNSAFE, abstractFuture, WAITERS_OFFSET, waiter, waiter2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m292m(UNSAFE, abstractFuture, WAITERS_OFFSET, waiter, waiter2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casListeners(AbstractFuture<?> abstractFuture, @CheckForNull Listener listener, Listener listener2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(UNSAFE, abstractFuture, LISTENERS_OFFSET, listener, listener2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m292m(UNSAFE, abstractFuture, LISTENERS_OFFSET, listener, listener2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
@@ -891,7 +891,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casValue(AbstractFuture<?> abstractFuture, @CheckForNull Object obj, Object obj2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(UNSAFE, abstractFuture, VALUE_OFFSET, obj, obj2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m292m(UNSAFE, abstractFuture, VALUE_OFFSET, obj, obj2);
         }
     }
 
@@ -924,12 +924,12 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casWaiters(AbstractFuture<?> abstractFuture, @CheckForNull Waiter waiter, @CheckForNull Waiter waiter2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.waitersUpdater, abstractFuture, waiter, waiter2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.waitersUpdater, abstractFuture, waiter, waiter2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casListeners(AbstractFuture<?> abstractFuture, @CheckForNull Listener listener, Listener listener2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.listenersUpdater, abstractFuture, listener, listener2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.listenersUpdater, abstractFuture, listener, listener2);
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
@@ -944,7 +944,7 @@ public abstract class AbstractFuture<V> extends InternalFutureFailureAccess impl
 
         @Override // com.google.common.util.concurrent.AbstractFuture.AtomicHelper
         boolean casValue(AbstractFuture<?> abstractFuture, @CheckForNull Object obj, Object obj2) {
-            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.valueUpdater, abstractFuture, obj, obj2);
+            return MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(this.valueUpdater, abstractFuture, obj, obj2);
         }
     }
 

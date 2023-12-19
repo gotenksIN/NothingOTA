@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: SnapFlingBehavior.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SnapFlingBehavior", f = "SnapFlingBehavior.kt", i = {0, 0, 0}, l = {261}, m = "animateDecay", n = {"animationState", "previousValue", "targetOffset"}, s = {"L$0", "L$1", "F$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SnapFlingBehavior", m30f = "SnapFlingBehavior.kt", m29i = {0, 0, 0}, m28l = {261}, m27m = "animateDecay", m26n = {"animationState", "previousValue", "targetOffset"}, m25s = {"L$0", "L$1", "F$0"})
 /* loaded from: classes.dex */
 public final class SnapFlingBehavior$animateDecay$1 extends ContinuationImpl {
     float F$0;

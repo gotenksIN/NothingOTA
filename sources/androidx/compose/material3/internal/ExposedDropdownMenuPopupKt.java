@@ -1,7 +1,33 @@
 package androidx.compose.material3.internal;
 
 import android.view.View;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.draw.Alpha;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.layout.LayoutCoordinates;
+import androidx.compose.p002ui.layout.LayoutCoordinatesKt;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.Measurable;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.layout.MeasureResult;
+import androidx.compose.p002ui.layout.MeasureScope;
+import androidx.compose.p002ui.layout.OnGloballyPositionedModifierKt;
+import androidx.compose.p002ui.layout.OnRemeasuredModifierKt;
+import androidx.compose.p002ui.layout.Placeable;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.AndroidCompositionLocals_androidKt;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntOffsetKt;
+import androidx.compose.p002ui.unit.IntRectKt;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.LayoutDirection;
+import androidx.compose.p002ui.window.PopupPositionProvider;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -20,67 +46,41 @@ import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
 import androidx.compose.runtime.internal.ComposableLambda;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.runtime.saveable.RememberSaveableKt;
+import androidx.compose.runtime.saveable.RememberSaveable;
 import androidx.compose.runtime.saveable.Saver;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.draw.AlphaKt;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.layout.LayoutCoordinates;
-import androidx.compose.ui.layout.LayoutCoordinatesKt;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.Measurable;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.layout.MeasureResult;
-import androidx.compose.ui.layout.MeasureScope;
-import androidx.compose.ui.layout.OnGloballyPositionedModifierKt;
-import androidx.compose.ui.layout.OnRemeasuredModifierKt;
-import androidx.compose.ui.layout.Placeable;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.AndroidCompositionLocals_androidKt;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.IntOffsetKt;
-import androidx.compose.ui.unit.IntRectKt;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.LayoutDirection;
-import androidx.compose.ui.window.PopupPositionProvider;
 import java.util.List;
 import java.util.UUID;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt;
 
 /* compiled from: ExposedDropdownMenuPopup.kt */
-@Metadata(d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a:\u0010\u0005\u001a\u00020\u00062\u0010\b\u0002\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\b2\u0006\u0010\t\u001a\u00020\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\u00060\b¢\u0006\u0002\b\fH\u0001¢\u0006\u0002\u0010\r\u001a+\u0010\u000e\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u00102\u0013\b\b\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\u00060\b¢\u0006\u0002\b\fH\u0083\b¢\u0006\u0002\u0010\u0011\"\u001a\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0003\u0010\u0004¨\u0006\u0012"}, d2 = {"LocalPopupTestTag", "Landroidx/compose/runtime/ProvidableCompositionLocal;", "", "getLocalPopupTestTag", "()Landroidx/compose/runtime/ProvidableCompositionLocal;", "ExposedDropdownMenuPopup", "", "onDismissRequest", "Lkotlin/Function0;", "popupPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "content", "Landroidx/compose/runtime/Composable;", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/window/PopupPositionProvider;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V", "SimpleStack", "modifier", "Landroidx/compose/ui/Modifier;", "(Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a:\u0010\u0005\u001a\u00020\u00062\u0010\b\u0002\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\b2\u0006\u0010\t\u001a\u00020\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\u00060\b¢\u0006\u0002\b\fH\u0001¢\u0006\u0002\u0010\r\u001a+\u0010\u000e\u001a\u00020\u00062\u0006\u0010\u000f\u001a\u00020\u00102\u0013\b\b\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\u00060\b¢\u0006\u0002\b\fH\u0083\b¢\u0006\u0002\u0010\u0011\"\u001a\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0003\u0010\u0004¨\u0006\u0012"}, m40d2 = {"LocalPopupTestTag", "Landroidx/compose/runtime/ProvidableCompositionLocal;", "", "getLocalPopupTestTag", "()Landroidx/compose/runtime/ProvidableCompositionLocal;", "ExposedDropdownMenuPopup", "", "onDismissRequest", "Lkotlin/Function0;", "popupPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "content", "Landroidx/compose/runtime/Composable;", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/window/PopupPositionProvider;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V", "SimpleStack", "modifier", "Landroidx/compose/ui/Modifier;", "(Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ExposedDropdownMenuPopupKt {
-    private static final ProvidableCompositionLocal<String> LocalPopupTestTag = CompositionLocalKt.compositionLocalOf$default(null, new Function0<String>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$LocalPopupTestTag$1
-        @Override // kotlin.jvm.functions.Function0
+    private static final ProvidableCompositionLocal<String> LocalPopupTestTag = CompositionLocalKt.compositionLocalOf$default(null, new Functions<String>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$LocalPopupTestTag$1
+        @Override // kotlin.jvm.functions.Functions
         public final String invoke() {
             return "DEFAULT_TEST_TAG";
         }
     }, 1, null);
 
-    public static final void ExposedDropdownMenuPopup(Function0<Unit> function0, final PopupPositionProvider popupPositionProvider, final Function2<? super Composer, ? super Integer, Unit> content, Composer composer, final int i, final int i2) {
+    public static final void ExposedDropdownMenuPopup(Functions<Unit> functions, final PopupPositionProvider popupPositionProvider, final Function2<? super Composer, ? super Integer, Unit> content, Composer composer, final int i, final int i2) {
         Object obj;
         int i3;
         final LayoutDirection layoutDirection;
         final String str;
         String str2;
-        final Function0<Unit> function02;
+        final Functions<Unit> functions2;
         int i4;
         Composer composer2;
         PopupLayout popupLayout;
-        final Function0<Unit> function03;
+        final Functions<Unit> functions3;
         Intrinsics.checkNotNullParameter(popupPositionProvider, "popupPositionProvider");
         Intrinsics.checkNotNullParameter(content, "content");
         Composer startRestartGroup = composer.startRestartGroup(187306684);
@@ -88,18 +88,18 @@ public final class ExposedDropdownMenuPopupKt {
         int i5 = i2 & 1;
         if (i5 != 0) {
             i3 = i | 6;
-            obj = function0;
+            obj = functions;
         } else if ((i & 14) == 0) {
-            Object obj2 = function0;
+            Object obj2 = functions;
             i3 = (startRestartGroup.changedInstance(obj2) ? 4 : 2) | i;
             obj = obj2;
         } else {
-            obj = function0;
+            obj = functions;
             i3 = i;
         }
         if ((i2 & 2) != 0) {
             i3 |= 48;
-        } else if ((i & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        } else if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i3 |= startRestartGroup.changed(popupPositionProvider) ? 32 : 16;
         }
         if ((i2 & 4) != 0) {
@@ -118,7 +118,7 @@ public final class ExposedDropdownMenuPopupKt {
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             View view = (View) consume;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-            Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density = (Density) consume2;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
@@ -126,13 +126,13 @@ public final class ExposedDropdownMenuPopupKt {
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             String str3 = (String) consume3;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-            Object consume4 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume4 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection2 = (LayoutDirection) consume4;
             CompositionContext rememberCompositionContext = ComposablesKt.rememberCompositionContext(startRestartGroup, 0);
             final State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(content, startRestartGroup, (i6 >> 6) & 14);
-            UUID popupId = (UUID) RememberSaveableKt.m2208rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) null, (String) null, (Function0<? extends Object>) new Function0<UUID>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$popupId$1
-                @Override // kotlin.jvm.functions.Function0
+            UUID popupId = (UUID) RememberSaveable.m2509rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) null, (String) null, (Functions<? extends Object>) new Functions<UUID>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$popupId$1
+                @Override // kotlin.jvm.functions.Functions
                 public final UUID invoke() {
                     return UUID.randomUUID();
                 }
@@ -145,7 +145,7 @@ public final class ExposedDropdownMenuPopupKt {
                 layoutDirection = layoutDirection2;
                 str = str3;
                 str2 = "CC:CompositionLocal.kt#9igjgp";
-                function02 = obj3;
+                functions2 = obj3;
                 i4 = i6;
                 composer2 = startRestartGroup;
                 final PopupLayout popupLayout2 = new PopupLayout(obj3, str, view, density, popupPositionProvider, popupId);
@@ -183,20 +183,20 @@ public final class ExposedDropdownMenuPopupKt {
                                 }
                             }, 1, null);
                             final PopupLayout popupLayout3 = PopupLayout.this;
-                            Modifier alpha = AlphaKt.alpha(OnRemeasuredModifierKt.onSizeChanged(semantics$default, new Function1<IntSize, Unit>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$popupLayout$1$1$1.2
+                            Modifier alpha = Alpha.alpha(OnRemeasuredModifierKt.onSizeChanged(semantics$default, new Function1<IntSize, Unit>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$popupLayout$1$1$1.2
                                 {
                                     super(1);
                                 }
 
                                 @Override // kotlin.jvm.functions.Function1
                                 public /* bridge */ /* synthetic */ Unit invoke(IntSize intSize) {
-                                    m1610invokeozmzZPI(intSize.m5214unboximpl());
+                                    m1911invokeozmzZPI(intSize.m5515unboximpl());
                                     return Unit.INSTANCE;
                                 }
 
                                 /* renamed from: invoke-ozmzZPI  reason: not valid java name */
-                                public final void m1610invokeozmzZPI(long j) {
-                                    PopupLayout.this.m1612setPopupContentSizefhxjrPA(IntSize.m5202boximpl(j));
+                                public final void m1911invokeozmzZPI(long j) {
+                                    PopupLayout.this.m1913setPopupContentSizefhxjrPA(IntSize.m5503boximpl(j));
                                     PopupLayout.this.updatePosition();
                                 }
                             }), PopupLayout.this.getCanCalculatePosition() ? 1.0f : 0.0f);
@@ -237,18 +237,18 @@ public final class ExposedDropdownMenuPopupKt {
                             composer3.startReplaceableGroup(-1323940314);
                             ComposerKt.sourceInformation(composer3, "CC(Layout)P(!1,2)73@2855L7,74@2910L7,75@2969L7,76@2981L460:Layout.kt#80mrfh");
                             ComposerKt.sourceInformationMarkerStart(composer3, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                            Object consume5 = composer3.consume(CompositionLocalsKt.getLocalDensity());
+                            Object consume5 = composer3.consume(CompositionLocals.getLocalDensity());
                             ComposerKt.sourceInformationMarkerEnd(composer3);
                             Density density2 = (Density) consume5;
                             ComposerKt.sourceInformationMarkerStart(composer3, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                            Object consume6 = composer3.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                            Object consume6 = composer3.consume(CompositionLocals.getLocalLayoutDirection());
                             ComposerKt.sourceInformationMarkerEnd(composer3);
                             LayoutDirection layoutDirection3 = (LayoutDirection) consume6;
                             ComposerKt.sourceInformationMarkerStart(composer3, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                            Object consume7 = composer3.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                            Object consume7 = composer3.consume(CompositionLocals.getLocalViewConfiguration());
                             ComposerKt.sourceInformationMarkerEnd(composer3);
                             ViewConfiguration viewConfiguration = (ViewConfiguration) consume7;
-                            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+                            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
                             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(alpha);
                             if (!(composer3.getApplier() instanceof Applier)) {
                                 ComposablesKt.invalidApplier();
@@ -259,12 +259,12 @@ public final class ExposedDropdownMenuPopupKt {
                             } else {
                                 composer3.useNode();
                             }
-                            Composer m2195constructorimpl = Updater.m2195constructorimpl(composer3);
-                            Updater.m2202setimpl(m2195constructorimpl, exposedDropdownMenuPopupKt$SimpleStack$1, ComposeUiNode.Companion.getSetMeasurePolicy());
-                            Updater.m2202setimpl(m2195constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
-                            Updater.m2202setimpl(m2195constructorimpl, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
-                            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
-                            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer3)), composer3, 0);
+                            Composer m2496constructorimpl = Updater.m2496constructorimpl(composer3);
+                            Updater.m2503setimpl(m2496constructorimpl, exposedDropdownMenuPopupKt$SimpleStack$1, ComposeUiNode.Companion.getSetMeasurePolicy());
+                            Updater.m2503setimpl(m2496constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
+                            Updater.m2503setimpl(m2496constructorimpl, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
+                            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+                            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer3)), composer3, 0);
                             composer3.startReplaceableGroup(2058660585);
                             composableLambda.invoke(composer3, 6);
                             composer3.endReplaceableGroup();
@@ -286,7 +286,7 @@ public final class ExposedDropdownMenuPopupKt {
                 layoutDirection = layoutDirection2;
                 str = str3;
                 str2 = "CC:CompositionLocal.kt#9igjgp";
-                function02 = obj3;
+                functions2 = obj3;
                 i4 = i6;
                 composer2 = startRestartGroup;
                 popupLayout = rememberedValue;
@@ -304,7 +304,7 @@ public final class ExposedDropdownMenuPopupKt {
                 public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                     Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
                     PopupLayout.this.show();
-                    PopupLayout.this.updateParameters(function02, str, layoutDirection);
+                    PopupLayout.this.updateParameters(functions2, str, layoutDirection);
                     final PopupLayout popupLayout4 = PopupLayout.this;
                     return new DisposableEffectResult() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$1$invoke$$inlined$onDispose$1
                         @Override // androidx.compose.runtime.DisposableEffectResult
@@ -315,14 +315,14 @@ public final class ExposedDropdownMenuPopupKt {
                     };
                 }
             }, composer2, 8);
-            EffectsKt.SideEffect(new Function0<Unit>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$2
+            EffectsKt.SideEffect(new Functions<Unit>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$2
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public /* bridge */ /* synthetic */ Unit invoke() {
                     invoke2();
                     return Unit.INSTANCE;
@@ -330,7 +330,7 @@ public final class ExposedDropdownMenuPopupKt {
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2() {
-                    PopupLayout.this.updateParameters(function02, str, layoutDirection);
+                    PopupLayout.this.updateParameters(functions2, str, layoutDirection);
                 }
             }, composer2, 0);
             EffectsKt.DisposableEffect(popupPositionProvider, new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$3
@@ -369,16 +369,16 @@ public final class ExposedDropdownMenuPopupKt {
                     Intrinsics.checkNotNullParameter(childCoordinates, "childCoordinates");
                     LayoutCoordinates parentLayoutCoordinates = childCoordinates.getParentLayoutCoordinates();
                     Intrinsics.checkNotNull(parentLayoutCoordinates);
-                    long mo4080getSizeYbymL2g = parentLayoutCoordinates.mo4080getSizeYbymL2g();
+                    long mo4381getSizeYbymL2g = parentLayoutCoordinates.mo4381getSizeYbymL2g();
                     long positionInWindow = LayoutCoordinatesKt.positionInWindow(parentLayoutCoordinates);
-                    PopupLayout.this.setParentBounds(IntRectKt.m5200IntRectVbeCjmY(IntOffsetKt.IntOffset(MathKt.roundToInt(Offset.m2318getXimpl(positionInWindow)), MathKt.roundToInt(Offset.m2319getYimpl(positionInWindow))), mo4080getSizeYbymL2g));
+                    PopupLayout.this.setParentBounds(IntRectKt.m5501IntRectVbeCjmY(IntOffsetKt.IntOffset(MathKt.roundToInt(Offset.m2619getXimpl(positionInWindow)), MathKt.roundToInt(Offset.m2620getYimpl(positionInWindow))), mo4381getSizeYbymL2g));
                     PopupLayout.this.updatePosition();
                 }
             });
             MeasurePolicy measurePolicy = new MeasurePolicy() { // from class: androidx.compose.material3.internal.ExposedDropdownMenuPopupKt$ExposedDropdownMenuPopup$6
-                @Override // androidx.compose.ui.layout.MeasurePolicy
+                @Override // androidx.compose.p002ui.layout.MeasurePolicy
                 /* renamed from: measure-3p2s80s */
-                public final MeasureResult mo12measure3p2s80s(MeasureScope Layout, List<? extends Measurable> list, long j) {
+                public final MeasureResult mo313measure3p2s80s(MeasureScope Layout, List<? extends Measurable> list, long j) {
                     Intrinsics.checkNotNullParameter(Layout, "$this$Layout");
                     Intrinsics.checkNotNullParameter(list, "<anonymous parameter 0>");
                     PopupLayout.this.setParentLayoutDirection(layoutDirection);
@@ -399,18 +399,18 @@ public final class ExposedDropdownMenuPopupKt {
             composer2.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(composer2, "CC(Layout)P(!1,2)73@2855L7,74@2910L7,75@2969L7,76@2981L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, str2);
-            Object consume5 = composer2.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume5 = composer2.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(composer2);
             Density density2 = (Density) consume5;
             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, str2);
-            Object consume6 = composer2.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume6 = composer2.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(composer2);
             LayoutDirection layoutDirection3 = (LayoutDirection) consume6;
             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, str2);
-            Object consume7 = composer2.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume7 = composer2.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(composer2);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume7;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(onGloballyPositioned);
             if (!(composer2.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -421,12 +421,12 @@ public final class ExposedDropdownMenuPopupKt {
             } else {
                 composer2.useNode();
             }
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(composer2);
-            Updater.m2202setimpl(m2195constructorimpl, measurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer2)), composer2, 0);
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(composer2);
+            Updater.m2503setimpl(m2496constructorimpl, measurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer2)), composer2, 0);
             composer2.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(composer2, 571475810, "C:ExposedDropdownMenuPopup.kt#mqatfk");
             ComposerKt.sourceInformationMarkerEnd(composer2);
@@ -436,10 +436,10 @@ public final class ExposedDropdownMenuPopupKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
-            function03 = function02;
+            functions3 = functions2;
         } else {
             startRestartGroup.skipToGroupEnd();
-            function03 = obj;
+            functions3 = obj;
             composer2 = startRestartGroup;
         }
         ScopeUpdateScope endRestartGroup = composer2.endRestartGroup();
@@ -461,7 +461,7 @@ public final class ExposedDropdownMenuPopupKt {
             }
 
             public final void invoke(Composer composer3, int i7) {
-                ExposedDropdownMenuPopupKt.ExposedDropdownMenuPopup(function03, popupPositionProvider, content, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), i2);
+                ExposedDropdownMenuPopupKt.ExposedDropdownMenuPopup(functions3, popupPositionProvider, content, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), i2);
             }
         });
     }
@@ -477,20 +477,20 @@ public final class ExposedDropdownMenuPopupKt {
         composer.startReplaceableGroup(-1323940314);
         ComposerKt.sourceInformation(composer, "CC(Layout)P(!1,2)73@2855L7,74@2910L7,75@2969L7,76@2981L460:Layout.kt#80mrfh");
         ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-        Object consume = composer.consume(CompositionLocalsKt.getLocalDensity());
+        Object consume = composer.consume(CompositionLocals.getLocalDensity());
         ComposerKt.sourceInformationMarkerEnd(composer);
         Density density = (Density) consume;
         ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-        Object consume2 = composer.consume(CompositionLocalsKt.getLocalLayoutDirection());
+        Object consume2 = composer.consume(CompositionLocals.getLocalLayoutDirection());
         ComposerKt.sourceInformationMarkerEnd(composer);
         LayoutDirection layoutDirection = (LayoutDirection) consume2;
         ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-        Object consume3 = composer.consume(CompositionLocalsKt.getLocalViewConfiguration());
+        Object consume3 = composer.consume(CompositionLocals.getLocalViewConfiguration());
         ComposerKt.sourceInformationMarkerEnd(composer);
         ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-        Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+        Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
         Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(modifier);
-        int i2 = (((((i << 3) & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i >> 3) & 14)) << 9) & 7168) | 6;
+        int i2 = (((((i << 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i >> 3) & 14)) << 9) & 7168) | 6;
         if (!(composer.getApplier() instanceof Applier)) {
             ComposablesKt.invalidApplier();
         }
@@ -500,12 +500,12 @@ public final class ExposedDropdownMenuPopupKt {
         } else {
             composer.useNode();
         }
-        Composer m2195constructorimpl = Updater.m2195constructorimpl(composer);
-        Updater.m2202setimpl(m2195constructorimpl, exposedDropdownMenuPopupKt$SimpleStack$1, ComposeUiNode.Companion.getSetMeasurePolicy());
-        Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-        Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-        Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
-        materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer)), composer, Integer.valueOf((i2 >> 3) & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
+        Composer m2496constructorimpl = Updater.m2496constructorimpl(composer);
+        Updater.m2503setimpl(m2496constructorimpl, exposedDropdownMenuPopupKt$SimpleStack$1, ComposeUiNode.Companion.getSetMeasurePolicy());
+        Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+        Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+        Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+        materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer)), composer, Integer.valueOf((i2 >> 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
         composer.startReplaceableGroup(2058660585);
         function2.invoke(composer, Integer.valueOf((i2 >> 9) & 14));
         composer.endReplaceableGroup();

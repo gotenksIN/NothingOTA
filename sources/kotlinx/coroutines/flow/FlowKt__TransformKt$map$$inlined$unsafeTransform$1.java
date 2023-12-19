@@ -11,31 +11,31 @@ import kotlin.jvm.internal.InlineMarker;
 
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: SafeCollector.common.kt */
-@Metadata(d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\b"}, d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$$inlined$unsafeFlow$1"}, k = 1, mv = {1, 6, 0}, xi = 176)
+@Metadata(m41d1 = {"\u0000\u0019\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003*\u0001\u0000\b\n\u0018\u00002\b\u0012\u0004\u0012\u00028\u00000\u0001J\u001f\u0010\u0002\u001a\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0005H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0006\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0007¸\u0006\b"}, m40d2 = {"kotlinx/coroutines/flow/internal/SafeCollector_commonKt$unsafeFlow$1", "Lkotlinx/coroutines/flow/Flow;", "collect", "", "collector", "Lkotlinx/coroutines/flow/FlowCollector;", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$$inlined$unsafeFlow$1"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 176)
 /* loaded from: classes2.dex */
 public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> implements Flow<R> {
     final /* synthetic */ Flow $this_unsafeTransform$inlined;
     final /* synthetic */ Function2 $transform$inlined$1;
 
     /* compiled from: Emitters.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1"}, k = 3, mv = {1, 6, 0}, xi = 176)
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, m40d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass2<T> implements FlowCollector {
+    public static final class C17512<T> implements FlowCollector {
         final /* synthetic */ FlowCollector $this_unsafeFlow;
         final /* synthetic */ Function2 $transform$inlined;
 
         /* compiled from: Emitters.kt */
-        @Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-        @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2", f = "Transform.kt", i = {}, l = {223, 223}, m = "emit", n = {}, s = {})
-        /* renamed from: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2$1  reason: invalid class name */
+        @Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+        @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2", m30f = "Transform.kt", m29i = {}, m28l = {223, 223}, m27m = "emit", m26n = {}, m25s = {})
+        /* renamed from: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2$1 */
         /* loaded from: classes2.dex */
-        public static final class AnonymousClass1 extends ContinuationImpl {
+        public static final class C17521 extends ContinuationImpl {
             Object L$0;
             int label;
             /* synthetic */ Object result;
 
-            public AnonymousClass1(Continuation continuation) {
+            public C17521(Continuation continuation) {
                 super(continuation);
             }
 
@@ -43,11 +43,11 @@ public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> impleme
             public final Object invokeSuspend(Object obj) {
                 this.result = obj;
                 this.label |= Integer.MIN_VALUE;
-                return AnonymousClass2.this.emit(null, this);
+                return C17512.this.emit(null, this);
             }
         }
 
-        public AnonymousClass2(FlowCollector flowCollector, Function2 function2) {
+        public C17512(FlowCollector flowCollector, Function2 function2) {
             this.$this_unsafeFlow = flowCollector;
             this.$transform$inlined = function2;
         }
@@ -63,10 +63,10 @@ public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> impleme
         public final java.lang.Object emit(T r7, kotlin.coroutines.Continuation<? super kotlin.Unit> r8) {
             /*
                 r6 = this;
-                boolean r0 = r8 instanceof kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.AnonymousClass2.AnonymousClass1
+                boolean r0 = r8 instanceof kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.C17512.C17521
                 if (r0 == 0) goto L14
                 r0 = r8
-                kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2$1 r0 = (kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.AnonymousClass2.AnonymousClass1) r0
+                kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2$1 r0 = (kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.C17512.C17521) r0
                 int r1 = r0.label
                 r2 = -2147483648(0xffffffff80000000, float:-0.0)
                 r1 = r1 & r2
@@ -125,13 +125,13 @@ public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> impleme
                 kotlin.Unit r7 = kotlin.Unit.INSTANCE
                 return r7
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.AnonymousClass2.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__TransformKt$map$$inlined$unsafeTransform$1.C17512.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
         }
 
         /* JADX WARN: Multi-variable type inference failed */
         public final Object emit$$forInline(Object obj, Continuation continuation) {
             InlineMarker.mark(4);
-            new AnonymousClass1(continuation);
+            new C17521(continuation);
             InlineMarker.mark(5);
             FlowCollector flowCollector = this.$this_unsafeFlow;
             Object invoke = this.$transform$inlined.invoke(obj, continuation);
@@ -149,7 +149,7 @@ public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> impleme
 
     @Override // kotlinx.coroutines.flow.Flow
     public Object collect(FlowCollector flowCollector, Continuation continuation) {
-        Object collect = this.$this_unsafeTransform$inlined.collect(new AnonymousClass2(flowCollector, this.$transform$inlined$1), continuation);
+        Object collect = this.$this_unsafeTransform$inlined.collect(new C17512(flowCollector, this.$transform$inlined$1), continuation);
         return collect == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? collect : Unit.INSTANCE;
     }
 
@@ -168,7 +168,7 @@ public final class FlowKt__TransformKt$map$$inlined$unsafeTransform$1<R> impleme
         };
         InlineMarker.mark(5);
         InlineMarker.mark(0);
-        this.$this_unsafeTransform$inlined.collect(new AnonymousClass2(flowCollector, this.$transform$inlined$1), continuation);
+        this.$this_unsafeTransform$inlined.collect(new C17512(flowCollector, this.$transform$inlined$1), continuation);
         InlineMarker.mark(1);
         return Unit.INSTANCE;
     }

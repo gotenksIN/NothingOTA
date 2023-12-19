@@ -11,7 +11,7 @@ import org.checkerframework.framework.qual.SubtypeOf;
 @Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@SubtypeOf({UI.class})
+@SubtypeOf({InterfaceC1801UI.class})
 @DefaultQualifierInHierarchy
 /* loaded from: classes2.dex */
 public @interface AlwaysSafe {

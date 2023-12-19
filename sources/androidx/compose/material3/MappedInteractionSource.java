@@ -3,7 +3,7 @@ package androidx.compose.material3;
 import androidx.compose.foundation.interaction.Interaction;
 import androidx.compose.foundation.interaction.InteractionSource;
 import androidx.compose.foundation.interaction.PressInteraction;
-import androidx.compose.ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.Offset;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import kotlin.Metadata;
@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 
 /* compiled from: MappedInteractionSource.kt */
-@Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\u0018\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u0012\u0006\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000¢\u0006\u0002\u0010\u0005J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u000eH\u0002R\u0019\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0006R\u001a\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\bX\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000e0\rX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0011"}, d2 = {"Landroidx/compose/material3/MappedInteractionSource;", "Landroidx/compose/foundation/interaction/InteractionSource;", "underlyingInteractionSource", "delta", "Landroidx/compose/ui/geometry/Offset;", "(Landroidx/compose/foundation/interaction/InteractionSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "interactions", "Lkotlinx/coroutines/flow/Flow;", "Landroidx/compose/foundation/interaction/Interaction;", "getInteractions", "()Lkotlinx/coroutines/flow/Flow;", "mappedPresses", "", "Landroidx/compose/foundation/interaction/PressInteraction$Press;", "mapPress", "press", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010%\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\u0018\u0012\u0006\u0010\u0002\u001a\u00020\u0001\u0012\u0006\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000¢\u0006\u0002\u0010\u0005J\u0010\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0010\u001a\u00020\u000eH\u0002R\u0019\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0006R\u001a\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\bX\u0096\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000e0\rX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0011"}, m40d2 = {"Landroidx/compose/material3/MappedInteractionSource;", "Landroidx/compose/foundation/interaction/InteractionSource;", "underlyingInteractionSource", "delta", "Landroidx/compose/ui/geometry/Offset;", "(Landroidx/compose/foundation/interaction/InteractionSource;JLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "interactions", "Lkotlinx/coroutines/flow/Flow;", "Landroidx/compose/foundation/interaction/Interaction;", "getInteractions", "()Lkotlinx/coroutines/flow/Flow;", "mappedPresses", "", "Landroidx/compose/foundation/interaction/PressInteraction$Press;", "mapPress", "press", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class MappedInteractionSource implements InteractionSource {
     private final long delta;
@@ -37,29 +37,29 @@ public final class MappedInteractionSource implements InteractionSource {
         this.interactions = new Flow<Interaction>() { // from class: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1
             @Override // kotlinx.coroutines.flow.Flow
             public Object collect(FlowCollector<? super Interaction> flowCollector, Continuation continuation) {
-                Object collect = Flow.this.collect(new AnonymousClass2(flowCollector, this), continuation);
+                Object collect = Flow.this.collect(new C05492(flowCollector, this), continuation);
                 return collect == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? collect : Unit.INSTANCE;
             }
 
             /* compiled from: Emitters.kt */
-            @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\b"}, d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2"}, k = 3, mv = {1, 8, 0}, xi = 48)
-            /* renamed from: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2  reason: invalid class name */
+            @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\b"}, m40d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$map$$inlined$unsafeTransform$1$2"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            /* renamed from: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass2<T> implements FlowCollector {
+            public static final class C05492<T> implements FlowCollector {
                 final /* synthetic */ FlowCollector $this_unsafeFlow;
                 final /* synthetic */ MappedInteractionSource this$0;
 
                 /* compiled from: Emitters.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2", f = "MappedInteractionSource.kt", i = {}, l = {223}, m = "emit", n = {}, s = {})
-                /* renamed from: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2$1  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2", m30f = "MappedInteractionSource.kt", m29i = {}, m28l = {223}, m27m = "emit", m26n = {}, m25s = {})
+                /* renamed from: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2$1 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass1 extends ContinuationImpl {
+                public static final class C05501 extends ContinuationImpl {
                     Object L$0;
                     int label;
                     /* synthetic */ Object result;
 
-                    public AnonymousClass1(Continuation continuation) {
+                    public C05501(Continuation continuation) {
                         super(continuation);
                     }
 
@@ -67,11 +67,11 @@ public final class MappedInteractionSource implements InteractionSource {
                     public final Object invokeSuspend(Object obj) {
                         this.result = obj;
                         this.label |= Integer.MIN_VALUE;
-                        return AnonymousClass2.this.emit(null, this);
+                        return C05492.this.emit(null, this);
                     }
                 }
 
-                public AnonymousClass2(FlowCollector flowCollector, MappedInteractionSource mappedInteractionSource) {
+                public C05492(FlowCollector flowCollector, MappedInteractionSource mappedInteractionSource) {
                     this.$this_unsafeFlow = flowCollector;
                     this.this$0 = mappedInteractionSource;
                 }
@@ -86,10 +86,10 @@ public final class MappedInteractionSource implements InteractionSource {
                 public final java.lang.Object emit(java.lang.Object r6, kotlin.coroutines.Continuation r7) {
                     /*
                         r5 = this;
-                        boolean r0 = r7 instanceof androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.AnonymousClass2.AnonymousClass1
+                        boolean r0 = r7 instanceof androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.C05492.C05501
                         if (r0 == 0) goto L14
                         r0 = r7
-                        androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2$1 r0 = (androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.AnonymousClass2.AnonymousClass1) r0
+                        androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1$2$1 r0 = (androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.C05492.C05501) r0
                         int r1 = r0.label
                         r2 = -2147483648(0xffffffff80000000, float:-0.0)
                         r1 = r1 & r2
@@ -175,7 +175,7 @@ public final class MappedInteractionSource implements InteractionSource {
                         kotlin.Unit r6 = kotlin.Unit.INSTANCE
                         return r6
                     */
-                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.AnonymousClass2.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.MappedInteractionSource$special$$inlined$map$1.C05492.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
                 }
             }
         };
@@ -188,6 +188,6 @@ public final class MappedInteractionSource implements InteractionSource {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final PressInteraction.Press mapPress(PressInteraction.Press press) {
-        return new PressInteraction.Press(Offset.m2322minusMKHz9U(press.m334getPressPositionF1C5BW0(), this.delta), null);
+        return new PressInteraction.Press(Offset.m2623minusMKHz9U(press.m635getPressPositionF1C5BW0(), this.delta), null);
     }
 }

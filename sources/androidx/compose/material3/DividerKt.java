@@ -1,26 +1,27 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.BackgroundKt;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.SizeKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.RecomposeScopeImplKt;
 import androidx.compose.runtime.ScopeUpdateScope;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: Divider.kt */
-@Metadata(d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a3\u0010\u0000\u001a\u00020\u00012\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0007H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\b\u0010\t\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u0006\n"}, d2 = {"Divider", "", "modifier", "Landroidx/compose/ui/Modifier;", "thickness", "Landroidx/compose/ui/unit/Dp;", "color", "Landroidx/compose/ui/graphics/Color;", "Divider-9IZ8Weo", "(Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u001c\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a3\u0010\u0000\u001a\u00020\u00012\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u0007H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\b\u0010\t\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u0006\n"}, m40d2 = {"Divider", "", "modifier", "Landroidx/compose/ui/Modifier;", "thickness", "Landroidx/compose/ui/unit/Dp;", "color", "Landroidx/compose/ui/graphics/Color;", "Divider-9IZ8Weo", "(Landroidx/compose/ui/Modifier;FJLandroidx/compose/runtime/Composer;II)V", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class DividerKt {
     /* renamed from: Divider-9IZ8Weo  reason: not valid java name */
-    public static final void m1108Divider9IZ8Weo(Modifier modifier, float f, long j, Composer composer, final int i, final int i2) {
+    public static final void m1409Divider9IZ8Weo(Modifier modifier, float f, long j, Composer composer, final int i, final int i2) {
         int i3;
         float f2;
         Composer startRestartGroup = composer.startRestartGroup(1562471785);
@@ -36,7 +37,7 @@ public final class DividerKt {
         int i5 = i2 & 2;
         if (i5 != 0) {
             i3 |= 48;
-        } else if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        } else if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i3 |= startRestartGroup.changed(f) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -49,10 +50,10 @@ public final class DividerKt {
                     modifier = Modifier.Companion;
                 }
                 if (i5 != 0) {
-                    f = DividerDefaults.INSTANCE.m1107getThicknessD9Ej5fM();
+                    f = Divider.INSTANCE.m1408getThicknessD9Ej5fM();
                 }
                 if ((i2 & 4) != 0) {
-                    j = DividerDefaults.INSTANCE.getColor(startRestartGroup, 6);
+                    j = Divider.INSTANCE.getColor(startRestartGroup, 6);
                 }
             } else {
                 startRestartGroup.skipToGroupEnd();
@@ -63,16 +64,16 @@ public final class DividerKt {
             }
             startRestartGroup.startReplaceableGroup(1232935509);
             ComposerKt.sourceInformation(startRestartGroup, "*49@1958L7");
-            if (Dp.m5055equalsimpl0(f, Dp.Companion.m5068getHairlineD9Ej5fM())) {
+            if (C0780Dp.m5356equalsimpl0(f, C0780Dp.Companion.m5369getHairlineD9Ej5fM())) {
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
-                f2 = Dp.m5050constructorimpl(1.0f / ((Density) consume).getDensity());
+                f2 = C0780Dp.m5351constructorimpl(1.0f / ((Density) consume).getDensity());
             } else {
                 f2 = f;
             }
             startRestartGroup.endReplaceableGroup();
-            BoxKt.Box(BackgroundKt.m152backgroundbw27NRU$default(SizeKt.m444height3ABfNKs(SizeKt.fillMaxWidth$default(modifier, 0.0f, 1, null), f2), j, null, 2, null), startRestartGroup, 0);
+            BoxKt.Box(BackgroundKt.m453backgroundbw27NRU$default(SizeKt.m745height3ABfNKs(SizeKt.fillMaxWidth$default(modifier, 0.0f, 1, null), f2), j, null, 2, null), startRestartGroup, 0);
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
@@ -100,7 +101,7 @@ public final class DividerKt {
             }
 
             public final void invoke(Composer composer2, int i6) {
-                DividerKt.m1108Divider9IZ8Weo(Modifier.this, f3, j2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1), i2);
+                DividerKt.m1409Divider9IZ8Weo(Modifier.this, f3, j2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1), i2);
             }
         });
     }

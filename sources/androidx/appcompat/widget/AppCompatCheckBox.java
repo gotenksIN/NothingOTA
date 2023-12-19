@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableCompoundButton;
@@ -25,7 +25,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     public AppCompatCheckBox(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.checkboxStyle);
+        this(context, attributeSet, C0032R.attr.checkboxStyle);
     }
 
     public AppCompatCheckBox(Context context, AttributeSet attributeSet, int i) {

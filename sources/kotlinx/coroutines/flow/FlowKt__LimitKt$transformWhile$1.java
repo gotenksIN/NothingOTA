@@ -9,14 +9,14 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
-import kotlinx.coroutines.flow.internal.AbortFlowException;
+import kotlinx.coroutines.flow.internal.FlowExceptions;
 import kotlinx.coroutines.flow.internal.FlowExceptions_commonKt;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Limit.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$transformWhile$1", f = "Limit.kt", i = {0}, l = {152}, m = "invokeSuspend", n = {"collector$iv"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__LimitKt$transformWhile$1", m30f = "Limit.kt", m29i = {0}, m28l = {152}, m27m = "invokeSuspend", m26n = {"collector$iv"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class FlowKt__LimitKt$transformWhile$1<R> extends SuspendLambda implements Function2<FlowCollector<? super R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow<T> $this_transformWhile;
@@ -51,34 +51,34 @@ public final class FlowKt__LimitKt$transformWhile$1<R> extends SuspendLambda imp
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1 flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1;
+        C1728xdf1aa1b6 c1728xdf1aa1b6;
         Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             Flow<T> flow = this.$this_transformWhile;
-            FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1 flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$12 = new FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1(this.$transform, (FlowCollector) this.L$0);
+            C1728xdf1aa1b6 c1728xdf1aa1b62 = new C1728xdf1aa1b6(this.$transform, (FlowCollector) this.L$0);
             try {
-                this.L$0 = flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$12;
+                this.L$0 = c1728xdf1aa1b62;
                 this.label = 1;
-                if (flow.collect(flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$12, this) == coroutine_suspended) {
+                if (flow.collect(c1728xdf1aa1b62, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } catch (AbortFlowException e) {
+            } catch (FlowExceptions e) {
                 e = e;
-                flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1 = flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$12;
-                FlowExceptions_commonKt.checkOwnership(e, flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1);
+                c1728xdf1aa1b6 = c1728xdf1aa1b62;
+                FlowExceptions_commonKt.checkOwnership(e, c1728xdf1aa1b6);
                 return Unit.INSTANCE;
             }
         } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
-            flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1 = (FlowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1) this.L$0;
+            c1728xdf1aa1b6 = (C1728xdf1aa1b6) this.L$0;
             try {
                 ResultKt.throwOnFailure(obj);
-            } catch (AbortFlowException e2) {
+            } catch (FlowExceptions e2) {
                 e = e2;
-                FlowExceptions_commonKt.checkOwnership(e, flowKt__LimitKt$transformWhile$1$invokeSuspend$$inlined$collectWhile$1);
+                FlowExceptions_commonKt.checkOwnership(e, c1728xdf1aa1b6);
                 return Unit.INSTANCE;
             }
         }

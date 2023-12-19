@@ -13,8 +13,8 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: ReportDrawn.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.activity.compose.ReportDrawnKt$ReportDrawnAfter$1", f = "ReportDrawn.kt", i = {0}, l = {182}, m = "invokeSuspend", n = {"$this$reportWhenComplete$iv"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.activity.compose.ReportDrawnKt$ReportDrawnAfter$1", m30f = "ReportDrawn.kt", m29i = {0}, m28l = {182}, m27m = "invokeSuspend", m26n = {"$this$reportWhenComplete$iv"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 final class ReportDrawnKt$ReportDrawnAfter$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function1<Continuation<? super Unit>, Object> $block;

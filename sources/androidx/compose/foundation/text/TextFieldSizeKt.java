@@ -1,27 +1,27 @@
 package androidx.compose.foundation.text;
 
 import androidx.compose.foundation.layout.SizeKt;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.layout.LayoutModifierKt;
+import androidx.compose.p002ui.layout.Measurable;
+import androidx.compose.p002ui.layout.MeasureResult;
+import androidx.compose.p002ui.layout.MeasureScope;
+import androidx.compose.p002ui.layout.Placeable;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.text.TextStyle;
+import androidx.compose.p002ui.text.TextStyleKt;
+import androidx.compose.p002ui.text.font.FontFamily;
+import androidx.compose.p002ui.text.font.FontStyle;
+import androidx.compose.p002ui.text.font.FontSynthesis;
+import androidx.compose.p002ui.text.font.FontWeight;
+import androidx.compose.p002ui.unit.Constraints;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.layout.LayoutModifierKt;
-import androidx.compose.ui.layout.Measurable;
-import androidx.compose.ui.layout.MeasureResult;
-import androidx.compose.ui.layout.MeasureScope;
-import androidx.compose.ui.layout.Placeable;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.text.TextStyle;
-import androidx.compose.ui.text.TextStyleKt;
-import androidx.compose.ui.text.font.FontFamily;
-import androidx.compose.ui.text.font.FontStyle;
-import androidx.compose.ui.text.font.FontSynthesis;
-import androidx.compose.ui.text.font.FontWeight;
-import androidx.compose.ui.unit.Constraints;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -30,7 +30,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt;
 
 /* compiled from: TextFieldSize.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u001a\u0014\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u0000¨\u0006\u0004"}, d2 = {"textFieldMinSize", "Landroidx/compose/ui/Modifier;", "style", "Landroidx/compose/ui/text/TextStyle;", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\u001a\u0014\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\u0000¨\u0006\u0004"}, m40d2 = {"textFieldMinSize", "Landroidx/compose/ui/Modifier;", "style", "Landroidx/compose/ui/text/TextStyle;", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TextFieldSizeKt {
     public static final Modifier textFieldMinSize(Modifier modifier, final TextStyle style) {
@@ -59,15 +59,15 @@ public final class TextFieldSizeKt {
                     ComposerKt.traceEventStart(1582736677, i, -1, "androidx.compose.foundation.text.textFieldMinSize.<anonymous> (TextFieldSize.kt:38)");
                 }
                 ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume = composer.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume = composer.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(composer);
                 Density density = (Density) consume;
                 ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume2 = composer.consume(CompositionLocalsKt.getLocalFontFamilyResolver());
+                Object consume2 = composer.consume(CompositionLocals.getLocalFontFamilyResolver());
                 ComposerKt.sourceInformationMarkerEnd(composer);
                 FontFamily.Resolver resolver = (FontFamily.Resolver) consume2;
                 ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume3 = composer.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                Object consume3 = composer.consume(CompositionLocals.getLocalLayoutDirection());
                 ComposerKt.sourceInformationMarkerEnd(composer);
                 LayoutDirection layoutDirection = (LayoutDirection) consume3;
                 TextStyle textStyle = TextStyle.this;
@@ -91,10 +91,10 @@ public final class TextFieldSizeKt {
                     if (fontWeight == null) {
                         fontWeight = FontWeight.Companion.getNormal();
                     }
-                    FontStyle m4609getFontStyle4Lr2A7w = textStyle2.m4609getFontStyle4Lr2A7w();
-                    int m4675unboximpl = m4609getFontStyle4Lr2A7w != null ? m4609getFontStyle4Lr2A7w.m4675unboximpl() : FontStyle.Companion.m4677getNormal_LCdwA();
-                    FontSynthesis m4610getFontSynthesisZQGJjVo = textStyle2.m4610getFontSynthesisZQGJjVo();
-                    rememberedValue2 = resolver.mo4647resolveDPcqOEQ(fontFamily, fontWeight, m4675unboximpl, m4610getFontSynthesisZQGJjVo != null ? m4610getFontSynthesisZQGJjVo.m4686unboximpl() : FontSynthesis.Companion.m4687getAllGVVA2EU());
+                    FontStyle m4910getFontStyle4Lr2A7w = textStyle2.m4910getFontStyle4Lr2A7w();
+                    int m4976unboximpl = m4910getFontStyle4Lr2A7w != null ? m4910getFontStyle4Lr2A7w.m4976unboximpl() : FontStyle.Companion.m4978getNormal_LCdwA();
+                    FontSynthesis m4911getFontSynthesisZQGJjVo = textStyle2.m4911getFontSynthesisZQGJjVo();
+                    rememberedValue2 = resolver.mo4948resolveDPcqOEQ(fontFamily, fontWeight, m4976unboximpl, m4911getFontSynthesisZQGJjVo != null ? m4911getFontSynthesisZQGJjVo.m4987unboximpl() : FontSynthesis.Companion.m4988getAllGVVA2EU());
                     composer.updateRememberedValue(rememberedValue2);
                 }
                 composer.endReplaceableGroup();
@@ -119,17 +119,17 @@ public final class TextFieldSizeKt {
 
                     @Override // kotlin.jvm.functions.Function3
                     public /* bridge */ /* synthetic */ MeasureResult invoke(MeasureScope measureScope, Measurable measurable, Constraints constraints) {
-                        return m784invoke3p2s80s(measureScope, measurable, constraints.m5012unboximpl());
+                        return m1085invoke3p2s80s(measureScope, measurable, constraints.m5313unboximpl());
                     }
 
                     /* renamed from: invoke-3p2s80s  reason: not valid java name */
-                    public final MeasureResult m784invoke3p2s80s(MeasureScope layout2, Measurable measurable, long j) {
+                    public final MeasureResult m1085invoke3p2s80s(MeasureScope layout2, Measurable measurable, long j) {
                         Intrinsics.checkNotNullParameter(layout2, "$this$layout");
                         Intrinsics.checkNotNullParameter(measurable, "measurable");
-                        SizeKt.m443defaultMinSizeVpY3zN4$default(Modifier.Companion, 0.0f, 0.0f, 3, null);
-                        long m783getMinSizeYbymL2g = TextFieldSize.this.m783getMinSizeYbymL2g();
-                        final Placeable mo4075measureBRTryo0 = measurable.mo4075measureBRTryo0(Constraints.m4997copyZbe2FdA$default(j, RangesKt.coerceIn(IntSize.m5210getWidthimpl(m783getMinSizeYbymL2g), Constraints.m5008getMinWidthimpl(j), Constraints.m5006getMaxWidthimpl(j)), 0, RangesKt.coerceIn(IntSize.m5209getHeightimpl(m783getMinSizeYbymL2g), Constraints.m5007getMinHeightimpl(j), Constraints.m5005getMaxHeightimpl(j)), 0, 10, null));
-                        return MeasureScope.layout$default(layout2, mo4075measureBRTryo0.getWidth(), mo4075measureBRTryo0.getHeight(), null, new Function1<Placeable.PlacementScope, Unit>() { // from class: androidx.compose.foundation.text.TextFieldSizeKt.textFieldMinSize.1.1.1
+                        SizeKt.m744defaultMinSizeVpY3zN4$default(Modifier.Companion, 0.0f, 0.0f, 3, null);
+                        long m1084getMinSizeYbymL2g = TextFieldSize.this.m1084getMinSizeYbymL2g();
+                        final Placeable mo4376measureBRTryo0 = measurable.mo4376measureBRTryo0(Constraints.m5298copyZbe2FdA$default(j, RangesKt.coerceIn(IntSize.m5511getWidthimpl(m1084getMinSizeYbymL2g), Constraints.m5309getMinWidthimpl(j), Constraints.m5307getMaxWidthimpl(j)), 0, RangesKt.coerceIn(IntSize.m5510getHeightimpl(m1084getMinSizeYbymL2g), Constraints.m5308getMinHeightimpl(j), Constraints.m5306getMaxHeightimpl(j)), 0, 10, null));
+                        return MeasureScope.layout$default(layout2, mo4376measureBRTryo0.getWidth(), mo4376measureBRTryo0.getHeight(), null, new Function1<Placeable.PlacementScope, Unit>() { // from class: androidx.compose.foundation.text.TextFieldSizeKt.textFieldMinSize.1.1.1
                             {
                                 super(1);
                             }

@@ -10,7 +10,7 @@ import android.util.Log;
 import android.util.StateSet;
 import android.util.TypedValue;
 import android.util.Xml;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 import java.io.IOException;
@@ -72,27 +72,27 @@ public final class ColorStateListInflaterCompat {
                 break;
             }
             if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
-                TypedArray obtainAttributes = obtainAttributes(resources2, theme, attributeSet, R.styleable.ColorStateListItem);
-                int resourceId = obtainAttributes.getResourceId(R.styleable.ColorStateListItem_android_color, -1);
+                TypedArray obtainAttributes = obtainAttributes(resources2, theme, attributeSet, C0795R.styleable.ColorStateListItem);
+                int resourceId = obtainAttributes.getResourceId(C0795R.styleable.ColorStateListItem_android_color, -1);
                 if (resourceId != -1 && !isColorInt(resources2, resourceId)) {
                     try {
                         color = createFromXml(resources2, resources2.getXml(resourceId), theme).getDefaultColor();
                     } catch (Exception unused) {
-                        color = obtainAttributes.getColor(R.styleable.ColorStateListItem_android_color, -65281);
+                        color = obtainAttributes.getColor(C0795R.styleable.ColorStateListItem_android_color, -65281);
                     }
                 } else {
-                    color = obtainAttributes.getColor(R.styleable.ColorStateListItem_android_color, -65281);
+                    color = obtainAttributes.getColor(C0795R.styleable.ColorStateListItem_android_color, -65281);
                 }
                 float f2 = 1.0f;
-                if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_android_alpha)) {
-                    f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_android_alpha, 1.0f);
-                } else if (obtainAttributes.hasValue(R.styleable.ColorStateListItem_alpha)) {
-                    f2 = obtainAttributes.getFloat(R.styleable.ColorStateListItem_alpha, 1.0f);
+                if (obtainAttributes.hasValue(C0795R.styleable.ColorStateListItem_android_alpha)) {
+                    f2 = obtainAttributes.getFloat(C0795R.styleable.ColorStateListItem_android_alpha, 1.0f);
+                } else if (obtainAttributes.hasValue(C0795R.styleable.ColorStateListItem_alpha)) {
+                    f2 = obtainAttributes.getFloat(C0795R.styleable.ColorStateListItem_alpha, 1.0f);
                 }
-                if (Build.VERSION.SDK_INT >= 31 && obtainAttributes.hasValue(R.styleable.ColorStateListItem_android_lStar)) {
-                    f = obtainAttributes.getFloat(R.styleable.ColorStateListItem_android_lStar, -1.0f);
+                if (Build.VERSION.SDK_INT >= 31 && obtainAttributes.hasValue(C0795R.styleable.ColorStateListItem_android_lStar)) {
+                    f = obtainAttributes.getFloat(C0795R.styleable.ColorStateListItem_android_lStar, -1.0f);
                 } else {
-                    f = obtainAttributes.getFloat(R.styleable.ColorStateListItem_lStar, -1.0f);
+                    f = obtainAttributes.getFloat(C0795R.styleable.ColorStateListItem_lStar, -1.0f);
                 }
                 obtainAttributes.recycle();
                 int attributeCount = attributeSet.getAttributeCount();
@@ -100,7 +100,7 @@ public final class ColorStateListInflaterCompat {
                 int i3 = 0;
                 for (int i4 = 0; i4 < attributeCount; i4++) {
                     int attributeNameResource = attributeSet.getAttributeNameResource(i4);
-                    if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != R.attr.alpha && attributeNameResource != R.attr.lStar) {
+                    if (attributeNameResource != 16843173 && attributeNameResource != 16843551 && attributeNameResource != C0795R.attr.alpha && attributeNameResource != C0795R.attr.lStar) {
                         int i5 = i3 + 1;
                         if (!attributeSet.getAttributeBooleanValue(i4, false)) {
                             attributeNameResource = -attributeNameResource;

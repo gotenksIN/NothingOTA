@@ -6,7 +6,7 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes.dex */
 public enum CaseFormat {
-    LOWER_HYPHEN(CharMatcher.is('-'), "-") { // from class: com.google.common.base.CaseFormat.1
+    LOWER_HYPHEN(CharMatcher.m245is('-'), "-") { // from class: com.google.common.base.CaseFormat.1
         @Override // com.google.common.base.CaseFormat
         String normalizeWord(String str) {
             return Ascii.toLowerCase(str);
@@ -23,7 +23,7 @@ public enum CaseFormat {
             return super.convert(caseFormat, str);
         }
     },
-    LOWER_UNDERSCORE(CharMatcher.is('_'), "_") { // from class: com.google.common.base.CaseFormat.2
+    LOWER_UNDERSCORE(CharMatcher.m245is('_'), "_") { // from class: com.google.common.base.CaseFormat.2
         @Override // com.google.common.base.CaseFormat
         String normalizeWord(String str) {
             return Ascii.toLowerCase(str);
@@ -57,7 +57,7 @@ public enum CaseFormat {
             return CaseFormat.firstCharOnlyToUpper(str);
         }
     },
-    UPPER_UNDERSCORE(CharMatcher.is('_'), "_") { // from class: com.google.common.base.CaseFormat.5
+    UPPER_UNDERSCORE(CharMatcher.m245is('_'), "_") { // from class: com.google.common.base.CaseFormat.5
         @Override // com.google.common.base.CaseFormat
         String normalizeWord(String str) {
             return Ascii.toUpperCase(str);
@@ -85,7 +85,8 @@ public enum CaseFormat {
         this.wordSeparator = str;
     }
 
-    public final String to(CaseFormat caseFormat, String str) {
+    /* renamed from: to */
+    public final String m246to(CaseFormat caseFormat, String str) {
         Preconditions.checkNotNull(caseFormat);
         Preconditions.checkNotNull(str);
         return caseFormat == this ? str : convert(caseFormat, str);
@@ -133,13 +134,13 @@ public enum CaseFormat {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.common.base.Converter
         public String doForward(String str) {
-            return this.sourceFormat.to(this.targetFormat, str);
+            return this.sourceFormat.m246to(this.targetFormat, str);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.common.base.Converter
         public String doBackward(String str) {
-            return this.targetFormat.to(this.sourceFormat, str);
+            return this.targetFormat.m246to(this.sourceFormat, str);
         }
 
         @Override // com.google.common.base.Converter, com.google.common.base.Function

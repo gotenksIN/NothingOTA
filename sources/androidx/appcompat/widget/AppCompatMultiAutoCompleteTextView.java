@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.MultiAutoCompleteTextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableCompoundDrawablesView;
@@ -26,7 +26,7 @@ public class AppCompatMultiAutoCompleteTextView extends MultiAutoCompleteTextVie
     }
 
     public AppCompatMultiAutoCompleteTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.autoCompleteTextViewStyle);
+        this(context, attributeSet, C0032R.attr.autoCompleteTextViewStyle);
     }
 
     public AppCompatMultiAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {

@@ -1,6 +1,6 @@
 package kotlinx.coroutines.flow.internal;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -10,8 +10,8 @@ import kotlinx.coroutines.flow.Flow;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Merge.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2", f = "Merge.kt", i = {0, 0}, l = {R.styleable.AppCompatTheme_dropDownListViewStyle}, m = "emit", n = {"this", "inner"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.ChannelFlowMerge$collectTo$2", m30f = "Merge.kt", m29i = {0, 0}, m28l = {C0032R.styleable.AppCompatTheme_dropDownListViewStyle}, m27m = "emit", m26n = {"this", "inner"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class ChannelFlowMerge$collectTo$2$emit$1 extends ContinuationImpl {
     Object L$0;

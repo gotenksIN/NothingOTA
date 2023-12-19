@@ -18,7 +18,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.provider.Settings;
-import android.support.v4.app.INotificationSideChannel;
+import android.support.p000v4.app.INotificationSideChannel;
 import android.util.Log;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -536,27 +536,29 @@ public final class NotificationManagerCompat {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class NotifyTask implements Task {
-        final int id;
+
+        /* renamed from: id */
+        final int f157id;
         final Notification notif;
         final String packageName;
         final String tag;
 
         NotifyTask(String str, int i, String str2, Notification notification) {
             this.packageName = str;
-            this.id = i;
+            this.f157id = i;
             this.tag = str2;
             this.notif = notification;
         }
 
         @Override // androidx.core.app.NotificationManagerCompat.Task
         public void send(INotificationSideChannel iNotificationSideChannel) throws RemoteException {
-            iNotificationSideChannel.notify(this.packageName, this.id, this.tag, this.notif);
+            iNotificationSideChannel.notify(this.packageName, this.f157id, this.tag, this.notif);
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder("NotifyTask[packageName:");
             sb.append(this.packageName);
-            sb.append(", id:").append(this.id);
+            sb.append(", id:").append(this.f157id);
             sb.append(", tag:").append(this.tag);
             sb.append("]");
             return sb.toString();
@@ -566,20 +568,22 @@ public final class NotificationManagerCompat {
     /* loaded from: classes.dex */
     private static class CancelTask implements Task {
         final boolean all;
-        final int id;
+
+        /* renamed from: id */
+        final int f156id;
         final String packageName;
         final String tag;
 
         CancelTask(String str) {
             this.packageName = str;
-            this.id = 0;
+            this.f156id = 0;
             this.tag = null;
             this.all = true;
         }
 
         CancelTask(String str, int i, String str2) {
             this.packageName = str;
-            this.id = i;
+            this.f156id = i;
             this.tag = str2;
             this.all = false;
         }
@@ -589,14 +593,14 @@ public final class NotificationManagerCompat {
             if (this.all) {
                 iNotificationSideChannel.cancelAll(this.packageName);
             } else {
-                iNotificationSideChannel.cancel(this.packageName, this.id, this.tag);
+                iNotificationSideChannel.cancel(this.packageName, this.f156id, this.tag);
             }
         }
 
         public String toString() {
             StringBuilder sb = new StringBuilder("CancelTask[packageName:");
             sb.append(this.packageName);
-            sb.append(", id:").append(this.id);
+            sb.append(", id:").append(this.f156id);
             sb.append(", tag:").append(this.tag);
             sb.append(", all:").append(this.all);
             sb.append("]");

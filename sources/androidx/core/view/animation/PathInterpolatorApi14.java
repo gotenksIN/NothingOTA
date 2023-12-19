@@ -7,20 +7,24 @@ import android.view.animation.Interpolator;
 /* loaded from: classes.dex */
 class PathInterpolatorApi14 implements Interpolator {
     private static final float PRECISION = 0.002f;
-    private final float[] mX;
-    private final float[] mY;
+
+    /* renamed from: mX */
+    private final float[] f172mX;
+
+    /* renamed from: mY */
+    private final float[] f173mY;
 
     PathInterpolatorApi14(Path path) {
         PathMeasure pathMeasure = new PathMeasure(path, false);
         float length = pathMeasure.getLength();
         int i = ((int) (length / PRECISION)) + 1;
-        this.mX = new float[i];
-        this.mY = new float[i];
+        this.f172mX = new float[i];
+        this.f173mY = new float[i];
         float[] fArr = new float[2];
         for (int i2 = 0; i2 < i; i2++) {
             pathMeasure.getPosTan((i2 * length) / (i - 1), fArr, null);
-            this.mX[i2] = fArr[0];
-            this.mY[i2] = fArr[1];
+            this.f172mX[i2] = fArr[0];
+            this.f173mY[i2] = fArr[1];
         }
     }
 
@@ -40,24 +44,24 @@ class PathInterpolatorApi14 implements Interpolator {
         if (f >= 1.0f) {
             return 1.0f;
         }
-        int length = this.mX.length - 1;
+        int length = this.f172mX.length - 1;
         int i = 0;
         while (length - i > 1) {
             int i2 = (i + length) / 2;
-            if (f < this.mX[i2]) {
+            if (f < this.f172mX[i2]) {
                 length = i2;
             } else {
                 i = i2;
             }
         }
-        float[] fArr = this.mX;
+        float[] fArr = this.f172mX;
         float f2 = fArr[length];
         float f3 = fArr[i];
         float f4 = f2 - f3;
         if (f4 == 0.0f) {
-            return this.mY[i];
+            return this.f173mY[i];
         }
-        float[] fArr2 = this.mY;
+        float[] fArr2 = this.f173mY;
         float f5 = fArr2[i];
         return f5 + (((f - f3) / f4) * (fArr2[length] - f5));
     }

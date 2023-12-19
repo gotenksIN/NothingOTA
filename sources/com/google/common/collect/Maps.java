@@ -116,7 +116,7 @@ public final class Maps {
         }
         Iterator<Map.Entry<K, ? extends V>> it = map.entrySet().iterator();
         if (!it.hasNext()) {
-            return ImmutableMap.of();
+            return ImmutableMap.m192of();
         }
         Map.Entry<K, ? extends V> next = it.next();
         K key = next.getKey();
@@ -504,7 +504,7 @@ public final class Maps {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.google.common.collect.TransformedIterator
             public /* bridge */ /* synthetic */ Object transform(@ParametricNullness Object obj) {
-                return transform((AnonymousClass3<K, V>) obj);
+                return transform((C12263<K, V>) obj);
             }
 
             /* JADX INFO: Access modifiers changed from: package-private */

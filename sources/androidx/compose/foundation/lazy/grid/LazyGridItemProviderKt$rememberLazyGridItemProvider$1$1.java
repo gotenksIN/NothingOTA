@@ -10,7 +10,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: LazyGridItemProvider.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyGridItemProviderKt$rememberLazyGridItemProvider$1$1 implements LazyGridItemProvider, LazyLayoutItemProvider {
     private final /* synthetic */ LazyLayoutItemProvider $$delegate_0;
@@ -69,8 +69,8 @@ public final class LazyGridItemProviderKt$rememberLazyGridItemProvider$1$1 imple
 
     @Override // androidx.compose.foundation.lazy.grid.LazyGridItemProvider
     /* renamed from: getSpan-_-orMbw */
-    public long mo575getSpan_orMbw(LazyGridItemSpanScope getSpan, int i) {
+    public long mo876getSpan_orMbw(LazyGridItemSpanScope getSpan, int i) {
         Intrinsics.checkNotNullParameter(getSpan, "$this$getSpan");
-        return this.$itemProviderState.getValue().mo575getSpan_orMbw(getSpan, i);
+        return this.$itemProviderState.getValue().mo876getSpan_orMbw(getSpan, i);
     }
 }

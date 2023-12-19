@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.RandomAccess;
 import javax.annotation.CheckForNull;
 import kotlin.jvm.internal.CharCompanionObject;
-import okhttp3.internal.ws.WebSocketProtocol;
+import okhttp3.internal.p011ws.WebSocketProtocol;
 
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */

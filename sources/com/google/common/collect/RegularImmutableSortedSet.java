@@ -12,7 +12,7 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class RegularImmutableSortedSet<E> extends ImmutableSortedSet<E> {
-    static final RegularImmutableSortedSet<Comparable> NATURAL_EMPTY_SET = new RegularImmutableSortedSet<>(ImmutableList.of(), Ordering.natural());
+    static final RegularImmutableSortedSet<Comparable> NATURAL_EMPTY_SET = new RegularImmutableSortedSet<>(ImmutableList.m211of(), Ordering.natural());
     final transient ImmutableList<E> elements;
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: DragGestureDetector.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.DragGestureDetectorKt", f = "DragGestureDetector.kt", i = {0, 0, 0, 0}, l = {882}, m = "verticalDrag-jO51t88", n = {"onDrag", "$this$drag_u2dVnAYq1g$iv", "$this$awaitDragOrUp_u2djO51t88$iv$iv", "pointer$iv$iv"}, s = {"L$0", "L$1", "L$2", "L$3"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.DragGestureDetectorKt", m30f = "DragGestureDetector.kt", m29i = {0, 0, 0, 0}, m28l = {882}, m27m = "verticalDrag-jO51t88", m26n = {"onDrag", "$this$drag_u2dVnAYq1g$iv", "$this$awaitDragOrUp_u2djO51t88$iv$iv", "pointer$iv$iv"}, m25s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes.dex */
 public final class DragGestureDetectorKt$verticalDrag$1 extends ContinuationImpl {
     Object L$0;
@@ -27,6 +27,6 @@ public final class DragGestureDetectorKt$verticalDrag$1 extends ContinuationImpl
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return DragGestureDetectorKt.m250verticalDragjO51t88(null, 0L, null, this);
+        return DragGestureDetector.m551verticalDragjO51t88(null, 0L, null, this);
     }
 }

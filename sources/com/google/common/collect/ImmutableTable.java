@@ -80,11 +80,13 @@ public abstract class ImmutableTable<R, C, V> extends AbstractTable<R, C, V> imp
         return super.toString();
     }
 
-    public static <R, C, V> ImmutableTable<R, C, V> of() {
+    /* renamed from: of */
+    public static <R, C, V> ImmutableTable<R, C, V> m103of() {
         return (ImmutableTable<R, C, V>) SparseImmutableTable.EMPTY;
     }
 
-    public static <R, C, V> ImmutableTable<R, C, V> of(R r, C c, V v) {
+    /* renamed from: of */
+    public static <R, C, V> ImmutableTable<R, C, V> m102of(R r, C c, V v) {
         return new SingletonImmutableTable(r, c, v);
     }
 
@@ -172,7 +174,7 @@ public abstract class ImmutableTable<R, C, V> extends AbstractTable<R, C, V> imp
                 }
                 return RegularImmutableTable.forCells(this.cells, this.rowComparator, this.columnComparator);
             }
-            return ImmutableTable.of();
+            return ImmutableTable.m103of();
         }
     }
 
@@ -200,7 +202,7 @@ public abstract class ImmutableTable<R, C, V> extends AbstractTable<R, C, V> imp
     @Override // com.google.common.collect.Table
     public ImmutableMap<R, V> column(C c) {
         Preconditions.checkNotNull(c, "columnKey");
-        return (ImmutableMap) MoreObjects.firstNonNull((ImmutableMap) columnMap().get(c), ImmutableMap.of());
+        return (ImmutableMap) MoreObjects.firstNonNull((ImmutableMap) columnMap().get(c), ImmutableMap.m192of());
     }
 
     @Override // com.google.common.collect.AbstractTable, com.google.common.collect.Table
@@ -211,7 +213,7 @@ public abstract class ImmutableTable<R, C, V> extends AbstractTable<R, C, V> imp
     @Override // com.google.common.collect.Table
     public ImmutableMap<C, V> row(R r) {
         Preconditions.checkNotNull(r, "rowKey");
-        return (ImmutableMap) MoreObjects.firstNonNull((ImmutableMap) rowMap().get(r), ImmutableMap.of());
+        return (ImmutableMap) MoreObjects.firstNonNull((ImmutableMap) rowMap().get(r), ImmutableMap.m192of());
     }
 
     @Override // com.google.common.collect.AbstractTable, com.google.common.collect.Table
@@ -280,11 +282,11 @@ public abstract class ImmutableTable<R, C, V> extends AbstractTable<R, C, V> imp
         Object readResolve() {
             Object[] objArr = this.cellValues;
             if (objArr.length == 0) {
-                return ImmutableTable.of();
+                return ImmutableTable.m103of();
             }
             int i = 0;
             if (objArr.length == 1) {
-                return ImmutableTable.of(this.rowKeys[0], this.columnKeys[0], objArr[0]);
+                return ImmutableTable.m102of(this.rowKeys[0], this.columnKeys[0], objArr[0]);
             }
             ImmutableList.Builder builder = new ImmutableList.Builder(this.cellValues.length);
             while (true) {

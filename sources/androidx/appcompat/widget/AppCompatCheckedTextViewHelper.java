@@ -33,21 +33,21 @@ class AppCompatCheckedTextViewHelper {
             r10 = this;
             android.widget.CheckedTextView r0 = r10.mView
             android.content.Context r0 = r0.getContext()
-            int[] r1 = androidx.appcompat.R.styleable.CheckedTextView
+            int[] r1 = androidx.appcompat.C0032R.styleable.CheckedTextView
             r2 = 0
             androidx.appcompat.widget.TintTypedArray r0 = androidx.appcompat.widget.TintTypedArray.obtainStyledAttributes(r0, r11, r1, r12, r2)
             android.widget.CheckedTextView r3 = r10.mView
             android.content.Context r4 = r3.getContext()
-            int[] r5 = androidx.appcompat.R.styleable.CheckedTextView
+            int[] r5 = androidx.appcompat.C0032R.styleable.CheckedTextView
             android.content.res.TypedArray r7 = r0.getWrappedTypeArray()
             r9 = 0
             r6 = r11
             r8 = r12
             androidx.core.view.ViewCompat.saveAttributeDataForStyleable(r3, r4, r5, r6, r7, r8, r9)
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkCompat     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkCompat     // Catch: java.lang.Throwable -> L8e
             boolean r11 = r0.hasValue(r11)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L3e
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkCompat     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkCompat     // Catch: java.lang.Throwable -> L8e
             int r11 = r0.getResourceId(r11, r2)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L3e
             android.widget.CheckedTextView r12 = r10.mView     // Catch: android.content.res.Resources.NotFoundException -> L3e java.lang.Throwable -> L8e
@@ -60,10 +60,10 @@ class AppCompatCheckedTextViewHelper {
             r11 = r2
         L3f:
             if (r11 != 0) goto L5e
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_android_checkMark     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_android_checkMark     // Catch: java.lang.Throwable -> L8e
             boolean r11 = r0.hasValue(r11)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L5e
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_android_checkMark     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_android_checkMark     // Catch: java.lang.Throwable -> L8e
             int r11 = r0.getResourceId(r11, r2)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L5e
             android.widget.CheckedTextView r12 = r10.mView     // Catch: java.lang.Throwable -> L8e
@@ -71,19 +71,19 @@ class AppCompatCheckedTextViewHelper {
             android.graphics.drawable.Drawable r11 = androidx.appcompat.content.res.AppCompatResources.getDrawable(r1, r11)     // Catch: java.lang.Throwable -> L8e
             r12.setCheckMarkDrawable(r11)     // Catch: java.lang.Throwable -> L8e
         L5e:
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkTint     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkTint     // Catch: java.lang.Throwable -> L8e
             boolean r11 = r0.hasValue(r11)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L71
             android.widget.CheckedTextView r11 = r10.mView     // Catch: java.lang.Throwable -> L8e
-            int r12 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkTint     // Catch: java.lang.Throwable -> L8e
+            int r12 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkTint     // Catch: java.lang.Throwable -> L8e
             android.content.res.ColorStateList r12 = r0.getColorStateList(r12)     // Catch: java.lang.Throwable -> L8e
             androidx.core.widget.CheckedTextViewCompat.setCheckMarkTintList(r11, r12)     // Catch: java.lang.Throwable -> L8e
         L71:
-            int r11 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkTintMode     // Catch: java.lang.Throwable -> L8e
+            int r11 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkTintMode     // Catch: java.lang.Throwable -> L8e
             boolean r11 = r0.hasValue(r11)     // Catch: java.lang.Throwable -> L8e
             if (r11 == 0) goto L8a
             android.widget.CheckedTextView r11 = r10.mView     // Catch: java.lang.Throwable -> L8e
-            int r12 = androidx.appcompat.R.styleable.CheckedTextView_checkMarkTintMode     // Catch: java.lang.Throwable -> L8e
+            int r12 = androidx.appcompat.C0032R.styleable.CheckedTextView_checkMarkTintMode     // Catch: java.lang.Throwable -> L8e
             r1 = -1
             int r12 = r0.getInt(r12, r1)     // Catch: java.lang.Throwable -> L8e
             r1 = 0

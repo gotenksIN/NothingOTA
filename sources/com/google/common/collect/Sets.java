@@ -60,7 +60,7 @@ public final class Sets {
         if (iterable instanceof Collection) {
             Collection collection = (Collection) iterable;
             if (collection.isEmpty()) {
-                return ImmutableSet.of();
+                return ImmutableSet.m164of();
             }
             return ImmutableEnumSet.asImmutable(EnumSet.copyOf(collection));
         }
@@ -70,7 +70,7 @@ public final class Sets {
             Iterators.addAll(of, it);
             return ImmutableEnumSet.asImmutable(of);
         }
-        return ImmutableSet.of();
+        return ImmutableSet.m164of();
     }
 
     public static <E extends Enum<E>> EnumSet<E> newEnumSet(Iterable<E> iterable, Class<E> cls) {
@@ -687,7 +687,7 @@ public final class Sets {
             for (Set<? extends E> set : list) {
                 ImmutableSet copyOf = ImmutableSet.copyOf((Collection) set);
                 if (copyOf.isEmpty()) {
-                    return ImmutableSet.of();
+                    return ImmutableSet.m164of();
                 }
                 builder.add((ImmutableList.Builder) copyOf);
             }
@@ -889,23 +889,23 @@ public final class Sets {
         CollectPreconditions.checkNonnegative(i, "size");
         Preconditions.checkArgument(i <= indexMap.size(), "size (%s) must be <= set.size() (%s)", i, indexMap.size());
         if (i == 0) {
-            return ImmutableSet.of(ImmutableSet.of());
+            return ImmutableSet.m163of(ImmutableSet.m164of());
         }
         if (i == indexMap.size()) {
-            return ImmutableSet.of(indexMap.keySet());
+            return ImmutableSet.m163of(indexMap.keySet());
         }
-        return new AnonymousClass5(i, indexMap);
+        return new C12885(i, indexMap);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX INFO: Add missing generic type declarations: [E] */
-    /* renamed from: com.google.common.collect.Sets$5  reason: invalid class name */
+    /* renamed from: com.google.common.collect.Sets$5 */
     /* loaded from: classes2.dex */
-    public class AnonymousClass5<E> extends AbstractSet<Set<E>> {
+    public class C12885<E> extends AbstractSet<Set<E>> {
         final /* synthetic */ ImmutableMap val$index;
         final /* synthetic */ int val$size;
 
-        AnonymousClass5(int i, ImmutableMap immutableMap) {
+        C12885(int i, ImmutableMap immutableMap) {
             this.val$size = i;
             this.val$index = immutableMap;
         }
@@ -919,13 +919,13 @@ public final class Sets {
             return false;
         }
 
-        /* renamed from: com.google.common.collect.Sets$5$1  reason: invalid class name */
+        /* renamed from: com.google.common.collect.Sets$5$1 */
         /* loaded from: classes2.dex */
-        class AnonymousClass1 extends AbstractIterator<Set<E>> {
+        class C12891 extends AbstractIterator<Set<E>> {
             final BitSet bits;
 
-            AnonymousClass1() {
-                this.bits = new BitSet(AnonymousClass5.this.val$index.size());
+            C12891() {
+                this.bits = new BitSet(C12885.this.val$index.size());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -933,11 +933,11 @@ public final class Sets {
             @CheckForNull
             public Set<E> computeNext() {
                 if (this.bits.isEmpty()) {
-                    this.bits.set(0, AnonymousClass5.this.val$size);
+                    this.bits.set(0, C12885.this.val$size);
                 } else {
                     int nextSetBit = this.bits.nextSetBit(0);
                     int nextClearBit = this.bits.nextClearBit(nextSetBit);
-                    if (nextClearBit == AnonymousClass5.this.val$index.size()) {
+                    if (nextClearBit == C12885.this.val$index.size()) {
                         return endOfData();
                     }
                     int i = (nextClearBit - nextSetBit) - 1;
@@ -949,31 +949,33 @@ public final class Sets {
                 return new AbstractSet<E>() { // from class: com.google.common.collect.Sets.5.1.1
                     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
                     public boolean contains(@CheckForNull Object obj) {
-                        Integer num = (Integer) AnonymousClass5.this.val$index.get(obj);
+                        Integer num = (Integer) C12885.this.val$index.get(obj);
                         return num != null && bitSet.get(num.intValue());
                     }
 
                     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
                     public Iterator<E> iterator() {
                         return new AbstractIterator<E>() { // from class: com.google.common.collect.Sets.5.1.1.1
-                            int i = -1;
+
+                            /* renamed from: i */
+                            int f228i = -1;
 
                             @Override // com.google.common.collect.AbstractIterator
                             @CheckForNull
                             protected E computeNext() {
-                                int nextSetBit2 = bitSet.nextSetBit(this.i + 1);
-                                this.i = nextSetBit2;
+                                int nextSetBit2 = bitSet.nextSetBit(this.f228i + 1);
+                                this.f228i = nextSetBit2;
                                 if (nextSetBit2 == -1) {
                                     return endOfData();
                                 }
-                                return AnonymousClass5.this.val$index.keySet().asList().get(this.i);
+                                return C12885.this.val$index.keySet().asList().get(this.f228i);
                             }
                         };
                     }
 
                     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
                     public int size() {
-                        return AnonymousClass5.this.val$size;
+                        return C12885.this.val$size;
                     }
                 };
             }
@@ -981,7 +983,7 @@ public final class Sets {
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
         public Iterator<Set<E>> iterator() {
-            return new AnonymousClass1();
+            return new C12891();
         }
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set

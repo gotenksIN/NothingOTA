@@ -4,15 +4,21 @@ package androidx.core.content.res;
 final class ViewingConditions {
     static final ViewingConditions DEFAULT = make(CamUtils.WHITE_POINT_D65, (float) ((CamUtils.yFromLStar(50.0f) * 63.66197723675813d) / 100.0d), 50.0f, 2.0f, false);
     private final float mAw;
-    private final float mC;
+
+    /* renamed from: mC */
+    private final float f162mC;
     private final float mFl;
     private final float mFlRoot;
-    private final float mN;
+
+    /* renamed from: mN */
+    private final float f163mN;
     private final float mNbb;
     private final float mNc;
     private final float mNcb;
     private final float[] mRgbD;
-    private final float mZ;
+
+    /* renamed from: mZ */
+    private final float f164mZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float getAw() {
@@ -21,7 +27,7 @@ final class ViewingConditions {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float getN() {
-        return this.mN;
+        return this.f163mN;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -36,7 +42,7 @@ final class ViewingConditions {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float getC() {
-        return this.mC;
+        return this.f162mC;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -61,20 +67,20 @@ final class ViewingConditions {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float getZ() {
-        return this.mZ;
+        return this.f164mZ;
     }
 
     private ViewingConditions(float f, float f2, float f3, float f4, float f5, float f6, float[] fArr, float f7, float f8, float f9) {
-        this.mN = f;
+        this.f163mN = f;
         this.mAw = f2;
         this.mNbb = f3;
         this.mNcb = f4;
-        this.mC = f5;
+        this.f162mC = f5;
         this.mNc = f6;
         this.mRgbD = fArr;
         this.mFl = f7;
         this.mFlRoot = f8;
-        this.mZ = f9;
+        this.f164mZ = f9;
     }
 
     static ViewingConditions make(float[] fArr, float f, float f2, float f3, boolean z) {

@@ -10,6 +10,6 @@ public final class BooleanVector extends BaseVector {
     }
 
     public boolean get(int i) {
-        return this.bb.get(__element(i)) != 0;
+        return this.f174bb.get(__element(i)) != 0;
     }
 }

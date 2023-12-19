@@ -5,9 +5,9 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
@@ -15,8 +15,8 @@ import kotlinx.coroutines.DelayKt;
 
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: ActualAndroid.android.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.SdkStubsFallbackFrameClock$withFrameNanos$2", f = "ActualAndroid.android.kt", i = {}, l = {52}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.SdkStubsFallbackFrameClock$withFrameNanos$2", m30f = "ActualAndroid.android.kt", m29i = {}, m28l = {52}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SdkStubsFallbackFrameClock$withFrameNanos$2<R> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super R>, Object> {
     final /* synthetic */ Function1<Long, R> $onFrame;
@@ -59,6 +59,6 @@ final class SdkStubsFallbackFrameClock$withFrameNanos$2<R> extends SuspendLambda
         } else {
             ResultKt.throwOnFailure(obj);
         }
-        return this.$onFrame.invoke(Boxing.boxLong(System.nanoTime()));
+        return this.$onFrame.invoke(boxing.boxLong(System.nanoTime()));
     }
 }

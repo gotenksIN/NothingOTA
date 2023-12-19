@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.ViewCompat;
 import com.google.common.primitives.Ints;
@@ -41,11 +41,11 @@ public class AlertDialogLayout extends LinearLayoutCompat {
             View childAt = getChildAt(i7);
             if (childAt.getVisibility() != 8) {
                 int id = childAt.getId();
-                if (id == R.id.topPanel) {
+                if (id == C0032R.C0034id.topPanel) {
                     view = childAt;
-                } else if (id == R.id.buttonPanel) {
+                } else if (id == C0032R.C0034id.buttonPanel) {
                     view2 = childAt;
-                } else if ((id != R.id.contentPanel && id != R.id.customPanel) || view3 != null) {
+                } else if ((id != C0032R.C0034id.contentPanel && id != C0032R.C0034id.customPanel) || view3 != null) {
                     return false;
                 } else {
                     view3 = childAt;

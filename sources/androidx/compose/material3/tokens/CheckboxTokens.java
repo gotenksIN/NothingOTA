@@ -2,11 +2,11 @@ package androidx.compose.material3.tokens;
 
 import androidx.compose.foundation.shape.RoundedCornerShape;
 import androidx.compose.foundation.shape.RoundedCornerShapeKt;
-import androidx.compose.ui.unit.Dp;
+import androidx.compose.p002ui.unit.C0780Dp;
 import kotlin.Metadata;
 
 /* compiled from: CheckboxTokens.kt */
-@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b1\n\u0002\u0018\u0002\n\u0002\b(\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001c\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u001c\u0010\f\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\r\u0010\u0006R\u001c\u0010\u000e\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u000f\u0010\u0006R\u0011\u0010\u0010\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u0011\u0010\u0014\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0013R\u000e\u0010\u0016\u001a\u00020\u0017X\u0086T¢\u0006\u0002\n\u0000R\u001c\u0010\u0018\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0019\u0010\u0006R\u0011\u0010\u001a\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u0013R\u0011\u0010\u001c\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0013R\u0011\u0010\u001e\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0013R\u0011\u0010 \u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u0013R\u001c\u0010\"\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b#\u0010\u0006R\u0011\u0010$\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u0013R\u0011\u0010&\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u001c\u0010(\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b)\u0010\u0006R\u0011\u0010*\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b+\u0010\u0013R\u0011\u0010,\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b-\u0010\u0013R\u0011\u0010.\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b/\u0010\u0013R\u001c\u00100\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b1\u0010\u0006R\u0011\u00102\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u0013R\u0011\u00104\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b5\u0010\u0013R\u001c\u00106\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b7\u0010\u0006R\u0011\u00108\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b9\u0010\u0013R\u0011\u0010:\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b;\u0010\u0013R\u001c\u0010<\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b=\u0010\u0006R\u0011\u0010>\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b?\u0010\u0013R\u001c\u0010@\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bA\u0010\u0006R\u0011\u0010B\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bC\u0010\u0013R\u0011\u0010D\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0013R\u001c\u0010F\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bG\u0010\u0006R\u0011\u0010H\u001a\u00020I¢\u0006\b\n\u0000\u001a\u0004\bJ\u0010KR\u001c\u0010L\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bM\u0010\u0006R\u000e\u0010N\u001a\u00020\u0017X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010O\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bP\u0010\u0013R\u001c\u0010Q\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bR\u0010\u0006R\u0011\u0010S\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bT\u0010\u0013R\u001c\u0010U\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bV\u0010\u0006R\u0011\u0010W\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bX\u0010\u0013R\u001c\u0010Y\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bZ\u0010\u0006R\u0011\u0010[\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\\\u0010\u0013R\u0011\u0010]\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b^\u0010\u0013R\u001c\u0010_\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b`\u0010\u0006R\u0011\u0010a\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bb\u0010\u0013R\u001c\u0010c\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bd\u0010\u0006R\u0011\u0010e\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bf\u0010\u0013R\u001c\u0010g\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bh\u0010\u0006R\u0011\u0010i\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bj\u0010\u0013R\u001c\u0010k\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bl\u0010\u0006R\u0011\u0010m\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bn\u0010\u0013R\u001c\u0010o\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bp\u0010\u0006\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006q"}, d2 = {"Landroidx/compose/material3/tokens/CheckboxTokens;", "", "()V", "ContainerHeight", "Landroidx/compose/ui/unit/Dp;", "getContainerHeight-D9Ej5fM", "()F", "F", "ContainerShape", "Landroidx/compose/foundation/shape/RoundedCornerShape;", "getContainerShape", "()Landroidx/compose/foundation/shape/RoundedCornerShape;", "ContainerWidth", "getContainerWidth-D9Ej5fM", "IconSize", "getIconSize-D9Ej5fM", "SelectedContainerColor", "Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "getSelectedContainerColor", "()Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "SelectedDisabledContainerColor", "getSelectedDisabledContainerColor", "SelectedDisabledContainerOpacity", "", "SelectedDisabledContainerOutlineWidth", "getSelectedDisabledContainerOutlineWidth-D9Ej5fM", "SelectedDisabledIconColor", "getSelectedDisabledIconColor", "SelectedErrorContainerColor", "getSelectedErrorContainerColor", "SelectedErrorFocusContainerColor", "getSelectedErrorFocusContainerColor", "SelectedErrorFocusIconColor", "getSelectedErrorFocusIconColor", "SelectedErrorFocusOutlineWidth", "getSelectedErrorFocusOutlineWidth-D9Ej5fM", "SelectedErrorHoverContainerColor", "getSelectedErrorHoverContainerColor", "SelectedErrorHoverIconColor", "getSelectedErrorHoverIconColor", "SelectedErrorHoverOutlineWidth", "getSelectedErrorHoverOutlineWidth-D9Ej5fM", "SelectedErrorIconColor", "getSelectedErrorIconColor", "SelectedErrorPressedContainerColor", "getSelectedErrorPressedContainerColor", "SelectedErrorPressedIconColor", "getSelectedErrorPressedIconColor", "SelectedErrorPressedOutlineWidth", "getSelectedErrorPressedOutlineWidth-D9Ej5fM", "SelectedFocusContainerColor", "getSelectedFocusContainerColor", "SelectedFocusIconColor", "getSelectedFocusIconColor", "SelectedFocusOutlineWidth", "getSelectedFocusOutlineWidth-D9Ej5fM", "SelectedHoverContainerColor", "getSelectedHoverContainerColor", "SelectedHoverIconColor", "getSelectedHoverIconColor", "SelectedHoverOutlineWidth", "getSelectedHoverOutlineWidth-D9Ej5fM", "SelectedIconColor", "getSelectedIconColor", "SelectedOutlineWidth", "getSelectedOutlineWidth-D9Ej5fM", "SelectedPressedContainerColor", "getSelectedPressedContainerColor", "SelectedPressedIconColor", "getSelectedPressedIconColor", "SelectedPressedOutlineWidth", "getSelectedPressedOutlineWidth-D9Ej5fM", "StateLayerShape", "Landroidx/compose/material3/tokens/ShapeKeyTokens;", "getStateLayerShape", "()Landroidx/compose/material3/tokens/ShapeKeyTokens;", "StateLayerSize", "getStateLayerSize-D9Ej5fM", "UnselectedDisabledContainerOpacity", "UnselectedDisabledOutlineColor", "getUnselectedDisabledOutlineColor", "UnselectedDisabledOutlineWidth", "getUnselectedDisabledOutlineWidth-D9Ej5fM", "UnselectedErrorFocusOutlineColor", "getUnselectedErrorFocusOutlineColor", "UnselectedErrorFocusOutlineWidth", "getUnselectedErrorFocusOutlineWidth-D9Ej5fM", "UnselectedErrorHoverOutlineColor", "getUnselectedErrorHoverOutlineColor", "UnselectedErrorHoverOutlineWidth", "getUnselectedErrorHoverOutlineWidth-D9Ej5fM", "UnselectedErrorOutlineColor", "getUnselectedErrorOutlineColor", "UnselectedErrorPressedOutlineColor", "getUnselectedErrorPressedOutlineColor", "UnselectedErrorPressedOutlineWidth", "getUnselectedErrorPressedOutlineWidth-D9Ej5fM", "UnselectedFocusOutlineColor", "getUnselectedFocusOutlineColor", "UnselectedFocusOutlineWidth", "getUnselectedFocusOutlineWidth-D9Ej5fM", "UnselectedHoverOutlineColor", "getUnselectedHoverOutlineColor", "UnselectedHoverOutlineWidth", "getUnselectedHoverOutlineWidth-D9Ej5fM", "UnselectedOutlineColor", "getUnselectedOutlineColor", "UnselectedOutlineWidth", "getUnselectedOutlineWidth-D9Ej5fM", "UnselectedPressedOutlineColor", "getUnselectedPressedOutlineColor", "UnselectedPressedOutlineWidth", "getUnselectedPressedOutlineWidth-D9Ej5fM", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b1\n\u0002\u0018\u0002\n\u0002\b(\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001c\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u001c\u0010\f\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\r\u0010\u0006R\u001c\u0010\u000e\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u000f\u0010\u0006R\u0011\u0010\u0010\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u0011\u0010\u0014\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0013R\u000e\u0010\u0016\u001a\u00020\u0017X\u0086T¢\u0006\u0002\n\u0000R\u001c\u0010\u0018\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0019\u0010\u0006R\u0011\u0010\u001a\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u0013R\u0011\u0010\u001c\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0013R\u0011\u0010\u001e\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0013R\u0011\u0010 \u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u0013R\u001c\u0010\"\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b#\u0010\u0006R\u0011\u0010$\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u0013R\u0011\u0010&\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u001c\u0010(\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b)\u0010\u0006R\u0011\u0010*\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b+\u0010\u0013R\u0011\u0010,\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b-\u0010\u0013R\u0011\u0010.\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b/\u0010\u0013R\u001c\u00100\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b1\u0010\u0006R\u0011\u00102\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u0013R\u0011\u00104\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b5\u0010\u0013R\u001c\u00106\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b7\u0010\u0006R\u0011\u00108\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b9\u0010\u0013R\u0011\u0010:\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b;\u0010\u0013R\u001c\u0010<\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b=\u0010\u0006R\u0011\u0010>\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b?\u0010\u0013R\u001c\u0010@\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bA\u0010\u0006R\u0011\u0010B\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bC\u0010\u0013R\u0011\u0010D\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0013R\u001c\u0010F\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bG\u0010\u0006R\u0011\u0010H\u001a\u00020I¢\u0006\b\n\u0000\u001a\u0004\bJ\u0010KR\u001c\u0010L\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bM\u0010\u0006R\u000e\u0010N\u001a\u00020\u0017X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010O\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bP\u0010\u0013R\u001c\u0010Q\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bR\u0010\u0006R\u0011\u0010S\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bT\u0010\u0013R\u001c\u0010U\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bV\u0010\u0006R\u0011\u0010W\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bX\u0010\u0013R\u001c\u0010Y\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bZ\u0010\u0006R\u0011\u0010[\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\\\u0010\u0013R\u0011\u0010]\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b^\u0010\u0013R\u001c\u0010_\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b`\u0010\u0006R\u0011\u0010a\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bb\u0010\u0013R\u001c\u0010c\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bd\u0010\u0006R\u0011\u0010e\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bf\u0010\u0013R\u001c\u0010g\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bh\u0010\u0006R\u0011\u0010i\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bj\u0010\u0013R\u001c\u0010k\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bl\u0010\u0006R\u0011\u0010m\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bn\u0010\u0013R\u001c\u0010o\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\bp\u0010\u0006\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006q"}, m40d2 = {"Landroidx/compose/material3/tokens/CheckboxTokens;", "", "()V", "ContainerHeight", "Landroidx/compose/ui/unit/Dp;", "getContainerHeight-D9Ej5fM", "()F", "F", "ContainerShape", "Landroidx/compose/foundation/shape/RoundedCornerShape;", "getContainerShape", "()Landroidx/compose/foundation/shape/RoundedCornerShape;", "ContainerWidth", "getContainerWidth-D9Ej5fM", "IconSize", "getIconSize-D9Ej5fM", "SelectedContainerColor", "Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "getSelectedContainerColor", "()Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "SelectedDisabledContainerColor", "getSelectedDisabledContainerColor", "SelectedDisabledContainerOpacity", "", "SelectedDisabledContainerOutlineWidth", "getSelectedDisabledContainerOutlineWidth-D9Ej5fM", "SelectedDisabledIconColor", "getSelectedDisabledIconColor", "SelectedErrorContainerColor", "getSelectedErrorContainerColor", "SelectedErrorFocusContainerColor", "getSelectedErrorFocusContainerColor", "SelectedErrorFocusIconColor", "getSelectedErrorFocusIconColor", "SelectedErrorFocusOutlineWidth", "getSelectedErrorFocusOutlineWidth-D9Ej5fM", "SelectedErrorHoverContainerColor", "getSelectedErrorHoverContainerColor", "SelectedErrorHoverIconColor", "getSelectedErrorHoverIconColor", "SelectedErrorHoverOutlineWidth", "getSelectedErrorHoverOutlineWidth-D9Ej5fM", "SelectedErrorIconColor", "getSelectedErrorIconColor", "SelectedErrorPressedContainerColor", "getSelectedErrorPressedContainerColor", "SelectedErrorPressedIconColor", "getSelectedErrorPressedIconColor", "SelectedErrorPressedOutlineWidth", "getSelectedErrorPressedOutlineWidth-D9Ej5fM", "SelectedFocusContainerColor", "getSelectedFocusContainerColor", "SelectedFocusIconColor", "getSelectedFocusIconColor", "SelectedFocusOutlineWidth", "getSelectedFocusOutlineWidth-D9Ej5fM", "SelectedHoverContainerColor", "getSelectedHoverContainerColor", "SelectedHoverIconColor", "getSelectedHoverIconColor", "SelectedHoverOutlineWidth", "getSelectedHoverOutlineWidth-D9Ej5fM", "SelectedIconColor", "getSelectedIconColor", "SelectedOutlineWidth", "getSelectedOutlineWidth-D9Ej5fM", "SelectedPressedContainerColor", "getSelectedPressedContainerColor", "SelectedPressedIconColor", "getSelectedPressedIconColor", "SelectedPressedOutlineWidth", "getSelectedPressedOutlineWidth-D9Ej5fM", "StateLayerShape", "Landroidx/compose/material3/tokens/ShapeKeyTokens;", "getStateLayerShape", "()Landroidx/compose/material3/tokens/ShapeKeyTokens;", "StateLayerSize", "getStateLayerSize-D9Ej5fM", "UnselectedDisabledContainerOpacity", "UnselectedDisabledOutlineColor", "getUnselectedDisabledOutlineColor", "UnselectedDisabledOutlineWidth", "getUnselectedDisabledOutlineWidth-D9Ej5fM", "UnselectedErrorFocusOutlineColor", "getUnselectedErrorFocusOutlineColor", "UnselectedErrorFocusOutlineWidth", "getUnselectedErrorFocusOutlineWidth-D9Ej5fM", "UnselectedErrorHoverOutlineColor", "getUnselectedErrorHoverOutlineColor", "UnselectedErrorHoverOutlineWidth", "getUnselectedErrorHoverOutlineWidth-D9Ej5fM", "UnselectedErrorOutlineColor", "getUnselectedErrorOutlineColor", "UnselectedErrorPressedOutlineColor", "getUnselectedErrorPressedOutlineColor", "UnselectedErrorPressedOutlineWidth", "getUnselectedErrorPressedOutlineWidth-D9Ej5fM", "UnselectedFocusOutlineColor", "getUnselectedFocusOutlineColor", "UnselectedFocusOutlineWidth", "getUnselectedFocusOutlineWidth-D9Ej5fM", "UnselectedHoverOutlineColor", "getUnselectedHoverOutlineColor", "UnselectedHoverOutlineWidth", "getUnselectedHoverOutlineWidth-D9Ej5fM", "UnselectedOutlineColor", "getUnselectedOutlineColor", "UnselectedOutlineWidth", "getUnselectedOutlineWidth-D9Ej5fM", "UnselectedPressedOutlineColor", "getUnselectedPressedOutlineColor", "UnselectedPressedOutlineWidth", "getUnselectedPressedOutlineWidth-D9Ej5fM", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class CheckboxTokens {
     private static final float ContainerHeight;
@@ -51,7 +51,7 @@ public final class CheckboxTokens {
     private static final ColorSchemeKeyTokens SelectedPressedContainerColor = ColorSchemeKeyTokens.Primary;
     private static final ColorSchemeKeyTokens SelectedPressedIconColor = ColorSchemeKeyTokens.OnPrimary;
     private static final ShapeKeyTokens StateLayerShape = ShapeKeyTokens.CornerFull;
-    private static final float StateLayerSize = Dp.m5050constructorimpl((float) 40.0d);
+    private static final float StateLayerSize = C0780Dp.m5351constructorimpl((float) 40.0d);
     private static final ColorSchemeKeyTokens UnselectedDisabledOutlineColor = ColorSchemeKeyTokens.OnSurface;
     private static final ColorSchemeKeyTokens UnselectedErrorFocusOutlineColor = ColorSchemeKeyTokens.Error;
     private static final ColorSchemeKeyTokens UnselectedErrorHoverOutlineColor = ColorSchemeKeyTokens.Error;
@@ -66,7 +66,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getContainerHeight-D9Ej5fM  reason: not valid java name */
-    public final float m1628getContainerHeightD9Ej5fM() {
+    public final float m1929getContainerHeightD9Ej5fM() {
         return ContainerHeight;
     }
 
@@ -75,12 +75,12 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getContainerWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1629getContainerWidthD9Ej5fM() {
+    public final float m1930getContainerWidthD9Ej5fM() {
         return ContainerWidth;
     }
 
     /* renamed from: getIconSize-D9Ej5fM  reason: not valid java name */
-    public final float m1630getIconSizeD9Ej5fM() {
+    public final float m1931getIconSizeD9Ej5fM() {
         return IconSize;
     }
 
@@ -93,7 +93,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedDisabledContainerOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1631getSelectedDisabledContainerOutlineWidthD9Ej5fM() {
+    public final float m1932getSelectedDisabledContainerOutlineWidthD9Ej5fM() {
         return SelectedDisabledContainerOutlineWidth;
     }
 
@@ -114,7 +114,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedErrorFocusOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1632getSelectedErrorFocusOutlineWidthD9Ej5fM() {
+    public final float m1933getSelectedErrorFocusOutlineWidthD9Ej5fM() {
         return SelectedErrorFocusOutlineWidth;
     }
 
@@ -127,7 +127,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedErrorHoverOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1633getSelectedErrorHoverOutlineWidthD9Ej5fM() {
+    public final float m1934getSelectedErrorHoverOutlineWidthD9Ej5fM() {
         return SelectedErrorHoverOutlineWidth;
     }
 
@@ -144,7 +144,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedErrorPressedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1634getSelectedErrorPressedOutlineWidthD9Ej5fM() {
+    public final float m1935getSelectedErrorPressedOutlineWidthD9Ej5fM() {
         return SelectedErrorPressedOutlineWidth;
     }
 
@@ -157,7 +157,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedFocusOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1635getSelectedFocusOutlineWidthD9Ej5fM() {
+    public final float m1936getSelectedFocusOutlineWidthD9Ej5fM() {
         return SelectedFocusOutlineWidth;
     }
 
@@ -170,7 +170,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedHoverOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1636getSelectedHoverOutlineWidthD9Ej5fM() {
+    public final float m1937getSelectedHoverOutlineWidthD9Ej5fM() {
         return SelectedHoverOutlineWidth;
     }
 
@@ -179,7 +179,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1637getSelectedOutlineWidthD9Ej5fM() {
+    public final float m1938getSelectedOutlineWidthD9Ej5fM() {
         return SelectedOutlineWidth;
     }
 
@@ -192,7 +192,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getSelectedPressedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1638getSelectedPressedOutlineWidthD9Ej5fM() {
+    public final float m1939getSelectedPressedOutlineWidthD9Ej5fM() {
         return SelectedPressedOutlineWidth;
     }
 
@@ -201,7 +201,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getStateLayerSize-D9Ej5fM  reason: not valid java name */
-    public final float m1639getStateLayerSizeD9Ej5fM() {
+    public final float m1940getStateLayerSizeD9Ej5fM() {
         return StateLayerSize;
     }
 
@@ -210,7 +210,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedDisabledOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1640getUnselectedDisabledOutlineWidthD9Ej5fM() {
+    public final float m1941getUnselectedDisabledOutlineWidthD9Ej5fM() {
         return UnselectedDisabledOutlineWidth;
     }
 
@@ -219,7 +219,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedErrorFocusOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1641getUnselectedErrorFocusOutlineWidthD9Ej5fM() {
+    public final float m1942getUnselectedErrorFocusOutlineWidthD9Ej5fM() {
         return UnselectedErrorFocusOutlineWidth;
     }
 
@@ -228,7 +228,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedErrorHoverOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1642getUnselectedErrorHoverOutlineWidthD9Ej5fM() {
+    public final float m1943getUnselectedErrorHoverOutlineWidthD9Ej5fM() {
         return UnselectedErrorHoverOutlineWidth;
     }
 
@@ -241,7 +241,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedErrorPressedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1643getUnselectedErrorPressedOutlineWidthD9Ej5fM() {
+    public final float m1944getUnselectedErrorPressedOutlineWidthD9Ej5fM() {
         return UnselectedErrorPressedOutlineWidth;
     }
 
@@ -250,7 +250,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedFocusOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1644getUnselectedFocusOutlineWidthD9Ej5fM() {
+    public final float m1945getUnselectedFocusOutlineWidthD9Ej5fM() {
         return UnselectedFocusOutlineWidth;
     }
 
@@ -259,7 +259,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedHoverOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1645getUnselectedHoverOutlineWidthD9Ej5fM() {
+    public final float m1946getUnselectedHoverOutlineWidthD9Ej5fM() {
         return UnselectedHoverOutlineWidth;
     }
 
@@ -268,7 +268,7 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1646getUnselectedOutlineWidthD9Ej5fM() {
+    public final float m1947getUnselectedOutlineWidthD9Ej5fM() {
         return UnselectedOutlineWidth;
     }
 
@@ -277,33 +277,33 @@ public final class CheckboxTokens {
     }
 
     /* renamed from: getUnselectedPressedOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1647getUnselectedPressedOutlineWidthD9Ej5fM() {
+    public final float m1948getUnselectedPressedOutlineWidthD9Ej5fM() {
         return UnselectedPressedOutlineWidth;
     }
 
     static {
         float f = (float) 18.0d;
-        ContainerHeight = Dp.m5050constructorimpl(f);
+        ContainerHeight = C0780Dp.m5351constructorimpl(f);
         float f2 = (float) 2.0d;
-        ContainerShape = RoundedCornerShapeKt.m689RoundedCornerShape0680j_4(Dp.m5050constructorimpl(f2));
-        ContainerWidth = Dp.m5050constructorimpl(f);
-        IconSize = Dp.m5050constructorimpl(f);
+        ContainerShape = RoundedCornerShapeKt.m990RoundedCornerShape0680j_4(C0780Dp.m5351constructorimpl(f2));
+        ContainerWidth = C0780Dp.m5351constructorimpl(f);
+        IconSize = C0780Dp.m5351constructorimpl(f);
         float f3 = (float) 0.0d;
-        SelectedDisabledContainerOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedErrorFocusOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedErrorHoverOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedErrorPressedOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedFocusOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedHoverOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedOutlineWidth = Dp.m5050constructorimpl(f3);
-        SelectedPressedOutlineWidth = Dp.m5050constructorimpl(f3);
-        UnselectedDisabledOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedErrorFocusOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedErrorHoverOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedErrorPressedOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedFocusOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedHoverOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedOutlineWidth = Dp.m5050constructorimpl(f2);
-        UnselectedPressedOutlineWidth = Dp.m5050constructorimpl(f2);
+        SelectedDisabledContainerOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedErrorFocusOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedErrorHoverOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedErrorPressedOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedFocusOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedHoverOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        SelectedPressedOutlineWidth = C0780Dp.m5351constructorimpl(f3);
+        UnselectedDisabledOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedErrorFocusOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedErrorHoverOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedErrorPressedOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedFocusOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedHoverOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedOutlineWidth = C0780Dp.m5351constructorimpl(f2);
+        UnselectedPressedOutlineWidth = C0780Dp.m5351constructorimpl(f2);
     }
 }

@@ -10,7 +10,7 @@ import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.CoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.coroutines.jvm.internal.DebugProbes;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.BuildersKt;
@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ActualAndroid.android.kt */
-@Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0002\b\u0004\bÂ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J:\u0010\u0006\u001a\u0002H\u0007\"\u0004\b\u0000\u0010\u00072!\u0010\b\u001a\u001d\u0012\u0013\u0012\u00110\n¢\u0006\f\b\u000b\u0012\b\b\f\u0012\u0004\b\b(\r\u0012\u0004\u0012\u0002H\u00070\tH\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u000eR\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000f"}, d2 = {"Landroidx/compose/runtime/DefaultChoreographerFrameClock;", "Landroidx/compose/runtime/MonotonicFrameClock;", "()V", "choreographer", "Landroid/view/Choreographer;", "kotlin.jvm.PlatformType", "withFrameNanos", "R", "onFrame", "Lkotlin/Function1;", "", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "frameTimeNanos", "(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "runtime_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0002\u0018\u0002\n\u0002\b\u0004\bÂ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J:\u0010\u0006\u001a\u0002H\u0007\"\u0004\b\u0000\u0010\u00072!\u0010\b\u001a\u001d\u0012\u0013\u0012\u00110\n¢\u0006\f\b\u000b\u0012\b\b\f\u0012\u0004\b\b(\r\u0012\u0004\u0012\u0002H\u00070\tH\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u000eR\u0016\u0010\u0003\u001a\n \u0005*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000f"}, m40d2 = {"Landroidx/compose/runtime/DefaultChoreographerFrameClock;", "Landroidx/compose/runtime/MonotonicFrameClock;", "()V", "choreographer", "Landroid/view/Choreographer;", "kotlin.jvm.PlatformType", "withFrameNanos", "R", "onFrame", "Lkotlin/Function1;", "", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "frameTimeNanos", "(Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "runtime_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class DefaultChoreographerFrameClock implements MonotonicFrameClock {
     public static final DefaultChoreographerFrameClock INSTANCE = new DefaultChoreographerFrameClock();
@@ -56,18 +56,18 @@ public final class DefaultChoreographerFrameClock implements MonotonicFrameClock
         final Choreographer.FrameCallback frameCallback = new Choreographer.FrameCallback() { // from class: androidx.compose.runtime.DefaultChoreographerFrameClock$withFrameNanos$2$callback$1
             @Override // android.view.Choreographer.FrameCallback
             public final void doFrame(long j) {
-                Object m5373constructorimpl;
+                Object m5649constructorimpl;
                 Continuation continuation2 = cancellableContinuationImpl2;
                 DefaultChoreographerFrameClock defaultChoreographerFrameClock = DefaultChoreographerFrameClock.INSTANCE;
                 Function1<Long, R> function12 = function1;
                 try {
                     Result.Companion companion = Result.Companion;
-                    m5373constructorimpl = Result.m5373constructorimpl(function12.invoke(Long.valueOf(j)));
+                    m5649constructorimpl = Result.m5649constructorimpl(function12.invoke(Long.valueOf(j)));
                 } catch (Throwable th) {
                     Result.Companion companion2 = Result.Companion;
-                    m5373constructorimpl = Result.m5373constructorimpl(ResultKt.createFailure(th));
+                    m5649constructorimpl = Result.m5649constructorimpl(ResultKt.createFailure(th));
                 }
-                continuation2.resumeWith(m5373constructorimpl);
+                continuation2.resumeWith(m5649constructorimpl);
             }
         };
         choreographer.postFrameCallback(frameCallback);
@@ -91,7 +91,7 @@ public final class DefaultChoreographerFrameClock implements MonotonicFrameClock
         });
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            DebugProbesKt.probeCoroutineSuspended(continuation);
+            DebugProbes.probeCoroutineSuspended(continuation);
         }
         return result;
     }

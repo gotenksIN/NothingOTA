@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.SystemClock;
 import androidx.core.graphics.TypefaceCompatUtil;
-import androidx.core.os.TraceCompat;
+import androidx.core.p004os.TraceCompat;
 import androidx.core.provider.FontRequest;
 import androidx.core.provider.FontsContractCompat;
 import androidx.core.util.Preconditions;

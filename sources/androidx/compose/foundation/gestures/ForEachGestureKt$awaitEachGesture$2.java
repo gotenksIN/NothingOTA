@@ -1,7 +1,7 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -12,8 +12,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ForEachGesture.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ForEachGestureKt$awaitEachGesture$2", f = "ForEachGesture.kt", i = {0, 1, 2}, l = {104, R.styleable.AppCompatTheme_textAppearanceSearchResultSubtitle, R.styleable.AppCompatTheme_toolbarNavigationButtonStyle}, m = "invokeSuspend", n = {"$this$awaitPointerEventScope", "$this$awaitPointerEventScope", "$this$awaitPointerEventScope"}, s = {"L$0", "L$0", "L$0"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ForEachGestureKt$awaitEachGesture$2", m30f = "ForEachGesture.kt", m29i = {0, 1, 2}, m28l = {104, C0032R.styleable.AppCompatTheme_textAppearanceSearchResultSubtitle, C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle}, m27m = "invokeSuspend", m26n = {"$this$awaitPointerEventScope", "$this$awaitPointerEventScope", "$this$awaitPointerEventScope"}, m25s = {"L$0", "L$0", "L$0"})
 /* loaded from: classes.dex */
 public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> $block;
@@ -69,7 +69,7 @@ public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspend
             if (r1 == r3) goto L21
             if (r1 != r2) goto L19
             java.lang.Object r1 = r8.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
             kotlin.ResultKt.throwOnFailure(r9)
             goto L28
         L19:
@@ -79,14 +79,14 @@ public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspend
             throw r9
         L21:
             java.lang.Object r1 = r8.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
             kotlin.ResultKt.throwOnFailure(r9)     // Catch: java.util.concurrent.CancellationException -> L33
         L28:
             r9 = r1
             goto L3e
         L2a:
             java.lang.Object r1 = r8.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
             kotlin.ResultKt.throwOnFailure(r9)     // Catch: java.util.concurrent.CancellationException -> L33
             r9 = r8
             goto L57
@@ -98,7 +98,7 @@ public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspend
         L37:
             kotlin.ResultKt.throwOnFailure(r9)
             java.lang.Object r9 = r8.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r9 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r9
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r9 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r9
         L3e:
             r1 = r8
         L3f:
@@ -120,7 +120,7 @@ public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspend
             kotlin.coroutines.Continuation r5 = (kotlin.coroutines.Continuation) r5     // Catch: java.util.concurrent.CancellationException -> L69
             r9.L$0 = r1     // Catch: java.util.concurrent.CancellationException -> L69
             r9.label = r3     // Catch: java.util.concurrent.CancellationException -> L69
-            java.lang.Object r5 = androidx.compose.foundation.gestures.ForEachGestureKt.awaitAllPointersUp(r1, r5)     // Catch: java.util.concurrent.CancellationException -> L69
+            java.lang.Object r5 = androidx.compose.foundation.gestures.ForEachGesture.awaitAllPointersUp(r1, r5)     // Catch: java.util.concurrent.CancellationException -> L69
             if (r5 != r0) goto L65
             return r0
         L65:
@@ -148,7 +148,7 @@ public final class ForEachGestureKt$awaitEachGesture$2 extends RestrictedSuspend
             kotlin.coroutines.Continuation r9 = (kotlin.coroutines.Continuation) r9
             r1.L$0 = r5
             r1.label = r2
-            java.lang.Object r9 = androidx.compose.foundation.gestures.ForEachGestureKt.awaitAllPointersUp(r5, r9)
+            java.lang.Object r9 = androidx.compose.foundation.gestures.ForEachGesture.awaitAllPointersUp(r5, r9)
             if (r9 != r0) goto L89
             return r0
         L89:

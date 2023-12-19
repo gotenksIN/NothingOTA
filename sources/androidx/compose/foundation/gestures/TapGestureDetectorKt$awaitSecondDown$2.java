@@ -1,7 +1,7 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TapGestureDetector.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "Landroidx/compose/ui/input/pointer/PointerInputChange;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$awaitSecondDown$2", f = "TapGestureDetector.kt", i = {0, 0}, l = {212}, m = "invokeSuspend", n = {"$this$withTimeoutOrNull", "minUptime"}, s = {"L$0", "J$0"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "Landroidx/compose/ui/input/pointer/PointerInputChange;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TapGestureDetectorKt$awaitSecondDown$2", m30f = "TapGestureDetector.kt", m29i = {0, 0}, m28l = {212}, m27m = "invokeSuspend", m26n = {"$this$withTimeoutOrNull", "minUptime"}, m25s = {"L$0", "J$0"})
 /* loaded from: classes.dex */
 public final class TapGestureDetectorKt$awaitSecondDown$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super PointerInputChange>, Object> {
     final /* synthetic */ PointerInputChange $firstUp;
@@ -59,7 +59,7 @@ public final class TapGestureDetectorKt$awaitSecondDown$2 extends RestrictedSusp
             if (r1 != r2) goto L19
             long r3 = r12.J$0
             java.lang.Object r1 = r12.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
             kotlin.ResultKt.throwOnFailure(r13)
             r9 = r3
             r3 = r1
@@ -74,7 +74,7 @@ public final class TapGestureDetectorKt$awaitSecondDown$2 extends RestrictedSusp
         L21:
             kotlin.ResultKt.throwOnFailure(r13)
             java.lang.Object r13 = r12.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r13 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r13
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r13 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r13
             androidx.compose.ui.input.pointer.PointerInputChange r1 = r12.$firstUp
             long r3 = r1.getUptimeMillis()
             androidx.compose.ui.platform.ViewConfiguration r1 = r13.getViewConfiguration()
@@ -104,7 +104,7 @@ public final class TapGestureDetectorKt$awaitSecondDown$2 extends RestrictedSusp
             r3 = r1
             r1 = r11
         L54:
-            androidx.compose.ui.input.pointer.PointerInputChange r13 = (androidx.compose.ui.input.pointer.PointerInputChange) r13
+            androidx.compose.ui.input.pointer.PointerInputChange r13 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r13
             long r4 = r13.getUptimeMillis()
             int r4 = (r4 > r9 ? 1 : (r4 == r9 ? 0 : -1))
             if (r4 < 0) goto L5f

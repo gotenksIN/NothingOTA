@@ -51,7 +51,7 @@ public class UpdateManager {
         getOnStateChangeCallback().ifPresent(new Consumer() { // from class: com.nothing.OfflineOTAUpgradeApp.UpdateManager$$ExternalSyntheticLambda2
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                UpdateManager.this.m5340lambda$bind$0$comnothingOfflineOTAUpgradeAppUpdateManager((IntConsumer) obj);
+                UpdateManager.this.m5619lambda$bind$0$comnothingOfflineOTAUpgradeAppUpdateManager((IntConsumer) obj);
             }
         });
         this.mStateSynchronized.set(false);
@@ -60,7 +60,7 @@ public class UpdateManager {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$bind$0$com-nothing-OfflineOTAUpgradeApp-UpdateManager  reason: not valid java name */
-    public /* synthetic */ void m5340lambda$bind$0$comnothingOfflineOTAUpgradeAppUpdateManager(IntConsumer intConsumer) {
+    public /* synthetic */ void m5619lambda$bind$0$comnothingOfflineOTAUpgradeAppUpdateManager(IntConsumer intConsumer) {
         intConsumer.accept(this.mUpdaterState.get());
     }
 
@@ -155,13 +155,13 @@ public class UpdateManager {
     public synchronized void suspend() throws UpdaterState.InvalidTransitionException {
         Log.d(TAG, "suspend invoked");
         setUpdaterState(3);
-        this.mUpdateEngine.cancel();
+        this.mUpdateEngine.suspend();
     }
 
     public synchronized void resume() throws UpdaterState.InvalidTransitionException {
         Log.d(TAG, "resume invoked");
         setUpdaterState(2);
-        updateEngineReApplyPayload();
+        this.mUpdateEngine.resume();
     }
 
     public synchronized void setUpdaterStateRunning() throws UpdaterState.InvalidTransitionException {
@@ -233,14 +233,14 @@ public class UpdateManager {
         PrepareUpdateService.startService(context, updateConfig, this.mHandler, new PrepareUpdateService.UpdateResultCallback() { // from class: com.nothing.OfflineOTAUpgradeApp.UpdateManager$$ExternalSyntheticLambda6
             @Override // com.nothing.OfflineOTAUpgradeApp.services.PrepareUpdateService.UpdateResultCallback
             public final void onReceiveResult(int i, PayloadSpec payloadSpec) {
-                UpdateManager.this.m5339x83f209dc(updateConfig, i, payloadSpec);
+                UpdateManager.this.m55x83f209dc(updateConfig, i, payloadSpec);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: lambda$applyUpdate$3$com-nothing-OfflineOTAUpgradeApp-UpdateManager  reason: not valid java name */
-    public /* synthetic */ void m5339x83f209dc(UpdateConfig updateConfig, int i, PayloadSpec payloadSpec) {
+    /* renamed from: lambda$applyUpdate$3$com-nothing-OfflineOTAUpgradeApp-UpdateManager */
+    public /* synthetic */ void m55x83f209dc(UpdateConfig updateConfig, int i, PayloadSpec payloadSpec) {
         if (i != 0) {
             Log.e(TAG, "PrepareUpdateService failed, result code is " + i);
             setUpdaterStateSilent(1);
@@ -359,7 +359,7 @@ public class UpdateManager {
         getOnProgressUpdateCallback().ifPresent(new Consumer() { // from class: com.nothing.OfflineOTAUpgradeApp.UpdateManager$$ExternalSyntheticLambda3
             @Override // java.util.function.Consumer
             public final void accept(Object obj) {
-                UpdateManager.this.m5341x99a5be5d((DoubleConsumer) obj);
+                UpdateManager.this.m54x99a5be5d((DoubleConsumer) obj);
             }
         });
         if (i2 != i) {
@@ -373,8 +373,8 @@ public class UpdateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: lambda$onStatusUpdate$5$com-nothing-OfflineOTAUpgradeApp-UpdateManager  reason: not valid java name */
-    public /* synthetic */ void m5341x99a5be5d(DoubleConsumer doubleConsumer) {
+    /* renamed from: lambda$onStatusUpdate$5$com-nothing-OfflineOTAUpgradeApp-UpdateManager */
+    public /* synthetic */ void m54x99a5be5d(DoubleConsumer doubleConsumer) {
         doubleConsumer.accept(this.mProgress.get());
     }
 

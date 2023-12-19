@@ -1,15 +1,15 @@
 package androidx.compose.material3;
 
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection;
-import androidx.compose.ui.input.nestedscroll.NestedScrollSource;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollSource;
 import kotlin.Metadata;
 
 /* compiled from: Swipeable.kt */
-@Metadata(d1 = {"\u0000)\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J)\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u0003H\u0096@ø\u0001\u0000ø\u0001\u0001ø\u0001\u0001¢\u0006\u0004\b\u0006\u0010\u0007J-\u0010\b\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\f\u0010\rJ!\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u0003H\u0096@ø\u0001\u0000ø\u0001\u0001ø\u0001\u0001¢\u0006\u0004\b\u000f\u0010\u0010J%\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0014\u001a\u00020\u0015*\u00020\tH\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010\u0016J\u001a\u0010\u0017\u001a\u00020\t*\u00020\u0015H\u0002ø\u0001\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010\u0018\u0082\u0002\u000f\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0019"}, d2 = {"androidx/compose/material3/SwipeableKt$PreUpPostDownNestedScrollConnection$1", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "onPostFling", "Landroidx/compose/ui/unit/Velocity;", "consumed", "available", "onPostFling-RZ2iAVY", "(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onPostScroll", "Landroidx/compose/ui/geometry/Offset;", "source", "Landroidx/compose/ui/input/nestedscroll/NestedScrollSource;", "onPostScroll-DzOQY0M", "(JJI)J", "onPreFling", "onPreFling-QWom1Mo", "(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onPreScroll", "onPreScroll-OzD1aCk", "(JI)J", "toFloat", "", "(J)F", "toOffset", "(F)J", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000)\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J)\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u0003H\u0096@ø\u0001\u0000ø\u0001\u0001ø\u0001\u0001¢\u0006\u0004\b\u0006\u0010\u0007J-\u0010\b\u001a\u00020\t2\u0006\u0010\u0004\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\f\u0010\rJ!\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u0005\u001a\u00020\u0003H\u0096@ø\u0001\u0000ø\u0001\u0001ø\u0001\u0001¢\u0006\u0004\b\u000f\u0010\u0010J%\u0010\u0011\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0016ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0014\u001a\u00020\u0015*\u00020\tH\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010\u0016J\u001a\u0010\u0017\u001a\u00020\t*\u00020\u0015H\u0002ø\u0001\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0002\u0010\u0018\u0082\u0002\u000f\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0019"}, m40d2 = {"androidx/compose/material3/SwipeableKt$PreUpPostDownNestedScrollConnection$1", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "onPostFling", "Landroidx/compose/ui/unit/Velocity;", "consumed", "available", "onPostFling-RZ2iAVY", "(JJLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onPostScroll", "Landroidx/compose/ui/geometry/Offset;", "source", "Landroidx/compose/ui/input/nestedscroll/NestedScrollSource;", "onPostScroll-DzOQY0M", "(JJI)J", "onPreFling", "onPreFling-QWom1Mo", "(JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "onPreScroll", "onPreScroll-OzD1aCk", "(JI)J", "toFloat", "", "(J)F", "toOffset", "(F)J", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
-public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements NestedScrollConnection {
+public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements NestedScrollModifier {
     final /* synthetic */ SwipeableState<T> $this_PreUpPostDownNestedScrollConnection;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,34 +17,34 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
         this.$this_PreUpPostDownNestedScrollConnection = swipeableState;
     }
 
-    @Override // androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+    @Override // androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier
     /* renamed from: onPreScroll-OzD1aCk */
-    public long mo310onPreScrollOzD1aCk(long j, int i) {
+    public long mo611onPreScrollOzD1aCk(long j, int i) {
         float f = toFloat(j);
-        if (f < 0.0f && NestedScrollSource.m3851equalsimpl0(i, NestedScrollSource.Companion.m3856getDragWNlRxjI())) {
+        if (f < 0.0f && NestedScrollSource.m4152equalsimpl0(i, NestedScrollSource.Companion.m4157getDragWNlRxjI())) {
             return toOffset(this.$this_PreUpPostDownNestedScrollConnection.performDrag$material3_release(f));
         }
-        return Offset.Companion.m2334getZeroF1C5BW0();
+        return Offset.Companion.m2635getZeroF1C5BW0();
     }
 
-    @Override // androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+    @Override // androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier
     /* renamed from: onPostScroll-DzOQY0M */
-    public long mo309onPostScrollDzOQY0M(long j, long j2, int i) {
-        if (NestedScrollSource.m3851equalsimpl0(i, NestedScrollSource.Companion.m3856getDragWNlRxjI())) {
+    public long mo610onPostScrollDzOQY0M(long j, long j2, int i) {
+        if (NestedScrollSource.m4152equalsimpl0(i, NestedScrollSource.Companion.m4157getDragWNlRxjI())) {
             return toOffset(this.$this_PreUpPostDownNestedScrollConnection.performDrag$material3_release(toFloat(j2)));
         }
-        return Offset.Companion.m2334getZeroF1C5BW0();
+        return Offset.Companion.m2635getZeroF1C5BW0();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0034  */
-    @Override // androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+    @Override // androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier
     /* renamed from: onPreFling-QWom1Mo */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public java.lang.Object mo479onPreFlingQWom1Mo(long r7, kotlin.coroutines.Continuation<? super androidx.compose.ui.unit.Velocity> r9) {
+    public java.lang.Object mo780onPreFlingQWom1Mo(long r7, kotlin.coroutines.Continuation<? super androidx.compose.p002ui.unit.Velocity> r9) {
         /*
             r6 = this;
             boolean r0 = r9 instanceof androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1$onPreFling$1
@@ -79,9 +79,9 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
             throw r7
         L34:
             kotlin.ResultKt.throwOnFailure(r9)
-            float r9 = androidx.compose.ui.unit.Velocity.m5275getXimpl(r7)
-            float r2 = androidx.compose.ui.unit.Velocity.m5276getYimpl(r7)
-            long r4 = androidx.compose.ui.geometry.OffsetKt.Offset(r9, r2)
+            float r9 = androidx.compose.p002ui.unit.Velocity.m5576getXimpl(r7)
+            float r2 = androidx.compose.p002ui.unit.Velocity.m5577getYimpl(r7)
+            long r4 = androidx.compose.p002ui.geometry.OffsetKt.Offset(r9, r2)
             float r9 = r6.toFloat(r4)
             r2 = 0
             int r2 = (r9 > r2 ? 1 : (r9 == r2 ? 0 : -1))
@@ -102,24 +102,24 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
             if (r9 != r1) goto L79
             return r1
         L73:
-            androidx.compose.ui.unit.Velocity$Companion r7 = androidx.compose.ui.unit.Velocity.Companion
-            long r7 = r7.m5286getZero9UxMQ8M()
+            androidx.compose.ui.unit.Velocity$Companion r7 = androidx.compose.p002ui.unit.Velocity.Companion
+            long r7 = r7.m5587getZero9UxMQ8M()
         L79:
-            androidx.compose.ui.unit.Velocity r7 = androidx.compose.ui.unit.Velocity.m5266boximpl(r7)
+            androidx.compose.ui.unit.Velocity r7 = androidx.compose.p002ui.unit.Velocity.m5567boximpl(r7)
             return r7
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1.mo479onPreFlingQWom1Mo(long, kotlin.coroutines.Continuation):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1.mo780onPreFlingQWom1Mo(long, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0034  */
-    @Override // androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+    @Override // androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier
     /* renamed from: onPostFling-RZ2iAVY */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public java.lang.Object mo308onPostFlingRZ2iAVY(long r5, long r7, kotlin.coroutines.Continuation<? super androidx.compose.ui.unit.Velocity> r9) {
+    public java.lang.Object mo609onPostFlingRZ2iAVY(long r5, long r7, kotlin.coroutines.Continuation<? super androidx.compose.p002ui.unit.Velocity> r9) {
         /*
             r4 = this;
             boolean r5 = r9 instanceof androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1$onPostFling$1
@@ -155,9 +155,9 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
         L34:
             kotlin.ResultKt.throwOnFailure(r6)
             androidx.compose.material3.SwipeableState<T> r6 = r4.$this_PreUpPostDownNestedScrollConnection
-            float r0 = androidx.compose.ui.unit.Velocity.m5275getXimpl(r7)
-            float r2 = androidx.compose.ui.unit.Velocity.m5276getYimpl(r7)
-            long r2 = androidx.compose.ui.geometry.OffsetKt.Offset(r0, r2)
+            float r0 = androidx.compose.p002ui.unit.Velocity.m5576getXimpl(r7)
+            float r2 = androidx.compose.p002ui.unit.Velocity.m5577getYimpl(r7)
+            long r2 = androidx.compose.p002ui.geometry.OffsetKt.Offset(r0, r2)
             float r0 = r4.toFloat(r2)
             r5.J$0 = r7
             r5.label = r1
@@ -165,10 +165,10 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
             if (r5 != r9) goto L54
             return r9
         L54:
-            androidx.compose.ui.unit.Velocity r5 = androidx.compose.ui.unit.Velocity.m5266boximpl(r7)
+            androidx.compose.ui.unit.Velocity r5 = androidx.compose.p002ui.unit.Velocity.m5567boximpl(r7)
             return r5
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1.mo308onPostFlingRZ2iAVY(long, long, kotlin.coroutines.Continuation):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SwipeableKt$PreUpPostDownNestedScrollConnection$1.mo609onPostFlingRZ2iAVY(long, long, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
     private final long toOffset(float f) {
@@ -176,6 +176,6 @@ public final class SwipeableKt$PreUpPostDownNestedScrollConnection$1 implements 
     }
 
     private final float toFloat(long j) {
-        return Offset.m2319getYimpl(j);
+        return Offset.m2620getYimpl(j);
     }
 }

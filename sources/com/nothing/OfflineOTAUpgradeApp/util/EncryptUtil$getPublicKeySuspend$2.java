@@ -1,7 +1,7 @@
 package com.nothing.OfflineOTAUpgradeApp.util;
 
 import android.content.Context;
-import com.nothing.OfflineOTAUpgradeApp.R;
+import com.nothing.OfflineOTAUpgradeApp.C1640R;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,19 +12,20 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.io.CloseableKt;
-import kotlin.io.TextStreamsKt;
 import kotlin.jvm.functions.Function2;
+import kotlin.p008io.Closeable;
+import kotlin.p008io.TextStreamsKt;
 import kotlin.sequences.Sequence;
 import kotlin.text.StringsKt;
 import kotlinx.coroutines.CoroutineScope;
 import org.apache.commons.codec.binary.Base64;
 
+/* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: EncryptUtil.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "kotlin.jvm.PlatformType", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.util.EncryptUtil$getPublicKeySuspend$2", f = "EncryptUtil.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\n \u0002*\u0004\u0018\u00010\u00010\u0001*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "kotlin.jvm.PlatformType", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.util.EncryptUtil$getPublicKeySuspend$2", m30f = "EncryptUtil.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
-final class EncryptUtil$getPublicKeySuspend$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super byte[]>, Object> {
+public final class EncryptUtil$getPublicKeySuspend$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super byte[]>, Object> {
     final /* synthetic */ Context $context;
     int label;
 
@@ -53,7 +54,7 @@ final class EncryptUtil$getPublicKeySuspend$2 extends SuspendLambda implements F
         }
         ResultKt.throwOnFailure(obj);
         try {
-            InputStream openRawResource = this.$context.getResources().openRawResource(R.raw.beta_ota_public_key);
+            InputStream openRawResource = this.$context.getResources().openRawResource(C1640R.raw.beta_ota_public_key);
             InputStreamReader inputStreamReader = new InputStreamReader(openRawResource);
             BufferedReader bufferedReader = inputStreamReader instanceof BufferedReader ? (BufferedReader) inputStreamReader : new BufferedReader(inputStreamReader, 8192);
             try {
@@ -65,14 +66,14 @@ final class EncryptUtil$getPublicKeySuspend$2 extends SuspendLambda implements F
                     }
                 }
                 byte[] decodeBase64 = Base64.decodeBase64(sb.toString());
-                CloseableKt.closeFinally(bufferedReader, null);
-                CloseableKt.closeFinally(openRawResource, null);
+                Closeable.closeFinally(bufferedReader, null);
+                Closeable.closeFinally(openRawResource, null);
                 return decodeBase64;
             } catch (Throwable th) {
                 try {
                     throw th;
                 } catch (Throwable th2) {
-                    CloseableKt.closeFinally(bufferedReader, th);
+                    Closeable.closeFinally(bufferedReader, th);
                     throw th2;
                 }
             }

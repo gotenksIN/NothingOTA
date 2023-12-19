@@ -1,6 +1,6 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.Offset;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -13,8 +13,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Draggable.kt */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "it", "Landroidx/compose/ui/geometry/Offset;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$6", f = "Draggable.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "it", "Landroidx/compose/ui/geometry/Offset;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$6", m30f = "Draggable.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class DraggableKt$draggable$6 extends SuspendLambda implements Function3<CoroutineScope, Offset, Continuation<? super Unit>, Object> {
     int label;
@@ -26,11 +26,11 @@ public final class DraggableKt$draggable$6 extends SuspendLambda implements Func
 
     @Override // kotlin.jvm.functions.Function3
     public /* bridge */ /* synthetic */ Object invoke(CoroutineScope coroutineScope, Offset offset, Continuation<? super Unit> continuation) {
-        return m269invoked4ec7I(coroutineScope, offset.m2328unboximpl(), continuation);
+        return m570invoked4ec7I(coroutineScope, offset.m2629unboximpl(), continuation);
     }
 
     /* renamed from: invoke-d-4ec7I  reason: not valid java name */
-    public final Object m269invoked4ec7I(CoroutineScope coroutineScope, long j, Continuation<? super Unit> continuation) {
+    public final Object m570invoked4ec7I(CoroutineScope coroutineScope, long j, Continuation<? super Unit> continuation) {
         return new DraggableKt$draggable$6(continuation).invokeSuspend(Unit.INSTANCE);
     }
 

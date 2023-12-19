@@ -1,37 +1,37 @@
 package androidx.compose.foundation.interaction;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.PressInteraction;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 
 /* compiled from: PressInteraction.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.interaction.PressInteractionKt$collectIsPressedAsState$1$1", f = "PressInteraction.kt", i = {}, l = {R.styleable.AppCompatTheme_panelMenuListWidth}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.interaction.PressInteractionKt$collectIsPressedAsState$1$1", m30f = "PressInteraction.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_panelMenuListWidth}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class PressInteractionKt$collectIsPressedAsState$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ MutableState<Boolean> $isPressed;
+    final /* synthetic */ SnapshotState<Boolean> $isPressed;
     final /* synthetic */ InteractionSource $this_collectIsPressedAsState;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PressInteractionKt$collectIsPressedAsState$1$1(InteractionSource interactionSource, MutableState<Boolean> mutableState, Continuation<? super PressInteractionKt$collectIsPressedAsState$1$1> continuation) {
+    public PressInteractionKt$collectIsPressedAsState$1$1(InteractionSource interactionSource, SnapshotState<Boolean> snapshotState, Continuation<? super PressInteractionKt$collectIsPressedAsState$1$1> continuation) {
         super(2, continuation);
         this.$this_collectIsPressedAsState = interactionSource;
-        this.$isPressed = mutableState;
+        this.$isPressed = snapshotState;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -52,7 +52,7 @@ final class PressInteractionKt$collectIsPressedAsState$1$1 extends SuspendLambda
             ResultKt.throwOnFailure(obj);
             final ArrayList arrayList = new ArrayList();
             Flow<Interaction> interactions = this.$this_collectIsPressedAsState.getInteractions();
-            final MutableState<Boolean> mutableState = this.$isPressed;
+            final SnapshotState<Boolean> snapshotState = this.$isPressed;
             this.label = 1;
             if (interactions.collect(new FlowCollector<Interaction>() { // from class: androidx.compose.foundation.interaction.PressInteractionKt$collectIsPressedAsState$1$1.1
                 @Override // kotlinx.coroutines.flow.FlowCollector
@@ -69,7 +69,7 @@ final class PressInteractionKt$collectIsPressedAsState$1$1 extends SuspendLambda
                     } else if (interaction instanceof PressInteraction.Cancel) {
                         arrayList.remove(((PressInteraction.Cancel) interaction).getPress());
                     }
-                    mutableState.setValue(Boxing.boxBoolean(!arrayList.isEmpty()));
+                    snapshotState.setValue(boxing.boxBoolean(!arrayList.isEmpty()));
                     return Unit.INSTANCE;
                 }
             }, this) == coroutine_suspended) {

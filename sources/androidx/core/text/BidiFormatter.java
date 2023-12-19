@@ -399,7 +399,7 @@ public final class BidiFormatter {
                     char charAt2 = charSequence.charAt(i2);
                     this.lastChar = charAt2;
                     if (charAt2 == '>') {
-                        return Ascii.FF;
+                        return Ascii.f190FF;
                     }
                     if (charAt2 == '\"' || charAt2 == '\'') {
                         do {
@@ -415,7 +415,7 @@ public final class BidiFormatter {
                 } else {
                     this.charIndex = i;
                     this.lastChar = Typography.less;
-                    return Ascii.CR;
+                    return Ascii.f188CR;
                 }
             }
         }
@@ -434,7 +434,7 @@ public final class BidiFormatter {
                 char charAt2 = charSequence.charAt(i3);
                 this.lastChar = charAt2;
                 if (charAt2 == '<') {
-                    return Ascii.FF;
+                    return Ascii.f190FF;
                 }
                 if (charAt2 == '>') {
                     break;
@@ -453,7 +453,7 @@ public final class BidiFormatter {
             }
             this.charIndex = i;
             this.lastChar = Typography.greater;
-            return Ascii.CR;
+            return Ascii.f188CR;
         }
 
         private byte skipEntityForward() {
@@ -461,14 +461,14 @@ public final class BidiFormatter {
             do {
                 int i = this.charIndex;
                 if (i >= this.length) {
-                    return Ascii.FF;
+                    return Ascii.f190FF;
                 }
                 CharSequence charSequence = this.text;
                 this.charIndex = i + 1;
                 charAt = charSequence.charAt(i);
                 this.lastChar = charAt;
             } while (charAt != ';');
-            return Ascii.FF;
+            return Ascii.f190FF;
         }
 
         private byte skipEntityBackward() {
@@ -485,12 +485,12 @@ public final class BidiFormatter {
                 charAt = charSequence.charAt(i3);
                 this.lastChar = charAt;
                 if (charAt == '&') {
-                    return Ascii.FF;
+                    return Ascii.f190FF;
                 }
             } while (charAt != ';');
             this.charIndex = i;
             this.lastChar = ';';
-            return Ascii.CR;
+            return Ascii.f188CR;
         }
     }
 }

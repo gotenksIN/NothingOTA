@@ -31,7 +31,7 @@ class StandardValueGraph<N, V> extends AbstractValueGraph<N, V> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public StandardValueGraph(AbstractGraphBuilder<? super N> abstractGraphBuilder) {
-        this(abstractGraphBuilder, abstractGraphBuilder.nodeOrder.createMap(abstractGraphBuilder.expectedNodeCount.or((Optional<Integer>) 10).intValue()), 0L);
+        this(abstractGraphBuilder, abstractGraphBuilder.nodeOrder.createMap(abstractGraphBuilder.expectedNodeCount.mo234or((Optional<Integer>) 10).intValue()), 0L);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

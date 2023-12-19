@@ -13,11 +13,19 @@ public class CamColor {
     private final float mBstar;
     private final float mChroma;
     private final float mHue;
-    private final float mJ;
+
+    /* renamed from: mJ */
+    private final float f158mJ;
     private final float mJstar;
-    private final float mM;
-    private final float mQ;
-    private final float mS;
+
+    /* renamed from: mM */
+    private final float f159mM;
+
+    /* renamed from: mQ */
+    private final float f160mQ;
+
+    /* renamed from: mS */
+    private final float f161mS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public float getHue() {
@@ -30,19 +38,19 @@ public class CamColor {
     }
 
     float getJ() {
-        return this.mJ;
+        return this.f158mJ;
     }
 
     float getQ() {
-        return this.mQ;
+        return this.f160mQ;
     }
 
     float getM() {
-        return this.mM;
+        return this.f159mM;
     }
 
     float getS() {
-        return this.mS;
+        return this.f161mS;
     }
 
     float getJStar() {
@@ -60,10 +68,10 @@ public class CamColor {
     CamColor(float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
         this.mHue = f;
         this.mChroma = f2;
-        this.mJ = f3;
-        this.mQ = f4;
-        this.mM = f5;
-        this.mS = f6;
+        this.f158mJ = f3;
+        this.f160mQ = f4;
+        this.f159mM = f5;
+        this.f161mS = f6;
         this.mJstar = f7;
         this.mAstar = f8;
         this.mBstar = f9;

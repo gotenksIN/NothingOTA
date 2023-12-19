@@ -12,8 +12,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Add missing generic type declarations: [S] */
 /* compiled from: _Sequences.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "S", "T", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", f = "_Sequences.kt", i = {0, 0, 0, 1, 1, 1}, l = {2366, 2369}, m = "invokeSuspend", n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator", "accumulator"}, s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u0002H\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "S", "T", "Lkotlin/sequences/SequenceScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.sequences.SequencesKt___SequencesKt$runningReduce$1", m30f = "_Sequences.kt", m29i = {0, 0, 0, 1, 1, 1}, m28l = {2366, 2369}, m27m = "invokeSuspend", m26n = {"$this$sequence", "iterator", "accumulator", "$this$sequence", "iterator", "accumulator"}, m25s = {"L$0", "L$1", "L$2", "L$0", "L$1", "L$2"})
 /* loaded from: classes2.dex */
 final class SequencesKt___SequencesKt$runningReduce$1<S> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super S>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function2<S, T, S> $operation;

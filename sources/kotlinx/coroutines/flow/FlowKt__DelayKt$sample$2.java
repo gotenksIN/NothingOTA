@@ -6,21 +6,21 @@ import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
-import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.coroutines.jvm.internal.DebugProbes;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.CoroutineScope;
-import kotlinx.coroutines.channels.ProduceKt;
+import kotlinx.coroutines.channels.Produce;
 import kotlinx.coroutines.channels.ReceiveChannel;
-import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+import kotlinx.coroutines.flow.internal.NullSurrogate;
 import kotlinx.coroutines.selects.SelectBuilderImpl;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;", "downstream", "Lkotlinx/coroutines/flow/FlowCollector;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2", f = "Delay.kt", i = {0, 0, 0, 0}, l = {352}, m = "invokeSuspend", n = {"downstream", "values", "lastValue", "ticker"}, s = {"L$0", "L$1", "L$2", "L$3"})
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u00032\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;", "downstream", "Lkotlinx/coroutines/flow/FlowCollector;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2", m30f = "Delay.kt", m29i = {0, 0, 0, 0}, m28l = {352}, m27m = "invokeSuspend", m26n = {"downstream", "values", "lastValue", "ticker"}, m25s = {"L$0", "L$1", "L$2", "L$3"})
 /* loaded from: classes2.dex */
 public final class FlowKt__DelayKt$sample$2<T> extends SuspendLambda implements Function3<CoroutineScope, FlowCollector<? super T>, Continuation<? super Unit>, Object> {
     final /* synthetic */ long $periodMillis;
@@ -64,9 +64,9 @@ public final class FlowKt__DelayKt$sample$2<T> extends SuspendLambda implements 
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
-            ReceiveChannel produce$default = ProduceKt.produce$default(coroutineScope, null, -1, new FlowKt__DelayKt$sample$2$values$1(this.$this_sample, null), 1, null);
+            ReceiveChannel produce$default = Produce.produce$default(coroutineScope, null, -1, new FlowKt__DelayKt$sample$2$values$1(this.$this_sample, null), 1, null);
             Ref.ObjectRef objectRef2 = new Ref.ObjectRef();
-            fixedPeriodTicker$default = FlowKt__DelayKt.fixedPeriodTicker$default(coroutineScope, this.$periodMillis, 0L, 2, null);
+            fixedPeriodTicker$default = Delay.fixedPeriodTicker$default(coroutineScope, this.$periodMillis, 0L, 2, null);
             flowCollector = (FlowCollector) this.L$1;
             receiveChannel = produce$default;
             objectRef = objectRef2;
@@ -80,7 +80,7 @@ public final class FlowKt__DelayKt$sample$2<T> extends SuspendLambda implements 
             flowCollector = (FlowCollector) this.L$0;
             ResultKt.throwOnFailure(obj);
         }
-        while (objectRef.element != NullSurrogateKt.DONE) {
+        while (objectRef.element != NullSurrogate.DONE) {
             this.L$0 = flowCollector;
             this.L$1 = receiveChannel;
             this.L$2 = objectRef;
@@ -97,7 +97,7 @@ public final class FlowKt__DelayKt$sample$2<T> extends SuspendLambda implements 
             }
             Object result = selectBuilderImpl.getResult();
             if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                DebugProbesKt.probeCoroutineSuspended(flowKt__DelayKt$sample$2);
+                DebugProbes.probeCoroutineSuspended(flowKt__DelayKt$sample$2);
                 continue;
             }
             if (result == coroutine_suspended) {

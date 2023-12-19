@@ -2,7 +2,7 @@ package androidx.core.graphics;
 
 import android.graphics.Path;
 import android.util.Log;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -288,39 +288,39 @@ public class PathParser {
             float f13 = fArr[4];
             float f14 = fArr[5];
             switch (c3) {
-                case R.styleable.AppCompatTheme_dividerVertical /* 65 */:
-                case R.styleable.AppCompatTheme_selectableItemBackground /* 97 */:
+                case C0032R.styleable.AppCompatTheme_dividerVertical /* 65 */:
+                case C0032R.styleable.AppCompatTheme_selectableItemBackground /* 97 */:
                     i = 7;
                     i2 = i;
                     break;
-                case R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
-                case R.styleable.AppCompatTheme_spinnerDropDownItemStyle /* 99 */:
+                case C0032R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
+                case C0032R.styleable.AppCompatTheme_spinnerDropDownItemStyle /* 99 */:
                     i = 6;
                     i2 = i;
                     break;
-                case R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
-                case R.styleable.AppCompatTheme_panelBackground /* 86 */:
+                case C0032R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
+                case C0032R.styleable.AppCompatTheme_panelBackground /* 86 */:
                 case 'h':
-                case R.styleable.AppCompatTheme_windowActionBarOverlay /* 118 */:
+                case C0032R.styleable.AppCompatTheme_windowActionBarOverlay /* 118 */:
                     i2 = 1;
                     break;
                 case 'L':
-                case R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
-                case R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
+                case C0032R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
+                case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
                 case 'l':
                 case 'm':
-                case R.styleable.AppCompatTheme_viewInflaterClass /* 116 */:
+                case C0032R.styleable.AppCompatTheme_viewInflaterClass /* 116 */:
                 default:
                     i2 = 2;
                     break;
-                case R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
-                case R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
-                case R.styleable.AppCompatTheme_toolbarStyle /* 113 */:
-                case R.styleable.AppCompatTheme_tooltipFrameBackground /* 115 */:
+                case C0032R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
+                case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
+                case C0032R.styleable.AppCompatTheme_toolbarStyle /* 113 */:
+                case C0032R.styleable.AppCompatTheme_tooltipFrameBackground /* 115 */:
                     i2 = 4;
                     break;
-                case R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
-                case R.styleable.AppCompatTheme_windowFixedWidthMajor /* 122 */:
+                case C0032R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
+                case C0032R.styleable.AppCompatTheme_windowFixedWidthMajor /* 122 */:
                     path.close();
                     path.moveTo(f13, f14);
                     f9 = f13;

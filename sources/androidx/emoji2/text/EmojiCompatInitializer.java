@@ -1,7 +1,7 @@
 package androidx.emoji2.text;
 
 import android.content.Context;
-import androidx.core.os.TraceCompat;
+import androidx.core.p004os.TraceCompat;
 import androidx.emoji2.text.EmojiCompat;
 import androidx.emoji2.text.EmojiCompatInitializer;
 import androidx.lifecycle.DefaultLifecycleObserver;
@@ -90,14 +90,14 @@ public class EmojiCompatInitializer implements Initializer<Boolean> {
             createBackgroundPriorityExecutor.execute(new Runnable() { // from class: androidx.emoji2.text.EmojiCompatInitializer$BackgroundDefaultLoader$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    EmojiCompatInitializer.BackgroundDefaultLoader.this.m5323x5cc8028a(metadataRepoLoaderCallback, createBackgroundPriorityExecutor);
+                    EmojiCompatInitializer.BackgroundDefaultLoader.this.m252x5cc8028a(metadataRepoLoaderCallback, createBackgroundPriorityExecutor);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: doLoad */
-        public void m5323x5cc8028a(final EmojiCompat.MetadataRepoLoaderCallback metadataRepoLoaderCallback, final ThreadPoolExecutor threadPoolExecutor) {
+        public void m252x5cc8028a(final EmojiCompat.MetadataRepoLoaderCallback metadataRepoLoaderCallback, final ThreadPoolExecutor threadPoolExecutor) {
             try {
                 FontRequestEmojiCompatConfig create = DefaultEmojiCompatConfig.create(this.mContext);
                 if (create == null) {

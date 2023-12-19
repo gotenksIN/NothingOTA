@@ -32,14 +32,14 @@ public class ProfileInstallerInitializer implements Initializer<Result> {
         Choreographer16Impl.postFrameCallback(new Runnable() { // from class: androidx.profileinstaller.ProfileInstallerInitializer$$ExternalSyntheticLambda1
             @Override // java.lang.Runnable
             public final void run() {
-                ProfileInstallerInitializer.this.m5328xfbd6c934(context);
+                ProfileInstallerInitializer.this.m250xfbd6c934(context);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: installAfterDelay */
-    public void m5328xfbd6c934(final Context context) {
+    public void m250xfbd6c934(final Context context) {
         Handler handler;
         if (Build.VERSION.SDK_INT >= 28) {
             handler = Handler28Impl.createAsync(Looper.getMainLooper());

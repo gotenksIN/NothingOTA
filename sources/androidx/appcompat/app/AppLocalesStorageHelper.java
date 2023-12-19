@@ -216,7 +216,7 @@ public class AppLocalesStorageHelper {
                 this.mTasks.add(new Runnable() { // from class: androidx.appcompat.app.AppLocalesStorageHelper$SerialExecutor$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        AppLocalesStorageHelper.SerialExecutor.this.m6xd188c474(runnable);
+                        AppLocalesStorageHelper.SerialExecutor.this.m299xd188c474(runnable);
                     }
                 });
                 if (this.mActive == null) {
@@ -226,8 +226,8 @@ public class AppLocalesStorageHelper {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$execute$0$androidx-appcompat-app-AppLocalesStorageHelper$SerialExecutor  reason: not valid java name */
-        public /* synthetic */ void m6xd188c474(Runnable runnable) {
+        /* renamed from: lambda$execute$0$androidx-appcompat-app-AppLocalesStorageHelper$SerialExecutor */
+        public /* synthetic */ void m299xd188c474(Runnable runnable) {
             try {
                 runnable.run();
             } finally {

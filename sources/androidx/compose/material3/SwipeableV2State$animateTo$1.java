@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: SwipeableV2.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableV2State", f = "SwipeableV2.kt", i = {0}, l = {350}, m = "animateTo", n = {"this"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableV2State", m30f = "SwipeableV2.kt", m29i = {0}, m28l = {350}, m27m = "animateTo", m26n = {"this"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class SwipeableV2State$animateTo$1 extends ContinuationImpl {
     Object L$0;

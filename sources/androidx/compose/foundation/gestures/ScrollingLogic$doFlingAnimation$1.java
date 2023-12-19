@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Scrollable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollingLogic", f = "Scrollable.kt", i = {0}, l = {430}, m = "doFlingAnimation-QWom1Mo", n = {"result"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollingLogic", m30f = "Scrollable.kt", m29i = {0}, m28l = {430}, m27m = "doFlingAnimation-QWom1Mo", m26n = {"result"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class ScrollingLogic$doFlingAnimation$1 extends ContinuationImpl {
     Object L$0;
@@ -27,6 +27,6 @@ public final class ScrollingLogic$doFlingAnimation$1 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return this.this$0.m312doFlingAnimationQWom1Mo(0L, this);
+        return this.this$0.m613doFlingAnimationQWom1Mo(0L, this);
     }
 }

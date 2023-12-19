@@ -20,7 +20,7 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.AbstractTable
     public final ImmutableSet<Table.Cell<R, C, V>> createCellSet() {
-        return isEmpty() ? ImmutableSet.of() : new CellSet();
+        return isEmpty() ? ImmutableSet.m164of() : new CellSet();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -60,7 +60,7 @@ public abstract class RegularImmutableTable<R, C, V> extends ImmutableTable<R, C
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.AbstractTable
     public final ImmutableCollection<V> createValues() {
-        return isEmpty() ? ImmutableList.of() : new Values();
+        return isEmpty() ? ImmutableList.m211of() : new Values();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

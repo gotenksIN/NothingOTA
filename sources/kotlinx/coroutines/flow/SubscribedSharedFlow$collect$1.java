@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Share.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.SubscribedSharedFlow", f = "Share.kt", i = {}, l = {409}, m = "collect", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.SubscribedSharedFlow", m30f = "Share.kt", m29i = {}, m28l = {409}, m27m = "collect", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class SubscribedSharedFlow$collect$1 extends ContinuationImpl {
     int label;

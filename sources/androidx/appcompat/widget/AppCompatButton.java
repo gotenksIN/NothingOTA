@@ -10,7 +10,7 @@ import android.view.ActionMode;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.AutoSizeableTextView;
 import androidx.core.widget.TextViewCompat;
@@ -27,7 +27,7 @@ public class AppCompatButton extends Button implements TintableBackgroundView, A
     }
 
     public AppCompatButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.buttonStyle);
+        this(context, attributeSet, C0032R.attr.buttonStyle);
     }
 
     public AppCompatButton(Context context, AttributeSet attributeSet, int i) {

@@ -1,6 +1,6 @@
 package kotlinx.coroutines.channels;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TickerChannels.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.TickerChannelsKt", f = "TickerChannels.kt", i = {0, 0, 1, 1, 2, 2}, l = {R.styleable.AppCompatTheme_textAppearancePopupMenuHeader, 108, 109}, m = "fixedDelayTicker", n = {"channel", "delayMillis", "channel", "delayMillis", "channel", "delayMillis"}, s = {"L$0", "J$0", "L$0", "J$0", "L$0", "J$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.TickerChannelsKt", m30f = "TickerChannels.kt", m29i = {0, 0, 1, 1, 2, 2}, m28l = {C0032R.styleable.AppCompatTheme_textAppearancePopupMenuHeader, 108, 109}, m27m = "fixedDelayTicker", m26n = {"channel", "delayMillis", "channel", "delayMillis", "channel", "delayMillis"}, m25s = {"L$0", "J$0", "L$0", "J$0", "L$0", "J$0"})
 /* loaded from: classes2.dex */
 public final class TickerChannelsKt$fixedDelayTicker$1 extends ContinuationImpl {
     long J$0;
@@ -27,7 +27,7 @@ public final class TickerChannelsKt$fixedDelayTicker$1 extends ContinuationImpl 
         Object fixedDelayTicker;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        fixedDelayTicker = TickerChannelsKt.fixedDelayTicker(0L, 0L, null, this);
+        fixedDelayTicker = TickerChannels.fixedDelayTicker(0L, 0L, null, this);
         return fixedDelayTicker;
     }
 }

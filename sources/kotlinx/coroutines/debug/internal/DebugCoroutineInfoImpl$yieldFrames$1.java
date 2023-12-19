@@ -1,6 +1,6 @@
 package kotlinx.coroutines.debug.internal;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: DebugCoroutineInfoImpl.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.debug.internal.DebugCoroutineInfoImpl", f = "DebugCoroutineInfoImpl.kt", i = {}, l = {R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m = "yieldFrames", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.debug.internal.DebugCoroutineInfoImpl", m30f = "DebugCoroutineInfoImpl.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m27m = "yieldFrames", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class DebugCoroutineInfoImpl$yieldFrames$1 extends ContinuationImpl {
     Object L$0;

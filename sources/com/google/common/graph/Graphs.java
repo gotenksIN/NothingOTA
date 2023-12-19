@@ -192,7 +192,7 @@ public final class Graphs {
                         }
 
                         public EndpointPair<N> apply(EndpointPair<N> endpointPair) {
-                            return EndpointPair.of((Graph<?>) TransposedGraph.this.delegate(), (Object) endpointPair.nodeV(), (Object) endpointPair.nodeU());
+                            return EndpointPair.m98of((Graph<?>) TransposedGraph.this.delegate(), (Object) endpointPair.nodeV(), (Object) endpointPair.nodeU());
                         }
                     });
                 }
@@ -346,7 +346,7 @@ public final class Graphs {
         @Override // com.google.common.graph.ForwardingNetwork, com.google.common.graph.Network
         public EndpointPair<N> incidentNodes(E e) {
             EndpointPair<N> incidentNodes = delegate().incidentNodes(e);
-            return EndpointPair.of((Network<?, ?>) this.network, (Object) incidentNodes.nodeV(), (Object) incidentNodes.nodeU());
+            return EndpointPair.m97of((Network<?, ?>) this.network, (Object) incidentNodes.nodeV(), (Object) incidentNodes.nodeU());
         }
 
         @Override // com.google.common.graph.ForwardingNetwork, com.google.common.graph.AbstractNetwork, com.google.common.graph.Network

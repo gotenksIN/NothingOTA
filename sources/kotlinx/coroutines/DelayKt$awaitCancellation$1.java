@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Delay.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.DelayKt", f = "Delay.kt", i = {}, l = {148}, m = "awaitCancellation", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.DelayKt", m30f = "Delay.kt", m29i = {}, m28l = {148}, m27m = "awaitCancellation", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class DelayKt$awaitCancellation$1 extends ContinuationImpl {
     int label;

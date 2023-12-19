@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: ModalBottomSheet.android.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheet$3$1", f = "ModalBottomSheet.android.kt", i = {}, l = {271}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheet$3$1", m30f = "ModalBottomSheet.android.kt", m29i = {}, m28l = {271}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class ModalBottomSheet_androidKt$ModalBottomSheet$3$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ SheetState $sheetState;

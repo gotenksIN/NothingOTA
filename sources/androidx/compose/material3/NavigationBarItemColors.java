@@ -1,16 +1,16 @@
 package androidx.compose.material3;
 
-import androidx.compose.animation.SingleValueAnimationKt;
+import androidx.compose.animation.SingleValueAnimation;
 import androidx.compose.animation.core.AnimationSpecKt;
+import androidx.compose.p002ui.graphics.Color;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.graphics.Color;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 /* compiled from: NavigationBar.kt */
-@Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0007\u0018\u00002\u00020\u0001BB\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\nJ\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0013H\u0016J(\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00030\u00152\u0006\u0010\u0016\u001a\u00020\u00102\u0006\u0010\u0017\u001a\u00020\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0018\u0010\u0019J(\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00030\u00152\u0006\u0010\u0016\u001a\u00020\u00102\u0006\u0010\u0017\u001a\u00020\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u0019R\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u001d\u0010\f\u001a\u00020\u00038@X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\r\u0010\u000eR\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000b\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u001c"}, d2 = {"Landroidx/compose/material3/NavigationBarItemColors;", "", "selectedIconColor", "Landroidx/compose/ui/graphics/Color;", "selectedTextColor", "selectedIndicatorColor", "unselectedIconColor", "unselectedTextColor", "disabledIconColor", "disabledTextColor", "(JJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "indicatorColor", "getIndicatorColor-0d7_KjU$material3_release", "()J", "equals", "", "other", "hashCode", "", "iconColor", "Landroidx/compose/runtime/State;", "selected", "enabled", "iconColor$material3_release", "(ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "textColor", "textColor$material3_release", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0007\u0018\u00002\u00020\u0001BB\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\nJ\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0013H\u0016J(\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u00030\u00152\u0006\u0010\u0016\u001a\u00020\u00102\u0006\u0010\u0017\u001a\u00020\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0018\u0010\u0019J(\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u00030\u00152\u0006\u0010\u0016\u001a\u00020\u00102\u0006\u0010\u0017\u001a\u00020\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u0019R\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u001d\u0010\f\u001a\u00020\u00038@X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0006\u001a\u0004\b\r\u0010\u000eR\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000bR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u000b\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u001c"}, m40d2 = {"Landroidx/compose/material3/NavigationBarItemColors;", "", "selectedIconColor", "Landroidx/compose/ui/graphics/Color;", "selectedTextColor", "selectedIndicatorColor", "unselectedIconColor", "unselectedTextColor", "disabledIconColor", "disabledTextColor", "(JJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "J", "indicatorColor", "getIndicatorColor-0d7_KjU$material3_release", "()J", "equals", "", "other", "hashCode", "", "iconColor", "Landroidx/compose/runtime/State;", "selected", "enabled", "iconColor$material3_release", "(ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "textColor", "textColor$material3_release", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class NavigationBarItemColors {
     public static final int $stable = 0;
@@ -50,12 +50,12 @@ public final class NavigationBarItemColors {
         } else {
             j = this.unselectedIconColor;
         }
-        State<Color> m69animateColorAsStateeuL9pac = SingleValueAnimationKt.m69animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(100, 0, null, 6, null), null, null, composer, 48, 12);
+        State<Color> m370animateColorAsStateeuL9pac = SingleValueAnimation.m370animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(100, 0, null, 6, null), null, null, composer, 48, 12);
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
         composer.endReplaceableGroup();
-        return m69animateColorAsStateeuL9pac;
+        return m370animateColorAsStateeuL9pac;
     }
 
     public final State<Color> textColor$material3_release(boolean z, boolean z2, Composer composer, int i) {
@@ -72,16 +72,16 @@ public final class NavigationBarItemColors {
         } else {
             j = this.unselectedTextColor;
         }
-        State<Color> m69animateColorAsStateeuL9pac = SingleValueAnimationKt.m69animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(100, 0, null, 6, null), null, null, composer, 48, 12);
+        State<Color> m370animateColorAsStateeuL9pac = SingleValueAnimation.m370animateColorAsStateeuL9pac(j, AnimationSpecKt.tween$default(100, 0, null, 6, null), null, null, composer, 48, 12);
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
         composer.endReplaceableGroup();
-        return m69animateColorAsStateeuL9pac;
+        return m370animateColorAsStateeuL9pac;
     }
 
     /* renamed from: getIndicatorColor-0d7_KjU$material3_release  reason: not valid java name */
-    public final long m1220getIndicatorColor0d7_KjU$material3_release() {
+    public final long m1521getIndicatorColor0d7_KjU$material3_release() {
         return this.selectedIndicatorColor;
     }
 
@@ -93,10 +93,10 @@ public final class NavigationBarItemColors {
             return false;
         }
         NavigationBarItemColors navigationBarItemColors = (NavigationBarItemColors) obj;
-        return Color.m2557equalsimpl0(this.selectedIconColor, navigationBarItemColors.selectedIconColor) && Color.m2557equalsimpl0(this.unselectedIconColor, navigationBarItemColors.unselectedIconColor) && Color.m2557equalsimpl0(this.selectedTextColor, navigationBarItemColors.selectedTextColor) && Color.m2557equalsimpl0(this.unselectedTextColor, navigationBarItemColors.unselectedTextColor) && Color.m2557equalsimpl0(this.selectedIndicatorColor, navigationBarItemColors.selectedIndicatorColor) && Color.m2557equalsimpl0(this.disabledIconColor, navigationBarItemColors.disabledIconColor) && Color.m2557equalsimpl0(this.disabledTextColor, navigationBarItemColors.disabledTextColor);
+        return Color.m2858equalsimpl0(this.selectedIconColor, navigationBarItemColors.selectedIconColor) && Color.m2858equalsimpl0(this.unselectedIconColor, navigationBarItemColors.unselectedIconColor) && Color.m2858equalsimpl0(this.selectedTextColor, navigationBarItemColors.selectedTextColor) && Color.m2858equalsimpl0(this.unselectedTextColor, navigationBarItemColors.unselectedTextColor) && Color.m2858equalsimpl0(this.selectedIndicatorColor, navigationBarItemColors.selectedIndicatorColor) && Color.m2858equalsimpl0(this.disabledIconColor, navigationBarItemColors.disabledIconColor) && Color.m2858equalsimpl0(this.disabledTextColor, navigationBarItemColors.disabledTextColor);
     }
 
     public int hashCode() {
-        return (((((((((((Color.m2563hashCodeimpl(this.selectedIconColor) * 31) + Color.m2563hashCodeimpl(this.unselectedIconColor)) * 31) + Color.m2563hashCodeimpl(this.selectedTextColor)) * 31) + Color.m2563hashCodeimpl(this.unselectedTextColor)) * 31) + Color.m2563hashCodeimpl(this.selectedIndicatorColor)) * 31) + Color.m2563hashCodeimpl(this.disabledIconColor)) * 31) + Color.m2563hashCodeimpl(this.disabledTextColor);
+        return (((((((((((Color.m2864hashCodeimpl(this.selectedIconColor) * 31) + Color.m2864hashCodeimpl(this.unselectedIconColor)) * 31) + Color.m2864hashCodeimpl(this.selectedTextColor)) * 31) + Color.m2864hashCodeimpl(this.unselectedTextColor)) * 31) + Color.m2864hashCodeimpl(this.selectedIndicatorColor)) * 31) + Color.m2864hashCodeimpl(this.disabledIconColor)) * 31) + Color.m2864hashCodeimpl(this.disabledTextColor);
     }
 }

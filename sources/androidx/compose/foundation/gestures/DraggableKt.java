@@ -4,29 +4,29 @@ import androidx.autofill.HintConstants;
 import androidx.compose.foundation.gestures.DragEvent;
 import androidx.compose.foundation.interaction.DragInteraction;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerEventKt;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.input.pointer.util.VelocityTracker;
+import androidx.compose.p002ui.input.pointer.util.VelocityTrackerKt;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
+import androidx.compose.p002ui.unit.Velocity;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.DisposableEffectResult;
 import androidx.compose.runtime.DisposableEffectScope;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerEventKt;
-import androidx.compose.ui.input.pointer.PointerInputChange;
-import androidx.compose.ui.input.pointer.PointerInputScope;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.input.pointer.util.VelocityTracker;
-import androidx.compose.ui.input.pointer.util.VelocityTrackerKt;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
-import androidx.compose.ui.unit.Velocity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import kotlin.Metadata;
@@ -37,10 +37,10 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.CoroutineScope;
@@ -50,12 +50,12 @@ import kotlinx.coroutines.channels.ChannelKt;
 import kotlinx.coroutines.channels.SendChannel;
 
 /* compiled from: Draggable.kt */
-@Metadata(d1 = {"\u0000\u0090\u0001\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\u001a\u001a\u0010\u0000\u001a\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003\u001a!\u0010\u0006\u001a\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003H\u0007¢\u0006\u0002\u0010\u0007\u001ad\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\t*\u00020\f2\u0018\u0010\r\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000f0\u00030\u000e2\u0012\u0010\u0010\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000f0\u00110\u000e2\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0082@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u0010\u0016\u001aS\u0010\u0017\u001a\u00020\u000f*\u00020\f2\u0006\u0010\u0018\u001a\u00020\n2\u0006\u0010\u0019\u001a\u00020\u000b2\u0006\u0010\u0012\u001a\u00020\u00132\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001c0\u001b2\u0006\u0010\u001d\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u0015H\u0082@ø\u0001\u0001ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u001e\u0010\u001f\u001aé\u0001\u0010 \u001a\u00020!*\u00020!2\u0006\u0010\"\u001a\u00020\u00012\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000f0\u00032\u0006\u0010\u0014\u001a\u00020\u00152\b\b\u0002\u0010#\u001a\u00020\u000f2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\f\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u000f0\u00112>\b\u0002\u0010&\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u000b¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2>\b\u0002\u0010/\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u001100¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(1\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2\b\b\u0002\u0010\u001d\u001a\u00020\u000fH\u0000ø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u00102\u001aÏ\u0001\u0010 \u001a\u00020!*\u00020!2\u0006\u0010\"\u001a\u00020\u00012\u0006\u0010\u0014\u001a\u00020\u00152\b\b\u0002\u0010#\u001a\u00020\u000f2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\b\b\u0002\u0010\u0010\u001a\u00020\u000f2>\b\u0002\u0010&\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u000b¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2>\b\u0002\u0010/\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(1\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2\b\b\u0002\u0010\u001d\u001a\u00020\u000fø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u00103\u001aA\u00104\u001a\u00020\u000f*\u00020\f2\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u00105\u001a\u0002062\u0012\u00107\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u00050\u0003H\u0082@ø\u0001\u0001ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b8\u00109\u001a!\u0010:\u001a\u00020\u0004*\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b;\u0010<\u001a!\u0010:\u001a\u00020\u0004*\u0002002\u0006\u0010\u0014\u001a\u00020\u0015H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b=\u0010<\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006>"}, d2 = {"DraggableState", "Landroidx/compose/foundation/gestures/DraggableState;", "onDelta", "Lkotlin/Function1;", "", "", "rememberDraggableState", "(Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/gestures/DraggableState;", "awaitDownAndSlop", "Lkotlin/Pair;", "Landroidx/compose/ui/input/pointer/PointerInputChange;", "Landroidx/compose/ui/geometry/Offset;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "canDrag", "Landroidx/compose/runtime/State;", "", "startDragImmediately", "Lkotlin/Function0;", "velocityTracker", "Landroidx/compose/ui/input/pointer/util/VelocityTracker;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/runtime/State;Landroidx/compose/runtime/State;Landroidx/compose/ui/input/pointer/util/VelocityTracker;Landroidx/compose/foundation/gestures/Orientation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "awaitDrag", "startEvent", "initialDelta", "channel", "Lkotlinx/coroutines/channels/SendChannel;", "Landroidx/compose/foundation/gestures/DragEvent;", "reverseDirection", "awaitDrag-Su4bsnU", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/ui/input/pointer/PointerInputChange;JLandroidx/compose/ui/input/pointer/util/VelocityTracker;Lkotlinx/coroutines/channels/SendChannel;ZLandroidx/compose/foundation/gestures/Orientation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "draggable", "Landroidx/compose/ui/Modifier;", "state", "enabled", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "onDragStarted", "Lkotlin/Function3;", "Lkotlinx/coroutines/CoroutineScope;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "startedPosition", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "onDragStopped", "Landroidx/compose/ui/unit/Velocity;", "velocity", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/DraggableState;Lkotlin/jvm/functions/Function1;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Z)Landroidx/compose/ui/Modifier;", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/DraggableState;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;ZLkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Z)Landroidx/compose/ui/Modifier;", "onDragOrUp", "pointerId", "Landroidx/compose/ui/input/pointer/PointerId;", "onDrag", "onDragOrUp-Axegvzg", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/foundation/gestures/Orientation;JLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "toFloat", "toFloat-3MmeM6k", "(JLandroidx/compose/foundation/gestures/Orientation;)F", "toFloat-sF-c-tU", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0090\u0001\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\u001a\u001a\u0010\u0000\u001a\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003\u001a!\u0010\u0006\u001a\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003H\u0007¢\u0006\u0002\u0010\u0007\u001ad\u0010\b\u001a\u0010\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\t*\u00020\f2\u0018\u0010\r\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000f0\u00030\u000e2\u0012\u0010\u0010\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000f0\u00110\u000e2\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0015H\u0082@ø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u0010\u0016\u001aS\u0010\u0017\u001a\u00020\u000f*\u00020\f2\u0006\u0010\u0018\u001a\u00020\n2\u0006\u0010\u0019\u001a\u00020\u000b2\u0006\u0010\u0012\u001a\u00020\u00132\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001c0\u001b2\u0006\u0010\u001d\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u0015H\u0082@ø\u0001\u0001ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b\u001e\u0010\u001f\u001aé\u0001\u0010 \u001a\u00020!*\u00020!2\u0006\u0010\"\u001a\u00020\u00012\u0012\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000f0\u00032\u0006\u0010\u0014\u001a\u00020\u00152\b\b\u0002\u0010#\u001a\u00020\u000f2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\f\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u000f0\u00112>\b\u0002\u0010&\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u000b¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2>\b\u0002\u0010/\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u001100¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(1\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2\b\b\u0002\u0010\u001d\u001a\u00020\u000fH\u0000ø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u00102\u001aÏ\u0001\u0010 \u001a\u00020!*\u00020!2\u0006\u0010\"\u001a\u00020\u00012\u0006\u0010\u0014\u001a\u00020\u00152\b\b\u0002\u0010#\u001a\u00020\u000f2\n\b\u0002\u0010$\u001a\u0004\u0018\u00010%2\b\b\u0002\u0010\u0010\u001a\u00020\u000f2>\b\u0002\u0010&\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u000b¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(+\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2>\b\u0002\u0010/\u001a8\b\u0001\u0012\u0004\u0012\u00020(\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b)\u0012\b\b*\u0012\u0004\b\b(1\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050,\u0012\u0006\u0012\u0004\u0018\u00010-0'¢\u0006\u0002\b.2\b\b\u0002\u0010\u001d\u001a\u00020\u000fø\u0001\u0000ø\u0001\u0000¢\u0006\u0002\u00103\u001aA\u00104\u001a\u00020\u000f*\u00020\f2\u0006\u0010\u0014\u001a\u00020\u00152\u0006\u00105\u001a\u0002062\u0012\u00107\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u00050\u0003H\u0082@ø\u0001\u0001ø\u0001\u0000ø\u0001\u0000¢\u0006\u0004\b8\u00109\u001a!\u0010:\u001a\u00020\u0004*\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\u0015H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b;\u0010<\u001a!\u0010:\u001a\u00020\u0004*\u0002002\u0006\u0010\u0014\u001a\u00020\u0015H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b=\u0010<\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006>"}, m40d2 = {"DraggableState", "Landroidx/compose/foundation/gestures/DraggableState;", "onDelta", "Lkotlin/Function1;", "", "", "rememberDraggableState", "(Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/gestures/DraggableState;", "awaitDownAndSlop", "Lkotlin/Pair;", "Landroidx/compose/ui/input/pointer/PointerInputChange;", "Landroidx/compose/ui/geometry/Offset;", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "canDrag", "Landroidx/compose/runtime/State;", "", "startDragImmediately", "Lkotlin/Function0;", "velocityTracker", "Landroidx/compose/ui/input/pointer/util/VelocityTracker;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/runtime/State;Landroidx/compose/runtime/State;Landroidx/compose/ui/input/pointer/util/VelocityTracker;Landroidx/compose/foundation/gestures/Orientation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "awaitDrag", "startEvent", "initialDelta", "channel", "Lkotlinx/coroutines/channels/SendChannel;", "Landroidx/compose/foundation/gestures/DragEvent;", "reverseDirection", "awaitDrag-Su4bsnU", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/ui/input/pointer/PointerInputChange;JLandroidx/compose/ui/input/pointer/util/VelocityTracker;Lkotlinx/coroutines/channels/SendChannel;ZLandroidx/compose/foundation/gestures/Orientation;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "draggable", "Landroidx/compose/ui/Modifier;", "state", "enabled", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "onDragStarted", "Lkotlin/Function3;", "Lkotlinx/coroutines/CoroutineScope;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "startedPosition", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "onDragStopped", "Landroidx/compose/ui/unit/Velocity;", "velocity", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/DraggableState;Lkotlin/jvm/functions/Function1;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Z)Landroidx/compose/ui/Modifier;", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/DraggableState;Landroidx/compose/foundation/gestures/Orientation;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;ZLkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Z)Landroidx/compose/ui/Modifier;", "onDragOrUp", "pointerId", "Landroidx/compose/ui/input/pointer/PointerId;", "onDrag", "onDragOrUp-Axegvzg", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/foundation/gestures/Orientation;JLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "toFloat", "toFloat-3MmeM6k", "(JLandroidx/compose/foundation/gestures/Orientation;)F", "toFloat-sF-c-tU", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class DraggableKt {
     public static final DraggableState DraggableState(Function1<? super Float, Unit> onDelta) {
         Intrinsics.checkNotNullParameter(onDelta, "onDelta");
-        return new DefaultDraggableState(onDelta);
+        return new Draggable(onDelta);
     }
 
     public static final DraggableState rememberDraggableState(Function1<? super Float, Unit> onDelta, Composer composer, int i) {
@@ -115,7 +115,7 @@ public final class DraggableKt {
                 Intrinsics.checkNotNullParameter(it, "it");
                 return true;
             }
-        }, orientation, z, mutableInteractionSource, new Function0<Boolean>() { // from class: androidx.compose.foundation.gestures.DraggableKt$draggable$4
+        }, orientation, z, mutableInteractionSource, new Functions<Boolean>() { // from class: androidx.compose.foundation.gestures.DraggableKt$draggable$4
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -123,7 +123,7 @@ public final class DraggableKt {
             }
 
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final Boolean invoke() {
                 return Boolean.valueOf(z2);
             }
@@ -152,7 +152,7 @@ public final class DraggableKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object awaitDownAndSlop(androidx.compose.ui.input.pointer.AwaitPointerEventScope r20, androidx.compose.runtime.State<? extends kotlin.jvm.functions.Function1<? super androidx.compose.ui.input.pointer.PointerInputChange, java.lang.Boolean>> r21, androidx.compose.runtime.State<? extends kotlin.jvm.functions.Function0<java.lang.Boolean>> r22, androidx.compose.ui.input.pointer.util.VelocityTracker r23, androidx.compose.foundation.gestures.Orientation r24, kotlin.coroutines.Continuation<? super kotlin.Pair<androidx.compose.ui.input.pointer.PointerInputChange, androidx.compose.ui.geometry.Offset>> r25) {
+    public static final java.lang.Object awaitDownAndSlop(androidx.compose.p002ui.input.pointer.AwaitPointerEventScope r20, androidx.compose.runtime.State<? extends kotlin.jvm.functions.Function1<? super androidx.compose.p002ui.input.pointer.PointerInputChange, java.lang.Boolean>> r21, androidx.compose.runtime.State<? extends kotlin.jvm.functions.Functions<java.lang.Boolean>> r22, androidx.compose.p002ui.input.pointer.util.VelocityTracker r23, androidx.compose.foundation.gestures.Orientation r24, kotlin.coroutines.Continuation<? super kotlin.Tuples<androidx.compose.p002ui.input.pointer.PointerInputChange, androidx.compose.p002ui.geometry.Offset>> r25) {
         /*
             Method dump skipped, instructions count: 761
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -161,10 +161,10 @@ public final class DraggableKt {
     }
 
     /* renamed from: awaitDrag-Su4bsnU */
-    public static final Object m262awaitDragSu4bsnU(AwaitPointerEventScope awaitPointerEventScope, PointerInputChange pointerInputChange, long j, final VelocityTracker velocityTracker, final SendChannel<? super DragEvent> sendChannel, final boolean z, Orientation orientation, Continuation<? super Boolean> continuation) {
-        sendChannel.mo6880trySendJP2dKIU(new DragEvent.DragStarted(Offset.m2322minusMKHz9U(pointerInputChange.m3957getPositionF1C5BW0(), OffsetKt.Offset(Offset.m2318getXimpl(j) * Math.signum(Offset.m2318getXimpl(pointerInputChange.m3957getPositionF1C5BW0())), Offset.m2319getYimpl(j) * Math.signum(Offset.m2319getYimpl(pointerInputChange.m3957getPositionF1C5BW0())))), null));
-        sendChannel.mo6880trySendJP2dKIU(new DragEvent.DragDelta(z ? Offset.m2325timestuRUvjQ(j, -1.0f) : j, null));
-        return m263onDragOrUpAxegvzg(awaitPointerEventScope, orientation, pointerInputChange.m3956getIdJ3iCeTQ(), new Function1<PointerInputChange, Unit>() { // from class: androidx.compose.foundation.gestures.DraggableKt$awaitDrag$2
+    public static final Object m563awaitDragSu4bsnU(AwaitPointerEventScope awaitPointerEventScope, PointerInputChange pointerInputChange, long j, final VelocityTracker velocityTracker, final SendChannel<? super DragEvent> sendChannel, final boolean z, Orientation orientation, Continuation<? super Boolean> continuation) {
+        sendChannel.mo7156trySendJP2dKIU(new DragEvent.DragStarted(Offset.m2623minusMKHz9U(pointerInputChange.m4258getPositionF1C5BW0(), OffsetKt.Offset(Offset.m2619getXimpl(j) * Math.signum(Offset.m2619getXimpl(pointerInputChange.m4258getPositionF1C5BW0())), Offset.m2620getYimpl(j) * Math.signum(Offset.m2620getYimpl(pointerInputChange.m4258getPositionF1C5BW0())))), null));
+        sendChannel.mo7156trySendJP2dKIU(new DragEvent.DragDelta(z ? Offset.m2626timestuRUvjQ(j, -1.0f) : j, null));
+        return m564onDragOrUpAxegvzg(awaitPointerEventScope, orientation, pointerInputChange.m4257getIdJ3iCeTQ(), new Function1<PointerInputChange, Unit>() { // from class: androidx.compose.foundation.gestures.DraggableKt$awaitDrag$2
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             /* JADX WARN: Multi-variable type inference failed */
@@ -189,9 +189,9 @@ public final class DraggableKt {
                 event.consume();
                 SendChannel<DragEvent> sendChannel2 = sendChannel;
                 if (z) {
-                    positionChange = Offset.m2325timestuRUvjQ(positionChange, -1.0f);
+                    positionChange = Offset.m2626timestuRUvjQ(positionChange, -1.0f);
                 }
-                sendChannel2.mo6880trySendJP2dKIU(new DragEvent.DragDelta(positionChange, null));
+                sendChannel2.mo7156trySendJP2dKIU(new DragEvent.DragDelta(positionChange, null));
             }
         }, continuation);
     }
@@ -216,25 +216,25 @@ public final class DraggableKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object m263onDragOrUpAxegvzg(androidx.compose.ui.input.pointer.AwaitPointerEventScope r17, androidx.compose.foundation.gestures.Orientation r18, long r19, kotlin.jvm.functions.Function1<? super androidx.compose.ui.input.pointer.PointerInputChange, kotlin.Unit> r21, kotlin.coroutines.Continuation<? super java.lang.Boolean> r22) {
+    public static final java.lang.Object m564onDragOrUpAxegvzg(androidx.compose.p002ui.input.pointer.AwaitPointerEventScope r17, androidx.compose.foundation.gestures.Orientation r18, long r19, kotlin.jvm.functions.Function1<? super androidx.compose.p002ui.input.pointer.PointerInputChange, kotlin.Unit> r21, kotlin.coroutines.Continuation<? super java.lang.Boolean> r22) {
         /*
             Method dump skipped, instructions count: 340
             To view this dump change 'Code comments level' option to 'DEBUG'
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt.m263onDragOrUpAxegvzg(androidx.compose.ui.input.pointer.AwaitPointerEventScope, androidx.compose.foundation.gestures.Orientation, long, kotlin.jvm.functions.Function1, kotlin.coroutines.Continuation):java.lang.Object");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt.m564onDragOrUpAxegvzg(androidx.compose.ui.input.pointer.AwaitPointerEventScope, androidx.compose.foundation.gestures.Orientation, long, kotlin.jvm.functions.Function1, kotlin.coroutines.Continuation):java.lang.Object");
     }
 
     /* renamed from: toFloat-3MmeM6k */
-    public static final float m264toFloat3MmeM6k(long j, Orientation orientation) {
-        return orientation == Orientation.Vertical ? Offset.m2319getYimpl(j) : Offset.m2318getXimpl(j);
+    public static final float m565toFloat3MmeM6k(long j, Orientation orientation) {
+        return orientation == Orientation.Vertical ? Offset.m2620getYimpl(j) : Offset.m2619getXimpl(j);
     }
 
     /* renamed from: toFloat-sF-c-tU */
-    public static final float m265toFloatsFctU(long j, Orientation orientation) {
-        return orientation == Orientation.Vertical ? Velocity.m5276getYimpl(j) : Velocity.m5275getXimpl(j);
+    public static final float m566toFloatsFctU(long j, Orientation orientation) {
+        return orientation == Orientation.Vertical ? Velocity.m5577getYimpl(j) : Velocity.m5576getXimpl(j);
     }
 
-    public static final Modifier draggable(Modifier modifier, final DraggableState state, final Function1<? super PointerInputChange, Boolean> canDrag, final Orientation orientation, final boolean z, final MutableInteractionSource mutableInteractionSource, final Function0<Boolean> startDragImmediately, final Function3<? super CoroutineScope, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> onDragStarted, final Function3<? super CoroutineScope, ? super Velocity, ? super Continuation<? super Unit>, ? extends Object> onDragStopped, final boolean z2) {
+    public static final Modifier draggable(Modifier modifier, final DraggableState state, final Function1<? super PointerInputChange, Boolean> canDrag, final Orientation orientation, final boolean z, final MutableInteractionSource mutableInteractionSource, final Functions<Boolean> startDragImmediately, final Function3<? super CoroutineScope, ? super Offset, ? super Continuation<? super Unit>, ? extends Object> onDragStarted, final Function3<? super CoroutineScope, ? super Velocity, ? super Continuation<? super Unit>, ? extends Object> onDragStopped, final boolean z2) {
         Intrinsics.checkNotNullParameter(modifier, "<this>");
         Intrinsics.checkNotNullParameter(state, "state");
         Intrinsics.checkNotNullParameter(canDrag, "canDrag");
@@ -296,11 +296,11 @@ public final class DraggableKt {
                     composer.updateRememberedValue(rememberedValue);
                 }
                 composer.endReplaceableGroup();
-                final MutableState mutableState = (MutableState) rememberedValue;
+                final SnapshotState snapshotState = (SnapshotState) rememberedValue;
                 final MutableInteractionSource mutableInteractionSource2 = MutableInteractionSource.this;
                 composer.startReplaceableGroup(511388516);
                 ComposerKt.sourceInformation(composer, "CC(remember)P(1,2):Composables.kt#9igjgp");
-                boolean changed = composer.changed(mutableState) | composer.changed(mutableInteractionSource2);
+                boolean changed = composer.changed(snapshotState) | composer.changed(mutableInteractionSource2);
                 Object rememberedValue2 = composer.rememberedValue();
                 if (changed || rememberedValue2 == Composer.Companion.getEmpty()) {
                     rememberedValue2 = (Function1) new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.foundation.gestures.DraggableKt$draggable$9$1$1
@@ -313,18 +313,18 @@ public final class DraggableKt {
                         @Override // kotlin.jvm.functions.Function1
                         public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                             Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
-                            final MutableState<DragInteraction.Start> mutableState2 = mutableState;
+                            final SnapshotState<DragInteraction.Start> snapshotState2 = snapshotState;
                             final MutableInteractionSource mutableInteractionSource3 = mutableInteractionSource2;
                             return new DisposableEffectResult() { // from class: androidx.compose.foundation.gestures.DraggableKt$draggable$9$1$1$invoke$$inlined$onDispose$1
                                 @Override // androidx.compose.runtime.DisposableEffectResult
                                 public void dispose() {
-                                    DragInteraction.Start start = (DragInteraction.Start) MutableState.this.getValue();
+                                    DragInteraction.Start start = (DragInteraction.Start) SnapshotState.this.getValue();
                                     if (start != null) {
                                         MutableInteractionSource mutableInteractionSource4 = mutableInteractionSource3;
                                         if (mutableInteractionSource4 != null) {
                                             mutableInteractionSource4.tryEmit(new DragInteraction.Cancel(start));
                                         }
-                                        MutableState.this.setValue(null);
+                                        SnapshotState.this.setValue(null);
                                     }
                                 }
                             };
@@ -345,8 +345,8 @@ public final class DraggableKt {
                 Channel channel = (Channel) rememberedValue3;
                 State rememberUpdatedState = SnapshotStateKt.rememberUpdatedState(startDragImmediately, composer, 0);
                 State rememberUpdatedState2 = SnapshotStateKt.rememberUpdatedState(canDrag, composer, 0);
-                EffectsKt.LaunchedEffect(state, new AnonymousClass2(channel, state, SnapshotStateKt.rememberUpdatedState(new DragLogic(onDragStarted, onDragStopped, mutableState, MutableInteractionSource.this), composer, 8), orientation, null), composer, 64);
-                Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput((Modifier) Modifier.Companion, new Object[]{orientation, Boolean.valueOf(z), Boolean.valueOf(z2)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new AnonymousClass3(z, rememberUpdatedState2, rememberUpdatedState, orientation, channel, z2, null));
+                EffectsKt.LaunchedEffect(state, new C02172(channel, state, SnapshotStateKt.rememberUpdatedState(new DragLogic(onDragStarted, onDragStopped, snapshotState, MutableInteractionSource.this), composer, 8), orientation, null), composer, 64);
+                Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput((Modifier) Modifier.Companion, new Object[]{orientation, Boolean.valueOf(z), Boolean.valueOf(z2)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new C02193(z, rememberUpdatedState2, rememberUpdatedState, orientation, channel, z2, null));
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();
                 }
@@ -361,23 +361,23 @@ public final class DraggableKt {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Draggable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3", f = "Draggable.kt", i = {}, l = {263}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3", m30f = "Draggable.kt", m29i = {}, m28l = {263}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass3 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
+            public static final class C02193 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ State<Function1<PointerInputChange, Boolean>> $canDragState;
                 final /* synthetic */ Channel<DragEvent> $channel;
                 final /* synthetic */ boolean $enabled;
                 final /* synthetic */ Orientation $orientation;
                 final /* synthetic */ boolean $reverseDirection;
-                final /* synthetic */ State<Function0<Boolean>> $startImmediatelyState;
+                final /* synthetic */ State<Functions<Boolean>> $startImmediatelyState;
                 private /* synthetic */ Object L$0;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
-                AnonymousClass3(boolean z, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Function0<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z2, Continuation<? super AnonymousClass3> continuation) {
+                C02193(boolean z, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Functions<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z2, Continuation<? super C02193> continuation) {
                     super(2, continuation);
                     this.$enabled = z;
                     this.$canDragState = state;
@@ -389,35 +389,35 @@ public final class DraggableKt {
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    AnonymousClass3 anonymousClass3 = new AnonymousClass3(this.$enabled, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
-                    anonymousClass3.L$0 = obj;
-                    return anonymousClass3;
+                    C02193 c02193 = new C02193(this.$enabled, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
+                    c02193.L$0 = obj;
+                    return c02193;
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(PointerInputScope pointerInputScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass3) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C02193) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: Draggable.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1", f = "Draggable.kt", i = {0}, l = {265}, m = "invokeSuspend", n = {"$this$coroutineScope"}, s = {"L$0"})
-                /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1", m30f = "Draggable.kt", m29i = {0}, m28l = {265}, m27m = "invokeSuspend", m26n = {"$this$coroutineScope"}, m25s = {"L$0"})
+                /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                public static final class C02201 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ PointerInputScope $$this$pointerInput;
                     final /* synthetic */ State<Function1<PointerInputChange, Boolean>> $canDragState;
                     final /* synthetic */ Channel<DragEvent> $channel;
                     final /* synthetic */ Orientation $orientation;
                     final /* synthetic */ boolean $reverseDirection;
-                    final /* synthetic */ State<Function0<Boolean>> $startImmediatelyState;
+                    final /* synthetic */ State<Functions<Boolean>> $startImmediatelyState;
                     private /* synthetic */ Object L$0;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     /* JADX WARN: Multi-variable type inference failed */
-                    AnonymousClass1(PointerInputScope pointerInputScope, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Function0<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z, Continuation<? super AnonymousClass1> continuation) {
+                    C02201(PointerInputScope pointerInputScope, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Functions<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z, Continuation<? super C02201> continuation) {
                         super(2, continuation);
                         this.$$this$pointerInput = pointerInputScope;
                         this.$canDragState = state;
@@ -429,29 +429,29 @@ public final class DraggableKt {
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$$this$pointerInput, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
-                        anonymousClass1.L$0 = obj;
-                        return anonymousClass1;
+                        C02201 c02201 = new C02201(this.$$this$pointerInput, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
+                        c02201.L$0 = obj;
+                        return c02201;
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C02201) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* compiled from: Draggable.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1$1", f = "Draggable.kt", i = {0, 0, 1, 1, 1}, l = {268, 276}, m = "invokeSuspend", n = {"$this$awaitPointerEventScope", "velocityTracker", "$this$awaitPointerEventScope", "velocityTracker", "isDragSuccessful"}, s = {"L$0", "L$1", "L$0", "L$1", "I$0"})
-                    /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1$1  reason: invalid class name and collision with other inner class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1$1", m30f = "Draggable.kt", m29i = {0, 0, 1, 1, 1}, m28l = {268, 276}, m27m = "invokeSuspend", m26n = {"$this$awaitPointerEventScope", "velocityTracker", "$this$awaitPointerEventScope", "velocityTracker", "isDragSuccessful"}, m25s = {"L$0", "L$1", "L$0", "L$1", "I$0"})
+                    /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$3$1$1 */
                     /* loaded from: classes.dex */
-                    public static final class C00071 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+                    public static final class C02211 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
                         final /* synthetic */ CoroutineScope $$this$coroutineScope;
                         final /* synthetic */ State<Function1<PointerInputChange, Boolean>> $canDragState;
                         final /* synthetic */ Channel<DragEvent> $channel;
                         final /* synthetic */ Orientation $orientation;
                         final /* synthetic */ boolean $reverseDirection;
-                        final /* synthetic */ State<Function0<Boolean>> $startImmediatelyState;
+                        final /* synthetic */ State<Functions<Boolean>> $startImmediatelyState;
                         int I$0;
                         private /* synthetic */ Object L$0;
                         Object L$1;
@@ -462,7 +462,7 @@ public final class DraggableKt {
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         /* JADX WARN: Multi-variable type inference failed */
-                        C00071(CoroutineScope coroutineScope, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Function0<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z, Continuation<? super C00071> continuation) {
+                        C02211(CoroutineScope coroutineScope, State<? extends Function1<? super PointerInputChange, Boolean>> state, State<? extends Functions<Boolean>> state2, Orientation orientation, Channel<DragEvent> channel, boolean z, Continuation<? super C02211> continuation) {
                             super(2, continuation);
                             this.$$this$coroutineScope = coroutineScope;
                             this.$canDragState = state;
@@ -474,14 +474,14 @@ public final class DraggableKt {
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                            C00071 c00071 = new C00071(this.$$this$coroutineScope, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
-                            c00071.L$0 = obj;
-                            return c00071;
+                            C02211 c02211 = new C02211(this.$$this$coroutineScope, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, continuation);
+                            c02211.L$0 = obj;
+                            return c02211;
                         }
 
                         @Override // kotlin.jvm.functions.Function2
                         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-                            return ((C00071) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                            return ((C02211) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
                         }
 
                         /* JADX WARN: Can't wrap try/catch for region: R(9:27|28|29|(1:31)(1:60)|32|33|34|35|(1:37)(8:38|9|10|(0)(0)|16|17|18|(2:67|68)(0))) */
@@ -505,7 +505,7 @@ public final class DraggableKt {
                             r13 = r24;
                          */
                         /* JADX WARN: Code restructure failed: missing block: B:61:0x0150, code lost:
-                            r12.mo6880trySendJP2dKIU(androidx.compose.foundation.gestures.DragEvent.DragCancelled.INSTANCE);
+                            r12.mo7156trySendJP2dKIU(androidx.compose.foundation.gestures.DragEvent.DragCancelled.INSTANCE);
                          */
                         /* JADX WARN: Code restructure failed: missing block: B:63:0x015d, code lost:
                             throw r0;
@@ -533,7 +533,7 @@ public final class DraggableKt {
                                 Method dump skipped, instructions count: 397
                                 To view this dump change 'Code comments level' option to 'DEBUG'
                             */
-                            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.AnonymousClass3.AnonymousClass1.C00071.invokeSuspend(java.lang.Object):java.lang.Object");
+                            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.C02193.C02201.C02211.invokeSuspend(java.lang.Object):java.lang.Object");
                         }
                     }
 
@@ -600,7 +600,7 @@ public final class DraggableKt {
                         L55:
                             throw r14
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.AnonymousClass3.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.C02193.C02201.invokeSuspend(java.lang.Object):java.lang.Object");
                     }
                 }
 
@@ -615,7 +615,7 @@ public final class DraggableKt {
                             return Unit.INSTANCE;
                         }
                         this.label = 1;
-                        if (CoroutineScopeKt.coroutineScope(new AnonymousClass1(pointerInputScope, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, null), this) == coroutine_suspended) {
+                        if (CoroutineScopeKt.coroutineScope(new C02201(pointerInputScope, this.$canDragState, this.$startImmediatelyState, this.$orientation, this.$channel, this.$reverseDirection, null), this) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
                     } else if (i != 1) {
@@ -629,11 +629,11 @@ public final class DraggableKt {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Draggable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$2", f = "Draggable.kt", i = {0, 0, 1, 1, 2, 2, 3, 4, 5}, l = {239, 241, 243, 251, 253, InputDeviceCompat.SOURCE_KEYBOARD}, m = "invokeSuspend", n = {"$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", "$this$LaunchedEffect", "$this$LaunchedEffect"}, s = {"L$0", "L$1", "L$0", "L$1", "L$0", "L$1", "L$0", "L$0", "L$0"})
-            /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$2  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$2", m30f = "Draggable.kt", m29i = {0, 0, 1, 1, 2, 2, 3, 4, 5}, m28l = {239, 241, 243, 251, 253, InputDeviceCompat.SOURCE_KEYBOARD}, m27m = "invokeSuspend", m26n = {"$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect", "$this$LaunchedEffect", "$this$LaunchedEffect"}, m25s = {"L$0", "L$1", "L$0", "L$1", "L$0", "L$1", "L$0", "L$0", "L$0"})
+            /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$2 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+            public static final class C02172 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ Channel<DragEvent> $channel;
                 final /* synthetic */ State<DragLogic> $dragLogic$delegate;
                 final /* synthetic */ Orientation $orientation;
@@ -644,7 +644,7 @@ public final class DraggableKt {
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass2(Channel<DragEvent> channel, DraggableState draggableState, State<DragLogic> state, Orientation orientation, Continuation<? super AnonymousClass2> continuation) {
+                C02172(Channel<DragEvent> channel, DraggableState draggableState, State<DragLogic> state, Orientation orientation, Continuation<? super C02172> continuation) {
                     super(2, continuation);
                     this.$channel = channel;
                     this.$state = draggableState;
@@ -654,23 +654,23 @@ public final class DraggableKt {
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    AnonymousClass2 anonymousClass2 = new AnonymousClass2(this.$channel, this.$state, this.$dragLogic$delegate, this.$orientation, continuation);
-                    anonymousClass2.L$0 = obj;
-                    return anonymousClass2;
+                    C02172 c02172 = new C02172(this.$channel, this.$state, this.$dragLogic$delegate, this.$orientation, continuation);
+                    c02172.L$0 = obj;
+                    return c02172;
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C02172) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: Draggable.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$2$2", f = "Draggable.kt", i = {0}, l = {246}, m = "invokeSuspend", n = {"$this$drag"}, s = {"L$0"})
-                /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$2$2  reason: invalid class name and collision with other inner class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.gestures.DraggableKt$draggable$9$2$2", m30f = "Draggable.kt", m29i = {0}, m28l = {246}, m27m = "invokeSuspend", m26n = {"$this$drag"}, m25s = {"L$0"})
+                /* renamed from: androidx.compose.foundation.gestures.DraggableKt$draggable$9$2$2 */
                 /* loaded from: classes.dex */
-                public static final class C00062 extends SuspendLambda implements Function2<DragScope, Continuation<? super Unit>, Object> {
+                public static final class C02182 extends SuspendLambda implements Function2<DragScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ Channel<DragEvent> $channel;
                     final /* synthetic */ Ref.ObjectRef<DragEvent> $event;
                     final /* synthetic */ Orientation $orientation;
@@ -679,7 +679,7 @@ public final class DraggableKt {
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    C00062(Ref.ObjectRef<DragEvent> objectRef, Channel<DragEvent> channel, Orientation orientation, Continuation<? super C00062> continuation) {
+                    C02182(Ref.ObjectRef<DragEvent> objectRef, Channel<DragEvent> channel, Orientation orientation, Continuation<? super C02182> continuation) {
                         super(2, continuation);
                         this.$event = objectRef;
                         this.$channel = channel;
@@ -688,14 +688,14 @@ public final class DraggableKt {
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        C00062 c00062 = new C00062(this.$event, this.$channel, this.$orientation, continuation);
-                        c00062.L$0 = obj;
-                        return c00062;
+                        C02182 c02182 = new C02182(this.$event, this.$channel, this.$orientation, continuation);
+                        c02182.L$0 = obj;
+                        return c02182;
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(DragScope dragScope, Continuation<? super Unit> continuation) {
-                        return ((C00062) create(dragScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C02182) create(dragScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     /* JADX WARN: Multi-variable type inference failed */
@@ -755,8 +755,8 @@ public final class DraggableKt {
                         L48:
                             if (r1 == 0) goto L57
                             androidx.compose.foundation.gestures.Orientation r4 = r9.$orientation
-                            long r5 = r1.m227getDeltaF1C5BW0()
-                            float r1 = androidx.compose.foundation.gestures.DraggableKt.m260access$toFloat3MmeM6k(r5, r4)
+                            long r5 = r1.m528getDeltaF1C5BW0()
+                            float r1 = androidx.compose.foundation.gestures.DraggableKt.m561access$toFloat3MmeM6k(r5, r4)
                             r3.dragBy(r1)
                         L57:
                             kotlin.jvm.internal.Ref$ObjectRef<androidx.compose.foundation.gestures.DragEvent> r1 = r9.$event
@@ -786,7 +786,7 @@ public final class DraggableKt {
                             kotlin.Unit r9 = kotlin.Unit.INSTANCE
                             return r9
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.AnonymousClass2.C00062.invokeSuspend(java.lang.Object):java.lang.Object");
+                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.C02172.C02182.invokeSuspend(java.lang.Object):java.lang.Object");
                     }
                 }
 
@@ -824,7 +824,7 @@ public final class DraggableKt {
                         Method dump skipped, instructions count: 334
                         To view this dump change 'Code comments level' option to 'DEBUG'
                     */
-                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.AnonymousClass2.invokeSuspend(java.lang.Object):java.lang.Object");
+                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.DraggableKt$draggable$9.C02172.invokeSuspend(java.lang.Object):java.lang.Object");
                 }
             }
         });

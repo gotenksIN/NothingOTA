@@ -22,7 +22,9 @@ public class FlexBuffersBuilder {
     private static final int WIDTH_32 = 2;
     private static final int WIDTH_64 = 3;
     private static final int WIDTH_8 = 0;
-    private final ReadWriteBuf bb;
+
+    /* renamed from: bb */
+    private final ReadWriteBuf f178bb;
     private boolean finished;
     private final int flags;
     private Comparator<Value> keyComparator;
@@ -56,8 +58,8 @@ public class FlexBuffersBuilder {
                 int i2 = value.key;
                 int i3 = value2.key;
                 do {
-                    b = FlexBuffersBuilder.this.bb.get(i2);
-                    b2 = FlexBuffersBuilder.this.bb.get(i3);
+                    b = FlexBuffersBuilder.this.f178bb.get(i2);
+                    b2 = FlexBuffersBuilder.this.f178bb.get(i3);
                     if (b == 0) {
                         return b - b2;
                     }
@@ -67,7 +69,7 @@ public class FlexBuffersBuilder {
                 return b - b2;
             }
         };
-        this.bb = readWriteBuf;
+        this.f178bb = readWriteBuf;
         this.flags = i;
     }
 
@@ -76,7 +78,7 @@ public class FlexBuffersBuilder {
     }
 
     public ReadWriteBuf getBuffer() {
-        return this.bb;
+        return this.f178bb;
     }
 
     public void putBoolean(boolean z) {
@@ -91,21 +93,21 @@ public class FlexBuffersBuilder {
         if (str == null) {
             return -1;
         }
-        int writePosition = this.bb.writePosition();
+        int writePosition = this.f178bb.writePosition();
         if ((this.flags & 1) != 0) {
             Integer num = this.keyPool.get(str);
             if (num == null) {
                 byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                this.bb.put(bytes, 0, bytes.length);
-                this.bb.put((byte) 0);
+                this.f178bb.put(bytes, 0, bytes.length);
+                this.f178bb.put((byte) 0);
                 this.keyPool.put(str, Integer.valueOf(writePosition));
                 return writePosition;
             }
             return num.intValue();
         }
         byte[] bytes2 = str.getBytes(StandardCharsets.UTF_8);
-        this.bb.put(bytes2, 0, bytes2.length);
-        this.bb.put((byte) 0);
+        this.f178bb.put(bytes2, 0, bytes2.length);
+        this.f178bb.put((byte) 0);
         this.keyPool.put(str, Integer.valueOf(writePosition));
         return writePosition;
     }
@@ -222,37 +224,37 @@ public class FlexBuffersBuilder {
     private Value writeBlob(int i, byte[] bArr, int i2, boolean z) {
         int widthUInBits = widthUInBits(bArr.length);
         writeInt(bArr.length, align(widthUInBits));
-        int writePosition = this.bb.writePosition();
-        this.bb.put(bArr, 0, bArr.length);
+        int writePosition = this.f178bb.writePosition();
+        this.f178bb.put(bArr, 0, bArr.length);
         if (z) {
-            this.bb.put((byte) 0);
+            this.f178bb.put((byte) 0);
         }
         return Value.blob(i, writePosition, i2, widthUInBits);
     }
 
     private int align(int i) {
         int i2 = 1 << i;
-        int paddingBytes = Value.paddingBytes(this.bb.writePosition(), i2);
+        int paddingBytes = Value.paddingBytes(this.f178bb.writePosition(), i2);
         while (true) {
             int i3 = paddingBytes - 1;
             if (paddingBytes == 0) {
                 return i2;
             }
-            this.bb.put((byte) 0);
+            this.f178bb.put((byte) 0);
             paddingBytes = i3;
         }
     }
 
     private void writeInt(long j, int i) {
         if (i == 1) {
-            this.bb.put((byte) j);
+            this.f178bb.put((byte) j);
         } else if (i == 2) {
-            this.bb.putShort((short) j);
+            this.f178bb.putShort((short) j);
         } else if (i == 4) {
-            this.bb.putInt((int) j);
+            this.f178bb.putInt((int) j);
         } else if (i != 8) {
         } else {
-            this.bb.putLong(j);
+            this.f178bb.putLong(j);
         }
     }
 
@@ -281,12 +283,12 @@ public class FlexBuffersBuilder {
     }
 
     public ByteBuffer finish() {
-        int align = align(this.stack.get(0).elemWidth(this.bb.writePosition(), 0));
+        int align = align(this.stack.get(0).elemWidth(this.f178bb.writePosition(), 0));
         writeAny(this.stack.get(0), align);
-        this.bb.put(this.stack.get(0).storedPackedType());
-        this.bb.put((byte) align);
+        this.f178bb.put(this.stack.get(0).storedPackedType());
+        this.f178bb.put((byte) align);
         this.finished = true;
-        return ByteBuffer.wrap(this.bb.data(), 0, this.bb.writePosition());
+        return ByteBuffer.wrap(this.f178bb.data(), 0, this.f178bb.writePosition());
     }
 
     private Value createVector(int i, int i2, int i3, boolean z, boolean z2, Value value) {
@@ -296,7 +298,7 @@ public class FlexBuffersBuilder {
         long j = i6;
         int max = Math.max(0, widthUInBits(j));
         if (value != null) {
-            max = Math.max(max, value.elemWidth(this.bb.writePosition(), 0));
+            max = Math.max(max, value.elemWidth(this.f178bb.writePosition(), 0));
             i4 = 3;
         } else {
             i4 = 1;
@@ -304,7 +306,7 @@ public class FlexBuffersBuilder {
         int i7 = 4;
         int i8 = max;
         for (int i9 = i2; i9 < this.stack.size(); i9++) {
-            i8 = Math.max(i8, this.stack.get(i9).elemWidth(this.bb.writePosition(), i9 + i4));
+            i8 = Math.max(i8, this.stack.get(i9).elemWidth(this.f178bb.writePosition(), i9 + i4));
             if (z && i9 == i2) {
                 i7 = this.stack.get(i9).type;
                 if (!FlexBuffers.isTypedVectorElementType(i7)) {
@@ -321,13 +323,13 @@ public class FlexBuffersBuilder {
         if (!z2) {
             writeInt(j, align);
         }
-        int writePosition = this.bb.writePosition();
+        int writePosition = this.f178bb.writePosition();
         for (int i11 = i10; i11 < this.stack.size(); i11++) {
             writeAny(this.stack.get(i11), align);
         }
         if (!z) {
             while (i10 < this.stack.size()) {
-                this.bb.put(this.stack.get(i10).storedPackedType(i8));
+                this.f178bb.put(this.stack.get(i10).storedPackedType(i8));
                 i10++;
             }
         }
@@ -345,7 +347,7 @@ public class FlexBuffersBuilder {
     }
 
     private void writeOffset(long j, int i) {
-        writeInt((int) (this.bb.writePosition() - j), i);
+        writeInt((int) (this.f178bb.writePosition() - j), i);
     }
 
     private void writeAny(Value value, int i) {
@@ -364,9 +366,9 @@ public class FlexBuffersBuilder {
 
     private void writeDouble(double d, int i) {
         if (i == 4) {
-            this.bb.putFloat((float) d);
+            this.f178bb.putFloat((float) d);
         } else if (i == 8) {
-            this.bb.putDouble(d);
+            this.f178bb.putDouble(d);
         }
     }
 
@@ -393,11 +395,11 @@ public class FlexBuffersBuilder {
         int i3 = i;
         while (i3 < this.stack.size()) {
             i3++;
-            max = Math.max(max, Value.elemWidth(4, 0, this.stack.get(i3).key, this.bb.writePosition(), i3));
+            max = Math.max(max, Value.elemWidth(4, 0, this.stack.get(i3).key, this.f178bb.writePosition(), i3));
         }
         int align = align(max);
         writeInt(j, align);
-        int writePosition = this.bb.writePosition();
+        int writePosition = this.f178bb.writePosition();
         while (i < this.stack.size()) {
             int i4 = this.stack.get(i).key;
             writeOffset(this.stack.get(i).key, align);

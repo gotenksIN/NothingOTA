@@ -1,6 +1,5 @@
 package com.nothing.OfflineOTAUpgradeApp.repo.resource;
 
-import androidx.core.view.InputDeviceCompat;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -11,8 +10,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTADownloadResource.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$pauseDownload$1", f = "OTADownloadResource.kt", i = {}, l = {251, InputDeviceCompat.SOURCE_KEYBOARD, 267}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$pauseDownload$1", m30f = "OTADownloadResource.kt", m29i = {}, m28l = {256, 262, 272}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class OTADownloadResource$pauseDownload$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $byNetworkIssue;

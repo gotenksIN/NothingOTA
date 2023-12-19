@@ -1,7 +1,7 @@
 package androidx.compose.foundation.layout;
 
 import android.view.WindowInsetsAnimationController;
-import androidx.compose.animation.core.SuspendAnimationKt;
+import androidx.compose.animation.core.SuspendAnimation;
 import java.util.concurrent.CancellationException;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -18,8 +18,8 @@ import kotlinx.coroutines.Job;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: WindowInsetsConnection.android.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2", f = "WindowInsetsConnection.android.kt", i = {}, l = {348}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2", m30f = "WindowInsetsConnection.android.kt", m29i = {}, m28l = {348}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ WindowInsetsAnimationController $animationController;
@@ -63,11 +63,11 @@ public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLam
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: WindowInsetsConnection.android.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2$1", f = "WindowInsetsConnection.android.kt", i = {}, l = {332}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2$1", m30f = "WindowInsetsConnection.android.kt", m29i = {}, m28l = {332}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection$fling$2$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C02771 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ WindowInsetsAnimationController $animationController;
         final /* synthetic */ int $current;
         final /* synthetic */ Ref.FloatRef $endVelocity;
@@ -80,7 +80,7 @@ public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLam
         final /* synthetic */ WindowInsetsNestedScrollConnection this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(int i, float f, SplineBasedFloatDecayAnimationSpec splineBasedFloatDecayAnimationSpec, int i2, int i3, WindowInsetsNestedScrollConnection windowInsetsNestedScrollConnection, Ref.FloatRef floatRef, WindowInsetsAnimationController windowInsetsAnimationController, boolean z, Continuation<? super AnonymousClass1> continuation) {
+        C02771(int i, float f, SplineBasedFloatDecayAnimationSpec splineBasedFloatDecayAnimationSpec, int i2, int i3, WindowInsetsNestedScrollConnection windowInsetsNestedScrollConnection, Ref.FloatRef floatRef, WindowInsetsAnimationController windowInsetsAnimationController, boolean z, Continuation<? super C02771> continuation) {
             super(2, continuation);
             this.$current = i;
             this.$flingAmount = f;
@@ -95,12 +95,12 @@ public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLam
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$current, this.$flingAmount, this.$spec, this.$hidden, this.$shown, this.this$0, this.$endVelocity, this.$animationController, this.$targetShown, continuation);
+            return new C02771(this.$current, this.$flingAmount, this.$spec, this.$hidden, this.$shown, this.this$0, this.$endVelocity, this.$animationController, this.$targetShown, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C02771) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -116,7 +116,7 @@ public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLam
                 final WindowInsetsAnimationController windowInsetsAnimationController = this.$animationController;
                 final boolean z = this.$targetShown;
                 this.label = 1;
-                if (SuspendAnimationKt.animateDecay(this.$current, this.$flingAmount, this.$spec, new Function2<Float, Float, Unit>() { // from class: androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection.fling.2.1.1
+                if (SuspendAnimation.animateDecay(this.$current, this.$flingAmount, this.$spec, new Function2<Float, Float, Unit>() { // from class: androidx.compose.foundation.layout.WindowInsetsNestedScrollConnection.fling.2.1.1
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super(2);
@@ -169,7 +169,7 @@ public final class WindowInsetsNestedScrollConnection$fling$2 extends SuspendLam
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
             WindowInsetsNestedScrollConnection windowInsetsNestedScrollConnection = this.this$0;
-            launch$default = BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(this.$current, this.$flingAmount, this.$spec, this.$hidden, this.$shown, this.this$0, this.$endVelocity, this.$animationController, this.$targetShown, null), 3, null);
+            launch$default = BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C02771(this.$current, this.$flingAmount, this.$spec, this.$hidden, this.$shown, this.this$0, this.$endVelocity, this.$animationController, this.$targetShown, null), 3, null);
             windowInsetsNestedScrollConnection.animationJob = launch$default;
             job = this.this$0.animationJob;
             if (job != null) {

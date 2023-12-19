@@ -11,13 +11,13 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: BottomSheetScaffold.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ComposableSingletons$BottomSheetScaffoldKt {
     public static final ComposableSingletons$BottomSheetScaffoldKt INSTANCE = new ComposableSingletons$BottomSheetScaffoldKt();
 
     /* renamed from: lambda-1  reason: not valid java name */
-    public static Function2<Composer, Integer, Unit> f18lambda1 = ComposableLambdaKt.composableLambdaInstance(481988104, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$BottomSheetScaffoldKt$lambda-1$1
+    public static Function2<Composer, Integer, Unit> f334lambda1 = ComposableLambdaKt.composableLambdaInstance(481988104, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$BottomSheetScaffoldKt$lambda-1$1
         @Override // kotlin.jvm.functions.Function2
         public /* bridge */ /* synthetic */ Unit invoke(Composer composer, Integer num) {
             invoke(composer, num.intValue());
@@ -33,7 +33,7 @@ public final class ComposableSingletons$BottomSheetScaffoldKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(481988104, i, -1, "androidx.compose.material3.ComposableSingletons$BottomSheetScaffoldKt.lambda-1.<anonymous> (BottomSheetScaffold.kt:106)");
             }
-            BottomSheetDefaults.INSTANCE.m924DragHandlelgZ2HuY(null, 0.0f, 0.0f, null, 0L, composer, ProfileVerifier.CompilationStatus.RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE, 31);
+            SheetDefaults.INSTANCE.m1225DragHandlelgZ2HuY(null, 0.0f, 0.0f, null, 0L, composer, ProfileVerifier.CompilationStatus.f184xf2722a21, 31);
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
@@ -41,7 +41,7 @@ public final class ComposableSingletons$BottomSheetScaffoldKt {
     });
 
     /* renamed from: lambda-2  reason: not valid java name */
-    public static Function3<SnackbarHostState, Composer, Integer, Unit> f19lambda2 = ComposableLambdaKt.composableLambdaInstance(-928941170, false, new Function3<SnackbarHostState, Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$BottomSheetScaffoldKt$lambda-2$1
+    public static Function3<SnackbarHostState, Composer, Integer, Unit> f335lambda2 = ComposableLambdaKt.composableLambdaInstance(-928941170, false, new Function3<SnackbarHostState, Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$BottomSheetScaffoldKt$lambda-2$1
         @Override // kotlin.jvm.functions.Function3
         public /* bridge */ /* synthetic */ Unit invoke(SnackbarHostState snackbarHostState, Composer composer, Integer num) {
             invoke(snackbarHostState, composer, num.intValue());
@@ -69,12 +69,12 @@ public final class ComposableSingletons$BottomSheetScaffoldKt {
     });
 
     /* renamed from: getLambda-1$material3_release  reason: not valid java name */
-    public final Function2<Composer, Integer, Unit> m1044getLambda1$material3_release() {
-        return f18lambda1;
+    public final Function2<Composer, Integer, Unit> m1345getLambda1$material3_release() {
+        return f334lambda1;
     }
 
     /* renamed from: getLambda-2$material3_release  reason: not valid java name */
-    public final Function3<SnackbarHostState, Composer, Integer, Unit> m1045getLambda2$material3_release() {
-        return f19lambda2;
+    public final Function3<SnackbarHostState, Composer, Integer, Unit> m1346getLambda2$material3_release() {
+        return f335lambda2;
     }
 }

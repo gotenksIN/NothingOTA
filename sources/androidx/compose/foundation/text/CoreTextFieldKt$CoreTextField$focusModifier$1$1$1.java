@@ -1,8 +1,8 @@
 package androidx.compose.foundation.text;
 
 import androidx.compose.foundation.relocation.BringIntoViewRequester;
-import androidx.compose.ui.text.input.OffsetMapping;
-import androidx.compose.ui.text.input.TextFieldValue;
+import androidx.compose.p002ui.text.input.OffsetMapping;
+import androidx.compose.p002ui.text.input.TextFieldValue;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -16,8 +16,8 @@ import okhttp3.internal.http.StatusLine;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: CoreTextField.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.CoreTextFieldKt$CoreTextField$focusModifier$1$1$1", f = "CoreTextField.kt", i = {}, l = {StatusLine.HTTP_PERM_REDIRECT}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.CoreTextFieldKt$CoreTextField$focusModifier$1$1$1", m30f = "CoreTextField.kt", m29i = {}, m28l = {StatusLine.HTTP_PERM_REDIRECT}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class CoreTextFieldKt$CoreTextField$focusModifier$1$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ BringIntoViewRequester $bringIntoViewRequester;

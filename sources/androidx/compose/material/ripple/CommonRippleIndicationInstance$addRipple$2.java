@@ -1,5 +1,6 @@
 package androidx.compose.material.ripple;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.PressInteraction;
 import androidx.compose.runtime.snapshots.SnapshotStateMap;
 import kotlin.Metadata;
@@ -13,8 +14,8 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: CommonRipple.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material.ripple.CommonRippleIndicationInstance$addRipple$2", f = "CommonRipple.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_panelMenuListTheme}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material.ripple.CommonRippleIndicationInstance$addRipple$2", m30f = "CommonRipple.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_panelMenuListTheme}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class CommonRippleIndicationInstance$addRipple$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ PressInteraction.Press $interaction;

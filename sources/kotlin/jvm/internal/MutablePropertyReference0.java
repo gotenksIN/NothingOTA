@@ -22,7 +22,7 @@ public abstract class MutablePropertyReference0 extends MutablePropertyReference
         return Reflection.mutableProperty0(this);
     }
 
-    @Override // kotlin.jvm.functions.Function0
+    @Override // kotlin.jvm.functions.Functions
     public Object invoke() {
         return get();
     }

@@ -1,8 +1,8 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.compose.ui.geometry.Rect;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.DpRect;
+import androidx.compose.p002ui.geometry.Rect;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.DpRect;
 import com.nothing.OfflineOTAUpgradeApp.BuildConfig;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -11,100 +11,100 @@ import kotlinx.coroutines.sync.MutexKt;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TapGestureDetector.kt */
-@Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0002\u0010\u0004J\u0011\u0010\u000f\u001a\u00020\u0010H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0006\u0010\u0012\u001a\u00020\u0010J\u0006\u0010\u0013\u001a\u00020\u0010J\u0011\u0010\u0014\u001a\u00020\u0010H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0011\u0010\u0015\u001a\u00020\u000bH\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u001a\u0010\u0016\u001a\u00020\u0017*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001aJ\u001a\u0010\u0016\u001a\u00020\u0017*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u001a\u0010\u001e\u001a\u00020\u0018*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001f\u0010 J\u001d\u0010\u001e\u001a\u00020\u0018*\u00020\u0005H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b!\u0010\"J\u001d\u0010\u001e\u001a\u00020\u0018*\u00020\u0017H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b!\u0010#J\u001a\u0010$\u001a\u00020%*\u00020&H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b'\u0010(J\u001a\u0010)\u001a\u00020\u0005*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b*\u0010\"J\u001a\u0010)\u001a\u00020\u0005*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b+\u0010 J\r\u0010,\u001a\u00020-*\u00020.H\u0097\u0001J\u001a\u0010/\u001a\u00020&*\u00020%H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b0\u0010(J\u001a\u00101\u001a\u00020\u001b*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b2\u00103J\u001d\u00101\u001a\u00020\u001b*\u00020\u0005H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b4\u00103J\u001d\u00101\u001a\u00020\u001b*\u00020\u0017H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b4\u00105R\u0014\u0010\u0003\u001a\u00020\u00058\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\u00058\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\t\u0010\u0007R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u00066"}, d2 = {"Landroidx/compose/foundation/gestures/PressGestureScopeImpl;", "Landroidx/compose/foundation/gestures/PressGestureScope;", "Landroidx/compose/ui/unit/Density;", "density", "(Landroidx/compose/ui/unit/Density;)V", "", "getDensity", "()F", "fontScale", "getFontScale", "isCanceled", "", "isReleased", "mutex", "Lkotlinx/coroutines/sync/Mutex;", "awaitRelease", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "cancel", BuildConfig.BUILD_TYPE, "reset", "tryAwaitRelease", "roundToPx", "", "Landroidx/compose/ui/unit/Dp;", "roundToPx-0680j_4", "(F)I", "Landroidx/compose/ui/unit/TextUnit;", "roundToPx--R2X_6o", "(J)I", "toDp", "toDp-GaN1DYA", "(J)F", "toDp-u2uoSUM", "(F)F", "(I)F", "toDpSize", "Landroidx/compose/ui/unit/DpSize;", "Landroidx/compose/ui/geometry/Size;", "toDpSize-k-rfVVM", "(J)J", "toPx", "toPx-0680j_4", "toPx--R2X_6o", "toRect", "Landroidx/compose/ui/geometry/Rect;", "Landroidx/compose/ui/unit/DpRect;", "toSize", "toSize-XkaWNTQ", "toSp", "toSp-0xMU5do", "(F)J", "toSp-kPz2Gy4", "(I)J", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0002\u0010\u0004J\u0011\u0010\u000f\u001a\u00020\u0010H\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0006\u0010\u0012\u001a\u00020\u0010J\u0006\u0010\u0013\u001a\u00020\u0010J\u0011\u0010\u0014\u001a\u00020\u0010H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0011\u0010\u0015\u001a\u00020\u000bH\u0096@ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u001a\u0010\u0016\u001a\u00020\u0017*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001aJ\u001a\u0010\u0016\u001a\u00020\u0017*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001c\u0010\u001dJ\u001a\u0010\u001e\u001a\u00020\u0018*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001f\u0010 J\u001d\u0010\u001e\u001a\u00020\u0018*\u00020\u0005H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b!\u0010\"J\u001d\u0010\u001e\u001a\u00020\u0018*\u00020\u0017H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b!\u0010#J\u001a\u0010$\u001a\u00020%*\u00020&H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b'\u0010(J\u001a\u0010)\u001a\u00020\u0005*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b*\u0010\"J\u001a\u0010)\u001a\u00020\u0005*\u00020\u001bH\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b+\u0010 J\r\u0010,\u001a\u00020-*\u00020.H\u0097\u0001J\u001a\u0010/\u001a\u00020&*\u00020%H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b0\u0010(J\u001a\u00101\u001a\u00020\u001b*\u00020\u0018H\u0097\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b2\u00103J\u001d\u00101\u001a\u00020\u001b*\u00020\u0005H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b4\u00103J\u001d\u00101\u001a\u00020\u001b*\u00020\u0017H\u0097\u0001ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b4\u00105R\u0014\u0010\u0003\u001a\u00020\u00058\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\u00058\u0016X\u0097\u0005¢\u0006\u0006\u001a\u0004\b\t\u0010\u0007R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u00066"}, m40d2 = {"Landroidx/compose/foundation/gestures/PressGestureScopeImpl;", "Landroidx/compose/foundation/gestures/PressGestureScope;", "Landroidx/compose/ui/unit/Density;", "density", "(Landroidx/compose/ui/unit/Density;)V", "", "getDensity", "()F", "fontScale", "getFontScale", "isCanceled", "", "isReleased", "mutex", "Lkotlinx/coroutines/sync/Mutex;", "awaitRelease", "", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "cancel", BuildConfig.BUILD_TYPE, "reset", "tryAwaitRelease", "roundToPx", "", "Landroidx/compose/ui/unit/Dp;", "roundToPx-0680j_4", "(F)I", "Landroidx/compose/ui/unit/TextUnit;", "roundToPx--R2X_6o", "(J)I", "toDp", "toDp-GaN1DYA", "(J)F", "toDp-u2uoSUM", "(F)F", "(I)F", "toDpSize", "Landroidx/compose/ui/unit/DpSize;", "Landroidx/compose/ui/geometry/Size;", "toDpSize-k-rfVVM", "(J)J", "toPx", "toPx-0680j_4", "toPx--R2X_6o", "toRect", "Landroidx/compose/ui/geometry/Rect;", "Landroidx/compose/ui/unit/DpRect;", "toSize", "toSize-XkaWNTQ", "toSp", "toSp-0xMU5do", "(F)J", "toSp-kPz2Gy4", "(I)J", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
-public final class PressGestureScopeImpl implements PressGestureScope, Density {
+public final class PressGestureScopeImpl implements TapGestureDetector, Density {
     private final /* synthetic */ Density $$delegate_0;
     private boolean isCanceled;
     private boolean isReleased;
     private final Mutex mutex;
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     public float getDensity() {
         return this.$$delegate_0.getDensity();
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     public float getFontScale() {
         return this.$$delegate_0.getFontScale();
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: roundToPx--R2X_6o  reason: not valid java name */
-    public int mo295roundToPxR2X_6o(long j) {
-        return this.$$delegate_0.mo295roundToPxR2X_6o(j);
+    public int mo596roundToPxR2X_6o(long j) {
+        return this.$$delegate_0.mo596roundToPxR2X_6o(j);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: roundToPx-0680j_4  reason: not valid java name */
-    public int mo296roundToPx0680j_4(float f) {
-        return this.$$delegate_0.mo296roundToPx0680j_4(f);
+    public int mo597roundToPx0680j_4(float f) {
+        return this.$$delegate_0.mo597roundToPx0680j_4(f);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toDp-GaN1DYA  reason: not valid java name */
-    public float mo297toDpGaN1DYA(long j) {
-        return this.$$delegate_0.mo297toDpGaN1DYA(j);
+    public float mo598toDpGaN1DYA(long j) {
+        return this.$$delegate_0.mo598toDpGaN1DYA(j);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toDp-u2uoSUM  reason: not valid java name */
-    public float mo298toDpu2uoSUM(float f) {
-        return this.$$delegate_0.mo298toDpu2uoSUM(f);
+    public float mo599toDpu2uoSUM(float f) {
+        return this.$$delegate_0.mo599toDpu2uoSUM(f);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toDp-u2uoSUM  reason: not valid java name */
-    public float mo299toDpu2uoSUM(int i) {
-        return this.$$delegate_0.mo299toDpu2uoSUM(i);
+    public float mo600toDpu2uoSUM(int i) {
+        return this.$$delegate_0.mo600toDpu2uoSUM(i);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toDpSize-k-rfVVM  reason: not valid java name */
-    public long mo300toDpSizekrfVVM(long j) {
-        return this.$$delegate_0.mo300toDpSizekrfVVM(j);
+    public long mo601toDpSizekrfVVM(long j) {
+        return this.$$delegate_0.mo601toDpSizekrfVVM(j);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toPx--R2X_6o  reason: not valid java name */
-    public float mo301toPxR2X_6o(long j) {
-        return this.$$delegate_0.mo301toPxR2X_6o(j);
+    public float mo602toPxR2X_6o(long j) {
+        return this.$$delegate_0.mo602toPxR2X_6o(j);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toPx-0680j_4  reason: not valid java name */
-    public float mo302toPx0680j_4(float f) {
-        return this.$$delegate_0.mo302toPx0680j_4(f);
+    public float mo603toPx0680j_4(float f) {
+        return this.$$delegate_0.mo603toPx0680j_4(f);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     public Rect toRect(DpRect dpRect) {
         Intrinsics.checkNotNullParameter(dpRect, "<this>");
         return this.$$delegate_0.toRect(dpRect);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toSize-XkaWNTQ  reason: not valid java name */
-    public long mo303toSizeXkaWNTQ(long j) {
-        return this.$$delegate_0.mo303toSizeXkaWNTQ(j);
+    public long mo604toSizeXkaWNTQ(long j) {
+        return this.$$delegate_0.mo604toSizeXkaWNTQ(j);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toSp-0xMU5do  reason: not valid java name */
-    public long mo304toSp0xMU5do(float f) {
-        return this.$$delegate_0.mo304toSp0xMU5do(f);
+    public long mo605toSp0xMU5do(float f) {
+        return this.$$delegate_0.mo605toSp0xMU5do(f);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toSp-kPz2Gy4  reason: not valid java name */
-    public long mo305toSpkPz2Gy4(float f) {
-        return this.$$delegate_0.mo305toSpkPz2Gy4(f);
+    public long mo606toSpkPz2Gy4(float f) {
+        return this.$$delegate_0.mo606toSpkPz2Gy4(f);
     }
 
-    @Override // androidx.compose.ui.unit.Density
+    @Override // androidx.compose.p002ui.unit.Density
     /* renamed from: toSp-kPz2Gy4  reason: not valid java name */
-    public long mo306toSpkPz2Gy4(int i) {
-        return this.$$delegate_0.mo306toSpkPz2Gy4(i);
+    public long mo607toSpkPz2Gy4(int i) {
+        return this.$$delegate_0.mo607toSpkPz2Gy4(i);
     }
 
     public PressGestureScopeImpl(Density density) {
@@ -188,7 +188,7 @@ public final class PressGestureScopeImpl implements PressGestureScope, Density {
     /* JADX WARN: Removed duplicated region for block: B:14:0x0032  */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0046  */
     /* JADX WARN: Removed duplicated region for block: B:21:0x0049  */
-    @Override // androidx.compose.foundation.gestures.PressGestureScope
+    @Override // androidx.compose.foundation.gestures.TapGestureDetector
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -248,7 +248,7 @@ public final class PressGestureScopeImpl implements PressGestureScope, Density {
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0025  */
     /* JADX WARN: Removed duplicated region for block: B:14:0x0037  */
-    @Override // androidx.compose.foundation.gestures.PressGestureScope
+    @Override // androidx.compose.foundation.gestures.TapGestureDetector
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -310,7 +310,7 @@ public final class PressGestureScopeImpl implements PressGestureScope, Density {
             r0 = r5
         L57:
             boolean r6 = r0.isReleased
-            java.lang.Boolean r6 = kotlin.coroutines.jvm.internal.Boxing.boxBoolean(r6)
+            java.lang.Boolean r6 = kotlin.coroutines.jvm.internal.boxing.boxBoolean(r6)
             return r6
         */
         throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.PressGestureScopeImpl.tryAwaitRelease(kotlin.coroutines.Continuation):java.lang.Object");

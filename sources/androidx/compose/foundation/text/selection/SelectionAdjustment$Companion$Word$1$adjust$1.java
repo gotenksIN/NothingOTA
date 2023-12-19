@@ -1,13 +1,13 @@
 package androidx.compose.foundation.text.selection;
 
-import androidx.compose.ui.text.TextLayoutResult;
-import androidx.compose.ui.text.TextRange;
+import androidx.compose.p002ui.text.TextLayoutResult;
+import androidx.compose.p002ui.text.TextRange;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 
 /* compiled from: SelectionAdjustment.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 /* synthetic */ class SelectionAdjustment$Companion$Word$1$adjust$1 extends FunctionReferenceImpl implements Function1<Integer, TextRange> {
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -17,11 +17,11 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 
     @Override // kotlin.jvm.functions.Function1
     public /* bridge */ /* synthetic */ TextRange invoke(Integer num) {
-        return TextRange.m4575boximpl(m821invokejx7JFs(num.intValue()));
+        return TextRange.m4876boximpl(m1122invokejx7JFs(num.intValue()));
     }
 
     /* renamed from: invoke--jx7JFs  reason: not valid java name */
-    public final long m821invokejx7JFs(int i) {
-        return ((TextLayoutResult) this.receiver).m4561getWordBoundaryjx7JFs(i);
+    public final long m1122invokejx7JFs(int i) {
+        return ((TextLayoutResult) this.receiver).m4862getWordBoundaryjx7JFs(i);
     }
 }

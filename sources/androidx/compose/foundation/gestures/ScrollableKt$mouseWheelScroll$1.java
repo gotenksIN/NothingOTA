@@ -1,8 +1,8 @@
 package androidx.compose.foundation.gestures;
 
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -15,8 +15,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Scrollable.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1", f = "Scrollable.kt", i = {}, l = {291}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1", m30f = "Scrollable.kt", m29i = {}, m28l = {291}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ ScrollConfig $mouseWheelScrollConfig;
@@ -46,18 +46,18 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Scrollable.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1$1", f = "Scrollable.kt", i = {0}, l = {293}, m = "invokeSuspend", n = {"$this$awaitPointerEventScope"}, s = {"L$0"})
-    /* renamed from: androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1$1", m30f = "Scrollable.kt", m29i = {0}, m28l = {293}, m27m = "invokeSuspend", m26n = {"$this$awaitPointerEventScope"}, m25s = {"L$0"})
+    /* renamed from: androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+    public static final class C02231 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ ScrollConfig $mouseWheelScrollConfig;
         final /* synthetic */ State<ScrollingLogic> $scrollingLogicState;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(ScrollConfig scrollConfig, State<ScrollingLogic> state, Continuation<? super AnonymousClass1> continuation) {
+        C02231(ScrollConfig scrollConfig, State<ScrollingLogic> state, Continuation<? super C02231> continuation) {
             super(2, continuation);
             this.$mouseWheelScrollConfig = scrollConfig;
             this.$scrollingLogicState = state;
@@ -65,14 +65,14 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$mouseWheelScrollConfig, this.$scrollingLogicState, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C02231 c02231 = new C02231(this.$mouseWheelScrollConfig, this.$scrollingLogicState, continuation);
+            c02231.L$0 = obj;
+            return c02231;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C02231) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:11:0x0034 A[RETURN] */
@@ -95,7 +95,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
                 if (r1 == 0) goto L1e
                 if (r1 != r2) goto L16
                 java.lang.Object r1 = r11.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
                 kotlin.ResultKt.throwOnFailure(r12)
                 r3 = r1
                 r1 = r0
@@ -109,7 +109,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
             L1e:
                 kotlin.ResultKt.throwOnFailure(r12)
                 java.lang.Object r12 = r11.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r12 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r12
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r12 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r12
                 r1 = r12
                 r12 = r11
             L27:
@@ -127,7 +127,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
                 r3 = r1
                 r1 = r10
             L3a:
-                androidx.compose.ui.input.pointer.PointerEvent r12 = (androidx.compose.ui.input.pointer.PointerEvent) r12
+                androidx.compose.ui.input.pointer.PointerEvent r12 = (androidx.compose.p002ui.input.pointer.PointerEvent) r12
                 java.util.List r4 = r12.getChanges()
                 int r5 = r4.size()
                 r6 = 0
@@ -135,7 +135,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
             L46:
                 if (r7 >= r5) goto L5a
                 java.lang.Object r8 = r4.get(r7)
-                androidx.compose.ui.input.pointer.PointerInputChange r8 = (androidx.compose.ui.input.pointer.PointerInputChange) r8
+                androidx.compose.ui.input.pointer.PointerInputChange r8 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r8
                 boolean r8 = r8.isConsumed()
                 r8 = r8 ^ r2
                 if (r8 != 0) goto L57
@@ -151,12 +151,12 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
                 androidx.compose.foundation.gestures.ScrollConfig r4 = r0.$mouseWheelScrollConfig
                 androidx.compose.runtime.State<androidx.compose.foundation.gestures.ScrollingLogic> r5 = r0.$scrollingLogicState
                 r7 = r3
-                androidx.compose.ui.unit.Density r7 = (androidx.compose.ui.unit.Density) r7
-                long r8 = r3.mo3873getSizeYbymL2g()
-                long r7 = r4.mo218calculateMouseWheelScroll8xgXZGE(r7, r12, r8)
+                androidx.compose.ui.unit.Density r7 = (androidx.compose.p002ui.unit.Density) r7
+                long r8 = r3.mo4174getSizeYbymL2g()
+                long r7 = r4.mo519calculateMouseWheelScroll8xgXZGE(r7, r12, r8)
                 java.lang.Object r4 = r5.getValue()
                 androidx.compose.foundation.gestures.ScrollingLogic r4 = (androidx.compose.foundation.gestures.ScrollingLogic) r4
-                float r5 = r4.m319toFloatk4lQ0M(r7)
+                float r5 = r4.m620toFloatk4lQ0M(r7)
                 float r5 = r4.reverseIfNeeded(r5)
                 androidx.compose.foundation.gestures.ScrollableState r4 = r4.getScrollableState()
                 float r4 = r4.dispatchRawDelta(r5)
@@ -174,7 +174,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
             L94:
                 if (r6 >= r4) goto La2
                 java.lang.Object r5 = r12.get(r6)
-                androidx.compose.ui.input.pointer.PointerInputChange r5 = (androidx.compose.ui.input.pointer.PointerInputChange) r5
+                androidx.compose.ui.input.pointer.PointerInputChange r5 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r5
                 r5.consume()
                 int r6 = r6 + 1
                 goto L94
@@ -184,7 +184,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
                 r1 = r3
                 goto L27
             */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.ScrollableKt$mouseWheelScroll$1.C02231.invokeSuspend(java.lang.Object):java.lang.Object");
         }
     }
 
@@ -195,7 +195,7 @@ public final class ScrollableKt$mouseWheelScroll$1 extends SuspendLambda impleme
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (((PointerInputScope) this.L$0).awaitPointerEventScope(new AnonymousClass1(this.$mouseWheelScrollConfig, this.$scrollingLogicState, null), this) == coroutine_suspended) {
+            if (((PointerInputScope) this.L$0).awaitPointerEventScope(new C02231(this.$mouseWheelScrollConfig, this.$scrollingLogicState, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

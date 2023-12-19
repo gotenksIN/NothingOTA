@@ -39,7 +39,7 @@ public final class ValueGraphBuilder<N, V> extends AbstractGraphBuilder<N> {
     }
 
     public ValueGraphBuilder<N, V> expectedNodeCount(int i) {
-        this.expectedNodeCount = Optional.of(Integer.valueOf(Graphs.checkNonNegative(i)));
+        this.expectedNodeCount = Optional.m241of(Integer.valueOf(Graphs.checkNonNegative(i)));
         return this;
     }
 

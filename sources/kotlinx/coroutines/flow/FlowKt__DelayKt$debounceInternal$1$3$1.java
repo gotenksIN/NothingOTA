@@ -9,12 +9,12 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Ref;
-import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+import kotlinx.coroutines.flow.internal.NullSurrogate;
 import kotlinx.coroutines.internal.Symbol;
 
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@"}, d2 = {"<anonymous>", "", "T"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounceInternal$1$3$1", f = "Delay.kt", i = {}, l = {233}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "T"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounceInternal$1$3$1", m30f = "Delay.kt", m29i = {}, m28l = {233}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class FlowKt__DelayKt$debounceInternal$1$3$1 extends SuspendLambda implements Function1<Continuation<? super Unit>, Object> {
     final /* synthetic */ FlowCollector<T> $downstream;
@@ -47,7 +47,7 @@ final class FlowKt__DelayKt$debounceInternal$1$3$1 extends SuspendLambda impleme
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             FlowCollector<T> flowCollector = this.$downstream;
-            Symbol symbol = NullSurrogateKt.NULL;
+            Symbol symbol = NullSurrogate.NULL;
             Object obj2 = this.$lastValue.element;
             if (obj2 == symbol) {
                 obj2 = null;

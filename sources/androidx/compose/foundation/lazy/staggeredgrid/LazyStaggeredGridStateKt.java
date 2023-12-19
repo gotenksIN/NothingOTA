@@ -2,13 +2,13 @@ package androidx.compose.foundation.lazy.staggeredgrid;
 
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
-import androidx.compose.runtime.saveable.RememberSaveableKt;
+import androidx.compose.runtime.saveable.RememberSaveable;
 import androidx.compose.runtime.saveable.Saver;
 import kotlin.Metadata;
-import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Functions;
 
 /* compiled from: LazyStaggeredGridState.kt */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\u001a!\u0010\u0000\u001a\u00020\u00012\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003H\u0007¢\u0006\u0002\u0010\u0005¨\u0006\u0006"}, d2 = {"rememberLazyStaggeredGridState", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "initialFirstVisibleItemIndex", "", "initialFirstVisibleItemScrollOffset", "(IILandroidx/compose/runtime/Composer;II)Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\u001a!\u0010\u0000\u001a\u00020\u00012\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003H\u0007¢\u0006\u0002\u0010\u0005¨\u0006\u0006"}, m40d2 = {"rememberLazyStaggeredGridState", "Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "initialFirstVisibleItemIndex", "", "initialFirstVisibleItemScrollOffset", "(IILandroidx/compose/runtime/Composer;II)Landroidx/compose/foundation/lazy/staggeredgrid/LazyStaggeredGridState;", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyStaggeredGridStateKt {
     public static final LazyStaggeredGridState rememberLazyStaggeredGridState(final int i, final int i2, Composer composer, int i3, int i4) {
@@ -32,7 +32,7 @@ public final class LazyStaggeredGridStateKt {
         boolean changed = composer.changed(valueOf) | composer.changed(valueOf2);
         Object rememberedValue = composer.rememberedValue();
         if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = (Function0) new Function0<LazyStaggeredGridState>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridStateKt$rememberLazyStaggeredGridState$1$1
+            rememberedValue = (Functions) new Functions<LazyStaggeredGridState>() { // from class: androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridStateKt$rememberLazyStaggeredGridState$1$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -40,7 +40,7 @@ public final class LazyStaggeredGridStateKt {
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final LazyStaggeredGridState invoke() {
                     return new LazyStaggeredGridState(i, i2);
                 }
@@ -48,7 +48,7 @@ public final class LazyStaggeredGridStateKt {
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        LazyStaggeredGridState lazyStaggeredGridState = (LazyStaggeredGridState) RememberSaveableKt.m2208rememberSaveable(objArr, saver, (String) null, (Function0<? extends Object>) rememberedValue, composer, 72, 4);
+        LazyStaggeredGridState lazyStaggeredGridState = (LazyStaggeredGridState) RememberSaveable.m2509rememberSaveable(objArr, saver, (String) null, (Functions<? extends Object>) rememberedValue, composer, 72, 4);
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }

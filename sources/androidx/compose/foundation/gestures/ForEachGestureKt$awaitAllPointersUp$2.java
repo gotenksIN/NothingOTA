@@ -1,7 +1,7 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -13,8 +13,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ForEachGesture.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ForEachGestureKt$awaitAllPointersUp$2", f = "ForEachGesture.kt", i = {}, l = {R.styleable.AppCompatTheme_listMenuViewStyle}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ForEachGestureKt$awaitAllPointersUp$2", m30f = "ForEachGesture.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_listMenuViewStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class ForEachGestureKt$awaitAllPointersUp$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     private /* synthetic */ Object L$0;
@@ -44,7 +44,7 @@ public final class ForEachGestureKt$awaitAllPointersUp$2 extends RestrictedSuspe
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (ForEachGestureKt.awaitAllPointersUp((AwaitPointerEventScope) this.L$0, this) == coroutine_suspended) {
+            if (ForEachGesture.awaitAllPointersUp((AwaitPointerEventScope) this.L$0, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

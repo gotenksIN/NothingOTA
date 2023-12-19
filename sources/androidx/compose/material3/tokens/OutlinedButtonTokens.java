@@ -1,17 +1,17 @@
 package androidx.compose.material3.tokens;
 
-import androidx.compose.ui.unit.Dp;
+import androidx.compose.p002ui.unit.C0780Dp;
 import kotlin.Metadata;
 
 /* compiled from: OutlinedButtonTokens.kt */
-@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\u0019\n\u0002\u0018\u0002\n\u0002\b\r\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001c\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u0011\u0010\f\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0012\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u000fR\u000e\u0010\u0014\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0015\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u000fR\u000e\u0010\u0017\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0018\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u000fR\u0011\u0010\u001a\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u000fR\u0011\u0010\u001c\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u000fR\u0011\u0010\u001e\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u000fR\u0011\u0010 \u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u000fR\u0011\u0010\"\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b#\u0010\u000fR\u0011\u0010$\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u000fR\u001c\u0010&\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b'\u0010\u0006R\u0011\u0010(\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b)\u0010\u000fR\u0011\u0010*\u001a\u00020+¢\u0006\b\n\u0000\u001a\u0004\b,\u0010-R\u0011\u0010.\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b/\u0010\u000fR\u001c\u00100\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b1\u0010\u0006R\u0011\u00102\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u000fR\u0011\u00104\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b5\u0010\u000fR\u0011\u00106\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b7\u0010\u000f\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u00068"}, d2 = {"Landroidx/compose/material3/tokens/OutlinedButtonTokens;", "", "()V", "ContainerHeight", "Landroidx/compose/ui/unit/Dp;", "getContainerHeight-D9Ej5fM", "()F", "F", "ContainerShape", "Landroidx/compose/material3/tokens/ShapeKeyTokens;", "getContainerShape", "()Landroidx/compose/material3/tokens/ShapeKeyTokens;", "DisabledIconColor", "Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "getDisabledIconColor", "()Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "DisabledIconOpacity", "", "DisabledLabelTextColor", "getDisabledLabelTextColor", "DisabledLabelTextOpacity", "DisabledOutlineColor", "getDisabledOutlineColor", "DisabledOutlineOpacity", "FocusIconColor", "getFocusIconColor", "FocusLabelTextColor", "getFocusLabelTextColor", "FocusOutlineColor", "getFocusOutlineColor", "HoverIconColor", "getHoverIconColor", "HoverLabelTextColor", "getHoverLabelTextColor", "HoverOutlineColor", "getHoverOutlineColor", "IconColor", "getIconColor", "IconSize", "getIconSize-D9Ej5fM", "LabelTextColor", "getLabelTextColor", "LabelTextFont", "Landroidx/compose/material3/tokens/TypographyKeyTokens;", "getLabelTextFont", "()Landroidx/compose/material3/tokens/TypographyKeyTokens;", "OutlineColor", "getOutlineColor", "OutlineWidth", "getOutlineWidth-D9Ej5fM", "PressedIconColor", "getPressedIconColor", "PressedLabelTextColor", "getPressedLabelTextColor", "PressedOutlineColor", "getPressedOutlineColor", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0007\n\u0002\b\u0019\n\u0002\u0018\u0002\n\u0002\b\r\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001c\u0010\u0003\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u0011\u0010\f\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u000e\u0010\u0010\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0012\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u000fR\u000e\u0010\u0014\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0015\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u000fR\u000e\u0010\u0017\u001a\u00020\u0011X\u0086T¢\u0006\u0002\n\u0000R\u0011\u0010\u0018\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u000fR\u0011\u0010\u001a\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u000fR\u0011\u0010\u001c\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u000fR\u0011\u0010\u001e\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u000fR\u0011\u0010 \u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b!\u0010\u000fR\u0011\u0010\"\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b#\u0010\u000fR\u0011\u0010$\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u000fR\u001c\u0010&\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b'\u0010\u0006R\u0011\u0010(\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b)\u0010\u000fR\u0011\u0010*\u001a\u00020+¢\u0006\b\n\u0000\u001a\u0004\b,\u0010-R\u0011\u0010.\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b/\u0010\u000fR\u001c\u00100\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0007\u001a\u0004\b1\u0010\u0006R\u0011\u00102\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u000fR\u0011\u00104\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b5\u0010\u000fR\u0011\u00106\u001a\u00020\r¢\u0006\b\n\u0000\u001a\u0004\b7\u0010\u000f\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u00068"}, m40d2 = {"Landroidx/compose/material3/tokens/OutlinedButtonTokens;", "", "()V", "ContainerHeight", "Landroidx/compose/ui/unit/Dp;", "getContainerHeight-D9Ej5fM", "()F", "F", "ContainerShape", "Landroidx/compose/material3/tokens/ShapeKeyTokens;", "getContainerShape", "()Landroidx/compose/material3/tokens/ShapeKeyTokens;", "DisabledIconColor", "Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "getDisabledIconColor", "()Landroidx/compose/material3/tokens/ColorSchemeKeyTokens;", "DisabledIconOpacity", "", "DisabledLabelTextColor", "getDisabledLabelTextColor", "DisabledLabelTextOpacity", "DisabledOutlineColor", "getDisabledOutlineColor", "DisabledOutlineOpacity", "FocusIconColor", "getFocusIconColor", "FocusLabelTextColor", "getFocusLabelTextColor", "FocusOutlineColor", "getFocusOutlineColor", "HoverIconColor", "getHoverIconColor", "HoverLabelTextColor", "getHoverLabelTextColor", "HoverOutlineColor", "getHoverOutlineColor", "IconColor", "getIconColor", "IconSize", "getIconSize-D9Ej5fM", "LabelTextColor", "getLabelTextColor", "LabelTextFont", "Landroidx/compose/material3/tokens/TypographyKeyTokens;", "getLabelTextFont", "()Landroidx/compose/material3/tokens/TypographyKeyTokens;", "OutlineColor", "getOutlineColor", "OutlineWidth", "getOutlineWidth-D9Ej5fM", "PressedIconColor", "getPressedIconColor", "PressedLabelTextColor", "getPressedLabelTextColor", "PressedOutlineColor", "getPressedOutlineColor", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class OutlinedButtonTokens {
     public static final float DisabledIconOpacity = 0.38f;
     public static final float DisabledLabelTextOpacity = 0.38f;
     public static final float DisabledOutlineOpacity = 0.12f;
     public static final OutlinedButtonTokens INSTANCE = new OutlinedButtonTokens();
-    private static final float ContainerHeight = Dp.m5050constructorimpl((float) 40.0d);
+    private static final float ContainerHeight = C0780Dp.m5351constructorimpl((float) 40.0d);
     private static final ShapeKeyTokens ContainerShape = ShapeKeyTokens.CornerFull;
     private static final ColorSchemeKeyTokens DisabledLabelTextColor = ColorSchemeKeyTokens.OnSurface;
     private static final ColorSchemeKeyTokens DisabledOutlineColor = ColorSchemeKeyTokens.OnSurface;
@@ -22,21 +22,21 @@ public final class OutlinedButtonTokens {
     private static final ColorSchemeKeyTokens LabelTextColor = ColorSchemeKeyTokens.Primary;
     private static final TypographyKeyTokens LabelTextFont = TypographyKeyTokens.LabelLarge;
     private static final ColorSchemeKeyTokens OutlineColor = ColorSchemeKeyTokens.Outline;
-    private static final float OutlineWidth = Dp.m5050constructorimpl((float) 1.0d);
+    private static final float OutlineWidth = C0780Dp.m5351constructorimpl((float) 1.0d);
     private static final ColorSchemeKeyTokens PressedLabelTextColor = ColorSchemeKeyTokens.Primary;
     private static final ColorSchemeKeyTokens PressedOutlineColor = ColorSchemeKeyTokens.Outline;
     private static final ColorSchemeKeyTokens DisabledIconColor = ColorSchemeKeyTokens.OnSurface;
     private static final ColorSchemeKeyTokens FocusIconColor = ColorSchemeKeyTokens.Primary;
     private static final ColorSchemeKeyTokens HoverIconColor = ColorSchemeKeyTokens.Primary;
     private static final ColorSchemeKeyTokens IconColor = ColorSchemeKeyTokens.Primary;
-    private static final float IconSize = Dp.m5050constructorimpl((float) 18.0d);
+    private static final float IconSize = C0780Dp.m5351constructorimpl((float) 18.0d);
     private static final ColorSchemeKeyTokens PressedIconColor = ColorSchemeKeyTokens.Primary;
 
     private OutlinedButtonTokens() {
     }
 
     /* renamed from: getContainerHeight-D9Ej5fM  reason: not valid java name */
-    public final float m1923getContainerHeightD9Ej5fM() {
+    public final float m2224getContainerHeightD9Ej5fM() {
         return ContainerHeight;
     }
 
@@ -81,7 +81,7 @@ public final class OutlinedButtonTokens {
     }
 
     /* renamed from: getOutlineWidth-D9Ej5fM  reason: not valid java name */
-    public final float m1925getOutlineWidthD9Ej5fM() {
+    public final float m2226getOutlineWidthD9Ej5fM() {
         return OutlineWidth;
     }
 
@@ -110,7 +110,7 @@ public final class OutlinedButtonTokens {
     }
 
     /* renamed from: getIconSize-D9Ej5fM  reason: not valid java name */
-    public final float m1924getIconSizeD9Ej5fM() {
+    public final float m2225getIconSizeD9Ej5fM() {
         return IconSize;
     }
 

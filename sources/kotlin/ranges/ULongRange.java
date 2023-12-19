@@ -6,7 +6,7 @@ import kotlin.ULong;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 /* compiled from: ULongRange.kt */
-@Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u0000 \u001c2\u00020\u00012\b\u0012\u0004\u0012\u00020\u00030\u00022\b\u0012\u0004\u0012\u00020\u00030\u0004:\u0001\u001cB\u0018\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u001b\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013J\u0013\u0010\u0014\u001a\u00020\u00102\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0096\u0002J\b\u0010\u0017\u001a\u00020\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u0010H\u0016J\b\u0010\u001a\u001a\u00020\u001bH\u0016R \u0010\b\u001a\u00020\u00038VX\u0097\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\fR\u001a\u0010\u0006\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\r\u0010\fR\u001a\u0010\u0005\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u000e\u0010\fø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u001d"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ULong;", "Lkotlin/ranges/OpenEndRange;", "start", "endInclusive", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "endExclusive", "getEndExclusive-s-VKNKU$annotations", "()V", "getEndExclusive-s-VKNKU", "()J", "getEndInclusive-s-VKNKU", "getStart-s-VKNKU", "contains", "", "value", "contains-VKZWuLQ", "(J)Z", "equals", "other", "", "hashCode", "", "isEmpty", "toString", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 9, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u0000 \u001c2\u00020\u00012\b\u0012\u0004\u0012\u00020\u00030\u00022\b\u0012\u0004\u0012\u00020\u00030\u0004:\u0001\u001cB\u0018\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u001b\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013J\u0013\u0010\u0014\u001a\u00020\u00102\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016H\u0096\u0002J\b\u0010\u0017\u001a\u00020\u0018H\u0016J\b\u0010\u0019\u001a\u00020\u0010H\u0016J\b\u0010\u001a\u001a\u00020\u001bH\u0016R \u0010\b\u001a\u00020\u00038VX\u0097\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\f\u0012\u0004\b\t\u0010\n\u001a\u0004\b\u000b\u0010\fR\u001a\u0010\u0006\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\r\u0010\fR\u001a\u0010\u0005\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u000e\u0010\fø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u001d"}, m40d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ULong;", "Lkotlin/ranges/OpenEndRange;", "start", "endInclusive", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "endExclusive", "getEndExclusive-s-VKNKU$annotations", "()V", "getEndExclusive-s-VKNKU", "()J", "getEndInclusive-s-VKNKU", "getStart-s-VKNKU", "contains", "", "value", "contains-VKZWuLQ", "(J)Z", "equals", "other", "", "hashCode", "", "isEmpty", "toString", "", "Companion", "kotlin-stdlib"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class ULongRange extends ULongProgression implements ClosedRange<ULong>, OpenEndRange<ULong> {
     public static final Companion Companion = new Companion(null);
@@ -18,27 +18,27 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
 
     @Deprecated(message = "Can throw an exception when it's impossible to represent the value with ULong type, for example, when the range includes MAX_VALUE. It's recommended to use 'endInclusive' property that doesn't throw.")
     /* renamed from: getEndExclusive-s-VKNKU$annotations  reason: not valid java name */
-    public static /* synthetic */ void m6609getEndExclusivesVKNKU$annotations() {
+    public static /* synthetic */ void m6885getEndExclusivesVKNKU$annotations() {
     }
 
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m6610containsVKZWuLQ(uLong.m5599unboximpl());
+        return m6886containsVKZWuLQ(uLong.m5875unboximpl());
     }
 
     @Override // kotlin.ranges.OpenEndRange
     public /* bridge */ /* synthetic */ ULong getEndExclusive() {
-        return ULong.m5541boximpl(m6611getEndExclusivesVKNKU());
+        return ULong.m5817boximpl(m6887getEndExclusivesVKNKU());
     }
 
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getEndInclusive() {
-        return ULong.m5541boximpl(m6612getEndInclusivesVKNKU());
+        return ULong.m5817boximpl(m6888getEndInclusivesVKNKU());
     }
 
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getStart() {
-        return ULong.m5541boximpl(m6613getStartsVKNKU());
+        return ULong.m5817boximpl(m6889getStartsVKNKU());
     }
 
     private ULongRange(long j, long j2) {
@@ -46,31 +46,31 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     }
 
     /* renamed from: getStart-s-VKNKU  reason: not valid java name */
-    public long m6613getStartsVKNKU() {
-        return m6605getFirstsVKNKU();
+    public long m6889getStartsVKNKU() {
+        return m6881getFirstsVKNKU();
     }
 
     /* renamed from: getEndInclusive-s-VKNKU  reason: not valid java name */
-    public long m6612getEndInclusivesVKNKU() {
-        return m6606getLastsVKNKU();
+    public long m6888getEndInclusivesVKNKU() {
+        return m6882getLastsVKNKU();
     }
 
     /* renamed from: getEndExclusive-s-VKNKU  reason: not valid java name */
-    public long m6611getEndExclusivesVKNKU() {
-        if (m6606getLastsVKNKU() == -1) {
+    public long m6887getEndExclusivesVKNKU() {
+        if (m6882getLastsVKNKU() == -1) {
             throw new IllegalStateException("Cannot return the exclusive upper bound of a range that includes MAX_VALUE.".toString());
         }
-        return ULong.m5547constructorimpl(m6606getLastsVKNKU() + ULong.m5547constructorimpl(1 & 4294967295L));
+        return ULong.m5823constructorimpl(m6882getLastsVKNKU() + ULong.m5823constructorimpl(1 & 4294967295L));
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m6610containsVKZWuLQ(long j) {
-        return Long.compareUnsigned(m6605getFirstsVKNKU(), j) <= 0 && Long.compareUnsigned(j, m6606getLastsVKNKU()) <= 0;
+    public boolean m6886containsVKZWuLQ(long j) {
+        return Long.compareUnsigned(m6881getFirstsVKNKU(), j) <= 0 && Long.compareUnsigned(j, m6882getLastsVKNKU()) <= 0;
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        return Long.compareUnsigned(m6605getFirstsVKNKU(), m6606getLastsVKNKU()) > 0;
+        return Long.compareUnsigned(m6881getFirstsVKNKU(), m6882getLastsVKNKU()) > 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -78,7 +78,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (obj instanceof ULongRange) {
             if (!isEmpty() || !((ULongRange) obj).isEmpty()) {
                 ULongRange uLongRange = (ULongRange) obj;
-                if (m6605getFirstsVKNKU() != uLongRange.m6605getFirstsVKNKU() || m6606getLastsVKNKU() != uLongRange.m6606getLastsVKNKU()) {
+                if (m6881getFirstsVKNKU() != uLongRange.m6881getFirstsVKNKU() || m6882getLastsVKNKU() != uLongRange.m6882getLastsVKNKU()) {
                 }
             }
             return true;
@@ -91,16 +91,16 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (isEmpty()) {
             return -1;
         }
-        return (((int) ULong.m5547constructorimpl(m6605getFirstsVKNKU() ^ ULong.m5547constructorimpl(m6605getFirstsVKNKU() >>> 32))) * 31) + ((int) ULong.m5547constructorimpl(m6606getLastsVKNKU() ^ ULong.m5547constructorimpl(m6606getLastsVKNKU() >>> 32)));
+        return (((int) ULong.m5823constructorimpl(m6881getFirstsVKNKU() ^ ULong.m5823constructorimpl(m6881getFirstsVKNKU() >>> 32))) * 31) + ((int) ULong.m5823constructorimpl(m6882getLastsVKNKU() ^ ULong.m5823constructorimpl(m6882getLastsVKNKU() >>> 32)));
     }
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ((Object) ULong.m5593toStringimpl(m6605getFirstsVKNKU())) + ".." + ((Object) ULong.m5593toStringimpl(m6606getLastsVKNKU()));
+        return ((Object) ULong.m5869toStringimpl(m6881getFirstsVKNKU())) + ".." + ((Object) ULong.m5869toStringimpl(m6882getLastsVKNKU()));
     }
 
     /* compiled from: ULongRange.kt */
-    @Metadata(d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, d2 = {"Lkotlin/ranges/ULongRange$Companion;", "", "()V", "EMPTY", "Lkotlin/ranges/ULongRange;", "getEMPTY", "()Lkotlin/ranges/ULongRange;", "kotlin-stdlib"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0014\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0007"}, m40d2 = {"Lkotlin/ranges/ULongRange$Companion;", "", "()V", "EMPTY", "Lkotlin/ranges/ULongRange;", "getEMPTY", "()Lkotlin/ranges/ULongRange;", "kotlin-stdlib"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {

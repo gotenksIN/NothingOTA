@@ -12,15 +12,17 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class ImmutableClassToInstanceMap<B> extends ForwardingMap<Class<? extends B>, B> implements ClassToInstanceMap<B>, Serializable {
-    private static final ImmutableClassToInstanceMap<Object> EMPTY = new ImmutableClassToInstanceMap<>(ImmutableMap.of());
+    private static final ImmutableClassToInstanceMap<Object> EMPTY = new ImmutableClassToInstanceMap<>(ImmutableMap.m192of());
     private final ImmutableMap<Class<? extends B>, B> delegate;
 
-    public static <B> ImmutableClassToInstanceMap<B> of() {
+    /* renamed from: of */
+    public static <B> ImmutableClassToInstanceMap<B> m213of() {
         return (ImmutableClassToInstanceMap<B>) EMPTY;
     }
 
-    public static <B, T extends B> ImmutableClassToInstanceMap<B> of(Class<T> cls, T t) {
-        return new ImmutableClassToInstanceMap<>(ImmutableMap.of(cls, t));
+    /* renamed from: of */
+    public static <B, T extends B> ImmutableClassToInstanceMap<B> m212of(Class<T> cls, T t) {
+        return new ImmutableClassToInstanceMap<>(ImmutableMap.m191of(cls, t));
     }
 
     public static <B> Builder<B> builder() {
@@ -52,7 +54,7 @@ public final class ImmutableClassToInstanceMap<B> extends ForwardingMap<Class<? 
         public ImmutableClassToInstanceMap<B> build() {
             ImmutableMap<Class<? extends B>, B> buildOrThrow = this.mapBuilder.buildOrThrow();
             if (buildOrThrow.isEmpty()) {
-                return ImmutableClassToInstanceMap.of();
+                return ImmutableClassToInstanceMap.m213of();
             }
             return new ImmutableClassToInstanceMap<>(buildOrThrow);
         }
@@ -90,6 +92,6 @@ public final class ImmutableClassToInstanceMap<B> extends ForwardingMap<Class<? 
     }
 
     Object readResolve() {
-        return isEmpty() ? of() : this;
+        return isEmpty() ? m213of() : this;
     }
 }

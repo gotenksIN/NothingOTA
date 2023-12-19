@@ -11,11 +11,15 @@ import kotlin.text.Typography;
 public final class MailTo {
     private static final String BCC = "bcc";
     private static final String BODY = "body";
-    private static final String CC = "cc";
+
+    /* renamed from: CC */
+    private static final String f165CC = "cc";
     private static final String MAILTO = "mailto";
     public static final String MAILTO_SCHEME = "mailto:";
     private static final String SUBJECT = "subject";
-    private static final String TO = "to";
+
+    /* renamed from: TO */
+    private static final String f166TO = "to";
     private HashMap<String, String> mHeaders = new HashMap<>();
 
     private MailTo() {
@@ -61,7 +65,7 @@ public final class MailTo {
         if (to != null) {
             decode = decode + ", " + to;
         }
-        mailTo.mHeaders.put(TO, decode);
+        mailTo.mHeaders.put(f166TO, decode);
         return mailTo;
     }
 
@@ -70,11 +74,11 @@ public final class MailTo {
     }
 
     public String getTo() {
-        return this.mHeaders.get(TO);
+        return this.mHeaders.get(f166TO);
     }
 
     public String getCc() {
-        return this.mHeaders.get(CC);
+        return this.mHeaders.get(f165CC);
     }
 
     public String getBcc() {

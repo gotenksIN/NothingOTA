@@ -5,46 +5,46 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
+import androidx.compose.p002ui.C0684R;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.platform.AbstractComposeView;
+import androidx.compose.p002ui.platform.ViewRootForInspector;
+import androidx.compose.p002ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntRect;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.IntSizeKt;
+import androidx.compose.p002ui.unit.LayoutDirection;
+import androidx.compose.p002ui.window.PopupPositionProvider;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionContext;
-import androidx.compose.runtime.MutableState;
 import androidx.compose.runtime.RecomposeScopeImplKt;
 import androidx.compose.runtime.ScopeUpdateScope;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.R;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.platform.AbstractComposeView;
-import androidx.compose.ui.platform.ViewRootForInspector;
-import androidx.compose.ui.unit.IntOffset;
-import androidx.compose.ui.unit.IntRect;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.IntSizeKt;
-import androidx.compose.ui.unit.LayoutDirection;
-import androidx.compose.ui.window.PopupPositionProvider;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.ViewTreeLifecycleOwner;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: ExposedDropdownMenuPopup.kt */
-@Metadata(d1 = {"\u0000¨\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0006\b\u0003\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B=\u0012\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0005\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f\u0012\u0006\u0010\r\u001a\u00020\u000e\u0012\u0006\u0010\u000f\u001a\u00020\u0010¢\u0006\u0002\u0010\u0011J\r\u0010P\u001a\u00020\u0006H\u0017¢\u0006\u0002\u0010QJ\b\u0010R\u001a\u00020)H\u0002J\u0006\u0010S\u001a\u00020\u0006J\u0010\u0010T\u001a\u00020\u00132\u0006\u0010U\u001a\u00020VH\u0016J\b\u0010W\u001a\u00020\u0006H\u0016J\u0012\u0010X\u001a\u00020\u00132\b\u0010U\u001a\u0004\u0018\u00010YH\u0016J&\u0010\u001d\u001a\u00020\u00062\u0006\u0010Z\u001a\u00020[2\u0011\u0010\u001a\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u0019¢\u0006\u0002\u0010\\J\u0010\u0010]\u001a\u00020\u00062\u0006\u0010^\u001a\u00020_H\u0016J\u0006\u0010`\u001a\u00020\u0006J\u0010\u0010a\u001a\u00020\u00062\u0006\u0010^\u001a\u000201H\u0002J&\u0010b\u001a\u00020\u00062\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u00052\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010^\u001a\u000201J\u0006\u0010c\u001a\u00020\u0006J\f\u0010d\u001a\u00020$*\u00020CH\u0002R\u001b\u0010\u0012\u001a\u00020\u00138FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0014\u0010\u0015R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000RA\u0010\u001a\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u00192\u0011\u0010\u0018\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u00198B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR%\u0010!\u001a\u0016\u0012\u0006\u0012\u0004\u0018\u00010#\u0012\u0004\u0012\u00020$\u0012\u0004\u0012\u00020\u00130\"X\u0082\u0004ø\u0001\u0000¢\u0006\u0002\n\u0000R\u0019\u0010%\u001a\u00020&X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010'R\u0016\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R/\u0010*\u001a\u0004\u0018\u00010$2\b\u0010\u0018\u001a\u0004\u0018\u00010$8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b/\u0010 \u001a\u0004\b+\u0010,\"\u0004\b-\u0010.R\u001a\u00100\u001a\u000201X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105R8\u00107\u001a\u0004\u0018\u0001062\b\u0010\u0018\u001a\u0004\u0018\u0001068F@FX\u0086\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b<\u0010 \u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u001a\u0010=\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b>\u0010?\"\u0004\b@\u0010AR\u000e\u0010B\u001a\u00020CX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010D\u001a\u00020\u00132\u0006\u0010\u0018\u001a\u00020\u0013@RX\u0094\u000e¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0015R\u0014\u0010F\u001a\u00020\u00018VX\u0096\u0004¢\u0006\u0006\u001a\u0004\bG\u0010HR\u001a\u0010\u0007\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010J\"\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020CX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010N\u001a\u00020OX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006e"}, d2 = {"Landroidx/compose/material3/internal/PopupLayout;", "Landroidx/compose/ui/platform/AbstractComposeView;", "Landroidx/compose/ui/platform/ViewRootForInspector;", "Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;", "onDismissRequest", "Lkotlin/Function0;", "", "testTag", "", "composeView", "Landroid/view/View;", "density", "Landroidx/compose/ui/unit/Density;", "initialPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "popupId", "Ljava/util/UUID;", "(Lkotlin/jvm/functions/Function0;Ljava/lang/String;Landroid/view/View;Landroidx/compose/ui/unit/Density;Landroidx/compose/ui/window/PopupPositionProvider;Ljava/util/UUID;)V", "canCalculatePosition", "", "getCanCalculatePosition", "()Z", "canCalculatePosition$delegate", "Landroidx/compose/runtime/State;", "<set-?>", "Landroidx/compose/runtime/Composable;", "content", "getContent", "()Lkotlin/jvm/functions/Function2;", "setContent", "(Lkotlin/jvm/functions/Function2;)V", "content$delegate", "Landroidx/compose/runtime/MutableState;", "dismissOnOutsideClick", "Lkotlin/Function2;", "Landroidx/compose/ui/geometry/Offset;", "Landroidx/compose/ui/unit/IntRect;", "maxSupportedElevation", "Landroidx/compose/ui/unit/Dp;", "F", "params", "Landroid/view/WindowManager$LayoutParams;", "parentBounds", "getParentBounds", "()Landroidx/compose/ui/unit/IntRect;", "setParentBounds", "(Landroidx/compose/ui/unit/IntRect;)V", "parentBounds$delegate", "parentLayoutDirection", "Landroidx/compose/ui/unit/LayoutDirection;", "getParentLayoutDirection", "()Landroidx/compose/ui/unit/LayoutDirection;", "setParentLayoutDirection", "(Landroidx/compose/ui/unit/LayoutDirection;)V", "Landroidx/compose/ui/unit/IntSize;", "popupContentSize", "getPopupContentSize-bOM6tXw", "()Landroidx/compose/ui/unit/IntSize;", "setPopupContentSize-fhxjrPA", "(Landroidx/compose/ui/unit/IntSize;)V", "popupContentSize$delegate", "positionProvider", "getPositionProvider", "()Landroidx/compose/ui/window/PopupPositionProvider;", "setPositionProvider", "(Landroidx/compose/ui/window/PopupPositionProvider;)V", "previousWindowVisibleFrame", "Landroid/graphics/Rect;", "shouldCreateCompositionOnAttachedToWindow", "getShouldCreateCompositionOnAttachedToWindow", "subCompositionView", "getSubCompositionView", "()Landroidx/compose/ui/platform/AbstractComposeView;", "getTestTag", "()Ljava/lang/String;", "setTestTag", "(Ljava/lang/String;)V", "tmpWindowVisibleFrame", "windowManager", "Landroid/view/WindowManager;", "Content", "(Landroidx/compose/runtime/Composer;I)V", "createLayoutParams", "dismiss", "dispatchKeyEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/KeyEvent;", "onGlobalLayout", "onTouchEvent", "Landroid/view/MotionEvent;", "parent", "Landroidx/compose/runtime/CompositionContext;", "(Landroidx/compose/runtime/CompositionContext;Lkotlin/jvm/functions/Function2;)V", "setLayoutDirection", "layoutDirection", "", "show", "superSetLayoutDirection", "updateParameters", "updatePosition", "toIntBounds", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000¨\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0006\b\u0003\u0018\u00002\u00020\u00012\u00020\u00022\u00020\u0003B=\u0012\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0005\u0012\u0006\u0010\u0007\u001a\u00020\b\u0012\u0006\u0010\t\u001a\u00020\n\u0012\u0006\u0010\u000b\u001a\u00020\f\u0012\u0006\u0010\r\u001a\u00020\u000e\u0012\u0006\u0010\u000f\u001a\u00020\u0010¢\u0006\u0002\u0010\u0011J\r\u0010P\u001a\u00020\u0006H\u0017¢\u0006\u0002\u0010QJ\b\u0010R\u001a\u00020)H\u0002J\u0006\u0010S\u001a\u00020\u0006J\u0010\u0010T\u001a\u00020\u00132\u0006\u0010U\u001a\u00020VH\u0016J\b\u0010W\u001a\u00020\u0006H\u0016J\u0012\u0010X\u001a\u00020\u00132\b\u0010U\u001a\u0004\u0018\u00010YH\u0016J&\u0010\u001d\u001a\u00020\u00062\u0006\u0010Z\u001a\u00020[2\u0011\u0010\u001a\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u0019¢\u0006\u0002\u0010\\J\u0010\u0010]\u001a\u00020\u00062\u0006\u0010^\u001a\u00020_H\u0016J\u0006\u0010`\u001a\u00020\u0006J\u0010\u0010a\u001a\u00020\u00062\u0006\u0010^\u001a\u000201H\u0002J&\u0010b\u001a\u00020\u00062\u000e\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u00052\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010^\u001a\u000201J\u0006\u0010c\u001a\u00020\u0006J\f\u0010d\u001a\u00020$*\u00020CH\u0002R\u001b\u0010\u0012\u001a\u00020\u00138FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u0017\u001a\u0004\b\u0014\u0010\u0015R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000RA\u0010\u001a\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u00192\u0011\u0010\u0018\u001a\r\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\b\u00198B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010 \u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR%\u0010!\u001a\u0016\u0012\u0006\u0012\u0004\u0018\u00010#\u0012\u0004\u0012\u00020$\u0012\u0004\u0012\u00020\u00130\"X\u0082\u0004ø\u0001\u0000¢\u0006\u0002\n\u0000R\u0019\u0010%\u001a\u00020&X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010'R\u0016\u0010\u0004\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082\u0004¢\u0006\u0002\n\u0000R/\u0010*\u001a\u0004\u0018\u00010$2\b\u0010\u0018\u001a\u0004\u0018\u00010$8F@FX\u0086\u008e\u0002¢\u0006\u0012\n\u0004\b/\u0010 \u001a\u0004\b+\u0010,\"\u0004\b-\u0010.R\u001a\u00100\u001a\u000201X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b2\u00103\"\u0004\b4\u00105R8\u00107\u001a\u0004\u0018\u0001062\b\u0010\u0018\u001a\u0004\u0018\u0001068F@FX\u0086\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b<\u0010 \u001a\u0004\b8\u00109\"\u0004\b:\u0010;R\u001a\u0010=\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b>\u0010?\"\u0004\b@\u0010AR\u000e\u0010B\u001a\u00020CX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010D\u001a\u00020\u00132\u0006\u0010\u0018\u001a\u00020\u0013@RX\u0094\u000e¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0015R\u0014\u0010F\u001a\u00020\u00018VX\u0096\u0004¢\u0006\u0006\u001a\u0004\bG\u0010HR\u001a\u0010\u0007\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010J\"\u0004\bK\u0010LR\u000e\u0010M\u001a\u00020CX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010N\u001a\u00020OX\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006e"}, m40d2 = {"Landroidx/compose/material3/internal/PopupLayout;", "Landroidx/compose/ui/platform/AbstractComposeView;", "Landroidx/compose/ui/platform/ViewRootForInspector;", "Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;", "onDismissRequest", "Lkotlin/Function0;", "", "testTag", "", "composeView", "Landroid/view/View;", "density", "Landroidx/compose/ui/unit/Density;", "initialPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "popupId", "Ljava/util/UUID;", "(Lkotlin/jvm/functions/Function0;Ljava/lang/String;Landroid/view/View;Landroidx/compose/ui/unit/Density;Landroidx/compose/ui/window/PopupPositionProvider;Ljava/util/UUID;)V", "canCalculatePosition", "", "getCanCalculatePosition", "()Z", "canCalculatePosition$delegate", "Landroidx/compose/runtime/State;", "<set-?>", "Landroidx/compose/runtime/Composable;", "content", "getContent", "()Lkotlin/jvm/functions/Function2;", "setContent", "(Lkotlin/jvm/functions/Function2;)V", "content$delegate", "Landroidx/compose/runtime/MutableState;", "dismissOnOutsideClick", "Lkotlin/Function2;", "Landroidx/compose/ui/geometry/Offset;", "Landroidx/compose/ui/unit/IntRect;", "maxSupportedElevation", "Landroidx/compose/ui/unit/Dp;", "F", "params", "Landroid/view/WindowManager$LayoutParams;", "parentBounds", "getParentBounds", "()Landroidx/compose/ui/unit/IntRect;", "setParentBounds", "(Landroidx/compose/ui/unit/IntRect;)V", "parentBounds$delegate", "parentLayoutDirection", "Landroidx/compose/ui/unit/LayoutDirection;", "getParentLayoutDirection", "()Landroidx/compose/ui/unit/LayoutDirection;", "setParentLayoutDirection", "(Landroidx/compose/ui/unit/LayoutDirection;)V", "Landroidx/compose/ui/unit/IntSize;", "popupContentSize", "getPopupContentSize-bOM6tXw", "()Landroidx/compose/ui/unit/IntSize;", "setPopupContentSize-fhxjrPA", "(Landroidx/compose/ui/unit/IntSize;)V", "popupContentSize$delegate", "positionProvider", "getPositionProvider", "()Landroidx/compose/ui/window/PopupPositionProvider;", "setPositionProvider", "(Landroidx/compose/ui/window/PopupPositionProvider;)V", "previousWindowVisibleFrame", "Landroid/graphics/Rect;", "shouldCreateCompositionOnAttachedToWindow", "getShouldCreateCompositionOnAttachedToWindow", "subCompositionView", "getSubCompositionView", "()Landroidx/compose/ui/platform/AbstractComposeView;", "getTestTag", "()Ljava/lang/String;", "setTestTag", "(Ljava/lang/String;)V", "tmpWindowVisibleFrame", "windowManager", "Landroid/view/WindowManager;", "Content", "(Landroidx/compose/runtime/Composer;I)V", "createLayoutParams", "dismiss", "dispatchKeyEvent", NotificationCompat.CATEGORY_EVENT, "Landroid/view/KeyEvent;", "onGlobalLayout", "onTouchEvent", "Landroid/view/MotionEvent;", "parent", "Landroidx/compose/runtime/CompositionContext;", "(Landroidx/compose/runtime/CompositionContext;Lkotlin/jvm/functions/Function2;)V", "setLayoutDirection", "layoutDirection", "", "show", "superSetLayoutDirection", "updateParameters", "updatePosition", "toIntBounds", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 final class PopupLayout extends AbstractComposeView implements ViewRootForInspector, ViewTreeObserver.OnGlobalLayoutListener {
     private final State canCalculatePosition$delegate;
     private final View composeView;
-    private final MutableState content$delegate;
+    private final SnapshotState content$delegate;
     private final Function2<Offset, IntRect, Boolean> dismissOnOutsideClick;
     private final float maxSupportedElevation;
-    private Function0<Unit> onDismissRequest;
+    private Functions<Unit> onDismissRequest;
     private final WindowManager.LayoutParams params;
-    private final MutableState parentBounds$delegate;
+    private final SnapshotState parentBounds$delegate;
     private LayoutDirection parentLayoutDirection;
-    private final MutableState popupContentSize$delegate;
+    private final SnapshotState popupContentSize$delegate;
     private PopupPositionProvider positionProvider;
     private final Rect previousWindowVisibleFrame;
     private boolean shouldCreateCompositionOnAttachedToWindow;
@@ -53,7 +53,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
     private final WindowManager windowManager;
 
     /* compiled from: ExposedDropdownMenuPopup.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
     /* loaded from: classes.dex */
     public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -90,7 +90,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public PopupLayout(kotlin.jvm.functions.Function0<kotlin.Unit> r8, java.lang.String r9, android.view.View r10, androidx.compose.ui.unit.Density r11, androidx.compose.ui.window.PopupPositionProvider r12, java.util.UUID r13) {
+    public PopupLayout(kotlin.jvm.functions.Functions<kotlin.Unit> r8, java.lang.String r9, android.view.View r10, androidx.compose.p002ui.unit.Density r11, androidx.compose.p002ui.window.PopupPositionProvider r12, java.util.UUID r13) {
         /*
             r7 = this;
             java.lang.String r0 = "testTag"
@@ -125,7 +125,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             android.view.WindowManager$LayoutParams r8 = r7.createLayoutParams()
             r7.params = r8
             r7.positionProvider = r12
-            androidx.compose.ui.unit.LayoutDirection r8 = androidx.compose.ui.unit.LayoutDirection.Ltr
+            androidx.compose.ui.unit.LayoutDirection r8 = androidx.compose.p002ui.unit.LayoutDirection.Ltr
             r7.parentLayoutDirection = r8
             r8 = 0
             r9 = 2
@@ -135,12 +135,12 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             r7.popupContentSize$delegate = r12
             androidx.compose.material3.internal.PopupLayout$canCalculatePosition$2 r12 = new androidx.compose.material3.internal.PopupLayout$canCalculatePosition$2
             r12.<init>()
-            kotlin.jvm.functions.Function0 r12 = (kotlin.jvm.functions.Function0) r12
+            kotlin.jvm.functions.Function0 r12 = (kotlin.jvm.functions.Functions) r12
             androidx.compose.runtime.State r12 = androidx.compose.runtime.SnapshotStateKt.derivedStateOf(r12)
             r7.canCalculatePosition$delegate = r12
             r12 = 8
             float r12 = (float) r12
-            float r12 = androidx.compose.ui.unit.Dp.m5050constructorimpl(r12)
+            float r12 = androidx.compose.p002ui.unit.C0780Dp.m5351constructorimpl(r12)
             r7.maxSupportedElevation = r12
             android.graphics.Rect r0 = new android.graphics.Rect
             r0.<init>()
@@ -148,7 +148,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             android.graphics.Rect r0 = new android.graphics.Rect
             r0.<init>()
             r7.tmpWindowVisibleFrame = r0
-            androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1 r0 = new kotlin.jvm.functions.Function2<androidx.compose.ui.geometry.Offset, androidx.compose.ui.unit.IntRect, java.lang.Boolean>() { // from class: androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1
+            androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1 r0 = new kotlin.jvm.functions.Function2<androidx.compose.p002ui.geometry.Offset, androidx.compose.p002ui.unit.IntRect, java.lang.Boolean>() { // from class: androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1
                 static {
                     /*
                         androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1 r0 = new androidx.compose.material3.internal.PopupLayout$dismissOnOutsideClick$1
@@ -171,11 +171,11 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
                 }
 
                 @Override // kotlin.jvm.functions.Function2
-                public /* bridge */ /* synthetic */ java.lang.Boolean invoke(androidx.compose.ui.geometry.Offset r1, androidx.compose.ui.unit.IntRect r2) {
+                public /* bridge */ /* synthetic */ java.lang.Boolean invoke(androidx.compose.p002ui.geometry.Offset r1, androidx.compose.p002ui.unit.IntRect r2) {
                     /*
                         r0 = this;
-                        androidx.compose.ui.geometry.Offset r1 = (androidx.compose.ui.geometry.Offset) r1
-                        androidx.compose.ui.unit.IntRect r2 = (androidx.compose.ui.unit.IntRect) r2
+                        androidx.compose.ui.geometry.Offset r1 = (androidx.compose.p002ui.geometry.Offset) r1
+                        androidx.compose.ui.unit.IntRect r2 = (androidx.compose.p002ui.unit.IntRect) r2
                         java.lang.Boolean r1 = r0.invoke(r1, r2)
                         return r1
                     */
@@ -184,7 +184,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
 
                 @Override // kotlin.jvm.functions.Function2
                 /* renamed from: invoke-KMgbckE  reason: not valid java name */
-                public final java.lang.Boolean invoke(androidx.compose.ui.geometry.Offset r4, androidx.compose.ui.unit.IntRect r5) {
+                public final java.lang.Boolean invoke(androidx.compose.p002ui.geometry.Offset r4, androidx.compose.p002ui.unit.IntRect r5) {
                     /*
                         r3 = this;
                         java.lang.String r0 = "bounds"
@@ -193,26 +193,26 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
                         if (r4 != 0) goto L9
                         goto L4e
                     L9:
-                        long r1 = r4.m2328unboximpl()
-                        float r1 = androidx.compose.ui.geometry.Offset.m2318getXimpl(r1)
+                        long r1 = r4.m2629unboximpl()
+                        float r1 = androidx.compose.p002ui.geometry.Offset.m2619getXimpl(r1)
                         int r2 = r5.getLeft()
                         float r2 = (float) r2
                         int r1 = (r1 > r2 ? 1 : (r1 == r2 ? 0 : -1))
                         if (r1 < 0) goto L4d
-                        long r1 = r4.m2328unboximpl()
-                        float r1 = androidx.compose.ui.geometry.Offset.m2318getXimpl(r1)
+                        long r1 = r4.m2629unboximpl()
+                        float r1 = androidx.compose.p002ui.geometry.Offset.m2619getXimpl(r1)
                         int r2 = r5.getRight()
                         float r2 = (float) r2
                         int r1 = (r1 > r2 ? 1 : (r1 == r2 ? 0 : -1))
                         if (r1 > 0) goto L4d
-                        long r1 = r4.m2328unboximpl()
-                        float r1 = androidx.compose.ui.geometry.Offset.m2319getYimpl(r1)
+                        long r1 = r4.m2629unboximpl()
+                        float r1 = androidx.compose.p002ui.geometry.Offset.m2620getYimpl(r1)
                         int r2 = r5.getTop()
                         float r2 = (float) r2
                         int r1 = (r1 > r2 ? 1 : (r1 == r2 ? 0 : -1))
                         if (r1 < 0) goto L4d
-                        long r1 = r4.m2328unboximpl()
-                        float r4 = androidx.compose.ui.geometry.Offset.m2319getYimpl(r1)
+                        long r1 = r4.m2629unboximpl()
+                        float r4 = androidx.compose.p002ui.geometry.Offset.m2620getYimpl(r1)
                         int r5 = r5.getBottom()
                         float r5 = (float) r5
                         int r4 = (r4 > r5 ? 1 : (r4 == r5 ? 0 : -1))
@@ -242,7 +242,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             r0 = r7
             android.view.ViewTreeObserver$OnGlobalLayoutListener r0 = (android.view.ViewTreeObserver.OnGlobalLayoutListener) r0
             r10.addOnGlobalLayoutListener(r0)
-            int r10 = androidx.compose.ui.R.id.compose_view_saveable_id_tag
+            int r10 = androidx.compose.p002ui.C0684R.C0685id.compose_view_saveable_id_tag
             java.lang.StringBuilder r0 = new java.lang.StringBuilder
             java.lang.String r1 = "Popup:"
             r0.<init>(r1)
@@ -251,14 +251,14 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             r7.setTag(r10, r13)
             r10 = 0
             r7.setClipChildren(r10)
-            float r10 = r11.mo302toPx0680j_4(r12)
+            float r10 = r11.mo603toPx0680j_4(r12)
             r7.setElevation(r10)
             androidx.compose.material3.internal.PopupLayout$2 r10 = new androidx.compose.material3.internal.PopupLayout$2
             r10.<init>()
             android.view.ViewOutlineProvider r10 = (android.view.ViewOutlineProvider) r10
             r7.setOutlineProvider(r10)
-            androidx.compose.material3.internal.ComposableSingletons$ExposedDropdownMenuPopupKt r10 = androidx.compose.material3.internal.ComposableSingletons$ExposedDropdownMenuPopupKt.INSTANCE
-            kotlin.jvm.functions.Function2 r10 = r10.m1609getLambda1$material3_release()
+            androidx.compose.material3.internal.ComposableSingletons$ExposedDropdownMenuPopupKt r10 = androidx.compose.material3.internal.ExposedDropdownMenuPopup.INSTANCE
+            kotlin.jvm.functions.Function2 r10 = r10.m1910getLambda1$material3_release()
             androidx.compose.runtime.MutableState r8 = androidx.compose.runtime.SnapshotStateKt.mutableStateOf$default(r10, r8, r9, r8)
             r7.content$delegate = r8
             return
@@ -293,12 +293,12 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
     }
 
     /* renamed from: getPopupContentSize-bOM6tXw  reason: not valid java name */
-    public final IntSize m1611getPopupContentSizebOM6tXw() {
+    public final IntSize m1912getPopupContentSizebOM6tXw() {
         return (IntSize) this.popupContentSize$delegate.getValue();
     }
 
     /* renamed from: setPopupContentSize-fhxjrPA  reason: not valid java name */
-    public final void m1612setPopupContentSizefhxjrPA(IntSize intSize) {
+    public final void m1913setPopupContentSizefhxjrPA(IntSize intSize) {
         this.popupContentSize$delegate.setValue(intSize);
     }
 
@@ -306,7 +306,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         return ((Boolean) this.canCalculatePosition$delegate.getValue()).booleanValue();
     }
 
-    @Override // androidx.compose.ui.platform.ViewRootForInspector
+    @Override // androidx.compose.p002ui.platform.ViewRootForInspector
     public AbstractComposeView getSubCompositionView() {
         return this;
     }
@@ -319,7 +319,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         this.content$delegate.setValue(function2);
     }
 
-    @Override // androidx.compose.ui.platform.AbstractComposeView
+    @Override // androidx.compose.p002ui.platform.AbstractComposeView
     protected boolean getShouldCreateCompositionOnAttachedToWindow() {
         return this.shouldCreateCompositionOnAttachedToWindow;
     }
@@ -336,7 +336,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         this.shouldCreateCompositionOnAttachedToWindow = true;
     }
 
-    @Override // androidx.compose.ui.platform.AbstractComposeView
+    @Override // androidx.compose.p002ui.platform.AbstractComposeView
     public void Content(Composer composer, final int i) {
         Composer startRestartGroup = composer.startRestartGroup(-797839545);
         ComposerKt.sourceInformation(startRestartGroup, "C(Content)303@11874L9:ExposedDropdownMenuPopup.kt#mqatfk");
@@ -385,9 +385,9 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
                 }
                 return true;
             } else if (event.getAction() == 1 && (keyDispatcherState = getKeyDispatcherState()) != null && keyDispatcherState.isTracking(event) && !event.isCanceled()) {
-                Function0<Unit> function0 = this.onDismissRequest;
-                if (function0 != null) {
-                    function0.invoke();
+                Functions<Unit> functions = this.onDismissRequest;
+                if (functions != null) {
+                    functions.invoke();
                 }
                 return true;
             }
@@ -395,27 +395,27 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         return super.dispatchKeyEvent(event);
     }
 
-    public final void updateParameters(Function0<Unit> function0, String testTag, LayoutDirection layoutDirection) {
+    public final void updateParameters(Functions<Unit> functions, String testTag, LayoutDirection layoutDirection) {
         Intrinsics.checkNotNullParameter(testTag, "testTag");
         Intrinsics.checkNotNullParameter(layoutDirection, "layoutDirection");
-        this.onDismissRequest = function0;
+        this.onDismissRequest = functions;
         this.testTag = testTag;
         superSetLayoutDirection(layoutDirection);
     }
 
     public final void updatePosition() {
-        IntSize m1611getPopupContentSizebOM6tXw;
+        IntSize m1912getPopupContentSizebOM6tXw;
         IntRect parentBounds = getParentBounds();
-        if (parentBounds == null || (m1611getPopupContentSizebOM6tXw = m1611getPopupContentSizebOM6tXw()) == null) {
+        if (parentBounds == null || (m1912getPopupContentSizebOM6tXw = m1912getPopupContentSizebOM6tXw()) == null) {
             return;
         }
-        long m5214unboximpl = m1611getPopupContentSizebOM6tXw.m5214unboximpl();
+        long m5515unboximpl = m1912getPopupContentSizebOM6tXw.m5515unboximpl();
         Rect rect = this.previousWindowVisibleFrame;
         this.composeView.getWindowVisibleDisplayFrame(rect);
         IntRect intBounds = toIntBounds(rect);
-        long mo806calculatePositionllwVHH4 = this.positionProvider.mo806calculatePositionllwVHH4(parentBounds, IntSizeKt.IntSize(intBounds.getWidth(), intBounds.getHeight()), this.parentLayoutDirection, m5214unboximpl);
-        this.params.x = IntOffset.m5168getXimpl(mo806calculatePositionllwVHH4);
-        this.params.y = IntOffset.m5169getYimpl(mo806calculatePositionllwVHH4);
+        long mo1107calculatePositionllwVHH4 = this.positionProvider.mo1107calculatePositionllwVHH4(parentBounds, IntSizeKt.IntSize(intBounds.getWidth(), intBounds.getHeight()), this.parentLayoutDirection, m5515unboximpl);
+        this.params.x = IntOffset.m5469getXimpl(mo1107calculatePositionllwVHH4);
+        this.params.y = IntOffset.m5470getYimpl(mo1107calculatePositionllwVHH4);
         this.windowManager.updateViewLayout(this, this.params);
     }
 
@@ -503,8 +503,8 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
             float r4 = (float) r4
             float r6 = r9.getY()
             float r4 = r4 + r6
-            long r6 = androidx.compose.ui.geometry.OffsetKt.Offset(r1, r4)
-            androidx.compose.ui.geometry.Offset r1 = androidx.compose.ui.geometry.Offset.m2307boximpl(r6)
+            long r6 = androidx.compose.p002ui.geometry.OffsetKt.Offset(r1, r4)
+            androidx.compose.ui.geometry.Offset r1 = androidx.compose.p002ui.geometry.Offset.m2608boximpl(r6)
         L82:
             java.lang.Object r0 = r3.invoke(r1, r0)
             java.lang.Boolean r0 = (java.lang.Boolean) r0
@@ -547,7 +547,7 @@ final class PopupLayout extends AbstractComposeView implements ViewRootForInspec
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.format = -3;
-        layoutParams.setTitle(this.composeView.getContext().getResources().getString(R.string.default_popup_window_title));
+        layoutParams.setTitle(this.composeView.getContext().getResources().getString(C0684R.string.default_popup_window_title));
         return layoutParams;
     }
 

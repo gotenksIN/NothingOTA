@@ -1,14 +1,32 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.BorderStroke;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
 import androidx.compose.foundation.layout.Arrangement;
-import androidx.compose.foundation.layout.PaddingKt;
+import androidx.compose.foundation.layout.Padding;
 import androidx.compose.foundation.layout.PaddingValues;
-import androidx.compose.foundation.layout.RowKt;
+import androidx.compose.foundation.layout.Row;
 import androidx.compose.foundation.layout.RowScopeInstance;
 import androidx.compose.foundation.layout.SizeKt;
-import androidx.compose.foundation.layout.SpacerKt;
+import androidx.compose.foundation.layout.Spacer;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.Shape;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.semantics.Role;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.text.TextStyle;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -21,33 +39,16 @@ import androidx.compose.runtime.SkippableUpdater;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.Shape;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.semantics.Role;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.text.TextStyle;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: Chip.kt */
-@Metadata(d1 = {"\u0000t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0010\u001a¦\u0001\u0010\u0007\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010\u001d\u001a¼\u0001\u0010\u001e\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0006\u0010\u000f\u001a\u00020\u00102\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\b\u0010\u0017\u001a\u0004\u0018\u00010\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u00012\u0006\u0010\u001b\u001a\u00020\u001cH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b&\u0010'\u001a\u0097\u0001\u0010(\u001a\u00020\b2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010*\u001a\u00020\"2\u0006\u0010+\u001a\u00020\"2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0001H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-\u001a¦\u0001\u0010.\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010\u001d\u001a®\u0001\u0010/\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00104\u001a\u008f\u0001\u00105\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00107\u001a®\u0001\u00108\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00104\u001aÅ\u0001\u00109\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010:\u001aÑ\u0001\u0010;\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0006\u0010\u000f\u001a\u00020\u00102\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u0002012\b\u0010\u0017\u001a\u0004\u0018\u0001022\b\u0010\u0019\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u00012\u0006\u0010\u001b\u001a\u00020\u001cH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b<\u0010=\u001a\u008f\u0001\u0010>\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00107\u001a&\u0010?\u001a\u00020\u00012\b\b\u0002\u0010@\u001a\u00020\u00102\b\b\u0002\u0010A\u001a\u00020\u00102\b\b\u0002\u0010B\u001a\u00020\u0010H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006C"}, d2 = {"AssistChipPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "FilterChipPadding", "HorizontalElementsPadding", "Landroidx/compose/ui/unit/Dp;", "F", "SuggestionChipPadding", "AssistChip", "", "onClick", "Lkotlin/Function0;", "label", "Landroidx/compose/runtime/Composable;", "modifier", "Landroidx/compose/ui/Modifier;", "enabled", "", "leadingIcon", "trailingIcon", "shape", "Landroidx/compose/ui/graphics/Shape;", "colors", "Landroidx/compose/material3/ChipColors;", "elevation", "Landroidx/compose/material3/ChipElevation;", "border", "Landroidx/compose/material3/ChipBorder;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/material3/ChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "Chip", "labelTextStyle", "Landroidx/compose/ui/text/TextStyle;", "labelColor", "Landroidx/compose/ui/graphics/Color;", "Landroidx/compose/foundation/BorderStroke;", "minHeight", "paddingValues", "Chip-nkUnTEs", "(Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;JLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/foundation/BorderStroke;FLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "ChipContent", "avatar", "leadingIconColor", "trailingIconColor", "ChipContent-fe0OD_I", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;JLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;JJFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)V", "ElevatedAssistChip", "ElevatedFilterChip", "selected", "Landroidx/compose/material3/SelectableChipColors;", "Landroidx/compose/material3/SelectableChipElevation;", "Landroidx/compose/material3/SelectableChipBorder;", "(ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/material3/SelectableChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "ElevatedSuggestionChip", "icon", "(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/material3/ChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "FilterChip", "InputChip", "(ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/material3/SelectableChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "SelectableChip", "SelectableChip-u0RnIRE", "(ZLandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/foundation/BorderStroke;FLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "SuggestionChip", "inputChipPadding", "hasAvatar", "hasLeadingIcon", "hasTrailingIcon", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0010\u001a¦\u0001\u0010\u0007\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010\u001d\u001a¼\u0001\u0010\u001e\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0006\u0010\u000f\u001a\u00020\u00102\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\b\u0010\u0017\u001a\u0004\u0018\u00010\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u00012\u0006\u0010\u001b\u001a\u00020\u001cH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b&\u0010'\u001a\u0097\u0001\u0010(\u001a\u00020\b2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010!\u001a\u00020\"2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010*\u001a\u00020\"2\u0006\u0010+\u001a\u00020\"2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u0001H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-\u001a¦\u0001\u0010.\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010\u001d\u001a®\u0001\u0010/\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00104\u001a\u008f\u0001\u00105\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00107\u001a®\u0001\u00108\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00104\u001aÅ\u0001\u00109\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0015\b\u0002\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u0002012\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u0001022\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u0001032\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u0010:\u001aÑ\u0001\u0010;\u001a\u00020\b2\u0006\u00100\u001a\u00020\u00102\u0006\u0010\r\u001a\u00020\u000e2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0006\u0010\u000f\u001a\u00020\u00102\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\u0006\u0010\u001f\u001a\u00020 2\u0013\u0010\u0011\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010)\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0013\u0010\u0012\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u0002012\b\u0010\u0017\u001a\u0004\u0018\u0001022\b\u0010\u0019\u001a\u0004\u0018\u00010#2\u0006\u0010$\u001a\u00020\u00042\u0006\u0010%\u001a\u00020\u00012\u0006\u0010\u001b\u001a\u00020\u001cH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b<\u0010=\u001a\u008f\u0001\u0010>\u001a\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\b0\n2\u0011\u0010\u000b\u001a\r\u0012\u0004\u0012\u00020\b0\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u00102\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\b\u0018\u00010\n¢\u0006\u0002\b\f2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u00162\n\b\u0002\u0010\u0017\u001a\u0004\u0018\u00010\u00182\n\b\u0002\u0010\u0019\u001a\u0004\u0018\u00010\u001a2\b\b\u0002\u0010\u001b\u001a\u00020\u001cH\u0007¢\u0006\u0002\u00107\u001a&\u0010?\u001a\u00020\u00012\b\b\u0002\u0010@\u001a\u00020\u00102\b\b\u0002\u0010A\u001a\u00020\u00102\b\b\u0002\u0010B\u001a\u00020\u0010H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006C"}, m40d2 = {"AssistChipPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "FilterChipPadding", "HorizontalElementsPadding", "Landroidx/compose/ui/unit/Dp;", "F", "SuggestionChipPadding", "AssistChip", "", "onClick", "Lkotlin/Function0;", "label", "Landroidx/compose/runtime/Composable;", "modifier", "Landroidx/compose/ui/Modifier;", "enabled", "", "leadingIcon", "trailingIcon", "shape", "Landroidx/compose/ui/graphics/Shape;", "colors", "Landroidx/compose/material3/ChipColors;", "elevation", "Landroidx/compose/material3/ChipElevation;", "border", "Landroidx/compose/material3/ChipBorder;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/material3/ChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "Chip", "labelTextStyle", "Landroidx/compose/ui/text/TextStyle;", "labelColor", "Landroidx/compose/ui/graphics/Color;", "Landroidx/compose/foundation/BorderStroke;", "minHeight", "paddingValues", "Chip-nkUnTEs", "(Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;JLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/foundation/BorderStroke;FLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "ChipContent", "avatar", "leadingIconColor", "trailingIconColor", "ChipContent-fe0OD_I", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;JLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;JJFLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/runtime/Composer;I)V", "ElevatedAssistChip", "ElevatedFilterChip", "selected", "Landroidx/compose/material3/SelectableChipColors;", "Landroidx/compose/material3/SelectableChipElevation;", "Landroidx/compose/material3/SelectableChipBorder;", "(ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/material3/SelectableChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "ElevatedSuggestionChip", "icon", "(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/ChipColors;Landroidx/compose/material3/ChipElevation;Landroidx/compose/material3/ChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "FilterChip", "InputChip", "(ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/material3/SelectableChipBorder;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V", "SelectableChip", "SelectableChip-u0RnIRE", "(ZLandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;ZLkotlin/jvm/functions/Function2;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/SelectableChipColors;Landroidx/compose/material3/SelectableChipElevation;Landroidx/compose/foundation/BorderStroke;FLandroidx/compose/foundation/layout/PaddingValues;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "SuggestionChip", "inputChipPadding", "hasAvatar", "hasLeadingIcon", "hasTrailingIcon", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ChipKt {
     private static final PaddingValues AssistChipPadding;
@@ -101,7 +102,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void AssistChip(final kotlin.jvm.functions.Function0<kotlin.Unit> r46, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r47, androidx.compose.ui.Modifier r48, boolean r49, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r50, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r51, androidx.compose.ui.graphics.Shape r52, androidx.compose.material3.ChipColors r53, androidx.compose.material3.ChipElevation r54, androidx.compose.material3.ChipBorder r55, androidx.compose.foundation.interaction.MutableInteractionSource r56, androidx.compose.runtime.Composer r57, final int r58, final int r59, final int r60) {
+    public static final void AssistChip(final kotlin.jvm.functions.Functions<kotlin.Unit> r46, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r47, androidx.compose.p002ui.Modifier r48, boolean r49, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r50, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r51, androidx.compose.p002ui.graphics.Shape r52, androidx.compose.material3.ChipColors r53, androidx.compose.material3.ChipElevation r54, androidx.compose.material3.ChipBorder r55, androidx.compose.foundation.interaction.MutableInteractionSource r56, androidx.compose.runtime.Composer r57, final int r58, final int r59, final int r60) {
         /*
             Method dump skipped, instructions count: 939
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -157,7 +158,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void ElevatedAssistChip(final kotlin.jvm.functions.Function0<kotlin.Unit> r49, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r50, androidx.compose.ui.Modifier r51, boolean r52, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r53, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r54, androidx.compose.ui.graphics.Shape r55, androidx.compose.material3.ChipColors r56, androidx.compose.material3.ChipElevation r57, androidx.compose.material3.ChipBorder r58, androidx.compose.foundation.interaction.MutableInteractionSource r59, androidx.compose.runtime.Composer r60, final int r61, final int r62, final int r63) {
+    public static final void ElevatedAssistChip(final kotlin.jvm.functions.Functions<kotlin.Unit> r49, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r50, androidx.compose.p002ui.Modifier r51, boolean r52, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r53, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r54, androidx.compose.p002ui.graphics.Shape r55, androidx.compose.material3.ChipColors r56, androidx.compose.material3.ChipElevation r57, androidx.compose.material3.ChipBorder r58, androidx.compose.foundation.interaction.MutableInteractionSource r59, androidx.compose.runtime.Composer r60, final int r61, final int r62, final int r63) {
         /*
             Method dump skipped, instructions count: 917
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -212,7 +213,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void FilterChip(final boolean r55, final kotlin.jvm.functions.Function0<kotlin.Unit> r56, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r57, androidx.compose.ui.Modifier r58, boolean r59, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r60, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r61, androidx.compose.ui.graphics.Shape r62, androidx.compose.material3.SelectableChipColors r63, androidx.compose.material3.SelectableChipElevation r64, androidx.compose.material3.SelectableChipBorder r65, androidx.compose.foundation.interaction.MutableInteractionSource r66, androidx.compose.runtime.Composer r67, final int r68, final int r69, final int r70) {
+    public static final void FilterChip(final boolean r55, final kotlin.jvm.functions.Functions<kotlin.Unit> r56, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r57, androidx.compose.p002ui.Modifier r58, boolean r59, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r60, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r61, androidx.compose.p002ui.graphics.Shape r62, androidx.compose.material3.SelectableChipColors r63, androidx.compose.material3.SelectableChipElevation r64, androidx.compose.material3.SelectableChipBorder r65, androidx.compose.foundation.interaction.MutableInteractionSource r66, androidx.compose.runtime.Composer r67, final int r68, final int r69, final int r70) {
         /*
             Method dump skipped, instructions count: 991
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -268,7 +269,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void ElevatedFilterChip(final boolean r56, final kotlin.jvm.functions.Function0<kotlin.Unit> r57, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r58, androidx.compose.ui.Modifier r59, boolean r60, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r61, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r62, androidx.compose.ui.graphics.Shape r63, androidx.compose.material3.SelectableChipColors r64, androidx.compose.material3.SelectableChipElevation r65, androidx.compose.material3.SelectableChipBorder r66, androidx.compose.foundation.interaction.MutableInteractionSource r67, androidx.compose.runtime.Composer r68, final int r69, final int r70, final int r71) {
+    public static final void ElevatedFilterChip(final boolean r56, final kotlin.jvm.functions.Functions<kotlin.Unit> r57, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r58, androidx.compose.p002ui.Modifier r59, boolean r60, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r61, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r62, androidx.compose.p002ui.graphics.Shape r63, androidx.compose.material3.SelectableChipColors r64, androidx.compose.material3.SelectableChipElevation r65, androidx.compose.material3.SelectableChipBorder r66, androidx.compose.foundation.interaction.MutableInteractionSource r67, androidx.compose.runtime.Composer r68, final int r69, final int r70, final int r71) {
         /*
             Method dump skipped, instructions count: 969
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -333,7 +334,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void InputChip(final boolean r50, final kotlin.jvm.functions.Function0<kotlin.Unit> r51, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r52, androidx.compose.ui.Modifier r53, boolean r54, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r55, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r56, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r57, androidx.compose.ui.graphics.Shape r58, androidx.compose.material3.SelectableChipColors r59, androidx.compose.material3.SelectableChipElevation r60, androidx.compose.material3.SelectableChipBorder r61, androidx.compose.foundation.interaction.MutableInteractionSource r62, androidx.compose.runtime.Composer r63, final int r64, final int r65, final int r66) {
+    public static final void InputChip(final boolean r50, final kotlin.jvm.functions.Functions<kotlin.Unit> r51, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r52, androidx.compose.p002ui.Modifier r53, boolean r54, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r55, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r56, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r57, androidx.compose.p002ui.graphics.Shape r58, androidx.compose.material3.SelectableChipColors r59, androidx.compose.material3.SelectableChipElevation r60, androidx.compose.material3.SelectableChipBorder r61, androidx.compose.foundation.interaction.MutableInteractionSource r62, androidx.compose.runtime.Composer r63, final int r64, final int r65, final int r66) {
         /*
             Method dump skipped, instructions count: 1089
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -384,7 +385,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void SuggestionChip(final kotlin.jvm.functions.Function0<kotlin.Unit> r41, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r42, androidx.compose.ui.Modifier r43, boolean r44, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r45, androidx.compose.ui.graphics.Shape r46, androidx.compose.material3.ChipColors r47, androidx.compose.material3.ChipElevation r48, androidx.compose.material3.ChipBorder r49, androidx.compose.foundation.interaction.MutableInteractionSource r50, androidx.compose.runtime.Composer r51, final int r52, final int r53) {
+    public static final void SuggestionChip(final kotlin.jvm.functions.Functions<kotlin.Unit> r41, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r42, androidx.compose.p002ui.Modifier r43, boolean r44, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r45, androidx.compose.p002ui.graphics.Shape r46, androidx.compose.material3.ChipColors r47, androidx.compose.material3.ChipElevation r48, androidx.compose.material3.ChipBorder r49, androidx.compose.foundation.interaction.MutableInteractionSource r50, androidx.compose.runtime.Composer r51, final int r52, final int r53) {
         /*
             Method dump skipped, instructions count: 871
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -436,7 +437,7 @@ public final class ChipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void ElevatedSuggestionChip(final kotlin.jvm.functions.Function0<kotlin.Unit> r42, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r43, androidx.compose.ui.Modifier r44, boolean r45, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r46, androidx.compose.ui.graphics.Shape r47, androidx.compose.material3.ChipColors r48, androidx.compose.material3.ChipElevation r49, androidx.compose.material3.ChipBorder r50, androidx.compose.foundation.interaction.MutableInteractionSource r51, androidx.compose.runtime.Composer r52, final int r53, final int r54) {
+    public static final void ElevatedSuggestionChip(final kotlin.jvm.functions.Functions<kotlin.Unit> r42, final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r43, androidx.compose.p002ui.Modifier r44, boolean r45, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r46, androidx.compose.p002ui.graphics.Shape r47, androidx.compose.material3.ChipColors r48, androidx.compose.material3.ChipElevation r49, androidx.compose.material3.ChipBorder r50, androidx.compose.foundation.interaction.MutableInteractionSource r51, androidx.compose.runtime.Composer r52, final int r53, final int r54) {
         /*
             Method dump skipped, instructions count: 832
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -446,7 +447,7 @@ public final class ChipKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: Chip-nkUnTEs  reason: not valid java name */
-    public static final void m957ChipnkUnTEs(final Modifier modifier, final Function0<Unit> function0, final boolean z, final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final long j, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Shape shape, final ChipColors chipColors, final ChipElevation chipElevation, final BorderStroke borderStroke, final float f, final PaddingValues paddingValues, final MutableInteractionSource mutableInteractionSource, Composer composer, final int i, final int i2) {
+    public static final void m1258ChipnkUnTEs(final Modifier modifier, final Functions<Unit> functions, final boolean z, final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final long j, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Shape shape, final ChipColors chipColors, final ChipElevation chipElevation, final BorderStroke borderStroke, final float f, final PaddingValues paddingValues, final MutableInteractionSource mutableInteractionSource, Composer composer, final int i, final int i2) {
         int i3;
         int i4;
         Composer composer2;
@@ -457,8 +458,8 @@ public final class ChipKt {
         } else {
             i3 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
-            i3 |= startRestartGroup.changedInstance(function0) ? 32 : 16;
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+            i3 |= startRestartGroup.changedInstance(functions) ? 32 : 16;
         }
         if ((i & 896) == 0) {
             i3 |= startRestartGroup.changed(z) ? 256 : 128;
@@ -489,7 +490,7 @@ public final class ChipKt {
         } else {
             i4 = i2;
         }
-        if ((i2 & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i2 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i4 |= startRestartGroup.changed(borderStroke) ? 32 : 16;
         }
         if ((i2 & 896) == 0) {
@@ -515,24 +516,24 @@ public final class ChipKt {
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(SemanticsPropertyReceiver semantics) {
                     Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
-                    SemanticsPropertiesKt.m4445setRolekuIjeqM(semantics, Role.Companion.m4431getButtono7Vup1c());
+                    SemanticsPropertiesKt.m4746setRolekuIjeqM(semantics, Role.Companion.m4732getButtono7Vup1c());
                 }
             }, 1, null);
             int i5 = (i3 >> 6) & 14;
-            long m2566unboximpl = chipColors.containerColor$material3_release(z, startRestartGroup, i5 | ((i3 >> 24) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle)).getValue().m2566unboximpl();
+            long m2867unboximpl = chipColors.containerColor$material3_release(z, startRestartGroup, i5 | ((i3 >> 24) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle)).getValue().m2867unboximpl();
             startRestartGroup.startReplaceableGroup(64018752);
             ComposerKt.sourceInformation(startRestartGroup, "1324@66575L42");
-            State<Dp> state = chipElevation == null ? null : chipElevation.tonalElevation$material3_release(z, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 9) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 6) & 896));
+            State<C0780Dp> state = chipElevation == null ? null : chipElevation.tonalElevation$material3_release(z, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 9) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 6) & 896));
             startRestartGroup.endReplaceableGroup();
-            float m5064unboximpl = state != null ? state.getValue().m5064unboximpl() : Dp.m5050constructorimpl(0);
+            float m5365unboximpl = state != null ? state.getValue().m5365unboximpl() : C0780Dp.m5351constructorimpl(0);
             startRestartGroup.startReplaceableGroup(64018848);
             ComposerKt.sourceInformation(startRestartGroup, "1325@66671L43");
-            State<Dp> shadowElevation$material3_release = chipElevation == null ? null : chipElevation.shadowElevation$material3_release(z, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 9) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 6) & 896));
+            State<C0780Dp> shadowElevation$material3_release = chipElevation == null ? null : chipElevation.shadowElevation$material3_release(z, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 9) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 6) & 896));
             startRestartGroup.endReplaceableGroup();
             final int i6 = i3;
             final int i7 = i4;
             composer2 = startRestartGroup;
-            SurfaceKt.m1409Surfaceo_FOJdg(function0, semantics$default, z, shape, m2566unboximpl, 0L, m5064unboximpl, shadowElevation$material3_release != null ? shadowElevation$material3_release.getValue().m5064unboximpl() : Dp.m5050constructorimpl(0), borderStroke, mutableInteractionSource, ComposableLambdaKt.composableLambda(composer2, -1985962652, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$Chip$2
+            Surface.m1710Surfaceo_FOJdg(functions, semantics$default, z, shape, m2867unboximpl, 0L, m5365unboximpl, shadowElevation$material3_release != null ? shadowElevation$material3_release.getValue().m5365unboximpl() : C0780Dp.m5351constructorimpl(0), borderStroke, mutableInteractionSource, ComposableLambdaKt.composableLambda(composer2, -1985962652, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$Chip$2
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -560,17 +561,17 @@ public final class ChipKt {
                         ChipColors chipColors2 = chipColors;
                         boolean z2 = z;
                         int i9 = i6;
-                        long m2566unboximpl2 = chipColors2.leadingIconContentColor$material3_release(z2, composer3, ((i9 >> 24) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 6) & 14)).getValue().m2566unboximpl();
+                        long m2867unboximpl2 = chipColors2.leadingIconContentColor$material3_release(z2, composer3, ((i9 >> 24) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 6) & 14)).getValue().m2867unboximpl();
                         ChipColors chipColors3 = chipColors;
                         boolean z3 = z;
                         int i10 = i6;
-                        long m2566unboximpl3 = chipColors3.trailingIconContentColor$material3_release(z3, composer3, ((i10 >> 24) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i10 >> 6) & 14)).getValue().m2566unboximpl();
+                        long m2867unboximpl3 = chipColors3.trailingIconContentColor$material3_release(z3, composer3, ((i10 >> 24) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i10 >> 6) & 14)).getValue().m2867unboximpl();
                         float f2 = f;
                         PaddingValues paddingValues2 = paddingValues;
                         int i11 = i6;
-                        int i12 = ((i11 >> 9) & 14) | 24576 | ((i11 >> 9) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i11 >> 9) & 896) | ((i11 >> 9) & 7168) | (458752 & (i11 >> 6));
+                        int i12 = ((i11 >> 9) & 14) | 24576 | ((i11 >> 9) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i11 >> 9) & 896) | ((i11 >> 9) & 7168) | (458752 & (i11 >> 6));
                         int i13 = i7;
-                        ChipKt.m958ChipContentfe0OD_I(function24, textStyle2, j2, function25, null, function26, m2566unboximpl2, m2566unboximpl3, f2, paddingValues2, composer3, i12 | ((i13 << 18) & 234881024) | ((i13 << 18) & 1879048192));
+                        ChipKt.m1259ChipContentfe0OD_I(function24, textStyle2, j2, function25, null, function26, m2867unboximpl2, m2867unboximpl3, f2, paddingValues2, composer3, i12 | ((i13 << 18) & 234881024) | ((i13 << 18) & 1879048192));
                         if (ComposerKt.isTraceInProgress()) {
                             ComposerKt.traceEventEnd();
                             return;
@@ -606,14 +607,14 @@ public final class ChipKt {
             }
 
             public final void invoke(Composer composer3, int i8) {
-                ChipKt.m957ChipnkUnTEs(Modifier.this, function0, z, function2, textStyle, j, function22, function23, shape, chipColors, chipElevation, borderStroke, f, paddingValues, mutableInteractionSource, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
+                ChipKt.m1258ChipnkUnTEs(Modifier.this, functions, z, function2, textStyle, j, function22, function23, shape, chipColors, chipElevation, borderStroke, f, paddingValues, mutableInteractionSource, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: SelectableChip-u0RnIRE  reason: not valid java name */
-    public static final void m959SelectableChipu0RnIRE(final boolean z, final Modifier modifier, final Function0<Unit> function0, final boolean z2, final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Function2<? super Composer, ? super Integer, Unit> function24, final Shape shape, final SelectableChipColors selectableChipColors, final SelectableChipElevation selectableChipElevation, final BorderStroke borderStroke, final float f, final PaddingValues paddingValues, final MutableInteractionSource mutableInteractionSource, Composer composer, final int i, final int i2) {
+    public static final void m1260SelectableChipu0RnIRE(final boolean z, final Modifier modifier, final Functions<Unit> functions, final boolean z2, final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Function2<? super Composer, ? super Integer, Unit> function24, final Shape shape, final SelectableChipColors selectableChipColors, final SelectableChipElevation selectableChipElevation, final BorderStroke borderStroke, final float f, final PaddingValues paddingValues, final MutableInteractionSource mutableInteractionSource, Composer composer, final int i, final int i2) {
         int i3;
         int i4;
         Composer composer2;
@@ -624,11 +625,11 @@ public final class ChipKt {
         } else {
             i3 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i3 |= startRestartGroup.changed(modifier) ? 32 : 16;
         }
         if ((i & 896) == 0) {
-            i3 |= startRestartGroup.changedInstance(function0) ? 256 : 128;
+            i3 |= startRestartGroup.changedInstance(functions) ? 256 : 128;
         }
         if ((i & 7168) == 0) {
             i3 |= startRestartGroup.changed(z2) ? 2048 : 1024;
@@ -656,7 +657,7 @@ public final class ChipKt {
         } else {
             i4 = i2;
         }
-        if ((i2 & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i2 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i4 |= startRestartGroup.changed(selectableChipElevation) ? 32 : 16;
         }
         if ((i2 & 896) == 0) {
@@ -685,24 +686,24 @@ public final class ChipKt {
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(SemanticsPropertyReceiver semantics) {
                     Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
-                    SemanticsPropertiesKt.m4445setRolekuIjeqM(semantics, Role.Companion.m4432getCheckboxo7Vup1c());
+                    SemanticsPropertiesKt.m4746setRolekuIjeqM(semantics, Role.Companion.m4733getCheckboxo7Vup1c());
                 }
             }, 1, null);
             int i5 = (i3 >> 9) & 14;
-            long m2566unboximpl = selectableChipColors.containerColor$material3_release(z2, z, startRestartGroup, ((i3 << 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | i5 | ((i4 << 6) & 896)).getValue().m2566unboximpl();
+            long m2867unboximpl = selectableChipColors.containerColor$material3_release(z2, z, startRestartGroup, ((i3 << 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | i5 | ((i4 << 6) & 896)).getValue().m2867unboximpl();
             startRestartGroup.startReplaceableGroup(1036660941);
             ComposerKt.sourceInformation(startRestartGroup, "1372@68242L42");
-            State<Dp> state = selectableChipElevation == null ? null : selectableChipElevation.tonalElevation$material3_release(z2, mutableInteractionSource, startRestartGroup, ((i4 << 3) & 896) | ((i4 >> 12) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | i5);
+            State<C0780Dp> state = selectableChipElevation == null ? null : selectableChipElevation.tonalElevation$material3_release(z2, mutableInteractionSource, startRestartGroup, ((i4 << 3) & 896) | ((i4 >> 12) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | i5);
             startRestartGroup.endReplaceableGroup();
-            float m5064unboximpl = state != null ? state.getValue().m5064unboximpl() : Dp.m5050constructorimpl(0);
+            float m5365unboximpl = state != null ? state.getValue().m5365unboximpl() : C0780Dp.m5351constructorimpl(0);
             startRestartGroup.startReplaceableGroup(1036661049);
             ComposerKt.sourceInformation(startRestartGroup, "1374@68350L43");
-            State<Dp> shadowElevation$material3_release = selectableChipElevation == null ? null : selectableChipElevation.shadowElevation$material3_release(z2, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 12) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 3) & 896));
+            State<C0780Dp> shadowElevation$material3_release = selectableChipElevation == null ? null : selectableChipElevation.shadowElevation$material3_release(z2, mutableInteractionSource, startRestartGroup, i5 | ((i4 >> 12) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i4 << 3) & 896));
             startRestartGroup.endReplaceableGroup();
             final int i6 = i3;
             final int i7 = i4;
             composer2 = startRestartGroup;
-            SurfaceKt.m1407Surfaced85dljk(z, function0, semantics$default, z2, shape, m2566unboximpl, 0L, m5064unboximpl, shadowElevation$material3_release != null ? shadowElevation$material3_release.getValue().m5064unboximpl() : Dp.m5050constructorimpl(0), borderStroke, mutableInteractionSource, ComposableLambdaKt.composableLambda(startRestartGroup, -577614814, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$SelectableChip$2
+            Surface.m1708Surfaced85dljk(z, functions, semantics$default, z2, shape, m2867unboximpl, 0L, m5365unboximpl, shadowElevation$material3_release != null ? shadowElevation$material3_release.getValue().m5365unboximpl() : C0780Dp.m5351constructorimpl(0), borderStroke, mutableInteractionSource, ComposableLambdaKt.composableLambda(startRestartGroup, -577614814, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$SelectableChip$2
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -726,17 +727,17 @@ public final class ChipKt {
                         boolean z3 = z2;
                         boolean z4 = z;
                         int i9 = i6;
-                        long m2566unboximpl2 = selectableChipColors2.labelColor$material3_release(z3, z4, composer3, ((i9 << 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2566unboximpl();
+                        long m2867unboximpl2 = selectableChipColors2.labelColor$material3_release(z3, z4, composer3, ((i9 << 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i9 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2867unboximpl();
                         SelectableChipColors selectableChipColors3 = SelectableChipColors.this;
                         boolean z5 = z2;
                         boolean z6 = z;
                         int i10 = i6;
-                        long m2566unboximpl3 = selectableChipColors3.leadingIconContentColor$material3_release(z5, z6, composer3, ((i10 << 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i10 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2566unboximpl();
+                        long m2867unboximpl3 = selectableChipColors3.leadingIconContentColor$material3_release(z5, z6, composer3, ((i10 << 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i10 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2867unboximpl();
                         SelectableChipColors selectableChipColors4 = SelectableChipColors.this;
                         boolean z7 = z2;
                         boolean z8 = z;
                         int i11 = i6;
-                        long m2566unboximpl4 = selectableChipColors4.trailingIconContentColor$material3_release(z7, z8, composer3, ((i11 << 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i11 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2566unboximpl();
+                        long m2867unboximpl4 = selectableChipColors4.trailingIconContentColor$material3_release(z7, z8, composer3, ((i11 << 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i11 >> 9) & 14) | ((i7 << 6) & 896)).getValue().m2867unboximpl();
                         Function2<Composer, Integer, Unit> function25 = function2;
                         TextStyle textStyle2 = textStyle;
                         Function2<Composer, Integer, Unit> function26 = function22;
@@ -745,9 +746,9 @@ public final class ChipKt {
                         float f2 = f;
                         PaddingValues paddingValues2 = paddingValues;
                         int i12 = i6;
-                        int i13 = ((i12 >> 12) & 14) | ((i12 >> 12) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i12 >> 9) & 7168) | ((i12 >> 9) & 57344) | ((i12 >> 9) & 458752);
+                        int i13 = ((i12 >> 12) & 14) | ((i12 >> 12) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i12 >> 9) & 7168) | ((i12 >> 9) & 57344) | ((i12 >> 9) & 458752);
                         int i14 = i7;
-                        ChipKt.m958ChipContentfe0OD_I(function25, textStyle2, m2566unboximpl2, function26, function27, function28, m2566unboximpl3, m2566unboximpl4, f2, paddingValues2, composer3, ((i14 << 15) & 1879048192) | i13 | ((i14 << 15) & 234881024));
+                        ChipKt.m1259ChipContentfe0OD_I(function25, textStyle2, m2867unboximpl2, function26, function27, function28, m2867unboximpl3, m2867unboximpl4, f2, paddingValues2, composer3, ((i14 << 15) & 1879048192) | i13 | ((i14 << 15) & 234881024));
                         if (ComposerKt.isTraceInProgress()) {
                             ComposerKt.traceEventEnd();
                             return;
@@ -756,7 +757,7 @@ public final class ChipKt {
                     }
                     composer3.skipToGroupEnd();
                 }
-            }), startRestartGroup, (i6 & 14) | ((i6 >> 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | (i6 & 7168) | ((i6 >> 15) & 57344) | ((i7 << 21) & 1879048192), ((i7 >> 15) & 14) | 48, 64);
+            }), startRestartGroup, (i6 & 14) | ((i6 >> 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | (i6 & 7168) | ((i6 >> 15) & 57344) | ((i7 << 21) & 1879048192), ((i7 >> 15) & 14) | 48, 64);
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
@@ -783,14 +784,14 @@ public final class ChipKt {
             }
 
             public final void invoke(Composer composer3, int i8) {
-                ChipKt.m959SelectableChipu0RnIRE(z, modifier, function0, z2, function2, textStyle, function22, function23, function24, shape, selectableChipColors, selectableChipElevation, borderStroke, f, paddingValues, mutableInteractionSource, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
+                ChipKt.m1260SelectableChipu0RnIRE(z, modifier, functions, z2, function2, textStyle, function22, function23, function24, shape, selectableChipColors, selectableChipElevation, borderStroke, f, paddingValues, mutableInteractionSource, composer3, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: ChipContent-fe0OD_I  reason: not valid java name */
-    public static final void m958ChipContentfe0OD_I(final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final long j, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Function2<? super Composer, ? super Integer, Unit> function24, final long j2, final long j3, final float f, final PaddingValues paddingValues, Composer composer, final int i) {
+    public static final void m1259ChipContentfe0OD_I(final Function2<? super Composer, ? super Integer, Unit> function2, final TextStyle textStyle, final long j, final Function2<? super Composer, ? super Integer, Unit> function22, final Function2<? super Composer, ? super Integer, Unit> function23, final Function2<? super Composer, ? super Integer, Unit> function24, final long j2, final long j3, final float f, final PaddingValues paddingValues, Composer composer, final int i) {
         int i2;
         int i3;
         Composer startRestartGroup = composer.startRestartGroup(-782878228);
@@ -800,7 +801,7 @@ public final class ChipKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changed(textStyle) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -834,7 +835,7 @@ public final class ChipKt {
                 ComposerKt.traceEventStart(-782878228, i3, -1, "androidx.compose.material3.ChipContent (Chip.kt:1395)");
             }
             final int i4 = i3;
-            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(j)), TextKt.getLocalTextStyle().provides(textStyle)}, ComposableLambdaKt.composableLambda(startRestartGroup, 1748799148, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$ChipContent$1
+            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(j)), Text.getLocalTextStyle().provides(textStyle)}, ComposableLambdaKt.composableLambda(startRestartGroup, 1748799148, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ChipKt$ChipContent$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -856,7 +857,7 @@ public final class ChipKt {
                         if (ComposerKt.isTraceInProgress()) {
                             ComposerKt.traceEventStart(1748799148, i5, -1, "androidx.compose.material3.ChipContent.<anonymous> (Chip.kt:1410)");
                         }
-                        Modifier padding = PaddingKt.padding(SizeKt.m443defaultMinSizeVpY3zN4$default(Modifier.Companion, 0.0f, f, 1, null), paddingValues);
+                        Modifier padding = Padding.padding(SizeKt.m744defaultMinSizeVpY3zN4$default(Modifier.Companion, 0.0f, f, 1, null), paddingValues);
                         Arrangement.Horizontal start = Arrangement.INSTANCE.getStart();
                         Alignment.Vertical centerVertically = Alignment.Companion.getCenterVertically();
                         Function2<Composer, Integer, Unit> function25 = function23;
@@ -868,22 +869,22 @@ public final class ChipKt {
                         long j5 = j3;
                         composer2.startReplaceableGroup(693286680);
                         ComposerKt.sourceInformation(composer2, "CC(Row)P(2,1,3)78@3913L58,79@3976L130:Row.kt#2w3rfo");
-                        MeasurePolicy rowMeasurePolicy = RowKt.rowMeasurePolicy(start, centerVertically, composer2, 54);
+                        MeasurePolicy rowMeasurePolicy = Row.rowMeasurePolicy(start, centerVertically, composer2, 54);
                         composer2.startReplaceableGroup(-1323940314);
                         ComposerKt.sourceInformation(composer2, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                         ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                        Object consume = composer2.consume(CompositionLocalsKt.getLocalDensity());
+                        Object consume = composer2.consume(CompositionLocals.getLocalDensity());
                         ComposerKt.sourceInformationMarkerEnd(composer2);
                         Density density = (Density) consume;
                         ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                        Object consume2 = composer2.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                        Object consume2 = composer2.consume(CompositionLocals.getLocalLayoutDirection());
                         ComposerKt.sourceInformationMarkerEnd(composer2);
                         LayoutDirection layoutDirection = (LayoutDirection) consume2;
                         ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                        Object consume3 = composer2.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                        Object consume3 = composer2.consume(CompositionLocals.getLocalViewConfiguration());
                         ComposerKt.sourceInformationMarkerEnd(composer2);
                         ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-                        Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+                        Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
                         Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(padding);
                         if (!(composer2.getApplier() instanceof Applier)) {
                             ComposablesKt.invalidApplier();
@@ -895,13 +896,13 @@ public final class ChipKt {
                             composer2.useNode();
                         }
                         composer2.disableReusing();
-                        Composer m2195constructorimpl = Updater.m2195constructorimpl(composer2);
-                        Updater.m2202setimpl(m2195constructorimpl, rowMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                        Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-                        Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-                        Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+                        Composer m2496constructorimpl = Updater.m2496constructorimpl(composer2);
+                        Updater.m2503setimpl(m2496constructorimpl, rowMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                        Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+                        Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+                        Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
                         composer2.enableReusing();
-                        materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer2)), composer2, 0);
+                        materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer2)), composer2, 0);
                         composer2.startReplaceableGroup(2058660585);
                         ComposerKt.sourceInformationMarkerStart(composer2, -326682283, "C80@4021L9:Row.kt#2w3rfo");
                         RowScopeInstance rowScopeInstance = RowScopeInstance.INSTANCE;
@@ -914,21 +915,21 @@ public final class ChipKt {
                         } else if (function26 != null) {
                             composer2.startReplaceableGroup(650988107);
                             ComposerKt.sourceInformation(composer2, "1421@69925L130");
-                            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(j4))}, function26, composer2, ((i6 >> 6) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
+                            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(j4))}, function26, composer2, ((i6 >> 6) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
                             composer2.endReplaceableGroup();
                         } else {
                             composer2.startReplaceableGroup(650988269);
                             composer2.endReplaceableGroup();
                         }
                         f2 = ChipKt.HorizontalElementsPadding;
-                        SpacerKt.Spacer(SizeKt.m463width3ABfNKs(Modifier.Companion, f2), composer2, 6);
+                        Spacer.Spacer(SizeKt.m764width3ABfNKs(Modifier.Companion, f2), composer2, 6);
                         function27.invoke(composer2, Integer.valueOf(i6 & 14));
                         f3 = ChipKt.HorizontalElementsPadding;
-                        SpacerKt.Spacer(SizeKt.m463width3ABfNKs(Modifier.Companion, f3), composer2, 6);
+                        Spacer.Spacer(SizeKt.m764width3ABfNKs(Modifier.Companion, f3), composer2, 6);
                         composer2.startReplaceableGroup(-313068567);
                         ComposerKt.sourceInformation(composer2, "1429@70270L132");
                         if (function28 != null) {
-                            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(j5))}, function28, composer2, ((i6 >> 12) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
+                            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(j5))}, function28, composer2, ((i6 >> 12) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
                         }
                         composer2.endReplaceableGroup();
                         ComposerKt.sourceInformationMarkerEnd(composer2);
@@ -971,7 +972,7 @@ public final class ChipKt {
             }
 
             public final void invoke(Composer composer2, int i5) {
-                ChipKt.m958ChipContentfe0OD_I(function2, textStyle, j, function22, function23, function24, j2, j3, f, paddingValues, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
+                ChipKt.m1259ChipContentfe0OD_I(function2, textStyle, j, function22, function23, function24, j2, j3, f, paddingValues, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
             }
         });
     }
@@ -990,14 +991,14 @@ public final class ChipKt {
     }
 
     private static final PaddingValues inputChipPadding(boolean z, boolean z2, boolean z3) {
-        return PaddingKt.m412PaddingValuesa9UjIt4$default(Dp.m5050constructorimpl((z || !z2) ? 4 : 8), 0.0f, Dp.m5050constructorimpl(z3 ? 8 : 4), 0.0f, 10, null);
+        return Padding.m713PaddingValuesa9UjIt4$default(C0780Dp.m5351constructorimpl((z || !z2) ? 4 : 8), 0.0f, C0780Dp.m5351constructorimpl(z3 ? 8 : 4), 0.0f, 10, null);
     }
 
     static {
-        float m5050constructorimpl = Dp.m5050constructorimpl(8);
-        HorizontalElementsPadding = m5050constructorimpl;
-        AssistChipPadding = PaddingKt.m410PaddingValuesYgX7TsA$default(m5050constructorimpl, 0.0f, 2, null);
-        FilterChipPadding = PaddingKt.m410PaddingValuesYgX7TsA$default(m5050constructorimpl, 0.0f, 2, null);
-        SuggestionChipPadding = PaddingKt.m410PaddingValuesYgX7TsA$default(m5050constructorimpl, 0.0f, 2, null);
+        float m5351constructorimpl = C0780Dp.m5351constructorimpl(8);
+        HorizontalElementsPadding = m5351constructorimpl;
+        AssistChipPadding = Padding.m711PaddingValuesYgX7TsA$default(m5351constructorimpl, 0.0f, 2, null);
+        FilterChipPadding = Padding.m711PaddingValuesYgX7TsA$default(m5351constructorimpl, 0.0f, 2, null);
+        SuggestionChipPadding = Padding.m711PaddingValuesYgX7TsA$default(m5351constructorimpl, 0.0f, 2, null);
     }
 }

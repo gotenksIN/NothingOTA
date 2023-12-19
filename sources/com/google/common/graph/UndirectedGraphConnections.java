@@ -22,9 +22,9 @@ final class UndirectedGraphConnections<N, V> implements GraphConnections<N, V> {
         this.adjacentNodeValues = (Map) Preconditions.checkNotNull(map);
     }
 
-    /* renamed from: com.google.common.graph.UndirectedGraphConnections$1  reason: invalid class name */
+    /* renamed from: com.google.common.graph.UndirectedGraphConnections$1 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class C13971 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$graph$ElementOrder$Type;
 
         static {
@@ -42,8 +42,9 @@ final class UndirectedGraphConnections<N, V> implements GraphConnections<N, V> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, V> UndirectedGraphConnections<N, V> of(ElementOrder<N> elementOrder) {
-        int i = AnonymousClass1.$SwitchMap$com$google$common$graph$ElementOrder$Type[elementOrder.type().ordinal()];
+    /* renamed from: of */
+    public static <N, V> UndirectedGraphConnections<N, V> m95of(ElementOrder<N> elementOrder) {
+        int i = C13971.$SwitchMap$com$google$common$graph$ElementOrder$Type[elementOrder.type().ordinal()];
         if (i != 1) {
             if (i == 2) {
                 return new UndirectedGraphConnections<>(new LinkedHashMap(2, 1.0f));

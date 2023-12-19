@@ -21,7 +21,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
     private final transient RegularImmutableSortedSet<K> keySet;
     private final transient ImmutableList<V> valueList;
     private static final Comparator<Comparable> NATURAL_ORDER = Ordering.natural();
-    private static final ImmutableSortedMap<Comparable, Object> NATURAL_EMPTY_MAP = new ImmutableSortedMap<>(ImmutableSortedSet.emptySet(Ordering.natural()), ImmutableList.of());
+    private static final ImmutableSortedMap<Comparable, Object> NATURAL_EMPTY_MAP = new ImmutableSortedMap<>(ImmutableSortedSet.emptySet(Ordering.natural()), ImmutableList.m211of());
 
     /* JADX WARN: Multi-variable type inference failed */
     @Override // java.util.NavigableMap
@@ -55,67 +55,79 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
 
     static <K, V> ImmutableSortedMap<K, V> emptyMap(Comparator<? super K> comparator) {
         if (Ordering.natural().equals(comparator)) {
-            return of();
+            return m151of();
         }
-        return new ImmutableSortedMap<>(ImmutableSortedSet.emptySet(comparator), ImmutableList.of());
+        return new ImmutableSortedMap<>(ImmutableSortedSet.emptySet(comparator), ImmutableList.m211of());
     }
 
-    public static <K, V> ImmutableSortedMap<K, V> of() {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m151of() {
         return (ImmutableSortedMap<K, V>) NATURAL_EMPTY_MAP;
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj) {
-        return of(Ordering.natural(), comparable, obj);
+    /* renamed from: of */
+    public static ImmutableSortedMap m150of(Comparable comparable, Object obj) {
+        return m140of(Ordering.natural(), comparable, obj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static <K, V> ImmutableSortedMap<K, V> of(Comparator<? super K> comparator, K k, V v) {
-        return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.of(k), (Comparator) Preconditions.checkNotNull(comparator)), ImmutableList.of(v));
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m140of(Comparator<? super K> comparator, K k, V v) {
+        return new ImmutableSortedMap<>(new RegularImmutableSortedSet(ImmutableList.m210of(k), (Comparator) Preconditions.checkNotNull(comparator)), ImmutableList.m210of(v));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m149of(Comparable comparable, Object obj, Comparable comparable2, Object obj2) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m148of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m147of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m146of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m145of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5), entryOf(comparable6, obj6));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m144of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5), entryOf(comparable6, obj6), entryOf(comparable7, obj7));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m143of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5), entryOf(comparable6, obj6), entryOf(comparable7, obj7), entryOf(comparable8, obj8));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8, Comparable comparable9, Object obj9) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m142of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8, Comparable comparable9, Object obj9) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5), entryOf(comparable6, obj6), entryOf(comparable7, obj7), entryOf(comparable8, obj8), entryOf(comparable9, obj9));
     }
 
     /* JADX WARN: Incorrect types in method signature: <K::Ljava/lang/Comparable<-TK;>;V:Ljava/lang/Object;>(TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;TK;TV;)Lcom/google/common/collect/ImmutableSortedMap<TK;TV;>; */
-    public static ImmutableSortedMap of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8, Comparable comparable9, Object obj9, Comparable comparable10, Object obj10) {
+    /* renamed from: of */
+    public static ImmutableSortedMap m141of(Comparable comparable, Object obj, Comparable comparable2, Object obj2, Comparable comparable3, Object obj3, Comparable comparable4, Object obj4, Comparable comparable5, Object obj5, Comparable comparable6, Object obj6, Comparable comparable7, Object obj7, Comparable comparable8, Object obj8, Comparable comparable9, Object obj9, Comparable comparable10, Object obj10) {
         return fromEntries(entryOf(comparable, obj), entryOf(comparable2, obj2), entryOf(comparable3, obj3), entryOf(comparable4, obj4), entryOf(comparable5, obj5), entryOf(comparable6, obj6), entryOf(comparable7, obj7), entryOf(comparable8, obj8), entryOf(comparable9, obj9), entryOf(comparable10, obj10));
     }
 
@@ -183,7 +195,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
         if (i != 0) {
             if (i == 1) {
                 Map.Entry entry = (Map.Entry) Objects.requireNonNull(entryArr[0]);
-                return of(comparator, entry.getKey(), entry.getValue());
+                return m140of(comparator, entry.getKey(), entry.getValue());
             }
             Object[] objArr = new Object[i];
             Object[] objArr2 = new Object[i];
@@ -329,7 +341,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
             int i = this.size;
             if (i != 0) {
                 if (i == 1) {
-                    return ImmutableSortedMap.of(this.comparator, Objects.requireNonNull(this.keys[0]), Objects.requireNonNull(this.values[0]));
+                    return ImmutableSortedMap.m140of(this.comparator, Objects.requireNonNull(this.keys[0]), Objects.requireNonNull(this.values[0]));
                 }
                 Object[] copyOf = Arrays.copyOf(this.keys, this.size);
                 Arrays.sort(copyOf, this.comparator);
@@ -396,7 +408,7 @@ public final class ImmutableSortedMap<K, V> extends ImmutableSortedMapFauxveride
 
     @Override // com.google.common.collect.ImmutableMap
     ImmutableSet<Map.Entry<K, V>> createEntrySet() {
-        return isEmpty() ? ImmutableSet.of() : new ImmutableMapEntrySet<K, V>() { // from class: com.google.common.collect.ImmutableSortedMap.1EntrySet
+        return isEmpty() ? ImmutableSet.m164of() : new ImmutableMapEntrySet<K, V>() { // from class: com.google.common.collect.ImmutableSortedMap.1EntrySet
             @Override // com.google.common.collect.ImmutableSet, com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet, com.google.common.collect.SortedIterable
             public UnmodifiableIterator<Map.Entry<K, V>> iterator() {
                 return asList().iterator();

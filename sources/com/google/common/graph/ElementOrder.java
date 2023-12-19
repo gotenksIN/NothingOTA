@@ -94,9 +94,9 @@ public final class ElementOrder<T> {
         return add.toString();
     }
 
-    /* renamed from: com.google.common.graph.ElementOrder$1  reason: invalid class name */
+    /* renamed from: com.google.common.graph.ElementOrder$1 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class C13771 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$graph$ElementOrder$Type;
 
         static {
@@ -123,7 +123,7 @@ public final class ElementOrder<T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public <K extends T, V> Map<K, V> createMap(int i) {
-        int i2 = AnonymousClass1.$SwitchMap$com$google$common$graph$ElementOrder$Type[this.type.ordinal()];
+        int i2 = C13771.$SwitchMap$com$google$common$graph$ElementOrder$Type[this.type.ordinal()];
         if (i2 != 1) {
             if (i2 == 2 || i2 == 3) {
                 return Maps.newLinkedHashMapWithExpectedSize(i);

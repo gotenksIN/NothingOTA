@@ -10,7 +10,7 @@ public final class IntVector extends BaseVector {
     }
 
     public int get(int i) {
-        return this.bb.getInt(__element(i));
+        return this.f174bb.getInt(__element(i));
     }
 
     public long getAsUnsigned(int i) {

@@ -24,30 +24,34 @@ public abstract class LinearTransformation {
 
     /* loaded from: classes2.dex */
     public static final class LinearTransformationBuilder {
-        private final double x1;
-        private final double y1;
+
+        /* renamed from: x1 */
+        private final double f272x1;
+
+        /* renamed from: y1 */
+        private final double f273y1;
 
         private LinearTransformationBuilder(double d, double d2) {
-            this.x1 = d;
-            this.y1 = d2;
+            this.f272x1 = d;
+            this.f273y1 = d2;
         }
 
         public LinearTransformation and(double d, double d2) {
             Preconditions.checkArgument(DoubleUtils.isFinite(d) && DoubleUtils.isFinite(d2));
-            double d3 = this.x1;
+            double d3 = this.f272x1;
             if (d == d3) {
-                Preconditions.checkArgument(d2 != this.y1);
-                return new VerticalLinearTransformation(this.x1);
+                Preconditions.checkArgument(d2 != this.f273y1);
+                return new VerticalLinearTransformation(this.f272x1);
             }
-            return withSlope((d2 - this.y1) / (d - d3));
+            return withSlope((d2 - this.f273y1) / (d - d3));
         }
 
         public LinearTransformation withSlope(double d) {
             Preconditions.checkArgument(!Double.isNaN(d));
             if (DoubleUtils.isFinite(d)) {
-                return new RegularLinearTransformation(d, this.y1 - (this.x1 * d));
+                return new RegularLinearTransformation(d, this.f273y1 - (this.f272x1 * d));
             }
-            return new VerticalLinearTransformation(this.x1);
+            return new VerticalLinearTransformation(this.f272x1);
         }
     }
 
@@ -136,7 +140,9 @@ public abstract class LinearTransformation {
         @CheckForNull
         @LazyInit
         LinearTransformation inverse;
-        final double x;
+
+        /* renamed from: x */
+        final double f274x;
 
         @Override // com.google.common.math.LinearTransformation
         public boolean isHorizontal() {
@@ -149,12 +155,12 @@ public abstract class LinearTransformation {
         }
 
         VerticalLinearTransformation(double d) {
-            this.x = d;
+            this.f274x = d;
             this.inverse = null;
         }
 
         VerticalLinearTransformation(double d, LinearTransformation linearTransformation) {
-            this.x = d;
+            this.f274x = d;
             this.inverse = linearTransformation;
         }
 
@@ -180,11 +186,11 @@ public abstract class LinearTransformation {
         }
 
         public String toString() {
-            return String.format("x = %g", Double.valueOf(this.x));
+            return String.format("x = %g", Double.valueOf(this.f274x));
         }
 
         private LinearTransformation createInverse() {
-            return new RegularLinearTransformation(0.0d, this.x, this);
+            return new RegularLinearTransformation(0.0d, this.f274x, this);
         }
     }
 

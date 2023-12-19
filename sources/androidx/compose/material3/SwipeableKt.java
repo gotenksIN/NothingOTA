@@ -8,23 +8,23 @@ import androidx.compose.foundation.gestures.DraggableKt$draggable$2;
 import androidx.compose.foundation.gestures.DraggableState;
 import androidx.compose.foundation.gestures.Orientation;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.input.nestedscroll.NestedScrollModifier;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.DisposableEffectResult;
 import androidx.compose.runtime.DisposableEffectScope;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
-import androidx.compose.runtime.saveable.RememberSaveableKt;
+import androidx.compose.runtime.saveable.RememberSaveable;
 import androidx.compose.runtime.saveable.Saver;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -39,15 +39,15 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Swipeable.kt */
-@Metadata(d1 = {"\u0000\u0086\u0001\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\"\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aP\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\t2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\t0\r2\u0018\u0010\u000e\u001a\u0014\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u000f2\u0006\u0010\u0010\u001a\u00020\t2\u0006\u0010\u0011\u001a\u00020\tH\u0002\u001a$\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\t0\u00132\u0006\u0010\n\u001a\u00020\t2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\t0\rH\u0002\u001aZ\u0010\u0014\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0003\"\b\b\u0000\u0010\u0002*\u00020\u00152\u0006\u0010\u0016\u001a\u0002H\u00022\u000e\b\u0002\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\t0\u00182#\b\u0002\u0010\u0019\u001a\u001d\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(\u001d\u0012\u0004\u0012\u00020\u001e0\u001aH\u0001¢\u0006\u0002\u0010\u001f\u001aI\u0010 \u001a\b\u0012\u0004\u0012\u0002H\u00020\u0003\"\b\b\u0000\u0010\u0002*\u00020\u00152\u0006\u0010!\u001a\u0002H\u00022\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u00020#0\u001a2\u000e\b\u0002\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\t0\u0018H\u0001¢\u0006\u0002\u0010$\u001a-\u0010%\u001a\u0004\u0018\u00010\t\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u0002H\u00020&2\u0006\u0010'\u001a\u0002H\u0002H\u0002¢\u0006\u0002\u0010(\u001a¹\u0001\u0010)\u001a\u00020*\"\u0004\b\u0000\u0010\u0002*\u00020*2\f\u0010'\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00032\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u0002H\u00020&2\u0006\u0010+\u001a\u00020,2\b\b\u0002\u0010-\u001a\u00020\u001e2\b\b\u0002\u0010.\u001a\u00020\u001e2\n\b\u0002\u0010/\u001a\u0004\u0018\u00010028\b\u0002\u0010\u000e\u001a2\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(1\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(2\u0012\u0004\u0012\u0002030\u000f2\n\b\u0002\u00104\u001a\u0004\u0018\u0001052\b\b\u0002\u0010\u0011\u001a\u000206H\u0001ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b7\u00108\"*\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00038@X\u0081\u0004¢\u0006\f\u0012\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0007\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u00069"}, d2 = {"PreUpPostDownNestedScrollConnection", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "T", "Landroidx/compose/material3/SwipeableState;", "getPreUpPostDownNestedScrollConnection$annotations", "(Landroidx/compose/material3/SwipeableState;)V", "getPreUpPostDownNestedScrollConnection", "(Landroidx/compose/material3/SwipeableState;)Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "computeTarget", "", "offset", "lastValue", "anchors", "", "thresholds", "Lkotlin/Function2;", "velocity", "velocityThreshold", "findBounds", "", "rememberSwipeableState", "", "initialValue", "animationSpec", "Landroidx/compose/animation/core/AnimationSpec;", "confirmStateChange", "Lkotlin/Function1;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "newValue", "", "(Ljava/lang/Object;Landroidx/compose/animation/core/AnimationSpec;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SwipeableState;", "rememberSwipeableStateFor", "value", "onValueChange", "", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SwipeableState;", "getOffset", "", "state", "(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Float;", "swipeable", "Landroidx/compose/ui/Modifier;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "enabled", "reverseDirection", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "from", "to", "Landroidx/compose/material3/ThresholdConfig;", "resistance", "Landroidx/compose/material3/ResistanceConfig;", "Landroidx/compose/ui/unit/Dp;", "swipeable-pPrIpRY", "(Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SwipeableState;Ljava/util/Map;Landroidx/compose/foundation/gestures/Orientation;ZZLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/material3/ResistanceConfig;F)Landroidx/compose/ui/Modifier;", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0086\u0001\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0010\"\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010$\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aP\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\t2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\t0\r2\u0018\u0010\u000e\u001a\u0014\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u00020\t0\u000f2\u0006\u0010\u0010\u001a\u00020\t2\u0006\u0010\u0011\u001a\u00020\tH\u0002\u001a$\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\t0\u00132\u0006\u0010\n\u001a\u00020\t2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\t0\rH\u0002\u001aZ\u0010\u0014\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0003\"\b\b\u0000\u0010\u0002*\u00020\u00152\u0006\u0010\u0016\u001a\u0002H\u00022\u000e\b\u0002\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\t0\u00182#\b\u0002\u0010\u0019\u001a\u001d\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(\u001d\u0012\u0004\u0012\u00020\u001e0\u001aH\u0001¢\u0006\u0002\u0010\u001f\u001aI\u0010 \u001a\b\u0012\u0004\u0012\u0002H\u00020\u0003\"\b\b\u0000\u0010\u0002*\u00020\u00152\u0006\u0010!\u001a\u0002H\u00022\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u00020#0\u001a2\u000e\b\u0002\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\t0\u0018H\u0001¢\u0006\u0002\u0010$\u001a-\u0010%\u001a\u0004\u0018\u00010\t\"\u0004\b\u0000\u0010\u0002*\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u0002H\u00020&2\u0006\u0010'\u001a\u0002H\u0002H\u0002¢\u0006\u0002\u0010(\u001a¹\u0001\u0010)\u001a\u00020*\"\u0004\b\u0000\u0010\u0002*\u00020*2\f\u0010'\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00032\u0012\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\t\u0012\u0004\u0012\u0002H\u00020&2\u0006\u0010+\u001a\u00020,2\b\b\u0002\u0010-\u001a\u00020\u001e2\b\b\u0002\u0010.\u001a\u00020\u001e2\n\b\u0002\u0010/\u001a\u0004\u0018\u00010028\b\u0002\u0010\u000e\u001a2\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(1\u0012\u0013\u0012\u0011H\u0002¢\u0006\f\b\u001b\u0012\b\b\u001c\u0012\u0004\b\b(2\u0012\u0004\u0012\u0002030\u000f2\n\b\u0002\u00104\u001a\u0004\u0018\u0001052\b\b\u0002\u0010\u0011\u001a\u000206H\u0001ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b7\u00108\"*\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00038@X\u0081\u0004¢\u0006\f\u0012\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0007\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u00069"}, m40d2 = {"PreUpPostDownNestedScrollConnection", "Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "T", "Landroidx/compose/material3/SwipeableState;", "getPreUpPostDownNestedScrollConnection$annotations", "(Landroidx/compose/material3/SwipeableState;)V", "getPreUpPostDownNestedScrollConnection", "(Landroidx/compose/material3/SwipeableState;)Landroidx/compose/ui/input/nestedscroll/NestedScrollConnection;", "computeTarget", "", "offset", "lastValue", "anchors", "", "thresholds", "Lkotlin/Function2;", "velocity", "velocityThreshold", "findBounds", "", "rememberSwipeableState", "", "initialValue", "animationSpec", "Landroidx/compose/animation/core/AnimationSpec;", "confirmStateChange", "Lkotlin/Function1;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "newValue", "", "(Ljava/lang/Object;Landroidx/compose/animation/core/AnimationSpec;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SwipeableState;", "rememberSwipeableStateFor", "value", "onValueChange", "", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function1;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SwipeableState;", "getOffset", "", "state", "(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Float;", "swipeable", "Landroidx/compose/ui/Modifier;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "enabled", "reverseDirection", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "from", "to", "Landroidx/compose/material3/ThresholdConfig;", "resistance", "Landroidx/compose/material3/ResistanceConfig;", "Landroidx/compose/ui/unit/Dp;", "swipeable-pPrIpRY", "(Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SwipeableState;Ljava/util/Map;Landroidx/compose/foundation/gestures/Orientation;ZZLandroidx/compose/foundation/interaction/MutableInteractionSource;Lkotlin/jvm/functions/Function2;Landroidx/compose/material3/ResistanceConfig;F)Landroidx/compose/ui/Modifier;", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class SwipeableKt {
     public static /* synthetic */ void getPreUpPostDownNestedScrollConnection$annotations(SwipeableState swipeableState) {
@@ -79,7 +79,7 @@ public final class SwipeableKt {
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventStart(102743774, i, -1, "androidx.compose.material3.rememberSwipeableState (Swipeable.kt:467)");
         }
-        SwipeableState<T> swipeableState = (SwipeableState) RememberSaveableKt.m2208rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) SwipeableState.Companion.Saver(animationSpec, function1), (String) null, (Function0<? extends Object>) new Function0<SwipeableState<T>>() { // from class: androidx.compose.material3.SwipeableKt$rememberSwipeableState$2
+        SwipeableState<T> swipeableState = (SwipeableState) RememberSaveable.m2509rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) SwipeableState.Companion.Saver(animationSpec, function1), (String) null, (Functions<? extends Object>) new Functions<SwipeableState<T>>() { // from class: androidx.compose.material3.SwipeableKt$rememberSwipeableState$2
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             /* JADX WARN: Multi-variable type inference failed */
@@ -87,12 +87,12 @@ public final class SwipeableKt {
                 super(0);
             }
 
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public /* bridge */ /* synthetic */ Object invoke() {
                 return invoke();
             }
 
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final SwipeableState<T> invoke() {
                 return new SwipeableState<>(initialValue, animationSpec, function1);
             }
@@ -145,9 +145,9 @@ public final class SwipeableKt {
             composer.updateRememberedValue(rememberedValue2);
         }
         composer.endReplaceableGroup();
-        final MutableState mutableState = (MutableState) rememberedValue2;
+        final SnapshotState snapshotState = (SnapshotState) rememberedValue2;
         int i3 = i & 8;
-        EffectsKt.LaunchedEffect(value, mutableState.getValue(), new SwipeableKt$rememberSwipeableStateFor$1(value, swipeableState, null), composer, (i & 14) | i3 | 512);
+        EffectsKt.LaunchedEffect(value, snapshotState.getValue(), new SwipeableKt$rememberSwipeableStateFor$1(value, swipeableState, null), composer, (i & 14) | i3 | 512);
         EffectsKt.DisposableEffect(swipeableState.getCurrentValue(), new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.material3.SwipeableKt$rememberSwipeableStateFor$2
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -166,8 +166,8 @@ public final class SwipeableKt {
                 Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
                 if (!Intrinsics.areEqual(value, swipeableState.getCurrentValue())) {
                     onValueChange.invoke(swipeableState.getCurrentValue());
-                    MutableState<Boolean> mutableState2 = mutableState;
-                    mutableState2.setValue(Boolean.valueOf(!mutableState2.getValue().booleanValue()));
+                    SnapshotState<Boolean> snapshotState2 = snapshotState;
+                    snapshotState2.setValue(Boolean.valueOf(!snapshotState2.getValue().booleanValue()));
                 }
                 return new DisposableEffectResult() { // from class: androidx.compose.material3.SwipeableKt$rememberSwipeableStateFor$2$invoke$$inlined$onDispose$1
                     @Override // androidx.compose.runtime.DisposableEffectResult
@@ -312,13 +312,13 @@ public final class SwipeableKt {
         return null;
     }
 
-    public static final <T> NestedScrollConnection getPreUpPostDownNestedScrollConnection(SwipeableState<T> swipeableState) {
+    public static final <T> NestedScrollModifier getPreUpPostDownNestedScrollConnection(SwipeableState<T> swipeableState) {
         Intrinsics.checkNotNullParameter(swipeableState, "<this>");
         return new SwipeableKt$PreUpPostDownNestedScrollConnection$1(swipeableState);
     }
 
     /* renamed from: swipeable-pPrIpRY  reason: not valid java name */
-    public static final <T> Modifier m1418swipeablepPrIpRY(Modifier swipeable, final SwipeableState<T> state, final Map<Float, ? extends T> anchors, final Orientation orientation, final boolean z, final boolean z2, final MutableInteractionSource mutableInteractionSource, final Function2<? super T, ? super T, ? extends ThresholdConfig> thresholds, final ResistanceConfig resistanceConfig, final float f) {
+    public static final <T> Modifier m1719swipeablepPrIpRY(Modifier swipeable, final SwipeableState<T> state, final Map<Float, ? extends T> anchors, final Orientation orientation, final boolean z, final boolean z2, final MutableInteractionSource mutableInteractionSource, final Function2<? super T, ? super T, ? extends ThresholdConfig> thresholds, final ResistanceConfig resistanceConfig, final float f) {
         Intrinsics.checkNotNullParameter(swipeable, "$this$swipeable");
         Intrinsics.checkNotNullParameter(state, "state");
         Intrinsics.checkNotNullParameter(anchors, "anchors");
@@ -348,7 +348,7 @@ public final class SwipeableKt {
                 inspectorInfo.getProperties().set("interactionSource", mutableInteractionSource);
                 inspectorInfo.getProperties().set("thresholds", thresholds);
                 inspectorInfo.getProperties().set("resistance", resistanceConfig);
-                inspectorInfo.getProperties().set("velocityThreshold", Dp.m5048boximpl(f));
+                inspectorInfo.getProperties().set("velocityThreshold", C0780Dp.m5349boximpl(f));
             }
         } : InspectableValueKt.getNoInspectorInfo(), new Function3<Modifier, Composer, Integer, Modifier>() { // from class: androidx.compose.material3.SwipeableKt$swipeable$3
             /* JADX INFO: Access modifiers changed from: package-private */
@@ -378,10 +378,10 @@ public final class SwipeableKt {
                     throw new IllegalArgumentException("You cannot have two anchors mapped to the same state.".toString());
                 }
                 ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume = composer.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume = composer.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(composer);
                 state.ensureInit$material3_release(anchors);
-                EffectsKt.LaunchedEffect(anchors, state, new AnonymousClass3(state, anchors, resistanceConfig, (Density) consume, thresholds, f, null), composer, 520);
+                EffectsKt.LaunchedEffect(anchors, state, new C06173(state, anchors, resistanceConfig, (Density) consume, thresholds, f, null), composer, 520);
                 Modifier.Companion companion = Modifier.Companion;
                 boolean isAnimationRunning = state.isAnimationRunning();
                 DraggableState draggableState$material3_release = state.getDraggableState$material3_release();
@@ -409,11 +409,11 @@ public final class SwipeableKt {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Swipeable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.material3.SwipeableKt$swipeable$3$3", f = "Swipeable.kt", i = {}, l = {603}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.material3.SwipeableKt$swipeable$3$3  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.material3.SwipeableKt$swipeable$3$3", m30f = "Swipeable.kt", m29i = {}, m28l = {603}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.material3.SwipeableKt$swipeable$3$3 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass3 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+            public static final class C06173 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ Map<Float, T> $anchors;
                 final /* synthetic */ Density $density;
                 final /* synthetic */ ResistanceConfig $resistance;
@@ -424,7 +424,7 @@ public final class SwipeableKt {
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
-                AnonymousClass3(SwipeableState<T> swipeableState, Map<Float, ? extends T> map, ResistanceConfig resistanceConfig, Density density, Function2<? super T, ? super T, ? extends ThresholdConfig> function2, float f, Continuation<? super AnonymousClass3> continuation) {
+                C06173(SwipeableState<T> swipeableState, Map<Float, ? extends T> map, ResistanceConfig resistanceConfig, Density density, Function2<? super T, ? super T, ? extends ThresholdConfig> function2, float f, Continuation<? super C06173> continuation) {
                     super(2, continuation);
                     this.$state = swipeableState;
                     this.$anchors = map;
@@ -436,12 +436,12 @@ public final class SwipeableKt {
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass3(this.$state, this.$anchors, this.$resistance, this.$density, this.$thresholds, this.$velocityThreshold, continuation);
+                    return new C06173(this.$state, this.$anchors, this.$resistance, this.$density, this.$thresholds, this.$velocityThreshold, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass3) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C06173) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -473,7 +473,7 @@ public final class SwipeableKt {
                                 return Float.valueOf(function2.invoke(MapsKt.getValue(map, Float.valueOf(f)), MapsKt.getValue(map, Float.valueOf(f2))).computeThreshold(density, f, f2));
                             }
                         });
-                        this.$state.setVelocityThreshold$material3_release(this.$density.mo302toPx0680j_4(this.$velocityThreshold));
+                        this.$state.setVelocityThreshold$material3_release(this.$density.mo603toPx0680j_4(this.$velocityThreshold));
                         this.label = 1;
                         if (this.$state.processNewAnchors$material3_release(anchors$material3_release, this.$anchors, this) == coroutine_suspended) {
                             return coroutine_suspended;

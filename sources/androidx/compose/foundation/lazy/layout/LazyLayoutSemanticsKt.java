@@ -1,17 +1,17 @@
 package androidx.compose.foundation.lazy.layout;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.gestures.Orientation;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.semantics.CollectionInfo;
+import androidx.compose.p002ui.semantics.ScrollAxisRange;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionScopedCoroutineScopeCanceller;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.semantics.CollectionInfo;
-import androidx.compose.ui.semantics.ScrollAxisRange;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -20,18 +20,18 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: LazyLayoutSemantics.kt */
-@Metadata(d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\u001a9\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\tH\u0001¢\u0006\u0002\u0010\u000b¨\u0006\f"}, d2 = {"lazyLayoutSemantics", "Landroidx/compose/ui/Modifier;", "itemProvider", "Landroidx/compose/foundation/lazy/layout/LazyLayoutItemProvider;", "state", "Landroidx/compose/foundation/lazy/layout/LazyLayoutSemanticState;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "userScrollEnabled", "", "reverseScrolling", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/lazy/layout/LazyLayoutItemProvider;Landroidx/compose/foundation/lazy/layout/LazyLayoutSemanticState;Landroidx/compose/foundation/gestures/Orientation;ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\u001a9\u0010\u0000\u001a\u00020\u0001*\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\tH\u0001¢\u0006\u0002\u0010\u000b¨\u0006\f"}, m40d2 = {"lazyLayoutSemantics", "Landroidx/compose/ui/Modifier;", "itemProvider", "Landroidx/compose/foundation/lazy/layout/LazyLayoutItemProvider;", "state", "Landroidx/compose/foundation/lazy/layout/LazyLayoutSemanticState;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "userScrollEnabled", "", "reverseScrolling", "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/lazy/layout/LazyLayoutItemProvider;Landroidx/compose/foundation/lazy/layout/LazyLayoutSemanticState;Landroidx/compose/foundation/gestures/Orientation;ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyLayoutSemanticsKt {
-    public static final Modifier lazyLayoutSemantics(Modifier modifier, final LazyLayoutItemProvider itemProvider, final LazyLayoutSemanticState state, Orientation orientation, boolean z, boolean z2, Composer composer, int i) {
+    public static final Modifier lazyLayoutSemantics(Modifier modifier, final LazyLayoutItemProvider itemProvider, final LazyLayoutSemantics state, Orientation orientation, boolean z, boolean z2, Composer composer, int i) {
         Intrinsics.checkNotNullParameter(modifier, "<this>");
         Intrinsics.checkNotNullParameter(itemProvider, "itemProvider");
         Intrinsics.checkNotNullParameter(state, "state");
@@ -89,18 +89,18 @@ public final class LazyLayoutSemanticsKt {
                     return Integer.valueOf(i3);
                 }
             };
-            final ScrollAxisRange scrollAxisRange = new ScrollAxisRange(new Function0<Float>() { // from class: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$accessibilityScrollState$1
+            final ScrollAxisRange scrollAxisRange = new ScrollAxisRange(new Functions<Float>() { // from class: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$accessibilityScrollState$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 {
                     super(0);
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Float invoke() {
-                    return Float.valueOf(LazyLayoutSemanticState.this.getCurrentPosition());
+                    return Float.valueOf(LazyLayoutSemantics.this.getCurrentPosition());
                 }
-            }, new Function0<Float>() { // from class: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$accessibilityScrollState$2
+            }, new Functions<Float>() { // from class: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$accessibilityScrollState$2
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -108,13 +108,13 @@ public final class LazyLayoutSemanticsKt {
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Float invoke() {
                     float currentPosition;
-                    if (LazyLayoutSemanticState.this.getCanScrollForward()) {
+                    if (LazyLayoutSemantics.this.getCanScrollForward()) {
                         currentPosition = itemProvider.getItemCount() + 1.0f;
                     } else {
-                        currentPosition = LazyLayoutSemanticState.this.getCurrentPosition();
+                        currentPosition = LazyLayoutSemantics.this.getCurrentPosition();
                     }
                     return Float.valueOf(currentPosition);
                 }
@@ -135,36 +135,36 @@ public final class LazyLayoutSemanticsKt {
                     if (z4) {
                         f = f2;
                     }
-                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(state, f, null), 3, null);
+                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C03511(state, f, null), 3, null);
                     return true;
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: LazyLayoutSemantics.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollByAction$1$1", f = "LazyLayoutSemantics.kt", i = {}, l = {R.styleable.AppCompatTheme_seekBarStyle}, m = "invokeSuspend", n = {}, s = {})
-                /* renamed from: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollByAction$1$1  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollByAction$1$1", m30f = "LazyLayoutSemantics.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_seekBarStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                /* renamed from: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollByAction$1$1 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                public static final class C03511 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ float $delta;
-                    final /* synthetic */ LazyLayoutSemanticState $state;
+                    final /* synthetic */ LazyLayoutSemantics $state;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    AnonymousClass1(LazyLayoutSemanticState lazyLayoutSemanticState, float f, Continuation<? super AnonymousClass1> continuation) {
+                    C03511(LazyLayoutSemantics lazyLayoutSemantics, float f, Continuation<? super C03511> continuation) {
                         super(2, continuation);
-                        this.$state = lazyLayoutSemanticState;
+                        this.$state = lazyLayoutSemantics;
                         this.$delta = f;
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        return new AnonymousClass1(this.$state, this.$delta, continuation);
+                        return new C03511(this.$state, this.$delta, continuation);
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C03511) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -202,7 +202,7 @@ public final class LazyLayoutSemanticsKt {
                     boolean z5 = i3 >= 0 && i3 < LazyLayoutItemProvider.this.getItemCount();
                     LazyLayoutItemProvider lazyLayoutItemProvider = LazyLayoutItemProvider.this;
                     if (z5) {
-                        BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass2(state, i3, null), 3, null);
+                        BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C03532(state, i3, null), 3, null);
                         return true;
                     }
                     throw new IllegalArgumentException(("Can't scroll to index " + i3 + ", it is out of bounds [0, " + lazyLayoutItemProvider.getItemCount() + ')').toString());
@@ -210,30 +210,30 @@ public final class LazyLayoutSemanticsKt {
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: LazyLayoutSemantics.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollToIndexAction$1$2", f = "LazyLayoutSemantics.kt", i = {}, l = {R.styleable.AppCompatTheme_toolbarNavigationButtonStyle}, m = "invokeSuspend", n = {}, s = {})
-                /* renamed from: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollToIndexAction$1$2  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollToIndexAction$1$2", m30f = "LazyLayoutSemantics.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                /* renamed from: androidx.compose.foundation.lazy.layout.LazyLayoutSemanticsKt$lazyLayoutSemantics$1$scrollToIndexAction$1$2 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                public static final class C03532 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ int $index;
-                    final /* synthetic */ LazyLayoutSemanticState $state;
+                    final /* synthetic */ LazyLayoutSemantics $state;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    AnonymousClass2(LazyLayoutSemanticState lazyLayoutSemanticState, int i, Continuation<? super AnonymousClass2> continuation) {
+                    C03532(LazyLayoutSemantics lazyLayoutSemantics, int i, Continuation<? super C03532> continuation) {
                         super(2, continuation);
-                        this.$state = lazyLayoutSemanticState;
+                        this.$state = lazyLayoutSemantics;
                         this.$index = i;
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        return new AnonymousClass2(this.$state, this.$index, continuation);
+                        return new C03532(this.$state, this.$index, continuation);
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C03532) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

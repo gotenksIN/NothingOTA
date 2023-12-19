@@ -2,29 +2,29 @@ package androidx.compose.material3;
 
 import android.graphics.Rect;
 import android.view.View;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.layout.LayoutCoordinates;
+import androidx.compose.p002ui.layout.LayoutCoordinatesKt;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.unit.C0780Dp;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
-import androidx.compose.runtime.MutableState;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.layout.LayoutCoordinates;
-import androidx.compose.ui.layout.LayoutCoordinatesKt;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.unit.Dp;
+import androidx.compose.runtime.SnapshotState;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: ExposedDropdownMenu.kt */
-@Metadata(d1 = {"\u0000T\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\u001aQ\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0012\u0010\u0007\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00040\b2\b\b\u0002\u0010\t\u001a\u00020\n2\u001c\u0010\u000b\u001a\u0018\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\u00040\b¢\u0006\u0002\b\r¢\u0006\u0002\b\u000eH\u0007¢\u0006\u0002\u0010\u000f\u001a6\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0012\u0010\u0017\u001a\u000e\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\u00040\bH\u0002\u001aE\u0010\u0018\u001a\u00020\n*\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00062\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00040\u00192\b\b\u0002\u0010\u001a\u001a\u00020\u001b2\b\b\u0002\u0010\u001c\u001a\u00020\u001b2\b\b\u0002\u0010\u001d\u001a\u00020\u001bH\u0003¢\u0006\u0002\u0010\u001e\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001f"}, d2 = {"ExposedDropdownMenuItemHorizontalPadding", "Landroidx/compose/ui/unit/Dp;", "F", "ExposedDropdownMenuBox", "", "expanded", "", "onExpandedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Landroidx/compose/material3/ExposedDropdownMenuBoxScope;", "Landroidx/compose/runtime/Composable;", "Lkotlin/ExtensionFunctionType;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "updateHeight", "view", "Landroid/view/View;", "coordinates", "Landroidx/compose/ui/layout/LayoutCoordinates;", "verticalMarginInPx", "", "onHeightUpdate", "expandable", "Lkotlin/Function0;", "menuDescription", "", "expandedDescription", "collapsedDescription", "(Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function0;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000T\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\u001aQ\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u00062\u0012\u0010\u0007\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00040\b2\b\b\u0002\u0010\t\u001a\u00020\n2\u001c\u0010\u000b\u001a\u0018\u0012\u0004\u0012\u00020\f\u0012\u0004\u0012\u00020\u00040\b¢\u0006\u0002\b\r¢\u0006\u0002\b\u000eH\u0007¢\u0006\u0002\u0010\u000f\u001a6\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0012\u0010\u0017\u001a\u000e\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\u00040\bH\u0002\u001aE\u0010\u0018\u001a\u00020\n*\u00020\n2\u0006\u0010\u0005\u001a\u00020\u00062\f\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\u00040\u00192\b\b\u0002\u0010\u001a\u001a\u00020\u001b2\b\b\u0002\u0010\u001c\u001a\u00020\u001b2\b\b\u0002\u0010\u001d\u001a\u00020\u001bH\u0003¢\u0006\u0002\u0010\u001e\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u001f"}, m40d2 = {"ExposedDropdownMenuItemHorizontalPadding", "Landroidx/compose/ui/unit/Dp;", "F", "ExposedDropdownMenuBox", "", "expanded", "", "onExpandedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Landroidx/compose/material3/ExposedDropdownMenuBoxScope;", "Landroidx/compose/runtime/Composable;", "Lkotlin/ExtensionFunctionType;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "updateHeight", "view", "Landroid/view/View;", "coordinates", "Landroidx/compose/ui/layout/LayoutCoordinates;", "verticalMarginInPx", "", "onHeightUpdate", "expandable", "Lkotlin/Function0;", "menuDescription", "", "expandedDescription", "collapsedDescription", "(Landroidx/compose/ui/Modifier;ZLkotlin/jvm/functions/Function0;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ExposedDropdownMenuKt {
-    private static final float ExposedDropdownMenuItemHorizontalPadding = Dp.m5050constructorimpl(16);
+    private static final float ExposedDropdownMenuItemHorizontalPadding = C0780Dp.m5351constructorimpl(16);
 
     /* JADX WARN: Removed duplicated region for block: B:100:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:36:0x006f  */
@@ -46,7 +46,7 @@ public final class ExposedDropdownMenuKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void ExposedDropdownMenuBox(final boolean r25, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r26, androidx.compose.ui.Modifier r27, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.ExposedDropdownMenuBoxScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r28, androidx.compose.runtime.Composer r29, final int r30, final int r31) {
+    public static final void ExposedDropdownMenuBox(final boolean r25, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r26, androidx.compose.p002ui.Modifier r27, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.ExposedDropdownMenu, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r28, androidx.compose.runtime.Composer r29, final int r30, final int r31) {
         /*
             Method dump skipped, instructions count: 899
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -55,47 +55,47 @@ public final class ExposedDropdownMenuKt {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int ExposedDropdownMenuBox$lambda$1(MutableState<Integer> mutableState) {
-        return mutableState.getValue().intValue();
+    public static final int ExposedDropdownMenuBox$lambda$1(SnapshotState<Integer> snapshotState) {
+        return snapshotState.getValue().intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void ExposedDropdownMenuBox$lambda$2(MutableState<Integer> mutableState, int i) {
-        mutableState.setValue(Integer.valueOf(i));
+    public static final void ExposedDropdownMenuBox$lambda$2(SnapshotState<Integer> snapshotState, int i) {
+        snapshotState.setValue(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final int ExposedDropdownMenuBox$lambda$4(MutableState<Integer> mutableState) {
-        return mutableState.getValue().intValue();
+    public static final int ExposedDropdownMenuBox$lambda$4(SnapshotState<Integer> snapshotState) {
+        return snapshotState.getValue().intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void ExposedDropdownMenuBox$lambda$5(MutableState<Integer> mutableState, int i) {
-        mutableState.setValue(Integer.valueOf(i));
+    public static final void ExposedDropdownMenuBox$lambda$5(SnapshotState<Integer> snapshotState, int i) {
+        snapshotState.setValue(Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Modifier expandable(Modifier modifier, final boolean z, final Function0<Unit> function0, String str, String str2, String str3, Composer composer, int i, int i2) {
+    public static final Modifier expandable(Modifier modifier, final boolean z, final Functions<Unit> functions, String str, String str2, String str3, Composer composer, int i, int i2) {
         composer.startReplaceableGroup(1006563320);
         ComposerKt.sourceInformation(composer, "C(expandable)P(1,4,3,2)1017@60116L38,1018@60190L31,1019@60258L32,1020@60315L365,1030@60691L187:ExposedDropdownMenu.kt#uh7d8r");
-        final String m1397getStringNWtq28 = (i2 & 4) != 0 ? Strings_androidKt.m1397getStringNWtq28(Strings.Companion.m1374getExposedDropdownMenuadMyvUU(), composer, 6) : str;
-        Object m1397getStringNWtq282 = (i2 & 8) != 0 ? Strings_androidKt.m1397getStringNWtq28(Strings.Companion.m1376getMenuExpandedadMyvUU(), composer, 6) : str2;
-        Object m1397getStringNWtq283 = (i2 & 16) != 0 ? Strings_androidKt.m1397getStringNWtq28(Strings.Companion.m1375getMenuCollapsedadMyvUU(), composer, 6) : str3;
+        final String m1698getStringNWtq28 = (i2 & 4) != 0 ? Strings_androidKt.m1698getStringNWtq28(Strings.Companion.m1675getExposedDropdownMenuadMyvUU(), composer, 6) : str;
+        Object m1698getStringNWtq282 = (i2 & 8) != 0 ? Strings_androidKt.m1698getStringNWtq28(Strings.Companion.m1677getMenuExpandedadMyvUU(), composer, 6) : str2;
+        Object m1698getStringNWtq283 = (i2 & 16) != 0 ? Strings_androidKt.m1698getStringNWtq28(Strings.Companion.m1676getMenuCollapsedadMyvUU(), composer, 6) : str3;
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventStart(1006563320, i, -1, "androidx.compose.material3.expandable (ExposedDropdownMenu.kt:1014)");
         }
         Unit unit = Unit.INSTANCE;
         composer.startReplaceableGroup(1157296644);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1):Composables.kt#9igjgp");
-        boolean changed = composer.changed(function0);
+        boolean changed = composer.changed(functions);
         ExposedDropdownMenuKt$expandable$1$1 rememberedValue = composer.rememberedValue();
         if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = new ExposedDropdownMenuKt$expandable$1$1(function0, null);
+            rememberedValue = new ExposedDropdownMenuKt$expandable$1$1(functions, null);
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
         Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput(modifier, unit, (Function2) rememberedValue);
-        Object[] objArr = {Boolean.valueOf(z), m1397getStringNWtq282, m1397getStringNWtq283, m1397getStringNWtq28, function0};
+        Object[] objArr = {Boolean.valueOf(z), m1698getStringNWtq282, m1698getStringNWtq283, m1698getStringNWtq28, functions};
         composer.startReplaceableGroup(-568225417);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1):Composables.kt#9igjgp");
         boolean z2 = false;
@@ -104,8 +104,8 @@ public final class ExposedDropdownMenuKt {
         }
         Object rememberedValue2 = composer.rememberedValue();
         if (z2 || rememberedValue2 == Composer.Companion.getEmpty()) {
-            final String str4 = m1397getStringNWtq282;
-            final String str5 = m1397getStringNWtq283;
+            final String str4 = m1698getStringNWtq282;
+            final String str5 = m1698getStringNWtq283;
             rememberedValue2 = (Function1) new Function1<SemanticsPropertyReceiver, Unit>() { // from class: androidx.compose.material3.ExposedDropdownMenuKt$expandable$2$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,18 +123,18 @@ public final class ExposedDropdownMenuKt {
                 public final void invoke2(SemanticsPropertyReceiver semantics) {
                     Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
                     SemanticsPropertiesKt.setStateDescription(semantics, z ? str4 : str5);
-                    SemanticsPropertiesKt.setContentDescription(semantics, m1397getStringNWtq28);
-                    final Function0<Unit> function02 = function0;
-                    SemanticsPropertiesKt.onClick$default(semantics, null, new Function0<Boolean>() { // from class: androidx.compose.material3.ExposedDropdownMenuKt$expandable$2$1.1
+                    SemanticsPropertiesKt.setContentDescription(semantics, m1698getStringNWtq28);
+                    final Functions<Unit> functions2 = functions;
+                    SemanticsPropertiesKt.onClick$default(semantics, null, new Functions<Boolean>() { // from class: androidx.compose.material3.ExposedDropdownMenuKt$expandable$2$1.1
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
                             super(0);
                         }
 
                         /* JADX WARN: Can't rename method to resolve collision */
-                        @Override // kotlin.jvm.functions.Function0
+                        @Override // kotlin.jvm.functions.Functions
                         public final Boolean invoke() {
-                            function02.invoke();
+                            functions2.invoke();
                             return true;
                         }
                     }, 1, null);

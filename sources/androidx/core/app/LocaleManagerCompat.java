@@ -4,8 +4,8 @@ import android.app.LocaleManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.LocaleList;
-import androidx.core.os.BuildCompat;
-import androidx.core.os.LocaleListCompat;
+import androidx.core.p004os.BuildCompat;
+import androidx.core.p004os.LocaleListCompat;
 import java.util.Locale;
 
 /* loaded from: classes.dex */

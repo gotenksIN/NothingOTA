@@ -10,7 +10,7 @@ import android.text.TextDirectionHeuristics;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.MetricAffectingSpan;
-import androidx.core.os.TraceCompat;
+import androidx.core.p004os.TraceCompat;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
 import java.util.ArrayList;

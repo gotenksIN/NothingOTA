@@ -28,7 +28,8 @@ final class DirectedMultiNetworkConnections<N, E> extends AbstractDirectedNetwor
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, E> DirectedMultiNetworkConnections<N, E> of() {
+    /* renamed from: of */
+    public static <N, E> DirectedMultiNetworkConnections<N, E> m100of() {
         return new DirectedMultiNetworkConnections<>(new HashMap(2, 1.0f), new HashMap(2, 1.0f), 0);
     }
 

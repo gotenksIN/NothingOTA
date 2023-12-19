@@ -10,7 +10,7 @@ import android.view.ActionMode;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.AutoCompleteTextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TextViewCompat;
@@ -28,7 +28,7 @@ public class AppCompatAutoCompleteTextView extends AutoCompleteTextView implemen
     }
 
     public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.autoCompleteTextViewStyle);
+        this(context, attributeSet, C0032R.attr.autoCompleteTextViewStyle);
     }
 
     public AppCompatAutoCompleteTextView(Context context, AttributeSet attributeSet, int i) {

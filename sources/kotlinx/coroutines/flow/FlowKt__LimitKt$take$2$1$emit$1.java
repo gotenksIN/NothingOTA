@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Limit.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$take$2$1", f = "Limit.kt", i = {}, l = {61, 63}, m = "emit", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__LimitKt$take$2$1", m30f = "Limit.kt", m29i = {}, m28l = {61, 63}, m27m = "emit", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__LimitKt$take$2$1$emit$1 extends ContinuationImpl {
     int label;

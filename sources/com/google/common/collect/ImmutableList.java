@@ -25,56 +25,69 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
         return this;
     }
 
-    public static <E> ImmutableList<E> of() {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m211of() {
         return (ImmutableList<E>) RegularImmutableList.EMPTY;
     }
 
-    public static <E> ImmutableList<E> of(E e) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m210of(E e) {
         return construct(e);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m209of(E e, E e2) {
         return construct(e, e2);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m208of(E e, E e2, E e3) {
         return construct(e, e2, e3);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m207of(E e, E e2, E e3, E e4) {
         return construct(e, e2, e3, e4);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m206of(E e, E e2, E e3, E e4, E e5) {
         return construct(e, e2, e3, e4, e5);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m205of(E e, E e2, E e3, E e4, E e5, E e6) {
         return construct(e, e2, e3, e4, e5, e6);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m204of(E e, E e2, E e3, E e4, E e5, E e6, E e7) {
         return construct(e, e2, e3, e4, e5, e6, e7);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m203of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8) {
         return construct(e, e2, e3, e4, e5, e6, e7, e8);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m202of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9) {
         return construct(e, e2, e3, e4, e5, e6, e7, e8, e9);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m201of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10) {
         return construct(e, e2, e3, e4, e5, e6, e7, e8, e9, e10);
     }
 
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10, E e11) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m200of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10, E e11) {
         return construct(e, e2, e3, e4, e5, e6, e7, e8, e9, e10, e11);
     }
 
     @SafeVarargs
-    public static <E> ImmutableList<E> of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10, E e11, E e12, E... eArr) {
+    /* renamed from: of */
+    public static <E> ImmutableList<E> m199of(E e, E e2, E e3, E e4, E e5, E e6, E e7, E e8, E e9, E e10, E e11, E e12, E... eArr) {
         Preconditions.checkArgument(eArr.length <= 2147483635, "the total number of elements must fit in an int");
         Object[] objArr = new Object[eArr.length + 12];
         objArr[0] = e;
@@ -111,18 +124,18 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
 
     public static <E> ImmutableList<E> copyOf(Iterator<? extends E> it) {
         if (!it.hasNext()) {
-            return of();
+            return m211of();
         }
         E next = it.next();
         if (!it.hasNext()) {
-            return of((Object) next);
+            return m210of((Object) next);
         }
         return new Builder().add((Builder) next).addAll((Iterator) it).build();
     }
 
     public static <E> ImmutableList<E> copyOf(E[] eArr) {
         if (eArr.length == 0) {
-            return of();
+            return m211of();
         }
         return construct((Object[]) eArr.clone());
     }
@@ -154,7 +167,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <E> ImmutableList<E> asImmutableList(Object[] objArr, int i) {
         if (i == 0) {
-            return of();
+            return m211of();
         }
         return new RegularImmutableList(objArr, i);
     }
@@ -223,7 +236,7 @@ public abstract class ImmutableList<E> extends ImmutableCollection<E> implements
             return this;
         }
         if (i3 == 0) {
-            return of();
+            return m211of();
         }
         return subListUnchecked(i, i2);
     }

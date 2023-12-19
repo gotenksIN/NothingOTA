@@ -7,16 +7,16 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTAUpdateViewModel.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel$installOTAFileSuccess$1", f = "OTAUpdateViewModel.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel$installOTAFileSuccess$1", m30f = "OTAUpdateViewModel.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class OTAUpdateViewModel$installOTAFileSuccess$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $reboot;
@@ -49,15 +49,15 @@ public final class OTAUpdateViewModel$installOTAFileSuccess$1 extends SuspendLam
         IntrinsicsKt.getCOROUTINE_SUSPENDED();
         if (this.label == 0) {
             ResultKt.throwOnFailure(obj);
-            mutableLiveData = this.this$0._otaApplyMetadataLive;
-            mutableLiveData.setValue(null);
+            this.this$0._otaApplyMetadataLive.setValue(null);
             if (this.$reboot) {
                 mutableLiveData3 = this.this$0._rebootEventLive;
-                mutableLiveData3.setValue(new Event(Boxing.boxBoolean(true)));
+                mutableLiveData3.setValue(new Event(boxing.boxBoolean(true)));
             } else {
-                mutableLiveData2 = this.this$0._engineErrorCodeLive;
-                mutableLiveData2.setValue(Boxing.boxInt(-1));
-                this.this$0.showMainPage();
+                mutableLiveData = this.this$0._engineErrorCodeLive;
+                mutableLiveData.setValue(boxing.boxInt(-1));
+                mutableLiveData2 = this.this$0._finishActivityEventLive;
+                mutableLiveData2.setValue(new Event(boxing.boxBoolean(true)));
             }
             return Unit.INSTANCE;
         }

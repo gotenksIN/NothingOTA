@@ -3,16 +3,16 @@ package androidx.compose.material.ripple;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.AnimatableKt;
 import androidx.compose.animation.core.AnimationVector1D;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.geometry.Size;
+import androidx.compose.p002ui.graphics.ClipOp;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.drawscope.DrawContext;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.util.MathHelpers;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.geometry.Size;
-import androidx.compose.ui.graphics.ClipOp;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.drawscope.DrawContext;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.util.MathHelpersKt;
 import com.google.common.net.HttpHeaders;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -26,16 +26,16 @@ import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Job;
 
 /* compiled from: RippleAnimation.kt */
-@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\"\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007ø\u0001\u0000¢\u0006\u0002\u0010\bJ\u0011\u0010#\u001a\u00020\u0019H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0011\u0010%\u001a\u00020\u0019H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0011\u0010&\u001a\u00020\u0019H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0006\u0010'\u001a\u00020\u0019J\u001f\u0010(\u001a\u00020\u0019*\u00020)2\u0006\u0010*\u001a\u00020+ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-R\u001a\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00078B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u0014\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00190\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00078B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u001d\u0010\u0016\u001a\u0004\b\u001b\u0010\u0012\"\u0004\b\u001c\u0010\u0014R\u0019\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0002\n\u0000R\u0019\u0010\u0004\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u001eR\u0012\u0010\u001f\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010 R\u0019\u0010!\u001a\u0004\u0018\u00010\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0002\n\u0000R\u0012\u0010\"\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010 \u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006."}, d2 = {"Landroidx/compose/material/ripple/RippleAnimation;", "", HttpHeaders.ReferrerPolicyValues.ORIGIN, "Landroidx/compose/ui/geometry/Offset;", "radius", "Landroidx/compose/ui/unit/Dp;", "bounded", "", "(Landroidx/compose/ui/geometry/Offset;FZLkotlin/jvm/internal/DefaultConstructorMarker;)V", "animatedAlpha", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "animatedCenterPercent", "animatedRadiusPercent", "<set-?>", "finishRequested", "getFinishRequested", "()Z", "setFinishRequested", "(Z)V", "finishRequested$delegate", "Landroidx/compose/runtime/MutableState;", "finishSignalDeferred", "Lkotlinx/coroutines/CompletableDeferred;", "", "finishedFadingIn", "getFinishedFadingIn", "setFinishedFadingIn", "finishedFadingIn$delegate", "F", "startRadius", "Ljava/lang/Float;", "targetCenter", "targetRadius", "animate", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "fadeIn", "fadeOut", "finish", "draw", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "color", "Landroidx/compose/ui/graphics/Color;", "draw-4WTKRHQ", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;J)V", "material-ripple_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u000f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0000\u0018\u00002\u00020\u0001B\"\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007ø\u0001\u0000¢\u0006\u0002\u0010\bJ\u0011\u0010#\u001a\u00020\u0019H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0011\u0010%\u001a\u00020\u0019H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0011\u0010&\u001a\u00020\u0019H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010$J\u0006\u0010'\u001a\u00020\u0019J\u001f\u0010(\u001a\u00020\u0019*\u00020)2\u0006\u0010*\u001a\u00020+ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-R\u001a\u0010\t\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\r\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u000b\u0012\u0004\u0012\u00020\f0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u0010\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00078B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u0014\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00190\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u000f\u001a\u00020\u00078B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\b\u001d\u0010\u0016\u001a\u0004\b\u001b\u0010\u0012\"\u0004\b\u001c\u0010\u0014R\u0019\u0010\u0002\u001a\u0004\u0018\u00010\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0002\n\u0000R\u0019\u0010\u0004\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u001eR\u0012\u0010\u001f\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010 R\u0019\u0010!\u001a\u0004\u0018\u00010\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0002\n\u0000R\u0012\u0010\"\u001a\u0004\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0004\n\u0002\u0010 \u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006."}, m40d2 = {"Landroidx/compose/material/ripple/RippleAnimation;", "", HttpHeaders.ReferrerPolicyValues.ORIGIN, "Landroidx/compose/ui/geometry/Offset;", "radius", "Landroidx/compose/ui/unit/Dp;", "bounded", "", "(Landroidx/compose/ui/geometry/Offset;FZLkotlin/jvm/internal/DefaultConstructorMarker;)V", "animatedAlpha", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "animatedCenterPercent", "animatedRadiusPercent", "<set-?>", "finishRequested", "getFinishRequested", "()Z", "setFinishRequested", "(Z)V", "finishRequested$delegate", "Landroidx/compose/runtime/MutableState;", "finishSignalDeferred", "Lkotlinx/coroutines/CompletableDeferred;", "", "finishedFadingIn", "getFinishedFadingIn", "setFinishedFadingIn", "finishedFadingIn$delegate", "F", "startRadius", "Ljava/lang/Float;", "targetCenter", "targetRadius", "animate", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "fadeIn", "fadeOut", "finish", "draw", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "color", "Landroidx/compose/ui/graphics/Color;", "draw-4WTKRHQ", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;J)V", "material-ripple_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class RippleAnimation {
     private final Animatable<Float, AnimationVector1D> animatedAlpha;
     private final Animatable<Float, AnimationVector1D> animatedCenterPercent;
     private final Animatable<Float, AnimationVector1D> animatedRadiusPercent;
     private final boolean bounded;
-    private final MutableState finishRequested$delegate;
+    private final SnapshotState finishRequested$delegate;
     private final CompletableDeferred<Unit> finishSignalDeferred;
-    private final MutableState finishedFadingIn$delegate;
+    private final SnapshotState finishedFadingIn$delegate;
     private Offset origin;
     private final float radius;
     private Float startRadius;
@@ -47,8 +47,8 @@ public final class RippleAnimation {
     }
 
     private RippleAnimation(Offset offset, float f, boolean z) {
-        MutableState mutableStateOf$default;
-        MutableState mutableStateOf$default2;
+        SnapshotState mutableStateOf$default;
+        SnapshotState mutableStateOf$default2;
         this.origin = offset;
         this.radius = f;
         this.bounded = z;
@@ -181,25 +181,25 @@ public final class RippleAnimation {
     }
 
     /* renamed from: draw-4WTKRHQ  reason: not valid java name */
-    public final void m891draw4WTKRHQ(DrawScope draw, long j) {
+    public final void m1192draw4WTKRHQ(DrawScope draw, long j) {
         Float valueOf;
         Intrinsics.checkNotNullParameter(draw, "$this$draw");
         if (this.startRadius == null) {
-            this.startRadius = Float.valueOf(RippleAnimationKt.m893getRippleStartRadiusuvyYCjk(draw.mo3096getSizeNHjbRc()));
+            this.startRadius = Float.valueOf(RippleAnimationKt.m1194getRippleStartRadiusuvyYCjk(draw.mo3397getSizeNHjbRc()));
         }
         if (this.targetRadius == null) {
             if (Float.isNaN(this.radius)) {
-                valueOf = Float.valueOf(RippleAnimationKt.m892getRippleEndRadiuscSwnlzA(draw, this.bounded, draw.mo3096getSizeNHjbRc()));
+                valueOf = Float.valueOf(RippleAnimationKt.m1193getRippleEndRadiuscSwnlzA(draw, this.bounded, draw.mo3397getSizeNHjbRc()));
             } else {
-                valueOf = Float.valueOf(draw.mo302toPx0680j_4(this.radius));
+                valueOf = Float.valueOf(draw.mo603toPx0680j_4(this.radius));
             }
             this.targetRadius = valueOf;
         }
         if (this.origin == null) {
-            this.origin = Offset.m2307boximpl(draw.mo3095getCenterF1C5BW0());
+            this.origin = Offset.m2608boximpl(draw.mo3396getCenterF1C5BW0());
         }
         if (this.targetCenter == null) {
-            this.targetCenter = Offset.m2307boximpl(OffsetKt.Offset(Size.m2387getWidthimpl(draw.mo3096getSizeNHjbRc()) / 2.0f, Size.m2384getHeightimpl(draw.mo3096getSizeNHjbRc()) / 2.0f));
+            this.targetCenter = Offset.m2608boximpl(OffsetKt.Offset(Size.m2688getWidthimpl(draw.mo3397getSizeNHjbRc()) / 2.0f, Size.m2685getHeightimpl(draw.mo3397getSizeNHjbRc()) / 2.0f));
         }
         float floatValue = (!getFinishRequested() || getFinishedFadingIn()) ? this.animatedAlpha.getValue().floatValue() : 1.0f;
         Float f = this.startRadius;
@@ -207,33 +207,33 @@ public final class RippleAnimation {
         float floatValue2 = f.floatValue();
         Float f2 = this.targetRadius;
         Intrinsics.checkNotNull(f2);
-        float lerp = MathHelpersKt.lerp(floatValue2, f2.floatValue(), this.animatedRadiusPercent.getValue().floatValue());
+        float lerp = MathHelpers.lerp(floatValue2, f2.floatValue(), this.animatedRadiusPercent.getValue().floatValue());
         Offset offset = this.origin;
         Intrinsics.checkNotNull(offset);
-        float m2318getXimpl = Offset.m2318getXimpl(offset.m2328unboximpl());
+        float m2619getXimpl = Offset.m2619getXimpl(offset.m2629unboximpl());
         Offset offset2 = this.targetCenter;
         Intrinsics.checkNotNull(offset2);
-        float lerp2 = MathHelpersKt.lerp(m2318getXimpl, Offset.m2318getXimpl(offset2.m2328unboximpl()), this.animatedCenterPercent.getValue().floatValue());
+        float lerp2 = MathHelpers.lerp(m2619getXimpl, Offset.m2619getXimpl(offset2.m2629unboximpl()), this.animatedCenterPercent.getValue().floatValue());
         Offset offset3 = this.origin;
         Intrinsics.checkNotNull(offset3);
-        float m2319getYimpl = Offset.m2319getYimpl(offset3.m2328unboximpl());
+        float m2620getYimpl = Offset.m2620getYimpl(offset3.m2629unboximpl());
         Offset offset4 = this.targetCenter;
         Intrinsics.checkNotNull(offset4);
-        long Offset = OffsetKt.Offset(lerp2, MathHelpersKt.lerp(m2319getYimpl, Offset.m2319getYimpl(offset4.m2328unboximpl()), this.animatedCenterPercent.getValue().floatValue()));
-        long m2555copywmQWz5c$default = Color.m2555copywmQWz5c$default(j, Color.m2558getAlphaimpl(j) * floatValue, 0.0f, 0.0f, 0.0f, 14, null);
+        long Offset = OffsetKt.Offset(lerp2, MathHelpers.lerp(m2620getYimpl, Offset.m2620getYimpl(offset4.m2629unboximpl()), this.animatedCenterPercent.getValue().floatValue()));
+        long m2856copywmQWz5c$default = Color.m2856copywmQWz5c$default(j, Color.m2859getAlphaimpl(j) * floatValue, 0.0f, 0.0f, 0.0f, 14, null);
         if (!this.bounded) {
-            DrawScope.m3078drawCircleVaOC9Bg$default(draw, m2555copywmQWz5c$default, lerp, Offset, 0.0f, null, null, 0, 120, null);
+            DrawScope.m3379drawCircleVaOC9Bg$default(draw, m2856copywmQWz5c$default, lerp, Offset, 0.0f, null, null, 0, 120, null);
             return;
         }
-        float m2387getWidthimpl = Size.m2387getWidthimpl(draw.mo3096getSizeNHjbRc());
-        float m2384getHeightimpl = Size.m2384getHeightimpl(draw.mo3096getSizeNHjbRc());
-        int m2545getIntersectrtfAjoo = ClipOp.Companion.m2545getIntersectrtfAjoo();
+        float m2688getWidthimpl = Size.m2688getWidthimpl(draw.mo3397getSizeNHjbRc());
+        float m2685getHeightimpl = Size.m2685getHeightimpl(draw.mo3397getSizeNHjbRc());
+        int m2846getIntersectrtfAjoo = ClipOp.Companion.m2846getIntersectrtfAjoo();
         DrawContext drawContext = draw.getDrawContext();
-        long mo3021getSizeNHjbRc = drawContext.mo3021getSizeNHjbRc();
+        long mo3322getSizeNHjbRc = drawContext.mo3322getSizeNHjbRc();
         drawContext.getCanvas().save();
-        drawContext.getTransform().mo3024clipRectN_I0leg(0.0f, 0.0f, m2387getWidthimpl, m2384getHeightimpl, m2545getIntersectrtfAjoo);
-        DrawScope.m3078drawCircleVaOC9Bg$default(draw, m2555copywmQWz5c$default, lerp, Offset, 0.0f, null, null, 0, 120, null);
+        drawContext.getTransform().mo3325clipRectN_I0leg(0.0f, 0.0f, m2688getWidthimpl, m2685getHeightimpl, m2846getIntersectrtfAjoo);
+        DrawScope.m3379drawCircleVaOC9Bg$default(draw, m2856copywmQWz5c$default, lerp, Offset, 0.0f, null, null, 0, 120, null);
         drawContext.getCanvas().restore();
-        drawContext.mo3022setSizeuvyYCjk(mo3021getSizeNHjbRc);
+        drawContext.mo3323setSizeuvyYCjk(mo3322getSizeNHjbRc);
     }
 }

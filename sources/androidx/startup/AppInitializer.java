@@ -108,7 +108,7 @@ public final class AppInitializer {
 
     /* JADX WARN: Multi-variable type inference failed */
     void discoverAndInitialize(Bundle bundle) {
-        String string = this.mContext.getString(R.string.androidx_startup);
+        String string = this.mContext.getString(C1024R.string.androidx_startup);
         if (bundle != null) {
             try {
                 HashSet hashSet = new HashSet();

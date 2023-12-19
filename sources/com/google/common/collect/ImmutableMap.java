@@ -53,29 +53,34 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract boolean isPartialView();
 
-    public static <K, V> ImmutableMap<K, V> of() {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m192of() {
         return (ImmutableMap<K, V>) RegularImmutableMap.EMPTY;
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m191of(K k, V v) {
         CollectPreconditions.checkEntryNotNull(k, v);
         return RegularImmutableMap.create(1, new Object[]{k, v});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m190of(K k, V v, K k2, V v2) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         return RegularImmutableMap.create(2, new Object[]{k, v, k2, v2});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m189of(K k, V v, K k2, V v2, K k3, V v3) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
         return RegularImmutableMap.create(3, new Object[]{k, v, k2, v2, k3, v3});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m188of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -83,7 +88,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(4, new Object[]{k, v, k2, v2, k3, v3, k4, v4});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m187of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -92,7 +98,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(5, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m186of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -102,7 +109,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(6, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m185of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -113,7 +121,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(7, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m184of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -125,7 +134,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(8, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7, k8, v8});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m183of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -138,7 +148,8 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
         return RegularImmutableMap.create(9, new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7, k8, v8, k9, v9});
     }
 
-    public static <K, V> ImmutableMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
+    /* renamed from: of */
+    public static <K, V> ImmutableMap<K, V> m182of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -533,7 +544,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
     public ImmutableSetMultimap<K, V> asMultimap() {
         if (isEmpty()) {
-            return ImmutableSetMultimap.of();
+            return ImmutableSetMultimap.m157of();
         }
         ImmutableSetMultimap<K, V> immutableSetMultimap = this.multimapView;
         if (immutableSetMultimap == null) {
@@ -572,7 +583,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
             if (obj2 == null) {
                 return null;
             }
-            return ImmutableSet.of(obj2);
+            return ImmutableSet.m163of(obj2);
         }
 
         @Override // com.google.common.collect.ImmutableMap
@@ -610,7 +621,7 @@ public abstract class ImmutableMap<K, V> implements Map<K, V>, Serializable {
 
                         @Override // com.google.common.collect.AbstractMapEntry, java.util.Map.Entry
                         public ImmutableSet<V> getValue() {
-                            return ImmutableSet.of(entry.getValue());
+                            return ImmutableSet.m163of(entry.getValue());
                         }
                     };
                 }

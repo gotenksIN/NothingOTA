@@ -34,11 +34,13 @@ public final class Splitter {
         this.limit = i;
     }
 
-    public static Splitter on(char c) {
-        return on(CharMatcher.is(c));
+    /* renamed from: on */
+    public static Splitter m233on(char c) {
+        return m232on(CharMatcher.m245is(c));
     }
 
-    public static Splitter on(final CharMatcher charMatcher) {
+    /* renamed from: on */
+    public static Splitter m232on(final CharMatcher charMatcher) {
         Preconditions.checkNotNull(charMatcher);
         return new Splitter(new Strategy() { // from class: com.google.common.base.Splitter.1
             @Override // com.google.common.base.Splitter.Strategy
@@ -58,10 +60,11 @@ public final class Splitter {
         });
     }
 
-    public static Splitter on(final String str) {
+    /* renamed from: on */
+    public static Splitter m230on(final String str) {
         Preconditions.checkArgument(str.length() != 0, "The separator may not be the empty string.");
         if (str.length() == 1) {
-            return on(str.charAt(0));
+            return m233on(str.charAt(0));
         }
         return new Splitter(new Strategy() { // from class: com.google.common.base.Splitter.2
             @Override // com.google.common.base.Splitter.Strategy
@@ -78,7 +81,7 @@ public final class Splitter {
                     public int separatorStart(int r6) {
                         /*
                             r5 = this;
-                            com.google.common.base.Splitter$2 r0 = com.google.common.base.Splitter.AnonymousClass2.this
+                            com.google.common.base.Splitter$2 r0 = com.google.common.base.Splitter.C10832.this
                             java.lang.String r0 = r1
                             int r0 = r0.length()
                             java.lang.CharSequence r1 = r5.toSplit
@@ -92,7 +95,7 @@ public final class Splitter {
                             java.lang.CharSequence r3 = r5.toSplit
                             int r4 = r2 + r6
                             char r3 = r3.charAt(r4)
-                            com.google.common.base.Splitter$2 r4 = com.google.common.base.Splitter.AnonymousClass2.this
+                            com.google.common.base.Splitter$2 r4 = com.google.common.base.Splitter.C10832.this
                             java.lang.String r4 = r1
                             char r4 = r4.charAt(r2)
                             if (r3 == r4) goto L29
@@ -107,7 +110,7 @@ public final class Splitter {
                             r6 = -1
                             return r6
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: com.google.common.base.Splitter.AnonymousClass2.AnonymousClass1.separatorStart(int):int");
+                        throw new UnsupportedOperationException("Method not decompiled: com.google.common.base.Splitter.C10832.C10841.separatorStart(int):int");
                     }
 
                     @Override // com.google.common.base.Splitter.SplittingIterator
@@ -119,11 +122,13 @@ public final class Splitter {
         });
     }
 
-    public static Splitter on(Pattern pattern) {
-        return on(new JdkPattern(pattern));
+    /* renamed from: on */
+    public static Splitter m229on(Pattern pattern) {
+        return m231on(new JdkPattern(pattern));
     }
 
-    private static Splitter on(final CommonPattern commonPattern) {
+    /* renamed from: on */
+    private static Splitter m231on(final CommonPattern commonPattern) {
         Preconditions.checkArgument(!commonPattern.matcher("").matches(), "The pattern may not match the empty string: %s", commonPattern);
         return new Splitter(new Strategy() { // from class: com.google.common.base.Splitter.3
             @Override // com.google.common.base.Splitter.Strategy
@@ -148,7 +153,7 @@ public final class Splitter {
     }
 
     public static Splitter onPattern(String str) {
-        return on(Platform.compilePattern(str));
+        return m231on(Platform.compilePattern(str));
     }
 
     public static Splitter fixedLength(final int i) {
@@ -202,7 +207,7 @@ public final class Splitter {
             }
 
             public String toString() {
-                return Joiner.on(", ").appendTo(new StringBuilder().append('['), (Iterable<? extends Object>) this).append(']').toString();
+                return Joiner.m242on(", ").appendTo(new StringBuilder().append('['), (Iterable<? extends Object>) this).append(']').toString();
             }
         };
     }
@@ -223,11 +228,11 @@ public final class Splitter {
     }
 
     public MapSplitter withKeyValueSeparator(String str) {
-        return withKeyValueSeparator(on(str));
+        return withKeyValueSeparator(m230on(str));
     }
 
     public MapSplitter withKeyValueSeparator(char c) {
-        return withKeyValueSeparator(on(c));
+        return withKeyValueSeparator(m233on(c));
     }
 
     public MapSplitter withKeyValueSeparator(Splitter splitter) {

@@ -29,7 +29,7 @@ public final class MutableTypeToInstanceMap<B> extends ForwardingMap<TypeToken<?
     @Override // com.google.common.reflect.TypeToInstanceMap
     @CheckForNull
     public <T extends B> T getInstance(Class<T> cls) {
-        return (T) trustedGet(TypeToken.of((Class) cls));
+        return (T) trustedGet(TypeToken.m58of((Class) cls));
     }
 
     @Override // com.google.common.reflect.TypeToInstanceMap
@@ -41,7 +41,7 @@ public final class MutableTypeToInstanceMap<B> extends ForwardingMap<TypeToken<?
     @Override // com.google.common.reflect.TypeToInstanceMap
     @CheckForNull
     public <T extends B> T putInstance(Class<T> cls, T t) {
-        return (T) trustedPut(TypeToken.of((Class) cls), t);
+        return (T) trustedPut(TypeToken.m58of((Class) cls), t);
     }
 
     @Override // com.google.common.reflect.TypeToInstanceMap

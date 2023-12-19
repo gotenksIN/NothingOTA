@@ -51,17 +51,20 @@ public final class Absent<T> extends Optional<T> {
     }
 
     @Override // com.google.common.base.Optional
-    public T or(T t) {
+    /* renamed from: or */
+    public T mo234or(T t) {
         return (T) Preconditions.checkNotNull(t, "use Optional.orNull() instead of Optional.or(null)");
     }
 
     @Override // com.google.common.base.Optional
-    public Optional<T> or(Optional<? extends T> optional) {
+    /* renamed from: or */
+    public Optional<T> mo236or(Optional<? extends T> optional) {
         return (Optional) Preconditions.checkNotNull(optional);
     }
 
     @Override // com.google.common.base.Optional
-    public T or(Supplier<? extends T> supplier) {
+    /* renamed from: or */
+    public T mo235or(Supplier<? extends T> supplier) {
         return (T) Preconditions.checkNotNull(supplier.get(), "use Optional.orNull() instead of a Supplier that returns null");
     }
 

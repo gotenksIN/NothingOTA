@@ -16,8 +16,12 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class Murmur3_32HashFunction extends AbstractHashFunction implements Serializable {
-    private static final int C1 = -862048943;
-    private static final int C2 = 461845907;
+
+    /* renamed from: C1 */
+    private static final int f241C1 = -862048943;
+
+    /* renamed from: C2 */
+    private static final int f242C2 = 461845907;
     private static final int CHUNK_SIZE = 4;
     private static final long serialVersionUID = 0;
     private final int seed;
@@ -189,7 +193,7 @@ public final class Murmur3_32HashFunction extends AbstractHashFunction implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int mixK1(int i) {
-        return Integer.rotateLeft(i * C1, 15) * C2;
+        return Integer.rotateLeft(i * f241C1, 15) * f242C2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -208,13 +212,15 @@ public final class Murmur3_32HashFunction extends AbstractHashFunction implement
     /* loaded from: classes2.dex */
     private static final class Murmur3_32Hasher extends AbstractHasher {
         private long buffer;
-        private int h1;
+
+        /* renamed from: h1 */
+        private int f243h1;
         private int shift;
         private int length = 0;
         private boolean isDone = false;
 
         Murmur3_32Hasher(int i) {
-            this.h1 = i;
+            this.f243h1 = i;
         }
 
         private void update(int i, long j) {
@@ -226,7 +232,7 @@ public final class Murmur3_32HashFunction extends AbstractHashFunction implement
             this.shift = i3;
             this.length += i;
             if (i3 >= 32) {
-                this.h1 = Murmur3_32HashFunction.mixH1(this.h1, Murmur3_32HashFunction.mixK1((int) j3));
+                this.f243h1 = Murmur3_32HashFunction.mixH1(this.f243h1, Murmur3_32HashFunction.mixK1((int) j3));
                 this.buffer >>>= 32;
                 this.shift -= 32;
             }
@@ -339,8 +345,8 @@ public final class Murmur3_32HashFunction extends AbstractHashFunction implement
         public HashCode hash() {
             Preconditions.checkState(!this.isDone);
             this.isDone = true;
-            int mixK1 = this.h1 ^ Murmur3_32HashFunction.mixK1((int) this.buffer);
-            this.h1 = mixK1;
+            int mixK1 = this.f243h1 ^ Murmur3_32HashFunction.mixK1((int) this.buffer);
+            this.f243h1 = mixK1;
             return Murmur3_32HashFunction.fmix(mixK1, this.length);
         }
     }

@@ -16,10 +16,10 @@ public class Base64 extends BaseNCodec {
     private final int encodeSize;
     private final byte[] encodeTable;
     private final byte[] lineSeparator;
-    static final byte[] CHUNK_SEPARATOR = {Ascii.CR, 10};
+    static final byte[] CHUNK_SEPARATOR = {Ascii.f188CR, 10};
     private static final byte[] STANDARD_ENCODE_TABLE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
     private static final byte[] URL_SAFE_ENCODE_TABLE = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-    private static final byte[] DECODE_TABLE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, Utf8.REPLACEMENT_BYTE, 52, 53, 54, 55, 56, 57, 58, 59, 60, kotlin.io.encoding.Base64.padSymbol, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Ascii.VT, Ascii.FF, Ascii.CR, Ascii.SO, Ascii.SI, Ascii.DLE, 17, Ascii.DC2, 19, Ascii.DC4, Ascii.NAK, Ascii.SYN, Ascii.ETB, Ascii.CAN, Ascii.EM, -1, -1, -1, -1, Utf8.REPLACEMENT_BYTE, -1, Ascii.SUB, Ascii.ESC, Ascii.FS, Ascii.GS, Ascii.RS, Ascii.US, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
+    private static final byte[] DECODE_TABLE = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, Utf8.REPLACEMENT_BYTE, 52, 53, 54, 55, 56, 57, 58, 59, 60, kotlin.p008io.encoding.Base64.padSymbol, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Ascii.f201VT, Ascii.f190FF, Ascii.f188CR, Ascii.f198SO, Ascii.f197SI, Ascii.DLE, 17, Ascii.DC2, 19, Ascii.DC4, Ascii.NAK, Ascii.SYN, Ascii.ETB, Ascii.CAN, Ascii.f189EM, -1, -1, -1, -1, Utf8.REPLACEMENT_BYTE, -1, Ascii.SUB, Ascii.ESC, Ascii.f191FS, Ascii.f192GS, Ascii.f196RS, Ascii.f200US, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51};
 
     public Base64() {
         this(0);
@@ -131,11 +131,11 @@ public class Base64 extends BaseNCodec {
                 byte[] bArr9 = this.buffer;
                 int i14 = this.pos;
                 this.pos = i14 + 1;
-                bArr9[i14] = kotlin.io.encoding.Base64.padSymbol;
+                bArr9[i14] = kotlin.p008io.encoding.Base64.padSymbol;
                 byte[] bArr10 = this.buffer;
                 int i15 = this.pos;
                 this.pos = i15 + 1;
-                bArr10[i15] = kotlin.io.encoding.Base64.padSymbol;
+                bArr10[i15] = kotlin.p008io.encoding.Base64.padSymbol;
             }
         } else if (i11 == 2) {
             byte[] bArr11 = this.buffer;
@@ -155,7 +155,7 @@ public class Base64 extends BaseNCodec {
                 byte[] bArr15 = this.buffer;
                 int i19 = this.pos;
                 this.pos = i19 + 1;
-                bArr15[i19] = kotlin.io.encoding.Base64.padSymbol;
+                bArr15[i19] = kotlin.p008io.encoding.Base64.padSymbol;
             }
         }
         this.currentLinePos += this.pos - i10;

@@ -68,7 +68,7 @@ public abstract class Traverser<N> {
     }
 
     public final Iterable<N> breadthFirst(N n) {
-        return breadthFirst((Iterable) ImmutableSet.of(n));
+        return breadthFirst((Iterable) ImmutableSet.m163of(n));
     }
 
     public final Iterable<N> breadthFirst(Iterable<? extends N> iterable) {
@@ -82,7 +82,7 @@ public abstract class Traverser<N> {
     }
 
     public final Iterable<N> depthFirstPreOrder(N n) {
-        return depthFirstPreOrder((Iterable) ImmutableSet.of(n));
+        return depthFirstPreOrder((Iterable) ImmutableSet.m163of(n));
     }
 
     public final Iterable<N> depthFirstPreOrder(Iterable<? extends N> iterable) {
@@ -96,7 +96,7 @@ public abstract class Traverser<N> {
     }
 
     public final Iterable<N> depthFirstPostOrder(N n) {
-        return depthFirstPostOrder((Iterable) ImmutableSet.of(n));
+        return depthFirstPostOrder((Iterable) ImmutableSet.m163of(n));
     }
 
     public final Iterable<N> depthFirstPostOrder(Iterable<? extends N> iterable) {

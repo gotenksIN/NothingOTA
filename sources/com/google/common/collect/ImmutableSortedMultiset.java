@@ -46,37 +46,44 @@ public abstract class ImmutableSortedMultiset<E> extends ImmutableSortedMultiset
         return tailMultiset((ImmutableSortedMultiset<E>) obj, boundType);
     }
 
-    public static <E> ImmutableSortedMultiset<E> of() {
+    /* renamed from: of */
+    public static <E> ImmutableSortedMultiset<E> m129of() {
         return (ImmutableSortedMultiset<E>) RegularImmutableSortedMultiset.NATURAL_EMPTY_MULTISET;
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable) {
-        return new RegularImmutableSortedMultiset((RegularImmutableSortedSet) ImmutableSortedSet.of(comparable), new long[]{0, 1}, 0, 1);
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m128of(Comparable comparable) {
+        return new RegularImmutableSortedMultiset((RegularImmutableSortedSet) ImmutableSortedSet.m115of(comparable), new long[]{0, 1}, 0, 1);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable, Comparable comparable2) {
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m127of(Comparable comparable, Comparable comparable2) {
         return copyOf(Ordering.natural(), Arrays.asList(comparable, comparable2));
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable, Comparable comparable2, Comparable comparable3) {
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m126of(Comparable comparable, Comparable comparable2, Comparable comparable3) {
         return copyOf(Ordering.natural(), Arrays.asList(comparable, comparable2, comparable3));
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4) {
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m125of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4) {
         return copyOf(Ordering.natural(), Arrays.asList(comparable, comparable2, comparable3, comparable4));
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5) {
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m124of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5) {
         return copyOf(Ordering.natural(), Arrays.asList(comparable, comparable2, comparable3, comparable4, comparable5));
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;TE;TE;[TE;)Lcom/google/common/collect/ImmutableSortedMultiset<TE;>; */
-    public static ImmutableSortedMultiset of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5, Comparable comparable6, Comparable... comparableArr) {
+    /* renamed from: of */
+    public static ImmutableSortedMultiset m123of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5, Comparable comparable6, Comparable... comparableArr) {
         ArrayList newArrayListWithCapacity = Lists.newArrayListWithCapacity(comparableArr.length + 6);
         Collections.addAll(newArrayListWithCapacity, comparable, comparable2, comparable3, comparable4, comparable5, comparable6);
         Collections.addAll(newArrayListWithCapacity, comparableArr);

@@ -98,9 +98,9 @@ public final class Stopwatch {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.base.Stopwatch$1  reason: invalid class name */
+    /* renamed from: com.google.common.base.Stopwatch$1 */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class C10901 {
         static final /* synthetic */ int[] $SwitchMap$java$util$concurrent$TimeUnit;
 
         static {
@@ -138,7 +138,7 @@ public final class Stopwatch {
     }
 
     private static String abbreviate(TimeUnit timeUnit) {
-        switch (AnonymousClass1.$SwitchMap$java$util$concurrent$TimeUnit[timeUnit.ordinal()]) {
+        switch (C10901.$SwitchMap$java$util$concurrent$TimeUnit[timeUnit.ordinal()]) {
             case 1:
                 return "ns";
             case 2:

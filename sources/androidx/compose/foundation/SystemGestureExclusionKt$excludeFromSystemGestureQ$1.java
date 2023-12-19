@@ -8,25 +8,25 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 
 /* compiled from: SystemGestureExclusion.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class SystemGestureExclusionKt$excludeFromSystemGestureQ$1 extends Lambda implements Function1<DisposableEffectScope, DisposableEffectResult> {
-    final /* synthetic */ ExcludeFromSystemGestureModifier $modifier;
+    final /* synthetic */ SystemGestureExclusion $modifier;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SystemGestureExclusionKt$excludeFromSystemGestureQ$1(ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier) {
+    public SystemGestureExclusionKt$excludeFromSystemGestureQ$1(SystemGestureExclusion systemGestureExclusion) {
         super(1);
-        this.$modifier = excludeFromSystemGestureModifier;
+        this.$modifier = systemGestureExclusion;
     }
 
     @Override // kotlin.jvm.functions.Function1
     public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
         Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
-        final ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier = this.$modifier;
+        final SystemGestureExclusion systemGestureExclusion = this.$modifier;
         return new DisposableEffectResult() { // from class: androidx.compose.foundation.SystemGestureExclusionKt$excludeFromSystemGestureQ$1$invoke$$inlined$onDispose$1
             @Override // androidx.compose.runtime.DisposableEffectResult
             public void dispose() {
-                ExcludeFromSystemGestureModifier.this.removeRect();
+                SystemGestureExclusion.this.removeRect();
             }
         };
     }

@@ -10,7 +10,7 @@ import android.util.SparseBooleanArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.ActionBarPolicy;
 import androidx.appcompat.view.menu.ActionMenuItemView;
 import androidx.appcompat.view.menu.BaseMenuPresenter;
@@ -53,7 +53,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     private boolean mWidthLimitSet;
 
     public ActionMenuPresenter(Context context) {
-        super(context, R.layout.abc_action_menu_layout, R.layout.abc_action_menu_item_layout);
+        super(context, C0032R.C0036layout.abc_action_menu_layout, C0032R.C0036layout.abc_action_menu_item_layout);
         this.mActionButtonGroups = new SparseBooleanArray();
         this.mPopupPresenterCallback = new PopupPresenterCallback();
     }
@@ -563,7 +563,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         }
 
         public OverflowMenuButton(Context context) {
-            super(context, null, R.attr.actionOverflowButtonStyle);
+            super(context, null, C0032R.attr.actionOverflowButtonStyle);
             setClickable(true);
             setFocusable(true);
             setVisibility(0);
@@ -626,7 +626,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     /* loaded from: classes.dex */
     public class OverflowPopup extends MenuPopupHelper {
         public OverflowPopup(Context context, MenuBuilder menuBuilder, View view, boolean z) {
-            super(context, menuBuilder, view, z, R.attr.actionOverflowMenuStyle);
+            super(context, menuBuilder, view, z, C0032R.attr.actionOverflowMenuStyle);
             setGravity(GravityCompat.END);
             setPresenterCallback(ActionMenuPresenter.this.mPopupPresenterCallback);
         }
@@ -646,7 +646,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     /* loaded from: classes.dex */
     public class ActionButtonSubmenu extends MenuPopupHelper {
         public ActionButtonSubmenu(Context context, SubMenuBuilder subMenuBuilder, View view) {
-            super(context, subMenuBuilder, view, false, R.attr.actionOverflowMenuStyle);
+            super(context, subMenuBuilder, view, false, C0032R.attr.actionOverflowMenuStyle);
             if (!((MenuItemImpl) subMenuBuilder.getItem()).isActionButton()) {
                 setAnchorView(ActionMenuPresenter.this.mOverflowButton == null ? (View) ActionMenuPresenter.this.mMenuView : ActionMenuPresenter.this.mOverflowButton);
             }

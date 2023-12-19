@@ -30,17 +30,17 @@ public final class InternetDomainName {
     private final int publicSuffixIndex;
     private final int registrySuffixIndex;
     private static final CharMatcher DOTS_MATCHER = CharMatcher.anyOf(".。．｡");
-    private static final Splitter DOT_SPLITTER = Splitter.on('.');
-    private static final Joiner DOT_JOINER = Joiner.on('.');
+    private static final Splitter DOT_SPLITTER = Splitter.m233on('.');
+    private static final Joiner DOT_JOINER = Joiner.m243on('.');
 
     static {
         CharMatcher anyOf = CharMatcher.anyOf("-_");
         DASH_MATCHER = anyOf;
         CharMatcher inRange = CharMatcher.inRange('0', '9');
         DIGIT_MATCHER = inRange;
-        CharMatcher or = CharMatcher.inRange('a', 'z').or(CharMatcher.inRange('A', 'Z'));
-        LETTER_MATCHER = or;
-        PART_CHAR_MATCHER = inRange.or(or).or(anyOf);
+        CharMatcher mo244or = CharMatcher.inRange('a', 'z').mo244or(CharMatcher.inRange('A', 'Z'));
+        LETTER_MATCHER = mo244or;
+        PART_CHAR_MATCHER = inRange.mo244or(mo244or).mo244or(anyOf);
     }
 
     InternetDomainName(String str) {
@@ -53,7 +53,7 @@ public final class InternetDomainName {
         Preconditions.checkArgument(copyOf.size() <= 127, "Domain has too many parts: '%s'", lowerCase);
         Preconditions.checkArgument(validateSyntax(copyOf), "Not a valid domain name: '%s'", lowerCase);
         this.publicSuffixIndex = findSuffixOfType(Optional.absent());
-        this.registrySuffixIndex = findSuffixOfType(Optional.of(PublicSuffixType.REGISTRY));
+        this.registrySuffixIndex = findSuffixOfType(Optional.m241of(PublicSuffixType.REGISTRY));
     }
 
     private int findSuffixOfType(Optional<PublicSuffixType> optional) {

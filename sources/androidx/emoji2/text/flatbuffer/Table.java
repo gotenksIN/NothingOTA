@@ -7,7 +7,9 @@ import java.util.Comparator;
 
 /* loaded from: classes.dex */
 public class Table {
-    protected ByteBuffer bb;
+
+    /* renamed from: bb */
+    protected ByteBuffer f180bb;
     protected int bb_pos;
     Utf8 utf8 = Utf8.getDefault();
     private int vtable_size;
@@ -18,13 +20,13 @@ public class Table {
     }
 
     public ByteBuffer getByteBuffer() {
-        return this.bb;
+        return this.f180bb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int __offset(int i) {
         if (i < this.vtable_size) {
-            return this.bb.getShort(this.vtable_start + i);
+            return this.f180bb.getShort(this.vtable_start + i);
         }
         return 0;
     }
@@ -36,7 +38,7 @@ public class Table {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int __indirect(int i) {
-        return i + this.bb.getInt(i);
+        return i + this.f180bb.getInt(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,7 +48,7 @@ public class Table {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String __string(int i) {
-        return __string(i, this.bb, this.utf8);
+        return __string(i, this.f180bb, this.utf8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,13 +60,13 @@ public class Table {
     /* JADX INFO: Access modifiers changed from: protected */
     public int __vector_len(int i) {
         int i2 = i + this.bb_pos;
-        return this.bb.getInt(i2 + this.bb.getInt(i2));
+        return this.f180bb.getInt(i2 + this.f180bb.getInt(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int __vector(int i) {
         int i2 = i + this.bb_pos;
-        return i2 + this.bb.getInt(i2) + 4;
+        return i2 + this.f180bb.getInt(i2) + 4;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -73,7 +75,7 @@ public class Table {
         if (__offset == 0) {
             return null;
         }
-        ByteBuffer order = this.bb.duplicate().order(ByteOrder.LITTLE_ENDIAN);
+        ByteBuffer order = this.f180bb.duplicate().order(ByteOrder.LITTLE_ENDIAN);
         int __vector = __vector(__offset);
         order.position(__vector);
         order.limit(__vector + (__vector_len(__offset) * i2));
@@ -94,7 +96,7 @@ public class Table {
     }
 
     protected Table __union(Table table, int i) {
-        return __union(table, i, this.bb);
+        return __union(table, i, this.f180bb);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -167,12 +169,12 @@ public class Table {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void __reset(int i, ByteBuffer byteBuffer) {
-        this.bb = byteBuffer;
+        this.f180bb = byteBuffer;
         if (byteBuffer != null) {
             this.bb_pos = i;
             int i2 = i - byteBuffer.getInt(i);
             this.vtable_start = i2;
-            this.vtable_size = this.bb.getShort(i2);
+            this.vtable_size = this.f180bb.getShort(i2);
             return;
         }
         this.bb_pos = 0;

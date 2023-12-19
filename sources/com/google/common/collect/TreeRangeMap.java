@@ -516,7 +516,7 @@ public final class TreeRangeMap<K extends Comparable, V> implements RangeMap<K, 
 
                     @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                     public boolean retainAll(Collection<?> collection) {
-                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.not(Predicates.in(collection)), Maps.keyFunction()));
+                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.not(Predicates.m240in(collection)), Maps.keyFunction()));
                     }
                 };
             }
@@ -536,7 +536,7 @@ public final class TreeRangeMap<K extends Comparable, V> implements RangeMap<K, 
 
                     @Override // com.google.common.collect.Maps.EntrySet, com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                     public boolean retainAll(Collection<?> collection) {
-                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.not(Predicates.in(collection)));
+                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.not(Predicates.m240in(collection)));
                     }
 
                     @Override // com.google.common.collect.Maps.EntrySet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -581,12 +581,12 @@ public final class TreeRangeMap<K extends Comparable, V> implements RangeMap<K, 
                 return new Maps.Values<Range<K>, V>(this) { // from class: com.google.common.collect.TreeRangeMap.SubRangeMap.SubRangeMapAsMap.4
                     @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
                     public boolean removeAll(Collection<?> collection) {
-                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.in(collection), Maps.valueFunction()));
+                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.m240in(collection), Maps.valueFunction()));
                     }
 
                     @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
                     public boolean retainAll(Collection<?> collection) {
-                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.not(Predicates.in(collection)), Maps.valueFunction()));
+                        return SubRangeMapAsMap.this.removeEntryIf(Predicates.compose(Predicates.not(Predicates.m240in(collection)), Maps.valueFunction()));
                     }
                 };
             }

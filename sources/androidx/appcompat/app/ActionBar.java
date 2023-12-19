@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SpinnerAdapter;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.ActionMode;
 import androidx.fragment.app.FragmentTransaction;
 import java.lang.annotation.Retention;
@@ -329,8 +329,8 @@ public abstract class ActionBar {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.gravity = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ActionBarLayout);
-            this.gravity = obtainStyledAttributes.getInt(R.styleable.ActionBarLayout_android_layout_gravity, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0032R.styleable.ActionBarLayout);
+            this.gravity = obtainStyledAttributes.getInt(C0032R.styleable.ActionBarLayout_android_layout_gravity, 0);
             obtainStyledAttributes.recycle();
         }
 

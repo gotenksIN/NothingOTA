@@ -7,27 +7,27 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: AndroidOverscroll.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect", f = "AndroidOverscroll.kt", i = {1, 1}, l = {219, 244}, m = "applyToFling-BMRW4eQ", n = {"this", "remainingVelocity"}, s = {"L$0", "J$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect", m30f = "AndroidOverscroll.kt", m29i = {1, 1}, m28l = {219, 244}, m27m = "applyToFling-BMRW4eQ", m26n = {"this", "remainingVelocity"}, m25s = {"L$0", "J$0"})
 /* loaded from: classes.dex */
 public final class AndroidEdgeEffectOverscrollEffect$applyToFling$1 extends ContinuationImpl {
     long J$0;
     Object L$0;
     int label;
     /* synthetic */ Object result;
-    final /* synthetic */ AndroidEdgeEffectOverscrollEffect this$0;
+    final /* synthetic */ AndroidOverscroll this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AndroidEdgeEffectOverscrollEffect$applyToFling$1(AndroidEdgeEffectOverscrollEffect androidEdgeEffectOverscrollEffect, Continuation<? super AndroidEdgeEffectOverscrollEffect$applyToFling$1> continuation) {
+    public AndroidEdgeEffectOverscrollEffect$applyToFling$1(AndroidOverscroll androidOverscroll, Continuation<? super AndroidEdgeEffectOverscrollEffect$applyToFling$1> continuation) {
         super(continuation);
-        this.this$0 = androidEdgeEffectOverscrollEffect;
+        this.this$0 = androidOverscroll;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return this.this$0.mo146applyToFlingBMRW4eQ(0L, null, this);
+        return this.this$0.mo447applyToFlingBMRW4eQ(0L, null, this);
     }
 }

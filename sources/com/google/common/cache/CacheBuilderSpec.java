@@ -15,8 +15,8 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class CacheBuilderSpec {
-    private static final Splitter KEYS_SPLITTER = Splitter.on(',').trimResults();
-    private static final Splitter KEY_VALUE_SPLITTER = Splitter.on('=').trimResults();
+    private static final Splitter KEYS_SPLITTER = Splitter.m233on(',').trimResults();
+    private static final Splitter KEY_VALUE_SPLITTER = Splitter.m233on('=').trimResults();
     private static final ImmutableMap<String, ValueParser> VALUE_PARSERS = ImmutableMap.builder().put("initialCapacity", new InitialCapacityParser()).put("maximumSize", new MaximumSizeParser()).put("maximumWeight", new MaximumWeightParser()).put("concurrencyLevel", new ConcurrencyLevelParser()).put("weakKeys", new KeyStrengthParser(LocalCache.Strength.WEAK)).put("softValues", new ValueStrengthParser(LocalCache.Strength.SOFT)).put("weakValues", new ValueStrengthParser(LocalCache.Strength.WEAK)).put("recordStats", new RecordStatsParser()).put("expireAfterAccess", new AccessDurationParser()).put("expireAfterWrite", new WriteDurationParser()).put("refreshAfterWrite", new RefreshDurationParser()).put("refreshInterval", new RefreshDurationParser()).buildOrThrow();
     long accessExpirationDuration;
     @CheckForNull
@@ -93,14 +93,14 @@ public final class CacheBuilderSpec {
             newBuilder.concurrencyLevel(num2.intValue());
         }
         if (this.keyStrength != null) {
-            if (AnonymousClass1.$SwitchMap$com$google$common$cache$LocalCache$Strength[this.keyStrength.ordinal()] == 1) {
+            if (C10961.$SwitchMap$com$google$common$cache$LocalCache$Strength[this.keyStrength.ordinal()] == 1) {
                 newBuilder.weakKeys();
             } else {
                 throw new AssertionError();
             }
         }
         if (this.valueStrength != null) {
-            int i = AnonymousClass1.$SwitchMap$com$google$common$cache$LocalCache$Strength[this.valueStrength.ordinal()];
+            int i = C10961.$SwitchMap$com$google$common$cache$LocalCache$Strength[this.valueStrength.ordinal()];
             if (i == 1) {
                 newBuilder.weakValues();
             } else if (i == 2) {
@@ -129,9 +129,9 @@ public final class CacheBuilderSpec {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.cache.CacheBuilderSpec$1  reason: invalid class name */
+    /* renamed from: com.google.common.cache.CacheBuilderSpec$1 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class C10961 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$cache$LocalCache$Strength;
 
         static {

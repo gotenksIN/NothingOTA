@@ -1,5 +1,6 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.TweenSpec;
 import androidx.compose.foundation.BackgroundKt;
 import androidx.compose.foundation.BorderKt;
@@ -9,10 +10,24 @@ import androidx.compose.foundation.interaction.PressInteractionKt;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScope;
 import androidx.compose.foundation.layout.BoxScopeInstance;
-import androidx.compose.foundation.layout.OffsetKt;
+import androidx.compose.foundation.layout.Offset;
 import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.material.ripple.RippleKt;
 import androidx.compose.material3.tokens.SwitchTokens;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.Shape;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntOffsetKt;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -24,31 +39,17 @@ import androidx.compose.runtime.ScopeUpdateScope;
 import androidx.compose.runtime.SkippableUpdater;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.Shape;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.unit.IntOffset;
-import androidx.compose.ui.unit.IntOffsetKt;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.math.MathKt;
 
 /* compiled from: Switch.kt */
-@Metadata(d1 = {"\u0000^\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u001aj\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0014\u0010\u0012\u001a\u0010\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u00132\b\b\u0002\u0010\u0014\u001a\u00020\u00152\u0015\b\u0002\u0010\u0016\u001a\u000f\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u0017¢\u0006\u0002\b\u00182\b\b\u0002\u0010\u0019\u001a\u00020\u00112\b\b\u0002\u0010\u001a\u001a\u00020\u001b2\b\b\u0002\u0010\u001c\u001a\u00020\u001dH\u0007¢\u0006\u0002\u0010\u001e\u001a|\u0010\u001f\u001a\u00020\u000f*\u00020 2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u00112\u0006\u0010\u001a\u001a\u00020\u001b2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00020\"2\u0013\u0010\u0016\u001a\u000f\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u0017¢\u0006\u0002\b\u00182\u0006\u0010\u001c\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\u00042\u0006\u0010(\u001a\u00020\u0004H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b)\u0010*\"\u0014\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0013\u0010\u0006\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0019\u0010\u0007\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0005\u001a\u0004\b\b\u0010\t\"\u0013\u0010\n\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0013\u0010\u000b\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0019\u0010\f\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0005\u001a\u0004\b\r\u0010\t\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006+"}, d2 = {"AnimationSpec", "Landroidx/compose/animation/core/TweenSpec;", "", "SwitchHeight", "Landroidx/compose/ui/unit/Dp;", "F", "SwitchWidth", "ThumbDiameter", "getThumbDiameter", "()F", "ThumbPadding", "ThumbPathLength", "UncheckedThumbDiameter", "getUncheckedThumbDiameter", "Switch", "", "checked", "", "onCheckedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "thumbContent", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "enabled", "colors", "Landroidx/compose/material3/SwitchColors;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/material3/SwitchColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "SwitchImpl", "Landroidx/compose/foundation/layout/BoxScope;", "thumbValue", "Landroidx/compose/runtime/State;", "Landroidx/compose/foundation/interaction/InteractionSource;", "thumbShape", "Landroidx/compose/ui/graphics/Shape;", "uncheckedThumbDiameter", "minBound", "maxBound", "SwitchImpl-0DmnUew", "(Landroidx/compose/foundation/layout/BoxScope;ZZLandroidx/compose/material3/SwitchColors;Landroidx/compose/runtime/State;Lkotlin/jvm/functions/Function2;Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/ui/graphics/Shape;FFFLandroidx/compose/runtime/Composer;II)V", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000^\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u001aj\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0014\u0010\u0012\u001a\u0010\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u00132\b\b\u0002\u0010\u0014\u001a\u00020\u00152\u0015\b\u0002\u0010\u0016\u001a\u000f\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u0017¢\u0006\u0002\b\u00182\b\b\u0002\u0010\u0019\u001a\u00020\u00112\b\b\u0002\u0010\u001a\u001a\u00020\u001b2\b\b\u0002\u0010\u001c\u001a\u00020\u001dH\u0007¢\u0006\u0002\u0010\u001e\u001a|\u0010\u001f\u001a\u00020\u000f*\u00020 2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u00112\u0006\u0010\u001a\u001a\u00020\u001b2\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00020\"2\u0013\u0010\u0016\u001a\u000f\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u0017¢\u0006\u0002\b\u00182\u0006\u0010\u001c\u001a\u00020#2\u0006\u0010$\u001a\u00020%2\u0006\u0010&\u001a\u00020\u00042\u0006\u0010'\u001a\u00020\u00042\u0006\u0010(\u001a\u00020\u0004H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b)\u0010*\"\u0014\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\u0003\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0013\u0010\u0006\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0019\u0010\u0007\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0005\u001a\u0004\b\b\u0010\t\"\u0013\u0010\n\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0013\u0010\u000b\u001a\u00020\u0004X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0005\"\u0019\u0010\f\u001a\u00020\u0004X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0005\u001a\u0004\b\r\u0010\t\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006+"}, m40d2 = {"AnimationSpec", "Landroidx/compose/animation/core/TweenSpec;", "", "SwitchHeight", "Landroidx/compose/ui/unit/Dp;", "F", "SwitchWidth", "ThumbDiameter", "getThumbDiameter", "()F", "ThumbPadding", "ThumbPathLength", "UncheckedThumbDiameter", "getUncheckedThumbDiameter", "Switch", "", "checked", "", "onCheckedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "thumbContent", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "enabled", "colors", "Landroidx/compose/material3/SwitchColors;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/material3/SwitchColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "SwitchImpl", "Landroidx/compose/foundation/layout/BoxScope;", "thumbValue", "Landroidx/compose/runtime/State;", "Landroidx/compose/foundation/interaction/InteractionSource;", "thumbShape", "Landroidx/compose/ui/graphics/Shape;", "uncheckedThumbDiameter", "minBound", "maxBound", "SwitchImpl-0DmnUew", "(Landroidx/compose/foundation/layout/BoxScope;ZZLandroidx/compose/material3/SwitchColors;Landroidx/compose/runtime/State;Lkotlin/jvm/functions/Function2;Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/ui/graphics/Shape;FFFLandroidx/compose/runtime/Composer;II)V", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class SwitchKt {
     private static final TweenSpec<Float> AnimationSpec;
@@ -100,7 +101,7 @@ public final class SwitchKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void Switch(final boolean r52, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r53, androidx.compose.ui.Modifier r54, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r55, boolean r56, androidx.compose.material3.SwitchColors r57, androidx.compose.foundation.interaction.MutableInteractionSource r58, androidx.compose.runtime.Composer r59, final int r60, final int r61) {
+    public static final void Switch(final boolean r52, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r53, androidx.compose.p002ui.Modifier r54, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r55, boolean r56, androidx.compose.material3.Switch r57, androidx.compose.foundation.interaction.MutableInteractionSource r58, androidx.compose.runtime.Composer r59, final int r60, final int r61) {
         /*
             Method dump skipped, instructions count: 1131
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -110,12 +111,12 @@ public final class SwitchKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: SwitchImpl-0DmnUew  reason: not valid java name */
-    public static final void m1428SwitchImpl0DmnUew(final BoxScope boxScope, final boolean z, final boolean z2, final SwitchColors switchColors, final State<Float> state, final Function2<? super Composer, ? super Integer, Unit> function2, final InteractionSource interactionSource, final Shape shape, final float f, final float f2, final float f3, Composer composer, final int i, final int i2) {
+    public static final void m1729SwitchImpl0DmnUew(final BoxScope boxScope, final boolean z, final boolean z2, final Switch r32, final State<Float> state, final Function2<? super Composer, ? super Integer, Unit> function2, final InteractionSource interactionSource, final Shape shape, final float f, final float f2, final float f3, Composer composer, final int i, final int i2) {
         int i3;
         int i4;
-        float m5050constructorimpl;
+        float m5351constructorimpl;
         final float floatValue;
-        float m2078getTrackOutlineWidthD9Ej5fM;
+        float m2379getTrackOutlineWidthD9Ej5fM;
         Composer startRestartGroup = composer.startRestartGroup(-1968109941);
         ComposerKt.sourceInformation(startRestartGroup, "C(SwitchImpl)P(!1,2!1,8,6!1,7,9:c#ui.unit.Dp,5:c#ui.unit.Dp,4:c#ui.unit.Dp)187@7372L28,188@7440L25,*190@7508L7,210@8141L9,217@8350L29,222@8469L951:Switch.kt#uh7d8r");
         if ((i & 14) == 0) {
@@ -123,14 +124,14 @@ public final class SwitchKt {
         } else {
             i3 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i3 |= startRestartGroup.changed(z) ? 32 : 16;
         }
         if ((i & 896) == 0) {
             i3 |= startRestartGroup.changed(z2) ? 256 : 128;
         }
         if ((i & 7168) == 0) {
-            i3 |= startRestartGroup.changed(switchColors) ? 2048 : 1024;
+            i3 |= startRestartGroup.changed(r32) ? 2048 : 1024;
         }
         if ((57344 & i) == 0) {
             i3 |= startRestartGroup.changed(state) ? 16384 : 8192;
@@ -159,18 +160,18 @@ public final class SwitchKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(-1968109941, i3, i4, "androidx.compose.material3.SwitchImpl (Switch.kt:175)");
             }
-            int i5 = ((i3 >> 6) & 14) | (i3 & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i3 >> 3) & 896);
-            State<Color> trackColor$material3_release = switchColors.trackColor$material3_release(z2, z, startRestartGroup, i5);
+            int i5 = ((i3 >> 6) & 14) | (i3 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i3 >> 3) & 896);
+            State<Color> trackColor$material3_release = r32.trackColor$material3_release(z2, z, startRestartGroup, i5);
             State<Boolean> collectIsPressedAsState = PressInteractionKt.collectIsPressedAsState(interactionSource, startRestartGroup, (i3 >> 18) & 14);
             int i6 = i3;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-            Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
-            float mo298toDpu2uoSUM = ((Density) consume).mo298toDpu2uoSUM(state.getValue().floatValue());
+            float mo599toDpu2uoSUM = ((Density) consume).mo599toDpu2uoSUM(state.getValue().floatValue());
             if (SwitchImpl_0DmnUew$lambda$7(collectIsPressedAsState)) {
-                m5050constructorimpl = SwitchTokens.INSTANCE.m2072getPressedHandleWidthD9Ej5fM();
+                m5351constructorimpl = SwitchTokens.INSTANCE.m2373getPressedHandleWidthD9Ej5fM();
             } else {
-                m5050constructorimpl = Dp.m5050constructorimpl(Dp.m5050constructorimpl(Dp.m5050constructorimpl(ThumbDiameter - f) * (Dp.m5050constructorimpl(mo298toDpu2uoSUM - f2) / Dp.m5050constructorimpl(f3 - f2))) + f);
+                m5351constructorimpl = C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(ThumbDiameter - f) * (C0780Dp.m5351constructorimpl(mo599toDpu2uoSUM - f2) / C0780Dp.m5351constructorimpl(f3 - f2))) + f);
             }
             startRestartGroup.startReplaceableGroup(-993794105);
             ComposerKt.sourceInformation(startRestartGroup, "*199@7849L7");
@@ -178,38 +179,38 @@ public final class SwitchKt {
                 floatValue = state.getValue().floatValue();
             } else {
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-                Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 Density density = (Density) consume2;
                 if (!z) {
-                    m2078getTrackOutlineWidthD9Ej5fM = SwitchTokens.INSTANCE.m2078getTrackOutlineWidthD9Ej5fM();
+                    m2379getTrackOutlineWidthD9Ej5fM = SwitchTokens.INSTANCE.m2379getTrackOutlineWidthD9Ej5fM();
                 } else {
-                    m2078getTrackOutlineWidthD9Ej5fM = Dp.m5050constructorimpl(ThumbPathLength - SwitchTokens.INSTANCE.m2078getTrackOutlineWidthD9Ej5fM());
+                    m2379getTrackOutlineWidthD9Ej5fM = C0780Dp.m5351constructorimpl(ThumbPathLength - SwitchTokens.INSTANCE.m2379getTrackOutlineWidthD9Ej5fM());
                 }
-                floatValue = density.mo302toPx0680j_4(m2078getTrackOutlineWidthD9Ej5fM);
+                floatValue = density.mo603toPx0680j_4(m2379getTrackOutlineWidthD9Ej5fM);
             }
             startRestartGroup.endReplaceableGroup();
             Shape shape2 = ShapesKt.toShape(SwitchTokens.INSTANCE.getTrackShape(), startRestartGroup, 6);
-            Modifier m151backgroundbw27NRU = BackgroundKt.m151backgroundbw27NRU(BorderKt.m162borderxT4_qwU(SizeKt.m444height3ABfNKs(SizeKt.m463width3ABfNKs(boxScope.align(Modifier.Companion, Alignment.Companion.getCenter()), SwitchWidth), SwitchHeight), SwitchTokens.INSTANCE.m2078getTrackOutlineWidthD9Ej5fM(), switchColors.borderColor$material3_release(z2, z, startRestartGroup, i5).getValue().m2566unboximpl(), shape2), SwitchImpl_0DmnUew$lambda$6(trackColor$material3_release), shape2);
+            Modifier m452backgroundbw27NRU = BackgroundKt.m452backgroundbw27NRU(BorderKt.m463borderxT4_qwU(SizeKt.m745height3ABfNKs(SizeKt.m764width3ABfNKs(boxScope.align(Modifier.Companion, Alignment.Companion.getCenter()), SwitchWidth), SwitchHeight), SwitchTokens.INSTANCE.m2379getTrackOutlineWidthD9Ej5fM(), r32.borderColor$material3_release(z2, z, startRestartGroup, i5).getValue().m2867unboximpl(), shape2), SwitchImpl_0DmnUew$lambda$6(trackColor$material3_release), shape2);
             startRestartGroup.startReplaceableGroup(733328855);
             ComposerKt.sourceInformation(startRestartGroup, "CC(Box)P(2,1,3)70@3267L67,71@3339L130:Box.kt#2w3rfo");
             MeasurePolicy rememberBoxMeasurePolicy = BoxKt.rememberBoxMeasurePolicy(Alignment.Companion.getTopStart(), false, startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume3 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density2 = (Density) consume3;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume4 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume4 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection = (LayoutDirection) consume4;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume5 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume5 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume5;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
-            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(m151backgroundbw27NRU);
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(m452backgroundbw27NRU);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
             }
@@ -220,17 +221,17 @@ public final class SwitchKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density2, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 1420969751, "C223@8518L28,228@8706L42,231@8870L64,225@8599L815:Switch.kt#uh7d8r");
-            long SwitchImpl_0DmnUew$lambda$13$lambda$10 = SwitchImpl_0DmnUew$lambda$13$lambda$10(switchColors.thumbColor$material3_release(z2, z, startRestartGroup, i5));
+            long SwitchImpl_0DmnUew$lambda$13$lambda$10 = SwitchImpl_0DmnUew$lambda$13$lambda$10(r32.thumbColor$material3_release(z2, z, startRestartGroup, i5));
             Modifier align = BoxScopeInstance.INSTANCE.align(Modifier.Companion, Alignment.Companion.getCenterStart());
             Float valueOf = Float.valueOf(floatValue);
             startRestartGroup.startReplaceableGroup(1157296644);
@@ -247,11 +248,11 @@ public final class SwitchKt {
 
                     @Override // kotlin.jvm.functions.Function1
                     public /* bridge */ /* synthetic */ IntOffset invoke(Density density3) {
-                        return IntOffset.m5159boximpl(m1430invokeBjo55l4(density3));
+                        return IntOffset.m5460boximpl(m1731invokeBjo55l4(density3));
                     }
 
                     /* renamed from: invoke-Bjo55l4  reason: not valid java name */
-                    public final long m1430invokeBjo55l4(Density offset) {
+                    public final long m1731invokeBjo55l4(Density offset) {
                         Intrinsics.checkNotNullParameter(offset, "$this$offset");
                         return IntOffsetKt.IntOffset(MathKt.roundToInt(floatValue), 0);
                     }
@@ -259,7 +260,7 @@ public final class SwitchKt {
                 startRestartGroup.updateRememberedValue(rememberedValue);
             }
             startRestartGroup.endReplaceableGroup();
-            Modifier m151backgroundbw27NRU2 = BackgroundKt.m151backgroundbw27NRU(SizeKt.m450requiredSize3ABfNKs(IndicationKt.indication(OffsetKt.offset(align, (Function1) rememberedValue), interactionSource, RippleKt.m898rememberRipple9IZ8Weo(false, Dp.m5050constructorimpl(SwitchTokens.INSTANCE.m2076getStateLayerSizeD9Ej5fM() / 2), 0L, startRestartGroup, 54, 4)), m5050constructorimpl), SwitchImpl_0DmnUew$lambda$13$lambda$10, shape);
+            Modifier m452backgroundbw27NRU2 = BackgroundKt.m452backgroundbw27NRU(SizeKt.m751requiredSize3ABfNKs(IndicationKt.indication(Offset.offset(align, (Function1) rememberedValue), interactionSource, RippleKt.m1199rememberRipple9IZ8Weo(false, C0780Dp.m5351constructorimpl(SwitchTokens.INSTANCE.m2377getStateLayerSizeD9Ej5fM() / 2), 0L, startRestartGroup, 54, 4)), m5351constructorimpl), SwitchImpl_0DmnUew$lambda$13$lambda$10, shape);
             Alignment center = Alignment.Companion.getCenter();
             startRestartGroup.startReplaceableGroup(733328855);
             ComposerKt.sourceInformation(startRestartGroup, "CC(Box)P(2,1,3)70@3267L67,71@3339L130:Box.kt#2w3rfo");
@@ -267,19 +268,19 @@ public final class SwitchKt {
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume6 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume6 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density3 = (Density) consume6;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume7 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume7 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection2 = (LayoutDirection) consume7;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume8 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume8 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration2 = (ViewConfiguration) consume8;
-            Function0<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
-            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m151backgroundbw27NRU2);
+            Functions<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
+            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m452backgroundbw27NRU2);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
             }
@@ -290,13 +291,13 @@ public final class SwitchKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl2 = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl2, rememberBoxMeasurePolicy2, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl2, density3, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl2 = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl2, rememberBoxMeasurePolicy2, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl2, density3, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf2.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf2.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
             BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
@@ -304,7 +305,7 @@ public final class SwitchKt {
             startRestartGroup.startReplaceableGroup(1420970387);
             ComposerKt.sourceInformation(startRestartGroup, "238@9196L27,239@9240L150");
             if (function2 != null) {
-                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(switchColors.iconColor$material3_release(z2, z, startRestartGroup, i5).getValue())}, function2, startRestartGroup, ((i6 >> 12) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
+                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(r32.iconColor$material3_release(z2, z, startRestartGroup, i5).getValue())}, function2, startRestartGroup, ((i6 >> 12) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
             }
             startRestartGroup.endReplaceableGroup();
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
@@ -344,22 +345,22 @@ public final class SwitchKt {
             }
 
             public final void invoke(Composer composer2, int i7) {
-                SwitchKt.m1428SwitchImpl0DmnUew(BoxScope.this, z, z2, switchColors, state, function2, interactionSource, shape, f, f2, f3, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
+                SwitchKt.m1729SwitchImpl0DmnUew(BoxScope.this, z, z2, r32, state, function2, interactionSource, shape, f, f2, f3, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1), RecomposeScopeImplKt.updateChangedFlags(i2));
             }
         });
     }
 
     static {
-        float m2074getSelectedHandleWidthD9Ej5fM = SwitchTokens.INSTANCE.m2074getSelectedHandleWidthD9Ej5fM();
-        ThumbDiameter = m2074getSelectedHandleWidthD9Ej5fM;
-        UncheckedThumbDiameter = SwitchTokens.INSTANCE.m2081getUnselectedHandleWidthD9Ej5fM();
-        float m2079getTrackWidthD9Ej5fM = SwitchTokens.INSTANCE.m2079getTrackWidthD9Ej5fM();
-        SwitchWidth = m2079getTrackWidthD9Ej5fM;
-        float m2077getTrackHeightD9Ej5fM = SwitchTokens.INSTANCE.m2077getTrackHeightD9Ej5fM();
-        SwitchHeight = m2077getTrackHeightD9Ej5fM;
-        float m5050constructorimpl = Dp.m5050constructorimpl(Dp.m5050constructorimpl(m2077getTrackHeightD9Ej5fM - m2074getSelectedHandleWidthD9Ej5fM) / 2);
-        ThumbPadding = m5050constructorimpl;
-        ThumbPathLength = Dp.m5050constructorimpl(Dp.m5050constructorimpl(m2079getTrackWidthD9Ej5fM - m2074getSelectedHandleWidthD9Ej5fM) - m5050constructorimpl);
+        float m2375getSelectedHandleWidthD9Ej5fM = SwitchTokens.INSTANCE.m2375getSelectedHandleWidthD9Ej5fM();
+        ThumbDiameter = m2375getSelectedHandleWidthD9Ej5fM;
+        UncheckedThumbDiameter = SwitchTokens.INSTANCE.m2382getUnselectedHandleWidthD9Ej5fM();
+        float m2380getTrackWidthD9Ej5fM = SwitchTokens.INSTANCE.m2380getTrackWidthD9Ej5fM();
+        SwitchWidth = m2380getTrackWidthD9Ej5fM;
+        float m2378getTrackHeightD9Ej5fM = SwitchTokens.INSTANCE.m2378getTrackHeightD9Ej5fM();
+        SwitchHeight = m2378getTrackHeightD9Ej5fM;
+        float m5351constructorimpl = C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(m2378getTrackHeightD9Ej5fM - m2375getSelectedHandleWidthD9Ej5fM) / 2);
+        ThumbPadding = m5351constructorimpl;
+        ThumbPathLength = C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(m2380getTrackWidthD9Ej5fM - m2375getSelectedHandleWidthD9Ej5fM) - m5351constructorimpl);
         AnimationSpec = new TweenSpec<>(100, 0, null, 6, null);
     }
 
@@ -372,7 +373,7 @@ public final class SwitchKt {
     }
 
     private static final long SwitchImpl_0DmnUew$lambda$6(State<Color> state) {
-        return state.getValue().m2566unboximpl();
+        return state.getValue().m2867unboximpl();
     }
 
     private static final boolean SwitchImpl_0DmnUew$lambda$7(State<Boolean> state) {
@@ -380,6 +381,6 @@ public final class SwitchKt {
     }
 
     private static final long SwitchImpl_0DmnUew$lambda$13$lambda$10(State<Color> state) {
-        return state.getValue().m2566unboximpl();
+        return state.getValue().m2867unboximpl();
     }
 }

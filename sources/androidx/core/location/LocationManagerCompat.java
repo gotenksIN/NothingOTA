@@ -15,8 +15,8 @@ import android.os.SystemClock;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.location.GnssStatusCompat;
 import androidx.core.location.LocationManagerCompat;
-import androidx.core.os.CancellationSignal;
-import androidx.core.os.ExecutorCompat;
+import androidx.core.p004os.CancellationSignal;
+import androidx.core.p004os.ExecutorCompat;
 import androidx.core.util.Consumer;
 import androidx.core.util.ObjectsCompat;
 import androidx.core.util.Preconditions;
@@ -87,7 +87,7 @@ public final class LocationManagerCompat {
         if (cancellationSignal != null) {
             Objects.requireNonNull(cancellableLocationListener);
             cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.core.location.LocationManagerCompat$$ExternalSyntheticLambda2
-                @Override // androidx.core.os.CancellationSignal.OnCancelListener
+                @Override // androidx.core.p004os.CancellationSignal.OnCancelListener
                 public final void onCancel() {
                     LocationManagerCompat.CancellableLocationListener.this.cancel();
                 }
@@ -314,14 +314,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda4
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5308xa8d50b3d(location);
+                    LocationManagerCompat.LocationListenerTransport.this.m268xa8d50b3d(location);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onLocationChanged$0$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5308xa8d50b3d(Location location) {
+        /* renamed from: lambda$onLocationChanged$0$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m268xa8d50b3d(Location location) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -337,14 +337,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5309x2b1fc01c(list);
+                    LocationManagerCompat.LocationListenerTransport.this.m267x2b1fc01c(list);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onLocationChanged$1$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5309x2b1fc01c(List list) {
+        /* renamed from: lambda$onLocationChanged$1$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m267x2b1fc01c(List list) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -360,14 +360,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5307xf04cfe9d(i);
+                    LocationManagerCompat.LocationListenerTransport.this.m269xf04cfe9d(i);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onFlushComplete$2$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5307xf04cfe9d(int i) {
+        /* renamed from: lambda$onFlushComplete$2$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m269xf04cfe9d(int i) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -383,14 +383,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda5
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5312xdbe6a717(str, i, bundle);
+                    LocationManagerCompat.LocationListenerTransport.this.m264xdbe6a717(str, i, bundle);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onStatusChanged$3$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5312xdbe6a717(String str, int i, Bundle bundle) {
+        /* renamed from: lambda$onStatusChanged$3$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m264xdbe6a717(String str, int i, Bundle bundle) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -406,14 +406,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5311x5a2a7b08(str);
+                    LocationManagerCompat.LocationListenerTransport.this.m265x5a2a7b08(str);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onProviderEnabled$4$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5311x5a2a7b08(String str) {
+        /* renamed from: lambda$onProviderEnabled$4$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m265x5a2a7b08(String str) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -429,14 +429,14 @@ public final class LocationManagerCompat {
             this.mExecutor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$LocationListenerTransport$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.LocationListenerTransport.this.m5310x442abc92(str);
+                    LocationManagerCompat.LocationListenerTransport.this.m266x442abc92(str);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onProviderDisabled$5$androidx-core-location-LocationManagerCompat$LocationListenerTransport  reason: not valid java name */
-        public /* synthetic */ void m5310x442abc92(String str) {
+        /* renamed from: lambda$onProviderDisabled$5$androidx-core-location-LocationManagerCompat$LocationListenerTransport */
+        public /* synthetic */ void m266x442abc92(String str) {
             LocationListenerKey locationListenerKey = this.mKey;
             if (locationListenerKey == null) {
                 return;
@@ -506,14 +506,14 @@ public final class LocationManagerCompat {
             executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.PreRGnssStatusTransport.this.m5315x7ba12b9c(executor);
+                    LocationManagerCompat.PreRGnssStatusTransport.this.m261x7ba12b9c(executor);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onStarted$0$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5315x7ba12b9c(Executor executor) {
+        /* renamed from: lambda$onStarted$0$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport */
+        public /* synthetic */ void m261x7ba12b9c(Executor executor) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -529,14 +529,14 @@ public final class LocationManagerCompat {
             executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$$ExternalSyntheticLambda3
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.PreRGnssStatusTransport.this.m5316x80a5cd6f(executor);
+                    LocationManagerCompat.PreRGnssStatusTransport.this.m260x80a5cd6f(executor);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onStopped$1$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5316x80a5cd6f(Executor executor) {
+        /* renamed from: lambda$onStopped$1$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport */
+        public /* synthetic */ void m260x80a5cd6f(Executor executor) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -552,14 +552,14 @@ public final class LocationManagerCompat {
             executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$$ExternalSyntheticLambda2
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.PreRGnssStatusTransport.this.m5313x4191f1e(executor, i);
+                    LocationManagerCompat.PreRGnssStatusTransport.this.m263x4191f1e(executor, i);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onFirstFix$2$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5313x4191f1e(Executor executor, int i) {
+        /* renamed from: lambda$onFirstFix$2$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport */
+        public /* synthetic */ void m263x4191f1e(Executor executor, int i) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -575,14 +575,14 @@ public final class LocationManagerCompat {
             executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$PreRGnssStatusTransport$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    LocationManagerCompat.PreRGnssStatusTransport.this.m5314xdecf6cdb(executor, gnssStatus);
+                    LocationManagerCompat.PreRGnssStatusTransport.this.m262xdecf6cdb(executor, gnssStatus);
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onSatelliteStatusChanged$3$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5314xdecf6cdb(Executor executor, GnssStatus gnssStatus) {
+        /* renamed from: lambda$onSatelliteStatusChanged$3$androidx-core-location-LocationManagerCompat$PreRGnssStatusTransport */
+        public /* synthetic */ void m262xdecf6cdb(Executor executor, GnssStatus gnssStatus) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -623,14 +623,14 @@ public final class LocationManagerCompat {
                 executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$GpsStatusTransport$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        LocationManagerCompat.GpsStatusTransport.this.m5303x75e92221(executor);
+                        LocationManagerCompat.GpsStatusTransport.this.m273x75e92221(executor);
                     }
                 });
             } else if (i == 2) {
                 executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$GpsStatusTransport$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        LocationManagerCompat.GpsStatusTransport.this.m5304xc3a89a22(executor);
+                        LocationManagerCompat.GpsStatusTransport.this.m272xc3a89a22(executor);
                     }
                 });
             } else if (i != 3) {
@@ -639,7 +639,7 @@ public final class LocationManagerCompat {
                     executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$GpsStatusTransport$$ExternalSyntheticLambda3
                         @Override // java.lang.Runnable
                         public final void run() {
-                            LocationManagerCompat.GpsStatusTransport.this.m5306x5f278a24(executor, wrap);
+                            LocationManagerCompat.GpsStatusTransport.this.m270x5f278a24(executor, wrap);
                         }
                     });
                 }
@@ -650,7 +650,7 @@ public final class LocationManagerCompat {
                     executor.execute(new Runnable() { // from class: androidx.core.location.LocationManagerCompat$GpsStatusTransport$$ExternalSyntheticLambda2
                         @Override // java.lang.Runnable
                         public final void run() {
-                            LocationManagerCompat.GpsStatusTransport.this.m5305x11681223(executor, timeToFirstFix);
+                            LocationManagerCompat.GpsStatusTransport.this.m271x11681223(executor, timeToFirstFix);
                         }
                     });
                 }
@@ -658,8 +658,8 @@ public final class LocationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onGpsStatusChanged$0$androidx-core-location-LocationManagerCompat$GpsStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5303x75e92221(Executor executor) {
+        /* renamed from: lambda$onGpsStatusChanged$0$androidx-core-location-LocationManagerCompat$GpsStatusTransport */
+        public /* synthetic */ void m273x75e92221(Executor executor) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -667,8 +667,8 @@ public final class LocationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onGpsStatusChanged$1$androidx-core-location-LocationManagerCompat$GpsStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5304xc3a89a22(Executor executor) {
+        /* renamed from: lambda$onGpsStatusChanged$1$androidx-core-location-LocationManagerCompat$GpsStatusTransport */
+        public /* synthetic */ void m272xc3a89a22(Executor executor) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -676,8 +676,8 @@ public final class LocationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onGpsStatusChanged$2$androidx-core-location-LocationManagerCompat$GpsStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5305x11681223(Executor executor, int i) {
+        /* renamed from: lambda$onGpsStatusChanged$2$androidx-core-location-LocationManagerCompat$GpsStatusTransport */
+        public /* synthetic */ void m271x11681223(Executor executor, int i) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -685,8 +685,8 @@ public final class LocationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$onGpsStatusChanged$3$androidx-core-location-LocationManagerCompat$GpsStatusTransport  reason: not valid java name */
-        public /* synthetic */ void m5306x5f278a24(Executor executor, GnssStatusCompat gnssStatusCompat) {
+        /* renamed from: lambda$onGpsStatusChanged$3$androidx-core-location-LocationManagerCompat$GpsStatusTransport */
+        public /* synthetic */ void m270x5f278a24(Executor executor, GnssStatusCompat gnssStatusCompat) {
             if (this.mExecutor != executor) {
                 return;
             }
@@ -736,7 +736,7 @@ public final class LocationManagerCompat {
                 Runnable runnable = new Runnable() { // from class: androidx.core.location.LocationManagerCompat$CancellableLocationListener$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        LocationManagerCompat.CancellableLocationListener.this.m5302x40ccd759();
+                        LocationManagerCompat.CancellableLocationListener.this.m274x40ccd759();
                     }
                 };
                 this.mTimeoutRunnable = runnable;
@@ -745,8 +745,8 @@ public final class LocationManagerCompat {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$startTimeout$0$androidx-core-location-LocationManagerCompat$CancellableLocationListener  reason: not valid java name */
-        public /* synthetic */ void m5302x40ccd759() {
+        /* renamed from: lambda$startTimeout$0$androidx-core-location-LocationManagerCompat$CancellableLocationListener */
+        public /* synthetic */ void m274x40ccd759() {
             this.mTimeoutRunnable = null;
             onLocationChanged((Location) null);
         }

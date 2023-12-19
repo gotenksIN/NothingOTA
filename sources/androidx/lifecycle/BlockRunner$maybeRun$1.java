@@ -7,14 +7,14 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: CoroutineLiveData.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.lifecycle.BlockRunner$maybeRun$1", f = "CoroutineLiveData.kt", i = {}, l = {177}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.lifecycle.BlockRunner$maybeRun$1", m30f = "CoroutineLiveData.kt", m29i = {}, m28l = {177}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     private /* synthetic */ Object L$0;
@@ -44,7 +44,7 @@ public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Funct
     public final Object invokeSuspend(Object obj) {
         CoroutineLiveData coroutineLiveData;
         Function2 function2;
-        Function0 function0;
+        Functions functions;
         Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         if (i == 0) {
@@ -61,8 +61,8 @@ public final class BlockRunner$maybeRun$1 extends SuspendLambda implements Funct
         } else {
             ResultKt.throwOnFailure(obj);
         }
-        function0 = ((BlockRunner) this.this$0).onDone;
-        function0.invoke();
+        functions = ((BlockRunner) this.this$0).onDone;
+        functions.invoke();
         return Unit.INSTANCE;
     }
 }

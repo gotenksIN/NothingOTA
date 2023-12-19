@@ -101,16 +101,19 @@ public final class Predicates {
         return new AndPredicate(asList((Predicate) Preconditions.checkNotNull(predicate), (Predicate) Preconditions.checkNotNull(predicate2)));
     }
 
-    public static <T> Predicate<T> or(Iterable<? extends Predicate<? super T>> iterable) {
+    /* renamed from: or */
+    public static <T> Predicate<T> m238or(Iterable<? extends Predicate<? super T>> iterable) {
         return new OrPredicate(defensiveCopy(iterable));
     }
 
     @SafeVarargs
-    public static <T> Predicate<T> or(Predicate<? super T>... predicateArr) {
+    /* renamed from: or */
+    public static <T> Predicate<T> m237or(Predicate<? super T>... predicateArr) {
         return new OrPredicate(defensiveCopy(predicateArr));
     }
 
-    public static <T> Predicate<T> or(Predicate<? super T> predicate, Predicate<? super T> predicate2) {
+    /* renamed from: or */
+    public static <T> Predicate<T> m239or(Predicate<? super T> predicate, Predicate<? super T> predicate2) {
         return new OrPredicate(asList((Predicate) Preconditions.checkNotNull(predicate), (Predicate) Preconditions.checkNotNull(predicate2)));
     }
 
@@ -129,7 +132,8 @@ public final class Predicates {
         return new SubtypeOfPredicate(cls);
     }
 
-    public static <T> Predicate<T> in(Collection<? extends T> collection) {
+    /* renamed from: in */
+    public static <T> Predicate<T> m240in(Collection<? extends T> collection) {
         return new InPredicate(collection);
     }
 
@@ -399,35 +403,39 @@ public final class Predicates {
     /* loaded from: classes.dex */
     public static class CompositionPredicate<A, B> implements Predicate<A>, Serializable {
         private static final long serialVersionUID = 0;
-        final Function<A, ? extends B> f;
-        final Predicate<B> p;
+
+        /* renamed from: f */
+        final Function<A, ? extends B> f204f;
+
+        /* renamed from: p */
+        final Predicate<B> f205p;
 
         private CompositionPredicate(Predicate<B> predicate, Function<A, ? extends B> function) {
-            this.p = (Predicate) Preconditions.checkNotNull(predicate);
-            this.f = (Function) Preconditions.checkNotNull(function);
+            this.f205p = (Predicate) Preconditions.checkNotNull(predicate);
+            this.f204f = (Function) Preconditions.checkNotNull(function);
         }
 
         @Override // com.google.common.base.Predicate
         public boolean apply(@ParametricNullness A a) {
-            return this.p.apply(this.f.apply(a));
+            return this.f205p.apply(this.f204f.apply(a));
         }
 
         @Override // com.google.common.base.Predicate
         public boolean equals(@CheckForNull Object obj) {
             if (obj instanceof CompositionPredicate) {
                 CompositionPredicate compositionPredicate = (CompositionPredicate) obj;
-                return this.f.equals(compositionPredicate.f) && this.p.equals(compositionPredicate.p);
+                return this.f204f.equals(compositionPredicate.f204f) && this.f205p.equals(compositionPredicate.f205p);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f.hashCode() ^ this.p.hashCode();
+            return this.f204f.hashCode() ^ this.f205p.hashCode();
         }
 
         public String toString() {
-            String valueOf = String.valueOf(this.p);
-            String valueOf2 = String.valueOf(this.f);
+            String valueOf = String.valueOf(this.f205p);
+            String valueOf2 = String.valueOf(this.f204f);
             return new StringBuilder(String.valueOf(valueOf).length() + 2 + String.valueOf(valueOf2).length()).append(valueOf).append("(").append(valueOf2).append(")").toString();
         }
     }

@@ -14,8 +14,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Transition.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.core.Transition$animateTo$1$1", f = "Transition.kt", i = {0}, l = {434}, m = "invokeSuspend", n = {"$this$LaunchedEffect"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.core.Transition$animateTo$1$1", m30f = "Transition.kt", m29i = {0}, m28l = {434}, m27m = "invokeSuspend", m26n = {"$this$LaunchedEffect"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class Transition$animateTo$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     private /* synthetic */ Object L$0;
@@ -58,7 +58,7 @@ public final class Transition$animateTo$1$1 extends SuspendLambda implements Fun
             ResultKt.throwOnFailure(obj);
         }
         do {
-            durationScale = SuspendAnimationKt.getDurationScale(coroutineScope.getCoroutineContext());
+            durationScale = SuspendAnimation.getDurationScale(coroutineScope.getCoroutineContext());
             transition = this.this$0;
             this.L$0 = coroutineScope;
             this.label = 1;

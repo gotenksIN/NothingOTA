@@ -15,11 +15,11 @@ import java.util.List;
 import kotlin.Lazy;
 import kotlin.LazyKt;
 import kotlin.Metadata;
-import kotlin.Pair;
+import kotlin.Tuples;
 import kotlin.TuplesKt;
 import kotlin.collections.CollectionsKt;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
@@ -31,7 +31,7 @@ import okio.Sink;
 import okio.Source;
 
 /* compiled from: ResourceFileSystem.kt */
-@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0000\u0018\u0000 *2\u00020\u0001:\u0001*B\u0017\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0018\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0018\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\nH\u0016J\u0010\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\nH\u0016J\u0010\u0010\u0019\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\nH\u0002J\u0018\u0010\u001a\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u0005H\u0016J\u0018\u0010\u001d\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\nH\u0016J\u0018\u0010\u001e\u001a\u00020\u00142\u0006\u0010\u0018\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0016\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\n0\b2\u0006\u0010\u001b\u001a\u00020\nH\u0016J\u0018\u0010 \u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\b2\u0006\u0010\u001b\u001a\u00020\nH\u0016J\u0012\u0010!\u001a\u0004\u0018\u00010\"2\u0006\u0010\u0018\u001a\u00020\nH\u0016J\u0010\u0010#\u001a\u00020$2\u0006\u0010\u0011\u001a\u00020\nH\u0016J \u0010%\u001a\u00020$2\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u00052\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0018\u0010&\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u0005H\u0016J\u0010\u0010\u0015\u001a\u00020'2\u0006\u0010\u0011\u001a\u00020\nH\u0016J\f\u0010(\u001a\u00020)*\u00020\nH\u0002R-\u0010\u0007\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0001\u0012\u0004\u0012\u00020\n0\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\f¨\u0006+"}, d2 = {"Lokio/internal/ResourceFileSystem;", "Lokio/FileSystem;", "classLoader", "Ljava/lang/ClassLoader;", "indexEagerly", "", "(Ljava/lang/ClassLoader;Z)V", "roots", "", "Lkotlin/Pair;", "Lokio/Path;", "getRoots", "()Ljava/util/List;", "roots$delegate", "Lkotlin/Lazy;", "appendingSink", "Lokio/Sink;", "file", "mustExist", "atomicMove", "", "source", "target", "canonicalize", "path", "canonicalizeInternal", "createDirectory", "dir", "mustCreate", "createSymlink", "delete", "list", "listOrNull", "metadataOrNull", "Lokio/FileMetadata;", "openReadOnly", "Lokio/FileHandle;", "openReadWrite", "sink", "Lokio/Source;", "toRelativePath", "", "Companion", "okio"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0000\u0018\u0000 *2\u00020\u0001:\u0001*B\u0017\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\u0018\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0018\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\nH\u0016J\u0010\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\nH\u0016J\u0010\u0010\u0019\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\nH\u0002J\u0018\u0010\u001a\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u0005H\u0016J\u0018\u0010\u001d\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\nH\u0016J\u0018\u0010\u001e\u001a\u00020\u00142\u0006\u0010\u0018\u001a\u00020\n2\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0016\u0010\u001f\u001a\b\u0012\u0004\u0012\u00020\n0\b2\u0006\u0010\u001b\u001a\u00020\nH\u0016J\u0018\u0010 \u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\b2\u0006\u0010\u001b\u001a\u00020\nH\u0016J\u0012\u0010!\u001a\u0004\u0018\u00010\"2\u0006\u0010\u0018\u001a\u00020\nH\u0016J\u0010\u0010#\u001a\u00020$2\u0006\u0010\u0011\u001a\u00020\nH\u0016J \u0010%\u001a\u00020$2\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u00052\u0006\u0010\u0012\u001a\u00020\u0005H\u0016J\u0018\u0010&\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\n2\u0006\u0010\u001c\u001a\u00020\u0005H\u0016J\u0010\u0010\u0015\u001a\u00020'2\u0006\u0010\u0011\u001a\u00020\nH\u0016J\f\u0010(\u001a\u00020)*\u00020\nH\u0002R-\u0010\u0007\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0001\u0012\u0004\u0012\u00020\n0\t0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\f¨\u0006+"}, m40d2 = {"Lokio/internal/ResourceFileSystem;", "Lokio/FileSystem;", "classLoader", "Ljava/lang/ClassLoader;", "indexEagerly", "", "(Ljava/lang/ClassLoader;Z)V", "roots", "", "Lkotlin/Pair;", "Lokio/Path;", "getRoots", "()Ljava/util/List;", "roots$delegate", "Lkotlin/Lazy;", "appendingSink", "Lokio/Sink;", "file", "mustExist", "atomicMove", "", "source", "target", "canonicalize", "path", "canonicalizeInternal", "createDirectory", "dir", "mustCreate", "createSymlink", "delete", "list", "listOrNull", "metadataOrNull", "Lokio/FileMetadata;", "openReadOnly", "Lokio/FileHandle;", "openReadWrite", "sink", "Lokio/Source;", "toRelativePath", "", "Companion", "okio"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class ResourceFileSystem extends FileSystem {
     private static final Companion Companion = new Companion(null);
@@ -41,15 +41,15 @@ public final class ResourceFileSystem extends FileSystem {
 
     public ResourceFileSystem(final ClassLoader classLoader, boolean z) {
         Intrinsics.checkNotNullParameter(classLoader, "classLoader");
-        this.roots$delegate = LazyKt.lazy(new Function0<List<? extends Pair<? extends FileSystem, ? extends Path>>>() { // from class: okio.internal.ResourceFileSystem$roots$2
+        this.roots$delegate = LazyKt.lazy(new Functions<List<? extends Tuples<? extends FileSystem, ? extends Path>>>() { // from class: okio.internal.ResourceFileSystem$roots$2
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(0);
             }
 
-            @Override // kotlin.jvm.functions.Function0
-            public final List<? extends Pair<? extends FileSystem, ? extends Path>> invoke() {
+            @Override // kotlin.jvm.functions.Functions
+            public final List<? extends Tuples<? extends FileSystem, ? extends Path>> invoke() {
                 return ResourceFileSystem.Companion.toClasspathRoots(classLoader);
             }
         });
@@ -58,7 +58,7 @@ public final class ResourceFileSystem extends FileSystem {
         }
     }
 
-    private final List<Pair<FileSystem, Path>> getRoots() {
+    private final List<Tuples<FileSystem, Path>> getRoots() {
         return (List) this.roots$delegate.getValue();
     }
 
@@ -78,9 +78,9 @@ public final class ResourceFileSystem extends FileSystem {
         String relativePath = toRelativePath(dir);
         LinkedHashSet linkedHashSet = new LinkedHashSet();
         boolean z = false;
-        for (Pair<FileSystem, Path> pair : getRoots()) {
-            FileSystem component1 = pair.component1();
-            Path component2 = pair.component2();
+        for (Tuples<FileSystem, Path> tuples : getRoots()) {
+            FileSystem component1 = tuples.component1();
+            Path component2 = tuples.component2();
             try {
                 LinkedHashSet linkedHashSet2 = linkedHashSet;
                 ArrayList arrayList = new ArrayList();
@@ -110,14 +110,14 @@ public final class ResourceFileSystem extends FileSystem {
         Intrinsics.checkNotNullParameter(dir, "dir");
         String relativePath = toRelativePath(dir);
         LinkedHashSet linkedHashSet = new LinkedHashSet();
-        Iterator<Pair<FileSystem, Path>> it = getRoots().iterator();
+        Iterator<Tuples<FileSystem, Path>> it = getRoots().iterator();
         boolean z = false;
         while (true) {
             ArrayList arrayList = null;
             if (!it.hasNext()) {
                 break;
             }
-            Pair<FileSystem, Path> next = it.next();
+            Tuples<FileSystem, Path> next = it.next();
             Path component2 = next.component2();
             List<Path> listOrNull = next.component1().listOrNull(component2.resolve(relativePath));
             if (listOrNull != null) {
@@ -152,9 +152,9 @@ public final class ResourceFileSystem extends FileSystem {
             throw new FileNotFoundException("file not found: " + file);
         }
         String relativePath = toRelativePath(file);
-        for (Pair<FileSystem, Path> pair : getRoots()) {
+        for (Tuples<FileSystem, Path> tuples : getRoots()) {
             try {
-                return pair.component1().openReadOnly(pair.component2().resolve(relativePath));
+                return tuples.component1().openReadOnly(tuples.component2().resolve(relativePath));
             } catch (FileNotFoundException unused) {
             }
         }
@@ -172,8 +172,8 @@ public final class ResourceFileSystem extends FileSystem {
         Intrinsics.checkNotNullParameter(path, "path");
         if (Companion.keepPath(path)) {
             String relativePath = toRelativePath(path);
-            for (Pair<FileSystem, Path> pair : getRoots()) {
-                FileMetadata metadataOrNull = pair.component1().metadataOrNull(pair.component2().resolve(relativePath));
+            for (Tuples<FileSystem, Path> tuples : getRoots()) {
+                FileMetadata metadataOrNull = tuples.component1().metadataOrNull(tuples.component2().resolve(relativePath));
                 if (metadataOrNull != null) {
                     return metadataOrNull;
                 }
@@ -190,9 +190,9 @@ public final class ResourceFileSystem extends FileSystem {
             throw new FileNotFoundException("file not found: " + file);
         }
         String relativePath = toRelativePath(file);
-        for (Pair<FileSystem, Path> pair : getRoots()) {
+        for (Tuples<FileSystem, Path> tuples : getRoots()) {
             try {
-                return pair.component1().source(pair.component2().resolve(relativePath));
+                return tuples.component1().source(tuples.component2().resolve(relativePath));
             } catch (FileNotFoundException unused) {
             }
         }
@@ -243,7 +243,7 @@ public final class ResourceFileSystem extends FileSystem {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* compiled from: ResourceFileSystem.kt */
-    @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0082\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\u0004H\u0002J\u0012\u0010\n\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u000b\u001a\u00020\u0004J\u001c\u0010\f\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u00040\u000e0\r*\u00020\u0010J\u0018\u0010\u0011\u001a\u0010\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e*\u00020\u0012J\u0018\u0010\u0013\u001a\u0010\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e*\u00020\u0012R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0014"}, d2 = {"Lokio/internal/ResourceFileSystem$Companion;", "", "()V", "ROOT", "Lokio/Path;", "getROOT", "()Lokio/Path;", "keepPath", "", "path", "removeBase", "base", "toClasspathRoots", "", "Lkotlin/Pair;", "Lokio/FileSystem;", "Ljava/lang/ClassLoader;", "toFileRoot", "Ljava/net/URL;", "toJarRoot", "okio"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0082\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\u0004H\u0002J\u0012\u0010\n\u001a\u00020\u0004*\u00020\u00042\u0006\u0010\u000b\u001a\u00020\u0004J\u001c\u0010\f\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u00040\u000e0\r*\u00020\u0010J\u0018\u0010\u0011\u001a\u0010\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e*\u00020\u0012J\u0018\u0010\u0013\u001a\u0010\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e*\u00020\u0012R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0014"}, m40d2 = {"Lokio/internal/ResourceFileSystem$Companion;", "", "()V", "ROOT", "Lokio/Path;", "getROOT", "()Lokio/Path;", "keepPath", "", "path", "removeBase", "base", "toClasspathRoots", "", "Lkotlin/Pair;", "Lokio/FileSystem;", "Ljava/lang/ClassLoader;", "toFileRoot", "Ljava/net/URL;", "toJarRoot", "okio"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -263,7 +263,7 @@ public final class ResourceFileSystem extends FileSystem {
             return getROOT().resolve(StringsKt.replace$default(StringsKt.removePrefix(path.toString(), (CharSequence) base.toString()), '\\', '/', false, 4, (Object) null));
         }
 
-        public final List<Pair<FileSystem, Path>> toClasspathRoots(ClassLoader classLoader) {
+        public final List<Tuples<FileSystem, Path>> toClasspathRoots(ClassLoader classLoader) {
             Intrinsics.checkNotNullParameter(classLoader, "<this>");
             Enumeration<URL> resources = classLoader.getResources("");
             Intrinsics.checkNotNullExpressionValue(resources, "getResources(\"\")");
@@ -273,7 +273,7 @@ public final class ResourceFileSystem extends FileSystem {
             for (URL it : list) {
                 Companion companion = ResourceFileSystem.Companion;
                 Intrinsics.checkNotNullExpressionValue(it, "it");
-                Pair<FileSystem, Path> fileRoot = companion.toFileRoot(it);
+                Tuples<FileSystem, Path> fileRoot = companion.toFileRoot(it);
                 if (fileRoot != null) {
                     arrayList.add(fileRoot);
                 }
@@ -287,7 +287,7 @@ public final class ResourceFileSystem extends FileSystem {
             for (URL it2 : list2) {
                 Companion companion2 = ResourceFileSystem.Companion;
                 Intrinsics.checkNotNullExpressionValue(it2, "it");
-                Pair<FileSystem, Path> jarRoot = companion2.toJarRoot(it2);
+                Tuples<FileSystem, Path> jarRoot = companion2.toJarRoot(it2);
                 if (jarRoot != null) {
                     arrayList3.add(jarRoot);
                 }
@@ -295,15 +295,15 @@ public final class ResourceFileSystem extends FileSystem {
             return CollectionsKt.plus((Collection) arrayList2, (Iterable) arrayList3);
         }
 
-        public final Pair<FileSystem, Path> toFileRoot(URL url) {
+        public final Tuples<FileSystem, Path> toFileRoot(URL url) {
             Intrinsics.checkNotNullParameter(url, "<this>");
             if (Intrinsics.areEqual(url.getProtocol(), "file")) {
-                return TuplesKt.to(FileSystem.SYSTEM, Path.Companion.get$default(Path.Companion, new File(url.toURI()), false, 1, (Object) null));
+                return TuplesKt.m33to(FileSystem.SYSTEM, Path.Companion.get$default(Path.Companion, new File(url.toURI()), false, 1, (Object) null));
             }
             return null;
         }
 
-        public final Pair<FileSystem, Path> toJarRoot(URL url) {
+        public final Tuples<FileSystem, Path> toJarRoot(URL url) {
             int lastIndexOf$default;
             Intrinsics.checkNotNullParameter(url, "<this>");
             String url2 = url.toString();
@@ -312,7 +312,7 @@ public final class ResourceFileSystem extends FileSystem {
                 Path.Companion companion = Path.Companion;
                 String substring = url2.substring(4, lastIndexOf$default);
                 Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                return TuplesKt.to(ZipKt.openZip(Path.Companion.get$default(companion, new File(URI.create(substring)), false, 1, (Object) null), FileSystem.SYSTEM, new Function1<ZipEntry, Boolean>() { // from class: okio.internal.ResourceFileSystem$Companion$toJarRoot$zip$1
+                return TuplesKt.m33to(ZipKt.openZip(Path.Companion.get$default(companion, new File(URI.create(substring)), false, 1, (Object) null), FileSystem.SYSTEM, new Function1<ZipEntry, Boolean>() { // from class: okio.internal.ResourceFileSystem$Companion$toJarRoot$zip$1
                     @Override // kotlin.jvm.functions.Function1
                     public final Boolean invoke(ZipEntry entry) {
                         Intrinsics.checkNotNullParameter(entry, "entry");

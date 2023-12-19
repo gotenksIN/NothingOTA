@@ -7,7 +7,7 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: View.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 /* synthetic */ class ViewKt$ancestors$1 extends FunctionReferenceImpl implements Function1<ViewParent, ViewParent> {
     public static final ViewKt$ancestors$1 INSTANCE = new ViewKt$ancestors$1();

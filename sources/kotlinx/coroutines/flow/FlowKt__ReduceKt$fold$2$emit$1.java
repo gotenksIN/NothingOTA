@@ -6,8 +6,8 @@ import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* compiled from: Reduce.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ReduceKt$fold$2", f = "Reduce.kt", i = {}, l = {45}, m = "emit", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ReduceKt$fold$2", m30f = "Reduce.kt", m29i = {}, m28l = {45}, m27m = "emit", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__ReduceKt$fold$2$emit$1 extends ContinuationImpl {
     Object L$0;

@@ -7,7 +7,7 @@ import kotlin.jvm.internal.FunctionAdapter;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: CoroutineLiveData.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 final class CoroutineLiveDataKt$sam$androidx_lifecycle_Observer$0 implements Observer, FunctionAdapter {
     private final /* synthetic */ Function1 function;

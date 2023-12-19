@@ -1,5 +1,6 @@
 package androidx.compose.animation.core;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.MutatorMutex;
 import java.util.concurrent.atomic.AtomicReference;
 import kotlin.Metadata;
@@ -20,12 +21,12 @@ import kotlinx.coroutines.sync.Mutex;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: InternalMutatorMutex.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.core.MutatorMutex$mutate$2", f = "InternalMutatorMutex.kt", i = {0, 0, 1, 1}, l = {171, androidx.appcompat.R.styleable.AppCompatTheme_windowActionModeOverlay}, m = "invokeSuspend", n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.core.MutatorMutex$mutate$2", m30f = "InternalMutatorMutex.kt", m29i = {0, 0, 1, 1}, m28l = {171, C0032R.styleable.AppCompatTheme_windowActionModeOverlay}, m27m = "invokeSuspend", m26n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super R>, Object> {
     final /* synthetic */ Function1<Continuation<? super R>, Object> $block;
-    final /* synthetic */ MutatePriority $priority;
+    final /* synthetic */ InternalMutatorMutex $priority;
     private /* synthetic */ Object L$0;
     Object L$1;
     Object L$2;
@@ -36,9 +37,9 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public MutatorMutex$mutate$2(MutatePriority mutatePriority, MutatorMutex mutatorMutex, Function1<? super Continuation<? super R>, ? extends Object> function1, Continuation<? super MutatorMutex$mutate$2> continuation) {
+    public MutatorMutex$mutate$2(InternalMutatorMutex internalMutatorMutex, MutatorMutex mutatorMutex, Function1<? super Continuation<? super R>, ? extends Object> function1, Continuation<? super MutatorMutex$mutate$2> continuation) {
         super(2, continuation);
-        this.$priority = mutatePriority;
+        this.$priority = internalMutatorMutex;
         this.this$0 = mutatorMutex;
         this.$block = function1;
     }
@@ -78,10 +79,10 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
             try {
                 if (r1 == 0) {
                     ResultKt.throwOnFailure(obj);
-                    MutatePriority mutatePriority = this.$priority;
+                    InternalMutatorMutex internalMutatorMutex = this.$priority;
                     CoroutineContext.Element element = ((CoroutineScope) this.L$0).getCoroutineContext().get(Job.Key);
                     Intrinsics.checkNotNull(element);
-                    MutatorMutex.Mutator mutator3 = new MutatorMutex.Mutator(mutatePriority, (Job) element);
+                    MutatorMutex.Mutator mutator3 = new MutatorMutex.Mutator(internalMutatorMutex, (Job) element);
                     this.this$0.tryMutateOrCancel(mutator3);
                     mutex = this.this$0.mutex;
                     Function1<Continuation<? super R>, Object> function12 = this.$block;
@@ -105,13 +106,13 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                         try {
                             ResultKt.throwOnFailure(obj);
                             atomicReference2 = mutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                             mutex2.unlock(null);
                             return obj;
                         } catch (Throwable th2) {
                             th = th2;
                             atomicReference = mutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                             throw th;
                         }
                     }
@@ -137,7 +138,7 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                 obj = invoke;
                 mutator2 = mutator;
                 atomicReference2 = mutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                 mutex2.unlock(null);
                 return obj;
             } catch (Throwable th3) {
@@ -145,7 +146,7 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                 th = th3;
                 mutatorMutex2 = mutatorMutex;
                 atomicReference = mutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                 throw th;
             }
         } catch (Throwable th4) {

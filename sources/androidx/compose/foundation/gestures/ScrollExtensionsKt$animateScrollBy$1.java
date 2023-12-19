@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ScrollExtensions.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollExtensionsKt", f = "ScrollExtensions.kt", i = {0}, l = {40}, m = "animateScrollBy", n = {"previousValue"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollExtensionsKt", m30f = "ScrollExtensions.kt", m29i = {0}, m28l = {40}, m27m = "animateScrollBy", m26n = {"previousValue"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class ScrollExtensionsKt$animateScrollBy$1 extends ContinuationImpl {
     Object L$0;
@@ -24,6 +24,6 @@ public final class ScrollExtensionsKt$animateScrollBy$1 extends ContinuationImpl
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return ScrollExtensionsKt.animateScrollBy(null, 0.0f, null, this);
+        return ScrollExtensions.animateScrollBy(null, 0.0f, null, this);
     }
 }

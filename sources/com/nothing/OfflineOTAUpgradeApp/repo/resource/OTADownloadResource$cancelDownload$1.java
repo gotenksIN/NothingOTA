@@ -1,21 +1,21 @@
 package com.nothing.OfflineOTAUpgradeApp.repo.resource;
 
-import java.io.File;
+import com.nothing.OfflineOTAUpgradeApp.util.Utils;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTADownloadResource.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1", f = "OTADownloadResource.kt", i = {}, l = {280, 286, 292, 294}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1", m30f = "OTADownloadResource.kt", m29i = {}, m28l = {285, 291, 297, 299}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class OTADownloadResource$cancelDownload$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     int label;
@@ -157,38 +157,38 @@ public final class OTADownloadResource$cancelDownload$1 extends SuspendLambda im
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: OTADownloadResource.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-    @DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1$1", f = "OTADownloadResource.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u000b\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1$1", m30f = "OTADownloadResource.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$cancelDownload$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Boolean>, Object> {
+    public static final class C16481 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Boolean>, Object> {
         int label;
         final /* synthetic */ OTADownloadResource this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(OTADownloadResource oTADownloadResource, Continuation<? super AnonymousClass1> continuation) {
+        C16481(OTADownloadResource oTADownloadResource, Continuation<? super C16481> continuation) {
             super(2, continuation);
             this.this$0 = oTADownloadResource;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.this$0, continuation);
+            return new C16481(this.this$0, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Boolean> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C16481) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Object invokeSuspend(Object obj) {
-            File oTAFile;
+            Utils utils;
             IntrinsicsKt.getCOROUTINE_SUSPENDED();
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
-                oTAFile = this.this$0.getOTAFile();
-                return Boxing.boxBoolean(oTAFile.delete());
+                utils = this.this$0.utils;
+                return boxing.boxBoolean(utils.getDownloadedOTAFile().delete());
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }

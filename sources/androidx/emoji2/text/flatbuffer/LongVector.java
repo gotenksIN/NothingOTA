@@ -10,6 +10,6 @@ public final class LongVector extends BaseVector {
     }
 
     public long get(int i) {
-        return this.bb.getLong(__element(i));
+        return this.f174bb.getLong(__element(i));
     }
 }

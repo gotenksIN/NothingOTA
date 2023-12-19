@@ -1,5 +1,6 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.AnimationSpecKt;
 import androidx.compose.animation.core.AnimationVector1D;
 import androidx.compose.animation.core.EasingKt;
@@ -7,19 +8,41 @@ import androidx.compose.animation.core.FiniteAnimationSpec;
 import androidx.compose.animation.core.Transition;
 import androidx.compose.animation.core.TransitionKt;
 import androidx.compose.animation.core.TweenSpec;
-import androidx.compose.animation.core.TwoWayConverter;
+import androidx.compose.animation.core.VectorConverters;
 import androidx.compose.animation.core.VectorConvertersKt;
-import androidx.compose.foundation.layout.AlignmentLineKt;
+import androidx.compose.foundation.layout.AlignmentLine;
 import androidx.compose.foundation.layout.Arrangement;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScopeInstance;
-import androidx.compose.foundation.layout.ColumnKt;
+import androidx.compose.foundation.layout.Column;
 import androidx.compose.foundation.layout.ColumnScopeInstance;
-import androidx.compose.foundation.layout.PaddingKt;
+import androidx.compose.foundation.layout.Padding;
 import androidx.compose.foundation.layout.PaddingValues;
 import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.material3.tokens.PlainTooltipTokens;
 import androidx.compose.material3.tokens.RichTooltipTokens;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.GraphicsLayerModifierKt;
+import androidx.compose.p002ui.graphics.Shape;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.text.TextStyle;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.LayoutDirection;
+import androidx.compose.p002ui.window.PopupPositionProvider;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -34,28 +57,6 @@ import androidx.compose.runtime.SkippableUpdater;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.GraphicsLayerModifierKt;
-import androidx.compose.ui.graphics.Shape;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.text.TextStyle;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.unit.LayoutDirection;
-import androidx.compose.ui.window.PopupPositionProvider;
 import androidx.profileinstaller.ProfileVerifier;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -65,10 +66,10 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.FloatCompanionObject;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
@@ -76,7 +77,7 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.Job;
 
 /* compiled from: Tooltip.kt */
-@Metadata(d1 = {"\u0000\u0082\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\u001ax\u0010\u001a\u001a\u00020\u001b2\u0011\u0010\u001c\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010!\u001a\u00020\"2\b\b\u0002\u0010#\u001a\u00020$2\b\b\u0002\u0010%\u001a\u00020&2\b\b\u0002\u0010'\u001a\u00020&2\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0007ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-\u001a0\u0010.\u001a\u00020\u001b2\u0006\u0010/\u001a\u00020&2\u0011\u0010(\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001eH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b0\u00101\u001a\u0094\u0001\u00102\u001a\u00020\u001b2\u0011\u00103\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010!\u001a\u0002042\u0015\b\u0002\u00105\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010#\u001a\u00020$2\b\b\u0002\u00107\u001a\u0002082\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0007¢\u0006\u0002\u00109\u001aR\u0010:\u001a\u00020\u001b2\u0006\u00107\u001a\u0002082\u0011\u00103\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\u0013\u00105\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\u0013\u00106\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001eH\u0003¢\u0006\u0002\u0010;\u001a~\u0010<\u001a\u00020\u001b2\u0011\u0010=\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\u0006\u0010>\u001a\u00020?2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010#\u001a\u00020$2\u0006\u0010!\u001a\u00020@2\u0006\u0010%\u001a\u00020&2\u0006\u0010A\u001a\u00020\u00012\u0006\u0010B\u001a\u00020\u00012\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\bC\u0010D\u001a\u001a\u0010E\u001a\u00020 *\u00020 2\f\u0010F\u001a\b\u0012\u0004\u0012\u00020H0GH\u0002\u001a\u001c\u0010I\u001a\u00020 *\u00020 2\u0006\u0010J\u001a\u00020H2\u0006\u0010K\u001a\u00020HH\u0002\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0003\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0004\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0005\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\b\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\t\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\n\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0019\u0010\u000b\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\f\u0010\r\"\u0013\u0010\u000e\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u000f\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0010\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u000e\u0010\u0011\u001a\u00020\u0012X\u0080T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0014X\u0080T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0014X\u0082T¢\u0006\u0002\n\u0000\"\u0019\u0010\u0016\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0017\u0010\r\"\u0019\u0010\u0018\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0019\u0010\r\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006L"}, d2 = {"ActionLabelBottomPadding", "Landroidx/compose/ui/unit/Dp;", "F", "ActionLabelMinHeight", "HeightFromSubheadToTextFirstLine", "HeightToSubheadFirstLine", "PlainTooltipContentPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "PlainTooltipHorizontalPadding", "PlainTooltipMaxWidth", "PlainTooltipVerticalPadding", "RichTooltipHorizontalPadding", "getRichTooltipHorizontalPadding", "()F", "RichTooltipMaxWidth", "TextBottomPadding", "TooltipAnchorPadding", "TooltipDuration", "", "TooltipFadeInDuration", "", "TooltipFadeOutDuration", "TooltipMinHeight", "getTooltipMinHeight", "TooltipMinWidth", "getTooltipMinWidth", "PlainTooltipBox", "", "tooltip", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "modifier", "Landroidx/compose/ui/Modifier;", "tooltipState", "Landroidx/compose/material3/PlainTooltipState;", "shape", "Landroidx/compose/ui/graphics/Shape;", "containerColor", "Landroidx/compose/ui/graphics/Color;", "contentColor", "content", "Lkotlin/Function1;", "Landroidx/compose/material3/TooltipBoxScope;", "Lkotlin/ExtensionFunctionType;", "PlainTooltipBox-nBX6wN0", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/PlainTooltipState;Landroidx/compose/ui/graphics/Shape;JJLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "PlainTooltipImpl", "textColor", "PlainTooltipImpl-Iv8Zu3U", "(JLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "RichTooltipBox", "text", "Landroidx/compose/material3/RichTooltipState;", "title", "action", "colors", "Landroidx/compose/material3/RichTooltipColors;", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/RichTooltipState;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/RichTooltipColors;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "RichTooltipImpl", "(Landroidx/compose/material3/RichTooltipColors;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "TooltipBox", "tooltipContent", "tooltipPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "Landroidx/compose/material3/TooltipState;", "elevation", "maxWidth", "TooltipBox-XDn_Kpo", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/window/PopupPositionProvider;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/TooltipState;JFFLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)V", "animateTooltip", "transition", "Landroidx/compose/animation/core/Transition;", "", "textVerticalPadding", "subheadExists", "actionExists", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0082\u0001\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0004\u001ax\u0010\u001a\u001a\u00020\u001b2\u0011\u0010\u001c\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010!\u001a\u00020\"2\b\b\u0002\u0010#\u001a\u00020$2\b\b\u0002\u0010%\u001a\u00020&2\b\b\u0002\u0010'\u001a\u00020&2\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0007ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b,\u0010-\u001a0\u0010.\u001a\u00020\u001b2\u0006\u0010/\u001a\u00020&2\u0011\u0010(\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001eH\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b0\u00101\u001a\u0094\u0001\u00102\u001a\u00020\u001b2\u0011\u00103\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010\u001f\u001a\u00020 2\b\b\u0002\u0010!\u001a\u0002042\u0015\b\u0002\u00105\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\u0015\b\u0002\u00106\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\b\b\u0002\u0010#\u001a\u00020$2\b\b\u0002\u00107\u001a\u0002082\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0007¢\u0006\u0002\u00109\u001aR\u0010:\u001a\u00020\u001b2\u0006\u00107\u001a\u0002082\u0011\u00103\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\u0013\u00105\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001e2\u0013\u00106\u001a\u000f\u0012\u0004\u0012\u00020\u001b\u0018\u00010\u001d¢\u0006\u0002\b\u001eH\u0003¢\u0006\u0002\u0010;\u001a~\u0010<\u001a\u00020\u001b2\u0011\u0010=\u001a\r\u0012\u0004\u0012\u00020\u001b0\u001d¢\u0006\u0002\b\u001e2\u0006\u0010>\u001a\u00020?2\u0006\u0010\u001f\u001a\u00020 2\u0006\u0010#\u001a\u00020$2\u0006\u0010!\u001a\u00020@2\u0006\u0010%\u001a\u00020&2\u0006\u0010A\u001a\u00020\u00012\u0006\u0010B\u001a\u00020\u00012\u001c\u0010(\u001a\u0018\u0012\u0004\u0012\u00020*\u0012\u0004\u0012\u00020\u001b0)¢\u0006\u0002\b\u001e¢\u0006\u0002\b+H\u0003ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\bC\u0010D\u001a\u001a\u0010E\u001a\u00020 *\u00020 2\f\u0010F\u001a\b\u0012\u0004\u0012\u00020H0GH\u0002\u001a\u001c\u0010I\u001a\u00020 *\u00020 2\u0006\u0010J\u001a\u00020H2\u0006\u0010K\u001a\u00020HH\u0002\"\u0013\u0010\u0000\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0003\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0004\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0005\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0013\u0010\b\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\t\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\n\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0019\u0010\u000b\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\f\u0010\r\"\u0013\u0010\u000e\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u000f\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u0013\u0010\u0010\u001a\u00020\u0001X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0002\"\u000e\u0010\u0011\u001a\u00020\u0012X\u0080T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0014X\u0080T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0014X\u0082T¢\u0006\u0002\n\u0000\"\u0019\u0010\u0016\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0017\u0010\r\"\u0019\u0010\u0018\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0002\u001a\u0004\b\u0019\u0010\r\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006L"}, m40d2 = {"ActionLabelBottomPadding", "Landroidx/compose/ui/unit/Dp;", "F", "ActionLabelMinHeight", "HeightFromSubheadToTextFirstLine", "HeightToSubheadFirstLine", "PlainTooltipContentPadding", "Landroidx/compose/foundation/layout/PaddingValues;", "PlainTooltipHorizontalPadding", "PlainTooltipMaxWidth", "PlainTooltipVerticalPadding", "RichTooltipHorizontalPadding", "getRichTooltipHorizontalPadding", "()F", "RichTooltipMaxWidth", "TextBottomPadding", "TooltipAnchorPadding", "TooltipDuration", "", "TooltipFadeInDuration", "", "TooltipFadeOutDuration", "TooltipMinHeight", "getTooltipMinHeight", "TooltipMinWidth", "getTooltipMinWidth", "PlainTooltipBox", "", "tooltip", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "modifier", "Landroidx/compose/ui/Modifier;", "tooltipState", "Landroidx/compose/material3/PlainTooltipState;", "shape", "Landroidx/compose/ui/graphics/Shape;", "containerColor", "Landroidx/compose/ui/graphics/Color;", "contentColor", "content", "Lkotlin/Function1;", "Landroidx/compose/material3/TooltipBoxScope;", "Lkotlin/ExtensionFunctionType;", "PlainTooltipBox-nBX6wN0", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/PlainTooltipState;Landroidx/compose/ui/graphics/Shape;JJLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "PlainTooltipImpl", "textColor", "PlainTooltipImpl-Iv8Zu3U", "(JLkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "RichTooltipBox", "text", "Landroidx/compose/material3/RichTooltipState;", "title", "action", "colors", "Landroidx/compose/material3/RichTooltipColors;", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/RichTooltipState;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/RichTooltipColors;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "RichTooltipImpl", "(Landroidx/compose/material3/RichTooltipColors;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "TooltipBox", "tooltipContent", "tooltipPositionProvider", "Landroidx/compose/ui/window/PopupPositionProvider;", "Landroidx/compose/material3/TooltipState;", "elevation", "maxWidth", "TooltipBox-XDn_Kpo", "(Lkotlin/jvm/functions/Function2;Landroidx/compose/ui/window/PopupPositionProvider;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/Shape;Landroidx/compose/material3/TooltipState;JFFLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)V", "animateTooltip", "transition", "Landroidx/compose/animation/core/Transition;", "", "textVerticalPadding", "subheadExists", "actionExists", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TooltipKt {
     private static final float ActionLabelBottomPadding;
@@ -94,8 +95,8 @@ public final class TooltipKt {
     public static final int TooltipFadeInDuration = 150;
     private static final int TooltipFadeOutDuration = 75;
     private static final float TooltipMinHeight;
-    private static final float TooltipMinWidth = Dp.m5050constructorimpl(40);
-    private static final float PlainTooltipMaxWidth = Dp.m5050constructorimpl((float) ComposerKt.invocationKey);
+    private static final float TooltipMinWidth = C0780Dp.m5351constructorimpl(40);
+    private static final float PlainTooltipMaxWidth = C0780Dp.m5351constructorimpl((float) ComposerKt.invocationKey);
 
     /* JADX WARN: Removed duplicated region for block: B:101:0x0133  */
     /* JADX WARN: Removed duplicated region for block: B:102:0x0138  */
@@ -125,12 +126,12 @@ public final class TooltipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void m1595PlainTooltipBoxnBX6wN0(final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r23, androidx.compose.ui.Modifier r24, androidx.compose.material3.PlainTooltipState r25, androidx.compose.ui.graphics.Shape r26, long r27, long r29, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.TooltipBoxScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r31, androidx.compose.runtime.Composer r32, final int r33, final int r34) {
+    public static final void m1896PlainTooltipBoxnBX6wN0(final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r23, androidx.compose.p002ui.Modifier r24, androidx.compose.material3.PlainTooltipState r25, androidx.compose.p002ui.graphics.Shape r26, long r27, long r29, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.TooltipBoxScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r31, androidx.compose.runtime.Composer r32, final int r33, final int r34) {
         /*
             Method dump skipped, instructions count: 590
             To view this dump change 'Code comments level' option to 'DEBUG'
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.TooltipKt.m1595PlainTooltipBoxnBX6wN0(kotlin.jvm.functions.Function2, androidx.compose.ui.Modifier, androidx.compose.material3.PlainTooltipState, androidx.compose.ui.graphics.Shape, long, long, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int):void");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.TooltipKt.m1896PlainTooltipBoxnBX6wN0(kotlin.jvm.functions.Function2, androidx.compose.ui.Modifier, androidx.compose.material3.PlainTooltipState, androidx.compose.ui.graphics.Shape, long, long, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int):void");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:108:0x014d  */
@@ -164,7 +165,7 @@ public final class TooltipKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void RichTooltipBox(final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r28, androidx.compose.ui.Modifier r29, androidx.compose.material3.RichTooltipState r30, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r31, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r32, androidx.compose.ui.graphics.Shape r33, androidx.compose.material3.RichTooltipColors r34, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.TooltipBoxScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r35, androidx.compose.runtime.Composer r36, final int r37, final int r38) {
+    public static final void RichTooltipBox(final kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r28, androidx.compose.p002ui.Modifier r29, androidx.compose.material3.RichTooltipState r30, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r31, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r32, androidx.compose.p002ui.graphics.Shape r33, androidx.compose.material3.RichTooltipColors r34, final kotlin.jvm.functions.Function3<? super androidx.compose.material3.TooltipBoxScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r35, androidx.compose.runtime.Composer r36, final int r37, final int r38) {
         /*
             Method dump skipped, instructions count: 701
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -174,7 +175,7 @@ public final class TooltipKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: TooltipBox-XDn_Kpo  reason: not valid java name */
-    public static final void m1597TooltipBoxXDn_Kpo(final Function2<? super Composer, ? super Integer, Unit> function2, final PopupPositionProvider popupPositionProvider, final Modifier modifier, final Shape shape, final TooltipState tooltipState, final long j, final float f, final float f2, final Function3<? super TooltipBoxScope, ? super Composer, ? super Integer, Unit> function3, Composer composer, final int i) {
+    public static final void m1898TooltipBoxXDn_Kpo(final Function2<? super Composer, ? super Integer, Unit> function2, final PopupPositionProvider popupPositionProvider, final Modifier modifier, final Shape shape, final TooltipState tooltipState, final long j, final float f, final float f2, final Function3<? super TooltipBoxScope, ? super Composer, ? super Integer, Unit> function3, Composer composer, final int i) {
         int i2;
         Composer startRestartGroup = composer.startRestartGroup(-1415647894);
         ComposerKt.sourceInformation(startRestartGroup, "C(TooltipBox)P(6,7,4,5,8,0:c#ui.graphics.Color,2:c#ui.unit.Dp,3:c#ui.unit.Dp)199@8111L24,200@8161L49,202@8228L1804,245@10038L1263:Tooltip.kt#uh7d8r");
@@ -183,7 +184,7 @@ public final class TooltipKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changed(popupPositionProvider) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -223,7 +224,7 @@ public final class TooltipKt {
             startRestartGroup.endReplaceableGroup();
             final CoroutineScope coroutineScope = ((CompositionScopedCoroutineScopeCanceller) rememberedValue).getCoroutineScope();
             startRestartGroup.endReplaceableGroup();
-            final String m1397getStringNWtq28 = Strings_androidKt.m1397getStringNWtq28(Strings.Companion.m1395getTooltipLongPressLabeladMyvUU(), startRestartGroup, 6);
+            final String m1698getStringNWtq28 = Strings_androidKt.m1698getStringNWtq28(Strings.Companion.m1696getTooltipLongPressLabeladMyvUU(), startRestartGroup, 6);
             startRestartGroup.startReplaceableGroup(-492369756);
             ComposerKt.sourceInformation(startRestartGroup, "CC(remember):Composables.kt#9igjgp");
             Object rememberedValue2 = startRestartGroup.rememberedValue();
@@ -234,44 +235,44 @@ public final class TooltipKt {
                         Intrinsics.checkNotNullParameter(modifier2, "<this>");
                         final CoroutineScope coroutineScope2 = coroutineScope;
                         final TooltipState tooltipState2 = TooltipState.this;
-                        final Function0<Job> function0 = new Function0<Job>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1
+                        final Functions<Job> functions = new Functions<Job>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1
                             /* JADX INFO: Access modifiers changed from: package-private */
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
                                 super(0);
                             }
 
-                            @Override // kotlin.jvm.functions.Function0
+                            @Override // kotlin.jvm.functions.Functions
                             public final Job invoke() {
                                 Job launch$default;
-                                launch$default = BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new AnonymousClass1(tooltipState2, null), 3, null);
+                                launch$default = BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new C06581(tooltipState2, null), 3, null);
                                 return launch$default;
                             }
 
                             /* JADX INFO: Access modifiers changed from: package-private */
                             /* compiled from: Tooltip.kt */
-                            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                            @DebugMetadata(c = "androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1$1", f = "Tooltip.kt", i = {}, l = {208}, m = "invokeSuspend", n = {}, s = {})
-                            /* renamed from: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1$1  reason: invalid class name */
+                            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                            @DebugMetadata(m31c = "androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1$1", m30f = "Tooltip.kt", m29i = {}, m28l = {208}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                            /* renamed from: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$onLongPress$1$1 */
                             /* loaded from: classes.dex */
-                            public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                            public static final class C06581 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                                 final /* synthetic */ TooltipState $tooltipState;
                                 int label;
 
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                AnonymousClass1(TooltipState tooltipState, Continuation<? super AnonymousClass1> continuation) {
+                                C06581(TooltipState tooltipState, Continuation<? super C06581> continuation) {
                                     super(2, continuation);
                                     this.$tooltipState = tooltipState;
                                 }
 
                                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                                    return new AnonymousClass1(this.$tooltipState, continuation);
+                                    return new C06581(this.$tooltipState, continuation);
                                 }
 
                                 @Override // kotlin.jvm.functions.Function2
                                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                                    return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                                    return ((C06581) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                                 }
 
                                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -293,8 +294,8 @@ public final class TooltipKt {
                                 }
                             }
                         };
-                        Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput(modifier2, TooltipState.this, new TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$1(function0, null));
-                        final String str = m1397getStringNWtq28;
+                        Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput(modifier2, TooltipState.this, new TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$1(functions, null));
+                        final String str = m1698getStringNWtq28;
                         return SemanticsModifierKt.semantics(pointerInput, true, new Function1<SemanticsPropertyReceiver, Unit>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$2
                             /* JADX INFO: Access modifiers changed from: package-private */
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -313,8 +314,8 @@ public final class TooltipKt {
                             public final void invoke2(SemanticsPropertyReceiver semantics) {
                                 Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
                                 String str2 = str;
-                                final Function0<Job> function02 = function0;
-                                SemanticsPropertiesKt.onLongClick(semantics, str2, new Function0<Boolean>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$2.1
+                                final Functions<Job> functions2 = functions;
+                                SemanticsPropertiesKt.onLongClick(semantics, str2, new Functions<Boolean>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$scope$1$1$tooltipAnchor$2.1
                                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                     /* JADX WARN: Multi-variable type inference failed */
                                     {
@@ -322,9 +323,9 @@ public final class TooltipKt {
                                     }
 
                                     /* JADX WARN: Can't rename method to resolve collision */
-                                    @Override // kotlin.jvm.functions.Function0
+                                    @Override // kotlin.jvm.functions.Functions
                                     public final Boolean invoke() {
-                                        function02.invoke();
+                                        functions2.invoke();
                                         return true;
                                     }
                                 });
@@ -342,18 +343,18 @@ public final class TooltipKt {
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density = (Density) consume;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection = (LayoutDirection) consume2;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume3 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(Modifier.Companion);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -365,13 +366,13 @@ public final class TooltipKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
             BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
@@ -380,16 +381,16 @@ public final class TooltipKt {
             startRestartGroup.startReplaceableGroup(-1995827526);
             ComposerKt.sourceInformation(startRestartGroup, "248@10246L41,249@10300L960");
             if (((Boolean) updateTransition.getCurrentState()).booleanValue() || ((Boolean) updateTransition.getTargetState()).booleanValue()) {
-                final String m1397getStringNWtq282 = Strings_androidKt.m1397getStringNWtq28(Strings.Companion.m1396getTooltipPaneDescriptionadMyvUU(), startRestartGroup, 6);
+                final String m1698getStringNWtq282 = Strings_androidKt.m1698getStringNWtq28(Strings.Companion.m1697getTooltipPaneDescriptionadMyvUU(), startRestartGroup, 6);
                 final int i3 = i2;
-                TooltipPopup_androidKt.TooltipPopup(popupPositionProvider, new Function0<Unit>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$1$1
+                TooltipPopup_androidKt.TooltipPopup(popupPositionProvider, new Functions<Unit>() { // from class: androidx.compose.material3.TooltipKt$TooltipBox$1$1
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super(0);
                     }
 
-                    @Override // kotlin.jvm.functions.Function0
+                    @Override // kotlin.jvm.functions.Functions
                     public /* bridge */ /* synthetic */ Unit invoke() {
                         invoke2();
                         return Unit.INSTANCE;
@@ -398,34 +399,34 @@ public final class TooltipKt {
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
                         if (TooltipState.this.isVisible()) {
-                            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(TooltipState.this, null), 3, null);
+                            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C06541(TooltipState.this, null), 3, null);
                         }
                     }
 
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* compiled from: Tooltip.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.material3.TooltipKt$TooltipBox$1$1$1", f = "Tooltip.kt", i = {}, l = {254}, m = "invokeSuspend", n = {}, s = {})
-                    /* renamed from: androidx.compose.material3.TooltipKt$TooltipBox$1$1$1  reason: invalid class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.material3.TooltipKt$TooltipBox$1$1$1", m30f = "Tooltip.kt", m29i = {}, m28l = {254}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                    /* renamed from: androidx.compose.material3.TooltipKt$TooltipBox$1$1$1 */
                     /* loaded from: classes.dex */
-                    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                    public static final class C06541 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                         final /* synthetic */ TooltipState $tooltipState;
                         int label;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        AnonymousClass1(TooltipState tooltipState, Continuation<? super AnonymousClass1> continuation) {
+                        C06541(TooltipState tooltipState, Continuation<? super C06541> continuation) {
                             super(2, continuation);
                             this.$tooltipState = tooltipState;
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                            return new AnonymousClass1(this.$tooltipState, continuation);
+                            return new C06541(this.$tooltipState, continuation);
                         }
 
                         @Override // kotlin.jvm.functions.Function2
                         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                            return ((C06541) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -467,8 +468,8 @@ public final class TooltipKt {
                             if (ComposerKt.isTraceInProgress()) {
                                 ComposerKt.traceEventStart(-442150991, i4, -1, "androidx.compose.material3.TooltipBox.<anonymous>.<anonymous> (Tooltip.kt:256)");
                             }
-                            animateTooltip = TooltipKt.animateTooltip(SizeKt.m462sizeInqDBjuR0$default(Modifier.this, TooltipKt.getTooltipMinWidth(), TooltipKt.getTooltipMinHeight(), f2, 0.0f, 8, null), updateTransition);
-                            final String str = m1397getStringNWtq282;
+                            animateTooltip = TooltipKt.animateTooltip(SizeKt.m763sizeInqDBjuR0$default(Modifier.this, TooltipKt.getTooltipMinWidth(), TooltipKt.getTooltipMinHeight(), f2, 0.0f, 8, null), updateTransition);
+                            final String str = m1698getStringNWtq282;
                             composer2.startReplaceableGroup(1157296644);
                             ComposerKt.sourceInformation(composer2, "CC(remember)P(1):Composables.kt#9igjgp");
                             boolean changed = composer2.changed(str);
@@ -502,7 +503,7 @@ public final class TooltipKt {
                             float f3 = f;
                             Function2<Composer, Integer, Unit> function22 = function2;
                             int i5 = i3;
-                            SurfaceKt.m1406SurfaceT9BRK9s(semantics$default, shape2, j2, 0L, f3, f3, null, function22, composer2, ((i5 >> 6) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i5 >> 9) & 896) | (57344 & (i5 >> 6)) | ((i5 >> 3) & 458752) | ((i5 << 21) & 29360128), 72);
+                            Surface.m1707SurfaceT9BRK9s(semantics$default, shape2, j2, 0L, f3, f3, null, function22, composer2, ((i5 >> 6) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | ((i5 >> 9) & 896) | (57344 & (i5 >> 6)) | ((i5 >> 3) & 458752) | ((i5 << 21) & 29360128), 72);
                             if (ComposerKt.isTraceInProgress()) {
                                 ComposerKt.traceEventEnd();
                                 return;
@@ -514,7 +515,7 @@ public final class TooltipKt {
                 }), startRestartGroup, ((i2 >> 3) & 14) | 384);
             }
             startRestartGroup.endReplaceableGroup();
-            function3.invoke(tooltipKt$TooltipBox$scope$1$1, startRestartGroup, Integer.valueOf(((i2 >> 21) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 6));
+            function3.invoke(tooltipKt$TooltipBox$scope$1$1, startRestartGroup, Integer.valueOf(((i2 >> 21) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 6));
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             startRestartGroup.endReplaceableGroup();
@@ -546,14 +547,14 @@ public final class TooltipKt {
             }
 
             public final void invoke(Composer composer2, int i4) {
-                TooltipKt.m1597TooltipBoxXDn_Kpo(function2, popupPositionProvider, modifier, shape, tooltipState, j, f, f2, function3, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
+                TooltipKt.m1898TooltipBoxXDn_Kpo(function2, popupPositionProvider, modifier, shape, tooltipState, j, f, f2, function3, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: PlainTooltipImpl-Iv8Zu3U  reason: not valid java name */
-    public static final void m1596PlainTooltipImplIv8Zu3U(final long j, final Function2<? super Composer, ? super Integer, Unit> function2, Composer composer, final int i) {
+    public static final void m1897PlainTooltipImplIv8Zu3U(final long j, final Function2<? super Composer, ? super Integer, Unit> function2, Composer composer, final int i) {
         int i2;
         Composer startRestartGroup = composer.startRestartGroup(893340370);
         ComposerKt.sourceInformation(startRestartGroup, "C(PlainTooltipImpl)P(1:c#ui.graphics.Color)284@11413L337:Tooltip.kt#uh7d8r");
@@ -562,32 +563,32 @@ public final class TooltipKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changedInstance(function2) ? 32 : 16;
         }
         if ((i2 & 91) != 18 || !startRestartGroup.getSkipping()) {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(893340370, i2, -1, "androidx.compose.material3.PlainTooltipImpl (Tooltip.kt:280)");
             }
-            Modifier padding = PaddingKt.padding(Modifier.Companion, PlainTooltipContentPadding);
+            Modifier padding = Padding.padding(Modifier.Companion, PlainTooltipContentPadding);
             startRestartGroup.startReplaceableGroup(733328855);
             ComposerKt.sourceInformation(startRestartGroup, "CC(Box)P(2,1,3)70@3267L67,71@3339L130:Box.kt#2w3rfo");
             MeasurePolicy rememberBoxMeasurePolicy = BoxKt.rememberBoxMeasurePolicy(Alignment.Companion.getTopStart(), false, startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density = (Density) consume;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection = (LayoutDirection) consume2;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume3 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(padding);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -599,18 +600,18 @@ public final class TooltipKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
             BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1000468479, "C285@11514L10,286@11582L162:Tooltip.kt#uh7d8r");
-            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(j)), TextKt.getLocalTextStyle().provides(TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), PlainTooltipTokens.INSTANCE.getSupportingTextFont()))}, function2, startRestartGroup, (i2 & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
+            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(j)), Text.getLocalTextStyle().provides(TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), PlainTooltipTokens.INSTANCE.getSupportingTextFont()))}, function2, startRestartGroup, (i2 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             startRestartGroup.endReplaceableGroup();
@@ -642,7 +643,7 @@ public final class TooltipKt {
             }
 
             public final void invoke(Composer composer2, int i3) {
-                TooltipKt.m1596PlainTooltipImplIv8Zu3U(j, function2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
+                TooltipKt.m1897PlainTooltipImplIv8Zu3U(j, function2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
             }
         });
     }
@@ -658,7 +659,7 @@ public final class TooltipKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changedInstance(function2) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -674,26 +675,26 @@ public final class TooltipKt {
             TextStyle fromToken = TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), RichTooltipTokens.INSTANCE.getActionLabelTextFont());
             TextStyle fromToken2 = TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), RichTooltipTokens.INSTANCE.getSubheadFont());
             TextStyle fromToken3 = TypographyKt.fromToken(MaterialTheme.INSTANCE.getTypography(startRestartGroup, 6), RichTooltipTokens.INSTANCE.getSupportingTextFont());
-            Modifier m417paddingVpY3zN4$default = PaddingKt.m417paddingVpY3zN4$default(Modifier.Companion, RichTooltipHorizontalPadding, 0.0f, 2, null);
+            Modifier m718paddingVpY3zN4$default = Padding.m718paddingVpY3zN4$default(Modifier.Companion, RichTooltipHorizontalPadding, 0.0f, 2, null);
             startRestartGroup.startReplaceableGroup(-483455358);
             ComposerKt.sourceInformation(startRestartGroup, "CC(Column)P(2,3,1)77@3913L61,78@3979L133:Column.kt#2w3rfo");
-            MeasurePolicy columnMeasurePolicy = ColumnKt.columnMeasurePolicy(Arrangement.INSTANCE.getTop(), Alignment.Companion.getStart(), startRestartGroup, 0);
+            MeasurePolicy columnMeasurePolicy = Column.columnMeasurePolicy(Arrangement.INSTANCE.getTop(), Alignment.Companion.getStart(), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density = (Density) consume;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume2 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume2 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection = (LayoutDirection) consume2;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume3 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
-            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(m417paddingVpY3zN4$default);
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(m718paddingVpY3zN4$default);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
             }
@@ -704,13 +705,13 @@ public final class TooltipKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl, columnMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl, columnMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 276693704, "C79@4027L9:Column.kt#2w3rfo");
             ColumnScopeInstance columnScopeInstance = ColumnScopeInstance.INSTANCE;
@@ -720,26 +721,26 @@ public final class TooltipKt {
             if (function22 == null) {
                 i3 = i2;
             } else {
-                Modifier m342paddingFromBaselineVpY3zN4$default = AlignmentLineKt.m342paddingFromBaselineVpY3zN4$default(Modifier.Companion, HeightToSubheadFirstLine, 0.0f, 2, null);
+                Modifier m643paddingFromBaselineVpY3zN4$default = AlignmentLine.m643paddingFromBaselineVpY3zN4$default(Modifier.Companion, HeightToSubheadFirstLine, 0.0f, 2, null);
                 startRestartGroup.startReplaceableGroup(733328855);
                 ComposerKt.sourceInformation(startRestartGroup, "CC(Box)P(2,1,3)70@3267L67,71@3339L130:Box.kt#2w3rfo");
                 MeasurePolicy rememberBoxMeasurePolicy = BoxKt.rememberBoxMeasurePolicy(Alignment.Companion.getTopStart(), false, startRestartGroup, 0);
                 startRestartGroup.startReplaceableGroup(-1323940314);
                 ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume4 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume4 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 Density density2 = (Density) consume4;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume5 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                Object consume5 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 LayoutDirection layoutDirection2 = (LayoutDirection) consume5;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume6 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                Object consume6 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 ViewConfiguration viewConfiguration2 = (ViewConfiguration) consume6;
-                Function0<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
-                Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m342paddingFromBaselineVpY3zN4$default);
+                Functions<ComposeUiNode> constructor2 = ComposeUiNode.Companion.getConstructor();
+                Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf2 = LayoutKt.materializerOf(m643paddingFromBaselineVpY3zN4$default);
                 i3 = i2;
                 if (!(startRestartGroup.getApplier() instanceof Applier)) {
                     ComposablesKt.invalidApplier();
@@ -751,18 +752,18 @@ public final class TooltipKt {
                     startRestartGroup.useNode();
                 }
                 startRestartGroup.disableReusing();
-                Composer m2195constructorimpl2 = Updater.m2195constructorimpl(startRestartGroup);
-                Updater.m2202setimpl(m2195constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                Updater.m2202setimpl(m2195constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
-                Updater.m2202setimpl(m2195constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
-                Updater.m2202setimpl(m2195constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
+                Composer m2496constructorimpl2 = Updater.m2496constructorimpl(startRestartGroup);
+                Updater.m2503setimpl(m2496constructorimpl2, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                Updater.m2503setimpl(m2496constructorimpl2, density2, ComposeUiNode.Companion.getSetDensity());
+                Updater.m2503setimpl(m2496constructorimpl2, layoutDirection2, ComposeUiNode.Companion.getSetLayoutDirection());
+                Updater.m2503setimpl(m2496constructorimpl2, viewConfiguration2, ComposeUiNode.Companion.getSetViewConfiguration());
                 startRestartGroup.enableReusing();
-                materializerOf2.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+                materializerOf2.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
                 startRestartGroup.startReplaceableGroup(2058660585);
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                 BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1242326159, "C315@12562L211:Tooltip.kt#uh7d8r");
-                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(richTooltipColors.m1287getTitleContentColor0d7_KjU())), TextKt.getLocalTextStyle().provides(fromToken2)}, function22, startRestartGroup, 8);
+                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(richTooltipColors.m1588getTitleContentColor0d7_KjU())), Text.getLocalTextStyle().provides(fromToken2)}, function22, startRestartGroup, 8);
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 startRestartGroup.endReplaceableGroup();
@@ -780,18 +781,18 @@ public final class TooltipKt {
             startRestartGroup.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume7 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume7 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             Density density3 = (Density) consume7;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume8 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume8 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             LayoutDirection layoutDirection3 = (LayoutDirection) consume8;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume9 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume9 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ViewConfiguration viewConfiguration3 = (ViewConfiguration) consume9;
-            Function0<ComposeUiNode> constructor3 = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor3 = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf3 = LayoutKt.materializerOf(textVerticalPadding);
             if (!(startRestartGroup.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -803,18 +804,18 @@ public final class TooltipKt {
                 startRestartGroup.useNode();
             }
             startRestartGroup.disableReusing();
-            Composer m2195constructorimpl3 = Updater.m2195constructorimpl(startRestartGroup);
-            Updater.m2202setimpl(m2195constructorimpl3, rememberBoxMeasurePolicy2, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl3, density3, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl3, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl3, viewConfiguration3, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl3 = Updater.m2496constructorimpl(startRestartGroup);
+            Updater.m2503setimpl(m2496constructorimpl3, rememberBoxMeasurePolicy2, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl3, density3, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl3, layoutDirection3, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl3, viewConfiguration3, ComposeUiNode.Companion.getSetViewConfiguration());
             startRestartGroup.enableReusing();
-            materializerOf3.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+            materializerOf3.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
             startRestartGroup.startReplaceableGroup(2058660585);
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
             BoxScopeInstance boxScopeInstance2 = BoxScopeInstance.INSTANCE;
             ComposerKt.sourceInformationMarkerStart(startRestartGroup, 471369652, "C325@12918L195:Tooltip.kt#uh7d8r");
-            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(richTooltipColors.m1286getContentColor0d7_KjU())), TextKt.getLocalTextStyle().provides(fromToken3)}, function2, startRestartGroup, (i3 & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
+            CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(richTooltipColors.m1587getContentColor0d7_KjU())), Text.getLocalTextStyle().provides(fromToken3)}, function2, startRestartGroup, (i3 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) | 8);
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             startRestartGroup.endReplaceableGroup();
@@ -824,26 +825,26 @@ public final class TooltipKt {
             startRestartGroup.startReplaceableGroup(75391440);
             ComposerKt.sourceInformation(startRestartGroup, "*332@13158L433");
             if (function23 != null) {
-                Modifier m419paddingqDBjuR0$default = PaddingKt.m419paddingqDBjuR0$default(SizeKt.m449requiredHeightInVpY3zN4$default(Modifier.Companion, ActionLabelMinHeight, 0.0f, 2, null), 0.0f, 0.0f, 0.0f, ActionLabelBottomPadding, 7, null);
+                Modifier m720paddingqDBjuR0$default = Padding.m720paddingqDBjuR0$default(SizeKt.m750requiredHeightInVpY3zN4$default(Modifier.Companion, ActionLabelMinHeight, 0.0f, 2, null), 0.0f, 0.0f, 0.0f, ActionLabelBottomPadding, 7, null);
                 startRestartGroup.startReplaceableGroup(733328855);
                 ComposerKt.sourceInformation(startRestartGroup, "CC(Box)P(2,1,3)70@3267L67,71@3339L130:Box.kt#2w3rfo");
                 MeasurePolicy rememberBoxMeasurePolicy3 = BoxKt.rememberBoxMeasurePolicy(Alignment.Companion.getTopStart(), false, startRestartGroup, 0);
                 startRestartGroup.startReplaceableGroup(-1323940314);
                 ComposerKt.sourceInformation(startRestartGroup, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume10 = startRestartGroup.consume(CompositionLocalsKt.getLocalDensity());
+                Object consume10 = startRestartGroup.consume(CompositionLocals.getLocalDensity());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 Density density4 = (Density) consume10;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume11 = startRestartGroup.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                Object consume11 = startRestartGroup.consume(CompositionLocals.getLocalLayoutDirection());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 LayoutDirection layoutDirection4 = (LayoutDirection) consume11;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                Object consume12 = startRestartGroup.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                Object consume12 = startRestartGroup.consume(CompositionLocals.getLocalViewConfiguration());
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 ViewConfiguration viewConfiguration4 = (ViewConfiguration) consume12;
-                Function0<ComposeUiNode> constructor4 = ComposeUiNode.Companion.getConstructor();
-                Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf4 = LayoutKt.materializerOf(m419paddingqDBjuR0$default);
+                Functions<ComposeUiNode> constructor4 = ComposeUiNode.Companion.getConstructor();
+                Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf4 = LayoutKt.materializerOf(m720paddingqDBjuR0$default);
                 if (!(startRestartGroup.getApplier() instanceof Applier)) {
                     ComposablesKt.invalidApplier();
                 }
@@ -854,18 +855,18 @@ public final class TooltipKt {
                     startRestartGroup.useNode();
                 }
                 startRestartGroup.disableReusing();
-                Composer m2195constructorimpl4 = Updater.m2195constructorimpl(startRestartGroup);
-                Updater.m2202setimpl(m2195constructorimpl4, rememberBoxMeasurePolicy3, ComposeUiNode.Companion.getSetMeasurePolicy());
-                Updater.m2202setimpl(m2195constructorimpl4, density4, ComposeUiNode.Companion.getSetDensity());
-                Updater.m2202setimpl(m2195constructorimpl4, layoutDirection4, ComposeUiNode.Companion.getSetLayoutDirection());
-                Updater.m2202setimpl(m2195constructorimpl4, viewConfiguration4, ComposeUiNode.Companion.getSetViewConfiguration());
+                Composer m2496constructorimpl4 = Updater.m2496constructorimpl(startRestartGroup);
+                Updater.m2503setimpl(m2496constructorimpl4, rememberBoxMeasurePolicy3, ComposeUiNode.Companion.getSetMeasurePolicy());
+                Updater.m2503setimpl(m2496constructorimpl4, density4, ComposeUiNode.Companion.getSetDensity());
+                Updater.m2503setimpl(m2496constructorimpl4, layoutDirection4, ComposeUiNode.Companion.getSetLayoutDirection());
+                Updater.m2503setimpl(m2496constructorimpl4, viewConfiguration4, ComposeUiNode.Companion.getSetViewConfiguration());
                 startRestartGroup.enableReusing();
-                materializerOf4.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(startRestartGroup)), startRestartGroup, 0);
+                materializerOf4.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(startRestartGroup)), startRestartGroup, 0);
                 startRestartGroup.startReplaceableGroup(2058660585);
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                 BoxScopeInstance boxScopeInstance3 = BoxScopeInstance.INSTANCE;
                 ComposerKt.sourceInformationMarkerStart(startRestartGroup, -1242325360, "C337@13361L216:Tooltip.kt#uh7d8r");
-                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColorKt.getLocalContentColor().provides(Color.m2546boximpl(richTooltipColors.m1284getActionContentColor0d7_KjU())), TextKt.getLocalTextStyle().provides(fromToken)}, function23, startRestartGroup, 8);
+                CompositionLocalKt.CompositionLocalProvider(new ProvidedValue[]{ContentColor.getLocalContentColor().provides(Color.m2847boximpl(richTooltipColors.m1585getActionContentColor0d7_KjU())), Text.getLocalTextStyle().provides(fromToken)}, function23, startRestartGroup, 8);
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
                 startRestartGroup.endReplaceableGroup();
@@ -914,9 +915,9 @@ public final class TooltipKt {
 
     private static final Modifier textVerticalPadding(Modifier modifier, boolean z, boolean z2) {
         if (!z && !z2) {
-            return PaddingKt.m417paddingVpY3zN4$default(modifier, 0.0f, PlainTooltipVerticalPadding, 1, null);
+            return Padding.m718paddingVpY3zN4$default(modifier, 0.0f, PlainTooltipVerticalPadding, 1, null);
         }
-        return PaddingKt.m419paddingqDBjuR0$default(AlignmentLineKt.m342paddingFromBaselineVpY3zN4$default(modifier, HeightFromSubheadToTextFirstLine, 0.0f, 2, null), 0.0f, 0.0f, 0.0f, TextBottomPadding, 7, null);
+        return Padding.m720paddingqDBjuR0$default(AlignmentLine.m643paddingFromBaselineVpY3zN4$default(modifier, HeightFromSubheadToTextFirstLine, 0.0f, 2, null), 0.0f, 0.0f, 0.0f, TextBottomPadding, 7, null);
     }
 
     public static final float getTooltipMinHeight() {
@@ -997,7 +998,7 @@ public final class TooltipKt {
                 };
                 composer.startReplaceableGroup(-1338768149);
                 ComposerKt.sourceInformation(composer, "CC(animateFloat)P(2)938@37489L78:Transition.kt#pdpnli");
-                TwoWayConverter<Float, AnimationVector1D> vectorConverter = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
+                VectorConverters<Float, AnimationVector1D> vectorConverter = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
                 composer.startReplaceableGroup(-142660079);
                 ComposerKt.sourceInformation(composer, "CC(animateValue)P(3,2)856@34079L32,857@34134L31,858@34190L23,860@34226L89:Transition.kt#pdpnli");
                 boolean booleanValue = transition2.getCurrentState().booleanValue();
@@ -1023,7 +1024,7 @@ public final class TooltipKt {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                State createTransitionAnimation = TransitionKt.createTransitionAnimation(transition2, valueOf, Float.valueOf(f2), tooltipKt$animateTooltip$2$scale$2.invoke((TooltipKt$animateTooltip$2$scale$2) transition2.getSegment(), (Transition.Segment<Boolean>) composer, (Composer) 0), vectorConverter, "tooltip transition: scaling", composer, ProfileVerifier.CompilationStatus.RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE);
+                State createTransitionAnimation = TransitionKt.createTransitionAnimation(transition2, valueOf, Float.valueOf(f2), tooltipKt$animateTooltip$2$scale$2.invoke((TooltipKt$animateTooltip$2$scale$2) transition2.getSegment(), (Transition.Segment<Boolean>) composer, (Composer) 0), vectorConverter, "tooltip transition: scaling", composer, ProfileVerifier.CompilationStatus.f184xf2722a21);
                 composer.endReplaceableGroup();
                 composer.endReplaceableGroup();
                 Transition<Boolean> transition3 = transition;
@@ -1054,7 +1055,7 @@ public final class TooltipKt {
                 };
                 composer.startReplaceableGroup(-1338768149);
                 ComposerKt.sourceInformation(composer, "CC(animateFloat)P(2)938@37489L78:Transition.kt#pdpnli");
-                TwoWayConverter<Float, AnimationVector1D> vectorConverter2 = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
+                VectorConverters<Float, AnimationVector1D> vectorConverter2 = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
                 composer.startReplaceableGroup(-142660079);
                 ComposerKt.sourceInformation(composer, "CC(animateValue)P(3,2)856@34079L32,857@34134L31,858@34190L23,860@34226L89:Transition.kt#pdpnli");
                 boolean booleanValue3 = transition3.getCurrentState().booleanValue();
@@ -1080,15 +1081,15 @@ public final class TooltipKt {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                State createTransitionAnimation2 = TransitionKt.createTransitionAnimation(transition3, valueOf2, Float.valueOf(f4), tooltipKt$animateTooltip$2$alpha$2.invoke((TooltipKt$animateTooltip$2$alpha$2) transition3.getSegment(), (Transition.Segment<Boolean>) composer, (Composer) 0), vectorConverter2, "tooltip transition: alpha", composer, ProfileVerifier.CompilationStatus.RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE);
+                State createTransitionAnimation2 = TransitionKt.createTransitionAnimation(transition3, valueOf2, Float.valueOf(f4), tooltipKt$animateTooltip$2$alpha$2.invoke((TooltipKt$animateTooltip$2$alpha$2) transition3.getSegment(), (Transition.Segment<Boolean>) composer, (Composer) 0), vectorConverter2, "tooltip transition: alpha", composer, ProfileVerifier.CompilationStatus.f184xf2722a21);
                 composer.endReplaceableGroup();
                 composer.endReplaceableGroup();
-                Modifier m2702graphicsLayerAp8cVGQ$default = GraphicsLayerModifierKt.m2702graphicsLayerAp8cVGQ$default(composed, invoke$lambda$1(createTransitionAnimation), invoke$lambda$1(createTransitionAnimation), invoke$lambda$3(createTransitionAnimation2), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0L, null, false, null, 0L, 0L, 0, 131064, null);
+                Modifier m3003graphicsLayerAp8cVGQ$default = GraphicsLayerModifierKt.m3003graphicsLayerAp8cVGQ$default(composed, invoke$lambda$1(createTransitionAnimation), invoke$lambda$1(createTransitionAnimation), invoke$lambda$3(createTransitionAnimation2), 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0L, null, false, null, 0L, 0L, 0, 131064, null);
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                return m2702graphicsLayerAp8cVGQ$default;
+                return m3003graphicsLayerAp8cVGQ$default;
             }
 
             private static final float invoke$lambda$1(State<Float> state) {
@@ -1103,22 +1104,22 @@ public final class TooltipKt {
 
     static {
         float f = 4;
-        TooltipAnchorPadding = Dp.m5050constructorimpl(f);
+        TooltipAnchorPadding = C0780Dp.m5351constructorimpl(f);
         float f2 = 24;
-        TooltipMinHeight = Dp.m5050constructorimpl(f2);
-        float m5050constructorimpl = Dp.m5050constructorimpl(f);
-        PlainTooltipVerticalPadding = m5050constructorimpl;
+        TooltipMinHeight = C0780Dp.m5351constructorimpl(f2);
+        float m5351constructorimpl = C0780Dp.m5351constructorimpl(f);
+        PlainTooltipVerticalPadding = m5351constructorimpl;
         float f3 = 8;
-        float m5050constructorimpl2 = Dp.m5050constructorimpl(f3);
-        PlainTooltipHorizontalPadding = m5050constructorimpl2;
-        PlainTooltipContentPadding = PaddingKt.m409PaddingValuesYgX7TsA(m5050constructorimpl2, m5050constructorimpl);
-        RichTooltipMaxWidth = Dp.m5050constructorimpl(320);
+        float m5351constructorimpl2 = C0780Dp.m5351constructorimpl(f3);
+        PlainTooltipHorizontalPadding = m5351constructorimpl2;
+        PlainTooltipContentPadding = Padding.m710PaddingValuesYgX7TsA(m5351constructorimpl2, m5351constructorimpl);
+        RichTooltipMaxWidth = C0780Dp.m5351constructorimpl(320);
         float f4 = 16;
-        RichTooltipHorizontalPadding = Dp.m5050constructorimpl(f4);
-        HeightToSubheadFirstLine = Dp.m5050constructorimpl(28);
-        HeightFromSubheadToTextFirstLine = Dp.m5050constructorimpl(f2);
-        TextBottomPadding = Dp.m5050constructorimpl(f4);
-        ActionLabelMinHeight = Dp.m5050constructorimpl(36);
-        ActionLabelBottomPadding = Dp.m5050constructorimpl(f3);
+        RichTooltipHorizontalPadding = C0780Dp.m5351constructorimpl(f4);
+        HeightToSubheadFirstLine = C0780Dp.m5351constructorimpl(28);
+        HeightFromSubheadToTextFirstLine = C0780Dp.m5351constructorimpl(f2);
+        TextBottomPadding = C0780Dp.m5351constructorimpl(f4);
+        ActionLabelMinHeight = C0780Dp.m5351constructorimpl(36);
+        ActionLabelBottomPadding = C0780Dp.m5351constructorimpl(f3);
     }
 }

@@ -17,8 +17,8 @@ import kotlinx.coroutines.Job;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: PausingDispatcher.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.lifecycle.PausingDispatcherKt$whenStateAtLeast$2", f = "PausingDispatcher.kt", i = {0}, l = {ComposerKt.providerValuesKey}, m = "invokeSuspend", n = {"controller"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.lifecycle.PausingDispatcherKt$whenStateAtLeast$2", m30f = "PausingDispatcher.kt", m29i = {0}, m28l = {ComposerKt.providerValuesKey}, m27m = "invokeSuspend", m26n = {"controller"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class PausingDispatcherKt$whenStateAtLeast$2<T> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super T>, Object> {
     final /* synthetic */ Function2<CoroutineScope, Continuation<? super T>, Object> $block;

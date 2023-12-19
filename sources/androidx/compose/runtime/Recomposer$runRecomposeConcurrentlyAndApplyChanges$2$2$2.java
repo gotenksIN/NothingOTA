@@ -14,8 +14,8 @@ import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Recomposer.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.runtime.Recomposer$runRecomposeConcurrentlyAndApplyChanges$2$2$2", f = "Recomposer.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.runtime.Recomposer$runRecomposeConcurrentlyAndApplyChanges$2$2$2", m30f = "Recomposer.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class Recomposer$runRecomposeConcurrentlyAndApplyChanges$2$2$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ ControlledComposition $composition;
@@ -67,7 +67,7 @@ final class Recomposer$runRecomposeConcurrentlyAndApplyChanges$2$2$2 extends Sus
             }
             if (deriveStateLocked != null) {
                 Result.Companion companion = Result.Companion;
-                deriveStateLocked.resumeWith(Result.m5373constructorimpl(Unit.INSTANCE));
+                deriveStateLocked.resumeWith(Result.m5649constructorimpl(Unit.INSTANCE));
             }
             return Unit.INSTANCE;
         }

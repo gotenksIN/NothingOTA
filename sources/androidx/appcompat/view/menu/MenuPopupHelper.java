@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
@@ -30,11 +30,11 @@ public class MenuPopupHelper implements MenuHelper {
     private MenuPresenter.Callback mPresenterCallback;
 
     public MenuPopupHelper(Context context, MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, R.attr.popupMenuStyle, 0);
+        this(context, menuBuilder, null, false, C0032R.attr.popupMenuStyle, 0);
     }
 
     public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view) {
-        this(context, menuBuilder, view, false, R.attr.popupMenuStyle, 0);
+        this(context, menuBuilder, view, false, C0032R.attr.popupMenuStyle, 0);
     }
 
     public MenuPopupHelper(Context context, MenuBuilder menuBuilder, View view, boolean z, int i) {
@@ -127,7 +127,7 @@ public class MenuPopupHelper implements MenuHelper {
         Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         Api17Impl.getRealSize(defaultDisplay, point);
-        if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(R.dimen.abc_cascading_menus_min_smallest_width)) {
+        if (Math.min(point.x, point.y) >= this.mContext.getResources().getDimensionPixelSize(C0032R.dimen.abc_cascading_menus_min_smallest_width)) {
             standardMenuPopup = new CascadingMenuPopup(this.mContext, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);
         } else {
             standardMenuPopup = new StandardMenuPopup(this.mContext, this.mMenu, this.mAnchorView, this.mPopupStyleAttr, this.mPopupStyleRes, this.mOverflowOnly);

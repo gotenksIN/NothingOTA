@@ -10,20 +10,20 @@ import androidx.compose.foundation.lazy.AwaitFirstLayoutModifier;
 import androidx.compose.foundation.lazy.layout.LazyAnimateScrollKt;
 import androidx.compose.foundation.lazy.layout.LazyLayoutPinnedItemList;
 import androidx.compose.foundation.lazy.layout.LazyLayoutPrefetchState;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.p002ui.layout.Remeasurement;
+import androidx.compose.p002ui.layout.RemeasurementModifier;
+import androidx.compose.p002ui.unit.Constraints;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.DensityKt;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.collection.MutableVector;
-import androidx.compose.runtime.saveable.ListSaverKt;
+import androidx.compose.runtime.saveable.ListSaver;
 import androidx.compose.runtime.saveable.Saver;
 import androidx.compose.runtime.saveable.SaverScope;
-import androidx.compose.ui.layout.Remeasurement;
-import androidx.compose.ui.layout.RemeasurementModifier;
-import androidx.compose.ui.unit.Constraints;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.DensityKt;
 import java.util.List;
 import kotlin.Metadata;
-import kotlin.Pair;
+import kotlin.Tuples;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.coroutines.Continuation;
@@ -34,12 +34,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: LazyGridState.kt */
-@Metadata(d1 = {"\u0000â\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u0000 \u0096\u00012\u00020\u0001:\u0002\u0096\u0001B\u0019\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J#\u0010t\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\b\b\u0002\u0010w\u001a\u00020\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010xJ\u0015\u0010y\u001a\u00020u2\u0006\u0010z\u001a\u00020{H\u0000¢\u0006\u0002\b|J\u0010\u0010}\u001a\u00020u2\u0006\u0010~\u001a\u000204H\u0002J\u0011\u0010\u007f\u001a\u00020i2\u0007\u0010\u0080\u0001\u001a\u00020iH\u0016J\u0012\u0010\u0081\u0001\u001a\u00020u2\u0007\u0010\u0080\u0001\u001a\u00020iH\u0002J\u0018\u0010\u0082\u0001\u001a\u00020i2\u0007\u0010\u0083\u0001\u001a\u00020iH\u0000¢\u0006\u0003\b\u0084\u0001JL\u0010\u0085\u0001\u001a\u00020u2\b\u0010\u0086\u0001\u001a\u00030\u0087\u00012-\u0010\u0088\u0001\u001a(\b\u0001\u0012\u0005\u0012\u00030\u008a\u0001\u0012\u000b\u0012\t\u0012\u0004\u0012\u00020u0\u008b\u0001\u0012\u0007\u0012\u0005\u0018\u00010\u008c\u00010\u0089\u0001¢\u0006\u0003\b\u008d\u0001H\u0096@ø\u0001\u0000¢\u0006\u0003\u0010\u008e\u0001J$\u0010\u008f\u0001\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\b\b\u0002\u0010w\u001a\u00020\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010xJ\u001f\u0010\u0090\u0001\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\u0006\u0010w\u001a\u00020\u0003H\u0000¢\u0006\u0003\b\u0091\u0001J\u0019\u0010\u0092\u0001\u001a\u00020u2\b\u0010\u0093\u0001\u001a\u00030\u0094\u0001H\u0000¢\u0006\u0003\b\u0095\u0001R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\b\u001a\u00020\tX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR+\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8V@RX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R+\u0010\u0015\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8V@RX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0018\u0010\u0014\u001a\u0004\b\u0016\u0010\u0010\"\u0004\b\u0017\u0010\u0012R\u0014\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u001b0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\f\u001a\u00020\u001c8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010\u0014\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R\u0011\u0010\u0002\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b#\u0010$R\u0011\u0010\u0004\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b%\u0010$R\u0011\u0010&\u001a\u00020'8F¢\u0006\u0006\u001a\u0004\b(\u0010)R\u0014\u0010*\u001a\u00020+X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b,\u0010-R\u0014\u0010.\u001a\u00020\r8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b.\u0010\u0010R+\u0010/\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b2\u0010\u0014\u001a\u0004\b0\u0010\u0010\"\u0004\b1\u0010\u0012R\u0011\u00103\u001a\u0002048F¢\u0006\u0006\u001a\u0004\b5\u00106R\u0014\u00107\u001a\b\u0012\u0004\u0012\u00020408X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00109\u001a\u00020\u0003X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010:\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u0003@BX\u0080\u000e¢\u0006\b\n\u0000\u001a\u0004\b;\u0010$R\u0014\u0010<\u001a\u00020=X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b>\u0010?R/\u0010A\u001a\u0004\u0018\u00010@2\b\u0010\f\u001a\u0004\u0018\u00010@8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\bF\u0010\u0014\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER\u0088\u0001\u0010O\u001a/\u0012\u0013\u0012\u00110H¢\u0006\f\bI\u0012\b\bJ\u0012\u0004\b\b(K\u0012\u0016\u0012\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020N0M0L0G23\u0010\f\u001a/\u0012\u0013\u0012\u00110H¢\u0006\f\bI\u0012\b\bJ\u0012\u0004\b\b(K\u0012\u0016\u0012\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020N0M0L0G8@@@X\u0080\u008e\u0002ø\u0001\u0000¢\u0006\u0012\n\u0004\bT\u0010\u0014\u001a\u0004\bP\u0010Q\"\u0004\bR\u0010SR\u0014\u0010U\u001a\u00020VX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\bW\u0010XR\u001a\u0010Y\u001a\u00020\rX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bZ\u0010\u0010\"\u0004\b[\u0010\u0012R/\u0010]\u001a\u0004\u0018\u00010\\2\b\u0010\f\u001a\u0004\u0018\u00010\\8B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\bb\u0010\u0014\u001a\u0004\b^\u0010_\"\u0004\b`\u0010aR\u0014\u0010c\u001a\u00020dX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\be\u0010fR\u000e\u0010g\u001a\u00020hX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010j\u001a\u00020i2\u0006\u0010\f\u001a\u00020i@BX\u0080\u000e¢\u0006\b\n\u0000\u001a\u0004\bk\u0010lR\u000e\u0010m\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010n\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u00038@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\br\u0010\u0014\u001a\u0004\bo\u0010$\"\u0004\bp\u0010qR\u000e\u0010s\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0097\u0001"}, d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridState;", "Landroidx/compose/foundation/gestures/ScrollableState;", "firstVisibleItemIndex", "", "firstVisibleItemScrollOffset", "(II)V", "animateScrollScope", "Landroidx/compose/foundation/lazy/grid/LazyGridAnimateScrollScope;", "awaitLayoutModifier", "Landroidx/compose/foundation/lazy/AwaitFirstLayoutModifier;", "getAwaitLayoutModifier$foundation_release", "()Landroidx/compose/foundation/lazy/AwaitFirstLayoutModifier;", "<set-?>", "", "canScrollBackward", "getCanScrollBackward", "()Z", "setCanScrollBackward", "(Z)V", "canScrollBackward$delegate", "Landroidx/compose/runtime/MutableState;", "canScrollForward", "getCanScrollForward", "setCanScrollForward", "canScrollForward$delegate", "currentLinePrefetchHandles", "Landroidx/compose/runtime/collection/MutableVector;", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState$PrefetchHandle;", "Landroidx/compose/ui/unit/Density;", "density", "getDensity$foundation_release", "()Landroidx/compose/ui/unit/Density;", "setDensity$foundation_release", "(Landroidx/compose/ui/unit/Density;)V", "density$delegate", "getFirstVisibleItemIndex", "()I", "getFirstVisibleItemScrollOffset", "interactionSource", "Landroidx/compose/foundation/interaction/InteractionSource;", "getInteractionSource", "()Landroidx/compose/foundation/interaction/InteractionSource;", "internalInteractionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "getInternalInteractionSource$foundation_release", "()Landroidx/compose/foundation/interaction/MutableInteractionSource;", "isScrollInProgress", "isVertical", "isVertical$foundation_release", "setVertical$foundation_release", "isVertical$delegate", "layoutInfo", "Landroidx/compose/foundation/lazy/grid/LazyGridLayoutInfo;", "getLayoutInfo", "()Landroidx/compose/foundation/lazy/grid/LazyGridLayoutInfo;", "layoutInfoState", "Landroidx/compose/runtime/MutableState;", "lineToPrefetch", "numMeasurePasses", "getNumMeasurePasses$foundation_release", "pinnedItems", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPinnedItemList;", "getPinnedItems$foundation_release", "()Landroidx/compose/foundation/lazy/layout/LazyLayoutPinnedItemList;", "Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;", "placementAnimator", "getPlacementAnimator$foundation_release", "()Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;", "setPlacementAnimator$foundation_release", "(Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;)V", "placementAnimator$delegate", "Lkotlin/Function1;", "Landroidx/compose/foundation/lazy/grid/LineIndex;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "line", "", "Lkotlin/Pair;", "Landroidx/compose/ui/unit/Constraints;", "prefetchInfoRetriever", "getPrefetchInfoRetriever$foundation_release", "()Lkotlin/jvm/functions/Function1;", "setPrefetchInfoRetriever$foundation_release", "(Lkotlin/jvm/functions/Function1;)V", "prefetchInfoRetriever$delegate", "prefetchState", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState;", "getPrefetchState$foundation_release", "()Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState;", "prefetchingEnabled", "getPrefetchingEnabled$foundation_release", "setPrefetchingEnabled$foundation_release", "Landroidx/compose/ui/layout/Remeasurement;", "remeasurement", "getRemeasurement", "()Landroidx/compose/ui/layout/Remeasurement;", "setRemeasurement", "(Landroidx/compose/ui/layout/Remeasurement;)V", "remeasurement$delegate", "remeasurementModifier", "Landroidx/compose/ui/layout/RemeasurementModifier;", "getRemeasurementModifier$foundation_release", "()Landroidx/compose/ui/layout/RemeasurementModifier;", "scrollPosition", "Landroidx/compose/foundation/lazy/grid/LazyGridScrollPosition;", "", "scrollToBeConsumed", "getScrollToBeConsumed$foundation_release", "()F", "scrollableState", "slotsPerLine", "getSlotsPerLine$foundation_release", "setSlotsPerLine$foundation_release", "(I)V", "slotsPerLine$delegate", "wasScrollingForward", "animateScrollToItem", "", "index", "scrollOffset", "(IILkotlin/coroutines/Continuation;)Ljava/lang/Object;", "applyMeasureResult", "result", "Landroidx/compose/foundation/lazy/grid/LazyGridMeasureResult;", "applyMeasureResult$foundation_release", "cancelPrefetchIfVisibleItemsChanged", "info", "dispatchRawDelta", "delta", "notifyPrefetch", "onScroll", "distance", "onScroll$foundation_release", "scroll", "scrollPriority", "Landroidx/compose/foundation/MutatePriority;", "block", "Lkotlin/Function2;", "Landroidx/compose/foundation/gestures/ScrollScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/foundation/MutatePriority;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "scrollToItem", "snapToItemIndexInternal", "snapToItemIndexInternal$foundation_release", "updateScrollPositionIfTheFirstItemWasMoved", "itemProvider", "Landroidx/compose/foundation/lazy/grid/LazyGridItemProvider;", "updateScrollPositionIfTheFirstItemWasMoved$foundation_release", "Companion", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000â\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\b\u000b\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u0000 \u0096\u00012\u00020\u0001:\u0002\u0096\u0001B\u0019\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J#\u0010t\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\b\b\u0002\u0010w\u001a\u00020\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010xJ\u0015\u0010y\u001a\u00020u2\u0006\u0010z\u001a\u00020{H\u0000¢\u0006\u0002\b|J\u0010\u0010}\u001a\u00020u2\u0006\u0010~\u001a\u000204H\u0002J\u0011\u0010\u007f\u001a\u00020i2\u0007\u0010\u0080\u0001\u001a\u00020iH\u0016J\u0012\u0010\u0081\u0001\u001a\u00020u2\u0007\u0010\u0080\u0001\u001a\u00020iH\u0002J\u0018\u0010\u0082\u0001\u001a\u00020i2\u0007\u0010\u0083\u0001\u001a\u00020iH\u0000¢\u0006\u0003\b\u0084\u0001JL\u0010\u0085\u0001\u001a\u00020u2\b\u0010\u0086\u0001\u001a\u00030\u0087\u00012-\u0010\u0088\u0001\u001a(\b\u0001\u0012\u0005\u0012\u00030\u008a\u0001\u0012\u000b\u0012\t\u0012\u0004\u0012\u00020u0\u008b\u0001\u0012\u0007\u0012\u0005\u0018\u00010\u008c\u00010\u0089\u0001¢\u0006\u0003\b\u008d\u0001H\u0096@ø\u0001\u0000¢\u0006\u0003\u0010\u008e\u0001J$\u0010\u008f\u0001\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\b\b\u0002\u0010w\u001a\u00020\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010xJ\u001f\u0010\u0090\u0001\u001a\u00020u2\u0006\u0010v\u001a\u00020\u00032\u0006\u0010w\u001a\u00020\u0003H\u0000¢\u0006\u0003\b\u0091\u0001J\u0019\u0010\u0092\u0001\u001a\u00020u2\b\u0010\u0093\u0001\u001a\u00030\u0094\u0001H\u0000¢\u0006\u0003\b\u0095\u0001R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\b\u001a\u00020\tX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR+\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8V@RX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R+\u0010\u0015\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8V@RX\u0096\u008e\u0002¢\u0006\u0012\n\u0004\b\u0018\u0010\u0014\u001a\u0004\b\u0016\u0010\u0010\"\u0004\b\u0017\u0010\u0012R\u0014\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u001b0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010\u001d\u001a\u00020\u001c2\u0006\u0010\f\u001a\u00020\u001c8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b\"\u0010\u0014\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010!R\u0011\u0010\u0002\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b#\u0010$R\u0011\u0010\u0004\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b%\u0010$R\u0011\u0010&\u001a\u00020'8F¢\u0006\u0006\u001a\u0004\b(\u0010)R\u0014\u0010*\u001a\u00020+X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b,\u0010-R\u0014\u0010.\u001a\u00020\r8VX\u0096\u0004¢\u0006\u0006\u001a\u0004\b.\u0010\u0010R+\u0010/\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\r8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b2\u0010\u0014\u001a\u0004\b0\u0010\u0010\"\u0004\b1\u0010\u0012R\u0011\u00103\u001a\u0002048F¢\u0006\u0006\u001a\u0004\b5\u00106R\u0014\u00107\u001a\b\u0012\u0004\u0012\u00020408X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00109\u001a\u00020\u0003X\u0082\u000e¢\u0006\u0002\n\u0000R\u001e\u0010:\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u0003@BX\u0080\u000e¢\u0006\b\n\u0000\u001a\u0004\b;\u0010$R\u0014\u0010<\u001a\u00020=X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b>\u0010?R/\u0010A\u001a\u0004\u0018\u00010@2\b\u0010\f\u001a\u0004\u0018\u00010@8@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\bF\u0010\u0014\u001a\u0004\bB\u0010C\"\u0004\bD\u0010ER\u0088\u0001\u0010O\u001a/\u0012\u0013\u0012\u00110H¢\u0006\f\bI\u0012\b\bJ\u0012\u0004\b\b(K\u0012\u0016\u0012\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020N0M0L0G23\u0010\f\u001a/\u0012\u0013\u0012\u00110H¢\u0006\f\bI\u0012\b\bJ\u0012\u0004\b\b(K\u0012\u0016\u0012\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0003\u0012\u0004\u0012\u00020N0M0L0G8@@@X\u0080\u008e\u0002ø\u0001\u0000¢\u0006\u0012\n\u0004\bT\u0010\u0014\u001a\u0004\bP\u0010Q\"\u0004\bR\u0010SR\u0014\u0010U\u001a\u00020VX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\bW\u0010XR\u001a\u0010Y\u001a\u00020\rX\u0080\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bZ\u0010\u0010\"\u0004\b[\u0010\u0012R/\u0010]\u001a\u0004\u0018\u00010\\2\b\u0010\f\u001a\u0004\u0018\u00010\\8B@BX\u0082\u008e\u0002¢\u0006\u0012\n\u0004\bb\u0010\u0014\u001a\u0004\b^\u0010_\"\u0004\b`\u0010aR\u0014\u0010c\u001a\u00020dX\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\be\u0010fR\u000e\u0010g\u001a\u00020hX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010j\u001a\u00020i2\u0006\u0010\f\u001a\u00020i@BX\u0080\u000e¢\u0006\b\n\u0000\u001a\u0004\bk\u0010lR\u000e\u0010m\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000R+\u0010n\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\u00038@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\br\u0010\u0014\u001a\u0004\bo\u0010$\"\u0004\bp\u0010qR\u000e\u0010s\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0097\u0001"}, m40d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridState;", "Landroidx/compose/foundation/gestures/ScrollableState;", "firstVisibleItemIndex", "", "firstVisibleItemScrollOffset", "(II)V", "animateScrollScope", "Landroidx/compose/foundation/lazy/grid/LazyGridAnimateScrollScope;", "awaitLayoutModifier", "Landroidx/compose/foundation/lazy/AwaitFirstLayoutModifier;", "getAwaitLayoutModifier$foundation_release", "()Landroidx/compose/foundation/lazy/AwaitFirstLayoutModifier;", "<set-?>", "", "canScrollBackward", "getCanScrollBackward", "()Z", "setCanScrollBackward", "(Z)V", "canScrollBackward$delegate", "Landroidx/compose/runtime/MutableState;", "canScrollForward", "getCanScrollForward", "setCanScrollForward", "canScrollForward$delegate", "currentLinePrefetchHandles", "Landroidx/compose/runtime/collection/MutableVector;", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState$PrefetchHandle;", "Landroidx/compose/ui/unit/Density;", "density", "getDensity$foundation_release", "()Landroidx/compose/ui/unit/Density;", "setDensity$foundation_release", "(Landroidx/compose/ui/unit/Density;)V", "density$delegate", "getFirstVisibleItemIndex", "()I", "getFirstVisibleItemScrollOffset", "interactionSource", "Landroidx/compose/foundation/interaction/InteractionSource;", "getInteractionSource", "()Landroidx/compose/foundation/interaction/InteractionSource;", "internalInteractionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "getInternalInteractionSource$foundation_release", "()Landroidx/compose/foundation/interaction/MutableInteractionSource;", "isScrollInProgress", "isVertical", "isVertical$foundation_release", "setVertical$foundation_release", "isVertical$delegate", "layoutInfo", "Landroidx/compose/foundation/lazy/grid/LazyGridLayoutInfo;", "getLayoutInfo", "()Landroidx/compose/foundation/lazy/grid/LazyGridLayoutInfo;", "layoutInfoState", "Landroidx/compose/runtime/MutableState;", "lineToPrefetch", "numMeasurePasses", "getNumMeasurePasses$foundation_release", "pinnedItems", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPinnedItemList;", "getPinnedItems$foundation_release", "()Landroidx/compose/foundation/lazy/layout/LazyLayoutPinnedItemList;", "Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;", "placementAnimator", "getPlacementAnimator$foundation_release", "()Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;", "setPlacementAnimator$foundation_release", "(Landroidx/compose/foundation/lazy/grid/LazyGridItemPlacementAnimator;)V", "placementAnimator$delegate", "Lkotlin/Function1;", "Landroidx/compose/foundation/lazy/grid/LineIndex;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "line", "", "Lkotlin/Pair;", "Landroidx/compose/ui/unit/Constraints;", "prefetchInfoRetriever", "getPrefetchInfoRetriever$foundation_release", "()Lkotlin/jvm/functions/Function1;", "setPrefetchInfoRetriever$foundation_release", "(Lkotlin/jvm/functions/Function1;)V", "prefetchInfoRetriever$delegate", "prefetchState", "Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState;", "getPrefetchState$foundation_release", "()Landroidx/compose/foundation/lazy/layout/LazyLayoutPrefetchState;", "prefetchingEnabled", "getPrefetchingEnabled$foundation_release", "setPrefetchingEnabled$foundation_release", "Landroidx/compose/ui/layout/Remeasurement;", "remeasurement", "getRemeasurement", "()Landroidx/compose/ui/layout/Remeasurement;", "setRemeasurement", "(Landroidx/compose/ui/layout/Remeasurement;)V", "remeasurement$delegate", "remeasurementModifier", "Landroidx/compose/ui/layout/RemeasurementModifier;", "getRemeasurementModifier$foundation_release", "()Landroidx/compose/ui/layout/RemeasurementModifier;", "scrollPosition", "Landroidx/compose/foundation/lazy/grid/LazyGridScrollPosition;", "", "scrollToBeConsumed", "getScrollToBeConsumed$foundation_release", "()F", "scrollableState", "slotsPerLine", "getSlotsPerLine$foundation_release", "setSlotsPerLine$foundation_release", "(I)V", "slotsPerLine$delegate", "wasScrollingForward", "animateScrollToItem", "", "index", "scrollOffset", "(IILkotlin/coroutines/Continuation;)Ljava/lang/Object;", "applyMeasureResult", "result", "Landroidx/compose/foundation/lazy/grid/LazyGridMeasureResult;", "applyMeasureResult$foundation_release", "cancelPrefetchIfVisibleItemsChanged", "info", "dispatchRawDelta", "delta", "notifyPrefetch", "onScroll", "distance", "onScroll$foundation_release", "scroll", "scrollPriority", "Landroidx/compose/foundation/MutatePriority;", "block", "Lkotlin/Function2;", "Landroidx/compose/foundation/gestures/ScrollScope;", "Lkotlin/coroutines/Continuation;", "", "Lkotlin/ExtensionFunctionType;", "(Landroidx/compose/foundation/MutatePriority;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "scrollToItem", "snapToItemIndexInternal", "snapToItemIndexInternal$foundation_release", "updateScrollPositionIfTheFirstItemWasMoved", "itemProvider", "Landroidx/compose/foundation/lazy/grid/LazyGridItemProvider;", "updateScrollPositionIfTheFirstItemWasMoved$foundation_release", "Companion", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class LazyGridState implements ScrollableState {
     public static final int $stable = 0;
     public static final Companion Companion = new Companion(null);
-    private static final Saver<LazyGridState, ?> Saver = ListSaverKt.listSaver(new Function2<SaverScope, LazyGridState, List<? extends Integer>>() { // from class: androidx.compose.foundation.lazy.grid.LazyGridState$Companion$Saver$1
+    private static final Saver<LazyGridState, ?> Saver = ListSaver.listSaver(new Function2<SaverScope, LazyGridState, List<? extends Integer>>() { // from class: androidx.compose.foundation.lazy.grid.LazyGridState$Companion$Saver$1
         @Override // kotlin.jvm.functions.Function2
         public final List<Integer> invoke(SaverScope listSaver, LazyGridState it) {
             Intrinsics.checkNotNullParameter(listSaver, "$this$listSaver");
@@ -60,26 +60,26 @@ public final class LazyGridState implements ScrollableState {
     });
     private final LazyGridAnimateScrollScope animateScrollScope;
     private final AwaitFirstLayoutModifier awaitLayoutModifier;
-    private final MutableState canScrollBackward$delegate;
-    private final MutableState canScrollForward$delegate;
+    private final SnapshotState canScrollBackward$delegate;
+    private final SnapshotState canScrollForward$delegate;
     private final MutableVector<LazyLayoutPrefetchState.PrefetchHandle> currentLinePrefetchHandles;
-    private final MutableState density$delegate;
+    private final SnapshotState density$delegate;
     private final MutableInteractionSource internalInteractionSource;
-    private final MutableState isVertical$delegate;
-    private final MutableState<LazyGridLayoutInfo> layoutInfoState;
+    private final SnapshotState isVertical$delegate;
+    private final SnapshotState<LazyGridLayoutInfo> layoutInfoState;
     private int lineToPrefetch;
     private int numMeasurePasses;
     private final LazyLayoutPinnedItemList pinnedItems;
-    private final MutableState placementAnimator$delegate;
-    private final MutableState prefetchInfoRetriever$delegate;
+    private final SnapshotState placementAnimator$delegate;
+    private final SnapshotState prefetchInfoRetriever$delegate;
     private final LazyLayoutPrefetchState prefetchState;
     private boolean prefetchingEnabled;
-    private final MutableState remeasurement$delegate;
+    private final SnapshotState remeasurement$delegate;
     private final RemeasurementModifier remeasurementModifier;
     private final LazyGridScrollPosition scrollPosition;
     private float scrollToBeConsumed;
     private final ScrollableState scrollableState;
-    private final MutableState slotsPerLine$delegate;
+    private final SnapshotState slotsPerLine$delegate;
     private boolean wasScrollingForward;
 
     public LazyGridState() {
@@ -87,15 +87,15 @@ public final class LazyGridState implements ScrollableState {
     }
 
     public LazyGridState(int i, int i2) {
-        MutableState<LazyGridLayoutInfo> mutableStateOf$default;
-        MutableState mutableStateOf$default2;
-        MutableState mutableStateOf$default3;
-        MutableState mutableStateOf$default4;
-        MutableState mutableStateOf$default5;
-        MutableState mutableStateOf$default6;
-        MutableState mutableStateOf$default7;
-        MutableState mutableStateOf$default8;
-        MutableState mutableStateOf$default9;
+        SnapshotState<LazyGridLayoutInfo> mutableStateOf$default;
+        SnapshotState mutableStateOf$default2;
+        SnapshotState mutableStateOf$default3;
+        SnapshotState mutableStateOf$default4;
+        SnapshotState mutableStateOf$default5;
+        SnapshotState mutableStateOf$default6;
+        SnapshotState mutableStateOf$default7;
+        SnapshotState mutableStateOf$default8;
+        SnapshotState mutableStateOf$default9;
         this.scrollPosition = new LazyGridScrollPosition(i, i2);
         mutableStateOf$default = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(EmptyLazyGridLayoutInfo.INSTANCE, null, 2, null);
         this.layoutInfoState = mutableStateOf$default;
@@ -127,21 +127,21 @@ public final class LazyGridState implements ScrollableState {
         mutableStateOf$default5 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(null, null, 2, null);
         this.remeasurement$delegate = mutableStateOf$default5;
         this.remeasurementModifier = new RemeasurementModifier() { // from class: androidx.compose.foundation.lazy.grid.LazyGridState$remeasurementModifier$1
-            @Override // androidx.compose.ui.layout.RemeasurementModifier
+            @Override // androidx.compose.p002ui.layout.RemeasurementModifier
             public void onRemeasurementAvailable(Remeasurement remeasurement) {
                 Intrinsics.checkNotNullParameter(remeasurement, "remeasurement");
                 LazyGridState.this.setRemeasurement(remeasurement);
             }
         };
         this.awaitLayoutModifier = new AwaitFirstLayoutModifier();
-        mutableStateOf$default6 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(new Function1<LineIndex, List<? extends Pair<? extends Integer, ? extends Constraints>>>() { // from class: androidx.compose.foundation.lazy.grid.LazyGridState$prefetchInfoRetriever$2
+        mutableStateOf$default6 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(new Function1<LineIndex, List<? extends Tuples<? extends Integer, ? extends Constraints>>>() { // from class: androidx.compose.foundation.lazy.grid.LazyGridState$prefetchInfoRetriever$2
             @Override // kotlin.jvm.functions.Function1
-            public /* bridge */ /* synthetic */ List<? extends Pair<? extends Integer, ? extends Constraints>> invoke(LineIndex lineIndex) {
-                return m591invokebKFJvoY(lineIndex.m609unboximpl());
+            public /* bridge */ /* synthetic */ List<? extends Tuples<? extends Integer, ? extends Constraints>> invoke(LineIndex lineIndex) {
+                return m892invokebKFJvoY(lineIndex.m910unboximpl());
             }
 
             /* renamed from: invoke-bKFJvoY  reason: not valid java name */
-            public final List<Pair<Integer, Constraints>> m591invokebKFJvoY(int i3) {
+            public final List<Tuples<Integer, Constraints>> m892invokebKFJvoY(int i3) {
                 return CollectionsKt.emptyList();
             }
         }, null, 2, null);
@@ -162,7 +162,7 @@ public final class LazyGridState implements ScrollableState {
     }
 
     public final int getFirstVisibleItemIndex() {
-        return this.scrollPosition.m588getIndexVZbfaAc();
+        return this.scrollPosition.m889getIndexVZbfaAc();
     }
 
     public final int getFirstVisibleItemScrollOffset() {
@@ -239,11 +239,11 @@ public final class LazyGridState implements ScrollableState {
         return this.awaitLayoutModifier;
     }
 
-    public final Function1<LineIndex, List<Pair<Integer, Constraints>>> getPrefetchInfoRetriever$foundation_release() {
+    public final Function1<LineIndex, List<Tuples<Integer, Constraints>>> getPrefetchInfoRetriever$foundation_release() {
         return (Function1) this.prefetchInfoRetriever$delegate.getValue();
     }
 
-    public final void setPrefetchInfoRetriever$foundation_release(Function1<? super LineIndex, ? extends List<Pair<Integer, Constraints>>> function1) {
+    public final void setPrefetchInfoRetriever$foundation_release(Function1<? super LineIndex, ? extends List<Tuples<Integer, Constraints>>> function1) {
         Intrinsics.checkNotNullParameter(function1, "<set-?>");
         this.prefetchInfoRetriever$delegate.setValue(function1);
     }
@@ -273,7 +273,7 @@ public final class LazyGridState implements ScrollableState {
     }
 
     public final void snapToItemIndexInternal$foundation_release(int i, int i2) {
-        this.scrollPosition.m589requestPositionyO3Fmg4(ItemIndex.m551constructorimpl(i), i2);
+        this.scrollPosition.m890requestPositionyO3Fmg4(ItemIndex.m852constructorimpl(i), i2);
         LazyGridItemPlacementAnimator placementAnimator$foundation_release = getPlacementAnimator$foundation_release();
         if (placementAnimator$foundation_release != null) {
             placementAnimator$foundation_release.reset();
@@ -515,23 +515,23 @@ public final class LazyGridState implements ScrollableState {
             androidx.compose.runtime.collection.MutableVector<androidx.compose.foundation.lazy.layout.LazyLayoutPrefetchState$PrefetchHandle> r9 = r8.currentLinePrefetchHandles
             r9.clear()
             kotlin.jvm.functions.Function1 r9 = r8.getPrefetchInfoRetriever$foundation_release()
-            int r1 = androidx.compose.foundation.lazy.grid.LineIndex.m599constructorimpl(r4)
-            androidx.compose.foundation.lazy.grid.LineIndex r1 = androidx.compose.foundation.lazy.grid.LineIndex.m597boximpl(r1)
+            int r1 = androidx.compose.foundation.lazy.grid.LineIndex.m900constructorimpl(r4)
+            androidx.compose.foundation.lazy.grid.LineIndex r1 = androidx.compose.foundation.lazy.grid.LineIndex.m898boximpl(r1)
             java.lang.Object r9 = r9.invoke(r1)
             java.util.List r9 = (java.util.List) r9
             int r1 = r9.size()
         Lc3:
             if (r2 >= r1) goto Leb
             java.lang.Object r3 = r9.get(r2)
-            kotlin.Pair r3 = (kotlin.Pair) r3
+            kotlin.Pair r3 = (kotlin.Tuples) r3
             androidx.compose.runtime.collection.MutableVector<androidx.compose.foundation.lazy.layout.LazyLayoutPrefetchState$PrefetchHandle> r4 = r8.currentLinePrefetchHandles
             java.lang.Object r5 = r3.getFirst()
             java.lang.Number r5 = (java.lang.Number) r5
             int r5 = r5.intValue()
             java.lang.Object r3 = r3.getSecond()
-            androidx.compose.ui.unit.Constraints r3 = (androidx.compose.ui.unit.Constraints) r3
-            long r6 = r3.m5012unboximpl()
-            androidx.compose.foundation.lazy.layout.LazyLayoutPrefetchState$PrefetchHandle r3 = r0.m619schedulePrefetch0kLqBqw(r5, r6)
+            androidx.compose.ui.unit.Constraints r3 = (androidx.compose.p002ui.unit.Constraints) r3
+            long r6 = r3.m5313unboximpl()
+            androidx.compose.foundation.lazy.layout.LazyLayoutPrefetchState$PrefetchHandle r3 = r0.m920schedulePrefetch0kLqBqw(r5, r6)
             r4.add(r3)
             int r2 = r2 + 1
             goto Lc3
@@ -594,7 +594,7 @@ public final class LazyGridState implements ScrollableState {
         setCanScrollForward(result.getCanScrollForward());
         LazyGridMeasuredLine firstVisibleLine = result.getFirstVisibleLine();
         boolean z = false;
-        if ((firstVisibleLine != null ? firstVisibleLine.m582getIndexhA7yfN8() : 0) != 0 || result.getFirstVisibleLineScrollOffset() != 0) {
+        if ((firstVisibleLine != null ? firstVisibleLine.m883getIndexhA7yfN8() : 0) != 0 || result.getFirstVisibleLineScrollOffset() != 0) {
             z = true;
         }
         setCanScrollBackward(z);
@@ -608,7 +608,7 @@ public final class LazyGridState implements ScrollableState {
     }
 
     /* compiled from: LazyGridState.kt */
-    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001b\u0010\u0003\u001a\f\u0012\u0004\u0012\u00020\u0005\u0012\u0002\b\u00030\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridState$Companion;", "", "()V", "Saver", "Landroidx/compose/runtime/saveable/Saver;", "Landroidx/compose/foundation/lazy/grid/LazyGridState;", "getSaver", "()Landroidx/compose/runtime/saveable/Saver;", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u001b\u0010\u0003\u001a\f\u0012\u0004\u0012\u00020\u0005\u0012\u0002\b\u00030\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007¨\u0006\b"}, m40d2 = {"Landroidx/compose/foundation/lazy/grid/LazyGridState$Companion;", "", "()V", "Saver", "Landroidx/compose/runtime/saveable/Saver;", "Landroidx/compose/foundation/lazy/grid/LazyGridState;", "getSaver", "()Landroidx/compose/runtime/saveable/Saver;", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
     /* loaded from: classes.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {

@@ -12,10 +12,10 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.graphics.drawable.DrawableWrapperCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.core.os.BuildCompat;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.view.ViewPropertyAnimatorCompat;
 import androidx.core.widget.ListViewAutoScrollHelper;
 import com.google.common.primitives.Ints;
@@ -44,7 +44,7 @@ public class DropDownListView extends ListView {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public DropDownListView(Context context, boolean z) {
-        super(context, null, R.attr.dropDownListViewStyle);
+        super(context, null, C0032R.attr.dropDownListViewStyle);
         this.mSelectorRect = new Rect();
         this.mSelectionLeftPadding = 0;
         this.mSelectionTopPadding = 0;

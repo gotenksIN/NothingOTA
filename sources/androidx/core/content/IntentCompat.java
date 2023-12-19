@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Parcelable;
-import androidx.core.os.BuildCompat;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.util.Preconditions;
 import java.util.ArrayList;
 

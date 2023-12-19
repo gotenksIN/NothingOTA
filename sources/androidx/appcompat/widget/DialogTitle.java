@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Layout;
 import android.util.AttributeSet;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 
 /* loaded from: classes.dex */
 public class DialogTitle extends AppCompatTextView {
@@ -31,8 +31,8 @@ public class DialogTitle extends AppCompatTextView {
         }
         setSingleLine(false);
         setMaxLines(2);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(null, R.styleable.TextAppearance, 16842817, 16973892);
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R.styleable.TextAppearance_android_textSize, 0);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(null, C0032R.styleable.TextAppearance, 16842817, 16973892);
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(C0032R.styleable.TextAppearance_android_textSize, 0);
         if (dimensionPixelSize != 0) {
             setTextSize(0, dimensionPixelSize);
         }

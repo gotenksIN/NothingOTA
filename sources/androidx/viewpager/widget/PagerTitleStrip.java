@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.TextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.TextViewCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -274,7 +274,7 @@ public class PagerTitleStrip extends ViewGroup {
         int i12 = max - baseline2;
         int i13 = max - baseline3;
         int max2 = Math.max(Math.max(this.mPrevText.getMeasuredHeight() + i11, this.mCurrText.getMeasuredHeight() + i12), this.mNextText.getMeasuredHeight() + i13);
-        int i14 = this.mGravity & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+        int i14 = this.mGravity & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
         if (i14 == 16) {
             i2 = (((height - paddingTop) - paddingBottom) - max2) / 2;
         } else if (i14 != 80) {

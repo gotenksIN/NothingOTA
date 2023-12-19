@@ -18,8 +18,9 @@ public final class ImmutableTypeToInstanceMap<B> extends ForwardingMap<TypeToken
         return put((TypeToken<? extends TypeToken<? extends B>>) obj, (TypeToken<? extends B>) obj2);
     }
 
-    public static <B> ImmutableTypeToInstanceMap<B> of() {
-        return new ImmutableTypeToInstanceMap<>(ImmutableMap.of());
+    /* renamed from: of */
+    public static <B> ImmutableTypeToInstanceMap<B> m60of() {
+        return new ImmutableTypeToInstanceMap<>(ImmutableMap.m192of());
     }
 
     public static <B> Builder<B> builder() {
@@ -35,7 +36,7 @@ public final class ImmutableTypeToInstanceMap<B> extends ForwardingMap<TypeToken
         }
 
         public <T extends B> Builder<B> put(Class<T> cls, T t) {
-            this.mapBuilder.put(TypeToken.of((Class) cls), t);
+            this.mapBuilder.put(TypeToken.m58of((Class) cls), t);
             return this;
         }
 
@@ -62,7 +63,7 @@ public final class ImmutableTypeToInstanceMap<B> extends ForwardingMap<TypeToken
     @Override // com.google.common.reflect.TypeToInstanceMap
     @CheckForNull
     public <T extends B> T getInstance(Class<T> cls) {
-        return (T) trustedGet(TypeToken.of((Class) cls));
+        return (T) trustedGet(TypeToken.m58of((Class) cls));
     }
 
     @Override // com.google.common.reflect.TypeToInstanceMap

@@ -3,7 +3,7 @@ package androidx.compose.foundation.lazy.grid;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.FiniteAnimationSpec;
 import androidx.compose.animation.core.SpringSpec;
-import androidx.compose.ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntOffset;
 import java.util.concurrent.CancellationException;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -17,8 +17,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LazyGridItemPlacementAnimator.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.lazy.grid.LazyGridItemPlacementAnimator$startAnimationsIfNeeded$1$1", f = "LazyGridItemPlacementAnimator.kt", i = {}, l = {357}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.lazy.grid.LazyGridItemPlacementAnimator$startAnimationsIfNeeded$1$1", m30f = "LazyGridItemPlacementAnimator.kt", m29i = {}, m28l = {357}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class LazyGridItemPlacementAnimator$startAnimationsIfNeeded$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ FiniteAnimationSpec<IntOffset> $animationSpec;
@@ -58,7 +58,7 @@ public final class LazyGridItemPlacementAnimator$startAnimationsIfNeeded$1$1 ext
                     springSpec = this.$animationSpec;
                 }
                 this.label = 1;
-                if (Animatable.animateTo$default(this.$placeableInfo.getAnimatedOffset(), IntOffset.m5159boximpl(this.$placeableInfo.m610getTargetOffsetnOccac()), springSpec, null, null, this, 12, null) == coroutine_suspended) {
+                if (Animatable.animateTo$default(this.$placeableInfo.getAnimatedOffset(), IntOffset.m5460boximpl(this.$placeableInfo.m911getTargetOffsetnOccac()), springSpec, null, null, this, 12, null) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i != 1) {

@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Builders.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.CallbackFlowBuilder", f = "Builders.kt", i = {0}, l = {336}, m = "collectTo", n = {"scope"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.CallbackFlowBuilder", m30f = "Builders.kt", m29i = {0}, m28l = {336}, m27m = "collectTo", m26n = {"scope"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class CallbackFlowBuilder$collectTo$1 extends ContinuationImpl {
     Object L$0;

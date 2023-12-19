@@ -1,6 +1,6 @@
 package androidx.compose.foundation.lazy;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import java.util.List;
@@ -11,7 +11,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 
 /* compiled from: LazyDsl.kt */
-@Metadata(d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u000b¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "T", "Landroidx/compose/foundation/lazy/LazyItemScope;", "it", "", "invoke", "(Landroidx/compose/foundation/lazy/LazyItemScope;ILandroidx/compose/runtime/Composer;I)V"}, k = 3, mv = {1, 8, 0}, xi = 176)
+@Metadata(m41d1 = {"\u0000\u0016\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0005H\u000b¢\u0006\u0004\b\u0006\u0010\u0007"}, m40d2 = {"<anonymous>", "", "T", "Landroidx/compose/foundation/lazy/LazyItemScope;", "it", "", "invoke", "(Landroidx/compose/foundation/lazy/LazyItemScope;ILandroidx/compose/runtime/Composer;I)V"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 176)
 /* loaded from: classes.dex */
 public final class LazyDslKt$items$4 extends Lambda implements Function4<LazyItemScope, Integer, Composer, Integer, Unit> {
     final /* synthetic */ Function4<LazyItemScope, T, Composer, Integer, Unit> $itemContent;
@@ -40,7 +40,7 @@ public final class LazyDslKt$items$4 extends Lambda implements Function4<LazyIte
         } else {
             i3 = i2;
         }
-        if ((i2 & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i2 & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i3 |= composer.changed(i) ? 32 : 16;
         }
         if ((i3 & 731) == 146 && composer.getSkipping()) {

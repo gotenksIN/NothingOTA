@@ -1,13 +1,17 @@
 package kotlin.math;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 
-@Metadata(d1 = {"kotlin/math/MathKt__MathHKt", "kotlin/math/MathKt__MathJVMKt"}, k = 4, mv = {1, 9, 0}, xi = R.styleable.AppCompatTheme_checkedTextViewStyle)
+@Metadata(m41d1 = {"kotlin/math/MathKt__MathHKt", "kotlin/math/MathKt__MathJVMKt"}, m39k = 4, m38mv = {1, 9, 0}, m36xi = C0032R.styleable.AppCompatTheme_checkedTextViewStyle)
 /* loaded from: classes2.dex */
 public final class MathKt extends MathKt__MathJVMKt {
-    public static final double E = 2.718281828459045d;
-    public static final double PI = 3.141592653589793d;
+
+    /* renamed from: E */
+    public static final double f283E = 2.718281828459045d;
+
+    /* renamed from: PI */
+    public static final double f284PI = 3.141592653589793d;
 
     private MathKt() {
     }

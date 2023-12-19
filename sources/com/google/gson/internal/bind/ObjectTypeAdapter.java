@@ -28,9 +28,9 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
         this.gson = gson;
     }
 
-    /* renamed from: com.google.gson.internal.bind.ObjectTypeAdapter$2  reason: invalid class name */
+    /* renamed from: com.google.gson.internal.bind.ObjectTypeAdapter$2 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass2 {
+    static /* synthetic */ class C15962 {
         static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 
         static {
@@ -65,7 +65,7 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
 
     @Override // com.google.gson.TypeAdapter
     public Object read(JsonReader jsonReader) throws IOException {
-        switch (AnonymousClass2.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
+        switch (C15962.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
             case 1:
                 ArrayList arrayList = new ArrayList();
                 jsonReader.beginArray();

@@ -21,35 +21,43 @@ public final class ImmutableIntArray implements Serializable {
     private final int end;
     private final transient int start;
 
-    public static ImmutableIntArray of() {
+    /* renamed from: of */
+    public static ImmutableIntArray m77of() {
         return EMPTY;
     }
 
-    public static ImmutableIntArray of(int i) {
+    /* renamed from: of */
+    public static ImmutableIntArray m76of(int i) {
         return new ImmutableIntArray(new int[]{i});
     }
 
-    public static ImmutableIntArray of(int i, int i2) {
+    /* renamed from: of */
+    public static ImmutableIntArray m75of(int i, int i2) {
         return new ImmutableIntArray(new int[]{i, i2});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3) {
+    /* renamed from: of */
+    public static ImmutableIntArray m74of(int i, int i2, int i3) {
         return new ImmutableIntArray(new int[]{i, i2, i3});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4) {
+    /* renamed from: of */
+    public static ImmutableIntArray m73of(int i, int i2, int i3, int i4) {
         return new ImmutableIntArray(new int[]{i, i2, i3, i4});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4, int i5) {
+    /* renamed from: of */
+    public static ImmutableIntArray m72of(int i, int i2, int i3, int i4, int i5) {
         return new ImmutableIntArray(new int[]{i, i2, i3, i4, i5});
     }
 
-    public static ImmutableIntArray of(int i, int i2, int i3, int i4, int i5, int i6) {
+    /* renamed from: of */
+    public static ImmutableIntArray m71of(int i, int i2, int i3, int i4, int i5, int i6) {
         return new ImmutableIntArray(new int[]{i, i2, i3, i4, i5, i6});
     }
 
-    public static ImmutableIntArray of(int i, int... iArr) {
+    /* renamed from: of */
+    public static ImmutableIntArray m70of(int i, int... iArr) {
         Preconditions.checkArgument(iArr.length <= 2147483646, "the total number of elements must fit in an int");
         int[] iArr2 = new int[iArr.length + 1];
         iArr2[0] = i;

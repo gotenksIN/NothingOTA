@@ -24,7 +24,7 @@ final class EdgesConnecting<E> extends AbstractSet<E> {
     public UnmodifiableIterator<E> iterator() {
         E connectingEdge = getConnectingEdge();
         if (connectingEdge == null) {
-            return ImmutableSet.of().iterator();
+            return ImmutableSet.m164of().iterator();
         }
         return Iterators.singletonIterator(connectingEdge);
     }

@@ -1,9 +1,9 @@
 package androidx.compose.foundation.text.selection;
 
 import androidx.compose.foundation.gestures.TapGestureDetectorKt;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -15,8 +15,8 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: SelectionManager.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.selection.SelectionManager$detectNonConsumingTap$2", f = "SelectionManager.kt", i = {}, l = {627}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.selection.SelectionManager$detectNonConsumingTap$2", m30f = "SelectionManager.kt", m29i = {}, m28l = {627}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SelectionManager$detectNonConsumingTap$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function1<Offset, Unit> $onTap;
@@ -61,7 +61,7 @@ final class SelectionManager$detectNonConsumingTap$2 extends RestrictedSuspendLa
         }
         PointerInputChange pointerInputChange = (PointerInputChange) obj;
         if (pointerInputChange != null) {
-            this.$onTap.invoke(Offset.m2307boximpl(pointerInputChange.m3957getPositionF1C5BW0()));
+            this.$onTap.invoke(Offset.m2608boximpl(pointerInputChange.m4258getPositionF1C5BW0()));
         }
         return Unit.INSTANCE;
     }

@@ -1,6 +1,6 @@
 package com.nothing.OfflineOTAUpgradeApp.repo;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: RemoteRepository.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.RemoteRepository", f = "RemoteRepository.kt", i = {0, 0, 1, 1}, l = {R.styleable.AppCompatTheme_textColorAlertDialogListItem, R.styleable.AppCompatTheme_windowActionBarOverlay}, m = "generateQueryRequestBody", n = {"this", "aesSecret", "this", "data"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.RemoteRepository", m30f = "RemoteRepository.kt", m29i = {0, 0, 1, 1}, m28l = {C0032R.styleable.AppCompatTheme_tooltipForegroundColor, C0032R.styleable.AppCompatTheme_windowFixedWidthMajor}, m27m = "generateQueryRequestBody", m26n = {"this", "aesSecret", "this", "data"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class RemoteRepository$generateQueryRequestBody$1 extends ContinuationImpl {
     Object L$0;

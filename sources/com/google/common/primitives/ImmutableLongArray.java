@@ -21,35 +21,43 @@ public final class ImmutableLongArray implements Serializable {
     private final int end;
     private final transient int start;
 
-    public static ImmutableLongArray of() {
+    /* renamed from: of */
+    public static ImmutableLongArray m69of() {
         return EMPTY;
     }
 
-    public static ImmutableLongArray of(long j) {
+    /* renamed from: of */
+    public static ImmutableLongArray m68of(long j) {
         return new ImmutableLongArray(new long[]{j});
     }
 
-    public static ImmutableLongArray of(long j, long j2) {
+    /* renamed from: of */
+    public static ImmutableLongArray m67of(long j, long j2) {
         return new ImmutableLongArray(new long[]{j, j2});
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3) {
+    /* renamed from: of */
+    public static ImmutableLongArray m66of(long j, long j2, long j3) {
         return new ImmutableLongArray(new long[]{j, j2, j3});
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4) {
+    /* renamed from: of */
+    public static ImmutableLongArray m65of(long j, long j2, long j3, long j4) {
         return new ImmutableLongArray(new long[]{j, j2, j3, j4});
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4, long j5) {
+    /* renamed from: of */
+    public static ImmutableLongArray m64of(long j, long j2, long j3, long j4, long j5) {
         return new ImmutableLongArray(new long[]{j, j2, j3, j4, j5});
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4, long j5, long j6) {
+    /* renamed from: of */
+    public static ImmutableLongArray m63of(long j, long j2, long j3, long j4, long j5, long j6) {
         return new ImmutableLongArray(new long[]{j, j2, j3, j4, j5, j6});
     }
 
-    public static ImmutableLongArray of(long j, long... jArr) {
+    /* renamed from: of */
+    public static ImmutableLongArray m62of(long j, long... jArr) {
         Preconditions.checkArgument(jArr.length <= 2147483646, "the total number of elements must fit in an int");
         long[] jArr2 = new long[jArr.length + 1];
         jArr2[0] = j;

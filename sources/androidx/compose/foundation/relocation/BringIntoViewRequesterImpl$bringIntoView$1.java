@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: BringIntoViewRequester.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.relocation.BringIntoViewRequesterImpl", f = "BringIntoViewRequester.kt", i = {0, 0, 0, 0}, l = {126}, m = "bringIntoView", n = {"rect", "content$iv", "size$iv", "i$iv"}, s = {"L$0", "L$1", "I$0", "I$1"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.relocation.BringIntoViewRequesterImpl", m30f = "BringIntoViewRequester.kt", m29i = {0, 0, 0, 0}, m28l = {126}, m27m = "bringIntoView", m26n = {"rect", "content$iv", "size$iv", "i$iv"}, m25s = {"L$0", "L$1", "I$0", "I$1"})
 /* loaded from: classes.dex */
 public final class BringIntoViewRequesterImpl$bringIntoView$1 extends ContinuationImpl {
     int I$0;

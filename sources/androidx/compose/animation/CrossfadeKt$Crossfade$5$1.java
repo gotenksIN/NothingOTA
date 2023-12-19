@@ -1,12 +1,24 @@
 package androidx.compose.animation;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.AnimationVector1D;
 import androidx.compose.animation.core.FiniteAnimationSpec;
 import androidx.compose.animation.core.Transition;
-import androidx.compose.animation.core.TwoWayConverter;
+import androidx.compose.animation.core.VectorConverters;
 import androidx.compose.animation.core.VectorConvertersKt;
 import androidx.compose.foundation.layout.BoxKt;
 import androidx.compose.foundation.layout.BoxScopeInstance;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.GraphicsLayerModifierKt;
+import androidx.compose.p002ui.graphics.GraphicsLayerScope;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -14,30 +26,19 @@ import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.SkippableUpdater;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.GraphicsLayerModifierKt;
-import androidx.compose.ui.graphics.GraphicsLayerScope;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.FloatCompanionObject;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Crossfade.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class CrossfadeKt$Crossfade$5$1 extends Lambda implements Function2<Composer, Integer, Unit> {
     final /* synthetic */ int $$dirty;
@@ -102,14 +103,14 @@ public final class CrossfadeKt$Crossfade$5$1 extends Lambda implements Function2
             int i2 = this.$$dirty & 14;
             composer.startReplaceableGroup(-1338768149);
             ComposerKt.sourceInformation(composer, "CC(animateFloat)P(2)938@37489L78:Transition.kt#pdpnli");
-            TwoWayConverter<Float, AnimationVector1D> vectorConverter = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
+            VectorConverters<Float, AnimationVector1D> vectorConverter = VectorConvertersKt.getVectorConverter(FloatCompanionObject.INSTANCE);
             int i3 = i2 & 14;
             int i4 = i2 << 3;
             int i5 = (i4 & 57344) | i3 | (i4 & 896) | (i4 & 7168);
             composer.startReplaceableGroup(-142660079);
             ComposerKt.sourceInformation(composer, "CC(animateValue)P(3,2)856@34079L32,857@34134L31,858@34190L23,860@34226L89:Transition.kt#pdpnli");
             Object currentState = transition.getCurrentState();
-            int i6 = (i5 >> 9) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+            int i6 = (i5 >> 9) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
             composer.startReplaceableGroup(-438678252);
             ComposerKt.sourceInformation(composer, "C:Crossfade.kt#xbi5r1");
             if (ComposerKt.isTraceInProgress()) {
@@ -132,7 +133,7 @@ public final class CrossfadeKt$Crossfade$5$1 extends Lambda implements Function2
                 ComposerKt.traceEventEnd();
             }
             composer.endReplaceableGroup();
-            final State createTransitionAnimation = androidx.compose.animation.core.TransitionKt.createTransitionAnimation(transition, valueOf, Float.valueOf(f2), (FiniteAnimationSpec) function3.invoke(transition.getSegment(), composer, Integer.valueOf((i5 >> 3) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle)), vectorConverter, "FloatAnimation", composer, (i5 & 14) | (57344 & (i5 << 9)) | ((i5 << 6) & 458752));
+            final State createTransitionAnimation = androidx.compose.animation.core.TransitionKt.createTransitionAnimation(transition, valueOf, Float.valueOf(f2), (FiniteAnimationSpec) function3.invoke(transition.getSegment(), composer, Integer.valueOf((i5 >> 3) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle)), vectorConverter, "FloatAnimation", composer, (i5 & 14) | (57344 & (i5 << 9)) | ((i5 << 6) & 458752));
             composer.endReplaceableGroup();
             composer.endReplaceableGroup();
             Modifier.Companion companion = Modifier.Companion;
@@ -175,18 +176,18 @@ public final class CrossfadeKt$Crossfade$5$1 extends Lambda implements Function2
             composer.startReplaceableGroup(-1323940314);
             ComposerKt.sourceInformation(composer, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
             ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume = composer.consume(CompositionLocalsKt.getLocalDensity());
+            Object consume = composer.consume(CompositionLocals.getLocalDensity());
             ComposerKt.sourceInformationMarkerEnd(composer);
             Density density = (Density) consume;
             ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume2 = composer.consume(CompositionLocalsKt.getLocalLayoutDirection());
+            Object consume2 = composer.consume(CompositionLocals.getLocalLayoutDirection());
             ComposerKt.sourceInformationMarkerEnd(composer);
             LayoutDirection layoutDirection = (LayoutDirection) consume2;
             ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "C:CompositionLocal.kt#9igjgp");
-            Object consume3 = composer.consume(CompositionLocalsKt.getLocalViewConfiguration());
+            Object consume3 = composer.consume(CompositionLocals.getLocalViewConfiguration());
             ComposerKt.sourceInformationMarkerEnd(composer);
             ViewConfiguration viewConfiguration = (ViewConfiguration) consume3;
-            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(graphicsLayer);
             if (!(composer.getApplier() instanceof Applier)) {
                 ComposablesKt.invalidApplier();
@@ -198,19 +199,19 @@ public final class CrossfadeKt$Crossfade$5$1 extends Lambda implements Function2
                 composer.useNode();
             }
             composer.disableReusing();
-            Composer m2195constructorimpl = Updater.m2195constructorimpl(composer);
-            Updater.m2202setimpl(m2195constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+            Composer m2496constructorimpl = Updater.m2496constructorimpl(composer);
+            Updater.m2503setimpl(m2496constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
             composer.enableReusing();
-            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer)), composer, 0);
+            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer)), composer, 0);
             composer.startReplaceableGroup(2058660585);
             composer.startReplaceableGroup(-2137368960);
             ComposerKt.sourceInformation(composer, "C72@3384L9:Box.kt#2w3rfo");
             BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;
             ComposerKt.sourceInformationMarkerStart(composer, 2090121434, "C132@5672L24:Crossfade.kt#xbi5r1");
-            function32.invoke(t2, composer, Integer.valueOf((i7 >> 9) & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
+            function32.invoke(t2, composer, Integer.valueOf((i7 >> 9) & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
             ComposerKt.sourceInformationMarkerEnd(composer);
             composer.endReplaceableGroup();
             composer.endReplaceableGroup();

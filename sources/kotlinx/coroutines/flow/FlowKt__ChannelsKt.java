@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.internal.ChannelFlowKt;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Channels.kt */
-@Metadata(d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001e\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u0007\u001a\u001c\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0005\u001a/\u0010\u0006\u001a\u00020\u0007\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\n\u001a9\u0010\u000b\u001a\u00020\u0007\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00052\u0006\u0010\f\u001a\u00020\rH\u0082@ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a&\u0010\u0010\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00012\u0006\u0010\u0011\u001a\u00020\u0012H\u0007\u001a\u001c\u0010\u0013\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0014"}, d2 = {"asFlow", "Lkotlinx/coroutines/flow/Flow;", "T", "Lkotlinx/coroutines/channels/BroadcastChannel;", "consumeAsFlow", "Lkotlinx/coroutines/channels/ReceiveChannel;", "emitAll", "", "Lkotlinx/coroutines/flow/FlowCollector;", "channel", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "emitAllImpl", "consume", "", "emitAllImpl$FlowKt__ChannelsKt", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "produceIn", "scope", "Lkotlinx/coroutines/CoroutineScope;", "receiveAsFlow", "kotlinx-coroutines-core"}, k = 5, mv = {1, 6, 0}, xi = 48, xs = "kotlinx/coroutines/flow/FlowKt")
+@Metadata(m41d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001e\u0010\u0000\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u0007\u001a\u001c\u0010\u0004\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0005\u001a/\u0010\u0006\u001a\u00020\u0007\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\n\u001a9\u0010\u000b\u001a\u00020\u0007\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\b2\f\u0010\t\u001a\b\u0012\u0004\u0012\u0002H\u00020\u00052\u0006\u0010\f\u001a\u00020\rH\u0082@ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001a&\u0010\u0010\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0005\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u00012\u0006\u0010\u0011\u001a\u00020\u0012H\u0007\u001a\u001c\u0010\u0013\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0014"}, m40d2 = {"asFlow", "Lkotlinx/coroutines/flow/Flow;", "T", "Lkotlinx/coroutines/channels/BroadcastChannel;", "consumeAsFlow", "Lkotlinx/coroutines/channels/ReceiveChannel;", "emitAll", "", "Lkotlinx/coroutines/flow/FlowCollector;", "channel", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "emitAllImpl", "consume", "", "emitAllImpl$FlowKt__ChannelsKt", "(Lkotlinx/coroutines/flow/FlowCollector;Lkotlinx/coroutines/channels/ReceiveChannel;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "produceIn", "scope", "Lkotlinx/coroutines/CoroutineScope;", "receiveAsFlow", "kotlinx-coroutines-core"}, m39k = 5, m38mv = {1, 6, 0}, m36xi = 48, m35xs = "kotlinx/coroutines/flow/FlowKt")
 /* loaded from: classes2.dex */
 public final /* synthetic */ class FlowKt__ChannelsKt {
     public static final <T> Object emitAll(FlowCollector<? super T> flowCollector, ReceiveChannel<? extends T> receiveChannel, Continuation<? super Unit> continuation) {
@@ -84,7 +84,7 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
             kotlinx.coroutines.flow.FlowCollector r8 = (kotlinx.coroutines.flow.FlowCollector) r8
             kotlin.ResultKt.throwOnFailure(r9)     // Catch: java.lang.Throwable -> L56
             kotlinx.coroutines.channels.ChannelResult r9 = (kotlinx.coroutines.channels.ChannelResult) r9     // Catch: java.lang.Throwable -> L56
-            java.lang.Object r9 = r9.m6897unboximpl()     // Catch: java.lang.Throwable -> L56
+            java.lang.Object r9 = r9.m7173unboximpl()     // Catch: java.lang.Throwable -> L56
             goto L70
         L56:
             r8 = move-exception
@@ -97,7 +97,7 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
             r0.L$1 = r7     // Catch: java.lang.Throwable -> L99
             r0.Z$0 = r8     // Catch: java.lang.Throwable -> L99
             r0.label = r4     // Catch: java.lang.Throwable -> L99
-            java.lang.Object r9 = r7.mo6878receiveCatchingJP2dKIU(r0)     // Catch: java.lang.Throwable -> L99
+            java.lang.Object r9 = r7.mo7154receiveCatchingJP2dKIU(r0)     // Catch: java.lang.Throwable -> L99
             if (r9 != r1) goto L6d
             return r1
         L6d:
@@ -105,9 +105,9 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
             r8 = r6
             r6 = r5
         L70:
-            boolean r2 = kotlinx.coroutines.channels.ChannelResult.m6893isClosedimpl(r9)     // Catch: java.lang.Throwable -> L56
+            boolean r2 = kotlinx.coroutines.channels.ChannelResult.m7169isClosedimpl(r9)     // Catch: java.lang.Throwable -> L56
             if (r2 == 0) goto L86
-            java.lang.Throwable r8 = kotlinx.coroutines.channels.ChannelResult.m6889exceptionOrNullimpl(r9)     // Catch: java.lang.Throwable -> L56
+            java.lang.Throwable r8 = kotlinx.coroutines.channels.ChannelResult.m7165exceptionOrNullimpl(r9)     // Catch: java.lang.Throwable -> L56
             if (r8 != 0) goto L85
             if (r6 == 0) goto L82
             r6 = 0
@@ -118,7 +118,7 @@ public final /* synthetic */ class FlowKt__ChannelsKt {
         L85:
             throw r8     // Catch: java.lang.Throwable -> L56
         L86:
-            java.lang.Object r9 = kotlinx.coroutines.channels.ChannelResult.m6891getOrThrowimpl(r9)     // Catch: java.lang.Throwable -> L56
+            java.lang.Object r9 = kotlinx.coroutines.channels.ChannelResult.m7167getOrThrowimpl(r9)     // Catch: java.lang.Throwable -> L56
             r0.L$0 = r8     // Catch: java.lang.Throwable -> L56
             r0.L$1 = r7     // Catch: java.lang.Throwable -> L56
             r0.Z$0 = r6     // Catch: java.lang.Throwable -> L56

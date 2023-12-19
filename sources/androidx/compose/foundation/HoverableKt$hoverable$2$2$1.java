@@ -1,8 +1,9 @@
 package androidx.compose.foundation;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.HoverInteraction;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -15,21 +16,21 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Hoverable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.HoverableKt$hoverable$2$2$1", f = "Hoverable.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_panelMenuListWidth}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.HoverableKt$hoverable$2$2$1", m30f = "Hoverable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_panelMenuListWidth}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class HoverableKt$hoverable$2$2$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $enabled;
-    final /* synthetic */ MutableState<HoverInteraction.Enter> $hoverInteraction$delegate;
+    final /* synthetic */ SnapshotState<HoverInteraction.Enter> $hoverInteraction$delegate;
     final /* synthetic */ MutableInteractionSource $interactionSource;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HoverableKt$hoverable$2$2$1(boolean z, MutableState<HoverInteraction.Enter> mutableState, MutableInteractionSource mutableInteractionSource, Continuation<? super HoverableKt$hoverable$2$2$1> continuation) {
+    public HoverableKt$hoverable$2$2$1(boolean z, SnapshotState<HoverInteraction.Enter> snapshotState, MutableInteractionSource mutableInteractionSource, Continuation<? super HoverableKt$hoverable$2$2$1> continuation) {
         super(2, continuation);
         this.$enabled = z;
-        this.$hoverInteraction$delegate = mutableState;
+        this.$hoverInteraction$delegate = snapshotState;
         this.$interactionSource = mutableInteractionSource;
     }
 

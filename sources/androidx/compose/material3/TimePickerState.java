@@ -6,45 +6,45 @@ import androidx.compose.animation.core.AnimationVector1D;
 import androidx.compose.foundation.MutatePriority;
 import androidx.compose.foundation.MutatorMutex;
 import androidx.compose.material3.tokens.TimePickerTokens;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.unit.DpKt;
+import androidx.compose.p002ui.unit.DpOffset;
+import androidx.compose.p002ui.unit.IntOffset;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.saveable.Saver;
 import androidx.compose.runtime.saveable.SaverKt;
 import androidx.compose.runtime.saveable.SaverScope;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.unit.DpKt;
-import androidx.compose.ui.unit.DpOffset;
-import androidx.compose.ui.unit.IntOffset;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: TimePicker.kt */
-@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0002\b\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u001d\b\u0007\u0018\u0000 c2\u00020\u0001:\u0001cB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u0013\u0010F\u001a\u00020GH\u0080@ø\u0001\u0000¢\u0006\u0004\bH\u0010IJ\u0010\u0010 \u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0003H\u0002J\u0015\u0010J\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0003H\u0000¢\u0006\u0002\bLJ%\u0010M\u001a\u00020G2\u0006\u0010N\u001a\u00020\u00132\u0006\u0010O\u001a\u00020\u00132\u0006\u0010P\u001a\u00020\u0013H\u0000¢\u0006\u0002\bQJ\u0010\u0010R\u001a\u00020\u00132\u0006\u0010S\u001a\u00020\u0013H\u0002J3\u0010T\u001a\u00020G2\u0006\u0010N\u001a\u00020\u00132\u0006\u0010O\u001a\u00020\u00132\u0006\u0010P\u001a\u00020\u00132\u0006\u0010U\u001a\u00020\u0006H\u0080@ø\u0001\u0000¢\u0006\u0004\bV\u0010WJ\u0015\u0010X\u001a\u00020G2\u0006\u0010\u0017\u001a\u00020\u0003H\u0000¢\u0006\u0002\bYJ\u0015\u0010Z\u001a\u00020G2\u0006\u00100\u001a\u00020\u0003H\u0000¢\u0006\u0002\b[J\u0011\u0010\\\u001a\u00020GH\u0086@ø\u0001\u0000¢\u0006\u0002\u0010IJ%\u0010]\u001a\u00020G2\u0006\u0010K\u001a\u00020\u00132\b\b\u0002\u0010^\u001a\u00020\u0006H\u0080@ø\u0001\u0000¢\u0006\u0004\b_\u0010`J\f\u0010a\u001a\u00020\u0003*\u00020\u0013H\u0002J\f\u0010b\u001a\u00020\u0003*\u00020\u0013H\u0002R4\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\t8@@@X\u0080\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR \u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0013\u0012\u0004\u0012\u00020\u00140\u0012X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R\u0011\u0010\u0017\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0019R+\u0010\u001a\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\u00138@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010\u0010\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u0014\u0010 \u001a\u00020\u00038@X\u0080\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\u0019R\u0011\u0010\"\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010#R\u001b\u0010$\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b$\u0010#R+\u0010'\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00068@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b+\u0010\u0010\u001a\u0004\b(\u0010#\"\u0004\b)\u0010*R+\u0010,\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00068@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b/\u0010\u0010\u001a\u0004\b-\u0010#\"\u0004\b.\u0010*R\u0011\u00100\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b1\u0010\u0019R+\u00102\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\u00138@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b5\u0010\u0010\u001a\u0004\b3\u0010\u001c\"\u0004\b4\u0010\u001eR\u000e\u00106\u001a\u000207X\u0082\u0004¢\u0006\u0002\n\u0000R4\u00109\u001a\u0002082\u0006\u0010\b\u001a\u0002088@@@X\u0080\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b=\u0010\u0010\u001a\u0004\b:\u0010\u0019\"\u0004\b;\u0010<R$\u0010>\u001a\u00020?8@X\u0080\u0084\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\f\n\u0004\bA\u0010&\u001a\u0004\b@\u0010\fR\u001a\u0010B\u001a\b\u0012\u0004\u0012\u00020\u00030C8@X\u0080\u0004¢\u0006\u0006\u001a\u0004\bD\u0010E\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006d"}, d2 = {"Landroidx/compose/material3/TimePickerState;", "", "initialHour", "", "initialMinute", "is24Hour", "", "(IIZ)V", "<set-?>", "Landroidx/compose/ui/unit/IntOffset;", "center", "getCenter-nOcc-ac$material3_release", "()J", "setCenter--gyyYBs$material3_release", "(J)V", "center$delegate", "Landroidx/compose/runtime/MutableState;", "currentAngle", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "getCurrentAngle$material3_release", "()Landroidx/compose/animation/core/Animatable;", "hour", "getHour", "()I", "hourAngle", "getHourAngle$material3_release", "()F", "setHourAngle$material3_release", "(F)V", "hourAngle$delegate", "hourForDisplay", "getHourForDisplay$material3_release", "is24hour", "()Z", "isAfternoon", "isAfternoon$delegate", "Landroidx/compose/runtime/State;", "isAfternoonToggle", "isAfternoonToggle$material3_release", "setAfternoonToggle$material3_release", "(Z)V", "isAfternoonToggle$delegate", "isInnerCircle", "isInnerCircle$material3_release", "setInnerCircle$material3_release", "isInnerCircle$delegate", "minute", "getMinute", "minuteAngle", "getMinuteAngle$material3_release", "setMinuteAngle$material3_release", "minuteAngle$delegate", "mutex", "Landroidx/compose/foundation/MutatorMutex;", "Landroidx/compose/material3/Selection;", "selection", "getSelection-JiIwxys$material3_release", "setSelection-iHAOin8$material3_release", "(I)V", "selection$delegate", "selectorPos", "Landroidx/compose/ui/unit/DpOffset;", "getSelectorPos-RKDOV3M$material3_release", "selectorPos$delegate", "values", "", "getValues$material3_release", "()Ljava/util/List;", "animateToCurrent", "", "animateToCurrent$material3_release", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "isSelected", "value", "isSelected$material3_release", "moveSelector", "x", "y", "maxDist", "moveSelector$material3_release", "offsetHour", "angle", "onTap", "autoSwitchToMinute", "onTap$material3_release", "(FFFZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "setHour", "setHour$material3_release", "setMinute", "setMinute$material3_release", "settle", "update", "fromTap", "update$material3_release", "(FZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "toHour", "toMinute", "Companion", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0002\b\"\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u001d\b\u0007\u0018\u0000 c2\u00020\u0001:\u0001cB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\u0013\u0010F\u001a\u00020GH\u0080@ø\u0001\u0000¢\u0006\u0004\bH\u0010IJ\u0010\u0010 \u001a\u00020\u00032\u0006\u0010\u0017\u001a\u00020\u0003H\u0002J\u0015\u0010J\u001a\u00020\u00062\u0006\u0010K\u001a\u00020\u0003H\u0000¢\u0006\u0002\bLJ%\u0010M\u001a\u00020G2\u0006\u0010N\u001a\u00020\u00132\u0006\u0010O\u001a\u00020\u00132\u0006\u0010P\u001a\u00020\u0013H\u0000¢\u0006\u0002\bQJ\u0010\u0010R\u001a\u00020\u00132\u0006\u0010S\u001a\u00020\u0013H\u0002J3\u0010T\u001a\u00020G2\u0006\u0010N\u001a\u00020\u00132\u0006\u0010O\u001a\u00020\u00132\u0006\u0010P\u001a\u00020\u00132\u0006\u0010U\u001a\u00020\u0006H\u0080@ø\u0001\u0000¢\u0006\u0004\bV\u0010WJ\u0015\u0010X\u001a\u00020G2\u0006\u0010\u0017\u001a\u00020\u0003H\u0000¢\u0006\u0002\bYJ\u0015\u0010Z\u001a\u00020G2\u0006\u00100\u001a\u00020\u0003H\u0000¢\u0006\u0002\b[J\u0011\u0010\\\u001a\u00020GH\u0086@ø\u0001\u0000¢\u0006\u0002\u0010IJ%\u0010]\u001a\u00020G2\u0006\u0010K\u001a\u00020\u00132\b\b\u0002\u0010^\u001a\u00020\u0006H\u0080@ø\u0001\u0000¢\u0006\u0004\b_\u0010`J\f\u0010a\u001a\u00020\u0003*\u00020\u0013H\u0002J\f\u0010b\u001a\u00020\u0003*\u00020\u0013H\u0002R4\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\t8@@@X\u0080\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000eR \u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0013\u0012\u0004\u0012\u00020\u00140\u0012X\u0080\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R\u0011\u0010\u0017\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b\u0018\u0010\u0019R+\u0010\u001a\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\u00138@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b\u001f\u0010\u0010\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u0014\u0010 \u001a\u00020\u00038@X\u0080\u0004¢\u0006\u0006\u001a\u0004\b!\u0010\u0019R\u0011\u0010\"\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\"\u0010#R\u001b\u0010$\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b%\u0010&\u001a\u0004\b$\u0010#R+\u0010'\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00068@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b+\u0010\u0010\u001a\u0004\b(\u0010#\"\u0004\b)\u0010*R+\u0010,\u001a\u00020\u00062\u0006\u0010\b\u001a\u00020\u00068@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b/\u0010\u0010\u001a\u0004\b-\u0010#\"\u0004\b.\u0010*R\u0011\u00100\u001a\u00020\u00038F¢\u0006\u0006\u001a\u0004\b1\u0010\u0019R+\u00102\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\u00138@@@X\u0080\u008e\u0002¢\u0006\u0012\n\u0004\b5\u0010\u0010\u001a\u0004\b3\u0010\u001c\"\u0004\b4\u0010\u001eR\u000e\u00106\u001a\u000207X\u0082\u0004¢\u0006\u0002\n\u0000R4\u00109\u001a\u0002082\u0006\u0010\b\u001a\u0002088@@@X\u0080\u008e\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0012\n\u0004\b=\u0010\u0010\u001a\u0004\b:\u0010\u0019\"\u0004\b;\u0010<R$\u0010>\u001a\u00020?8@X\u0080\u0084\u0002ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\f\n\u0004\bA\u0010&\u001a\u0004\b@\u0010\fR\u001a\u0010B\u001a\b\u0012\u0004\u0012\u00020\u00030C8@X\u0080\u0004¢\u0006\u0006\u001a\u0004\bD\u0010E\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006d"}, m40d2 = {"Landroidx/compose/material3/TimePickerState;", "", "initialHour", "", "initialMinute", "is24Hour", "", "(IIZ)V", "<set-?>", "Landroidx/compose/ui/unit/IntOffset;", "center", "getCenter-nOcc-ac$material3_release", "()J", "setCenter--gyyYBs$material3_release", "(J)V", "center$delegate", "Landroidx/compose/runtime/MutableState;", "currentAngle", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "getCurrentAngle$material3_release", "()Landroidx/compose/animation/core/Animatable;", "hour", "getHour", "()I", "hourAngle", "getHourAngle$material3_release", "()F", "setHourAngle$material3_release", "(F)V", "hourAngle$delegate", "hourForDisplay", "getHourForDisplay$material3_release", "is24hour", "()Z", "isAfternoon", "isAfternoon$delegate", "Landroidx/compose/runtime/State;", "isAfternoonToggle", "isAfternoonToggle$material3_release", "setAfternoonToggle$material3_release", "(Z)V", "isAfternoonToggle$delegate", "isInnerCircle", "isInnerCircle$material3_release", "setInnerCircle$material3_release", "isInnerCircle$delegate", "minute", "getMinute", "minuteAngle", "getMinuteAngle$material3_release", "setMinuteAngle$material3_release", "minuteAngle$delegate", "mutex", "Landroidx/compose/foundation/MutatorMutex;", "Landroidx/compose/material3/Selection;", "selection", "getSelection-JiIwxys$material3_release", "setSelection-iHAOin8$material3_release", "(I)V", "selection$delegate", "selectorPos", "Landroidx/compose/ui/unit/DpOffset;", "getSelectorPos-RKDOV3M$material3_release", "selectorPos$delegate", "values", "", "getValues$material3_release", "()Ljava/util/List;", "animateToCurrent", "", "animateToCurrent$material3_release", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "isSelected", "value", "isSelected$material3_release", "moveSelector", "x", "y", "maxDist", "moveSelector$material3_release", "offsetHour", "angle", "onTap", "autoSwitchToMinute", "onTap$material3_release", "(FFFZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "setHour", "setHour$material3_release", "setMinute", "setMinute$material3_release", "settle", "update", "fromTap", "update$material3_release", "(FZLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "toHour", "toMinute", "Companion", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TimePickerState {
     public static final int $stable = 0;
     public static final Companion Companion = new Companion(null);
-    private final MutableState center$delegate;
+    private final SnapshotState center$delegate;
     private final Animatable<Float, AnimationVector1D> currentAngle;
-    private final MutableState hourAngle$delegate;
+    private final SnapshotState hourAngle$delegate;
     private final boolean is24hour;
     private final State isAfternoon$delegate;
-    private final MutableState isAfternoonToggle$delegate;
-    private final MutableState isInnerCircle$delegate;
-    private final MutableState minuteAngle$delegate;
+    private final SnapshotState isAfternoonToggle$delegate;
+    private final SnapshotState isInnerCircle$delegate;
+    private final SnapshotState minuteAngle$delegate;
     private final MutatorMutex mutex;
-    private final MutableState selection$delegate;
+    private final SnapshotState selection$delegate;
     private final State selectorPos$delegate;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,12 +54,12 @@ public final class TimePickerState {
     }
 
     public TimePickerState(int i, int i2, final boolean z) {
-        MutableState mutableStateOf$default;
-        MutableState mutableStateOf$default2;
-        MutableState mutableStateOf$default3;
-        MutableState mutableStateOf$default4;
-        MutableState mutableStateOf$default5;
-        MutableState mutableStateOf$default6;
+        SnapshotState mutableStateOf$default;
+        SnapshotState mutableStateOf$default2;
+        SnapshotState mutableStateOf$default3;
+        SnapshotState mutableStateOf$default4;
+        SnapshotState mutableStateOf$default5;
+        SnapshotState mutableStateOf$default6;
         if (!(i >= 0 && i < 24)) {
             throw new IllegalArgumentException("initialHour should in [0..23] range".toString());
         }
@@ -67,30 +67,30 @@ public final class TimePickerState {
             throw new IllegalArgumentException("initialMinute should be in [0..59] range".toString());
         }
         this.is24hour = z;
-        this.selectorPos$delegate = SnapshotStateKt.derivedStateOf(SnapshotStateKt.structuralEqualityPolicy(), new Function0<DpOffset>() { // from class: androidx.compose.material3.TimePickerState$selectorPos$2
+        this.selectorPos$delegate = SnapshotStateKt.derivedStateOf(SnapshotStateKt.structuralEqualityPolicy(), new Functions<DpOffset>() { // from class: androidx.compose.material3.TimePickerState$selectorPos$2
             /* JADX INFO: Access modifiers changed from: package-private */
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(0);
             }
 
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public /* bridge */ /* synthetic */ DpOffset invoke() {
-                return DpOffset.m5105boximpl(m1528invokeRKDOV3M());
+                return DpOffset.m5406boximpl(m1829invokeRKDOV3M());
             }
 
             /* renamed from: invoke-RKDOV3M  reason: not valid java name */
-            public final long m1528invokeRKDOV3M() {
+            public final long m1829invokeRKDOV3M() {
                 boolean isInnerCircle$material3_release = TimePickerState.this.isInnerCircle$material3_release();
                 float f = 2;
-                float m5050constructorimpl = Dp.m5050constructorimpl(TimePickerTokens.INSTANCE.m2094getClockDialSelectorHandleContainerSizeD9Ej5fM() / f);
-                float m5050constructorimpl2 = Dp.m5050constructorimpl(Dp.m5050constructorimpl(((z && isInnerCircle$material3_release && Selection.m1307equalsimpl0(TimePickerState.this.m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1311getHourJiIwxys())) ? TimePickerKt.InnerCircleRadius : TimePickerKt.OuterCircleSizeRadius) - m5050constructorimpl) + m5050constructorimpl);
-                return DpKt.m5071DpOffsetYgX7TsA(Dp.m5050constructorimpl(Dp.m5050constructorimpl(((float) Math.cos(TimePickerState.this.getCurrentAngle$material3_release().getValue().floatValue())) * m5050constructorimpl2) + Dp.m5050constructorimpl(TimePickerTokens.INSTANCE.m2092getClockDialContainerSizeD9Ej5fM() / f)), Dp.m5050constructorimpl(Dp.m5050constructorimpl(m5050constructorimpl2 * ((float) Math.sin(TimePickerState.this.getCurrentAngle$material3_release().getValue().floatValue()))) + Dp.m5050constructorimpl(TimePickerTokens.INSTANCE.m2092getClockDialContainerSizeD9Ej5fM() / f)));
+                float m5351constructorimpl = C0780Dp.m5351constructorimpl(TimePickerTokens.INSTANCE.m2395getClockDialSelectorHandleContainerSizeD9Ej5fM() / f);
+                float m5351constructorimpl2 = C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(((z && isInnerCircle$material3_release && Selection.m1608equalsimpl0(TimePickerState.this.m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1612getHourJiIwxys())) ? TimePickerKt.InnerCircleRadius : TimePickerKt.OuterCircleSizeRadius) - m5351constructorimpl) + m5351constructorimpl);
+                return DpKt.m5372DpOffsetYgX7TsA(C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(((float) Math.cos(TimePickerState.this.getCurrentAngle$material3_release().getValue().floatValue())) * m5351constructorimpl2) + C0780Dp.m5351constructorimpl(TimePickerTokens.INSTANCE.m2393getClockDialContainerSizeD9Ej5fM() / f)), C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(m5351constructorimpl2 * ((float) Math.sin(TimePickerState.this.getCurrentAngle$material3_release().getValue().floatValue()))) + C0780Dp.m5351constructorimpl(TimePickerTokens.INSTANCE.m2393getClockDialContainerSizeD9Ej5fM() / f)));
             }
         });
-        mutableStateOf$default = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(IntOffset.m5159boximpl(IntOffset.Companion.m5178getZeronOccac()), null, 2, null);
+        mutableStateOf$default = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(IntOffset.m5460boximpl(IntOffset.Companion.m5479getZeronOccac()), null, 2, null);
         this.center$delegate = mutableStateOf$default;
-        mutableStateOf$default2 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Selection.m1304boximpl(Selection.Companion.m1311getHourJiIwxys()), null, 2, null);
+        mutableStateOf$default2 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Selection.m1605boximpl(Selection.Companion.m1612getHourJiIwxys()), null, 2, null);
         this.selection$delegate = mutableStateOf$default2;
         mutableStateOf$default3 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Boolean.valueOf(i > 12 && !z), null, 2, null);
         this.isAfternoonToggle$delegate = mutableStateOf$default3;
@@ -101,14 +101,14 @@ public final class TimePickerState {
         mutableStateOf$default6 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Float.valueOf((i2 * 0.10471976f) - 1.5707964f), null, 2, null);
         this.minuteAngle$delegate = mutableStateOf$default6;
         this.mutex = new MutatorMutex();
-        this.isAfternoon$delegate = SnapshotStateKt.derivedStateOf(new Function0<Boolean>() { // from class: androidx.compose.material3.TimePickerState$isAfternoon$2
+        this.isAfternoon$delegate = SnapshotStateKt.derivedStateOf(new Functions<Boolean>() { // from class: androidx.compose.material3.TimePickerState$isAfternoon$2
             /* JADX INFO: Access modifiers changed from: package-private */
             {
                 super(0);
             }
 
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // kotlin.jvm.functions.Function0
+            @Override // kotlin.jvm.functions.Functions
             public final Boolean invoke() {
                 return Boolean.valueOf((TimePickerState.this.is24hour() && TimePickerState.this.isInnerCircle$material3_release()) || TimePickerState.this.isAfternoonToggle$material3_release());
             }
@@ -133,32 +133,32 @@ public final class TimePickerState {
     }
 
     /* renamed from: getSelectorPos-RKDOV3M$material3_release  reason: not valid java name */
-    public final long m1525getSelectorPosRKDOV3M$material3_release() {
-        return ((DpOffset) this.selectorPos$delegate.getValue()).m5119unboximpl();
+    public final long m1826getSelectorPosRKDOV3M$material3_release() {
+        return ((DpOffset) this.selectorPos$delegate.getValue()).m5420unboximpl();
     }
 
     /* renamed from: getCenter-nOcc-ac$material3_release  reason: not valid java name */
-    public final long m1523getCenternOccac$material3_release() {
-        return ((IntOffset) this.center$delegate.getValue()).m5177unboximpl();
+    public final long m1824getCenternOccac$material3_release() {
+        return ((IntOffset) this.center$delegate.getValue()).m5478unboximpl();
     }
 
     /* renamed from: setCenter--gyyYBs$material3_release  reason: not valid java name */
-    public final void m1526setCentergyyYBs$material3_release(long j) {
-        this.center$delegate.setValue(IntOffset.m5159boximpl(j));
+    public final void m1827setCentergyyYBs$material3_release(long j) {
+        this.center$delegate.setValue(IntOffset.m5460boximpl(j));
     }
 
     public final List<Integer> getValues$material3_release() {
-        return Selection.m1307equalsimpl0(m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1312getMinuteJiIwxys()) ? TimePickerKt.access$getMinutes$p() : TimePickerKt.access$getHours$p();
+        return Selection.m1608equalsimpl0(m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1613getMinuteJiIwxys()) ? TimePickerKt.access$getMinutes$p() : TimePickerKt.access$getHours$p();
     }
 
     /* renamed from: getSelection-JiIwxys$material3_release  reason: not valid java name */
-    public final int m1524getSelectionJiIwxys$material3_release() {
-        return ((Selection) this.selection$delegate.getValue()).m1310unboximpl();
+    public final int m1825getSelectionJiIwxys$material3_release() {
+        return ((Selection) this.selection$delegate.getValue()).m1611unboximpl();
     }
 
     /* renamed from: setSelection-iHAOin8$material3_release  reason: not valid java name */
-    public final void m1527setSelectioniHAOin8$material3_release(int i) {
-        this.selection$delegate.setValue(Selection.m1304boximpl(i));
+    public final void m1828setSelectioniHAOin8$material3_release(int i) {
+        this.selection$delegate.setValue(Selection.m1605boximpl(i));
     }
 
     public final boolean isAfternoonToggle$material3_release() {
@@ -211,13 +211,13 @@ public final class TimePickerState {
     }
 
     public final void moveSelector$material3_release(float f, float f2, float f3) {
-        if (Selection.m1307equalsimpl0(m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1311getHourJiIwxys()) && this.is24hour) {
-            setInnerCircle$material3_release(TimePickerKt.access$dist(f, f2, IntOffset.m5168getXimpl(m1523getCenternOccac$material3_release()), IntOffset.m5169getYimpl(m1523getCenternOccac$material3_release())) < f3);
+        if (Selection.m1608equalsimpl0(m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1612getHourJiIwxys()) && this.is24hour) {
+            setInnerCircle$material3_release(TimePickerKt.access$dist(f, f2, IntOffset.m5469getXimpl(m1824getCenternOccac$material3_release()), IntOffset.m5470getYimpl(m1824getCenternOccac$material3_release())) < f3);
         }
     }
 
     public final boolean isSelected$material3_release(int i) {
-        if (Selection.m1307equalsimpl0(m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1312getMinuteJiIwxys())) {
+        if (Selection.m1608equalsimpl0(m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1613getMinuteJiIwxys())) {
             if (i == getMinute()) {
                 return true;
             }
@@ -291,10 +291,10 @@ public final class TimePickerState {
             goto L96
         L41:
             kotlin.ResultKt.throwOnFailure(r12)
-            int r12 = r11.m1524getSelectionJiIwxys$material3_release()
+            int r12 = r11.m1825getSelectionJiIwxys$material3_release()
             androidx.compose.material3.Selection$Companion r1 = androidx.compose.material3.Selection.Companion
-            int r1 = r1.m1311getHourJiIwxys()
-            boolean r12 = androidx.compose.material3.Selection.m1307equalsimpl0(r12, r1)
+            int r1 = r1.m1612getHourJiIwxys()
+            boolean r12 = androidx.compose.material3.Selection.m1608equalsimpl0(r12, r1)
             if (r12 == 0) goto L61
             float r12 = r11.getMinuteAngle$material3_release()
             float r1 = r11.getHourAngle$material3_release()
@@ -312,7 +312,7 @@ public final class TimePickerState {
             java.lang.Number r12 = (java.lang.Number) r12
             float r12 = r12.floatValue()
             androidx.compose.animation.core.Animatable<java.lang.Float, androidx.compose.animation.core.AnimationVector1D> r4 = r11.currentAngle
-            java.lang.Float r1 = kotlin.coroutines.jvm.internal.Boxing.boxFloat(r1)
+            java.lang.Float r1 = kotlin.coroutines.jvm.internal.boxing.boxFloat(r1)
             r6.L$0 = r11
             r6.F$0 = r12
             r6.label = r3
@@ -324,7 +324,7 @@ public final class TimePickerState {
             r1 = r12
         L96:
             androidx.compose.animation.core.Animatable<java.lang.Float, androidx.compose.animation.core.AnimationVector1D> r12 = r3.currentAngle
-            java.lang.Float r3 = kotlin.coroutines.jvm.internal.Boxing.boxFloat(r1)
+            java.lang.Float r3 = kotlin.coroutines.jvm.internal.boxing.boxFloat(r1)
             r1 = 0
             r4 = 6
             r5 = 200(0xc8, float:2.8E-43)
@@ -422,7 +422,7 @@ public final class TimePickerState {
             throw r12
         L37:
             java.lang.Object r1 = r6.L$1
-            kotlin.Pair r1 = (kotlin.Pair) r1
+            kotlin.Pair r1 = (kotlin.Tuples) r1
             java.lang.Object r3 = r6.L$0
             androidx.compose.material3.TimePickerState r3 = (androidx.compose.material3.TimePickerState) r3
             kotlin.ResultKt.throwOnFailure(r12)
@@ -498,7 +498,7 @@ public final class TimePickerState {
     }
 
     /* compiled from: TimePicker.kt */
-    @Metadata(d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\f\u0012\u0004\u0012\u00020\u0005\u0012\u0002\b\u00030\u0004¨\u0006\u0006"}, d2 = {"Landroidx/compose/material3/TimePickerState$Companion;", "", "()V", "Saver", "Landroidx/compose/runtime/saveable/Saver;", "Landroidx/compose/material3/TimePickerState;", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0016\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\f\u0012\u0004\u0012\u00020\u0005\u0012\u0002\b\u00030\u0004¨\u0006\u0006"}, m40d2 = {"Landroidx/compose/material3/TimePickerState$Companion;", "", "()V", "Saver", "Landroidx/compose/runtime/saveable/Saver;", "Landroidx/compose/material3/TimePickerState;", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
     /* loaded from: classes.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {

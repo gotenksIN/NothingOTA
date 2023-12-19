@@ -203,12 +203,12 @@ public class FilteredEntryMultimap<K, V> extends AbstractMultimap<K, V> implemen
             return new Maps.KeySet<K, Collection<V>>() { // from class: com.google.common.collect.FilteredEntryMultimap.AsMap.1KeySetImpl
                 @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                 public boolean removeAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.keyPredicateOnEntries(Predicates.in(collection)));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.keyPredicateOnEntries(Predicates.m240in(collection)));
                 }
 
                 @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                 public boolean retainAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.keyPredicateOnEntries(Predicates.not(Predicates.in(collection))));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.keyPredicateOnEntries(Predicates.not(Predicates.m240in(collection))));
                 }
 
                 @Override // com.google.common.collect.Maps.KeySet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -254,12 +254,12 @@ public class FilteredEntryMultimap<K, V> extends AbstractMultimap<K, V> implemen
 
                 @Override // com.google.common.collect.Maps.EntrySet, com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                 public boolean removeAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Predicates.in(collection));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Predicates.m240in(collection));
                 }
 
                 @Override // com.google.common.collect.Maps.EntrySet, com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
                 public boolean retainAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Predicates.not(Predicates.in(collection)));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Predicates.not(Predicates.m240in(collection)));
                 }
 
                 @Override // com.google.common.collect.Maps.EntrySet, java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -296,12 +296,12 @@ public class FilteredEntryMultimap<K, V> extends AbstractMultimap<K, V> implemen
 
                 @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
                 public boolean removeAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.valuePredicateOnEntries(Predicates.in(collection)));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.valuePredicateOnEntries(Predicates.m240in(collection)));
                 }
 
                 @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
                 public boolean retainAll(Collection<?> collection) {
-                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.valuePredicateOnEntries(Predicates.not(Predicates.in(collection))));
+                    return FilteredEntryMultimap.this.removeEntriesIf(Maps.valuePredicateOnEntries(Predicates.not(Predicates.m240in(collection))));
                 }
             };
         }
@@ -339,10 +339,10 @@ public class FilteredEntryMultimap<K, V> extends AbstractMultimap<K, V> implemen
             return i2;
         }
 
-        /* renamed from: com.google.common.collect.FilteredEntryMultimap$Keys$1  reason: invalid class name */
+        /* renamed from: com.google.common.collect.FilteredEntryMultimap$Keys$1 */
         /* loaded from: classes2.dex */
-        class AnonymousClass1 extends Multisets.EntrySet<K> {
-            AnonymousClass1() {
+        class C11591 extends Multisets.EntrySet<K> {
+            C11591() {
             }
 
             @Override // com.google.common.collect.Multisets.EntrySet
@@ -373,18 +373,18 @@ public class FilteredEntryMultimap<K, V> extends AbstractMultimap<K, V> implemen
 
             @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean removeAll(Collection<?> collection) {
-                return removeEntriesIf(Predicates.in(collection));
+                return removeEntriesIf(Predicates.m240in(collection));
             }
 
             @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean retainAll(Collection<?> collection) {
-                return removeEntriesIf(Predicates.not(Predicates.in(collection)));
+                return removeEntriesIf(Predicates.not(Predicates.m240in(collection)));
             }
         }
 
         @Override // com.google.common.collect.AbstractMultiset, com.google.common.collect.Multiset
         public Set<Multiset.Entry<K>> entrySet() {
-            return new AnonymousClass1();
+            return new C11591();
         }
     }
 }

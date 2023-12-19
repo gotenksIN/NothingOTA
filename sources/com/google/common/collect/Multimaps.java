@@ -704,11 +704,13 @@ public final class Multimaps {
                 @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
                 public Iterator<V> iterator() {
                     return new Iterator<V>() { // from class: com.google.common.collect.Multimaps.MapMultimap.1.1
-                        int i;
+
+                        /* renamed from: i */
+                        int f227i;
 
                         @Override // java.util.Iterator
                         public boolean hasNext() {
-                            return this.i == 0 && MapMultimap.this.map.containsKey(k);
+                            return this.f227i == 0 && MapMultimap.this.map.containsKey(k);
                         }
 
                         @Override // java.util.Iterator
@@ -717,14 +719,14 @@ public final class Multimaps {
                             if (!hasNext()) {
                                 throw new NoSuchElementException();
                             }
-                            this.i++;
+                            this.f227i++;
                             return (V) NullnessCasts.uncheckedCastNullableTToT(MapMultimap.this.map.get(k));
                         }
 
                         @Override // java.util.Iterator
                         public void remove() {
-                            CollectPreconditions.checkRemove(this.i == 1);
-                            this.i = -1;
+                            CollectPreconditions.checkRemove(this.f227i == 1);
+                            this.f227i = -1;
                             MapMultimap.this.map.remove(k);
                         }
                     };
@@ -860,7 +862,7 @@ public final class Multimaps {
             return Maps.transformEntries(this.fromMultimap.asMap(), new Maps.EntryTransformer<K, Collection<V1>, Collection<V2>>() { // from class: com.google.common.collect.Multimaps.TransformedEntriesMultimap.1
                 @Override // com.google.common.collect.Maps.EntryTransformer
                 public /* bridge */ /* synthetic */ Object transformEntry(@ParametricNullness Object obj, Object obj2) {
-                    return transformEntry((AnonymousClass1) obj, (Collection) ((Collection) obj2));
+                    return transformEntry((C12561) obj, (Collection) ((Collection) obj2));
                 }
 
                 public Collection<V2> transformEntry(@ParametricNullness K k, Collection<V1> collection) {
@@ -1192,7 +1194,7 @@ public final class Multimaps {
                 return Maps.asMapEntryIterator(AsMap.this.multimap.keySet(), new Function<K, Collection<V>>() { // from class: com.google.common.collect.Multimaps.AsMap.EntrySet.1
                     @Override // com.google.common.base.Function
                     public /* bridge */ /* synthetic */ Object apply(@ParametricNullness Object obj) {
-                        return apply((AnonymousClass1) obj);
+                        return apply((C12511) obj);
                     }
 
                     @Override // com.google.common.base.Function

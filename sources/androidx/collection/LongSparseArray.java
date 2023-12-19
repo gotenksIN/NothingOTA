@@ -25,7 +25,7 @@ public class LongSparseArray<E> implements Cloneable {
     }
 
     /* renamed from: clone */
-    public LongSparseArray<E> m8clone() {
+    public LongSparseArray<E> m309clone() {
         try {
             LongSparseArray<E> longSparseArray = (LongSparseArray) super.clone();
             longSparseArray.mKeys = (long[]) this.mKeys.clone();
@@ -111,7 +111,8 @@ public class LongSparseArray<E> implements Cloneable {
         return false;
     }
 
-    private void gc() {
+    /* renamed from: gc */
+    private void m298gc() {
         int i = this.mSize;
         long[] jArr = this.mKeys;
         Object[] objArr = this.mValues;
@@ -148,7 +149,7 @@ public class LongSparseArray<E> implements Cloneable {
             }
         }
         if (this.mGarbage && i2 >= this.mKeys.length) {
-            gc();
+            m298gc();
             i = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         }
         int i3 = this.mSize;
@@ -193,7 +194,7 @@ public class LongSparseArray<E> implements Cloneable {
 
     public int size() {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         return this.mSize;
     }
@@ -204,35 +205,35 @@ public class LongSparseArray<E> implements Cloneable {
 
     public long keyAt(int i) {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         return this.mKeys[i];
     }
 
     public E valueAt(int i) {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         return (E) this.mValues[i];
     }
 
     public void setValueAt(int i, E e) {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         this.mValues[i] = e;
     }
 
     public int indexOfKey(long j) {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         return ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
     }
 
     public int indexOfValue(E e) {
         if (this.mGarbage) {
-            gc();
+            m298gc();
         }
         for (int i = 0; i < this.mSize; i++) {
             if (this.mValues[i] == e) {
@@ -267,7 +268,7 @@ public class LongSparseArray<E> implements Cloneable {
             return;
         }
         if (this.mGarbage && i >= this.mKeys.length) {
-            gc();
+            m298gc();
         }
         int i2 = this.mSize;
         if (i2 >= this.mKeys.length) {

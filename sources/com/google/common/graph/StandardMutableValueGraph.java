@@ -126,8 +126,8 @@ public final class StandardMutableValueGraph<N, V> extends StandardValueGraph<N,
 
     private GraphConnections<N, V> newConnections() {
         if (isDirected()) {
-            return DirectedGraphConnections.of(this.incidentEdgeOrder);
+            return DirectedGraphConnections.m101of(this.incidentEdgeOrder);
         }
-        return UndirectedGraphConnections.of(this.incidentEdgeOrder);
+        return UndirectedGraphConnections.m95of(this.incidentEdgeOrder);
     }
 }

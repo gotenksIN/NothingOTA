@@ -20,7 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.menu.ShowableListMenu;
 import androidx.core.view.PointerIconCompat;
 import androidx.core.view.ViewCompat;
@@ -96,11 +96,11 @@ public class ListPopupWindow implements ShowableListMenu {
     }
 
     public ListPopupWindow(Context context) {
-        this(context, null, R.attr.listPopupWindowStyle);
+        this(context, null, C0032R.attr.listPopupWindowStyle);
     }
 
     public ListPopupWindow(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.listPopupWindowStyle);
+        this(context, attributeSet, C0032R.attr.listPopupWindowStyle);
     }
 
     public ListPopupWindow(Context context, AttributeSet attributeSet, int i) {
@@ -123,9 +123,9 @@ public class ListPopupWindow implements ShowableListMenu {
         this.mTempRect = new Rect();
         this.mContext = context;
         this.mHandler = new Handler(context.getMainLooper());
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ListPopupWindow, i, i2);
-        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownHorizontalOffset, 0);
-        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ListPopupWindow_android_dropDownVerticalOffset, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0032R.styleable.ListPopupWindow, i, i2);
+        this.mDropDownHorizontalOffset = obtainStyledAttributes.getDimensionPixelOffset(C0032R.styleable.ListPopupWindow_android_dropDownHorizontalOffset, 0);
+        int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(C0032R.styleable.ListPopupWindow_android_dropDownVerticalOffset, 0);
         this.mDropDownVerticalOffset = dimensionPixelOffset;
         if (dimensionPixelOffset != 0) {
             this.mDropDownVerticalOffsetSet = true;

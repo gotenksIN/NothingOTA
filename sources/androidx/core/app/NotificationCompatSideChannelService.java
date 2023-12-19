@@ -5,7 +5,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.v4.app.INotificationSideChannel;
+import android.support.p000v4.app.INotificationSideChannel;
 
 /* loaded from: classes.dex */
 public abstract class NotificationCompatSideChannelService extends Service {
@@ -26,7 +26,7 @@ public abstract class NotificationCompatSideChannelService extends Service {
         NotificationSideChannelStub() {
         }
 
-        @Override // android.support.v4.app.INotificationSideChannel
+        @Override // android.support.p000v4.app.INotificationSideChannel
         public void notify(String str, int i, String str2, Notification notification) throws RemoteException {
             NotificationCompatSideChannelService.this.checkPermission(getCallingUid(), str);
             long clearCallingIdentity = clearCallingIdentity();
@@ -37,7 +37,7 @@ public abstract class NotificationCompatSideChannelService extends Service {
             }
         }
 
-        @Override // android.support.v4.app.INotificationSideChannel
+        @Override // android.support.p000v4.app.INotificationSideChannel
         public void cancel(String str, int i, String str2) throws RemoteException {
             NotificationCompatSideChannelService.this.checkPermission(getCallingUid(), str);
             long clearCallingIdentity = clearCallingIdentity();
@@ -48,7 +48,7 @@ public abstract class NotificationCompatSideChannelService extends Service {
             }
         }
 
-        @Override // android.support.v4.app.INotificationSideChannel
+        @Override // android.support.p000v4.app.INotificationSideChannel
         public void cancelAll(String str) {
             NotificationCompatSideChannelService.this.checkPermission(getCallingUid(), str);
             long clearCallingIdentity = clearCallingIdentity();

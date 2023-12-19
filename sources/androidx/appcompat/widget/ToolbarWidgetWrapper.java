@@ -15,7 +15,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.menu.ActionMenuItem;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -54,7 +54,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
-        this(toolbar, z, R.string.abc_action_bar_up_description, R.drawable.abc_ic_ab_back_material);
+        this(toolbar, z, C0032R.string.abc_action_bar_up_description, C0032R.C0033drawable.abc_ic_ab_back_material);
     }
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z, int i, int i2) {
@@ -66,56 +66,56 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         this.mSubtitle = toolbar.getSubtitle();
         this.mTitleSet = this.mTitle != null;
         this.mNavIcon = toolbar.getNavigationIcon();
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(toolbar.getContext(), null, R.styleable.ActionBar, R.attr.actionBarStyle, 0);
-        this.mDefaultNavigationIcon = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_homeAsUpIndicator);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(toolbar.getContext(), null, C0032R.styleable.ActionBar, C0032R.attr.actionBarStyle, 0);
+        this.mDefaultNavigationIcon = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_homeAsUpIndicator);
         if (z) {
-            CharSequence text = obtainStyledAttributes.getText(R.styleable.ActionBar_title);
+            CharSequence text = obtainStyledAttributes.getText(C0032R.styleable.ActionBar_title);
             if (!TextUtils.isEmpty(text)) {
                 setTitle(text);
             }
-            CharSequence text2 = obtainStyledAttributes.getText(R.styleable.ActionBar_subtitle);
+            CharSequence text2 = obtainStyledAttributes.getText(C0032R.styleable.ActionBar_subtitle);
             if (!TextUtils.isEmpty(text2)) {
                 setSubtitle(text2);
             }
-            Drawable drawable2 = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_logo);
+            Drawable drawable2 = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_logo);
             if (drawable2 != null) {
                 setLogo(drawable2);
             }
-            Drawable drawable3 = obtainStyledAttributes.getDrawable(R.styleable.ActionBar_icon);
+            Drawable drawable3 = obtainStyledAttributes.getDrawable(C0032R.styleable.ActionBar_icon);
             if (drawable3 != null) {
                 setIcon(drawable3);
             }
             if (this.mNavIcon == null && (drawable = this.mDefaultNavigationIcon) != null) {
                 setNavigationIcon(drawable);
             }
-            setDisplayOptions(obtainStyledAttributes.getInt(R.styleable.ActionBar_displayOptions, 0));
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.ActionBar_customNavigationLayout, 0);
+            setDisplayOptions(obtainStyledAttributes.getInt(C0032R.styleable.ActionBar_displayOptions, 0));
+            int resourceId = obtainStyledAttributes.getResourceId(C0032R.styleable.ActionBar_customNavigationLayout, 0);
             if (resourceId != 0) {
                 setCustomView(LayoutInflater.from(this.mToolbar.getContext()).inflate(resourceId, (ViewGroup) this.mToolbar, false));
                 setDisplayOptions(this.mDisplayOpts | 16);
             }
-            int layoutDimension = obtainStyledAttributes.getLayoutDimension(R.styleable.ActionBar_height, 0);
+            int layoutDimension = obtainStyledAttributes.getLayoutDimension(C0032R.styleable.ActionBar_height, 0);
             if (layoutDimension > 0) {
                 ViewGroup.LayoutParams layoutParams = this.mToolbar.getLayoutParams();
                 layoutParams.height = layoutDimension;
                 this.mToolbar.setLayoutParams(layoutParams);
             }
-            int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ActionBar_contentInsetStart, -1);
-            int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(R.styleable.ActionBar_contentInsetEnd, -1);
+            int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(C0032R.styleable.ActionBar_contentInsetStart, -1);
+            int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(C0032R.styleable.ActionBar_contentInsetEnd, -1);
             if (dimensionPixelOffset >= 0 || dimensionPixelOffset2 >= 0) {
                 this.mToolbar.setContentInsetsRelative(Math.max(dimensionPixelOffset, 0), Math.max(dimensionPixelOffset2, 0));
             }
-            int resourceId2 = obtainStyledAttributes.getResourceId(R.styleable.ActionBar_titleTextStyle, 0);
+            int resourceId2 = obtainStyledAttributes.getResourceId(C0032R.styleable.ActionBar_titleTextStyle, 0);
             if (resourceId2 != 0) {
                 Toolbar toolbar2 = this.mToolbar;
                 toolbar2.setTitleTextAppearance(toolbar2.getContext(), resourceId2);
             }
-            int resourceId3 = obtainStyledAttributes.getResourceId(R.styleable.ActionBar_subtitleTextStyle, 0);
+            int resourceId3 = obtainStyledAttributes.getResourceId(C0032R.styleable.ActionBar_subtitleTextStyle, 0);
             if (resourceId3 != 0) {
                 Toolbar toolbar3 = this.mToolbar;
                 toolbar3.setSubtitleTextAppearance(toolbar3.getContext(), resourceId3);
             }
-            int resourceId4 = obtainStyledAttributes.getResourceId(R.styleable.ActionBar_popupTheme, 0);
+            int resourceId4 = obtainStyledAttributes.getResourceId(C0032R.styleable.ActionBar_popupTheme, 0);
             if (resourceId4 != 0) {
                 this.mToolbar.setPopupTheme(resourceId4);
             }
@@ -321,7 +321,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         if (this.mActionMenuPresenter == null) {
             ActionMenuPresenter actionMenuPresenter = new ActionMenuPresenter(this.mToolbar.getContext());
             this.mActionMenuPresenter = actionMenuPresenter;
-            actionMenuPresenter.setId(R.id.action_menu_presenter);
+            actionMenuPresenter.setId(C0032R.C0034id.action_menu_presenter);
         }
         this.mActionMenuPresenter.setCallback(callback);
         this.mToolbar.setMenu((MenuBuilder) menu, this.mActionMenuPresenter);
@@ -458,7 +458,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     private void ensureSpinner() {
         if (this.mSpinner == null) {
-            this.mSpinner = new AppCompatSpinner(getContext(), null, R.attr.actionDropDownStyle);
+            this.mSpinner = new AppCompatSpinner(getContext(), null, C0032R.attr.actionDropDownStyle);
             this.mSpinner.setLayoutParams(new Toolbar.LayoutParams(-2, -2, 8388627));
         }
     }

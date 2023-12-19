@@ -34,32 +34,39 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
     @Override // com.google.common.collect.ImmutableCollection, java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set, java.util.NavigableSet, com.google.common.collect.SortedIterable
     public abstract UnmodifiableIterator<E> iterator();
 
-    public static <E> ImmutableSet<E> of() {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m164of() {
         return RegularImmutableSet.EMPTY;
     }
 
-    public static <E> ImmutableSet<E> of(E e) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m163of(E e) {
         return new SingletonImmutableSet(e);
     }
 
-    public static <E> ImmutableSet<E> of(E e, E e2) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m162of(E e, E e2) {
         return construct(2, e, e2);
     }
 
-    public static <E> ImmutableSet<E> of(E e, E e2, E e3) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m161of(E e, E e2, E e3) {
         return construct(3, e, e2, e3);
     }
 
-    public static <E> ImmutableSet<E> of(E e, E e2, E e3, E e4) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m160of(E e, E e2, E e3, E e4) {
         return construct(4, e, e2, e3, e4);
     }
 
-    public static <E> ImmutableSet<E> of(E e, E e2, E e3, E e4, E e5) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m159of(E e, E e2, E e3, E e4, E e5) {
         return construct(5, e, e2, e3, e4, e5);
     }
 
     @SafeVarargs
-    public static <E> ImmutableSet<E> of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
+    /* renamed from: of */
+    public static <E> ImmutableSet<E> m158of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
         Preconditions.checkArgument(eArr.length <= 2147483641, "the total number of elements must fit in an int");
         int length = eArr.length + 6;
         Object[] objArr = new Object[length];
@@ -77,7 +84,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
     public static <E> ImmutableSet<E> construct(int i, Object... objArr) {
         if (i != 0) {
             if (i == 1) {
-                return of(Objects.requireNonNull(objArr[0]));
+                return m163of(Objects.requireNonNull(objArr[0]));
             }
             int chooseTableSize = chooseTableSize(i);
             Object[] objArr2 = new Object[chooseTableSize];
@@ -116,7 +123,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             }
             return new RegularImmutableSet(objArr, i3, objArr2, i2, i4);
         }
-        return of();
+        return m164of();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -153,11 +160,11 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
 
     public static <E> ImmutableSet<E> copyOf(Iterator<? extends E> it) {
         if (!it.hasNext()) {
-            return of();
+            return m164of();
         }
         E next = it.next();
         if (!it.hasNext()) {
-            return of((Object) next);
+            return m163of((Object) next);
         }
         return new Builder().add((Builder) next).addAll((Iterator) it).build();
     }
@@ -166,11 +173,11 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         int length = eArr.length;
         if (length != 0) {
             if (length == 1) {
-                return of((Object) eArr[0]);
+                return m163of((Object) eArr[0]);
             }
             return construct(eArr.length, (Object[]) eArr.clone());
         }
-        return of();
+        return m164of();
     }
 
     @Override // java.util.Collection, java.util.Set
@@ -347,7 +354,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             int i = this.size;
             if (i != 0) {
                 if (i == 1) {
-                    return ImmutableSet.of(Objects.requireNonNull(this.contents[0]));
+                    return ImmutableSet.m163of(Objects.requireNonNull(this.contents[0]));
                 }
                 if (this.hashTable == null || ImmutableSet.chooseTableSize(this.size) != this.hashTable.length) {
                     construct = ImmutableSet.construct(this.size, this.contents);
@@ -362,7 +369,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
                 this.hashTable = null;
                 return construct;
             }
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
     }
 }

@@ -10,15 +10,18 @@ public final class StartupLogger {
     private StartupLogger() {
     }
 
-    public static void i(String str) {
+    /* renamed from: i */
+    public static void m248i(String str) {
         Log.i(TAG, str);
     }
 
-    public static void w(String str) {
+    /* renamed from: w */
+    public static void m247w(String str) {
         Log.w(TAG, str);
     }
 
-    public static void e(String str, Throwable th) {
+    /* renamed from: e */
+    public static void m249e(String str, Throwable th) {
         Log.e(TAG, str, th);
     }
 }

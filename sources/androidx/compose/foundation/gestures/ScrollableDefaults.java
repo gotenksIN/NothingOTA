@@ -4,14 +4,14 @@ import androidx.compose.animation.SplineBasedFloatDecayAnimationSpec_androidKt;
 import androidx.compose.animation.core.DecayAnimationSpec;
 import androidx.compose.foundation.AndroidOverscrollKt;
 import androidx.compose.foundation.OverscrollEffect;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
-import androidx.compose.ui.unit.LayoutDirection;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: Scrollable.kt */
-@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\bÇ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\r\u0010\u0003\u001a\u00020\u0004H\u0007¢\u0006\u0002\u0010\u0005J\r\u0010\u0006\u001a\u00020\u0007H\u0007¢\u0006\u0002\u0010\bJ\u001e\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\n¨\u0006\u0010"}, d2 = {"Landroidx/compose/foundation/gestures/ScrollableDefaults;", "", "()V", "flingBehavior", "Landroidx/compose/foundation/gestures/FlingBehavior;", "(Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/gestures/FlingBehavior;", "overscrollEffect", "Landroidx/compose/foundation/OverscrollEffect;", "(Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/OverscrollEffect;", "reverseDirection", "", "layoutDirection", "Landroidx/compose/ui/unit/LayoutDirection;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "reverseScrolling", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\bÇ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\r\u0010\u0003\u001a\u00020\u0004H\u0007¢\u0006\u0002\u0010\u0005J\r\u0010\u0006\u001a\u00020\u0007H\u0007¢\u0006\u0002\u0010\bJ\u001e\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\n¨\u0006\u0010"}, m40d2 = {"Landroidx/compose/foundation/gestures/ScrollableDefaults;", "", "()V", "flingBehavior", "Landroidx/compose/foundation/gestures/FlingBehavior;", "(Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/gestures/FlingBehavior;", "overscrollEffect", "Landroidx/compose/foundation/OverscrollEffect;", "(Landroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/OverscrollEffect;", "reverseDirection", "", "layoutDirection", "Landroidx/compose/ui/unit/LayoutDirection;", "orientation", "Landroidx/compose/foundation/gestures/Orientation;", "reverseScrolling", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ScrollableDefaults {
     public static final int $stable = 0;
@@ -32,16 +32,16 @@ public final class ScrollableDefaults {
         boolean changed = composer.changed(rememberSplineBasedDecay);
         Object rememberedValue = composer.rememberedValue();
         if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = new DefaultFlingBehavior(rememberSplineBasedDecay, null, 2, null);
+            rememberedValue = new Scrollable(rememberSplineBasedDecay, null, 2, null);
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        DefaultFlingBehavior defaultFlingBehavior = (DefaultFlingBehavior) rememberedValue;
+        Scrollable scrollable = (Scrollable) rememberedValue;
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
         composer.endReplaceableGroup();
-        return defaultFlingBehavior;
+        return scrollable;
     }
 
     public final OverscrollEffect overscrollEffect(Composer composer, int i) {

@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: AppBar.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.EnterAlwaysScrollBehavior$nestedScrollConnection$1", f = "AppBar.kt", i = {0, 0}, l = {1499, 1500}, m = "onPostFling-RZ2iAVY", n = {"this", "available"}, s = {"L$0", "J$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.EnterAlwaysScrollBehavior$nestedScrollConnection$1", m30f = "AppBar.kt", m29i = {0, 0}, m28l = {1499, 1500}, m27m = "onPostFling-RZ2iAVY", m26n = {"this", "available"}, m25s = {"L$0", "J$0"})
 /* loaded from: classes.dex */
 public final class EnterAlwaysScrollBehavior$nestedScrollConnection$1$onPostFling$1 extends ContinuationImpl {
     long J$0;
@@ -28,6 +28,6 @@ public final class EnterAlwaysScrollBehavior$nestedScrollConnection$1$onPostFlin
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return this.this$0.mo308onPostFlingRZ2iAVY(0L, 0L, this);
+        return this.this$0.mo609onPostFlingRZ2iAVY(0L, 0L, this);
     }
 }

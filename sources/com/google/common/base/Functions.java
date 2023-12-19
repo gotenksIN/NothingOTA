@@ -143,36 +143,40 @@ public final class Functions {
     /* loaded from: classes.dex */
     private static class FunctionComposition<A, B, C> implements Function<A, C>, Serializable {
         private static final long serialVersionUID = 0;
-        private final Function<A, ? extends B> f;
-        private final Function<B, C> g;
+
+        /* renamed from: f */
+        private final Function<A, ? extends B> f202f;
+
+        /* renamed from: g */
+        private final Function<B, C> f203g;
 
         public FunctionComposition(Function<B, C> function, Function<A, ? extends B> function2) {
-            this.g = (Function) Preconditions.checkNotNull(function);
-            this.f = (Function) Preconditions.checkNotNull(function2);
+            this.f203g = (Function) Preconditions.checkNotNull(function);
+            this.f202f = (Function) Preconditions.checkNotNull(function2);
         }
 
         @Override // com.google.common.base.Function
         @ParametricNullness
         public C apply(@ParametricNullness A a) {
-            return this.g.apply(this.f.apply(a));
+            return this.f203g.apply(this.f202f.apply(a));
         }
 
         @Override // com.google.common.base.Function
         public boolean equals(@CheckForNull Object obj) {
             if (obj instanceof FunctionComposition) {
                 FunctionComposition functionComposition = (FunctionComposition) obj;
-                return this.f.equals(functionComposition.f) && this.g.equals(functionComposition.g);
+                return this.f202f.equals(functionComposition.f202f) && this.f203g.equals(functionComposition.f203g);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f.hashCode() ^ this.g.hashCode();
+            return this.f202f.hashCode() ^ this.f203g.hashCode();
         }
 
         public String toString() {
-            String valueOf = String.valueOf(this.g);
-            String valueOf2 = String.valueOf(this.f);
+            String valueOf = String.valueOf(this.f203g);
+            String valueOf2 = String.valueOf(this.f202f);
             return new StringBuilder(String.valueOf(valueOf).length() + 2 + String.valueOf(valueOf2).length()).append(valueOf).append("(").append(valueOf2).append(")").toString();
         }
     }

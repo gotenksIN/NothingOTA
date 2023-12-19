@@ -98,7 +98,7 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
             @Override // com.google.common.collect.AbstractSequentialIterator
             @CheckForNull
             protected /* bridge */ /* synthetic */ Object computeNext(Object obj) {
-                return computeNext((AnonymousClass1) ((Comparable) obj));
+                return computeNext((C12731) ((Comparable) obj));
             }
 
             @CheckForNull
@@ -124,7 +124,7 @@ public final class RegularContiguousSet<C extends Comparable> extends Contiguous
             @Override // com.google.common.collect.AbstractSequentialIterator
             @CheckForNull
             protected /* bridge */ /* synthetic */ Object computeNext(Object obj) {
-                return computeNext((AnonymousClass2) ((Comparable) obj));
+                return computeNext((C12742) ((Comparable) obj));
             }
 
             @CheckForNull

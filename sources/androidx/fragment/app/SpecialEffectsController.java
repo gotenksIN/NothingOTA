@@ -3,9 +3,9 @@ package androidx.fragment.app;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 import androidx.core.view.ViewCompat;
-import androidx.fragment.R;
+import androidx.fragment.C0894R;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,12 +29,12 @@ public abstract class SpecialEffectsController {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static SpecialEffectsController getOrCreateController(ViewGroup viewGroup, SpecialEffectsControllerFactory specialEffectsControllerFactory) {
-        Object tag = viewGroup.getTag(R.id.special_effects_controller_view_tag);
+        Object tag = viewGroup.getTag(C0894R.C0896id.special_effects_controller_view_tag);
         if (tag instanceof SpecialEffectsController) {
             return (SpecialEffectsController) tag;
         }
         SpecialEffectsController createController = specialEffectsControllerFactory.createController(viewGroup);
-        viewGroup.setTag(R.id.special_effects_controller_view_tag, createController);
+        viewGroup.setTag(C0894R.C0896id.special_effects_controller_view_tag, createController);
         return createController;
     }
 
@@ -302,7 +302,7 @@ public abstract class SpecialEffectsController {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             public void applyState(View view) {
-                int i = AnonymousClass3.$SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[ordinal()];
+                int i = C09703.f183xe493b431[ordinal()];
                 if (i == 1) {
                     ViewGroup viewGroup = (ViewGroup) view.getParent();
                     if (viewGroup != null) {
@@ -336,7 +336,7 @@ public abstract class SpecialEffectsController {
             this.mLifecycleImpact = lifecycleImpact;
             this.mFragment = fragment;
             cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.fragment.app.SpecialEffectsController.Operation.1
-                @Override // androidx.core.os.CancellationSignal.OnCancelListener
+                @Override // androidx.core.p004os.CancellationSignal.OnCancelListener
                 public void onCancel() {
                     Operation.this.cancel();
                 }
@@ -379,7 +379,7 @@ public abstract class SpecialEffectsController {
         }
 
         final void mergeWith(State state, LifecycleImpact lifecycleImpact) {
-            int i = AnonymousClass3.$SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact[lifecycleImpact.ordinal()];
+            int i = C09703.f182xb9e640f0[lifecycleImpact.ordinal()];
             if (i == 1) {
                 if (this.mFinalState == State.REMOVED) {
                     if (FragmentManager.isLoggingEnabled(2)) {
@@ -437,43 +437,47 @@ public abstract class SpecialEffectsController {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: androidx.fragment.app.SpecialEffectsController$3  reason: invalid class name */
+    /* renamed from: androidx.fragment.app.SpecialEffectsController$3 */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass3 {
-        static final /* synthetic */ int[] $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact;
-        static final /* synthetic */ int[] $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State;
+    public static /* synthetic */ class C09703 {
+
+        /* renamed from: $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact */
+        static final /* synthetic */ int[] f182xb9e640f0;
+
+        /* renamed from: $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State */
+        static final /* synthetic */ int[] f183xe493b431;
 
         static {
             int[] iArr = new int[Operation.LifecycleImpact.values().length];
-            $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact = iArr;
+            f182xb9e640f0 = iArr;
             try {
                 iArr[Operation.LifecycleImpact.ADDING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact[Operation.LifecycleImpact.REMOVING.ordinal()] = 2;
+                f182xb9e640f0[Operation.LifecycleImpact.REMOVING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$LifecycleImpact[Operation.LifecycleImpact.NONE.ordinal()] = 3;
+                f182xb9e640f0[Operation.LifecycleImpact.NONE.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[Operation.State.values().length];
-            $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State = iArr2;
+            f183xe493b431 = iArr2;
             try {
                 iArr2[Operation.State.REMOVED.ordinal()] = 1;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[Operation.State.VISIBLE.ordinal()] = 2;
+                f183xe493b431[Operation.State.VISIBLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[Operation.State.GONE.ordinal()] = 3;
+                f183xe493b431[Operation.State.GONE.ordinal()] = 3;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[Operation.State.INVISIBLE.ordinal()] = 4;
+                f183xe493b431[Operation.State.INVISIBLE.ordinal()] = 4;
             } catch (NoSuchFieldError unused7) {
             }
         }

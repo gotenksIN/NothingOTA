@@ -50,12 +50,12 @@ public final class NetworkBuilder<N, E> extends AbstractGraphBuilder<N> {
     }
 
     public NetworkBuilder<N, E> expectedNodeCount(int i) {
-        this.expectedNodeCount = Optional.of(Integer.valueOf(Graphs.checkNonNegative(i)));
+        this.expectedNodeCount = Optional.m241of(Integer.valueOf(Graphs.checkNonNegative(i)));
         return this;
     }
 
     public NetworkBuilder<N, E> expectedEdgeCount(int i) {
-        this.expectedEdgeCount = Optional.of(Integer.valueOf(Graphs.checkNonNegative(i)));
+        this.expectedEdgeCount = Optional.m241of(Integer.valueOf(Graphs.checkNonNegative(i)));
         return this;
     }
 

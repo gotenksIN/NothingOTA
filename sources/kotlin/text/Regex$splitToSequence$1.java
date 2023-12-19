@@ -10,8 +10,8 @@ import kotlin.sequences.SequenceScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Regex.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", ""}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.text.Regex$splitToSequence$1", f = "Regex.kt", i = {1, 1, 1}, l = {274, 282, 286}, m = "invokeSuspend", n = {"$this$sequence", "matcher", "splitCount"}, s = {"L$0", "L$1", "I$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", ""}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.text.Regex$splitToSequence$1", m30f = "Regex.kt", m29i = {1, 1, 1}, m28l = {274, 282, 286}, m27m = "invokeSuspend", m26n = {"$this$sequence", "matcher", "splitCount"}, m25s = {"L$0", "L$1", "I$0"})
 /* loaded from: classes2.dex */
 public final class Regex$splitToSequence$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super String>, Continuation<? super Unit>, Object> {
     final /* synthetic */ CharSequence $input;

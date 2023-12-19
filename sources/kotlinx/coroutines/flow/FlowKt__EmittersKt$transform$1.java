@@ -13,8 +13,8 @@ import kotlin.jvm.internal.InlineMarker;
 
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Emitters.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1", f = "Emitters.kt", i = {}, l = {40}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1", m30f = "Emitters.kt", m29i = {}, m28l = {40}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__EmittersKt$transform$1<R> extends SuspendLambda implements Function2<FlowCollector<? super R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow<T> $this_transform;
@@ -47,15 +47,15 @@ public final class FlowKt__EmittersKt$transform$1<R> extends SuspendLambda imple
     }
 
     /* compiled from: Emitters.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 176)
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, m40d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> implements FlowCollector {
+    public static final class C17221<T> implements FlowCollector {
         final /* synthetic */ FlowCollector<R> $$this$flow;
         final /* synthetic */ Function3<FlowCollector<? super R>, T, Continuation<? super Unit>, Object> $transform;
 
         /* JADX WARN: Multi-variable type inference failed */
-        public AnonymousClass1(Function3<? super FlowCollector<? super R>, ? super T, ? super Continuation<? super Unit>, ? extends Object> function3, FlowCollector<? super R> flowCollector) {
+        public C17221(Function3<? super FlowCollector<? super R>, ? super T, ? super Continuation<? super Unit>, ? extends Object> function3, FlowCollector<? super R> flowCollector) {
             this.$transform = function3;
             this.$$this$flow = flowCollector;
         }
@@ -111,7 +111,7 @@ public final class FlowKt__EmittersKt$transform$1<R> extends SuspendLambda imple
                 kotlin.Unit r5 = kotlin.Unit.INSTANCE
                 return r5
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1.AnonymousClass1.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__EmittersKt$transform$1.C17221.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
         }
 
         public final Object emit$$forInline(T t, Continuation<? super Unit> continuation) {
@@ -132,7 +132,7 @@ public final class FlowKt__EmittersKt$transform$1<R> extends SuspendLambda imple
             Flow<T> flow = this.$this_transform;
             Function3<FlowCollector<? super R>, T, Continuation<? super Unit>, Object> function3 = this.$transform;
             this.label = 1;
-            if (flow.collect(new AnonymousClass1(function3, (FlowCollector) this.L$0), this) == coroutine_suspended) {
+            if (flow.collect(new C17221(function3, (FlowCollector) this.L$0), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {
@@ -147,7 +147,7 @@ public final class FlowKt__EmittersKt$transform$1<R> extends SuspendLambda imple
         Flow<T> flow = this.$this_transform;
         Function3<FlowCollector<? super R>, T, Continuation<? super Unit>, Object> function3 = this.$transform;
         InlineMarker.mark(0);
-        flow.collect(new AnonymousClass1(function3, (FlowCollector) this.L$0), this);
+        flow.collect(new C17221(function3, (FlowCollector) this.L$0), this);
         InlineMarker.mark(1);
         return Unit.INSTANCE;
     }

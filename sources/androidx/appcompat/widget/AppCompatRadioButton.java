@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.TintableBackgroundView;
 import androidx.core.widget.TintableCompoundButton;
@@ -25,7 +25,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     public AppCompatRadioButton(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.radioButtonStyle);
+        this(context, attributeSet, C0032R.attr.radioButtonStyle);
     }
 
     public AppCompatRadioButton(Context context, AttributeSet attributeSet, int i) {

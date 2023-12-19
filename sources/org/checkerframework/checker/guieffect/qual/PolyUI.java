@@ -10,7 +10,7 @@ import org.checkerframework.framework.qual.PolymorphicQualifier;
 @Target({ElementType.TYPE_USE, ElementType.TYPE_PARAMETER})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@PolymorphicQualifier(UI.class)
+@PolymorphicQualifier(InterfaceC1801UI.class)
 /* loaded from: classes2.dex */
 public @interface PolyUI {
 }

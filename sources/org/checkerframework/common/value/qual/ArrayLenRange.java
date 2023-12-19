@@ -15,5 +15,6 @@ import org.checkerframework.framework.qual.SubtypeOf;
 public @interface ArrayLenRange {
     int from() default 0;
 
-    int to() default Integer.MAX_VALUE;
+    /* renamed from: to */
+    int m4to() default Integer.MAX_VALUE;
 }

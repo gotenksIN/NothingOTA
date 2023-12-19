@@ -10,7 +10,7 @@ public final class ByteVector extends BaseVector {
     }
 
     public byte get(int i) {
-        return this.bb.get(__element(i));
+        return this.f174bb.get(__element(i));
     }
 
     public int getAsUnsigned(int i) {

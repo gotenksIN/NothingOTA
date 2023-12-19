@@ -1,25 +1,25 @@
 package androidx.compose.material3;
 
-import androidx.compose.foundation.gestures.DragGestureDetectorKt;
-import androidx.compose.foundation.gestures.PressGestureScope;
+import androidx.compose.foundation.gestures.DragGestureDetector;
+import androidx.compose.foundation.gestures.TapGestureDetector;
 import androidx.compose.foundation.gestures.TapGestureDetectorKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.input.pointer.PointerInputChange;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.layout.OnRemeasuredModifierKt;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.IntSizeKt;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionScopedCoroutineScopeCanceller;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.input.pointer.PointerInputChange;
-import androidx.compose.ui.input.pointer.PointerInputScope;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.layout.OnRemeasuredModifierKt;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.IntOffset;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.IntSizeKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -28,10 +28,10 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
@@ -39,7 +39,7 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TimePicker.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, m40d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<Modifier, Composer, Integer, Modifier> {
     final /* synthetic */ boolean $autoSwitchToMinute;
@@ -59,13 +59,13 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final float invoke$lambda$1(MutableState<Float> mutableState) {
-        return mutableState.getValue().floatValue();
+    public static final float invoke$lambda$1(SnapshotState<Float> snapshotState) {
+        return snapshotState.getValue().floatValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$lambda$2(MutableState<Float> mutableState, float f) {
-        mutableState.setValue(Float.valueOf(f));
+    public static final void invoke$lambda$2(SnapshotState<Float> snapshotState, float f) {
+        snapshotState.setValue(Float.valueOf(f));
     }
 
     public final Modifier invoke(Modifier composed, Composer composer, int i) {
@@ -84,7 +84,7 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        MutableState mutableState = (MutableState) rememberedValue;
+        SnapshotState snapshotState = (SnapshotState) rememberedValue;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue2 = composer.rememberedValue();
@@ -93,16 +93,16 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
             composer.updateRememberedValue(rememberedValue2);
         }
         composer.endReplaceableGroup();
-        MutableState mutableState2 = (MutableState) rememberedValue2;
+        SnapshotState snapshotState2 = (SnapshotState) rememberedValue2;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue3 = composer.rememberedValue();
         if (rememberedValue3 == Composer.Companion.getEmpty()) {
-            rememberedValue3 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(IntOffset.m5159boximpl(IntOffset.Companion.m5178getZeronOccac()), null, 2, null);
+            rememberedValue3 = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(IntOffset.m5460boximpl(IntOffset.Companion.m5479getZeronOccac()), null, 2, null);
             composer.updateRememberedValue(rememberedValue3);
         }
         composer.endReplaceableGroup();
-        MutableState mutableState3 = (MutableState) rememberedValue3;
+        SnapshotState snapshotState3 = (SnapshotState) rememberedValue3;
         composer.startReplaceableGroup(773894976);
         ComposerKt.sourceInformation(composer, "CC(rememberCoroutineScope)476@19869L144:Effects.kt#9igjgp");
         composer.startReplaceableGroup(-492369756);
@@ -117,10 +117,10 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
         CoroutineScope coroutineScope = ((CompositionScopedCoroutineScopeCanceller) rememberedValue4).getCoroutineScope();
         composer.endReplaceableGroup();
         ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
-        Object consume = composer.consume(CompositionLocalsKt.getLocalDensity());
+        Object consume = composer.consume(CompositionLocals.getLocalDensity());
         ComposerKt.sourceInformationMarkerEnd(composer);
         f = TimePickerKt.MaxDistance;
-        float mo302toPx0680j_4 = ((Density) consume).mo302toPx0680j_4(f);
+        float mo603toPx0680j_4 = ((Density) consume).mo603toPx0680j_4(f);
         Modifier.Companion companion = Modifier.Companion;
         final TimePickerState timePickerState = this.$state;
         composer.startReplaceableGroup(1157296644);
@@ -136,19 +136,19 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                 @Override // kotlin.jvm.functions.Function1
                 public /* bridge */ /* synthetic */ Unit invoke(IntSize intSize) {
-                    m1510invokeozmzZPI(intSize.m5214unboximpl());
+                    m1811invokeozmzZPI(intSize.m5515unboximpl());
                     return Unit.INSTANCE;
                 }
 
                 /* renamed from: invoke-ozmzZPI  reason: not valid java name */
-                public final void m1510invokeozmzZPI(long j) {
-                    TimePickerState.this.m1526setCentergyyYBs$material3_release(IntSizeKt.m5216getCenterozmzZPI(j));
+                public final void m1811invokeozmzZPI(long j) {
+                    TimePickerState.this.m1827setCentergyyYBs$material3_release(IntSizeKt.m5517getCenterozmzZPI(j));
                 }
             };
             composer.updateRememberedValue(rememberedValue5);
         }
         composer.endReplaceableGroup();
-        Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput(SuspendingPointerInputFilterKt.pointerInput(OnRemeasuredModifierKt.onSizeChanged(companion, (Function1) rememberedValue5), new Object[]{this.$state, IntOffset.m5159boximpl(invoke$lambda$7(mutableState3)), Float.valueOf(mo302toPx0680j_4)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new AnonymousClass2(mutableState, mutableState2, coroutineScope, this.$state, mo302toPx0680j_4, this.$autoSwitchToMinute, null)), new Object[]{this.$state, IntOffset.m5159boximpl(invoke$lambda$7(mutableState3)), Float.valueOf(mo302toPx0680j_4)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new AnonymousClass3(coroutineScope, this.$state, this.$autoSwitchToMinute, mo302toPx0680j_4, mutableState, mutableState2, null));
+        Modifier pointerInput = SuspendingPointerInputFilterKt.pointerInput(SuspendingPointerInputFilterKt.pointerInput(OnRemeasuredModifierKt.onSizeChanged(companion, (Function1) rememberedValue5), new Object[]{this.$state, IntOffset.m5460boximpl(invoke$lambda$7(snapshotState3)), Float.valueOf(mo603toPx0680j_4)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new C06452(snapshotState, snapshotState2, coroutineScope, this.$state, mo603toPx0680j_4, this.$autoSwitchToMinute, null)), new Object[]{this.$state, IntOffset.m5460boximpl(invoke$lambda$7(snapshotState3)), Float.valueOf(mo603toPx0680j_4)}, (Function2<? super PointerInputScope, ? super Continuation<? super Unit>, ? extends Object>) new C06493(coroutineScope, this.$state, this.$autoSwitchToMinute, mo603toPx0680j_4, snapshotState, snapshotState2, null));
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -157,40 +157,40 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final float invoke$lambda$4(MutableState<Float> mutableState) {
-        return mutableState.getValue().floatValue();
+    public static final float invoke$lambda$4(SnapshotState<Float> snapshotState) {
+        return snapshotState.getValue().floatValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$lambda$5(MutableState<Float> mutableState, float f) {
-        mutableState.setValue(Float.valueOf(f));
+    public static final void invoke$lambda$5(SnapshotState<Float> snapshotState, float f) {
+        snapshotState.setValue(Float.valueOf(f));
     }
 
-    private static final long invoke$lambda$7(MutableState<IntOffset> mutableState) {
-        return mutableState.getValue().m5177unboximpl();
+    private static final long invoke$lambda$7(SnapshotState<IntOffset> snapshotState) {
+        return snapshotState.getValue().m5478unboximpl();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: TimePicker.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$2", f = "TimePicker.kt", i = {}, l = {1255}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$2", m30f = "TimePicker.kt", m29i = {}, m28l = {1255}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass2 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
+    public static final class C06452 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ boolean $autoSwitchToMinute;
         final /* synthetic */ float $maxDist;
-        final /* synthetic */ MutableState<Float> $offsetX$delegate;
-        final /* synthetic */ MutableState<Float> $offsetY$delegate;
+        final /* synthetic */ SnapshotState<Float> $offsetX$delegate;
+        final /* synthetic */ SnapshotState<Float> $offsetY$delegate;
         final /* synthetic */ CoroutineScope $scope;
         final /* synthetic */ TimePickerState $state;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass2(MutableState<Float> mutableState, MutableState<Float> mutableState2, CoroutineScope coroutineScope, TimePickerState timePickerState, float f, boolean z, Continuation<? super AnonymousClass2> continuation) {
+        C06452(SnapshotState<Float> snapshotState, SnapshotState<Float> snapshotState2, CoroutineScope coroutineScope, TimePickerState timePickerState, float f, boolean z, Continuation<? super C06452> continuation) {
             super(2, continuation);
-            this.$offsetX$delegate = mutableState;
-            this.$offsetY$delegate = mutableState2;
+            this.$offsetX$delegate = snapshotState;
+            this.$offsetY$delegate = snapshotState2;
             this.$scope = coroutineScope;
             this.$state = timePickerState;
             this.$maxDist = f;
@@ -199,45 +199,45 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass2 anonymousClass2 = new AnonymousClass2(this.$offsetX$delegate, this.$offsetY$delegate, this.$scope, this.$state, this.$maxDist, this.$autoSwitchToMinute, continuation);
-            anonymousClass2.L$0 = obj;
-            return anonymousClass2;
+            C06452 c06452 = new C06452(this.$offsetX$delegate, this.$offsetY$delegate, this.$scope, this.$state, this.$maxDist, this.$autoSwitchToMinute, continuation);
+            c06452.L$0 = obj;
+            return c06452;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(PointerInputScope pointerInputScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass2) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06452) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: TimePicker.kt */
-        @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$2$1", f = "TimePicker.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2$1  reason: invalid class name */
+        @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$2$1", m30f = "TimePicker.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2$1 */
         /* loaded from: classes.dex */
-        public static final class AnonymousClass1 extends SuspendLambda implements Function3<PressGestureScope, Offset, Continuation<? super Unit>, Object> {
-            final /* synthetic */ MutableState<Float> $offsetX$delegate;
-            final /* synthetic */ MutableState<Float> $offsetY$delegate;
+        public static final class C06461 extends SuspendLambda implements Function3<TapGestureDetector, Offset, Continuation<? super Unit>, Object> {
+            final /* synthetic */ SnapshotState<Float> $offsetX$delegate;
+            final /* synthetic */ SnapshotState<Float> $offsetY$delegate;
             /* synthetic */ long J$0;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            AnonymousClass1(MutableState<Float> mutableState, MutableState<Float> mutableState2, Continuation<? super AnonymousClass1> continuation) {
+            C06461(SnapshotState<Float> snapshotState, SnapshotState<Float> snapshotState2, Continuation<? super C06461> continuation) {
                 super(3, continuation);
-                this.$offsetX$delegate = mutableState;
-                this.$offsetY$delegate = mutableState2;
+                this.$offsetX$delegate = snapshotState;
+                this.$offsetY$delegate = snapshotState2;
             }
 
             @Override // kotlin.jvm.functions.Function3
-            public /* bridge */ /* synthetic */ Object invoke(PressGestureScope pressGestureScope, Offset offset, Continuation<? super Unit> continuation) {
-                return m1511invoked4ec7I(pressGestureScope, offset.m2328unboximpl(), continuation);
+            public /* bridge */ /* synthetic */ Object invoke(TapGestureDetector tapGestureDetector, Offset offset, Continuation<? super Unit> continuation) {
+                return m1812invoked4ec7I(tapGestureDetector, offset.m2629unboximpl(), continuation);
             }
 
             /* renamed from: invoke-d-4ec7I  reason: not valid java name */
-            public final Object m1511invoked4ec7I(PressGestureScope pressGestureScope, long j, Continuation<? super Unit> continuation) {
-                AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$offsetX$delegate, this.$offsetY$delegate, continuation);
-                anonymousClass1.J$0 = j;
-                return anonymousClass1.invokeSuspend(Unit.INSTANCE);
+            public final Object m1812invoked4ec7I(TapGestureDetector tapGestureDetector, long j, Continuation<? super Unit> continuation) {
+                C06461 c06461 = new C06461(this.$offsetX$delegate, this.$offsetY$delegate, continuation);
+                c06461.J$0 = j;
+                return c06461.invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -246,8 +246,8 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                 if (this.label == 0) {
                     ResultKt.throwOnFailure(obj);
                     long j = this.J$0;
-                    TimePickerKt$clockDial$2.invoke$lambda$2(this.$offsetX$delegate, Offset.m2318getXimpl(j));
-                    TimePickerKt$clockDial$2.invoke$lambda$5(this.$offsetY$delegate, Offset.m2319getYimpl(j));
+                    TimePickerKt$clockDial$2.invoke$lambda$2(this.$offsetX$delegate, Offset.m2619getXimpl(j));
+                    TimePickerKt$clockDial$2.invoke$lambda$5(this.$offsetY$delegate, Offset.m2620getYimpl(j));
                     return Unit.INSTANCE;
                 }
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -265,7 +265,7 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                 final float f = this.$maxDist;
                 final boolean z = this.$autoSwitchToMinute;
                 this.label = 1;
-                if (TapGestureDetectorKt.detectTapGestures$default((PointerInputScope) this.L$0, null, null, new AnonymousClass1(this.$offsetX$delegate, this.$offsetY$delegate, null), new Function1<Offset, Unit>() { // from class: androidx.compose.material3.TimePickerKt.clockDial.2.2.2
+                if (TapGestureDetectorKt.detectTapGestures$default((PointerInputScope) this.L$0, null, null, new C06461(this.$offsetX$delegate, this.$offsetY$delegate, null), new Function1<Offset, Unit>() { // from class: androidx.compose.material3.TimePickerKt.clockDial.2.2.2
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super(1);
@@ -273,22 +273,22 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                     @Override // kotlin.jvm.functions.Function1
                     public /* bridge */ /* synthetic */ Unit invoke(Offset offset) {
-                        m1512invokek4lQ0M(offset.m2328unboximpl());
+                        m1813invokek4lQ0M(offset.m2629unboximpl());
                         return Unit.INSTANCE;
                     }
 
                     /* renamed from: invoke-k-4lQ0M  reason: not valid java name */
-                    public final void m1512invokek4lQ0M(long j) {
-                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new AnonymousClass1(timePickerState, j, f, z, null), 3, null);
+                    public final void m1813invokek4lQ0M(long j) {
+                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new C06481(timePickerState, j, f, z, null), 3, null);
                     }
 
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* compiled from: TimePicker.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$2$2$1", f = "TimePicker.kt", i = {}, l = {1261}, m = "invokeSuspend", n = {}, s = {})
-                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2$2$1  reason: invalid class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$2$2$1", m30f = "TimePicker.kt", m29i = {}, m28l = {1261}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$2$2$1 */
                     /* loaded from: classes.dex */
-                    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                    public static final class C06481 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                         final /* synthetic */ boolean $autoSwitchToMinute;
                         final /* synthetic */ long $it;
                         final /* synthetic */ float $maxDist;
@@ -296,7 +296,7 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                         int label;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        AnonymousClass1(TimePickerState timePickerState, long j, float f, boolean z, Continuation<? super AnonymousClass1> continuation) {
+                        C06481(TimePickerState timePickerState, long j, float f, boolean z, Continuation<? super C06481> continuation) {
                             super(2, continuation);
                             this.$state = timePickerState;
                             this.$it = j;
@@ -306,12 +306,12 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                            return new AnonymousClass1(this.$state, this.$it, this.$maxDist, this.$autoSwitchToMinute, continuation);
+                            return new C06481(this.$state, this.$it, this.$maxDist, this.$autoSwitchToMinute, continuation);
                         }
 
                         @Override // kotlin.jvm.functions.Function2
                         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                            return ((C06481) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -321,7 +321,7 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                             if (i == 0) {
                                 ResultKt.throwOnFailure(obj);
                                 this.label = 1;
-                                if (this.$state.onTap$material3_release(Offset.m2318getXimpl(this.$it), Offset.m2319getYimpl(this.$it), this.$maxDist, this.$autoSwitchToMinute, this) == coroutine_suspended) {
+                                if (this.$state.onTap$material3_release(Offset.m2619getXimpl(this.$it), Offset.m2620getYimpl(this.$it), this.$maxDist, this.$autoSwitchToMinute, this) == coroutine_suspended) {
                                     return coroutine_suspended;
                                 }
                             } else if (i != 1) {
@@ -346,41 +346,41 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: TimePicker.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$3", f = "TimePicker.kt", i = {}, l = {1266}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$3", m30f = "TimePicker.kt", m29i = {}, m28l = {1266}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass3 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
+    public static final class C06493 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ boolean $autoSwitchToMinute;
         final /* synthetic */ float $maxDist;
-        final /* synthetic */ MutableState<Float> $offsetX$delegate;
-        final /* synthetic */ MutableState<Float> $offsetY$delegate;
+        final /* synthetic */ SnapshotState<Float> $offsetX$delegate;
+        final /* synthetic */ SnapshotState<Float> $offsetY$delegate;
         final /* synthetic */ CoroutineScope $scope;
         final /* synthetic */ TimePickerState $state;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass3(CoroutineScope coroutineScope, TimePickerState timePickerState, boolean z, float f, MutableState<Float> mutableState, MutableState<Float> mutableState2, Continuation<? super AnonymousClass3> continuation) {
+        C06493(CoroutineScope coroutineScope, TimePickerState timePickerState, boolean z, float f, SnapshotState<Float> snapshotState, SnapshotState<Float> snapshotState2, Continuation<? super C06493> continuation) {
             super(2, continuation);
             this.$scope = coroutineScope;
             this.$state = timePickerState;
             this.$autoSwitchToMinute = z;
             this.$maxDist = f;
-            this.$offsetX$delegate = mutableState;
-            this.$offsetY$delegate = mutableState2;
+            this.$offsetX$delegate = snapshotState;
+            this.$offsetY$delegate = snapshotState2;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass3 anonymousClass3 = new AnonymousClass3(this.$scope, this.$state, this.$autoSwitchToMinute, this.$maxDist, this.$offsetX$delegate, this.$offsetY$delegate, continuation);
-            anonymousClass3.L$0 = obj;
-            return anonymousClass3;
+            C06493 c06493 = new C06493(this.$scope, this.$state, this.$autoSwitchToMinute, this.$maxDist, this.$offsetX$delegate, this.$offsetY$delegate, continuation);
+            c06493.L$0 = obj;
+            return c06493;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(PointerInputScope pointerInputScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass3) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06493) create(pointerInputScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -395,16 +395,16 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                 final CoroutineScope coroutineScope2 = this.$scope;
                 final TimePickerState timePickerState2 = this.$state;
                 final float f = this.$maxDist;
-                final MutableState<Float> mutableState = this.$offsetX$delegate;
-                final MutableState<Float> mutableState2 = this.$offsetY$delegate;
+                final SnapshotState<Float> snapshotState = this.$offsetX$delegate;
+                final SnapshotState<Float> snapshotState2 = this.$offsetY$delegate;
                 this.label = 1;
-                if (DragGestureDetectorKt.detectDragGestures$default((PointerInputScope) this.L$0, null, new Function0<Unit>() { // from class: androidx.compose.material3.TimePickerKt.clockDial.2.3.1
+                if (DragGestureDetector.detectDragGestures$default((PointerInputScope) this.L$0, null, new Functions<Unit>() { // from class: androidx.compose.material3.TimePickerKt.clockDial.2.3.1
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
                         super(0);
                     }
 
-                    @Override // kotlin.jvm.functions.Function0
+                    @Override // kotlin.jvm.functions.Functions
                     public /* bridge */ /* synthetic */ Unit invoke() {
                         invoke2();
                         return Unit.INSTANCE;
@@ -412,22 +412,22 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new C00481(timePickerState, z, null), 3, null);
+                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new C06511(timePickerState, z, null), 3, null);
                     }
 
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* compiled from: TimePicker.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$3$1$1", f = "TimePicker.kt", i = {}, l = {1270, 1272}, m = "invokeSuspend", n = {}, s = {})
-                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3$1$1  reason: invalid class name and collision with other inner class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$3$1$1", m30f = "TimePicker.kt", m29i = {}, m28l = {1270, 1272}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3$1$1 */
                     /* loaded from: classes.dex */
-                    public static final class C00481 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                    public static final class C06511 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                         final /* synthetic */ boolean $autoSwitchToMinute;
                         final /* synthetic */ TimePickerState $state;
                         int label;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        C00481(TimePickerState timePickerState, boolean z, Continuation<? super C00481> continuation) {
+                        C06511(TimePickerState timePickerState, boolean z, Continuation<? super C06511> continuation) {
                             super(2, continuation);
                             this.$state = timePickerState;
                             this.$autoSwitchToMinute = z;
@@ -435,12 +435,12 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                            return new C00481(this.$state, this.$autoSwitchToMinute, continuation);
+                            return new C06511(this.$state, this.$autoSwitchToMinute, continuation);
                         }
 
                         @Override // kotlin.jvm.functions.Function2
                         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                            return ((C00481) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                            return ((C06511) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -449,13 +449,13 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                             int i = this.label;
                             if (i == 0) {
                                 ResultKt.throwOnFailure(obj);
-                                if (Selection.m1307equalsimpl0(this.$state.m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1311getHourJiIwxys()) && this.$autoSwitchToMinute) {
-                                    this.$state.m1527setSelectioniHAOin8$material3_release(Selection.Companion.m1312getMinuteJiIwxys());
+                                if (Selection.m1608equalsimpl0(this.$state.m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1612getHourJiIwxys()) && this.$autoSwitchToMinute) {
+                                    this.$state.m1828setSelectioniHAOin8$material3_release(Selection.Companion.m1613getMinuteJiIwxys());
                                     this.label = 1;
                                     if (this.$state.animateToCurrent$material3_release(this) == coroutine_suspended) {
                                         return coroutine_suspended;
                                     }
-                                } else if (Selection.m1307equalsimpl0(this.$state.m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1312getMinuteJiIwxys())) {
+                                } else if (Selection.m1608equalsimpl0(this.$state.m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1613getMinuteJiIwxys())) {
                                     this.label = 2;
                                     if (this.$state.settle(this) == coroutine_suspended) {
                                         return coroutine_suspended;
@@ -477,47 +477,47 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
 
                     @Override // kotlin.jvm.functions.Function2
                     public /* bridge */ /* synthetic */ Unit invoke(PointerInputChange pointerInputChange, Offset offset) {
-                        m1513invokeUv8p0NA(pointerInputChange, offset.m2328unboximpl());
+                        m1814invokeUv8p0NA(pointerInputChange, offset.m2629unboximpl());
                         return Unit.INSTANCE;
                     }
 
                     /* renamed from: invoke-Uv8p0NA  reason: not valid java name */
-                    public final void m1513invokeUv8p0NA(PointerInputChange pointerInputChange, long j) {
+                    public final void m1814invokeUv8p0NA(PointerInputChange pointerInputChange, long j) {
                         Intrinsics.checkNotNullParameter(pointerInputChange, "<anonymous parameter 0>");
-                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new AnonymousClass1(j, timePickerState2, mutableState, mutableState2, null), 3, null);
-                        timePickerState2.moveSelector$material3_release(TimePickerKt$clockDial$2.invoke$lambda$1(mutableState), TimePickerKt$clockDial$2.invoke$lambda$4(mutableState2), f);
+                        BuildersKt__Builders_commonKt.launch$default(CoroutineScope.this, null, null, new C06531(j, timePickerState2, snapshotState, snapshotState2, null), 3, null);
+                        timePickerState2.moveSelector$material3_release(TimePickerKt$clockDial$2.invoke$lambda$1(snapshotState), TimePickerKt$clockDial$2.invoke$lambda$4(snapshotState2), f);
                     }
 
                     /* JADX INFO: Access modifiers changed from: package-private */
                     /* compiled from: TimePicker.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.material3.TimePickerKt$clockDial$2$3$2$1", f = "TimePicker.kt", i = {}, l = {1279}, m = "invokeSuspend", n = {}, s = {})
-                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3$2$1  reason: invalid class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.material3.TimePickerKt$clockDial$2$3$2$1", m30f = "TimePicker.kt", m29i = {}, m28l = {1279}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                    /* renamed from: androidx.compose.material3.TimePickerKt$clockDial$2$3$2$1 */
                     /* loaded from: classes.dex */
-                    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                    public static final class C06531 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                         final /* synthetic */ long $dragAmount;
-                        final /* synthetic */ MutableState<Float> $offsetX$delegate;
-                        final /* synthetic */ MutableState<Float> $offsetY$delegate;
+                        final /* synthetic */ SnapshotState<Float> $offsetX$delegate;
+                        final /* synthetic */ SnapshotState<Float> $offsetY$delegate;
                         final /* synthetic */ TimePickerState $state;
                         int label;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                        AnonymousClass1(long j, TimePickerState timePickerState, MutableState<Float> mutableState, MutableState<Float> mutableState2, Continuation<? super AnonymousClass1> continuation) {
+                        C06531(long j, TimePickerState timePickerState, SnapshotState<Float> snapshotState, SnapshotState<Float> snapshotState2, Continuation<? super C06531> continuation) {
                             super(2, continuation);
                             this.$dragAmount = j;
                             this.$state = timePickerState;
-                            this.$offsetX$delegate = mutableState;
-                            this.$offsetY$delegate = mutableState2;
+                            this.$offsetX$delegate = snapshotState;
+                            this.$offsetY$delegate = snapshotState2;
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                            return new AnonymousClass1(this.$dragAmount, this.$state, this.$offsetX$delegate, this.$offsetY$delegate, continuation);
+                            return new C06531(this.$dragAmount, this.$state, this.$offsetX$delegate, this.$offsetY$delegate, continuation);
                         }
 
                         @Override // kotlin.jvm.functions.Function2
                         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                            return ((C06531) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                         }
 
                         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -527,12 +527,12 @@ public final class TimePickerKt$clockDial$2 extends Lambda implements Function3<
                             int i = this.label;
                             if (i == 0) {
                                 ResultKt.throwOnFailure(obj);
-                                MutableState<Float> mutableState = this.$offsetX$delegate;
-                                TimePickerKt$clockDial$2.invoke$lambda$2(mutableState, TimePickerKt$clockDial$2.invoke$lambda$1(mutableState) + Offset.m2318getXimpl(this.$dragAmount));
-                                MutableState<Float> mutableState2 = this.$offsetY$delegate;
-                                TimePickerKt$clockDial$2.invoke$lambda$5(mutableState2, TimePickerKt$clockDial$2.invoke$lambda$4(mutableState2) + Offset.m2319getYimpl(this.$dragAmount));
+                                SnapshotState<Float> snapshotState = this.$offsetX$delegate;
+                                TimePickerKt$clockDial$2.invoke$lambda$2(snapshotState, TimePickerKt$clockDial$2.invoke$lambda$1(snapshotState) + Offset.m2619getXimpl(this.$dragAmount));
+                                SnapshotState<Float> snapshotState2 = this.$offsetY$delegate;
+                                TimePickerKt$clockDial$2.invoke$lambda$5(snapshotState2, TimePickerKt$clockDial$2.invoke$lambda$4(snapshotState2) + Offset.m2620getYimpl(this.$dragAmount));
                                 TimePickerState timePickerState = this.$state;
-                                atan = TimePickerKt.atan(TimePickerKt$clockDial$2.invoke$lambda$4(this.$offsetY$delegate) - IntOffset.m5169getYimpl(this.$state.m1523getCenternOccac$material3_release()), TimePickerKt$clockDial$2.invoke$lambda$1(this.$offsetX$delegate) - IntOffset.m5168getXimpl(this.$state.m1523getCenternOccac$material3_release()));
+                                atan = TimePickerKt.atan(TimePickerKt$clockDial$2.invoke$lambda$4(this.$offsetY$delegate) - IntOffset.m5470getYimpl(this.$state.m1824getCenternOccac$material3_release()), TimePickerKt$clockDial$2.invoke$lambda$1(this.$offsetX$delegate) - IntOffset.m5469getXimpl(this.$state.m1824getCenternOccac$material3_release()));
                                 this.label = 1;
                                 if (TimePickerState.update$material3_release$default(timePickerState, atan, false, this, 2, null) == coroutine_suspended) {
                                     return coroutine_suspended;

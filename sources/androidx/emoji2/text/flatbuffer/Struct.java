@@ -4,11 +4,13 @@ import java.nio.ByteBuffer;
 
 /* loaded from: classes.dex */
 public class Struct {
-    protected ByteBuffer bb;
+
+    /* renamed from: bb */
+    protected ByteBuffer f179bb;
     protected int bb_pos;
 
     protected void __reset(int i, ByteBuffer byteBuffer) {
-        this.bb = byteBuffer;
+        this.f179bb = byteBuffer;
         if (byteBuffer != null) {
             this.bb_pos = i;
         } else {

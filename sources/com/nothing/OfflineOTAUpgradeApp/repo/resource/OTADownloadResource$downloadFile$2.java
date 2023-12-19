@@ -23,8 +23,8 @@ import okhttp3.ResponseBody;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTADownloadResource.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$downloadFile$2", f = "OTADownloadResource.kt", i = {0}, l = {148, 149, 159, 168}, m = "invokeSuspend", n = {"$this$withContext"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource$downloadFile$2", m30f = "OTADownloadResource.kt", m29i = {0}, m28l = {149, 150, 160, 169}, m27m = "invokeSuspend", m26n = {"$this$withContext"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class OTADownloadResource$downloadFile$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $append;

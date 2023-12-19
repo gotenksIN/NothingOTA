@@ -8,14 +8,14 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.coroutines.jvm.internal.DebugProbes;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
 
 /* compiled from: KotlinExtensions.kt */
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000.\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a%\u0010\u0000\u001a\u0002H\u0001\"\b\b\u0000\u0010\u0001*\u00020\u0002*\b\u0012\u0004\u0012\u0002H\u00010\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0004\u001a+\u0010\u0000\u001a\u0004\u0018\u0001H\u0001\"\b\b\u0000\u0010\u0001*\u00020\u0002*\n\u0012\u0006\u0012\u0004\u0018\u0001H\u00010\u0003H\u0087@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0004\u001a'\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00010\u0007\"\u0004\b\u0000\u0010\u0001*\b\u0012\u0004\u0012\u0002H\u00010\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0004\u001a\u001a\u0010\b\u001a\u0002H\u0001\"\u0006\b\u0000\u0010\u0001\u0018\u0001*\u00020\tH\u0086\b¢\u0006\u0002\u0010\n\u001a\u0019\u0010\u000b\u001a\u00020\f*\u00060\rj\u0002`\u000eH\u0080@ø\u0001\u0000¢\u0006\u0002\u0010\u000f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0010"}, d2 = {"await", "T", "", "Lretrofit2/Call;", "(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "awaitNullable", "awaitResponse", "Lretrofit2/Response;", "create", "Lretrofit2/Retrofit;", "(Lretrofit2/Retrofit;)Ljava/lang/Object;", "suspendAndThrow", "", "Ljava/lang/Exception;", "Lkotlin/Exception;", "(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "retrofit"}, k = 2, mv = {1, 1, 15})
+@Metadata(m42bv = {1, 0, 3}, m41d1 = {"\u0000.\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a%\u0010\u0000\u001a\u0002H\u0001\"\b\b\u0000\u0010\u0001*\u00020\u0002*\b\u0012\u0004\u0012\u0002H\u00010\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0004\u001a+\u0010\u0000\u001a\u0004\u0018\u0001H\u0001\"\b\b\u0000\u0010\u0001*\u00020\u0002*\n\u0012\u0006\u0012\u0004\u0018\u0001H\u00010\u0003H\u0087@ø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0004\u001a'\u0010\u0006\u001a\b\u0012\u0004\u0012\u0002H\u00010\u0007\"\u0004\b\u0000\u0010\u0001*\b\u0012\u0004\u0012\u0002H\u00010\u0003H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0004\u001a\u001a\u0010\b\u001a\u0002H\u0001\"\u0006\b\u0000\u0010\u0001\u0018\u0001*\u00020\tH\u0086\b¢\u0006\u0002\u0010\n\u001a\u0019\u0010\u000b\u001a\u00020\f*\u00060\rj\u0002`\u000eH\u0080@ø\u0001\u0000¢\u0006\u0002\u0010\u000f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0010"}, m40d2 = {"await", "T", "", "Lretrofit2/Call;", "(Lretrofit2/Call;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "awaitNullable", "awaitResponse", "Lretrofit2/Response;", "create", "Lretrofit2/Retrofit;", "(Lretrofit2/Retrofit;)Ljava/lang/Object;", "suspendAndThrow", "", "Ljava/lang/Exception;", "Lkotlin/Exception;", "(Ljava/lang/Exception;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "retrofit"}, m39k = 2, m38mv = {1, 1, 15})
 /* loaded from: classes2.dex */
 public final class KotlinExtensions {
     public static final /* synthetic */ <T> T create(Retrofit create) {
@@ -73,11 +73,11 @@ public final class KotlinExtensions {
             retrofit2.KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1 r3 = new retrofit2.KotlinExtensions$suspendAndThrow$$inlined$suspendCoroutineUninterceptedOrReturn$lambda$1
             r3.<init>()
             java.lang.Runnable r3 = (java.lang.Runnable) r3
-            r5.mo6926dispatch(r2, r3)
+            r5.mo7202dispatch(r2, r3)
             java.lang.Object r4 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
             java.lang.Object r5 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
             if (r4 != r5) goto L5e
-            kotlin.coroutines.jvm.internal.DebugProbesKt.probeCoroutineSuspended(r0)
+            kotlin.coroutines.jvm.internal.DebugProbes.probeCoroutineSuspended(r0)
         L5e:
             if (r4 != r1) goto L61
             return r1
@@ -128,15 +128,15 @@ public final class KotlinExtensions {
                         Intrinsics.checkExpressionValueIsNotNull(declaringClass, "method.declaringClass");
                         KotlinNullPointerException kotlinNullPointerException = new KotlinNullPointerException(sb.append(declaringClass.getName()).append('.').append(method.getName()).append(" was null but response body type was declared as non-null").toString());
                         Result.Companion companion = Result.Companion;
-                        CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(kotlinNullPointerException)));
+                        CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(kotlinNullPointerException)));
                         return;
                     }
                     Result.Companion companion2 = Result.Companion;
-                    CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(body));
+                    CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(body));
                     return;
                 }
                 Result.Companion companion3 = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(new HttpException(response))));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(new HttpException(response))));
             }
 
             @Override // retrofit2.Callback
@@ -144,12 +144,12 @@ public final class KotlinExtensions {
                 Intrinsics.checkParameterIsNotNull(call2, "call");
                 Intrinsics.checkParameterIsNotNull(t, "t");
                 Result.Companion companion = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(t)));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(t)));
             }
         });
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            DebugProbesKt.probeCoroutineSuspended(continuation);
+            DebugProbes.probeCoroutineSuspended(continuation);
         }
         return result;
     }
@@ -182,11 +182,11 @@ public final class KotlinExtensions {
                 if (response.isSuccessful()) {
                     T body = response.body();
                     Result.Companion companion = Result.Companion;
-                    CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(body));
+                    CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(body));
                     return;
                 }
                 Result.Companion companion2 = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(new HttpException(response))));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(new HttpException(response))));
             }
 
             @Override // retrofit2.Callback
@@ -194,12 +194,12 @@ public final class KotlinExtensions {
                 Intrinsics.checkParameterIsNotNull(call2, "call");
                 Intrinsics.checkParameterIsNotNull(t, "t");
                 Result.Companion companion = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(t)));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(t)));
             }
         });
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            DebugProbesKt.probeCoroutineSuspended(continuation);
+            DebugProbes.probeCoroutineSuspended(continuation);
         }
         return result;
     }
@@ -230,7 +230,7 @@ public final class KotlinExtensions {
                 Intrinsics.checkParameterIsNotNull(call2, "call");
                 Intrinsics.checkParameterIsNotNull(response, "response");
                 Result.Companion companion = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(response));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(response));
             }
 
             @Override // retrofit2.Callback
@@ -238,12 +238,12 @@ public final class KotlinExtensions {
                 Intrinsics.checkParameterIsNotNull(call2, "call");
                 Intrinsics.checkParameterIsNotNull(t, "t");
                 Result.Companion companion = Result.Companion;
-                CancellableContinuation.this.resumeWith(Result.m5373constructorimpl(ResultKt.createFailure(t)));
+                CancellableContinuation.this.resumeWith(Result.m5649constructorimpl(ResultKt.createFailure(t)));
             }
         });
         Object result = cancellableContinuationImpl.getResult();
         if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            DebugProbesKt.probeCoroutineSuspended(continuation);
+            DebugProbes.probeCoroutineSuspended(continuation);
         }
         return result;
     }

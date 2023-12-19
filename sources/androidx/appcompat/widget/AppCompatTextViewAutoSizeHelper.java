@@ -17,7 +17,7 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.ViewCompat;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -105,16 +105,16 @@ public class AppCompatTextViewAutoSizeHelper {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         int resourceId;
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, R.styleable.AppCompatTextView, i, 0);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, C0032R.styleable.AppCompatTextView, i, 0);
         TextView textView = this.mTextView;
-        ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R.styleable.AppCompatTextView, attributeSet, obtainStyledAttributes, i, 0);
-        if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeTextType)) {
-            this.mAutoSizeTextType = obtainStyledAttributes.getInt(R.styleable.AppCompatTextView_autoSizeTextType, 0);
+        ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), C0032R.styleable.AppCompatTextView, attributeSet, obtainStyledAttributes, i, 0);
+        if (obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_autoSizeTextType)) {
+            this.mAutoSizeTextType = obtainStyledAttributes.getInt(C0032R.styleable.AppCompatTextView_autoSizeTextType, 0);
         }
-        float dimension = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeStepGranularity, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
-        float dimension2 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMinTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
-        float dimension3 = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(R.styleable.AppCompatTextView_autoSizeMaxTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
-        if (obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
+        float dimension = obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_autoSizeStepGranularity) ? obtainStyledAttributes.getDimension(C0032R.styleable.AppCompatTextView_autoSizeStepGranularity, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        float dimension2 = obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_autoSizeMinTextSize) ? obtainStyledAttributes.getDimension(C0032R.styleable.AppCompatTextView_autoSizeMinTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        float dimension3 = obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_autoSizeMaxTextSize) ? obtainStyledAttributes.getDimension(C0032R.styleable.AppCompatTextView_autoSizeMaxTextSize, UNSET_AUTO_SIZE_UNIFORM_CONFIGURATION_VALUE) : -1.0f;
+        if (obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_autoSizePresetSizes) && (resourceId = obtainStyledAttributes.getResourceId(C0032R.styleable.AppCompatTextView_autoSizePresetSizes, 0)) > 0) {
             TypedArray obtainTypedArray = obtainStyledAttributes.getResources().obtainTypedArray(resourceId);
             setupAutoSizeUniformPresetSizes(obtainTypedArray);
             obtainTypedArray.recycle();

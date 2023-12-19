@@ -488,7 +488,7 @@ public class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Se
 
             @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean retainAll(Collection<?> collection) {
-                return Column.this.removeFromColumnIf(Predicates.not(Predicates.in(collection)));
+                return Column.this.removeFromColumnIf(Predicates.not(Predicates.m240in(collection)));
             }
         }
 
@@ -553,7 +553,7 @@ public class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Se
 
             @Override // com.google.common.collect.Sets.ImprovedAbstractSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
             public boolean retainAll(Collection<?> collection) {
-                return Column.this.removeFromColumnIf(Maps.keyPredicateOnEntries(Predicates.not(Predicates.in(collection))));
+                return Column.this.removeFromColumnIf(Maps.keyPredicateOnEntries(Predicates.not(Predicates.m240in(collection))));
             }
         }
 
@@ -575,12 +575,12 @@ public class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Se
 
             @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
             public boolean removeAll(Collection<?> collection) {
-                return Column.this.removeFromColumnIf(Maps.valuePredicateOnEntries(Predicates.in(collection)));
+                return Column.this.removeFromColumnIf(Maps.valuePredicateOnEntries(Predicates.m240in(collection)));
             }
 
             @Override // com.google.common.collect.Maps.Values, java.util.AbstractCollection, java.util.Collection
             public boolean retainAll(Collection<?> collection) {
-                return Column.this.removeFromColumnIf(Maps.valuePredicateOnEntries(Predicates.not(Predicates.in(collection))));
+                return Column.this.removeFromColumnIf(Maps.valuePredicateOnEntries(Predicates.not(Predicates.m240in(collection))));
             }
         }
     }
@@ -781,7 +781,7 @@ public class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Se
                 return Maps.asMapEntryIterator(StandardTable.this.backingMap.keySet(), new Function<R, Map<C, V>>() { // from class: com.google.common.collect.StandardTable.RowMap.EntrySet.1
                     @Override // com.google.common.base.Function
                     public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                        return apply((AnonymousClass1) obj);
+                        return apply((C13091) obj);
                     }
 
                     @Override // com.google.common.base.Function
@@ -884,7 +884,7 @@ public class StandardTable<R, C, V> extends AbstractTable<R, C, V> implements Se
                 return Maps.asMapEntryIterator(StandardTable.this.columnKeySet(), new Function<C, Map<R, V>>() { // from class: com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet.1
                     @Override // com.google.common.base.Function
                     public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                        return apply((AnonymousClass1) obj);
+                        return apply((C13061) obj);
                     }
 
                     @Override // com.google.common.base.Function

@@ -1,6 +1,6 @@
 package androidx.compose.foundation.lazy.grid;
 
-import androidx.compose.ui.unit.IntOffset;
+import androidx.compose.p002ui.unit.IntOffset;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -13,8 +13,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LazyGridItemPlacementAnimator.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.lazy.grid.LazyGridItemPlacementAnimator$getAnimatedOffset$1", f = "LazyGridItemPlacementAnimator.kt", i = {}, l = {281}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.lazy.grid.LazyGridItemPlacementAnimator$getAnimatedOffset$1", m30f = "LazyGridItemPlacementAnimator.kt", m29i = {}, m28l = {281}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class LazyGridItemPlacementAnimator$getAnimatedOffset$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ PlaceableInfo $item;
@@ -44,7 +44,7 @@ public final class LazyGridItemPlacementAnimator$getAnimatedOffset$1 extends Sus
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (this.$item.getAnimatedOffset().snapTo(IntOffset.m5159boximpl(this.$item.m610getTargetOffsetnOccac()), this) == coroutine_suspended) {
+            if (this.$item.getAnimatedOffset().snapTo(IntOffset.m5460boximpl(this.$item.m911getTargetOffsetnOccac()), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

@@ -272,7 +272,7 @@ public abstract class HashCode {
         StringBuilder sb = new StringBuilder(bytesInternal.length * 2);
         for (byte b : bytesInternal) {
             char[] cArr = hexDigits;
-            sb.append(cArr[(b >> 4) & 15]).append(cArr[b & Ascii.SI]);
+            sb.append(cArr[(b >> 4) & 15]).append(cArr[b & Ascii.f197SI]);
         }
         return sb.toString();
     }

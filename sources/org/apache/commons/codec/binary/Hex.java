@@ -46,7 +46,7 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
             int i2 = i + 1;
             cArr2[i] = cArr[(b & 240) >>> 4];
             i = i2 + 1;
-            cArr2[i2] = cArr[b & Ascii.SI];
+            cArr2[i2] = cArr[b & Ascii.f197SI];
         }
         return cArr2;
     }

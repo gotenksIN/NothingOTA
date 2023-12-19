@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: UpdatableAnimationState.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.UpdatableAnimationState", f = "UpdatableAnimationState.kt", i = {0, 0, 0, 0, 1, 1}, l = {100, 146}, m = "animateToZero", n = {"this", "beforeFrame", "afterFrame", "durationScale", "this", "afterFrame"}, s = {"L$0", "L$1", "L$2", "F$0", "L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.UpdatableAnimationState", m30f = "UpdatableAnimationState.kt", m29i = {0, 0, 0, 0, 1, 1}, m28l = {100, 146}, m27m = "animateToZero", m26n = {"this", "beforeFrame", "afterFrame", "durationScale", "this", "afterFrame"}, m25s = {"L$0", "L$1", "L$2", "F$0", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class UpdatableAnimationState$animateToZero$1 extends ContinuationImpl {
     float F$0;

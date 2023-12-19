@@ -13,14 +13,14 @@ import kotlin.ResultKt;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.coroutines.jvm.internal.DebugProbes;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuation;
 import kotlinx.coroutines.CancellableContinuationImpl;
 import kotlinx.coroutines.Dispatchers;
 
 /* compiled from: HandlerDispatcher.kt */
-@Metadata(d1 = {"\u0000@\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\u001a\u0011\u0010\b\u001a\u00020\u0001H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\t\u001a\u001e\u0010\n\u001a\u00020\u000b2\u0006\u0010\u0006\u001a\u00020\u00072\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00010\rH\u0002\u001a\u0016\u0010\u000e\u001a\u00020\u000b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00010\rH\u0002\u001a\u001d\u0010\u000f\u001a\u00020\u0003*\u00020\u00102\n\b\u0002\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0007¢\u0006\u0002\b\u0013\u001a\u0014\u0010\u0014\u001a\u00020\u0010*\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017H\u0001\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0000X\u0081\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0004\u0010\u0005\"\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0018"}, d2 = {"MAX_DELAY", "", "Main", "Lkotlinx/coroutines/android/HandlerDispatcher;", "getMain$annotations", "()V", "choreographer", "Landroid/view/Choreographer;", "awaitFrame", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "postFrameCallback", "", "cont", "Lkotlinx/coroutines/CancellableContinuation;", "updateChoreographerAndPostFrameCallback", "asCoroutineDispatcher", "Landroid/os/Handler;", HintConstants.AUTOFILL_HINT_NAME, "", "from", "asHandler", "Landroid/os/Looper;", "async", "", "kotlinx-coroutines-android"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000@\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\u001a\u0011\u0010\b\u001a\u00020\u0001H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\t\u001a\u001e\u0010\n\u001a\u00020\u000b2\u0006\u0010\u0006\u001a\u00020\u00072\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00010\rH\u0002\u001a\u0016\u0010\u000e\u001a\u00020\u000b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00010\rH\u0002\u001a\u001d\u0010\u000f\u001a\u00020\u0003*\u00020\u00102\n\b\u0002\u0010\u0011\u001a\u0004\u0018\u00010\u0012H\u0007¢\u0006\u0002\b\u0013\u001a\u0014\u0010\u0014\u001a\u00020\u0010*\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017H\u0001\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u0018\u0010\u0002\u001a\u0004\u0018\u00010\u00038\u0000X\u0081\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u0004\u0010\u0005\"\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0018"}, m40d2 = {"MAX_DELAY", "", "Main", "Lkotlinx/coroutines/android/HandlerDispatcher;", "getMain$annotations", "()V", "choreographer", "Landroid/view/Choreographer;", "awaitFrame", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "postFrameCallback", "", "cont", "Lkotlinx/coroutines/CancellableContinuation;", "updateChoreographerAndPostFrameCallback", "asCoroutineDispatcher", "Landroid/os/Handler;", HintConstants.AUTOFILL_HINT_NAME, "", "from", "asHandler", "Landroid/os/Looper;", "async", "", "kotlinx-coroutines-android"}, m39k = 2, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class HandlerDispatcherKt {
     private static final long MAX_DELAY = 4611686018427387903L;
@@ -65,15 +65,15 @@ public final class HandlerDispatcherKt {
     }
 
     static {
-        Object m5373constructorimpl;
+        Object m5649constructorimpl;
         try {
             Result.Companion companion = Result.Companion;
-            m5373constructorimpl = Result.m5373constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
+            m5649constructorimpl = Result.m5649constructorimpl(new HandlerContext(asHandler(Looper.getMainLooper(), true), null, 2, null));
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m5373constructorimpl = Result.m5373constructorimpl(ResultKt.createFailure(th));
+            m5649constructorimpl = Result.m5649constructorimpl(ResultKt.createFailure(th));
         }
-        Main = Result.m5379isFailureimpl(m5373constructorimpl) ? null : m5373constructorimpl;
+        Main = Result.m5655isFailureimpl(m5649constructorimpl) ? null : m5649constructorimpl;
     }
 
     public static final Object awaitFrame(Continuation<? super Long> continuation) {
@@ -84,14 +84,14 @@ public final class HandlerDispatcherKt {
             postFrameCallback(choreographer2, cancellableContinuationImpl);
             Object result = cancellableContinuationImpl.getResult();
             if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                DebugProbesKt.probeCoroutineSuspended(continuation);
+                DebugProbes.probeCoroutineSuspended(continuation);
             }
             return result;
         }
         CancellableContinuationImpl cancellableContinuationImpl2 = new CancellableContinuationImpl(IntrinsicsKt.intercepted(continuation), 1);
         cancellableContinuationImpl2.initCancellability();
         final CancellableContinuationImpl cancellableContinuationImpl3 = cancellableContinuationImpl2;
-        Dispatchers.getMain().mo6926dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrame$lambda-3$$inlined$Runnable$1
+        Dispatchers.getMain().mo7202dispatch(EmptyCoroutineContext.INSTANCE, new Runnable() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$awaitFrame$lambda-3$$inlined$Runnable$1
             @Override // java.lang.Runnable
             public final void run() {
                 HandlerDispatcherKt.updateChoreographerAndPostFrameCallback(CancellableContinuation.this);
@@ -99,7 +99,7 @@ public final class HandlerDispatcherKt {
         });
         Object result2 = cancellableContinuationImpl2.getResult();
         if (result2 == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-            DebugProbesKt.probeCoroutineSuspended(continuation);
+            DebugProbes.probeCoroutineSuspended(continuation);
         }
         return result2;
     }
@@ -120,14 +120,14 @@ public final class HandlerDispatcherKt {
         choreographer2.postFrameCallback(new Choreographer.FrameCallback() { // from class: kotlinx.coroutines.android.HandlerDispatcherKt$$ExternalSyntheticLambda0
             @Override // android.view.Choreographer.FrameCallback
             public final void doFrame(long j) {
-                HandlerDispatcherKt.m6876postFrameCallback$lambda6(CancellableContinuation.this, j);
+                HandlerDispatcherKt.m7152postFrameCallback$lambda6(CancellableContinuation.this, j);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: postFrameCallback$lambda-6  reason: not valid java name */
-    public static final void m6876postFrameCallback$lambda6(CancellableContinuation cancellableContinuation, long j) {
+    public static final void m7152postFrameCallback$lambda6(CancellableContinuation cancellableContinuation, long j) {
         cancellableContinuation.resumeUndispatched(Dispatchers.getMain(), Long.valueOf(j));
     }
 }

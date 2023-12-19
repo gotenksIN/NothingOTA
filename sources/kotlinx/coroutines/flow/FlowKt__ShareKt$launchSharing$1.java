@@ -5,9 +5,9 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
@@ -21,8 +21,8 @@ import kotlinx.coroutines.CoroutineScope;
     */
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Share.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1", f = "Share.kt", i = {}, l = {214, 218, 219, 225}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1", m30f = "Share.kt", m29i = {}, m28l = {214, 218, 219, 225}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ T $initialValue;
@@ -159,27 +159,27 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Share.kt */
-    @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "it", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$1", f = "Share.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "it", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$1", m30f = "Share.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<Integer, Continuation<? super Boolean>, Object> {
+    public static final class C17361 extends SuspendLambda implements Function2<Integer, Continuation<? super Boolean>, Object> {
         /* synthetic */ int I$0;
         int label;
 
-        AnonymousClass1(Continuation<? super AnonymousClass1> continuation) {
+        C17361(Continuation<? super C17361> continuation) {
             super(2, continuation);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(continuation);
-            anonymousClass1.I$0 = ((Number) obj).intValue();
-            return anonymousClass1;
+            C17361 c17361 = new C17361(continuation);
+            c17361.I$0 = ((Number) obj).intValue();
+            return c17361;
         }
 
         public final Object invoke(int i, Continuation<? super Boolean> continuation) {
-            return ((AnonymousClass1) create(Integer.valueOf(i), continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C17361) create(Integer.valueOf(i), continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.jvm.functions.Function2
@@ -192,7 +192,7 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
             IntrinsicsKt.getCOROUTINE_SUSPENDED();
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
-                return Boxing.boxBoolean(this.I$0 > 0);
+                return boxing.boxBoolean(this.I$0 > 0);
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
@@ -200,11 +200,11 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Share.kt */
-    @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "it", "Lkotlinx/coroutines/flow/SharingCommand;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$2", f = "Share.kt", i = {}, l = {227}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$2  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "it", "Lkotlinx/coroutines/flow/SharingCommand;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$2", m30f = "Share.kt", m29i = {}, m28l = {227}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$2 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass2 extends SuspendLambda implements Function2<SharingCommand, Continuation<? super Unit>, Object> {
+    public static final class C17372 extends SuspendLambda implements Function2<SharingCommand, Continuation<? super Unit>, Object> {
         final /* synthetic */ T $initialValue;
         final /* synthetic */ MutableSharedFlow<T> $shared;
         final /* synthetic */ Flow<T> $upstream;
@@ -212,7 +212,7 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
         int label;
 
         /* compiled from: Share.kt */
-        @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
+        @Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
         /* renamed from: kotlinx.coroutines.flow.FlowKt__ShareKt$launchSharing$1$2$WhenMappings */
         /* loaded from: classes2.dex */
         public /* synthetic */ class WhenMappings {
@@ -229,7 +229,7 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass2(Flow<? extends T> flow, MutableSharedFlow<T> mutableSharedFlow, T t, Continuation<? super AnonymousClass2> continuation) {
+        C17372(Flow<? extends T> flow, MutableSharedFlow<T> mutableSharedFlow, T t, Continuation<? super C17372> continuation) {
             super(2, continuation);
             this.$upstream = flow;
             this.$shared = mutableSharedFlow;
@@ -238,9 +238,9 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass2 anonymousClass2 = new AnonymousClass2(this.$upstream, this.$shared, this.$initialValue, continuation);
-            anonymousClass2.L$0 = obj;
-            return anonymousClass2;
+            C17372 c17372 = new C17372(this.$upstream, this.$shared, this.$initialValue, continuation);
+            c17372.L$0 = obj;
+            return c17372;
         }
 
         @Override // kotlin.jvm.functions.Function2
@@ -250,7 +250,7 @@ public final class FlowKt__ShareKt$launchSharing$1 extends SuspendLambda impleme
 
         /* renamed from: invoke  reason: avoid collision after fix types in other method */
         public final Object invoke2(SharingCommand sharingCommand, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass2) create(sharingCommand, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C17372) create(sharingCommand, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

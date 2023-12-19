@@ -12,7 +12,7 @@ import android.view.WindowInsets;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.fragment.R;
+import androidx.fragment.C0894R;
 import java.util.ArrayList;
 
 /* loaded from: classes.dex */
@@ -42,9 +42,9 @@ public final class FragmentContainerView extends FrameLayout {
         this.mDrawDisappearingViewsFirst = true;
         if (attributeSet != null) {
             String classAttribute = attributeSet.getClassAttribute();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FragmentContainerView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0894R.styleable.FragmentContainerView);
             if (classAttribute == null) {
-                classAttribute = obtainStyledAttributes.getString(R.styleable.FragmentContainerView_android_name);
+                classAttribute = obtainStyledAttributes.getString(C0894R.styleable.FragmentContainerView_android_name);
                 str = "android:name";
             } else {
                 str = "class";
@@ -61,9 +61,9 @@ public final class FragmentContainerView extends FrameLayout {
         super(context, attributeSet);
         this.mDrawDisappearingViewsFirst = true;
         String classAttribute = attributeSet.getClassAttribute();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.FragmentContainerView);
-        classAttribute = classAttribute == null ? obtainStyledAttributes.getString(R.styleable.FragmentContainerView_android_name) : classAttribute;
-        String string = obtainStyledAttributes.getString(R.styleable.FragmentContainerView_android_tag);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0894R.styleable.FragmentContainerView);
+        classAttribute = classAttribute == null ? obtainStyledAttributes.getString(C0894R.styleable.FragmentContainerView_android_name) : classAttribute;
+        String string = obtainStyledAttributes.getString(C0894R.styleable.FragmentContainerView_android_tag);
         obtainStyledAttributes.recycle();
         int id = getId();
         Fragment findFragmentById = fragmentManager.findFragmentById(id);

@@ -2,16 +2,16 @@ package androidx.compose.foundation;
 
 import android.os.Build;
 import android.view.View;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.geometry.Rect;
+import androidx.compose.p002ui.layout.LayoutCoordinates;
+import androidx.compose.p002ui.platform.AndroidCompositionLocals_androidKt;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.geometry.Rect;
-import androidx.compose.ui.layout.LayoutCoordinates;
-import androidx.compose.ui.platform.AndroidCompositionLocals_androidKt;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -19,7 +19,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: SystemGestureExclusion.kt */
-@Metadata(d1 = {"\u0000\u0018\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a&\u0010\u0000\u001a\u00020\u00012\u0016\b\b\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003H\u0083\b¢\u0006\u0002\u0010\u0006\u001a\n\u0010\u0007\u001a\u00020\u0001*\u00020\u0001\u001a\u001e\u0010\u0007\u001a\u00020\u0001*\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003¨\u0006\b"}, d2 = {"excludeFromSystemGestureQ", "Landroidx/compose/ui/Modifier;", "exclusion", "Lkotlin/Function1;", "Landroidx/compose/ui/layout/LayoutCoordinates;", "Landroidx/compose/ui/geometry/Rect;", "(Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "systemGestureExclusion", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0018\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a&\u0010\u0000\u001a\u00020\u00012\u0016\b\b\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003H\u0083\b¢\u0006\u0002\u0010\u0006\u001a\n\u0010\u0007\u001a\u00020\u0001*\u00020\u0001\u001a\u001e\u0010\u0007\u001a\u00020\u0001*\u00020\u00012\u0012\u0010\u0002\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u00050\u0003¨\u0006\b"}, m40d2 = {"excludeFromSystemGestureQ", "Landroidx/compose/ui/Modifier;", "exclusion", "Lkotlin/Function1;", "Landroidx/compose/ui/layout/LayoutCoordinates;", "Landroidx/compose/ui/geometry/Rect;", "(Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;", "systemGestureExclusion", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class SystemGestureExclusionKt {
     public static final Modifier systemGestureExclusion(Modifier modifier) {
@@ -63,19 +63,19 @@ public final class SystemGestureExclusionKt {
                 boolean changed = composer.changed(view) | composer.changed((Object) null);
                 Object rememberedValue = composer.rememberedValue();
                 if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-                    rememberedValue = new ExcludeFromSystemGestureModifier(view, null);
+                    rememberedValue = new SystemGestureExclusion(view, null);
                     composer.updateRememberedValue(rememberedValue);
                 }
                 composer.endReplaceableGroup();
-                ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier = (ExcludeFromSystemGestureModifier) rememberedValue;
-                EffectsKt.DisposableEffect(excludeFromSystemGestureModifier, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(excludeFromSystemGestureModifier), composer, 0);
+                SystemGestureExclusion systemGestureExclusion = (SystemGestureExclusion) rememberedValue;
+                EffectsKt.DisposableEffect(systemGestureExclusion, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(systemGestureExclusion), composer, 0);
                 composer.endReplaceableGroup();
-                ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier2 = excludeFromSystemGestureModifier;
+                SystemGestureExclusion systemGestureExclusion2 = systemGestureExclusion;
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                return excludeFromSystemGestureModifier2;
+                return systemGestureExclusion2;
             }
         });
     }
@@ -135,19 +135,19 @@ public final class SystemGestureExclusionKt {
                 boolean changed = composer.changed(view) | composer.changed(function1);
                 Object rememberedValue = composer.rememberedValue();
                 if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-                    rememberedValue = new ExcludeFromSystemGestureModifier(view, function1);
+                    rememberedValue = new SystemGestureExclusion(view, function1);
                     composer.updateRememberedValue(rememberedValue);
                 }
                 composer.endReplaceableGroup();
-                ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier = (ExcludeFromSystemGestureModifier) rememberedValue;
-                EffectsKt.DisposableEffect(excludeFromSystemGestureModifier, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(excludeFromSystemGestureModifier), composer, 0);
+                SystemGestureExclusion systemGestureExclusion = (SystemGestureExclusion) rememberedValue;
+                EffectsKt.DisposableEffect(systemGestureExclusion, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(systemGestureExclusion), composer, 0);
                 composer.endReplaceableGroup();
-                ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier2 = excludeFromSystemGestureModifier;
+                SystemGestureExclusion systemGestureExclusion2 = systemGestureExclusion;
                 if (ComposerKt.isTraceInProgress()) {
                     ComposerKt.traceEventEnd();
                 }
                 composer.endReplaceableGroup();
-                return excludeFromSystemGestureModifier2;
+                return systemGestureExclusion2;
             }
         });
     }
@@ -164,13 +164,13 @@ public final class SystemGestureExclusionKt {
         boolean changed = composer.changed(view) | composer.changed(function1);
         Object rememberedValue = composer.rememberedValue();
         if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-            rememberedValue = new ExcludeFromSystemGestureModifier(view, function1);
+            rememberedValue = new SystemGestureExclusion(view, function1);
             composer.updateRememberedValue(rememberedValue);
         }
         composer.endReplaceableGroup();
-        ExcludeFromSystemGestureModifier excludeFromSystemGestureModifier = (ExcludeFromSystemGestureModifier) rememberedValue;
-        EffectsKt.DisposableEffect(excludeFromSystemGestureModifier, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(excludeFromSystemGestureModifier), composer, 0);
+        SystemGestureExclusion systemGestureExclusion = (SystemGestureExclusion) rememberedValue;
+        EffectsKt.DisposableEffect(systemGestureExclusion, new SystemGestureExclusionKt$excludeFromSystemGestureQ$1(systemGestureExclusion), composer, 0);
         composer.endReplaceableGroup();
-        return excludeFromSystemGestureModifier;
+        return systemGestureExclusion;
     }
 }

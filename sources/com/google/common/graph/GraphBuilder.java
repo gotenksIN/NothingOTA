@@ -41,7 +41,7 @@ public final class GraphBuilder<N> extends AbstractGraphBuilder<N> {
     }
 
     public GraphBuilder<N> expectedNodeCount(int i) {
-        this.expectedNodeCount = Optional.of(Integer.valueOf(Graphs.checkNonNegative(i)));
+        this.expectedNodeCount = Optional.m241of(Integer.valueOf(Graphs.checkNonNegative(i)));
         return this;
     }
 

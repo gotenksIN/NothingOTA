@@ -61,16 +61,16 @@ public final class DefaultCallAdapterFactory extends CallAdapter.Factory {
         @Override // retrofit2.Call
         public void enqueue(Callback<T> callback) {
             Objects.requireNonNull(callback, "callback == null");
-            this.delegate.enqueue(new AnonymousClass1(callback));
+            this.delegate.enqueue(new C18151(callback));
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall$1  reason: invalid class name */
+        /* renamed from: retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall$1 */
         /* loaded from: classes2.dex */
-        public class AnonymousClass1 implements Callback<T> {
+        public class C18151 implements Callback<T> {
             final /* synthetic */ Callback val$callback;
 
-            AnonymousClass1(Callback callback) {
+            C18151(Callback callback) {
                 this.val$callback = callback;
             }
 
@@ -81,14 +81,14 @@ public final class DefaultCallAdapterFactory extends CallAdapter.Factory {
                 executor.execute(new Runnable() { // from class: retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall$1$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        DefaultCallAdapterFactory.ExecutorCallbackCall.AnonymousClass1.this.m7103xddacc936(callback, response);
+                        DefaultCallAdapterFactory.ExecutorCallbackCall.C18151.this.m1xddacc936(callback, response);
                     }
                 });
             }
 
             /* JADX INFO: Access modifiers changed from: package-private */
-            /* renamed from: lambda$onResponse$0$retrofit2-DefaultCallAdapterFactory$ExecutorCallbackCall$1  reason: not valid java name */
-            public /* synthetic */ void m7103xddacc936(Callback callback, Response response) {
+            /* renamed from: lambda$onResponse$0$retrofit2-DefaultCallAdapterFactory$ExecutorCallbackCall$1 */
+            public /* synthetic */ void m1xddacc936(Callback callback, Response response) {
                 if (ExecutorCallbackCall.this.delegate.isCanceled()) {
                     callback.onFailure(ExecutorCallbackCall.this, new IOException("Canceled"));
                 } else {
@@ -97,8 +97,8 @@ public final class DefaultCallAdapterFactory extends CallAdapter.Factory {
             }
 
             /* JADX INFO: Access modifiers changed from: package-private */
-            /* renamed from: lambda$onFailure$1$retrofit2-DefaultCallAdapterFactory$ExecutorCallbackCall$1  reason: not valid java name */
-            public /* synthetic */ void m7102x714e864(Callback callback, Throwable th) {
+            /* renamed from: lambda$onFailure$1$retrofit2-DefaultCallAdapterFactory$ExecutorCallbackCall$1 */
+            public /* synthetic */ void m2x714e864(Callback callback, Throwable th) {
                 callback.onFailure(ExecutorCallbackCall.this, th);
             }
 
@@ -109,7 +109,7 @@ public final class DefaultCallAdapterFactory extends CallAdapter.Factory {
                 executor.execute(new Runnable() { // from class: retrofit2.DefaultCallAdapterFactory$ExecutorCallbackCall$1$$ExternalSyntheticLambda1
                     @Override // java.lang.Runnable
                     public final void run() {
-                        DefaultCallAdapterFactory.ExecutorCallbackCall.AnonymousClass1.this.m7102x714e864(callback, th);
+                        DefaultCallAdapterFactory.ExecutorCallbackCall.C18151.this.m2x714e864(callback, th);
                     }
                 });
             }
@@ -137,7 +137,7 @@ public final class DefaultCallAdapterFactory extends CallAdapter.Factory {
 
         @Override // retrofit2.Call
         public Call<T> clone() {
-            return new ExecutorCallbackCall(this.callbackExecutor, this.delegate.mo7101clone());
+            return new ExecutorCallbackCall(this.callbackExecutor, this.delegate.mo7377clone());
         }
 
         @Override // retrofit2.Call

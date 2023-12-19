@@ -10,12 +10,12 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.channels.ChannelResult;
-import kotlinx.coroutines.flow.internal.NullSurrogateKt;
+import kotlinx.coroutines.flow.internal.NullSurrogate;
 import kotlinx.coroutines.internal.Symbol;
 
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "value", "Lkotlinx/coroutines/channels/ChannelResult;", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounceInternal$1$3$2", f = "Delay.kt", i = {0}, l = {243}, m = "invokeSuspend", n = {"$this$onFailure_u2dWpGqRn0$iv"}, s = {"L$0"})
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "value", "Lkotlinx/coroutines/channels/ChannelResult;", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$debounceInternal$1$3$2", m30f = "Delay.kt", m29i = {0}, m28l = {243}, m27m = "invokeSuspend", m26n = {"$this$onFailure_u2dWpGqRn0$iv"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 final class FlowKt__DelayKt$debounceInternal$1$3$2 extends SuspendLambda implements Function2<ChannelResult<? extends Object>, Continuation<? super Unit>, Object> {
     final /* synthetic */ FlowCollector<T> $downstream;
@@ -42,12 +42,12 @@ final class FlowKt__DelayKt$debounceInternal$1$3$2 extends SuspendLambda impleme
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(ChannelResult<? extends Object> channelResult, Continuation<? super Unit> continuation) {
-        return m6908invokeWpGqRn0(channelResult.m6897unboximpl(), continuation);
+        return m7184invokeWpGqRn0(channelResult.m7173unboximpl(), continuation);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m6908invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
-        return ((FlowKt__DelayKt$debounceInternal$1$3$2) create(ChannelResult.m6885boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m7184invokeWpGqRn0(Object obj, Continuation<? super Unit> continuation) {
+        return ((FlowKt__DelayKt$debounceInternal$1$3$2) create(ChannelResult.m7161boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Type inference failed for: r7v3, types: [T, java.lang.Object] */
@@ -60,26 +60,26 @@ final class FlowKt__DelayKt$debounceInternal$1$3$2 extends SuspendLambda impleme
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            ?? m6897unboximpl = ((ChannelResult) this.L$0).m6897unboximpl();
+            ?? m7173unboximpl = ((ChannelResult) this.L$0).m7173unboximpl();
             Ref.ObjectRef<Object> objectRef3 = this.$lastValue;
-            boolean z = m6897unboximpl instanceof ChannelResult.Failed;
+            boolean z = m7173unboximpl instanceof ChannelResult.Failed;
             if (!z) {
-                objectRef3.element = m6897unboximpl;
+                objectRef3.element = m7173unboximpl;
             }
             objectRef = this.$lastValue;
             FlowCollector<T> flowCollector = this.$downstream;
             if (z) {
-                Throwable m6889exceptionOrNullimpl = ChannelResult.m6889exceptionOrNullimpl(m6897unboximpl);
-                if (m6889exceptionOrNullimpl != null) {
-                    throw m6889exceptionOrNullimpl;
+                Throwable m7165exceptionOrNullimpl = ChannelResult.m7165exceptionOrNullimpl(m7173unboximpl);
+                if (m7165exceptionOrNullimpl != null) {
+                    throw m7165exceptionOrNullimpl;
                 }
                 if (objectRef.element != null) {
-                    Symbol symbol = NullSurrogateKt.NULL;
+                    Symbol symbol = NullSurrogate.NULL;
                     Object obj2 = objectRef.element;
                     if (obj2 == symbol) {
                         obj2 = null;
                     }
-                    this.L$0 = m6897unboximpl;
+                    this.L$0 = m7173unboximpl;
                     this.L$1 = objectRef;
                     this.label = 1;
                     if (flowCollector.emit(obj2, this) == coroutine_suspended) {
@@ -87,7 +87,7 @@ final class FlowKt__DelayKt$debounceInternal$1$3$2 extends SuspendLambda impleme
                     }
                     objectRef2 = objectRef;
                 }
-                objectRef.element = NullSurrogateKt.DONE;
+                objectRef.element = NullSurrogate.DONE;
             }
             return Unit.INSTANCE;
         } else if (i != 1) {
@@ -97,7 +97,7 @@ final class FlowKt__DelayKt$debounceInternal$1$3$2 extends SuspendLambda impleme
             ResultKt.throwOnFailure(obj);
         }
         objectRef = objectRef2;
-        objectRef.element = NullSurrogateKt.DONE;
+        objectRef.element = NullSurrogate.DONE;
         return Unit.INSTANCE;
     }
 }

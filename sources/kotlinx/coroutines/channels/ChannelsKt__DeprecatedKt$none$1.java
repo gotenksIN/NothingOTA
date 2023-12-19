@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Deprecated.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", f = "Deprecated.kt", i = {0}, l = {447}, m = "none", n = {"$this$consume$iv"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", m30f = "Deprecated.kt", m29i = {0}, m28l = {447}, m27m = "none", m26n = {"$this$consume$iv"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$none$1<E> extends ContinuationImpl {
     Object L$0;
@@ -25,7 +25,7 @@ public final class ChannelsKt__DeprecatedKt$none$1<E> extends ContinuationImpl {
         Object none;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        none = ChannelsKt__DeprecatedKt.none(null, this);
+        none = Deprecated.none(null, this);
         return none;
     }
 }

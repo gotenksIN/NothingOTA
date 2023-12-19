@@ -9,16 +9,16 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.flow.FlowKt;
 
 /* compiled from: Pager.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.pager.PagerKt$Pager$3$1", f = "Pager.kt", i = {}, l = {287}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.pager.PagerKt$Pager$3$1", m30f = "Pager.kt", m29i = {}, m28l = {287}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ PagerState $state;
@@ -48,13 +48,13 @@ final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<Corouti
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             final PagerState pagerState = this.$state;
-            final Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Function0<Boolean>() { // from class: androidx.compose.foundation.pager.PagerKt$Pager$3$1.1
+            final Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Functions<Boolean>() { // from class: androidx.compose.foundation.pager.PagerKt$Pager$3$1.1
                 {
                     super(0);
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Boolean invoke() {
                     return Boolean.valueOf(PagerState.this.isScrollInProgress());
                 }
@@ -62,29 +62,29 @@ final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<Corouti
             Flow drop = FlowKt.drop(new Flow<Boolean>() { // from class: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1
                 @Override // kotlinx.coroutines.flow.Flow
                 public Object collect(FlowCollector<? super Boolean> flowCollector, Continuation continuation) {
-                    Object collect = Flow.this.collect(new AnonymousClass2(flowCollector), continuation);
+                    Object collect = Flow.this.collect(new C03702(flowCollector), continuation);
                     return collect == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? collect : Unit.INSTANCE;
                 }
 
                 /* compiled from: Emitters.kt */
-                @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\b"}, d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$filter$$inlined$unsafeTransform$1$2"}, k = 3, mv = {1, 8, 0}, xi = 48)
-                /* renamed from: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2  reason: invalid class name */
+                @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006¨\u0006\b"}, m40d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx/coroutines/flow/FlowKt__EmittersKt$unsafeTransform$1$1", "kotlinx/coroutines/flow/FlowKt__TransformKt$filter$$inlined$unsafeTransform$1$2"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                /* renamed from: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass2<T> implements FlowCollector {
+                public static final class C03702<T> implements FlowCollector {
                     final /* synthetic */ FlowCollector $this_unsafeFlow;
 
                     /* compiled from: Emitters.kt */
-                    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                    @DebugMetadata(c = "androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2", f = "Pager.kt", i = {}, l = {223}, m = "emit", n = {}, s = {})
-                    /* renamed from: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2$1  reason: invalid class name */
+                    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                    @DebugMetadata(m31c = "androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2", m30f = "Pager.kt", m29i = {}, m28l = {223}, m27m = "emit", m26n = {}, m25s = {})
+                    /* renamed from: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2$1 */
                     /* loaded from: classes.dex */
-                    public static final class AnonymousClass1 extends ContinuationImpl {
+                    public static final class C03711 extends ContinuationImpl {
                         Object L$0;
                         Object L$1;
                         int label;
                         /* synthetic */ Object result;
 
-                        public AnonymousClass1(Continuation continuation) {
+                        public C03711(Continuation continuation) {
                             super(continuation);
                         }
 
@@ -92,11 +92,11 @@ final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<Corouti
                         public final Object invokeSuspend(Object obj) {
                             this.result = obj;
                             this.label |= Integer.MIN_VALUE;
-                            return AnonymousClass2.this.emit(null, this);
+                            return C03702.this.emit(null, this);
                         }
                     }
 
-                    public AnonymousClass2(FlowCollector flowCollector) {
+                    public C03702(FlowCollector flowCollector) {
                         this.$this_unsafeFlow = flowCollector;
                     }
 
@@ -110,10 +110,10 @@ final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<Corouti
                     public final java.lang.Object emit(java.lang.Object r5, kotlin.coroutines.Continuation r6) {
                         /*
                             r4 = this;
-                            boolean r0 = r6 instanceof androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.AnonymousClass2.AnonymousClass1
+                            boolean r0 = r6 instanceof androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.C03702.C03711
                             if (r0 == 0) goto L14
                             r0 = r6
-                            androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2$1 r0 = (androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.AnonymousClass2.AnonymousClass1) r0
+                            androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1$2$1 r0 = (androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.C03702.C03711) r0
                             int r1 = r0.label
                             r2 = -2147483648(0xffffffff80000000, float:-0.0)
                             r1 = r1 & r2
@@ -157,7 +157,7 @@ final class PagerKt$Pager$3$1 extends SuspendLambda implements Function2<Corouti
                             kotlin.Unit r5 = kotlin.Unit.INSTANCE
                             return r5
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.AnonymousClass2.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.pager.PagerKt$Pager$3$1$invokeSuspend$$inlined$filter$1.C03702.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
                     }
                 }
             }, 1);

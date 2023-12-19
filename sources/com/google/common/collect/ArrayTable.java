@@ -207,7 +207,8 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
     }
 
     @CheckForNull
-    public V at(int i, int i2) {
+    /* renamed from: at */
+    public V m227at(int i, int i2) {
         Preconditions.checkElementIndex(i, this.rowList.size());
         Preconditions.checkElementIndex(i2, this.columnList.size());
         return this.array[i][i2];
@@ -280,7 +281,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
         if (num == null || num2 == null) {
             return null;
         }
-        return at(num.intValue(), num2.intValue());
+        return m227at(num.intValue(), num2.intValue());
     }
 
     @Override // com.google.common.collect.AbstractTable, com.google.common.collect.Table
@@ -369,7 +370,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
             @Override // com.google.common.collect.Table.Cell
             @CheckForNull
             public V getValue() {
-                return (V) ArrayTable.this.at(this.rowIndex, this.columnIndex);
+                return (V) ArrayTable.this.m227at(this.rowIndex, this.columnIndex);
             }
         };
     }
@@ -377,7 +378,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
     /* JADX INFO: Access modifiers changed from: private */
     @CheckForNull
     public V getValue(int i) {
-        return at(i / this.columnList.size(), i % this.columnList.size());
+        return m227at(i / this.columnList.size(), i % this.columnList.size());
     }
 
     @Override // com.google.common.collect.Table
@@ -408,7 +409,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
         @Override // com.google.common.collect.ArrayTable.ArrayMap
         @CheckForNull
         V getValue(int i) {
-            return (V) ArrayTable.this.at(i, this.columnIndex);
+            return (V) ArrayTable.this.m227at(i, this.columnIndex);
         }
 
         @Override // com.google.common.collect.ArrayTable.ArrayMap
@@ -500,7 +501,7 @@ public final class ArrayTable<R, C, V> extends AbstractTable<R, C, V> implements
         @Override // com.google.common.collect.ArrayTable.ArrayMap
         @CheckForNull
         V getValue(int i) {
-            return (V) ArrayTable.this.at(this.rowIndex, i);
+            return (V) ArrayTable.this.m227at(this.rowIndex, i);
         }
 
         @Override // com.google.common.collect.ArrayTable.ArrayMap

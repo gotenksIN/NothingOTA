@@ -4,7 +4,9 @@ import java.nio.ByteBuffer;
 
 /* loaded from: classes.dex */
 public class BaseVector {
-    protected ByteBuffer bb;
+
+    /* renamed from: bb */
+    protected ByteBuffer f174bb;
     private int element_size;
     private int length;
     private int vector;
@@ -20,7 +22,7 @@ public class BaseVector {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void __reset(int i, int i2, ByteBuffer byteBuffer) {
-        this.bb = byteBuffer;
+        this.f174bb = byteBuffer;
         if (byteBuffer != null) {
             this.vector = i;
             this.length = byteBuffer.getInt(i - 4);

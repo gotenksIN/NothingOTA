@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Limit.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__LimitKt$dropWhile$1$1", f = "Limit.kt", i = {1, 1}, l = {37, 38, 40}, m = "emit", n = {"this", "value"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__LimitKt$dropWhile$1$1", m30f = "Limit.kt", m29i = {1, 1}, m28l = {37, 38, 40}, m27m = "emit", m26n = {"this", "value"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class FlowKt__LimitKt$dropWhile$1$1$emit$1 extends ContinuationImpl {
     Object L$0;

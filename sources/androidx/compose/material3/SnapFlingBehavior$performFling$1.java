@@ -1,5 +1,6 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -7,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: SnapFlingBehavior.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SnapFlingBehavior", f = "SnapFlingBehavior.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_listPreferredItemPaddingLeft}, m = "performFling", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SnapFlingBehavior", m30f = "SnapFlingBehavior.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemPaddingLeft}, m27m = "performFling", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class SnapFlingBehavior$performFling$1 extends ContinuationImpl {
     int label;

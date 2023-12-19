@@ -5,17 +5,17 @@ import kotlin.jvm.internal.Ref;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Distinct.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, m40d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class DistinctFlowImpl$collect$2<T> implements FlowCollector {
     final /* synthetic */ FlowCollector<T> $collector;
     final /* synthetic */ Ref.ObjectRef<Object> $previousKey;
-    final /* synthetic */ DistinctFlowImpl<T> this$0;
+    final /* synthetic */ Distinct<T> this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Multi-variable type inference failed */
-    public DistinctFlowImpl$collect$2(DistinctFlowImpl<T> distinctFlowImpl, Ref.ObjectRef<Object> objectRef, FlowCollector<? super T> flowCollector) {
-        this.this$0 = distinctFlowImpl;
+    public DistinctFlowImpl$collect$2(Distinct<T> distinct, Ref.ObjectRef<Object> objectRef, FlowCollector<? super T> flowCollector) {
+        this.this$0 = distinct;
         this.$previousKey = objectRef;
         this.$collector = flowCollector;
     }
@@ -66,7 +66,7 @@ public final class DistinctFlowImpl$collect$2<T> implements FlowCollector {
             java.lang.Object r7 = r7.invoke(r6)
             kotlin.jvm.internal.Ref$ObjectRef<java.lang.Object> r2 = r5.$previousKey
             T r2 = r2.element
-            kotlinx.coroutines.internal.Symbol r4 = kotlinx.coroutines.flow.internal.NullSurrogateKt.NULL
+            kotlinx.coroutines.internal.Symbol r4 = kotlinx.coroutines.flow.internal.NullSurrogate.NULL
             if (r2 == r4) goto L5d
             kotlinx.coroutines.flow.DistinctFlowImpl<T> r2 = r5.this$0
             kotlin.jvm.functions.Function2<java.lang.Object, java.lang.Object, java.lang.Boolean> r2 = r2.areEquivalent

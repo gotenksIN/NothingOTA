@@ -33,7 +33,8 @@ public interface Predicate<T> {
         };
     }
 
-    default Predicate<T> or(final Predicate<? super T> predicate) {
+    /* renamed from: or */
+    default Predicate<T> m259or(final Predicate<? super T> predicate) {
         Objects.requireNonNull(predicate);
         return new Predicate() { // from class: androidx.core.util.Predicate$$ExternalSyntheticLambda0
             @Override // androidx.core.util.Predicate

@@ -96,9 +96,9 @@ public final class DirectedGraphConnections<N, V> implements GraphConnections<N,
         Preconditions.checkState(i <= map.size() && i2 <= map.size());
     }
 
-    /* renamed from: com.google.common.graph.DirectedGraphConnections$5  reason: invalid class name */
+    /* renamed from: com.google.common.graph.DirectedGraphConnections$5 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass5 {
+    static /* synthetic */ class C13755 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$graph$ElementOrder$Type;
 
         static {
@@ -116,9 +116,10 @@ public final class DirectedGraphConnections<N, V> implements GraphConnections<N,
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, V> DirectedGraphConnections<N, V> of(ElementOrder<N> elementOrder) {
+    /* renamed from: of */
+    public static <N, V> DirectedGraphConnections<N, V> m101of(ElementOrder<N> elementOrder) {
         ArrayList arrayList;
-        int i = AnonymousClass5.$SwitchMap$com$google$common$graph$ElementOrder$Type[elementOrder.type().ordinal()];
+        int i = C13755.$SwitchMap$com$google$common$graph$ElementOrder$Type[elementOrder.type().ordinal()];
         if (i == 1) {
             arrayList = null;
         } else if (i == 2) {
@@ -367,7 +368,7 @@ public final class DirectedGraphConnections<N, V> implements GraphConnections<N,
                     com.google.common.graph.EndpointPair r0 = (com.google.common.graph.EndpointPair) r0
                     return r0
                 */
-                throw new UnsupportedOperationException("Method not decompiled: com.google.common.graph.DirectedGraphConnections.AnonymousClass4.computeNext():com.google.common.graph.EndpointPair");
+                throw new UnsupportedOperationException("Method not decompiled: com.google.common.graph.DirectedGraphConnections.C13744.computeNext():com.google.common.graph.EndpointPair");
             }
         };
     }

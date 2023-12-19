@@ -13,29 +13,34 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
     @Override // com.google.common.collect.BiMap
     public abstract ImmutableBiMap<V, K> inverse();
 
-    public static <K, V> ImmutableBiMap<K, V> of() {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m224of() {
         return RegularImmutableBiMap.EMPTY;
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m223of(K k, V v) {
         CollectPreconditions.checkEntryNotNull(k, v);
         return new RegularImmutableBiMap(new Object[]{k, v}, 1);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m222of(K k, V v, K k2, V v2) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2}, 2);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m221of(K k, V v, K k2, V v2, K k3, V v3) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3}, 3);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m220of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -43,7 +48,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4}, 4);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m219of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -52,7 +58,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5}, 5);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m218of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -62,7 +69,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6}, 6);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m217of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -73,7 +81,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7}, 7);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m216of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -85,7 +94,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7, k8, v8}, 8);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m215of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -98,7 +108,8 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         return new RegularImmutableBiMap(new Object[]{k, v, k2, v2, k3, v3, k4, v4, k5, v5, k6, v6, k7, v7, k8, v8, k9, v9}, 9);
     }
 
-    public static <K, V> ImmutableBiMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
+    /* renamed from: of */
+    public static <K, V> ImmutableBiMap<K, V> m214of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
         CollectPreconditions.checkEntryNotNull(k, v);
         CollectPreconditions.checkEntryNotNull(k2, v2);
         CollectPreconditions.checkEntryNotNull(k3, v3);
@@ -186,7 +197,7 @@ public abstract class ImmutableBiMap<K, V> extends ImmutableMap<K, V> implements
         @Override // com.google.common.collect.ImmutableMap.Builder
         public ImmutableBiMap<K, V> buildOrThrow() {
             if (this.size == 0) {
-                return ImmutableBiMap.of();
+                return ImmutableBiMap.m224of();
             }
             if (this.valueComparator != null) {
                 if (this.entriesUsed) {

@@ -1212,6 +1212,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.OTAUpdate" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@color/updating_screen_background</item>
     </style>
     <style name="ThemeOverlay.AppCompat" parent="@style/Base.ThemeOverlay.AppCompat">
     </style>

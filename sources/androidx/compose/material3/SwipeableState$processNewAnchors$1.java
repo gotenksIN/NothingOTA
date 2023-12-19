@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Swipeable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableState", f = "Swipeable.kt", i = {1, 1, 1, 2, 2, 2}, l = {159, 183, 186}, m = "processNewAnchors$material3_release", n = {"this", "newAnchors", "targetOffset", "this", "newAnchors", "targetOffset"}, s = {"L$0", "L$1", "F$0", "L$0", "L$1", "F$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableState", m30f = "Swipeable.kt", m29i = {1, 1, 1, 2, 2, 2}, m28l = {159, 183, 186}, m27m = "processNewAnchors$material3_release", m26n = {"this", "newAnchors", "targetOffset", "this", "newAnchors", "targetOffset"}, m25s = {"L$0", "L$1", "F$0", "L$0", "L$1", "F$0"})
 /* loaded from: classes.dex */
 public final class SwipeableState$processNewAnchors$1 extends ContinuationImpl {
     float F$0;

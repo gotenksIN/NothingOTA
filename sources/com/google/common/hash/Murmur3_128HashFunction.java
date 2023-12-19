@@ -46,11 +46,19 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
 
     /* loaded from: classes2.dex */
     private static final class Murmur3_128Hasher extends AbstractStreamingHasher {
-        private static final long C1 = -8663945395140668459L;
-        private static final long C2 = 5545529020109919103L;
+
+        /* renamed from: C1 */
+        private static final long f237C1 = -8663945395140668459L;
+
+        /* renamed from: C2 */
+        private static final long f238C2 = 5545529020109919103L;
         private static final int CHUNK_SIZE = 16;
-        private long h1;
-        private long h2;
+
+        /* renamed from: h1 */
+        private long f239h1;
+
+        /* renamed from: h2 */
+        private long f240h2;
         private int length;
 
         private static long fmix64(long j) {
@@ -62,8 +70,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
         Murmur3_128Hasher(int i) {
             super(16);
             long j = i;
-            this.h1 = j;
-            this.h2 = j;
+            this.f239h1 = j;
+            this.f240h2 = j;
             this.length = 0;
         }
 
@@ -74,14 +82,14 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
         }
 
         private void bmix64(long j, long j2) {
-            long mixK1 = mixK1(j) ^ this.h1;
-            this.h1 = mixK1;
+            long mixK1 = mixK1(j) ^ this.f239h1;
+            this.f239h1 = mixK1;
             long rotateLeft = Long.rotateLeft(mixK1, 27);
-            long j3 = this.h2;
-            this.h1 = ((rotateLeft + j3) * 5) + 1390208809;
+            long j3 = this.f240h2;
+            this.f239h1 = ((rotateLeft + j3) * 5) + 1390208809;
             long mixK2 = mixK2(j2) ^ j3;
-            this.h2 = mixK2;
-            this.h2 = ((Long.rotateLeft(mixK2, 31) + this.h1) * 5) + 944331445;
+            this.f240h2 = mixK2;
+            this.f240h2 = ((Long.rotateLeft(mixK2, 31) + this.f239h1) * 5) + 944331445;
         }
 
         @Override // com.google.common.hash.AbstractStreamingHasher
@@ -106,23 +114,23 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                 case 1:
                     j = 0;
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 2:
                     j2 = 0;
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 3:
                     j3 = 0;
                     j2 = j3 ^ (UnsignedBytes.toInt(byteBuffer.get(2)) << 16);
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 4:
                     j4 = 0;
@@ -130,8 +138,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j2 = j3 ^ (UnsignedBytes.toInt(byteBuffer.get(2)) << 16);
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 5:
                     j5 = 0;
@@ -140,8 +148,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j2 = j3 ^ (UnsignedBytes.toInt(byteBuffer.get(2)) << 16);
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 6:
                     j6 = 0;
@@ -151,8 +159,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j2 = j3 ^ (UnsignedBytes.toInt(byteBuffer.get(2)) << 16);
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 7:
                     j6 = (UnsignedBytes.toInt(byteBuffer.get(6)) << 48) ^ 0;
@@ -162,23 +170,23 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j2 = j3 ^ (UnsignedBytes.toInt(byteBuffer.get(2)) << 16);
                     j = j2 ^ (UnsignedBytes.toInt(byteBuffer.get(1)) << 8);
                     j7 = UnsignedBytes.toInt(byteBuffer.get(0)) ^ j;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 8:
                     j8 = 0;
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 9:
                     j9 = 0;
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 10:
                     j10 = 0;
@@ -186,8 +194,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 11:
                     j11 = 0;
@@ -196,8 +204,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 12:
                     j12 = 0;
@@ -207,8 +215,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 13:
                     j13 = 0;
@@ -219,8 +227,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 14:
                     j14 = 0;
@@ -232,8 +240,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 case 15:
                     j14 = (UnsignedBytes.toInt(byteBuffer.get(14)) << 48) ^ 0;
@@ -245,8 +253,8 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
                     j8 = j9 ^ UnsignedBytes.toInt(byteBuffer.get(8));
                     j7 = byteBuffer.getLong() ^ 0;
                     j15 = j8;
-                    this.h1 ^= mixK1(j7);
-                    this.h2 ^= mixK2(j15);
+                    this.f239h1 ^= mixK1(j7);
+                    this.f240h2 ^= mixK2(j15);
                     return;
                 default:
                     throw new AssertionError("Should never get here.");
@@ -255,27 +263,27 @@ public final class Murmur3_128HashFunction extends AbstractHashFunction implemen
 
         @Override // com.google.common.hash.AbstractStreamingHasher
         protected HashCode makeHash() {
-            long j = this.h1;
+            long j = this.f239h1;
             int i = this.length;
             long j2 = j ^ i;
-            long j3 = this.h2 ^ i;
+            long j3 = this.f240h2 ^ i;
             long j4 = j2 + j3;
-            this.h1 = j4;
-            this.h2 = j3 + j4;
-            this.h1 = fmix64(j4);
-            long fmix64 = fmix64(this.h2);
-            long j5 = this.h1 + fmix64;
-            this.h1 = j5;
-            this.h2 = fmix64 + j5;
-            return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.h1).putLong(this.h2).array());
+            this.f239h1 = j4;
+            this.f240h2 = j3 + j4;
+            this.f239h1 = fmix64(j4);
+            long fmix64 = fmix64(this.f240h2);
+            long j5 = this.f239h1 + fmix64;
+            this.f239h1 = j5;
+            this.f240h2 = fmix64 + j5;
+            return HashCode.fromBytesNoCopy(ByteBuffer.wrap(new byte[16]).order(ByteOrder.LITTLE_ENDIAN).putLong(this.f239h1).putLong(this.f240h2).array());
         }
 
         private static long mixK1(long j) {
-            return Long.rotateLeft(j * C1, 31) * C2;
+            return Long.rotateLeft(j * f237C1, 31) * f238C2;
         }
 
         private static long mixK2(long j) {
-            return Long.rotateLeft(j * C2, 33) * C1;
+            return Long.rotateLeft(j * f238C2, 33) * f237C1;
         }
     }
 }

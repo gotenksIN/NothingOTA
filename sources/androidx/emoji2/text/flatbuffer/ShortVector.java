@@ -11,7 +11,7 @@ public final class ShortVector extends BaseVector {
     }
 
     public short get(int i) {
-        return this.bb.getShort(__element(i));
+        return this.f174bb.getShort(__element(i));
     }
 
     public int getAsUnsigned(int i) {

@@ -1,10 +1,11 @@
 package androidx.compose.material3;
 
 import android.view.View;
+import androidx.appcompat.C0032R;
 import androidx.autofill.HintConstants;
-import androidx.compose.animation.core.AnimateAsStateKt;
+import androidx.compose.animation.core.AnimateAsState;
 import androidx.compose.animation.core.TweenSpec;
-import androidx.compose.foundation.CanvasKt;
+import androidx.compose.foundation.Canvas;
 import androidx.compose.foundation.gestures.DraggableKt;
 import androidx.compose.foundation.gestures.DraggableKt$draggable$1;
 import androidx.compose.foundation.gestures.DraggableKt$draggable$2;
@@ -15,6 +16,23 @@ import androidx.compose.foundation.layout.SizeKt;
 import androidx.compose.foundation.layout.WindowInsets;
 import androidx.compose.foundation.layout.WindowInsetsPaddingKt;
 import androidx.compose.foundation.layout.WindowInsetsPadding_androidKt;
+import androidx.compose.p002ui.Alignment;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.layout.LayoutKt;
+import androidx.compose.p002ui.layout.MeasurePolicy;
+import androidx.compose.p002ui.node.ComposeUiNode;
+import androidx.compose.p002ui.platform.AndroidCompositionLocals_androidKt;
+import androidx.compose.p002ui.platform.CompositionLocals;
+import androidx.compose.p002ui.platform.ViewConfiguration;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
+import androidx.compose.p002ui.unit.Density;
+import androidx.compose.p002ui.unit.IntSize;
+import androidx.compose.p002ui.unit.LayoutDirection;
 import androidx.compose.runtime.Applier;
 import androidx.compose.runtime.ComposablesKt;
 import androidx.compose.runtime.Composer;
@@ -30,25 +48,8 @@ import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.Updater;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.runtime.saveable.RememberSaveableKt;
+import androidx.compose.runtime.saveable.RememberSaveable;
 import androidx.compose.runtime.saveable.Saver;
-import androidx.compose.ui.Alignment;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.layout.LayoutKt;
-import androidx.compose.ui.layout.MeasurePolicy;
-import androidx.compose.ui.node.ComposeUiNode;
-import androidx.compose.ui.platform.AndroidCompositionLocals_androidKt;
-import androidx.compose.ui.platform.CompositionLocalsKt;
-import androidx.compose.ui.platform.ViewConfiguration;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
-import androidx.compose.ui.unit.Density;
-import androidx.compose.ui.unit.IntSize;
-import androidx.compose.ui.unit.LayoutDirection;
 import java.util.Map;
 import java.util.UUID;
 import kotlin.Metadata;
@@ -57,16 +58,16 @@ import kotlin.Unit;
 import kotlin.collections.MapsKt;
 import kotlin.collections.SetsKt;
 import kotlin.coroutines.Continuation;
-import kotlin.coroutines.jvm.internal.Boxing;
-import kotlin.jvm.functions.Function0;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: ModalBottomSheet.android.kt */
-@Metadata(d1 = {"\u0000|\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\u001a\u009e\u0001\u0010\u0000\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\n\u001a\u00020\u000b2\b\b\u0002\u0010\f\u001a\u00020\u000b2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u000b2\u0015\b\u0002\u0010\u0010\u001a\u000f\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u0003¢\u0006\u0002\b\u00112\u001c\u0010\u0012\u001a\u0018\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\u00010\u0013¢\u0006\u0002\b\u0011¢\u0006\u0002\b\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0016\u0010\u0017\u001a¨\u0001\u0010\u0000\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\n\u001a\u00020\u000b2\b\b\u0002\u0010\f\u001a\u00020\u000b2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u000b2\u0015\b\u0002\u0010\u0010\u001a\u000f\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u0003¢\u0006\u0002\b\u00112\b\b\u0002\u0010\u0018\u001a\u00020\u00192\u001c\u0010\u0012\u001a\u0018\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\u00010\u0013¢\u0006\u0002\b\u0011¢\u0006\u0002\b\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001a\u0010\u001b\u001aq\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001e0\u001d2\u0006\u0010\u001f\u001a\u00020\u000726\u0010 \u001a2\u0012\u0013\u0012\u00110\u001e¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b($\u0012\u0013\u0012\u00110%¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b(&\u0012\u0004\u0012\u00020\u00010!2!\u0010'\u001a\u001d\u0012\u0013\u0012\u00110\u001e¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b($\u0012\u0004\u0012\u00020\u00010\u0013H\u0003\u001a6\u0010(\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\u0006\u0010\u0018\u001a\u00020\u00192\u0011\u0010\u0012\u001a\r\u0012\u0004\u0012\u00020\u00010\u0003¢\u0006\u0002\b\u0011H\u0001¢\u0006\u0002\u0010)\u001a3\u0010*\u001a\u00020\u00012\u0006\u0010+\u001a\u00020\u000b2\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\u0006\u0010,\u001a\u00020-H\u0003ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b.\u0010/\u001a-\u00100\u001a\u00020\u00072\b\b\u0002\u00101\u001a\u00020-2\u0014\b\u0002\u00102\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020-0\u0013H\u0007¢\u0006\u0002\u00103\u001aX\u00104\u001a\u00020\u0005*\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\f\u00105\u001a\b\u0012\u0004\u0012\u00020\u001e0\u001d2\u0006\u00106\u001a\u00020%2,\u00107\u001a(\u0012\u0004\u0012\u000208\u0012\u0013\u0012\u00110%¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b(&\u0012\u0004\u0012\u00020\u00010!¢\u0006\u0002\b\u0015H\u0003\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u00069"}, d2 = {"ModalBottomSheet", "", "onDismissRequest", "Lkotlin/Function0;", "modifier", "Landroidx/compose/ui/Modifier;", "sheetState", "Landroidx/compose/material3/SheetState;", "shape", "Landroidx/compose/ui/graphics/Shape;", "containerColor", "Landroidx/compose/ui/graphics/Color;", "contentColor", "tonalElevation", "Landroidx/compose/ui/unit/Dp;", "scrimColor", "dragHandle", "Landroidx/compose/runtime/Composable;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/layout/ColumnScope;", "Lkotlin/ExtensionFunctionType;", "ModalBottomSheet-xOkiWaM", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SheetState;Landroidx/compose/ui/graphics/Shape;JJFJLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "windowInsets", "Landroidx/compose/foundation/layout/WindowInsets;", "ModalBottomSheet-EP0qOeE", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SheetState;Landroidx/compose/ui/graphics/Shape;JJFJLkotlin/jvm/functions/Function2;Landroidx/compose/foundation/layout/WindowInsets;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;III)V", "ModalBottomSheetAnchorChangeHandler", "Landroidx/compose/material3/AnchorChangeHandler;", "Landroidx/compose/material3/SheetValue;", "state", "animateTo", "Lkotlin/Function2;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "target", "", "velocity", "snapTo", "ModalBottomSheetPopup", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/layout/WindowInsets;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "Scrim", "color", "visible", "", "Scrim-3J-VO9M", "(JLkotlin/jvm/functions/Function0;ZLandroidx/compose/runtime/Composer;I)V", "rememberModalBottomSheetState", "skipPartiallyExpanded", "confirmValueChange", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SheetState;", "modalBottomSheetSwipeable", "anchorChangeHandler", "screenHeight", "onDragStopped", "Lkotlinx/coroutines/CoroutineScope;", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000|\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\u001a\u009e\u0001\u0010\u0000\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\n\u001a\u00020\u000b2\b\b\u0002\u0010\f\u001a\u00020\u000b2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u000b2\u0015\b\u0002\u0010\u0010\u001a\u000f\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u0003¢\u0006\u0002\b\u00112\u001c\u0010\u0012\u001a\u0018\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\u00010\u0013¢\u0006\u0002\b\u0011¢\u0006\u0002\b\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0016\u0010\u0017\u001a¨\u0001\u0010\u0000\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\t2\b\b\u0002\u0010\n\u001a\u00020\u000b2\b\b\u0002\u0010\f\u001a\u00020\u000b2\b\b\u0002\u0010\r\u001a\u00020\u000e2\b\b\u0002\u0010\u000f\u001a\u00020\u000b2\u0015\b\u0002\u0010\u0010\u001a\u000f\u0012\u0004\u0012\u00020\u0001\u0018\u00010\u0003¢\u0006\u0002\b\u00112\b\b\u0002\u0010\u0018\u001a\u00020\u00192\u001c\u0010\u0012\u001a\u0018\u0012\u0004\u0012\u00020\u0014\u0012\u0004\u0012\u00020\u00010\u0013¢\u0006\u0002\b\u0011¢\u0006\u0002\b\u0015H\u0007ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001a\u0010\u001b\u001aq\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u001e0\u001d2\u0006\u0010\u001f\u001a\u00020\u000726\u0010 \u001a2\u0012\u0013\u0012\u00110\u001e¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b($\u0012\u0013\u0012\u00110%¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b(&\u0012\u0004\u0012\u00020\u00010!2!\u0010'\u001a\u001d\u0012\u0013\u0012\u00110\u001e¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b($\u0012\u0004\u0012\u00020\u00010\u0013H\u0003\u001a6\u0010(\u001a\u00020\u00012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\u0006\u0010\u0018\u001a\u00020\u00192\u0011\u0010\u0012\u001a\r\u0012\u0004\u0012\u00020\u00010\u0003¢\u0006\u0002\b\u0011H\u0001¢\u0006\u0002\u0010)\u001a3\u0010*\u001a\u00020\u00012\u0006\u0010+\u001a\u00020\u000b2\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00010\u00032\u0006\u0010,\u001a\u00020-H\u0003ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b.\u0010/\u001a-\u00100\u001a\u00020\u00072\b\b\u0002\u00101\u001a\u00020-2\u0014\b\u0002\u00102\u001a\u000e\u0012\u0004\u0012\u00020\u001e\u0012\u0004\u0012\u00020-0\u0013H\u0007¢\u0006\u0002\u00103\u001aX\u00104\u001a\u00020\u0005*\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u00072\f\u00105\u001a\b\u0012\u0004\u0012\u00020\u001e0\u001d2\u0006\u00106\u001a\u00020%2,\u00107\u001a(\u0012\u0004\u0012\u000208\u0012\u0013\u0012\u00110%¢\u0006\f\b\"\u0012\b\b#\u0012\u0004\b\b(&\u0012\u0004\u0012\u00020\u00010!¢\u0006\u0002\b\u0015H\u0003\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u00069"}, m40d2 = {"ModalBottomSheet", "", "onDismissRequest", "Lkotlin/Function0;", "modifier", "Landroidx/compose/ui/Modifier;", "sheetState", "Landroidx/compose/material3/SheetState;", "shape", "Landroidx/compose/ui/graphics/Shape;", "containerColor", "Landroidx/compose/ui/graphics/Color;", "contentColor", "tonalElevation", "Landroidx/compose/ui/unit/Dp;", "scrimColor", "dragHandle", "Landroidx/compose/runtime/Composable;", "content", "Lkotlin/Function1;", "Landroidx/compose/foundation/layout/ColumnScope;", "Lkotlin/ExtensionFunctionType;", "ModalBottomSheet-xOkiWaM", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SheetState;Landroidx/compose/ui/graphics/Shape;JJFJLkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V", "windowInsets", "Landroidx/compose/foundation/layout/WindowInsets;", "ModalBottomSheet-EP0qOeE", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/SheetState;Landroidx/compose/ui/graphics/Shape;JJFJLkotlin/jvm/functions/Function2;Landroidx/compose/foundation/layout/WindowInsets;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;III)V", "ModalBottomSheetAnchorChangeHandler", "Landroidx/compose/material3/AnchorChangeHandler;", "Landroidx/compose/material3/SheetValue;", "state", "animateTo", "Lkotlin/Function2;", "Lkotlin/ParameterName;", HintConstants.AUTOFILL_HINT_NAME, "target", "", "velocity", "snapTo", "ModalBottomSheetPopup", "(Lkotlin/jvm/functions/Function0;Landroidx/compose/foundation/layout/WindowInsets;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "Scrim", "color", "visible", "", "Scrim-3J-VO9M", "(JLkotlin/jvm/functions/Function0;ZLandroidx/compose/runtime/Composer;I)V", "rememberModalBottomSheetState", "skipPartiallyExpanded", "confirmValueChange", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Landroidx/compose/material3/SheetState;", "modalBottomSheetSwipeable", "anchorChangeHandler", "screenHeight", "onDragStopped", "Lkotlinx/coroutines/CoroutineScope;", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ModalBottomSheet_androidKt {
     /* JADX WARN: Multi-variable type inference failed */
@@ -119,12 +120,12 @@ public final class ModalBottomSheet_androidKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void m1212ModalBottomSheetEP0qOeE(final kotlin.jvm.functions.Function0<kotlin.Unit> r34, androidx.compose.ui.Modifier r35, androidx.compose.material3.SheetState r36, androidx.compose.ui.graphics.Shape r37, long r38, long r40, float r42, long r43, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r45, androidx.compose.foundation.layout.WindowInsets r46, final kotlin.jvm.functions.Function3<? super androidx.compose.foundation.layout.ColumnScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r47, androidx.compose.runtime.Composer r48, final int r49, final int r50, final int r51) {
+    public static final void m1513ModalBottomSheetEP0qOeE(final kotlin.jvm.functions.Functions<kotlin.Unit> r34, androidx.compose.p002ui.Modifier r35, androidx.compose.material3.SheetState r36, androidx.compose.p002ui.graphics.Shape r37, long r38, long r40, float r42, long r43, kotlin.jvm.functions.Function2<? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r45, androidx.compose.foundation.layout.WindowInsets r46, final kotlin.jvm.functions.Function3<? super androidx.compose.foundation.layout.ColumnScope, ? super androidx.compose.runtime.Composer, ? super java.lang.Integer, kotlin.Unit> r47, androidx.compose.runtime.Composer r48, final int r49, final int r50, final int r51) {
         /*
             Method dump skipped, instructions count: 969
             To view this dump change 'Code comments level' option to 'DEBUG'
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ModalBottomSheet_androidKt.m1212ModalBottomSheetEP0qOeE(kotlin.jvm.functions.Function0, androidx.compose.ui.Modifier, androidx.compose.material3.SheetState, androidx.compose.ui.graphics.Shape, long, long, float, long, kotlin.jvm.functions.Function2, androidx.compose.foundation.layout.WindowInsets, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int, int):void");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ModalBottomSheet_androidKt.m1513ModalBottomSheetEP0qOeE(kotlin.jvm.functions.Function0, androidx.compose.ui.Modifier, androidx.compose.material3.SheetState, androidx.compose.ui.graphics.Shape, long, long, float, long, kotlin.jvm.functions.Function2, androidx.compose.foundation.layout.WindowInsets, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int, int):void");
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0126  */
@@ -170,12 +171,12 @@ public final class ModalBottomSheet_androidKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final /* synthetic */ void m1213ModalBottomSheetxOkiWaM(final kotlin.jvm.functions.Function0 r33, androidx.compose.ui.Modifier r34, androidx.compose.material3.SheetState r35, androidx.compose.ui.graphics.Shape r36, long r37, long r39, float r41, long r42, kotlin.jvm.functions.Function2 r44, final kotlin.jvm.functions.Function3 r45, androidx.compose.runtime.Composer r46, final int r47, final int r48) {
+    public static final /* synthetic */ void m1514ModalBottomSheetxOkiWaM(final kotlin.jvm.functions.Functions r33, androidx.compose.p002ui.Modifier r34, androidx.compose.material3.SheetState r35, androidx.compose.p002ui.graphics.Shape r36, long r37, long r39, float r41, long r42, kotlin.jvm.functions.Function2 r44, final kotlin.jvm.functions.Function3 r45, androidx.compose.runtime.Composer r46, final int r47, final int r48) {
         /*
             Method dump skipped, instructions count: 699
             To view this dump change 'Code comments level' option to 'DEBUG'
         */
-        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ModalBottomSheet_androidKt.m1213ModalBottomSheetxOkiWaM(kotlin.jvm.functions.Function0, androidx.compose.ui.Modifier, androidx.compose.material3.SheetState, androidx.compose.ui.graphics.Shape, long, long, float, long, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int):void");
+        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ModalBottomSheet_androidKt.m1514ModalBottomSheetxOkiWaM(kotlin.jvm.functions.Function0, androidx.compose.ui.Modifier, androidx.compose.material3.SheetState, androidx.compose.ui.graphics.Shape, long, long, float, long, kotlin.jvm.functions.Function2, kotlin.jvm.functions.Function3, androidx.compose.runtime.Composer, int, int):void");
     }
 
     public static final SheetState rememberModalBottomSheetState(boolean z, Function1<? super SheetValue, Boolean> function1, Composer composer, int i, int i2) {
@@ -198,7 +199,7 @@ public final class ModalBottomSheet_androidKt {
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventStart(-1261794383, i, -1, "androidx.compose.material3.rememberModalBottomSheetState (ModalBottomSheet.android.kt:315)");
         }
-        SheetState rememberSheetState = SheetDefaultsKt.rememberSheetState(z2, function12, SheetValue.Hidden, false, composer, (i & 14) | 384 | (i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle), 8);
+        SheetState rememberSheetState = SheetDefaultsKt.rememberSheetState(z2, function12, SheetValue.Hidden, false, composer, (i & 14) | 384 | (i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle), 8);
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -208,7 +209,7 @@ public final class ModalBottomSheet_androidKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: Scrim-3J-VO9M  reason: not valid java name */
-    public static final void m1214Scrim3JVO9M(final long j, final Function0<Unit> function0, final boolean z, Composer composer, final int i) {
+    public static final void m1515Scrim3JVO9M(final long j, final Functions<Unit> functions, final boolean z, Composer composer, final int i) {
         int i2;
         Modifier.Companion companion;
         Composer startRestartGroup = composer.startRestartGroup(1053897700);
@@ -218,8 +219,8 @@ public final class ModalBottomSheet_androidKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
-            i2 |= startRestartGroup.changedInstance(function0) ? 32 : 16;
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+            i2 |= startRestartGroup.changedInstance(functions) ? 32 : 16;
         }
         if ((i & 896) == 0) {
             i2 |= startRestartGroup.changed(z) ? 256 : 128;
@@ -228,22 +229,22 @@ public final class ModalBottomSheet_androidKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(1053897700, i2, -1, "androidx.compose.material3.Scrim (ModalBottomSheet.android.kt:321)");
             }
-            if (j != Color.Companion.m2592getUnspecified0d7_KjU()) {
-                final State<Float> animateFloatAsState = AnimateAsStateKt.animateFloatAsState(z ? 1.0f : 0.0f, new TweenSpec(0, 0, null, 7, null), 0.0f, null, null, startRestartGroup, 48, 28);
+            if (j != Color.Companion.m2893getUnspecified0d7_KjU()) {
+                final State<Float> animateFloatAsState = AnimateAsState.animateFloatAsState(z ? 1.0f : 0.0f, new TweenSpec(0, 0, null, 7, null), 0.0f, null, null, startRestartGroup, 48, 28);
                 startRestartGroup.startReplaceableGroup(-1858721447);
                 ComposerKt.sourceInformation(startRestartGroup, "333@14864L124");
                 if (z) {
                     Modifier.Companion companion2 = Modifier.Companion;
                     startRestartGroup.startReplaceableGroup(1157296644);
                     ComposerKt.sourceInformation(startRestartGroup, "CC(remember)P(1):Composables.kt#9igjgp");
-                    boolean changed = startRestartGroup.changed(function0);
+                    boolean changed = startRestartGroup.changed(functions);
                     ModalBottomSheet_androidKt$Scrim$dismissSheet$1$1 rememberedValue = startRestartGroup.rememberedValue();
                     if (changed || rememberedValue == Composer.Companion.getEmpty()) {
-                        rememberedValue = new ModalBottomSheet_androidKt$Scrim$dismissSheet$1$1(function0, null);
+                        rememberedValue = new ModalBottomSheet_androidKt$Scrim$dismissSheet$1$1(functions, null);
                         startRestartGroup.updateRememberedValue(rememberedValue);
                     }
                     startRestartGroup.endReplaceableGroup();
-                    companion = SemanticsModifierKt.clearAndSetSemantics(SuspendingPointerInputFilterKt.pointerInput(companion2, function0, (Function2) rememberedValue), new Function1<SemanticsPropertyReceiver, Unit>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$Scrim$dismissSheet$2
+                    companion = SemanticsModifierKt.clearAndSetSemantics(SuspendingPointerInputFilterKt.pointerInput(companion2, functions, (Function2) rememberedValue), new Function1<SemanticsPropertyReceiver, Unit>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$Scrim$dismissSheet$2
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2(SemanticsPropertyReceiver clearAndSetSemantics) {
                             Intrinsics.checkNotNullParameter(clearAndSetSemantics, "$this$clearAndSetSemantics");
@@ -260,10 +261,10 @@ public final class ModalBottomSheet_androidKt {
                 }
                 startRestartGroup.endReplaceableGroup();
                 Modifier then = SizeKt.fillMaxSize$default(Modifier.Companion, 0.0f, 1, null).then(companion);
-                Color m2546boximpl = Color.m2546boximpl(j);
+                Color m2847boximpl = Color.m2847boximpl(j);
                 startRestartGroup.startReplaceableGroup(511388516);
                 ComposerKt.sourceInformation(startRestartGroup, "CC(remember)P(1,2):Composables.kt#9igjgp");
-                boolean changed2 = startRestartGroup.changed(m2546boximpl) | startRestartGroup.changed(animateFloatAsState);
+                boolean changed2 = startRestartGroup.changed(m2847boximpl) | startRestartGroup.changed(animateFloatAsState);
                 Object rememberedValue2 = startRestartGroup.rememberedValue();
                 if (changed2 || rememberedValue2 == Composer.Companion.getEmpty()) {
                     rememberedValue2 = (Function1) new Function1<DrawScope, Unit>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$Scrim$1$1
@@ -285,13 +286,13 @@ public final class ModalBottomSheet_androidKt {
                             Intrinsics.checkNotNullParameter(Canvas, "$this$Canvas");
                             long j2 = j;
                             Scrim_3J_VO9M$lambda$2 = ModalBottomSheet_androidKt.Scrim_3J_VO9M$lambda$2(animateFloatAsState);
-                            DrawScope.m3091drawRectnJ9OG0$default(Canvas, j2, 0L, 0L, Scrim_3J_VO9M$lambda$2, null, null, 0, androidx.appcompat.R.styleable.AppCompatTheme_windowActionBarOverlay, null);
+                            DrawScope.m3392drawRectnJ9OG0$default(Canvas, j2, 0L, 0L, Scrim_3J_VO9M$lambda$2, null, null, 0, C0032R.styleable.AppCompatTheme_windowActionBarOverlay, null);
                         }
                     };
                     startRestartGroup.updateRememberedValue(rememberedValue2);
                 }
                 startRestartGroup.endReplaceableGroup();
-                CanvasKt.Canvas(then, (Function1) rememberedValue2, startRestartGroup, 0);
+                Canvas.Canvas(then, (Function1) rememberedValue2, startRestartGroup, 0);
             }
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
@@ -317,19 +318,19 @@ public final class ModalBottomSheet_androidKt {
             }
 
             public final void invoke(Composer composer2, int i3) {
-                ModalBottomSheet_androidKt.m1214Scrim3JVO9M(j, function0, z, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
+                ModalBottomSheet_androidKt.m1515Scrim3JVO9M(j, functions, z, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final Modifier modalBottomSheetSwipeable(Modifier modifier, final SheetState sheetState, AnchorChangeHandler<SheetValue> anchorChangeHandler, final float f, Function2<? super CoroutineScope, ? super Float, Unit> function2) {
+    public static final Modifier modalBottomSheetSwipeable(Modifier modifier, final SheetState sheetState, SwipeableV2<SheetValue> swipeableV2, final float f, Function2<? super CoroutineScope, ? super Float, Unit> function2) {
         Modifier draggable;
         draggable = DraggableKt.draggable(modifier, sheetState.getSwipeableState$material3_release().getSwipeDraggableState$material3_release(), Orientation.Vertical, (r20 & 4) != 0 ? true : sheetState.isVisible(), (r20 & 8) != 0 ? null : null, (r20 & 16) != 0 ? false : sheetState.getSwipeableState$material3_release().isAnimationRunning(), (r20 & 32) != 0 ? new DraggableKt$draggable$1(null) : null, (r20 & 64) != 0 ? new DraggableKt$draggable$2(null) : new ModalBottomSheet_androidKt$modalBottomSheetSwipeable$1(function2), (r20 & 128) != 0 ? false : false);
-        return SwipeableV2Kt.swipeAnchors(draggable, sheetState.getSwipeableState$material3_release(), SetsKt.setOf((Object[]) new SheetValue[]{SheetValue.Hidden, SheetValue.PartiallyExpanded, SheetValue.Expanded}), anchorChangeHandler, new Function2<SheetValue, IntSize, Float>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$modalBottomSheetSwipeable$2
+        return SwipeableV2Kt.swipeAnchors(draggable, sheetState.getSwipeableState$material3_release(), SetsKt.setOf((Object[]) new SheetValue[]{SheetValue.Hidden, SheetValue.PartiallyExpanded, SheetValue.Expanded}), swipeableV2, new Function2<SheetValue, IntSize, Float>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$modalBottomSheetSwipeable$2
 
             /* compiled from: ModalBottomSheet.android.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
             /* loaded from: classes.dex */
             public /* synthetic */ class WhenMappings {
                 public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -360,22 +361,22 @@ public final class ModalBottomSheet_androidKt {
 
             @Override // kotlin.jvm.functions.Function2
             public /* bridge */ /* synthetic */ Float invoke(SheetValue sheetValue, IntSize intSize) {
-                return m1218invokeO0kMr_c(sheetValue, intSize.m5214unboximpl());
+                return m1519invokeO0kMr_c(sheetValue, intSize.m5515unboximpl());
             }
 
             /* renamed from: invoke-O0kMr_c  reason: not valid java name */
-            public final Float m1218invokeO0kMr_c(SheetValue value, long j) {
+            public final Float m1519invokeO0kMr_c(SheetValue value, long j) {
                 Intrinsics.checkNotNullParameter(value, "value");
                 int i = WhenMappings.$EnumSwitchMapping$0[value.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
-                        if (IntSize.m5209getHeightimpl(j) >= f / 2 && !sheetState.getSkipPartiallyExpanded$material3_release()) {
+                        if (IntSize.m5510getHeightimpl(j) >= f / 2 && !sheetState.getSkipPartiallyExpanded$material3_release()) {
                             return Float.valueOf(f / 2.0f);
                         }
                         return null;
                     } else if (i == 3) {
-                        if (IntSize.m5209getHeightimpl(j) != 0) {
-                            return Float.valueOf(Math.max(0.0f, f - IntSize.m5209getHeightimpl(j)));
+                        if (IntSize.m5510getHeightimpl(j) != 0) {
+                            return Float.valueOf(Math.max(0.0f, f - IntSize.m5510getHeightimpl(j)));
                         }
                         return null;
                     } else {
@@ -389,16 +390,16 @@ public final class ModalBottomSheet_androidKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final /* synthetic */ Object modalBottomSheetSwipeable$suspendConversion0(Function2 function2, CoroutineScope coroutineScope, float f, Continuation continuation) {
-        function2.invoke(coroutineScope, Boxing.boxFloat(f));
+        function2.invoke(coroutineScope, boxing.boxFloat(f));
         return Unit.INSTANCE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final AnchorChangeHandler<SheetValue> ModalBottomSheetAnchorChangeHandler(final SheetState sheetState, final Function2<? super SheetValue, ? super Float, Unit> function2, final Function1<? super SheetValue, Unit> function1) {
-        return new AnchorChangeHandler<SheetValue>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheetAnchorChangeHandler$1
+    public static final SwipeableV2<SheetValue> ModalBottomSheetAnchorChangeHandler(final SheetState sheetState, final Function2<? super SheetValue, ? super Float, Unit> function2, final Function1<? super SheetValue, Unit> function1) {
+        return new SwipeableV2<SheetValue>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheetAnchorChangeHandler$1
 
             /* compiled from: ModalBottomSheet.android.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
             /* loaded from: classes.dex */
             public /* synthetic */ class WhenMappings {
                 public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -421,7 +422,7 @@ public final class ModalBottomSheet_androidKt {
                 }
             }
 
-            @Override // androidx.compose.material3.AnchorChangeHandler
+            @Override // androidx.compose.material3.SwipeableV2
             public final void onAnchorsChanged(SheetValue previousTarget, Map<SheetValue, Float> previousAnchors, Map<SheetValue, Float> newAnchors) {
                 SheetValue sheetValue;
                 Intrinsics.checkNotNullParameter(previousTarget, "previousTarget");
@@ -452,7 +453,7 @@ public final class ModalBottomSheet_androidKt {
         };
     }
 
-    public static final void ModalBottomSheetPopup(final Function0<Unit> onDismissRequest, final WindowInsets windowInsets, final Function2<? super Composer, ? super Integer, Unit> content, Composer composer, final int i) {
+    public static final void ModalBottomSheetPopup(final Functions<Unit> onDismissRequest, final WindowInsets windowInsets, final Function2<? super Composer, ? super Integer, Unit> content, Composer composer, final int i) {
         int i2;
         Intrinsics.checkNotNullParameter(onDismissRequest, "onDismissRequest");
         Intrinsics.checkNotNullParameter(windowInsets, "windowInsets");
@@ -464,7 +465,7 @@ public final class ModalBottomSheet_androidKt {
         } else {
             i2 = i;
         }
-        if ((i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changed(windowInsets) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -479,8 +480,8 @@ public final class ModalBottomSheet_androidKt {
             Object consume = startRestartGroup.consume(AndroidCompositionLocals_androidKt.getLocalView());
             ComposerKt.sourceInformationMarkerEnd(startRestartGroup);
             View view = (View) consume;
-            UUID id = (UUID) RememberSaveableKt.m2208rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) null, (String) null, (Function0<? extends Object>) new Function0<UUID>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheetPopup$id$1
-                @Override // kotlin.jvm.functions.Function0
+            UUID id = (UUID) RememberSaveable.m2509rememberSaveable(new Object[0], (Saver<Object, ? extends Object>) null, (String) null, (Functions<? extends Object>) new Functions<UUID>() { // from class: androidx.compose.material3.ModalBottomSheet_androidKt$ModalBottomSheetPopup$id$1
+                @Override // kotlin.jvm.functions.Functions
                 public final UUID invoke() {
                     return UUID.randomUUID();
                 }
@@ -535,18 +536,18 @@ public final class ModalBottomSheet_androidKt {
                             composer2.startReplaceableGroup(-1323940314);
                             ComposerKt.sourceInformation(composer2, "C(Layout)P(!1,2)74@2915L7,75@2970L7,76@3029L7,77@3041L460:Layout.kt#80mrfh");
                             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                            Object consume2 = composer2.consume(CompositionLocalsKt.getLocalDensity());
+                            Object consume2 = composer2.consume(CompositionLocals.getLocalDensity());
                             ComposerKt.sourceInformationMarkerEnd(composer2);
                             Density density = (Density) consume2;
                             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                            Object consume3 = composer2.consume(CompositionLocalsKt.getLocalLayoutDirection());
+                            Object consume3 = composer2.consume(CompositionLocals.getLocalLayoutDirection());
                             ComposerKt.sourceInformationMarkerEnd(composer2);
                             LayoutDirection layoutDirection = (LayoutDirection) consume3;
                             ComposerKt.sourceInformationMarkerStart(composer2, 2023513938, "C:CompositionLocal.kt#9igjgp");
-                            Object consume4 = composer2.consume(CompositionLocalsKt.getLocalViewConfiguration());
+                            Object consume4 = composer2.consume(CompositionLocals.getLocalViewConfiguration());
                             ComposerKt.sourceInformationMarkerEnd(composer2);
                             ViewConfiguration viewConfiguration = (ViewConfiguration) consume4;
-                            Function0<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
+                            Functions<ComposeUiNode> constructor = ComposeUiNode.Companion.getConstructor();
                             Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> materializerOf = LayoutKt.materializerOf(imePadding);
                             if (!(composer2.getApplier() instanceof Applier)) {
                                 ComposablesKt.invalidApplier();
@@ -558,13 +559,13 @@ public final class ModalBottomSheet_androidKt {
                                 composer2.useNode();
                             }
                             composer2.disableReusing();
-                            Composer m2195constructorimpl = Updater.m2195constructorimpl(composer2);
-                            Updater.m2202setimpl(m2195constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
-                            Updater.m2202setimpl(m2195constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
-                            Updater.m2202setimpl(m2195constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
-                            Updater.m2202setimpl(m2195constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
+                            Composer m2496constructorimpl = Updater.m2496constructorimpl(composer2);
+                            Updater.m2503setimpl(m2496constructorimpl, rememberBoxMeasurePolicy, ComposeUiNode.Companion.getSetMeasurePolicy());
+                            Updater.m2503setimpl(m2496constructorimpl, density, ComposeUiNode.Companion.getSetDensity());
+                            Updater.m2503setimpl(m2496constructorimpl, layoutDirection, ComposeUiNode.Companion.getSetLayoutDirection());
+                            Updater.m2503setimpl(m2496constructorimpl, viewConfiguration, ComposeUiNode.Companion.getSetViewConfiguration());
                             composer2.enableReusing();
-                            materializerOf.invoke(SkippableUpdater.m2186boximpl(SkippableUpdater.m2187constructorimpl(composer2)), composer2, 0);
+                            materializerOf.invoke(SkippableUpdater.m2487boximpl(SkippableUpdater.m2488constructorimpl(composer2)), composer2, 0);
                             composer2.startReplaceableGroup(2058660585);
                             ComposerKt.sourceInformationMarkerStart(composer2, -1253629305, "C72@3384L9:Box.kt#2w3rfo");
                             BoxScopeInstance boxScopeInstance = BoxScopeInstance.INSTANCE;

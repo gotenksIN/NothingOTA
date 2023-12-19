@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import androidx.collection.ArrayMap;
 import androidx.core.app.SharedElementCallback;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 import androidx.core.util.Preconditions;
 import androidx.core.view.OneShotPreDrawListener;
 import androidx.core.view.ViewCompat;
@@ -37,7 +37,7 @@ class DefaultSpecialEffectsController extends SpecialEffectsController {
         SpecialEffectsController.Operation operation2 = null;
         for (SpecialEffectsController.Operation operation3 : list) {
             SpecialEffectsController.Operation.State from = SpecialEffectsController.Operation.State.from(operation3.getFragment().mView);
-            int i = AnonymousClass10.$SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[operation3.getFinalState().ordinal()];
+            int i = C090110.f181xe493b431[operation3.getFinalState().ordinal()];
             if (i == 1 || i == 2 || i == 3) {
                 if (from == SpecialEffectsController.Operation.State.VISIBLE && operation == null) {
                     operation = operation3;
@@ -114,28 +114,30 @@ class DefaultSpecialEffectsController extends SpecialEffectsController {
         arrayList3.clear();
     }
 
-    /* renamed from: androidx.fragment.app.DefaultSpecialEffectsController$10  reason: invalid class name */
+    /* renamed from: androidx.fragment.app.DefaultSpecialEffectsController$10 */
     /* loaded from: classes.dex */
-    static /* synthetic */ class AnonymousClass10 {
-        static final /* synthetic */ int[] $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State;
+    static /* synthetic */ class C090110 {
+
+        /* renamed from: $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State */
+        static final /* synthetic */ int[] f181xe493b431;
 
         static {
             int[] iArr = new int[SpecialEffectsController.Operation.State.values().length];
-            $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State = iArr;
+            f181xe493b431 = iArr;
             try {
                 iArr[SpecialEffectsController.Operation.State.GONE.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[SpecialEffectsController.Operation.State.INVISIBLE.ordinal()] = 2;
+                f181xe493b431[SpecialEffectsController.Operation.State.INVISIBLE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[SpecialEffectsController.Operation.State.REMOVED.ordinal()] = 3;
+                f181xe493b431[SpecialEffectsController.Operation.State.REMOVED.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                $SwitchMap$androidx$fragment$app$SpecialEffectsController$Operation$State[SpecialEffectsController.Operation.State.VISIBLE.ordinal()] = 4;
+                f181xe493b431[SpecialEffectsController.Operation.State.VISIBLE.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -185,7 +187,7 @@ class DefaultSpecialEffectsController extends SpecialEffectsController {
                             animator.setTarget(view);
                             animator.start();
                             animationInfo.getSignal().setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.fragment.app.DefaultSpecialEffectsController.3
-                                @Override // androidx.core.os.CancellationSignal.OnCancelListener
+                                @Override // androidx.core.p004os.CancellationSignal.OnCancelListener
                                 public void onCancel() {
                                     animator.end();
                                 }
@@ -243,7 +245,7 @@ class DefaultSpecialEffectsController extends SpecialEffectsController {
                     view2.startAnimation(endViewTransitionAnimation);
                 }
                 animationInfo2.getSignal().setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.fragment.app.DefaultSpecialEffectsController.5
-                    @Override // androidx.core.os.CancellationSignal.OnCancelListener
+                    @Override // androidx.core.p004os.CancellationSignal.OnCancelListener
                     public void onCancel() {
                         view2.clearAnimation();
                         container.endViewTransition(view2);

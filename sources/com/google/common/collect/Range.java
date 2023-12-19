@@ -101,9 +101,9 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
         return create(Cut.belowAll(), Cut.aboveValue(c));
     }
 
-    /* renamed from: com.google.common.collect.Range$1  reason: invalid class name */
+    /* renamed from: com.google.common.collect.Range$1 */
     /* loaded from: classes2.dex */
-    static /* synthetic */ class AnonymousClass1 {
+    static /* synthetic */ class C12721 {
         static final /* synthetic */ int[] $SwitchMap$com$google$common$collect$BoundType;
 
         static {
@@ -121,7 +121,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> upTo(C c, BoundType boundType) {
-        int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+        int i = C12721.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
         if (i != 1) {
             if (i == 2) {
                 return atMost(c);
@@ -140,7 +140,7 @@ public final class Range<C extends Comparable> extends RangeGwtSerializationDepe
     }
 
     public static <C extends Comparable<?>> Range<C> downTo(C c, BoundType boundType) {
-        int i = AnonymousClass1.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
+        int i = C12721.$SwitchMap$com$google$common$collect$BoundType[boundType.ordinal()];
         if (i != 1) {
             if (i == 2) {
                 return atLeast(c);

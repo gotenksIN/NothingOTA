@@ -23,7 +23,7 @@ public final class CartesianList<E> extends AbstractList<List<E>> implements Ran
         for (List<? extends E> list2 : list) {
             ImmutableList copyOf = ImmutableList.copyOf((Collection) list2);
             if (copyOf.isEmpty()) {
-                return ImmutableList.of();
+                return ImmutableList.m211of();
             }
             builder.add((ImmutableList.Builder) copyOf);
         }

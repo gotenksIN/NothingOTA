@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LazyGridState.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.lazy.grid.LazyGridState", f = "LazyGridState.kt", i = {0, 0, 0}, l = {273, 274}, m = "scroll", n = {"this", "scrollPriority", "block"}, s = {"L$0", "L$1", "L$2"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.lazy.grid.LazyGridState", m30f = "LazyGridState.kt", m29i = {0, 0, 0}, m28l = {273, 274}, m27m = "scroll", m26n = {"this", "scrollPriority", "block"}, m25s = {"L$0", "L$1", "L$2"})
 /* loaded from: classes.dex */
 public final class LazyGridState$scroll$1 extends ContinuationImpl {
     Object L$0;

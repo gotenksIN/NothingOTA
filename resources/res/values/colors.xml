@@ -24,7 +24,9 @@
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="call_notification_answer_color">#1d873b</color>
     <color name="call_notification_decline_color">#d93025</color>
+    <color name="debug_settings_title_text">@android:color/Teal_700</color>
     <color name="debug_stage_text">@android:color/Indigo_800</color>
+    <color name="debug_title_text">@android:color/Teal_700</color>
     <color name="dialog_background">@android:color/Indigo_800</color>
     <color name="dialog_button_text">@android:color/Red_800</color>
     <color name="dialog_message_text">@android:color/autofill_background_material_dark</color>
@@ -82,17 +84,23 @@
     <color name="tooltip_background_light">#e6ffffff</color>
     <color name="up_to_date_text">@android:color/Teal_700</color>
     <color name="updating_button_border_border">@android:color/Indigo_800</color>
+    <color name="updating_button_border_border_disable">@android:color/Indigo_700</color>
     <color name="updating_button_border_color">@android:color/transparent</color>
     <color name="updating_button_border_text">@android:color/Teal_700</color>
-    <color name="updating_button_filled_border">@android:color/Red_800</color>
+    <color name="updating_button_border_text_disable">@android:color/Pink_700</color>
+    <color name="updating_button_filled_border">@android:color/transparent</color>
+    <color name="updating_button_filled_border_disable">@android:color/transparent</color>
     <color name="updating_button_filled_color">@android:color/Red_800</color>
+    <color name="updating_button_filled_color_disable">@android:color/Pink_700</color>
     <color name="updating_button_filled_text">@android:color/GM2_grey_800</color>
+    <color name="updating_button_filled_text_disable">@android:color/Indigo_800</color>
     <color name="updating_button_hidden_border">@android:color/transparent</color>
     <color name="updating_button_hidden_color">@android:color/transparent</color>
     <color name="updating_button_hidden_text">@android:color/transparent</color>
     <color name="updating_button_transparent_border">@android:color/transparent</color>
     <color name="updating_button_transparent_color">@android:color/transparent</color>
     <color name="updating_button_transparent_text">@android:color/Teal_700</color>
+    <color name="updating_button_transparent_text_disable">@android:color/Pink_700</color>
     <color name="updating_screen_background">@android:color/GM2_grey_800</color>
     <color name="updating_screen_header_color">@android:color/Teal_700</color>
 </resources>

@@ -1,6 +1,6 @@
 package kotlinx.coroutines.sync;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Semaphore.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 176)
-@DebugMetadata(c = "kotlinx.coroutines.sync.SemaphoreKt", f = "Semaphore.kt", i = {0, 0}, l = {R.styleable.AppCompatTheme_listPreferredItemPaddingStart}, m = "withPermit", n = {"$this$withPermit", "action"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 176)
+@DebugMetadata(m31c = "kotlinx.coroutines.sync.SemaphoreKt", m30f = "Semaphore.kt", m29i = {0, 0}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemPaddingStart}, m27m = "withPermit", m26n = {"$this$withPermit", "action"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class SemaphoreKt$withPermit$1<T> extends ContinuationImpl {
     Object L$0;

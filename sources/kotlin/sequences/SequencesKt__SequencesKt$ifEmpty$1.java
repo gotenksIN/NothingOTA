@@ -1,6 +1,6 @@
 package kotlin.sequences;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -9,16 +9,16 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 
 /* JADX INFO: Add missing generic type declarations: [T] */
 /* compiled from: Sequences.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.sequences.SequencesKt__SequencesKt$ifEmpty$1", f = "Sequences.kt", i = {}, l = {R.styleable.AppCompatTheme_editTextColor, R.styleable.AppCompatTheme_homeAsUpIndicator}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlin/sequences/SequenceScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.sequences.SequencesKt__SequencesKt$ifEmpty$1", m30f = "Sequences.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_editTextColor, C0032R.styleable.AppCompatTheme_homeAsUpIndicator}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class SequencesKt__SequencesKt$ifEmpty$1<T> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super T>, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Function0<Sequence<T>> $defaultValue;
+    final /* synthetic */ Functions<Sequence<T>> $defaultValue;
     final /* synthetic */ Sequence<T> $this_ifEmpty;
     private /* synthetic */ Object L$0;
     int label;
@@ -26,10 +26,10 @@ final class SequencesKt__SequencesKt$ifEmpty$1<T> extends RestrictedSuspendLambd
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public SequencesKt__SequencesKt$ifEmpty$1(Sequence<? extends T> sequence, Function0<? extends Sequence<? extends T>> function0, Continuation<? super SequencesKt__SequencesKt$ifEmpty$1> continuation) {
+    public SequencesKt__SequencesKt$ifEmpty$1(Sequence<? extends T> sequence, Functions<? extends Sequence<? extends T>> functions, Continuation<? super SequencesKt__SequencesKt$ifEmpty$1> continuation) {
         super(2, continuation);
         this.$this_ifEmpty = sequence;
-        this.$defaultValue = function0;
+        this.$defaultValue = functions;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

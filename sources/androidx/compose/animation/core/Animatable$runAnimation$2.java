@@ -15,8 +15,8 @@ import kotlin.jvm.internal.Ref;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [T, V] */
 /* compiled from: Animatable.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u00030\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "Landroidx/compose/animation/core/AnimationResult;", "T", "V", "Landroidx/compose/animation/core/AnimationVector;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.core.Animatable$runAnimation$2", f = "Animatable.kt", i = {0, 0}, l = {305}, m = "invokeSuspend", n = {"endState", "clampingNeeded"}, s = {"L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u000e\u0012\u0004\u0012\u0002H\u0002\u0012\u0004\u0012\u0002H\u00030\u0001\"\u0004\b\u0000\u0010\u0002\"\b\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "Landroidx/compose/animation/core/AnimationResult;", "T", "V", "Landroidx/compose/animation/core/AnimationVector;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.core.Animatable$runAnimation$2", m30f = "Animatable.kt", m29i = {0, 0}, m28l = {305}, m27m = "invokeSuspend", m26n = {"endState", "clampingNeeded"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class Animatable$runAnimation$2<T, V> extends SuspendLambda implements Function1<Continuation<? super AnimationResult<T, V>>, Object> {
     final /* synthetic */ Animation<T, V> $animation;
@@ -63,10 +63,10 @@ public final class Animatable$runAnimation$2<T, V> extends SuspendLambda impleme
         try {
             if (i == 0) {
                 ResultKt.throwOnFailure(obj);
-                this.this$0.getInternalState$animation_core_release().setVelocityVector$animation_core_release((V) ((AnimationVector) this.this$0.getTypeConverter().getConvertToVector().invoke(this.$initialVelocity)));
+                this.this$0.getInternalState$animation_core_release().setVelocityVector$animation_core_release((V) ((AnimationVectors) this.this$0.getTypeConverter().getConvertToVector().invoke(this.$initialVelocity)));
                 this.this$0.setTargetValue(this.$animation.getTargetValue());
                 this.this$0.setRunning(true);
-                copy$default = AnimationStateKt.copy$default((AnimationState) this.this$0.getInternalState$animation_core_release(), (Object) null, (AnimationVector) null, 0L, Long.MIN_VALUE, false, 23, (Object) null);
+                copy$default = AnimationStateKt.copy$default((AnimationState) this.this$0.getInternalState$animation_core_release(), (Object) null, (AnimationVectors) null, 0L, Long.MIN_VALUE, false, 23, (Object) null);
                 final Ref.BooleanRef booleanRef2 = new Ref.BooleanRef();
                 Animation<T, V> animation = this.$animation;
                 long j = this.$startTime;
@@ -75,7 +75,7 @@ public final class Animatable$runAnimation$2<T, V> extends SuspendLambda impleme
                 this.L$0 = copy$default;
                 this.L$1 = booleanRef2;
                 this.label = 1;
-                if (SuspendAnimationKt.animate(copy$default, animation, j, new Function1<AnimationScope<T, V>, Unit>() { // from class: androidx.compose.animation.core.Animatable$runAnimation$2.1
+                if (SuspendAnimation.animate(copy$default, animation, j, new Function1<AnimationScope<T, V>, Unit>() { // from class: androidx.compose.animation.core.Animatable$runAnimation$2.1
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     /* JADX WARN: Multi-variable type inference failed */
                     {
@@ -92,7 +92,7 @@ public final class Animatable$runAnimation$2<T, V> extends SuspendLambda impleme
                     public final void invoke(AnimationScope<T, V> animate) {
                         Object clampToBounds;
                         Intrinsics.checkNotNullParameter(animate, "$this$animate");
-                        SuspendAnimationKt.updateState(animate, animatable.getInternalState$animation_core_release());
+                        SuspendAnimation.updateState(animate, animatable.getInternalState$animation_core_release());
                         clampToBounds = animatable.clampToBounds(animate.getValue());
                         if (!Intrinsics.areEqual(clampToBounds, animate.getValue())) {
                             animatable.getInternalState$animation_core_release().setValue$animation_core_release(clampToBounds);

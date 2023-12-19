@@ -297,7 +297,7 @@ public class IntentSanitizer {
 
         public Builder allowAction(Predicate<String> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedActions = this.mAllowedActions.or(predicate);
+            this.mAllowedActions = this.mAllowedActions.m259or(predicate);
             return this;
         }
 
@@ -316,7 +316,7 @@ public class IntentSanitizer {
 
         public Builder allowData(Predicate<Uri> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedData = this.mAllowedData.or(predicate);
+            this.mAllowedData = this.mAllowedData.m259or(predicate);
             return this;
         }
 
@@ -328,7 +328,7 @@ public class IntentSanitizer {
 
         public Builder allowType(Predicate<String> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedTypes = this.mAllowedTypes.or(predicate);
+            this.mAllowedTypes = this.mAllowedTypes.m259or(predicate);
             return this;
         }
 
@@ -340,7 +340,7 @@ public class IntentSanitizer {
 
         public Builder allowCategory(Predicate<String> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedCategories = this.mAllowedCategories.or(predicate);
+            this.mAllowedCategories = this.mAllowedCategories.m259or(predicate);
             return this;
         }
 
@@ -352,7 +352,7 @@ public class IntentSanitizer {
 
         public Builder allowPackage(Predicate<String> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedPackages = this.mAllowedPackages.or(predicate);
+            this.mAllowedPackages = this.mAllowedPackages.m259or(predicate);
             return this;
         }
 
@@ -372,7 +372,7 @@ public class IntentSanitizer {
         public Builder allowComponent(Predicate<ComponentName> predicate) {
             Preconditions.checkNotNull(predicate);
             this.mAllowSomeComponents = true;
-            this.mAllowedComponents = this.mAllowedComponents.or(predicate);
+            this.mAllowedComponents = this.mAllowedComponents.m259or(predicate);
             return this;
         }
 
@@ -418,13 +418,13 @@ public class IntentSanitizer {
 
         public Builder allowClipDataUri(Predicate<Uri> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedClipDataUri = this.mAllowedClipDataUri.or(predicate);
+            this.mAllowedClipDataUri = this.mAllowedClipDataUri.m259or(predicate);
             return this;
         }
 
         public Builder allowClipData(Predicate<ClipData> predicate) {
             Preconditions.checkNotNull(predicate);
-            this.mAllowedClipData = this.mAllowedClipData.or(predicate);
+            this.mAllowedClipData = this.mAllowedClipData.m259or(predicate);
             return this;
         }
 
@@ -465,7 +465,7 @@ public class IntentSanitizer {
                     }
                 };
             }
-            this.mAllowedExtras.put(str, predicate2.or(predicate));
+            this.mAllowedExtras.put(str, predicate2.m259or(predicate));
             return this;
         }
 

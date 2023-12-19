@@ -18,7 +18,7 @@ import android.view.ViewPropertyAnimator;
 import android.view.Window;
 import android.view.WindowInsets;
 import android.widget.OverScroller;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.menu.MenuPresenter;
 import androidx.core.graphics.Insets;
 import androidx.core.view.NestedScrollingParent;
@@ -31,7 +31,7 @@ import androidx.core.view.WindowInsetsCompat;
 /* loaded from: classes.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements DecorContentParent, NestedScrollingParent, NestedScrollingParent2, NestedScrollingParent3 {
     private static final int ACTION_BAR_ANIMATE_DELAY = 600;
-    static final int[] ATTRS = {R.attr.actionBarSize, 16842841};
+    static final int[] ATTRS = {C0032R.attr.actionBarSize, 16842841};
     private static final String TAG = "ActionBarOverlayLayout";
     private int mActionBarHeight;
     ActionBarContainer mActionBarTop;
@@ -334,7 +334,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
             this.mContentInsets.bottom += 0;
             this.mInnerInsets = this.mInnerInsets.inset(0, measuredHeight, 0, 0);
         } else {
-            this.mInnerInsets = new WindowInsetsCompat.Builder(this.mInnerInsets).setSystemWindowInsets(Insets.of(this.mInnerInsets.getSystemWindowInsetLeft(), this.mInnerInsets.getSystemWindowInsetTop() + measuredHeight, this.mInnerInsets.getSystemWindowInsetRight(), this.mInnerInsets.getSystemWindowInsetBottom() + 0)).build();
+            this.mInnerInsets = new WindowInsetsCompat.Builder(this.mInnerInsets).setSystemWindowInsets(Insets.m282of(this.mInnerInsets.getSystemWindowInsetLeft(), this.mInnerInsets.getSystemWindowInsetTop() + measuredHeight, this.mInnerInsets.getSystemWindowInsetRight(), this.mInnerInsets.getSystemWindowInsetBottom() + 0)).build();
         }
         applyInsets(this.mContent, this.mContentInsets, true, true, true, true);
         if (!this.mLastInnerInsets.equals(this.mInnerInsets)) {
@@ -479,9 +479,9 @@ public class ActionBarOverlayLayout extends ViewGroup implements DecorContentPar
 
     void pullChildren() {
         if (this.mContent == null) {
-            this.mContent = (ContentFrameLayout) findViewById(R.id.action_bar_activity_content);
-            this.mActionBarTop = (ActionBarContainer) findViewById(R.id.action_bar_container);
-            this.mDecorToolbar = getDecorToolbar(findViewById(R.id.action_bar));
+            this.mContent = (ContentFrameLayout) findViewById(C0032R.C0034id.action_bar_activity_content);
+            this.mActionBarTop = (ActionBarContainer) findViewById(C0032R.C0034id.action_bar_container);
+            this.mDecorToolbar = getDecorToolbar(findViewById(C0032R.C0034id.action_bar));
         }
     }
 

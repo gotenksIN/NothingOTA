@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.fragment.R;
+import androidx.fragment.C0894R;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -33,12 +33,12 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
         }
         if ("fragment".equals(str)) {
             String attributeValue = attributeSet.getAttributeValue(null, "class");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Fragment);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0894R.styleable.Fragment);
             if (attributeValue == null) {
-                attributeValue = obtainStyledAttributes.getString(R.styleable.Fragment_android_name);
+                attributeValue = obtainStyledAttributes.getString(C0894R.styleable.Fragment_android_name);
             }
-            int resourceId = obtainStyledAttributes.getResourceId(R.styleable.Fragment_android_id, -1);
-            String string = obtainStyledAttributes.getString(R.styleable.Fragment_android_tag);
+            int resourceId = obtainStyledAttributes.getResourceId(C0894R.styleable.Fragment_android_id, -1);
+            String string = obtainStyledAttributes.getString(C0894R.styleable.Fragment_android_tag);
             obtainStyledAttributes.recycle();
             if (attributeValue == null || !FragmentFactory.isFragmentClass(context.getClassLoader(), attributeValue)) {
                 return null;

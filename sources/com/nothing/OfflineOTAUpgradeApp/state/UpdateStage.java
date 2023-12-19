@@ -1,17 +1,17 @@
 package com.nothing.OfflineOTAUpgradeApp.state;
 
 import androidx.core.app.NotificationCompat;
-import com.nothing.OfflineOTAUpgradeApp.R;
+import com.nothing.OfflineOTAUpgradeApp.C1640R;
 import com.nothing.OfflineOTAUpgradeApp.state.UpdatingButtonStyle;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: UpdateStage.kt */
-@Metadata(d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b7\u0018\u00002\u00020\u0001:\r\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001bB/\b\u0004\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0007\u001a\u00020\u0005¢\u0006\u0002\u0010\bR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\nR\u0011\u0010\u0007\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\f\u0082\u0001\t\u001c\u001d\u001e\u001f !\"#$¨\u0006%"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "", "firstBtnStyle", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "firstBtnTextRes", "", "secondBtnStyle", "secondBtnTextRes", "(Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;ILcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;I)V", "getFirstBtnStyle", "()Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "getFirstBtnTextRes", "()I", "getSecondBtnStyle", "getSecondBtnTextRes", "StageCurrentVersion", "StageDownloadPaused", "StageDownloading", "StageInstallComplete", "StageInstalling", "StageInstallingPaused", "StageInstallingRunning", "StageLoading", "StageLookingVersion", "StageReadyInstallDownloaded", "StageReadyInstallOTA", "StageReadyToDownload", "StageUpToDate", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageCurrentVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloadPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallDownloaded;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallOTA;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyToDownload;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageUpToDate;", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\b7\u0018\u00002\u00020\u0001:\r\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001bB/\b\u0004\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0003\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0003\u0012\b\b\u0003\u0010\u0007\u001a\u00020\u0005¢\u0006\u0002\u0010\bR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0006\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\nR\u0011\u0010\u0007\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\f\u0082\u0001\t\u001c\u001d\u001e\u001f !\"#$¨\u0006%"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "", "firstBtnStyle", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "firstBtnTextRes", "", "secondBtnStyle", "secondBtnTextRes", "(Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;ILcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;I)V", "getFirstBtnStyle", "()Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "getFirstBtnTextRes", "()I", "getSecondBtnStyle", "getSecondBtnTextRes", "StageCurrentVersion", "StageDownloadPaused", "StageDownloading", "StageInstallComplete", "StageInstalling", "StageInstallingPaused", "StageInstallingRunning", "StageLoading", "StageLookingVersion", "StageReadyInstallDownloaded", "StageReadyInstallOTA", "StageReadyToDownload", "StageUpToDate", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageCurrentVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloadPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallDownloaded;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallOTA;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyToDownload;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageUpToDate;", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public abstract class UpdateStage {
-    public static final int $stable = 0;
+    public static final int $stable = UpdatingButtonStyle.$stable | UpdatingButtonStyle.$stable;
     private final UpdatingButtonStyle firstBtnStyle;
     private final int firstBtnTextRes;
     private final UpdatingButtonStyle secondBtnStyle;
@@ -49,7 +49,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageCurrentVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageCurrentVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageCurrentVersion extends UpdateStage {
         public static final int $stable = 0;
@@ -92,14 +92,14 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageCurrentVersion(String buildNumber) {
-            super(UpdatingButtonStyle.Filled.INSTANCE, R.string.ota_update_button_check_new_version, UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_import_file, null);
+            super(UpdatingButtonStyle.Filled.INSTANCE, C1640R.string.ota_update_button_check_new_version, UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_import_file, null);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.buildNumber = buildNumber;
         }
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0017\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0003"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "()V", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0017\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002¨\u0006\u0003"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "()V", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static class StageLoading extends UpdateStage {
         public static final int $stable = 0;
@@ -110,7 +110,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\bÇ\n\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0013\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006HÖ\u0003J\t\u0010\u0007\u001a\u00020\bHÖ\u0001J\t\u0010\t\u001a\u00020\nHÖ\u0001¨\u0006\u000b"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLookingVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "()V", "equals", "", "other", "", "hashCode", "", "toString", "", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\bÇ\n\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0013\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006HÖ\u0003J\t\u0010\u0007\u001a\u00020\bHÖ\u0001J\t\u0010\t\u001a\u00020\nHÖ\u0001¨\u0006\u000b"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLookingVersion;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageLoading;", "()V", "equals", "", "other", "", "hashCode", "", "toString", "", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageLookingVersion extends StageLoading {
         public static final int $stable = 0;
@@ -140,7 +140,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\t\u0010\t\u001a\u00020\u0003HÆ\u0003J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\u001d\u0010\u000b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\f\u001a\u00020\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0004\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0007¨\u0006\u0013"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyToDownload;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "size", "(Ljava/lang/String;Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "getSize", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\t\u0010\t\u001a\u00020\u0003HÆ\u0003J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\u001d\u0010\u000b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\f\u001a\u00020\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0004\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0007¨\u0006\u0013"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyToDownload;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "size", "(Ljava/lang/String;Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "getSize", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageReadyToDownload extends UpdateStage {
         public static final int $stable = 0;
@@ -200,7 +200,7 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageReadyToDownload(String buildNumber, String size) {
-            super(UpdatingButtonStyle.Filled.INSTANCE, R.string.ota_update_button_download_ota, UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_import_file, null);
+            super(UpdatingButtonStyle.Filled.INSTANCE, C1640R.string.ota_update_button_download_ota, UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_import_file, null);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             Intrinsics.checkNotNullParameter(size, "size");
             this.buildNumber = buildNumber;
@@ -209,7 +209,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\u000b\u001a\u00020\u0003HÆ\u0003J\t\u0010\f\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\r\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\u0015"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getBuildNumber", "()Ljava/lang/String;", "getProgress", "()D", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\u000b\u001a\u00020\u0003HÆ\u0003J\t\u0010\f\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\r\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\u0015"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloading;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getBuildNumber", "()Ljava/lang/String;", "getProgress", "()D", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageDownloading extends UpdateStage {
         public static final int $stable = 0;
@@ -268,7 +268,7 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageDownloading(String buildNumber, double d) {
-            super(UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_pause_download, UpdatingButtonStyle.Transparent.INSTANCE, R.string.ota_update_button_cancel, null);
+            super(UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_pause_download, UpdatingButtonStyle.Transparent.INSTANCE, C1640R.string.ota_update_button_cancel, null);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.buildNumber = buildNumber;
             this.progress = d;
@@ -276,7 +276,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\u000b\u001a\u00020\u0003HÆ\u0003J\t\u0010\f\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\r\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\u0015"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloadPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getBuildNumber", "()Ljava/lang/String;", "getProgress", "()D", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J\t\u0010\u000b\u001a\u00020\u0003HÆ\u0003J\t\u0010\f\u001a\u00020\u0005HÆ\u0003J\u001d\u0010\r\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0005HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011HÖ\u0003J\t\u0010\u0012\u001a\u00020\u0013HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\u0015"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageDownloadPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getBuildNumber", "()Ljava/lang/String;", "getProgress", "()D", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageDownloadPaused extends UpdateStage {
         public static final int $stable = 0;
@@ -335,7 +335,7 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageDownloadPaused(String buildNumber, double d) {
-            super(UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_resume_download, UpdatingButtonStyle.Transparent.INSTANCE, R.string.ota_update_button_cancel, null);
+            super(UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_resume_download, UpdatingButtonStyle.Transparent.INSTANCE, C1640R.string.ota_update_button_cancel, null);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.buildNumber = buildNumber;
             this.progress = d;
@@ -343,7 +343,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallDownloaded;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallDownloaded;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageReadyInstallDownloaded extends UpdateStage {
         public static final int $stable = 0;
@@ -386,14 +386,14 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageReadyInstallDownloaded(String buildNumber) {
-            super(UpdatingButtonStyle.Filled.INSTANCE, R.string.ota_update_button_install, UpdatingButtonStyle.Transparent.INSTANCE, R.string.ota_update_button_cancel, null);
+            super(UpdatingButtonStyle.Filled.INSTANCE, C1640R.string.ota_update_button_install, UpdatingButtonStyle.Transparent.INSTANCE, C1640R.string.ota_update_button_cancel, null);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.buildNumber = buildNumber;
         }
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\b'\u0018\u00002\u00020\u0001B5\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\u0005\u0012\b\b\u0002\u0010\t\u001a\u00020\u0007¢\u0006\u0002\u0010\nR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\r"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "firstBtnStyle", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "firstBtnTextRes", "", "secondBtnStyle", "secondBtnTextRes", "(Ljava/lang/String;Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;ILcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;I)V", "getBuildNumber", "()Ljava/lang/String;", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\b'\u0018\u00002\u00020\u0001B5\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0003\u0010\u0006\u001a\u00020\u0007\u0012\b\b\u0002\u0010\b\u001a\u00020\u0005\u0012\b\b\u0003\u0010\t\u001a\u00020\u0007¢\u0006\u0002\u0010\nR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\r"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "firstBtnStyle", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;", "firstBtnTextRes", "", "secondBtnStyle", "secondBtnTextRes", "(Ljava/lang/String;Lcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;ILcom/nothing/OfflineOTAUpgradeApp/state/UpdatingButtonStyle;I)V", "getBuildNumber", "()Ljava/lang/String;", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static abstract class StageInstalling extends UpdateStage {
         public static final int $stable = 0;
@@ -418,7 +418,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0004\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallingRunning;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getProgress", "()D", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0004\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\b¨\u0006\t"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallingRunning;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getProgress", "()D", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageInstallingRunning extends StageInstalling {
         public static final int $stable = 0;
@@ -430,14 +430,14 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageInstallingRunning(String buildNumber, double d) {
-            super(buildNumber, UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_pause_install, UpdatingButtonStyle.Transparent.INSTANCE, R.string.ota_update_button_cancel);
+            super(buildNumber, UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_pause_install, UpdatingButtonStyle.Transparent.INSTANCE, C1640R.string.ota_update_button_cancel);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.progress = d;
         }
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0004\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallingPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getProgress", "()D", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0004\b\u0007\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0007\u0010\b¨\u0006\t"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallingPaused;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", NotificationCompat.CATEGORY_PROGRESS, "", "(Ljava/lang/String;D)V", "getProgress", "()D", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageInstallingPaused extends StageInstalling {
         public static final int $stable = 0;
@@ -449,14 +449,14 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageInstallingPaused(String buildNumber, double d) {
-            super(buildNumber, UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_resume_install, UpdatingButtonStyle.Transparent.INSTANCE, R.string.ota_update_button_cancel);
+            super(buildNumber, UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_resume_install, UpdatingButtonStyle.Transparent.INSTANCE, C1640R.string.ota_update_button_cancel);
             Intrinsics.checkNotNullParameter(buildNumber, "buildNumber");
             this.progress = d;
         }
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004¨\u0006\u0005"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallComplete;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", "(Ljava/lang/String;)V", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004¨\u0006\u0005"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstallComplete;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageInstalling;", "buildNumber", "", "(Ljava/lang/String;)V", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageInstallComplete extends StageInstalling {
         public static final int $stable = 0;
@@ -469,7 +469,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\t\u0010\t\u001a\u00020\u0003HÆ\u0003J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\u001d\u0010\u000b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\f\u001a\u00020\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0004\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0007¨\u0006\u0013"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallOTA;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "currentNumber", "", "otaNumber", "(Ljava/lang/String;Ljava/lang/String;)V", "getCurrentNumber", "()Ljava/lang/String;", "getOtaNumber", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\t\u0010\t\u001a\u00020\u0003HÆ\u0003J\t\u0010\n\u001a\u00020\u0003HÆ\u0003J\u001d\u0010\u000b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\f\u001a\u00020\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\u000fHÖ\u0003J\t\u0010\u0010\u001a\u00020\u0011HÖ\u0001J\t\u0010\u0012\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0011\u0010\u0004\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\u0007¨\u0006\u0013"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageReadyInstallOTA;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "currentNumber", "", "otaNumber", "(Ljava/lang/String;Ljava/lang/String;)V", "getCurrentNumber", "()Ljava/lang/String;", "getOtaNumber", "component1", "component2", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageReadyInstallOTA extends UpdateStage {
         public static final int $stable = 0;
@@ -529,7 +529,7 @@ public abstract class UpdateStage {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public StageReadyInstallOTA(String currentNumber, String otaNumber) {
-            super(UpdatingButtonStyle.Filled.INSTANCE, R.string.ota_update_button_check_new_version, UpdatingButtonStyle.Border.INSTANCE, R.string.ota_update_button_import_file, null);
+            super(UpdatingButtonStyle.Filled.INSTANCE, C1640R.string.ota_update_button_check_new_version, UpdatingButtonStyle.Border.INSTANCE, C1640R.string.ota_update_button_import_file, null);
             Intrinsics.checkNotNullParameter(currentNumber, "currentNumber");
             Intrinsics.checkNotNullParameter(otaNumber, "otaNumber");
             this.currentNumber = currentNumber;
@@ -538,7 +538,7 @@ public abstract class UpdateStage {
     }
 
     /* compiled from: UpdateStage.kt */
-    @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageUpToDate;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\b\u0087\b\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\t\u0010\u0007\u001a\u00020\u0003HÆ\u0003J\u0013\u0010\b\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u0003HÆ\u0001J\u0013\u0010\t\u001a\u00020\n2\b\u0010\u000b\u001a\u0004\u0018\u00010\fHÖ\u0003J\t\u0010\r\u001a\u00020\u000eHÖ\u0001J\t\u0010\u000f\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\u0010"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage$StageUpToDate;", "Lcom/nothing/OfflineOTAUpgradeApp/state/UpdateStage;", "buildNumber", "", "(Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "component1", "copy", "equals", "", "other", "", "hashCode", "", "toString", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class StageUpToDate extends UpdateStage {
         public static final int $stable = 0;

@@ -25,7 +25,8 @@ final class UndirectedMultiNetworkConnections<N, E> extends AbstractUndirectedNe
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, E> UndirectedMultiNetworkConnections<N, E> of() {
+    /* renamed from: of */
+    public static <N, E> UndirectedMultiNetworkConnections<N, E> m94of() {
         return new UndirectedMultiNetworkConnections<>(new HashMap(2, 1.0f));
     }
 

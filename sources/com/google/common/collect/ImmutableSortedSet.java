@@ -72,40 +72,47 @@ public abstract class ImmutableSortedSet<E> extends ImmutableSortedSetFauxveride
         if (Ordering.natural().equals(comparator)) {
             return (RegularImmutableSortedSet<E>) RegularImmutableSortedSet.NATURAL_EMPTY_SET;
         }
-        return new RegularImmutableSortedSet<>(ImmutableList.of(), comparator);
+        return new RegularImmutableSortedSet<>(ImmutableList.m211of(), comparator);
     }
 
-    public static <E> ImmutableSortedSet<E> of() {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m116of() {
         return RegularImmutableSortedSet.NATURAL_EMPTY_SET;
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable) {
-        return new RegularImmutableSortedSet(ImmutableList.of(comparable), Ordering.natural());
+    /* renamed from: of */
+    public static ImmutableSortedSet m115of(Comparable comparable) {
+        return new RegularImmutableSortedSet(ImmutableList.m210of(comparable), Ordering.natural());
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable, Comparable comparable2) {
+    /* renamed from: of */
+    public static ImmutableSortedSet m114of(Comparable comparable, Comparable comparable2) {
         return construct(Ordering.natural(), 2, comparable, comparable2);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable, Comparable comparable2, Comparable comparable3) {
+    /* renamed from: of */
+    public static ImmutableSortedSet m113of(Comparable comparable, Comparable comparable2, Comparable comparable3) {
         return construct(Ordering.natural(), 3, comparable, comparable2, comparable3);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4) {
+    /* renamed from: of */
+    public static ImmutableSortedSet m112of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4) {
         return construct(Ordering.natural(), 4, comparable, comparable2, comparable3, comparable4);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5) {
+    /* renamed from: of */
+    public static ImmutableSortedSet m111of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5) {
         return construct(Ordering.natural(), 5, comparable, comparable2, comparable3, comparable4, comparable5);
     }
 
     /* JADX WARN: Incorrect types in method signature: <E::Ljava/lang/Comparable<-TE;>;>(TE;TE;TE;TE;TE;TE;[TE;)Lcom/google/common/collect/ImmutableSortedSet<TE;>; */
-    public static ImmutableSortedSet of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5, Comparable comparable6, Comparable... comparableArr) {
+    /* renamed from: of */
+    public static ImmutableSortedSet m110of(Comparable comparable, Comparable comparable2, Comparable comparable3, Comparable comparable4, Comparable comparable5, Comparable comparable6, Comparable... comparableArr) {
         int length = comparableArr.length + 6;
         Comparable[] comparableArr2 = new Comparable[length];
         comparableArr2[0] = comparable;

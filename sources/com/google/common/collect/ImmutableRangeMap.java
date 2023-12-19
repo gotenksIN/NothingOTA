@@ -15,17 +15,19 @@ import javax.annotation.CheckForNull;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K, V>, Serializable {
-    private static final ImmutableRangeMap<Comparable<?>, Object> EMPTY = new ImmutableRangeMap<>(ImmutableList.of(), ImmutableList.of());
+    private static final ImmutableRangeMap<Comparable<?>, Object> EMPTY = new ImmutableRangeMap<>(ImmutableList.m211of(), ImmutableList.m211of());
     private static final long serialVersionUID = 0;
     private final transient ImmutableList<Range<K>> ranges;
     private final transient ImmutableList<V> values;
 
-    public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> of() {
+    /* renamed from: of */
+    public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> m168of() {
         return (ImmutableRangeMap<K, V>) EMPTY;
     }
 
-    public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> of(Range<K> range, V v) {
-        return new ImmutableRangeMap<>(ImmutableList.of(range), ImmutableList.of(v));
+    /* renamed from: of */
+    public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> m167of(Range<K> range, V v) {
+        return new ImmutableRangeMap<>(ImmutableList.m210of(range), ImmutableList.m210of(v));
     }
 
     public static <K extends Comparable<?>, V> ImmutableRangeMap<K, V> copyOf(RangeMap<K, ? extends V> rangeMap) {
@@ -163,7 +165,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
     @Override // com.google.common.collect.RangeMap
     public ImmutableMap<Range<K>, V> asMapOfRanges() {
         if (this.ranges.isEmpty()) {
-            return ImmutableMap.of();
+            return ImmutableMap.m192of();
         }
         return new ImmutableSortedMap(new RegularImmutableSortedSet(this.ranges, Range.rangeLexOrdering()), this.values);
     }
@@ -171,7 +173,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
     @Override // com.google.common.collect.RangeMap
     public ImmutableMap<Range<K>, V> asDescendingMapOfRanges() {
         if (this.ranges.isEmpty()) {
-            return ImmutableMap.of();
+            return ImmutableMap.m192of();
         }
         return new ImmutableSortedMap(new RegularImmutableSortedSet(this.ranges.reverse(), Range.rangeLexOrdering().reverse()), this.values.reverse());
     }
@@ -179,7 +181,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
     @Override // com.google.common.collect.RangeMap
     public ImmutableRangeMap<K, V> subRangeMap(final Range<K> range) {
         if (((Range) Preconditions.checkNotNull(range)).isEmpty()) {
-            return of();
+            return m168of();
         }
         if (this.ranges.isEmpty() || range.encloses(span())) {
             return this;
@@ -187,7 +189,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
         final int binarySearch = SortedLists.binarySearch(this.ranges, Range.upperBoundFn(), range.lowerBound, SortedLists.KeyPresentBehavior.FIRST_AFTER, SortedLists.KeyAbsentBehavior.NEXT_HIGHER);
         int binarySearch2 = SortedLists.binarySearch(this.ranges, Range.lowerBoundFn(), range.upperBound, SortedLists.KeyPresentBehavior.ANY_PRESENT, SortedLists.KeyAbsentBehavior.NEXT_HIGHER);
         if (binarySearch >= binarySearch2) {
-            return of();
+            return m168of();
         }
         final int i = binarySearch2 - binarySearch;
         return (ImmutableRangeMap<K, V>) new ImmutableRangeMap<K, V>(this, new ImmutableList<Range<K>>() { // from class: com.google.common.collect.ImmutableRangeMap.1
@@ -223,7 +225,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
                 if (range.isConnected(range2)) {
                     return this.subRangeMap((Range) range2.intersection(range));
                 }
-                return ImmutableRangeMap.of();
+                return ImmutableRangeMap.m168of();
             }
         };
     }
@@ -257,7 +259,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements RangeMap<K
 
         Object readResolve() {
             if (this.mapOfRanges.isEmpty()) {
-                return ImmutableRangeMap.of();
+                return ImmutableRangeMap.m168of();
             }
             return createRangeMap();
         }

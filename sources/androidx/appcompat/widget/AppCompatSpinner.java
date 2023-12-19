@@ -22,7 +22,7 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.util.ObjectsCompat;
@@ -83,11 +83,11 @@ public class AppCompatSpinner extends Spinner implements TintableBackgroundView 
     }
 
     public AppCompatSpinner(Context context, int i) {
-        this(context, null, R.attr.spinnerStyle, i);
+        this(context, null, C0032R.attr.spinnerStyle, i);
     }
 
     public AppCompatSpinner(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.spinnerStyle);
+        this(context, attributeSet, C0032R.attr.spinnerStyle);
     }
 
     public AppCompatSpinner(Context context, AttributeSet attributeSet, int i) {

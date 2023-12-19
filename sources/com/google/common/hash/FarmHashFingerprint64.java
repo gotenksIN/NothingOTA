@@ -6,9 +6,15 @@ import com.google.common.base.Preconditions;
 /* loaded from: classes2.dex */
 final class FarmHashFingerprint64 extends AbstractNonStreamingHashFunction {
     static final HashFunction FARMHASH_FINGERPRINT_64 = new FarmHashFingerprint64();
-    private static final long K0 = -4348849565147123417L;
-    private static final long K1 = -5435081209227447693L;
-    private static final long K2 = -7286425919675154353L;
+
+    /* renamed from: K0 */
+    private static final long f230K0 = -4348849565147123417L;
+
+    /* renamed from: K1 */
+    private static final long f231K1 = -5435081209227447693L;
+
+    /* renamed from: K2 */
+    private static final long f232K2 = -7286425919675154353L;
 
     private static long hashLength16(long j, long j2, long j3) {
         long j4 = (j ^ j2) * j3;
@@ -64,36 +70,36 @@ final class FarmHashFingerprint64 extends AbstractNonStreamingHashFunction {
 
     private static long hashLength0to16(byte[] bArr, int i, int i2) {
         if (i2 >= 8) {
-            long j = (i2 * 2) + K2;
-            long load64 = LittleEndianByteArray.load64(bArr, i) + K2;
+            long j = (i2 * 2) + f232K2;
+            long load64 = LittleEndianByteArray.load64(bArr, i) + f232K2;
             long load642 = LittleEndianByteArray.load64(bArr, (i + i2) - 8);
             return hashLength16((Long.rotateRight(load642, 37) * j) + load64, (Long.rotateRight(load64, 25) + load642) * j, j);
         } else if (i2 >= 4) {
-            return hashLength16(i2 + ((LittleEndianByteArray.load32(bArr, i) & 4294967295L) << 3), LittleEndianByteArray.load32(bArr, (i + i2) - 4) & 4294967295L, (i2 * 2) + K2);
+            return hashLength16(i2 + ((LittleEndianByteArray.load32(bArr, i) & 4294967295L) << 3), LittleEndianByteArray.load32(bArr, (i + i2) - 4) & 4294967295L, (i2 * 2) + f232K2);
         } else if (i2 > 0) {
-            return shiftMix((((bArr[i] & 255) + ((bArr[(i2 >> 1) + i] & 255) << 8)) * K2) ^ ((i2 + ((bArr[i + (i2 - 1)] & 255) << 2)) * K0)) * K2;
+            return shiftMix((((bArr[i] & 255) + ((bArr[(i2 >> 1) + i] & 255) << 8)) * f232K2) ^ ((i2 + ((bArr[i + (i2 - 1)] & 255) << 2)) * f230K0)) * f232K2;
         } else {
-            return K2;
+            return f232K2;
         }
     }
 
     private static long hashLength17to32(byte[] bArr, int i, int i2) {
-        long j = (i2 * 2) + K2;
-        long load64 = LittleEndianByteArray.load64(bArr, i) * K1;
+        long j = (i2 * 2) + f232K2;
+        long load64 = LittleEndianByteArray.load64(bArr, i) * f231K1;
         long load642 = LittleEndianByteArray.load64(bArr, i + 8);
         int i3 = i + i2;
         long load643 = LittleEndianByteArray.load64(bArr, i3 - 8) * j;
-        return hashLength16((LittleEndianByteArray.load64(bArr, i3 - 16) * K2) + Long.rotateRight(load64 + load642, 43) + Long.rotateRight(load643, 30), load64 + Long.rotateRight(load642 + K2, 18) + load643, j);
+        return hashLength16((LittleEndianByteArray.load64(bArr, i3 - 16) * f232K2) + Long.rotateRight(load64 + load642, 43) + Long.rotateRight(load643, 30), load64 + Long.rotateRight(load642 + f232K2, 18) + load643, j);
     }
 
     private static long hashLength33To64(byte[] bArr, int i, int i2) {
-        long j = (i2 * 2) + K2;
-        long load64 = LittleEndianByteArray.load64(bArr, i) * K2;
+        long j = (i2 * 2) + f232K2;
+        long load64 = LittleEndianByteArray.load64(bArr, i) * f232K2;
         long load642 = LittleEndianByteArray.load64(bArr, i + 8);
         int i3 = i + i2;
         long load643 = LittleEndianByteArray.load64(bArr, i3 - 8) * j;
-        long rotateRight = Long.rotateRight(load64 + load642, 43) + Long.rotateRight(load643, 30) + (LittleEndianByteArray.load64(bArr, i3 - 16) * K2);
-        long hashLength16 = hashLength16(rotateRight, load643 + Long.rotateRight(load642 + K2, 18) + load64, j);
+        long rotateRight = Long.rotateRight(load64 + load642, 43) + Long.rotateRight(load643, 30) + (LittleEndianByteArray.load64(bArr, i3 - 16) * f232K2);
+        long hashLength16 = hashLength16(rotateRight, load643 + Long.rotateRight(load642 + f232K2, 18) + load64, j);
         long load644 = LittleEndianByteArray.load64(bArr, i + 16) * j;
         long load645 = LittleEndianByteArray.load64(bArr, i + 24);
         long load646 = (rotateRight + LittleEndianByteArray.load64(bArr, i3 - 32)) * j;
@@ -102,27 +108,27 @@ final class FarmHashFingerprint64 extends AbstractNonStreamingHashFunction {
 
     private static long hashLength65Plus(byte[] bArr, int i, int i2) {
         long j = 81;
-        long j2 = (j * K1) + 113;
-        long shiftMix = shiftMix((j2 * K2) + 113) * K2;
+        long j2 = (j * f231K1) + 113;
+        long shiftMix = shiftMix((j2 * f232K2) + 113) * f232K2;
         long[] jArr = new long[2];
         long[] jArr2 = new long[2];
-        long load64 = (j * K2) + LittleEndianByteArray.load64(bArr, i);
+        long load64 = (j * f232K2) + LittleEndianByteArray.load64(bArr, i);
         int i3 = i2 - 1;
         int i4 = i + ((i3 / 64) * 64);
         int i5 = i3 & 63;
         int i6 = (i4 + i5) - 63;
         int i7 = i;
         while (true) {
-            long rotateRight = Long.rotateRight(load64 + j2 + jArr[0] + LittleEndianByteArray.load64(bArr, i7 + 8), 37) * K1;
-            long rotateRight2 = Long.rotateRight(j2 + jArr[1] + LittleEndianByteArray.load64(bArr, i7 + 48), 42) * K1;
+            long rotateRight = Long.rotateRight(load64 + j2 + jArr[0] + LittleEndianByteArray.load64(bArr, i7 + 8), 37) * f231K1;
+            long rotateRight2 = Long.rotateRight(j2 + jArr[1] + LittleEndianByteArray.load64(bArr, i7 + 48), 42) * f231K1;
             long j3 = rotateRight ^ jArr2[1];
             long load642 = rotateRight2 + jArr[0] + LittleEndianByteArray.load64(bArr, i7 + 40);
-            long rotateRight3 = Long.rotateRight(shiftMix + jArr2[0], 33) * K1;
-            weakHashLength32WithSeeds(bArr, i7, jArr[1] * K1, j3 + jArr2[0], jArr);
+            long rotateRight3 = Long.rotateRight(shiftMix + jArr2[0], 33) * f231K1;
+            weakHashLength32WithSeeds(bArr, i7, jArr[1] * f231K1, j3 + jArr2[0], jArr);
             weakHashLength32WithSeeds(bArr, i7 + 32, rotateRight3 + jArr2[1], load642 + LittleEndianByteArray.load64(bArr, i7 + 16), jArr2);
             int i8 = i7 + 64;
             if (i8 == i4) {
-                long j4 = K1 + ((j3 & 255) << 1);
+                long j4 = f231K1 + ((j3 & 255) << 1);
                 long j5 = jArr2[0] + i5;
                 jArr2[0] = j5;
                 long j6 = jArr[0] + j5;
@@ -133,7 +139,7 @@ final class FarmHashFingerprint64 extends AbstractNonStreamingHashFunction {
                 long rotateRight6 = Long.rotateRight(j3 + jArr2[0], 33) * j4;
                 weakHashLength32WithSeeds(bArr, i6, jArr[1] * j4, rotateRight4 + jArr2[0], jArr);
                 weakHashLength32WithSeeds(bArr, i6 + 32, rotateRight6 + jArr2[1], rotateRight5 + LittleEndianByteArray.load64(bArr, i6 + 16), jArr2);
-                return hashLength16(hashLength16(jArr[0], jArr2[0], j4) + (shiftMix(rotateRight5) * K0) + rotateRight4, hashLength16(jArr[1], jArr2[1], j4) + rotateRight6, j4);
+                return hashLength16(hashLength16(jArr[0], jArr2[0], j4) + (shiftMix(rotateRight5) * f230K0) + rotateRight4, hashLength16(jArr[1], jArr2[1], j4) + rotateRight6, j4);
             }
             i7 = i8;
             shiftMix = j3;

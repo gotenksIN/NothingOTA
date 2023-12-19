@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.InflateException;
 import android.view.View;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.appcompat.widget.AppCompatButton;
@@ -343,9 +343,9 @@ public class AppCompatViewInflater {
     }
 
     private static Context themifyContext(Context context, AttributeSet attributeSet, boolean z, boolean z2) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.View, 0, 0);
-        int resourceId = z ? obtainStyledAttributes.getResourceId(R.styleable.View_android_theme, 0) : 0;
-        if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(R.styleable.View_theme, 0)) != 0) {
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0032R.styleable.View, 0, 0);
+        int resourceId = z ? obtainStyledAttributes.getResourceId(C0032R.styleable.View_android_theme, 0) : 0;
+        if (z2 && resourceId == 0 && (resourceId = obtainStyledAttributes.getResourceId(C0032R.styleable.View_theme, 0)) != 0) {
             Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
         }
         obtainStyledAttributes.recycle();

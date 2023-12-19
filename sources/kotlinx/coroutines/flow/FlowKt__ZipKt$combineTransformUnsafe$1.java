@@ -7,17 +7,17 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.InlineMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlinx.coroutines.flow.internal.CombineKt;
+import kotlinx.coroutines.flow.internal.Combine;
 
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: Zip.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1", f = "Zip.kt", i = {}, l = {273}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1", m30f = "Zip.kt", m29i = {}, m28l = {273}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class FlowKt__ZipKt$combineTransformUnsafe$1<R> extends SuspendLambda implements Function2<FlowCollector<? super R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow<T>[] $flows;
@@ -51,11 +51,11 @@ public final class FlowKt__ZipKt$combineTransformUnsafe$1<R> extends SuspendLamb
 
     /* JADX INFO: Add missing generic type declarations: [T] */
     /* compiled from: Zip.kt */
-    @Metadata(d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;", "it", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-    @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1$1", f = "Zip.kt", i = {}, l = {273}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\u0014\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\u0010\u0000\u001a\u00020\u0001\"\u0006\b\u0000\u0010\u0002\u0018\u0001\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0006H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/flow/FlowCollector;", "it", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1$1", m30f = "Zip.kt", m29i = {}, m28l = {273}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__ZipKt$combineTransformUnsafe$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
+    public static final class C17791<T> extends SuspendLambda implements Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> {
         final /* synthetic */ Function3<FlowCollector<? super R>, T[], Continuation<? super Unit>, Object> $transform;
         private /* synthetic */ Object L$0;
         /* synthetic */ Object L$1;
@@ -63,17 +63,17 @@ public final class FlowKt__ZipKt$combineTransformUnsafe$1<R> extends SuspendLamb
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        public AnonymousClass1(Function3<? super FlowCollector<? super R>, ? super T[], ? super Continuation<? super Unit>, ? extends Object> function3, Continuation<? super AnonymousClass1> continuation) {
+        public C17791(Function3<? super FlowCollector<? super R>, ? super T[], ? super Continuation<? super Unit>, ? extends Object> function3, Continuation<? super C17791> continuation) {
             super(3, continuation);
             this.$transform = function3;
         }
 
         @Override // kotlin.jvm.functions.Function3
         public final Object invoke(FlowCollector<? super R> flowCollector, T[] tArr, Continuation<? super Unit> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$transform, continuation);
-            anonymousClass1.L$0 = flowCollector;
-            anonymousClass1.L$1 = tArr;
-            return anonymousClass1.invokeSuspend(Unit.INSTANCE);
+            C17791 c17791 = new C17791(this.$transform, continuation);
+            c17791.L$0 = flowCollector;
+            c17791.L$1 = tArr;
+            return c17791.invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX WARN: Multi-variable type inference failed */
@@ -106,16 +106,16 @@ public final class FlowKt__ZipKt$combineTransformUnsafe$1<R> extends SuspendLamb
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        Function0 nullArrayFactory$FlowKt__ZipKt;
+        Functions nullArrayFactory$FlowKt__ZipKt;
         Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             Flow<T>[] flowArr = this.$flows;
-            nullArrayFactory$FlowKt__ZipKt = FlowKt__ZipKt.nullArrayFactory$FlowKt__ZipKt();
+            nullArrayFactory$FlowKt__ZipKt = Zip.nullArrayFactory$FlowKt__ZipKt();
             Intrinsics.needClassReification();
             this.label = 1;
-            if (CombineKt.combineInternal((FlowCollector) this.L$0, flowArr, nullArrayFactory$FlowKt__ZipKt, new AnonymousClass1(this.$transform, null), this) == coroutine_suspended) {
+            if (Combine.combineInternal((FlowCollector) this.L$0, flowArr, nullArrayFactory$FlowKt__ZipKt, new C17791(this.$transform, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {
@@ -127,12 +127,12 @@ public final class FlowKt__ZipKt$combineTransformUnsafe$1<R> extends SuspendLamb
     }
 
     public final Object invokeSuspend$$forInline(Object obj) {
-        Function0 nullArrayFactory$FlowKt__ZipKt;
+        Functions nullArrayFactory$FlowKt__ZipKt;
         Flow<T>[] flowArr = this.$flows;
-        nullArrayFactory$FlowKt__ZipKt = FlowKt__ZipKt.nullArrayFactory$FlowKt__ZipKt();
+        nullArrayFactory$FlowKt__ZipKt = Zip.nullArrayFactory$FlowKt__ZipKt();
         Intrinsics.needClassReification();
         InlineMarker.mark(0);
-        CombineKt.combineInternal((FlowCollector) this.L$0, flowArr, nullArrayFactory$FlowKt__ZipKt, new AnonymousClass1(this.$transform, null), this);
+        Combine.combineInternal((FlowCollector) this.L$0, flowArr, nullArrayFactory$FlowKt__ZipKt, new C17791(this.$transform, null), this);
         InlineMarker.mark(1);
         return Unit.INSTANCE;
     }

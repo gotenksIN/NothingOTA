@@ -1,6 +1,6 @@
 package kotlinx.coroutines.channels;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -10,8 +10,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Add missing generic type declarations: [E] */
 /* compiled from: Broadcast.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.BroadcastKt$broadcast$2", f = "Broadcast.kt", i = {0, 1}, l = {R.styleable.AppCompatTheme_colorControlActivated, R.styleable.AppCompatTheme_colorControlHighlight}, m = "invokeSuspend", n = {"$this$broadcast", "$this$broadcast"}, s = {"L$0", "L$0"})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u0002H\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "E", "Lkotlinx/coroutines/channels/ProducerScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.BroadcastKt$broadcast$2", m30f = "Broadcast.kt", m29i = {0, 1}, m28l = {C0032R.styleable.AppCompatTheme_colorControlActivated, C0032R.styleable.AppCompatTheme_colorControlHighlight}, m27m = "invokeSuspend", m26n = {"$this$broadcast", "$this$broadcast"}, m25s = {"L$0", "L$0"})
 /* loaded from: classes2.dex */
 final class BroadcastKt$broadcast$2<E> extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     final /* synthetic */ ReceiveChannel<E> $this_broadcast;

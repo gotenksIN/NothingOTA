@@ -38,7 +38,7 @@ import androidx.core.app.OnPictureInPictureModeChangedProvider;
 import androidx.core.app.PictureInPictureModeChangedInfo;
 import androidx.core.content.OnConfigurationChangedProvider;
 import androidx.core.content.OnTrimMemoryProvider;
-import androidx.core.os.BuildCompat;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.util.Consumer;
 import androidx.core.view.MenuHost;
 import androidx.core.view.MenuHostHelper;
@@ -68,7 +68,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 import kotlin.Unit;
-import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Functions;
 
 /* loaded from: classes.dex */
 public class ComponentActivity extends androidx.core.app.ComponentActivity implements ContextAware, LifecycleOwner, ViewModelStoreOwner, HasDefaultViewModelProviderFactory, SavedStateRegistryOwner, OnBackPressedDispatcherOwner, ActivityResultRegistryOwner, ActivityResultCaller, OnConfigurationChangedProvider, OnTrimMemoryProvider, OnNewIntentProvider, OnMultiWindowModeChangedProvider, OnPictureInPictureModeChangedProvider, MenuHost, FullyDrawnReporterOwner {
@@ -118,7 +118,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$0$androidx-activity-ComponentActivity  reason: not valid java name */
-    public /* synthetic */ Unit m0lambda$new$0$androidxactivityComponentActivity() {
+    public /* synthetic */ Unit m303lambda$new$0$androidxactivityComponentActivity() {
         reportFullyDrawn();
         return null;
     }
@@ -148,10 +148,10 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         });
         ReportFullyDrawnExecutor createFullyDrawnExecutor = createFullyDrawnExecutor();
         this.mReportFullyDrawnExecutor = createFullyDrawnExecutor;
-        this.mFullyDrawnReporter = new FullyDrawnReporter(createFullyDrawnExecutor, new Function0() { // from class: androidx.activity.ComponentActivity$$ExternalSyntheticLambda1
-            @Override // kotlin.jvm.functions.Function0
+        this.mFullyDrawnReporter = new FullyDrawnReporter(createFullyDrawnExecutor, new Functions() { // from class: androidx.activity.ComponentActivity$$ExternalSyntheticLambda1
+            @Override // kotlin.jvm.functions.Functions
             public final Object invoke() {
-                return ComponentActivity.this.m0lambda$new$0$androidxactivityComponentActivity();
+                return ComponentActivity.this.m303lambda$new$0$androidxactivityComponentActivity();
             }
         });
         this.mNextLocalRequestCode = new AtomicInteger();
@@ -250,20 +250,20 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         getSavedStateRegistry().registerSavedStateProvider(ACTIVITY_RESULT_TAG, new SavedStateRegistry.SavedStateProvider() { // from class: androidx.activity.ComponentActivity$$ExternalSyntheticLambda2
             @Override // androidx.savedstate.SavedStateRegistry.SavedStateProvider
             public final Bundle saveState() {
-                return ComponentActivity.this.m1lambda$new$1$androidxactivityComponentActivity();
+                return ComponentActivity.this.m304lambda$new$1$androidxactivityComponentActivity();
             }
         });
         addOnContextAvailableListener(new OnContextAvailableListener() { // from class: androidx.activity.ComponentActivity$$ExternalSyntheticLambda3
             @Override // androidx.activity.contextaware.OnContextAvailableListener
             public final void onContextAvailable(Context context) {
-                ComponentActivity.this.m2lambda$new$2$androidxactivityComponentActivity(context);
+                ComponentActivity.this.m305lambda$new$2$androidxactivityComponentActivity(context);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$1$androidx-activity-ComponentActivity  reason: not valid java name */
-    public /* synthetic */ Bundle m1lambda$new$1$androidxactivityComponentActivity() {
+    public /* synthetic */ Bundle m304lambda$new$1$androidxactivityComponentActivity() {
         Bundle bundle = new Bundle();
         this.mActivityResultRegistry.onSaveInstanceState(bundle);
         return bundle;
@@ -271,7 +271,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$2$androidx-activity-ComponentActivity  reason: not valid java name */
-    public /* synthetic */ void m2lambda$new$2$androidxactivityComponentActivity(Context context) {
+    public /* synthetic */ void m305lambda$new$2$androidxactivityComponentActivity(Context context) {
         Bundle consumeRestoredStateForKey = getSavedStateRegistry().consumeRestoredStateForKey(ACTIVITY_RESULT_TAG);
         if (consumeRestoredStateForKey != null) {
             this.mActivityResultRegistry.onRestoreInstanceState(consumeRestoredStateForKey);
@@ -369,7 +369,7 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
         ViewTreeViewModelStoreOwner.set(getWindow().getDecorView(), this);
         ViewTreeSavedStateRegistryOwner.set(getWindow().getDecorView(), this);
         ViewTreeOnBackPressedDispatcherOwner.set(getWindow().getDecorView(), this);
-        ViewTreeFullyDrawnReporterOwner.set(getWindow().getDecorView(), this);
+        ViewTreeFullyLoadedReporterOwner.set(getWindow().getDecorView(), this);
     }
 
     @Override // androidx.activity.contextaware.ContextAware
@@ -814,14 +814,14 @@ public class ComponentActivity extends androidx.core.app.ComponentActivity imple
             decorView.postOnAnimation(new Runnable() { // from class: androidx.activity.ComponentActivity$ReportFullyDrawnExecutorApi16Impl$$ExternalSyntheticLambda0
                 @Override // java.lang.Runnable
                 public final void run() {
-                    ComponentActivity.ReportFullyDrawnExecutorApi16Impl.this.m3x96b76666();
+                    ComponentActivity.ReportFullyDrawnExecutorApi16Impl.this.m302x96b76666();
                 }
             });
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* renamed from: lambda$execute$0$androidx-activity-ComponentActivity$ReportFullyDrawnExecutorApi16Impl  reason: not valid java name */
-        public /* synthetic */ void m3x96b76666() {
+        /* renamed from: lambda$execute$0$androidx-activity-ComponentActivity$ReportFullyDrawnExecutorApi16Impl */
+        public /* synthetic */ void m302x96b76666() {
             Runnable runnable = this.mRunnable;
             if (runnable != null) {
                 runnable.run();

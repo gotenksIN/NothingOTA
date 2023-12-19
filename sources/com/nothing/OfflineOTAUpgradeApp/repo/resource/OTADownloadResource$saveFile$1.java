@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTADownloadResource.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource", f = "OTADownloadResource.kt", i = {0, 0, 0, 0, 1, 1, 1, 1, 2}, l = {194, 197, 211, 228, 237}, m = "saveFile", n = {"this", "inputStream", "outputStream", "buffer", "this", "inputStream", "outputStream", "buffer", "this"}, s = {"L$0", "L$2", "L$4", "L$5", "L$0", "L$2", "L$4", "L$5", "L$0"})
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.repo.resource.OTADownloadResource", m30f = "OTADownloadResource.kt", m29i = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2}, m28l = {195, 198, 215, 233, 242}, m27m = "saveFile", m26n = {"this", "$this$saveFile", "inputStream", "outputStream", "buffer", "this", "$this$saveFile", "inputStream", "outputStream", "buffer", "this"}, m25s = {"L$0", "L$1", "L$3", "L$5", "L$6", "L$0", "L$1", "L$3", "L$5", "L$6", "L$0"})
 /* loaded from: classes2.dex */
 public final class OTADownloadResource$saveFile$1 extends ContinuationImpl {
     Object L$0;
@@ -17,6 +17,7 @@ public final class OTADownloadResource$saveFile$1 extends ContinuationImpl {
     Object L$3;
     Object L$4;
     Object L$5;
+    Object L$6;
     int label;
     /* synthetic */ Object result;
     final /* synthetic */ OTADownloadResource this$0;

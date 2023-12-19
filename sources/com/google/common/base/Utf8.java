@@ -92,7 +92,7 @@ public final class Utf8 {
                 } else {
                     int i5 = i3 + 1;
                     byte b3 = bArr[i3];
-                    if (b3 <= -65 && (((b2 << Ascii.FS) + (b3 + 112)) >> 30) == 0) {
+                    if (b3 <= -65 && (((b2 << Ascii.f191FS) + (b3 + 112)) >> 30) == 0) {
                         int i6 = i5 + 1;
                         if (bArr[i5] <= -65) {
                             i3 = i6 + 1;

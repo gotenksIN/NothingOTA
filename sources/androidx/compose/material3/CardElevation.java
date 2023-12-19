@@ -1,5 +1,6 @@
 package androidx.compose.material3;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.VectorConvertersKt;
 import androidx.compose.foundation.interaction.DragInteraction;
@@ -8,15 +9,15 @@ import androidx.compose.foundation.interaction.HoverInteraction;
 import androidx.compose.foundation.interaction.Interaction;
 import androidx.compose.foundation.interaction.InteractionSource;
 import androidx.compose.foundation.interaction.PressInteraction;
+import androidx.compose.p002ui.unit.C0780Dp;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
 import androidx.compose.runtime.State;
 import androidx.compose.runtime.snapshots.SnapshotStateList;
-import androidx.compose.ui.unit.Dp;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt;
@@ -24,7 +25,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 /* compiled from: Card.kt */
-@Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001B:\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\tJ&\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0013\u0010\u0012\u001a\u00020\u000e2\b\u0010\u0013\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u0014\u001a\u00020\u0015H\u0016J*\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0011J*\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0011R\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\n\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u001a"}, d2 = {"Landroidx/compose/material3/CardElevation;", "", "defaultElevation", "Landroidx/compose/ui/unit/Dp;", "pressedElevation", "focusedElevation", "hoveredElevation", "draggedElevation", "disabledElevation", "(FFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V", "F", "animateElevation", "Landroidx/compose/runtime/State;", "enabled", "", "interactionSource", "Landroidx/compose/foundation/interaction/InteractionSource;", "(ZLandroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "equals", "other", "hashCode", "", "shadowElevation", "shadowElevation$material3_release", "tonalElevation", "tonalElevation$material3_release", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0005\b\u0007\u0018\u00002\u00020\u0001B:\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\tJ&\u0010\u000b\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010H\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0011J\u0013\u0010\u0012\u001a\u00020\u000e2\b\u0010\u0013\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u0014\u001a\u00020\u0015H\u0016J*\u0010\u0016\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0011J*\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u00030\f2\u0006\u0010\r\u001a\u00020\u000e2\b\u0010\u000f\u001a\u0004\u0018\u00010\u0010H\u0001ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u0011R\u0019\u0010\u0002\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0005\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0006\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\nR\u0019\u0010\u0004\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\n\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u001a"}, m40d2 = {"Landroidx/compose/material3/CardElevation;", "", "defaultElevation", "Landroidx/compose/ui/unit/Dp;", "pressedElevation", "focusedElevation", "hoveredElevation", "draggedElevation", "disabledElevation", "(FFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V", "F", "animateElevation", "Landroidx/compose/runtime/State;", "enabled", "", "interactionSource", "Landroidx/compose/foundation/interaction/InteractionSource;", "(ZLandroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;", "equals", "other", "hashCode", "", "shadowElevation", "shadowElevation$material3_release", "tonalElevation", "tonalElevation$material3_release", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class CardElevation {
     public static final int $stable = 0;
@@ -48,7 +49,7 @@ public final class CardElevation {
         this.disabledElevation = f6;
     }
 
-    public final State<Dp> tonalElevation$material3_release(boolean z, InteractionSource interactionSource, Composer composer, int i) {
+    public final State<C0780Dp> tonalElevation$material3_release(boolean z, InteractionSource interactionSource, Composer composer, int i) {
         composer.startReplaceableGroup(1757792649);
         ComposerKt.sourceInformation(composer, "C(tonalElevation)586@27029L74:Card.kt#uh7d8r");
         if (ComposerKt.isTraceInProgress()) {
@@ -61,20 +62,20 @@ public final class CardElevation {
             ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
             Object rememberedValue = composer.rememberedValue();
             if (rememberedValue == Composer.Companion.getEmpty()) {
-                rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Dp.m5048boximpl(this.defaultElevation), null, 2, null);
+                rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(C0780Dp.m5349boximpl(this.defaultElevation), null, 2, null);
                 composer.updateRememberedValue(rememberedValue);
             }
             composer.endReplaceableGroup();
-            MutableState mutableState = (MutableState) rememberedValue;
+            SnapshotState snapshotState = (SnapshotState) rememberedValue;
             composer.endReplaceableGroup();
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
             composer.endReplaceableGroup();
-            return mutableState;
+            return snapshotState;
         }
         composer.endReplaceableGroup();
-        State<Dp> animateElevation = animateElevation(z, interactionSource, composer, (i & 896) | (i & 14) | (i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
+        State<C0780Dp> animateElevation = animateElevation(z, interactionSource, composer, (i & 896) | (i & 14) | (i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -82,7 +83,7 @@ public final class CardElevation {
         return animateElevation;
     }
 
-    public final State<Dp> shadowElevation$material3_release(boolean z, InteractionSource interactionSource, Composer composer, int i) {
+    public final State<C0780Dp> shadowElevation$material3_release(boolean z, InteractionSource interactionSource, Composer composer, int i) {
         composer.startReplaceableGroup(-1763481333);
         ComposerKt.sourceInformation(composer, "C(shadowElevation)608@27911L74:Card.kt#uh7d8r");
         if (ComposerKt.isTraceInProgress()) {
@@ -95,20 +96,20 @@ public final class CardElevation {
             ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
             Object rememberedValue = composer.rememberedValue();
             if (rememberedValue == Composer.Companion.getEmpty()) {
-                rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(Dp.m5048boximpl(this.defaultElevation), null, 2, null);
+                rememberedValue = SnapshotStateKt__SnapshotStateKt.mutableStateOf$default(C0780Dp.m5349boximpl(this.defaultElevation), null, 2, null);
                 composer.updateRememberedValue(rememberedValue);
             }
             composer.endReplaceableGroup();
-            MutableState mutableState = (MutableState) rememberedValue;
+            SnapshotState snapshotState = (SnapshotState) rememberedValue;
             composer.endReplaceableGroup();
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
             composer.endReplaceableGroup();
-            return mutableState;
+            return snapshotState;
         }
         composer.endReplaceableGroup();
-        State<Dp> animateElevation = animateElevation(z, interactionSource, composer, (i & 896) | (i & 14) | (i & androidx.appcompat.R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
+        State<C0780Dp> animateElevation = animateElevation(z, interactionSource, composer, (i & 896) | (i & 14) | (i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle));
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -116,7 +117,7 @@ public final class CardElevation {
         return animateElevation;
     }
 
-    private final State<Dp> animateElevation(boolean z, InteractionSource interactionSource, Composer composer, int i) {
+    private final State<C0780Dp> animateElevation(boolean z, InteractionSource interactionSource, Composer composer, int i) {
         float f;
         composer.startReplaceableGroup(-1421890746);
         ComposerKt.sourceInformation(composer, "C(animateElevation)616@28160L46,617@28249L1473,617@28215L1507,669@30284L51,671@30345L776:Card.kt#uh7d8r");
@@ -160,13 +161,13 @@ public final class CardElevation {
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue3 = composer.rememberedValue();
         if (rememberedValue3 == Composer.Companion.getEmpty()) {
-            rememberedValue3 = new Animatable(Dp.m5048boximpl(f2), VectorConvertersKt.getVectorConverter(Dp.Companion), null, null, 12, null);
+            rememberedValue3 = new Animatable(C0780Dp.m5349boximpl(f2), VectorConvertersKt.getVectorConverter(C0780Dp.Companion), null, null, 12, null);
             composer.updateRememberedValue(rememberedValue3);
         }
         composer.endReplaceableGroup();
         Animatable animatable = (Animatable) rememberedValue3;
-        EffectsKt.LaunchedEffect(Dp.m5048boximpl(f2), new CardElevation$animateElevation$2(z, animatable, this, f2, interaction, null), composer, 64);
-        State<Dp> asState = animatable.asState();
+        EffectsKt.LaunchedEffect(C0780Dp.m5349boximpl(f2), new CardElevation$animateElevation$2(z, animatable, this, f2, interaction, null), composer, 64);
+        State<C0780Dp> asState = animatable.asState();
         if (ComposerKt.isTraceInProgress()) {
             ComposerKt.traceEventEnd();
         }
@@ -182,10 +183,10 @@ public final class CardElevation {
             return false;
         }
         CardElevation cardElevation = (CardElevation) obj;
-        return Dp.m5055equalsimpl0(this.defaultElevation, cardElevation.defaultElevation) && Dp.m5055equalsimpl0(this.pressedElevation, cardElevation.pressedElevation) && Dp.m5055equalsimpl0(this.focusedElevation, cardElevation.focusedElevation) && Dp.m5055equalsimpl0(this.hoveredElevation, cardElevation.hoveredElevation) && Dp.m5055equalsimpl0(this.disabledElevation, cardElevation.disabledElevation);
+        return C0780Dp.m5356equalsimpl0(this.defaultElevation, cardElevation.defaultElevation) && C0780Dp.m5356equalsimpl0(this.pressedElevation, cardElevation.pressedElevation) && C0780Dp.m5356equalsimpl0(this.focusedElevation, cardElevation.focusedElevation) && C0780Dp.m5356equalsimpl0(this.hoveredElevation, cardElevation.hoveredElevation) && C0780Dp.m5356equalsimpl0(this.disabledElevation, cardElevation.disabledElevation);
     }
 
     public int hashCode() {
-        return (((((((Dp.m5056hashCodeimpl(this.defaultElevation) * 31) + Dp.m5056hashCodeimpl(this.pressedElevation)) * 31) + Dp.m5056hashCodeimpl(this.focusedElevation)) * 31) + Dp.m5056hashCodeimpl(this.hoveredElevation)) * 31) + Dp.m5056hashCodeimpl(this.disabledElevation);
+        return (((((((C0780Dp.m5357hashCodeimpl(this.defaultElevation) * 31) + C0780Dp.m5357hashCodeimpl(this.pressedElevation)) * 31) + C0780Dp.m5357hashCodeimpl(this.focusedElevation)) * 31) + C0780Dp.m5357hashCodeimpl(this.hoveredElevation)) * 31) + C0780Dp.m5357hashCodeimpl(this.disabledElevation);
     }
 }

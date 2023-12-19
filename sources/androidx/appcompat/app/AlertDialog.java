@@ -14,7 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.app.AlertController;
 
 /* loaded from: classes.dex */
@@ -43,7 +43,7 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return i;
         }
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(R.attr.alertDialogTheme, typedValue, true);
+        context.getTheme().resolveAttribute(C0032R.attr.alertDialogTheme, typedValue, true);
         return typedValue.resourceId;
     }
 
@@ -132,7 +132,9 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
 
     /* loaded from: classes.dex */
     public static class Builder {
-        private final AlertController.AlertParams P;
+
+        /* renamed from: P */
+        private final AlertController.AlertParams f6P;
         private final int mTheme;
 
         public Builder(Context context) {
@@ -140,271 +142,271 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         }
 
         public Builder(Context context, int i) {
-            this.P = new AlertController.AlertParams(new ContextThemeWrapper(context, AlertDialog.resolveDialogTheme(context, i)));
+            this.f6P = new AlertController.AlertParams(new ContextThemeWrapper(context, AlertDialog.resolveDialogTheme(context, i)));
             this.mTheme = i;
         }
 
         public Context getContext() {
-            return this.P.mContext;
+            return this.f6P.mContext;
         }
 
         public Builder setTitle(int i) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mTitle = alertParams.mContext.getText(i);
             return this;
         }
 
         public Builder setTitle(CharSequence charSequence) {
-            this.P.mTitle = charSequence;
+            this.f6P.mTitle = charSequence;
             return this;
         }
 
         public Builder setCustomTitle(View view) {
-            this.P.mCustomTitleView = view;
+            this.f6P.mCustomTitleView = view;
             return this;
         }
 
         public Builder setMessage(int i) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mMessage = alertParams.mContext.getText(i);
             return this;
         }
 
         public Builder setMessage(CharSequence charSequence) {
-            this.P.mMessage = charSequence;
+            this.f6P.mMessage = charSequence;
             return this;
         }
 
         public Builder setIcon(int i) {
-            this.P.mIconId = i;
+            this.f6P.mIconId = i;
             return this;
         }
 
         public Builder setIcon(Drawable drawable) {
-            this.P.mIcon = drawable;
+            this.f6P.mIcon = drawable;
             return this;
         }
 
         public Builder setIconAttribute(int i) {
             TypedValue typedValue = new TypedValue();
-            this.P.mContext.getTheme().resolveAttribute(i, typedValue, true);
-            this.P.mIconId = typedValue.resourceId;
+            this.f6P.mContext.getTheme().resolveAttribute(i, typedValue, true);
+            this.f6P.mIconId = typedValue.resourceId;
             return this;
         }
 
         public Builder setPositiveButton(int i, DialogInterface.OnClickListener onClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mPositiveButtonText = alertParams.mContext.getText(i);
-            this.P.mPositiveButtonListener = onClickListener;
+            this.f6P.mPositiveButtonListener = onClickListener;
             return this;
         }
 
         public Builder setPositiveButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.P.mPositiveButtonText = charSequence;
-            this.P.mPositiveButtonListener = onClickListener;
+            this.f6P.mPositiveButtonText = charSequence;
+            this.f6P.mPositiveButtonListener = onClickListener;
             return this;
         }
 
         public Builder setPositiveButtonIcon(Drawable drawable) {
-            this.P.mPositiveButtonIcon = drawable;
+            this.f6P.mPositiveButtonIcon = drawable;
             return this;
         }
 
         public Builder setNegativeButton(int i, DialogInterface.OnClickListener onClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mNegativeButtonText = alertParams.mContext.getText(i);
-            this.P.mNegativeButtonListener = onClickListener;
+            this.f6P.mNegativeButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNegativeButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.P.mNegativeButtonText = charSequence;
-            this.P.mNegativeButtonListener = onClickListener;
+            this.f6P.mNegativeButtonText = charSequence;
+            this.f6P.mNegativeButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNegativeButtonIcon(Drawable drawable) {
-            this.P.mNegativeButtonIcon = drawable;
+            this.f6P.mNegativeButtonIcon = drawable;
             return this;
         }
 
         public Builder setNeutralButton(int i, DialogInterface.OnClickListener onClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mNeutralButtonText = alertParams.mContext.getText(i);
-            this.P.mNeutralButtonListener = onClickListener;
+            this.f6P.mNeutralButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNeutralButton(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            this.P.mNeutralButtonText = charSequence;
-            this.P.mNeutralButtonListener = onClickListener;
+            this.f6P.mNeutralButtonText = charSequence;
+            this.f6P.mNeutralButtonListener = onClickListener;
             return this;
         }
 
         public Builder setNeutralButtonIcon(Drawable drawable) {
-            this.P.mNeutralButtonIcon = drawable;
+            this.f6P.mNeutralButtonIcon = drawable;
             return this;
         }
 
         public Builder setCancelable(boolean z) {
-            this.P.mCancelable = z;
+            this.f6P.mCancelable = z;
             return this;
         }
 
         public Builder setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
-            this.P.mOnCancelListener = onCancelListener;
+            this.f6P.mOnCancelListener = onCancelListener;
             return this;
         }
 
         public Builder setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
-            this.P.mOnDismissListener = onDismissListener;
+            this.f6P.mOnDismissListener = onDismissListener;
             return this;
         }
 
         public Builder setOnKeyListener(DialogInterface.OnKeyListener onKeyListener) {
-            this.P.mOnKeyListener = onKeyListener;
+            this.f6P.mOnKeyListener = onKeyListener;
             return this;
         }
 
         public Builder setItems(int i, DialogInterface.OnClickListener onClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mItems = alertParams.mContext.getResources().getTextArray(i);
-            this.P.mOnClickListener = onClickListener;
+            this.f6P.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setItems(CharSequence[] charSequenceArr, DialogInterface.OnClickListener onClickListener) {
-            this.P.mItems = charSequenceArr;
-            this.P.mOnClickListener = onClickListener;
+            this.f6P.mItems = charSequenceArr;
+            this.f6P.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setAdapter(ListAdapter listAdapter, DialogInterface.OnClickListener onClickListener) {
-            this.P.mAdapter = listAdapter;
-            this.P.mOnClickListener = onClickListener;
+            this.f6P.mAdapter = listAdapter;
+            this.f6P.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setCursor(Cursor cursor, DialogInterface.OnClickListener onClickListener, String str) {
-            this.P.mCursor = cursor;
-            this.P.mLabelColumn = str;
-            this.P.mOnClickListener = onClickListener;
+            this.f6P.mCursor = cursor;
+            this.f6P.mLabelColumn = str;
+            this.f6P.mOnClickListener = onClickListener;
             return this;
         }
 
         public Builder setMultiChoiceItems(int i, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mItems = alertParams.mContext.getResources().getTextArray(i);
-            this.P.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.P.mCheckedItems = zArr;
-            this.P.mIsMultiChoice = true;
+            this.f6P.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.f6P.mCheckedItems = zArr;
+            this.f6P.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setMultiChoiceItems(CharSequence[] charSequenceArr, boolean[] zArr, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            this.P.mItems = charSequenceArr;
-            this.P.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.P.mCheckedItems = zArr;
-            this.P.mIsMultiChoice = true;
+            this.f6P.mItems = charSequenceArr;
+            this.f6P.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.f6P.mCheckedItems = zArr;
+            this.f6P.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setMultiChoiceItems(Cursor cursor, String str, String str2, DialogInterface.OnMultiChoiceClickListener onMultiChoiceClickListener) {
-            this.P.mCursor = cursor;
-            this.P.mOnCheckboxClickListener = onMultiChoiceClickListener;
-            this.P.mIsCheckedColumn = str;
-            this.P.mLabelColumn = str2;
-            this.P.mIsMultiChoice = true;
+            this.f6P.mCursor = cursor;
+            this.f6P.mOnCheckboxClickListener = onMultiChoiceClickListener;
+            this.f6P.mIsCheckedColumn = str;
+            this.f6P.mLabelColumn = str2;
+            this.f6P.mIsMultiChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(int i, int i2, DialogInterface.OnClickListener onClickListener) {
-            AlertController.AlertParams alertParams = this.P;
+            AlertController.AlertParams alertParams = this.f6P;
             alertParams.mItems = alertParams.mContext.getResources().getTextArray(i);
-            this.P.mOnClickListener = onClickListener;
-            this.P.mCheckedItem = i2;
-            this.P.mIsSingleChoice = true;
+            this.f6P.mOnClickListener = onClickListener;
+            this.f6P.mCheckedItem = i2;
+            this.f6P.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(Cursor cursor, int i, String str, DialogInterface.OnClickListener onClickListener) {
-            this.P.mCursor = cursor;
-            this.P.mOnClickListener = onClickListener;
-            this.P.mCheckedItem = i;
-            this.P.mLabelColumn = str;
-            this.P.mIsSingleChoice = true;
+            this.f6P.mCursor = cursor;
+            this.f6P.mOnClickListener = onClickListener;
+            this.f6P.mCheckedItem = i;
+            this.f6P.mLabelColumn = str;
+            this.f6P.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(CharSequence[] charSequenceArr, int i, DialogInterface.OnClickListener onClickListener) {
-            this.P.mItems = charSequenceArr;
-            this.P.mOnClickListener = onClickListener;
-            this.P.mCheckedItem = i;
-            this.P.mIsSingleChoice = true;
+            this.f6P.mItems = charSequenceArr;
+            this.f6P.mOnClickListener = onClickListener;
+            this.f6P.mCheckedItem = i;
+            this.f6P.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setSingleChoiceItems(ListAdapter listAdapter, int i, DialogInterface.OnClickListener onClickListener) {
-            this.P.mAdapter = listAdapter;
-            this.P.mOnClickListener = onClickListener;
-            this.P.mCheckedItem = i;
-            this.P.mIsSingleChoice = true;
+            this.f6P.mAdapter = listAdapter;
+            this.f6P.mOnClickListener = onClickListener;
+            this.f6P.mCheckedItem = i;
+            this.f6P.mIsSingleChoice = true;
             return this;
         }
 
         public Builder setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
-            this.P.mOnItemSelectedListener = onItemSelectedListener;
+            this.f6P.mOnItemSelectedListener = onItemSelectedListener;
             return this;
         }
 
         public Builder setView(int i) {
-            this.P.mView = null;
-            this.P.mViewLayoutResId = i;
-            this.P.mViewSpacingSpecified = false;
+            this.f6P.mView = null;
+            this.f6P.mViewLayoutResId = i;
+            this.f6P.mViewSpacingSpecified = false;
             return this;
         }
 
         public Builder setView(View view) {
-            this.P.mView = view;
-            this.P.mViewLayoutResId = 0;
-            this.P.mViewSpacingSpecified = false;
+            this.f6P.mView = view;
+            this.f6P.mViewLayoutResId = 0;
+            this.f6P.mViewSpacingSpecified = false;
             return this;
         }
 
         @Deprecated
         public Builder setView(View view, int i, int i2, int i3, int i4) {
-            this.P.mView = view;
-            this.P.mViewLayoutResId = 0;
-            this.P.mViewSpacingSpecified = true;
-            this.P.mViewSpacingLeft = i;
-            this.P.mViewSpacingTop = i2;
-            this.P.mViewSpacingRight = i3;
-            this.P.mViewSpacingBottom = i4;
+            this.f6P.mView = view;
+            this.f6P.mViewLayoutResId = 0;
+            this.f6P.mViewSpacingSpecified = true;
+            this.f6P.mViewSpacingLeft = i;
+            this.f6P.mViewSpacingTop = i2;
+            this.f6P.mViewSpacingRight = i3;
+            this.f6P.mViewSpacingBottom = i4;
             return this;
         }
 
         @Deprecated
         public Builder setInverseBackgroundForced(boolean z) {
-            this.P.mForceInverseBackground = z;
+            this.f6P.mForceInverseBackground = z;
             return this;
         }
 
         public Builder setRecycleOnMeasureEnabled(boolean z) {
-            this.P.mRecycleOnMeasure = z;
+            this.f6P.mRecycleOnMeasure = z;
             return this;
         }
 
         public AlertDialog create() {
-            AlertDialog alertDialog = new AlertDialog(this.P.mContext, this.mTheme);
-            this.P.apply(alertDialog.mAlert);
-            alertDialog.setCancelable(this.P.mCancelable);
-            if (this.P.mCancelable) {
+            AlertDialog alertDialog = new AlertDialog(this.f6P.mContext, this.mTheme);
+            this.f6P.apply(alertDialog.mAlert);
+            alertDialog.setCancelable(this.f6P.mCancelable);
+            if (this.f6P.mCancelable) {
                 alertDialog.setCanceledOnTouchOutside(true);
             }
-            alertDialog.setOnCancelListener(this.P.mOnCancelListener);
-            alertDialog.setOnDismissListener(this.P.mOnDismissListener);
-            if (this.P.mOnKeyListener != null) {
-                alertDialog.setOnKeyListener(this.P.mOnKeyListener);
+            alertDialog.setOnCancelListener(this.f6P.mOnCancelListener);
+            alertDialog.setOnDismissListener(this.f6P.mOnDismissListener);
+            if (this.f6P.mOnKeyListener != null) {
+                alertDialog.setOnKeyListener(this.f6P.mOnKeyListener);
             }
             return alertDialog;
         }

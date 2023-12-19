@@ -12,8 +12,8 @@ import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
-import androidx.core.R;
-import androidx.core.os.BuildCompat;
+import androidx.core.C0795R;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.view.accessibility.AccessibilityViewCommand;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -850,14 +850,14 @@ public class AccessibilityNodeInfoCompat {
         SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view);
         if (spansFromViewTags == null) {
             SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-            view.setTag(R.id.tag_accessibility_clickable_spans, sparseArray);
+            view.setTag(C0795R.C0797id.tag_accessibility_clickable_spans, sparseArray);
             return sparseArray;
         }
         return spansFromViewTags;
     }
 
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view) {
-        return (SparseArray) view.getTag(R.id.tag_accessibility_clickable_spans);
+        return (SparseArray) view.getTag(C0795R.C0797id.tag_accessibility_clickable_spans);
     }
 
     public static ClickableSpan[] getClickableSpans(CharSequence charSequence) {

@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Reduce.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__ReduceKt", f = "Reduce.kt", i = {0, 0}, l = {183}, m = "singleOrNull", n = {"result", "collector$iv"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__ReduceKt", m30f = "Reduce.kt", m29i = {0, 0}, m28l = {183}, m27m = "singleOrNull", m26n = {"result", "collector$iv"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class FlowKt__ReduceKt$singleOrNull$1<T> extends ContinuationImpl {
     Object L$0;

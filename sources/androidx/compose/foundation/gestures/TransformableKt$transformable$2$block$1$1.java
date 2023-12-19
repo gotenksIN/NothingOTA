@@ -1,10 +1,10 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
-import androidx.compose.foundation.gestures.TransformEvent;
+import androidx.appcompat.C0032R;
+import androidx.compose.foundation.gestures.Transformable;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
 import java.util.concurrent.CancellationException;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -21,18 +21,18 @@ import kotlinx.coroutines.channels.Channel;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Transformable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1", f = "Transformable.kt", i = {}, l = {R.styleable.AppCompatTheme_radioButtonStyle}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1", m30f = "Transformable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_radioButtonStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class TransformableKt$transformable$2$block$1$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Channel<TransformEvent> $channel;
+    final /* synthetic */ Channel<Transformable> $channel;
     final /* synthetic */ State<Boolean> $updatePanZoomLock;
     private /* synthetic */ Object L$0;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TransformableKt$transformable$2$block$1$1(State<Boolean> state, Channel<TransformEvent> channel, Continuation<? super TransformableKt$transformable$2$block$1$1> continuation) {
+    public TransformableKt$transformable$2$block$1$1(State<Boolean> state, Channel<Transformable> channel, Continuation<? super TransformableKt$transformable$2$block$1$1> continuation) {
         super(2, continuation);
         this.$updatePanZoomLock = state;
         this.$channel = channel;
@@ -52,19 +52,19 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Transformable.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1", f = "Transformable.kt", i = {}, l = {R.styleable.AppCompatTheme_ratingBarStyle}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1", m30f = "Transformable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_ratingBarStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C02451 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ PointerInputScope $$this$null;
-        final /* synthetic */ Channel<TransformEvent> $channel;
+        final /* synthetic */ Channel<Transformable> $channel;
         final /* synthetic */ State<Boolean> $updatePanZoomLock;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(PointerInputScope pointerInputScope, State<Boolean> state, Channel<TransformEvent> channel, Continuation<? super AnonymousClass1> continuation) {
+        C02451(PointerInputScope pointerInputScope, State<Boolean> state, Channel<Transformable> channel, Continuation<? super C02451> continuation) {
             super(2, continuation);
             this.$$this$null = pointerInputScope;
             this.$updatePanZoomLock = state;
@@ -73,31 +73,31 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$$this$null, this.$updatePanZoomLock, this.$channel, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C02451 c02451 = new C02451(this.$$this$null, this.$updatePanZoomLock, this.$channel, continuation);
+            c02451.L$0 = obj;
+            return c02451;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C02451) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: Transformable.kt */
-        @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1$1", f = "Transformable.kt", i = {}, l = {R.styleable.AppCompatTheme_ratingBarStyleSmall}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1$1  reason: invalid class name and collision with other inner class name */
+        @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1$1", m30f = "Transformable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_ratingBarStyleSmall}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$block$1$1$1$1 */
         /* loaded from: classes.dex */
-        public static final class C00121 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+        public static final class C02461 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ CoroutineScope $$this$coroutineScope;
-            final /* synthetic */ Channel<TransformEvent> $channel;
+            final /* synthetic */ Channel<Transformable> $channel;
             final /* synthetic */ State<Boolean> $updatePanZoomLock;
             private /* synthetic */ Object L$0;
             int label;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            C00121(State<Boolean> state, Channel<TransformEvent> channel, CoroutineScope coroutineScope, Continuation<? super C00121> continuation) {
+            C02461(State<Boolean> state, Channel<Transformable> channel, CoroutineScope coroutineScope, Continuation<? super C02461> continuation) {
                 super(2, continuation);
                 this.$updatePanZoomLock = state;
                 this.$channel = channel;
@@ -106,14 +106,14 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                C00121 c00121 = new C00121(this.$updatePanZoomLock, this.$channel, this.$$this$coroutineScope, continuation);
-                c00121.L$0 = obj;
-                return c00121;
+                C02461 c02461 = new C02461(this.$updatePanZoomLock, this.$channel, this.$$this$coroutineScope, continuation);
+                c02461.L$0 = obj;
+                return c02461;
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-                return ((C00121) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C02461) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -143,7 +143,7 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
                     }
                     return Unit.INSTANCE;
                 } finally {
-                    this.$channel.mo6880trySendJP2dKIU(TransformEvent.TransformStopped.INSTANCE);
+                    this.$channel.mo7156trySendJP2dKIU(Transformable.TransformStopped.INSTANCE);
                 }
             }
         }
@@ -156,9 +156,9 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
                 ResultKt.throwOnFailure(obj);
                 PointerInputScope pointerInputScope = this.$$this$null;
                 State<Boolean> state = this.$updatePanZoomLock;
-                Channel<TransformEvent> channel = this.$channel;
+                Channel<Transformable> channel = this.$channel;
                 this.label = 1;
-                if (ForEachGestureKt.awaitEachGesture(pointerInputScope, new C00121(state, channel, (CoroutineScope) this.L$0, null), this) == coroutine_suspended) {
+                if (ForEachGesture.awaitEachGesture(pointerInputScope, new C02461(state, channel, (CoroutineScope) this.L$0, null), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i != 1) {
@@ -177,7 +177,7 @@ public final class TransformableKt$transformable$2$block$1$1 extends SuspendLamb
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (CoroutineScopeKt.coroutineScope(new AnonymousClass1((PointerInputScope) this.L$0, this.$updatePanZoomLock, this.$channel, null), this) == coroutine_suspended) {
+            if (CoroutineScopeKt.coroutineScope(new C02451((PointerInputScope) this.L$0, this.$updatePanZoomLock, this.$channel, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

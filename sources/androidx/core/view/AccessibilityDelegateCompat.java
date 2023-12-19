@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.accessibility.AccessibilityNodeProvider;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.view.accessibility.AccessibilityClickableSpanCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.accessibility.AccessibilityNodeProviderCompat;
@@ -159,12 +159,12 @@ public class AccessibilityDelegateCompat {
         if (!z) {
             z = Api16Impl.performAccessibilityAction(this.mOriginalDelegate, view, i, bundle);
         }
-        return (z || i != R.id.accessibility_action_clickable_span || bundle == null) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
+        return (z || i != C0795R.C0797id.accessibility_action_clickable_span || bundle == null) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
     }
 
     private boolean performClickableSpanAction(int i, View view) {
         WeakReference weakReference;
-        SparseArray sparseArray = (SparseArray) view.getTag(R.id.tag_accessibility_clickable_spans);
+        SparseArray sparseArray = (SparseArray) view.getTag(C0795R.C0797id.tag_accessibility_clickable_spans);
         if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i)) == null) {
             return false;
         }
@@ -189,7 +189,7 @@ public class AccessibilityDelegateCompat {
     }
 
     static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view) {
-        List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view.getTag(R.id.tag_accessibility_actions);
+        List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view.getTag(C0795R.C0797id.tag_accessibility_actions);
         return list == null ? Collections.emptyList() : list;
     }
 

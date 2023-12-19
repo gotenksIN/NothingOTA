@@ -15,7 +15,8 @@ final class UndirectedNetworkConnections<N, E> extends AbstractUndirectedNetwork
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, E> UndirectedNetworkConnections<N, E> of() {
+    /* renamed from: of */
+    public static <N, E> UndirectedNetworkConnections<N, E> m93of() {
         return new UndirectedNetworkConnections<>(HashBiMap.create(2));
     }
 

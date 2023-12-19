@@ -8,7 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import androidx.concurrent.futures.ResolvableFuture;
-import androidx.core.os.UserManagerCompat;
+import androidx.core.p004os.UserManagerCompat;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

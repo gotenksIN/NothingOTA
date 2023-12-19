@@ -20,7 +20,7 @@ import androidx.appcompat.widget.VectorEnabledTintResources;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
 import androidx.core.app.TaskStackBuilder;
-import androidx.core.os.LocaleListCompat;
+import androidx.core.p004os.LocaleListCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewTreeLifecycleOwner;
 import androidx.lifecycle.ViewTreeViewModelStoreOwner;

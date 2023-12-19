@@ -31,8 +31,8 @@ import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.collection.ArraySet;
-import androidx.core.os.CancellationSignal;
-import androidx.fragment.R;
+import androidx.core.p004os.CancellationSignal;
+import androidx.fragment.C0894R;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentAnim;
 import androidx.fragment.app.FragmentTransaction;
@@ -527,7 +527,7 @@ public abstract class FragmentManager implements FragmentResultOwner {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Fragment getViewFragment(View view) {
-        Object tag = view.getTag(R.id.fragment_container_view_tag);
+        Object tag = view.getTag(C0894R.C0896id.fragment_container_view_tag);
         if (tag instanceof Fragment) {
             return (Fragment) tag;
         }
@@ -1251,7 +1251,7 @@ public abstract class FragmentManager implements FragmentResultOwner {
         ViewGroup viewGroup;
         HashSet hashSet = new HashSet();
         while (i < i2) {
-            Iterator<FragmentTransaction.Op> it = arrayList.get(i).mOps.iterator();
+            Iterator<FragmentTransaction.C0951Op> it = arrayList.get(i).mOps.iterator();
             while (it.hasNext()) {
                 Fragment fragment = it.next().mFragment;
                 if (fragment != null && (viewGroup = fragment.mContainer) != null) {
@@ -1353,10 +1353,10 @@ public abstract class FragmentManager implements FragmentResultOwner {
         if (fragmentContainer == null || fragment.getEnterAnim() + fragment.getExitAnim() + fragment.getPopEnterAnim() + fragment.getPopExitAnim() <= 0) {
             return;
         }
-        if (fragmentContainer.getTag(R.id.visible_removing_fragment_view_tag) == null) {
-            fragmentContainer.setTag(R.id.visible_removing_fragment_view_tag, fragment);
+        if (fragmentContainer.getTag(C0894R.C0896id.visible_removing_fragment_view_tag) == null) {
+            fragmentContainer.setTag(C0894R.C0896id.visible_removing_fragment_view_tag, fragment);
         }
-        ((Fragment) fragmentContainer.getTag(R.id.visible_removing_fragment_view_tag)).setPopDirection(fragment.getPopDirection());
+        ((Fragment) fragmentContainer.getTag(C0894R.C0896id.visible_removing_fragment_view_tag)).setPopDirection(fragment.getPopDirection());
     }
 
     private ViewGroup getFragmentContainer(Fragment fragment) {

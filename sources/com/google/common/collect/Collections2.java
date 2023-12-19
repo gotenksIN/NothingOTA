@@ -404,28 +404,34 @@ public final class Collections2 {
 
     /* loaded from: classes2.dex */
     private static class PermutationIterator<E> extends AbstractIterator<List<E>> {
-        final int[] c;
-        int j;
+
+        /* renamed from: c */
+        final int[] f222c;
+
+        /* renamed from: j */
+        int f223j;
         final List<E> list;
-        final int[] o;
+
+        /* renamed from: o */
+        final int[] f224o;
 
         PermutationIterator(List<E> list) {
             this.list = new ArrayList(list);
             int size = list.size();
             int[] iArr = new int[size];
-            this.c = iArr;
+            this.f222c = iArr;
             int[] iArr2 = new int[size];
-            this.o = iArr2;
+            this.f224o = iArr2;
             Arrays.fill(iArr, 0);
             Arrays.fill(iArr2, 1);
-            this.j = Integer.MAX_VALUE;
+            this.f223j = Integer.MAX_VALUE;
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.google.common.collect.AbstractIterator
         @CheckForNull
         public List<E> computeNext() {
-            if (this.j <= 0) {
+            if (this.f223j <= 0) {
                 return endOfData();
             }
             ImmutableList copyOf = ImmutableList.copyOf((Collection) this.list);
@@ -435,21 +441,21 @@ public final class Collections2 {
 
         void calculateNextPermutation() {
             int size = this.list.size() - 1;
-            this.j = size;
+            this.f223j = size;
             if (size == -1) {
                 return;
             }
             int i = 0;
             while (true) {
-                int[] iArr = this.c;
-                int i2 = this.j;
+                int[] iArr = this.f222c;
+                int i2 = this.f223j;
                 int i3 = iArr[i2];
-                int i4 = this.o[i2] + i3;
+                int i4 = this.f224o[i2] + i3;
                 if (i4 < 0) {
                     switchDirection();
                 } else if (i4 != i2 + 1) {
                     Collections.swap(this.list, (i2 - i3) + i, (i2 - i4) + i);
-                    this.c[this.j] = i4;
+                    this.f222c[this.f223j] = i4;
                     return;
                 } else if (i2 == 0) {
                     return;
@@ -461,10 +467,10 @@ public final class Collections2 {
         }
 
         void switchDirection() {
-            int[] iArr = this.o;
-            int i = this.j;
+            int[] iArr = this.f224o;
+            int i = this.f223j;
             iArr[i] = -iArr[i];
-            this.j = i - 1;
+            this.f223j = i - 1;
         }
     }
 

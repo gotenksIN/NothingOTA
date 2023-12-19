@@ -1,12 +1,12 @@
 package androidx.compose.foundation.text.selection;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.AnimationVector2D;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.OffsetKt;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.OffsetKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -14,8 +14,8 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
@@ -23,8 +23,8 @@ import kotlinx.coroutines.flow.FlowCollector;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: SelectionMagnifier.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.selection.SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1", f = "SelectionMagnifier.kt", i = {}, l = {R.styleable.AppCompatTheme_panelMenuListWidth}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.selection.SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1", m30f = "SelectionMagnifier.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_panelMenuListWidth}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Animatable<Offset, AnimationVector2D> $animatable;
@@ -60,20 +60,20 @@ public final class SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1 exte
             ResultKt.throwOnFailure(obj);
             final CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
             final State<Offset> state = this.$targetValue$delegate;
-            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Function0<Offset>() { // from class: androidx.compose.foundation.text.selection.SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1.1
+            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Functions<Offset>() { // from class: androidx.compose.foundation.text.selection.SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public /* bridge */ /* synthetic */ Offset invoke() {
-                    return Offset.m2307boximpl(m830invokeF1C5BW0());
+                    return Offset.m2608boximpl(m1131invokeF1C5BW0());
                 }
 
                 /* renamed from: invoke-F1C5BW0  reason: not valid java name */
-                public final long m830invokeF1C5BW0() {
-                    return SelectionMagnifierKt.rememberAnimatedMagnifierPosition$lambda$1(state);
+                public final long m1131invokeF1C5BW0() {
+                    return SelectionMagnifier.rememberAnimatedMagnifierPosition$lambda$1(state);
                 }
             });
             final Animatable<Offset, AnimationVector2D> animatable = this.$animatable;
@@ -81,18 +81,18 @@ public final class SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1 exte
             if (snapshotFlow.collect(new FlowCollector<Offset>() { // from class: androidx.compose.foundation.text.selection.SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1.2
                 @Override // kotlinx.coroutines.flow.FlowCollector
                 public /* bridge */ /* synthetic */ Object emit(Offset offset, Continuation continuation) {
-                    return m831emit3MmeM6k(offset.m2328unboximpl(), continuation);
+                    return m1132emit3MmeM6k(offset.m2629unboximpl(), continuation);
                 }
 
                 /* renamed from: emit-3MmeM6k  reason: not valid java name */
-                public final Object m831emit3MmeM6k(long j, Continuation<? super Unit> continuation) {
-                    if (OffsetKt.m2337isSpecifiedk4lQ0M(animatable.getValue().m2328unboximpl()) && OffsetKt.m2337isSpecifiedk4lQ0M(j)) {
-                        if (!(Offset.m2319getYimpl(animatable.getValue().m2328unboximpl()) == Offset.m2319getYimpl(j))) {
-                            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new SelectionMagnifierKt$rememberAnimatedMagnifierPosition$1$2$emit$2(animatable, j, null), 3, null);
+                public final Object m1132emit3MmeM6k(long j, Continuation<? super Unit> continuation) {
+                    if (OffsetKt.m2638isSpecifiedk4lQ0M(animatable.getValue().m2629unboximpl()) && OffsetKt.m2638isSpecifiedk4lQ0M(j)) {
+                        if (!(Offset.m2620getYimpl(animatable.getValue().m2629unboximpl()) == Offset.m2620getYimpl(j))) {
+                            BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C0446x2d93455c(animatable, j, null), 3, null);
                             return Unit.INSTANCE;
                         }
                     }
-                    Object snapTo = animatable.snapTo(Offset.m2307boximpl(j), continuation);
+                    Object snapTo = animatable.snapTo(Offset.m2608boximpl(j), continuation);
                     return snapTo == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? snapTo : Unit.INSTANCE;
                 }
             }, this) == coroutine_suspended) {

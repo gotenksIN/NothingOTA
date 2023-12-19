@@ -6,8 +6,8 @@ import androidx.compose.foundation.interaction.FocusInteraction;
 import androidx.compose.foundation.interaction.HoverInteraction;
 import androidx.compose.foundation.interaction.Interaction;
 import androidx.compose.foundation.interaction.PressInteraction;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.unit.Dp;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.unit.C0780Dp;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -20,11 +20,11 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: FloatingActionButton.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.FloatingActionButtonElevation$animateElevation$2", f = "FloatingActionButton.kt", i = {}, l = {555}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.FloatingActionButtonElevation$animateElevation$2", m30f = "FloatingActionButton.kt", m29i = {}, m28l = {555}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class FloatingActionButtonElevation$animateElevation$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Animatable<Dp, AnimationVector1D> $animatable;
+    final /* synthetic */ Animatable<C0780Dp, AnimationVector1D> $animatable;
     final /* synthetic */ Interaction $interaction;
     final /* synthetic */ float $target;
     int label;
@@ -32,7 +32,7 @@ public final class FloatingActionButtonElevation$animateElevation$2 extends Susp
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatingActionButtonElevation$animateElevation$2(Animatable<Dp, AnimationVector1D> animatable, FloatingActionButtonElevation floatingActionButtonElevation, float f, Interaction interaction, Continuation<? super FloatingActionButtonElevation$animateElevation$2> continuation) {
+    public FloatingActionButtonElevation$animateElevation$2(Animatable<C0780Dp, AnimationVector1D> animatable, FloatingActionButtonElevation floatingActionButtonElevation, float f, Interaction interaction, Continuation<? super FloatingActionButtonElevation$animateElevation$2> continuation) {
         super(2, continuation);
         this.$animatable = animatable;
         this.this$0 = floatingActionButtonElevation;
@@ -59,24 +59,24 @@ public final class FloatingActionButtonElevation$animateElevation$2 extends Susp
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            float m5064unboximpl = this.$animatable.getTargetValue().m5064unboximpl();
+            float m5365unboximpl = this.$animatable.getTargetValue().m5365unboximpl();
             f = this.this$0.pressedElevation;
             FocusInteraction.Focus focus = null;
-            if (Dp.m5055equalsimpl0(m5064unboximpl, f)) {
-                focus = new PressInteraction.Press(Offset.Companion.m2334getZeroF1C5BW0(), null);
+            if (C0780Dp.m5356equalsimpl0(m5365unboximpl, f)) {
+                focus = new PressInteraction.Press(Offset.Companion.m2635getZeroF1C5BW0(), null);
             } else {
                 f2 = this.this$0.hoveredElevation;
-                if (Dp.m5055equalsimpl0(m5064unboximpl, f2)) {
+                if (C0780Dp.m5356equalsimpl0(m5365unboximpl, f2)) {
                     focus = new HoverInteraction.Enter();
                 } else {
                     f3 = this.this$0.focusedElevation;
-                    if (Dp.m5055equalsimpl0(m5064unboximpl, f3)) {
+                    if (C0780Dp.m5356equalsimpl0(m5365unboximpl, f3)) {
                         focus = new FocusInteraction.Focus();
                     }
                 }
             }
             this.label = 1;
-            if (ElevationKt.m1121animateElevationrAjV9yQ(this.$animatable, this.$target, focus, this.$interaction, this) == coroutine_suspended) {
+            if (ElevationKt.m1422animateElevationrAjV9yQ(this.$animatable, this.$target, focus, this.$interaction, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

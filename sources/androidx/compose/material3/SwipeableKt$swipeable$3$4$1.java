@@ -13,8 +13,8 @@ import kotlinx.coroutines.BuildersKt__Builders_commonKt;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Swipeable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableKt$swipeable$3$4$1", f = "Swipeable.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableKt$swipeable$3$4$1", m30f = "Swipeable.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SwipeableKt$swipeable$3$4$1 extends SuspendLambda implements Function3<CoroutineScope, Float, Continuation<? super Unit>, Object> {
     final /* synthetic */ SwipeableState<T> $state;
@@ -43,17 +43,17 @@ final class SwipeableKt$swipeable$3$4$1 extends SuspendLambda implements Functio
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Swipeable.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.material3.SwipeableKt$swipeable$3$4$1$1", f = "Swipeable.kt", i = {}, l = {612}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.material3.SwipeableKt$swipeable$3$4$1$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.material3.SwipeableKt$swipeable$3$4$1$1", m30f = "Swipeable.kt", m29i = {}, m28l = {612}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.material3.SwipeableKt$swipeable$3$4$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C06191 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ SwipeableState<T> $state;
         final /* synthetic */ float $velocity;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(SwipeableState<T> swipeableState, float f, Continuation<? super AnonymousClass1> continuation) {
+        C06191(SwipeableState<T> swipeableState, float f, Continuation<? super C06191> continuation) {
             super(2, continuation);
             this.$state = swipeableState;
             this.$velocity = f;
@@ -61,12 +61,12 @@ final class SwipeableKt$swipeable$3$4$1 extends SuspendLambda implements Functio
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$state, this.$velocity, continuation);
+            return new C06191(this.$state, this.$velocity, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06191) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -93,7 +93,7 @@ final class SwipeableKt$swipeable$3$4$1 extends SuspendLambda implements Functio
         IntrinsicsKt.getCOROUTINE_SUSPENDED();
         if (this.label == 0) {
             ResultKt.throwOnFailure(obj);
-            BuildersKt__Builders_commonKt.launch$default((CoroutineScope) this.L$0, null, null, new AnonymousClass1(this.$state, this.F$0, null), 3, null);
+            BuildersKt__Builders_commonKt.launch$default((CoroutineScope) this.L$0, null, null, new C06191(this.$state, this.F$0, null), 3, null);
             return Unit.INSTANCE;
         }
         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");

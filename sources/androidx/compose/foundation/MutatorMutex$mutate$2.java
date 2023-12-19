@@ -1,5 +1,6 @@
 package androidx.compose.foundation;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.MutatorMutex$$ExternalSyntheticBackportWithForwarding0;
 import androidx.compose.foundation.MutatorMutex;
 import java.util.concurrent.atomic.AtomicReference;
@@ -21,8 +22,8 @@ import kotlinx.coroutines.sync.Mutex;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: MutatorMutex.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.MutatorMutex$mutate$2", f = "MutatorMutex.kt", i = {0, 0, 1, 1}, l = {173, androidx.appcompat.R.styleable.AppCompatTheme_windowActionModeOverlay}, m = "invokeSuspend", n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.MutatorMutex$mutate$2", m30f = "MutatorMutex.kt", m29i = {0, 0, 1, 1}, m28l = {173, C0032R.styleable.AppCompatTheme_windowActionModeOverlay}, m27m = "invokeSuspend", m26n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super R>, Object> {
     final /* synthetic */ Function1<Continuation<? super R>, Object> $block;
@@ -106,13 +107,13 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                         try {
                             ResultKt.throwOnFailure(obj);
                             atomicReference2 = mutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                             mutex2.unlock(null);
                             return obj;
                         } catch (Throwable th2) {
                             th = th2;
                             atomicReference = mutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                             throw th;
                         }
                     }
@@ -138,7 +139,7 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                 obj = invoke;
                 mutator2 = mutator;
                 atomicReference2 = mutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                 mutex2.unlock(null);
                 return obj;
             } catch (Throwable th3) {
@@ -146,7 +147,7 @@ public final class MutatorMutex$mutate$2<R> extends SuspendLambda implements Fun
                 th = th3;
                 mutatorMutex2 = mutatorMutex;
                 atomicReference = mutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                 throw th;
             }
         } catch (Throwable th4) {

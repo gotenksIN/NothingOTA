@@ -34,7 +34,7 @@ public class StandardNetwork<N, E> extends AbstractNetwork<N, E> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public StandardNetwork(NetworkBuilder<? super N, ? super E> networkBuilder) {
-        this(networkBuilder, networkBuilder.nodeOrder.createMap(networkBuilder.expectedNodeCount.or((Optional<Integer>) 10).intValue()), networkBuilder.edgeOrder.createMap(networkBuilder.expectedEdgeCount.or((Optional<Integer>) 20).intValue()));
+        this(networkBuilder, networkBuilder.nodeOrder.createMap(networkBuilder.expectedNodeCount.mo234or((Optional<Integer>) 10).intValue()), networkBuilder.edgeOrder.createMap(networkBuilder.expectedEdgeCount.mo234or((Optional<Integer>) 20).intValue()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -97,7 +97,7 @@ public class StandardNetwork<N, E> extends AbstractNetwork<N, E> {
     @Override // com.google.common.graph.Network
     public EndpointPair<N> incidentNodes(E e) {
         N checkedReferenceNode = checkedReferenceNode(e);
-        return EndpointPair.of(this, checkedReferenceNode, ((NetworkConnections) Objects.requireNonNull(this.nodeConnections.get(checkedReferenceNode))).adjacentNode(e));
+        return EndpointPair.m97of(this, checkedReferenceNode, ((NetworkConnections) Objects.requireNonNull(this.nodeConnections.get(checkedReferenceNode))).adjacentNode(e));
     }
 
     @Override // com.google.common.graph.Network
@@ -109,7 +109,7 @@ public class StandardNetwork<N, E> extends AbstractNetwork<N, E> {
     public Set<E> edgesConnecting(N n, N n2) {
         NetworkConnections<N, E> checkedConnections = checkedConnections(n);
         if (!this.allowsSelfLoops && n == n2) {
-            return ImmutableSet.of();
+            return ImmutableSet.m164of();
         }
         Preconditions.checkArgument(containsNode(n2), "Node %s is not an element of this graph.", n2);
         return checkedConnections.edgesConnecting(n2);

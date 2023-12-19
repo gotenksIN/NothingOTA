@@ -28,7 +28,7 @@ class TooltipCompatHandler implements View.OnLongClickListener, View.OnHoverList
     private final Runnable mShowRunnable = new Runnable() { // from class: androidx.appcompat.widget.TooltipCompatHandler$$ExternalSyntheticLambda0
         @Override // java.lang.Runnable
         public final void run() {
-            TooltipCompatHandler.this.m7lambda$new$0$androidxappcompatwidgetTooltipCompatHandler();
+            TooltipCompatHandler.this.m308lambda$new$0$androidxappcompatwidgetTooltipCompatHandler();
         }
     };
     private final Runnable mHideRunnable = new Runnable() { // from class: androidx.appcompat.widget.TooltipCompatHandler$$ExternalSyntheticLambda1
@@ -44,7 +44,7 @@ class TooltipCompatHandler implements View.OnLongClickListener, View.OnHoverList
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$new$0$androidx-appcompat-widget-TooltipCompatHandler  reason: not valid java name */
-    public /* synthetic */ void m7lambda$new$0$androidxappcompatwidgetTooltipCompatHandler() {
+    public /* synthetic */ void m308lambda$new$0$androidxappcompatwidgetTooltipCompatHandler() {
         show(false);
     }
 

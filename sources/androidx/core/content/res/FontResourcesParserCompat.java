@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.Base64;
 import android.util.Xml;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.provider.FontRequest;
 import java.io.IOException;
 import java.lang.annotation.Retention;
@@ -148,14 +148,14 @@ public class FontResourcesParserCompat {
     }
 
     private static FamilyResourceEntry readFamily(XmlPullParser xmlPullParser, Resources resources) throws XmlPullParserException, IOException {
-        TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamily);
-        String string = obtainAttributes.getString(R.styleable.FontFamily_fontProviderAuthority);
-        String string2 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderPackage);
-        String string3 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderQuery);
-        int resourceId = obtainAttributes.getResourceId(R.styleable.FontFamily_fontProviderCerts, 0);
-        int integer = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchStrategy, 1);
-        int integer2 = obtainAttributes.getInteger(R.styleable.FontFamily_fontProviderFetchTimeout, DEFAULT_TIMEOUT_MILLIS);
-        String string4 = obtainAttributes.getString(R.styleable.FontFamily_fontProviderSystemFontFamily);
+        TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), C0795R.styleable.FontFamily);
+        String string = obtainAttributes.getString(C0795R.styleable.FontFamily_fontProviderAuthority);
+        String string2 = obtainAttributes.getString(C0795R.styleable.FontFamily_fontProviderPackage);
+        String string3 = obtainAttributes.getString(C0795R.styleable.FontFamily_fontProviderQuery);
+        int resourceId = obtainAttributes.getResourceId(C0795R.styleable.FontFamily_fontProviderCerts, 0);
+        int integer = obtainAttributes.getInteger(C0795R.styleable.FontFamily_fontProviderFetchStrategy, 1);
+        int integer2 = obtainAttributes.getInteger(C0795R.styleable.FontFamily_fontProviderFetchTimeout, DEFAULT_TIMEOUT_MILLIS);
+        String string4 = obtainAttributes.getString(C0795R.styleable.FontFamily_fontProviderSystemFontFamily);
         obtainAttributes.recycle();
         if (string != null && string2 != null && string3 != null) {
             while (xmlPullParser.next() != 3) {
@@ -223,35 +223,35 @@ public class FontResourcesParserCompat {
         int i3;
         int i4;
         int i5;
-        TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), R.styleable.FontFamilyFont);
-        if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontWeight)) {
-            i = R.styleable.FontFamilyFont_fontWeight;
+        TypedArray obtainAttributes = resources.obtainAttributes(Xml.asAttributeSet(xmlPullParser), C0795R.styleable.FontFamilyFont);
+        if (obtainAttributes.hasValue(C0795R.styleable.FontFamilyFont_fontWeight)) {
+            i = C0795R.styleable.FontFamilyFont_fontWeight;
         } else {
-            i = R.styleable.FontFamilyFont_android_fontWeight;
+            i = C0795R.styleable.FontFamilyFont_android_fontWeight;
         }
         int i6 = obtainAttributes.getInt(i, NORMAL_WEIGHT);
-        if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontStyle)) {
-            i2 = R.styleable.FontFamilyFont_fontStyle;
+        if (obtainAttributes.hasValue(C0795R.styleable.FontFamilyFont_fontStyle)) {
+            i2 = C0795R.styleable.FontFamilyFont_fontStyle;
         } else {
-            i2 = R.styleable.FontFamilyFont_android_fontStyle;
+            i2 = C0795R.styleable.FontFamilyFont_android_fontStyle;
         }
         boolean z = 1 == obtainAttributes.getInt(i2, 0);
-        if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_ttcIndex)) {
-            i3 = R.styleable.FontFamilyFont_ttcIndex;
+        if (obtainAttributes.hasValue(C0795R.styleable.FontFamilyFont_ttcIndex)) {
+            i3 = C0795R.styleable.FontFamilyFont_ttcIndex;
         } else {
-            i3 = R.styleable.FontFamilyFont_android_ttcIndex;
+            i3 = C0795R.styleable.FontFamilyFont_android_ttcIndex;
         }
-        if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_fontVariationSettings)) {
-            i4 = R.styleable.FontFamilyFont_fontVariationSettings;
+        if (obtainAttributes.hasValue(C0795R.styleable.FontFamilyFont_fontVariationSettings)) {
+            i4 = C0795R.styleable.FontFamilyFont_fontVariationSettings;
         } else {
-            i4 = R.styleable.FontFamilyFont_android_fontVariationSettings;
+            i4 = C0795R.styleable.FontFamilyFont_android_fontVariationSettings;
         }
         String string = obtainAttributes.getString(i4);
         int i7 = obtainAttributes.getInt(i3, 0);
-        if (obtainAttributes.hasValue(R.styleable.FontFamilyFont_font)) {
-            i5 = R.styleable.FontFamilyFont_font;
+        if (obtainAttributes.hasValue(C0795R.styleable.FontFamilyFont_font)) {
+            i5 = C0795R.styleable.FontFamilyFont_font;
         } else {
-            i5 = R.styleable.FontFamilyFont_android_font;
+            i5 = C0795R.styleable.FontFamilyFont_android_font;
         }
         int resourceId = obtainAttributes.getResourceId(i5, 0);
         String string2 = obtainAttributes.getString(i5);

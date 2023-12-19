@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.core.os.EnvironmentCompat;
+import androidx.core.p004os.EnvironmentCompat;
 import androidx.core.view.ViewCompat;
-import androidx.fragment.R;
+import androidx.fragment.C0894R;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.SpecialEffectsController;
 import androidx.lifecycle.Lifecycle;
@@ -106,7 +106,7 @@ public class FragmentStateManager {
             return this.mFragment.mState;
         }
         int i = this.mFragmentManagerState;
-        int i2 = AnonymousClass2.$SwitchMap$androidx$lifecycle$Lifecycle$State[this.mFragment.mMaxState.ordinal()];
+        int i2 = C09492.$SwitchMap$androidx$lifecycle$Lifecycle$State[this.mFragment.mMaxState.ordinal()];
         if (i2 != 1) {
             if (i2 == 2) {
                 i = Math.min(i, 5);
@@ -153,9 +153,9 @@ public class FragmentStateManager {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: androidx.fragment.app.FragmentStateManager$2  reason: invalid class name */
+    /* renamed from: androidx.fragment.app.FragmentStateManager$2 */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class AnonymousClass2 {
+    public static /* synthetic */ class C09492 {
         static final /* synthetic */ int[] $SwitchMap$androidx$lifecycle$Lifecycle$State;
 
         static {
@@ -303,7 +303,7 @@ public class FragmentStateManager {
             fragment.performCreateView(fragment.performGetLayoutInflater(fragment.mSavedFragmentState), null, this.mFragment.mSavedFragmentState);
             if (this.mFragment.mView != null) {
                 this.mFragment.mView.setSaveFromParentEnabled(false);
-                this.mFragment.mView.setTag(R.id.fragment_container_view_tag, this.mFragment);
+                this.mFragment.mView.setTag(C0894R.C0896id.fragment_container_view_tag, this.mFragment);
                 if (this.mFragment.mHidden) {
                     this.mFragment.mView.setVisibility(8);
                 }
@@ -432,7 +432,7 @@ public class FragmentStateManager {
         if (this.mFragment.mView != null) {
             boolean z = false;
             this.mFragment.mView.setSaveFromParentEnabled(false);
-            this.mFragment.mView.setTag(R.id.fragment_container_view_tag, this.mFragment);
+            this.mFragment.mView.setTag(C0894R.C0896id.fragment_container_view_tag, this.mFragment);
             if (viewGroup != null) {
                 addViewToContainer();
             }

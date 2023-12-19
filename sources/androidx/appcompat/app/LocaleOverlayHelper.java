@@ -1,7 +1,7 @@
 package androidx.appcompat.app;
 
 import android.os.LocaleList;
-import androidx.core.os.LocaleListCompat;
+import androidx.core.p004os.LocaleListCompat;
 import java.util.LinkedHashSet;
 import java.util.Locale;
 

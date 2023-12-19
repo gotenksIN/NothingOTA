@@ -20,13 +20,14 @@ public abstract class EndpointPairIterator<N> extends AbstractIterator<EndpointP
     Iterator<N> successorIterator;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N> EndpointPairIterator<N> of(BaseGraph<N> baseGraph) {
+    /* renamed from: of */
+    public static <N> EndpointPairIterator<N> m96of(BaseGraph<N> baseGraph) {
         return baseGraph.isDirected() ? new Directed(baseGraph) : new Undirected(baseGraph);
     }
 
     private EndpointPairIterator(BaseGraph<N> baseGraph) {
         this.node = null;
-        this.successorIterator = ImmutableSet.of().iterator();
+        this.successorIterator = ImmutableSet.m164of().iterator();
         this.graph = baseGraph;
         this.nodeIterator = baseGraph.nodes().iterator();
     }

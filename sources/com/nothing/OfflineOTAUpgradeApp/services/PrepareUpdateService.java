@@ -30,7 +30,7 @@ import java.util.function.Predicate;
 public class PrepareUpdateService extends IntentService {
     public static final String EXTRA_PARAM_CONFIG = "config";
     public static final String EXTRA_PARAM_RESULT_RECEIVER = "result-receiver";
-    private static final ImmutableSet<String> PRE_STREAMING_FILES_SET = ImmutableSet.of(PackageFiles.CARE_MAP_FILE_NAME, PackageFiles.COMPATIBILITY_ZIP_FILE_NAME, PackageFiles.METADATA_FILE_NAME, PackageFiles.PAYLOAD_PROPERTIES_FILE_NAME);
+    private static final ImmutableSet<String> PRE_STREAMING_FILES_SET = ImmutableSet.m160of(PackageFiles.CARE_MAP_FILE_NAME, PackageFiles.COMPATIBILITY_ZIP_FILE_NAME, PackageFiles.METADATA_FILE_NAME, PackageFiles.PAYLOAD_PROPERTIES_FILE_NAME);
     public static final int RESULT_CODE_ERROR = 1;
     public static final int RESULT_CODE_SUCCESS = 0;
     private static final String TAG = "PrepareUpdateService";
@@ -152,8 +152,9 @@ public class PrepareUpdateService extends IntentService {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    private static class CallbackResultReceiver extends ResultReceiver {
+    public static class CallbackResultReceiver extends ResultReceiver {
         private static final String BUNDLE_PARAM_PAYLOAD_SPEC = "payload-spec";
         private UpdateResultCallback mUpdateResultCallback;
 

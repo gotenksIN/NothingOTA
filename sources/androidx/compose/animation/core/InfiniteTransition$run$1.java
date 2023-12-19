@@ -1,25 +1,25 @@
 package androidx.compose.animation.core;
 
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.State;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: InfiniteTransition.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.core.InfiniteTransition$run$1", f = "InfiniteTransition.kt", i = {0, 0, 1, 1}, l = {181, 205}, m = "invokeSuspend", n = {"$this$LaunchedEffect", "durationScale", "$this$LaunchedEffect", "durationScale"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.core.InfiniteTransition$run$1", m30f = "InfiniteTransition.kt", m29i = {0, 0, 1, 1}, m28l = {181, 205}, m27m = "invokeSuspend", m26n = {"$this$LaunchedEffect", "durationScale", "$this$LaunchedEffect", "durationScale"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class InfiniteTransition$run$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ MutableState<State<Long>> $toolingOverride;
+    final /* synthetic */ SnapshotState<State<Long>> $toolingOverride;
     private /* synthetic */ Object L$0;
     Object L$1;
     int label;
@@ -27,9 +27,9 @@ public final class InfiniteTransition$run$1 extends SuspendLambda implements Fun
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InfiniteTransition$run$1(MutableState<State<Long>> mutableState, InfiniteTransition infiniteTransition, Continuation<? super InfiniteTransition$run$1> continuation) {
+    public InfiniteTransition$run$1(SnapshotState<State<Long>> snapshotState, InfiniteTransition infiniteTransition, Continuation<? super InfiniteTransition$run$1> continuation) {
         super(2, continuation);
-        this.$toolingOverride = mutableState;
+        this.$toolingOverride = snapshotState;
         this.this$0 = infiniteTransition;
     }
 
@@ -47,27 +47,27 @@ public final class InfiniteTransition$run$1 extends SuspendLambda implements Fun
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: InfiniteTransition.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.animation.core.InfiniteTransition$run$1$3", f = "InfiniteTransition.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.animation.core.InfiniteTransition$run$1$3  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.animation.core.InfiniteTransition$run$1$3", m30f = "InfiniteTransition.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.animation.core.InfiniteTransition$run$1$3 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass3 extends SuspendLambda implements Function2<Float, Continuation<? super Boolean>, Object> {
+    public static final class C01533 extends SuspendLambda implements Function2<Float, Continuation<? super Boolean>, Object> {
         /* synthetic */ float F$0;
         int label;
 
-        AnonymousClass3(Continuation<? super AnonymousClass3> continuation) {
+        C01533(Continuation<? super C01533> continuation) {
             super(2, continuation);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass3 anonymousClass3 = new AnonymousClass3(continuation);
-            anonymousClass3.F$0 = ((Number) obj).floatValue();
-            return anonymousClass3;
+            C01533 c01533 = new C01533(continuation);
+            c01533.F$0 = ((Number) obj).floatValue();
+            return c01533;
         }
 
         public final Object invoke(float f, Continuation<? super Boolean> continuation) {
-            return ((AnonymousClass3) create(Float.valueOf(f), continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C01533) create(Float.valueOf(f), continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.jvm.functions.Function2
@@ -80,7 +80,7 @@ public final class InfiniteTransition$run$1 extends SuspendLambda implements Fun
             IntrinsicsKt.getCOROUTINE_SUSPENDED();
             if (this.label == 0) {
                 ResultKt.throwOnFailure(obj);
-                return Boxing.boxBoolean(this.F$0 > 0.0f);
+                return boxing.boxBoolean(this.F$0 > 0.0f);
             }
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
@@ -155,7 +155,7 @@ public final class InfiniteTransition$run$1 extends SuspendLambda implements Fun
             r4.L$0 = r9
             r4.L$1 = r1
             r4.label = r3
-            java.lang.Object r5 = androidx.compose.animation.core.InfiniteAnimationPolicyKt.withInfiniteAnimationFrameNanos(r5, r6)
+            java.lang.Object r5 = androidx.compose.animation.core.InfiniteAnimationPolicy.withInfiniteAnimationFrameNanos(r5, r6)
             if (r5 != r0) goto L5d
             return r0
         L5d:
@@ -171,7 +171,7 @@ public final class InfiniteTransition$run$1 extends SuspendLambda implements Fun
             if (r5 == 0) goto L42
             androidx.compose.animation.core.InfiniteTransition$run$1$2 r5 = new androidx.compose.animation.core.InfiniteTransition$run$1$2
             r5.<init>()
-            kotlin.jvm.functions.Function0 r5 = (kotlin.jvm.functions.Function0) r5
+            kotlin.jvm.functions.Function0 r5 = (kotlin.jvm.functions.Functions) r5
             kotlinx.coroutines.flow.Flow r5 = androidx.compose.runtime.SnapshotStateKt.snapshotFlow(r5)
             androidx.compose.animation.core.InfiniteTransition$run$1$3 r6 = new androidx.compose.animation.core.InfiniteTransition$run$1$3
             r7 = 0

@@ -1,8 +1,8 @@
 package androidx.compose.material3;
 
-import androidx.compose.foundation.gestures.ForEachGestureKt;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
+import androidx.compose.foundation.gestures.ForEachGesture;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import androidx.core.view.InputDeviceCompat;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -12,23 +12,23 @@ import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.RestrictedSuspendLambda;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 
 /* compiled from: ExposedDropdownMenu.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1", f = "ExposedDropdownMenu.kt", i = {}, l = {1022}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1", m30f = "ExposedDropdownMenu.kt", m29i = {}, m28l = {1022}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Function0<Unit> $onExpandedChange;
+    final /* synthetic */ Functions<Unit> $onExpandedChange;
     private /* synthetic */ Object L$0;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExposedDropdownMenuKt$expandable$1$1(Function0<Unit> function0, Continuation<? super ExposedDropdownMenuKt$expandable$1$1> continuation) {
+    public ExposedDropdownMenuKt$expandable$1$1(Functions<Unit> functions, Continuation<? super ExposedDropdownMenuKt$expandable$1$1> continuation) {
         super(2, continuation);
-        this.$onExpandedChange = function0;
+        this.$onExpandedChange = functions;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -45,31 +45,31 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: ExposedDropdownMenu.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1$1", f = "ExposedDropdownMenu.kt", i = {0}, l = {InputDeviceCompat.SOURCE_GAMEPAD, 1026}, m = "invokeSuspend", n = {"$this$awaitEachGesture"}, s = {"L$0"})
-    /* renamed from: androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1$1", m30f = "ExposedDropdownMenu.kt", m29i = {0}, m28l = {InputDeviceCompat.SOURCE_GAMEPAD, 1026}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture"}, m25s = {"L$0"})
+    /* renamed from: androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
-        final /* synthetic */ Function0<Unit> $onExpandedChange;
+    public static final class C05401 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+        final /* synthetic */ Functions<Unit> $onExpandedChange;
         private /* synthetic */ Object L$0;
         int label;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(Function0<Unit> function0, Continuation<? super AnonymousClass1> continuation) {
+        C05401(Functions<Unit> functions, Continuation<? super C05401> continuation) {
             super(2, continuation);
-            this.$onExpandedChange = function0;
+            this.$onExpandedChange = functions;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$onExpandedChange, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C05401 c05401 = new C05401(this.$onExpandedChange, continuation);
+            c05401.L$0 = obj;
+            return c05401;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C05401) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:18:0x0053  */
@@ -97,16 +97,16 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
                 throw r11
             L1a:
                 java.lang.Object r1 = r10.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
                 kotlin.ResultKt.throwOnFailure(r11)
                 goto L3e
             L22:
                 kotlin.ResultKt.throwOnFailure(r11)
                 java.lang.Object r11 = r10.L$0
                 r1 = r11
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r1
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r1 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r1
                 r5 = 0
-                androidx.compose.ui.input.pointer.PointerEventPass r6 = androidx.compose.ui.input.pointer.PointerEventPass.Initial
+                androidx.compose.ui.input.pointer.PointerEventPass r6 = androidx.compose.p002ui.input.pointer.PointerEventPass.Initial
                 r7 = r10
                 kotlin.coroutines.Continuation r7 = (kotlin.coroutines.Continuation) r7
                 r8 = 1
@@ -118,7 +118,7 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
                 if (r11 != r0) goto L3e
                 return r0
             L3e:
-                androidx.compose.ui.input.pointer.PointerEventPass r11 = androidx.compose.ui.input.pointer.PointerEventPass.Initial
+                androidx.compose.ui.input.pointer.PointerEventPass r11 = androidx.compose.p002ui.input.pointer.PointerEventPass.Initial
                 r3 = r10
                 kotlin.coroutines.Continuation r3 = (kotlin.coroutines.Continuation) r3
                 r4 = 0
@@ -128,7 +128,7 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
                 if (r11 != r0) goto L4f
                 return r0
             L4f:
-                androidx.compose.ui.input.pointer.PointerInputChange r11 = (androidx.compose.ui.input.pointer.PointerInputChange) r11
+                androidx.compose.ui.input.pointer.PointerInputChange r11 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r11
                 if (r11 == 0) goto L58
                 kotlin.jvm.functions.Function0<kotlin.Unit> r11 = r10.$onExpandedChange
                 r11.invoke()
@@ -136,7 +136,7 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
                 kotlin.Unit r11 = kotlin.Unit.INSTANCE
                 return r11
             */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.ExposedDropdownMenuKt$expandable$1$1.C05401.invokeSuspend(java.lang.Object):java.lang.Object");
         }
     }
 
@@ -147,7 +147,7 @@ final class ExposedDropdownMenuKt$expandable$1$1 extends SuspendLambda implement
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (ForEachGestureKt.awaitEachGesture((PointerInputScope) this.L$0, new AnonymousClass1(this.$onExpandedChange, null), this) == coroutine_suspended) {
+            if (ForEachGesture.awaitEachGesture((PointerInputScope) this.L$0, new C05401(this.$onExpandedChange, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

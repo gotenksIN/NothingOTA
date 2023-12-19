@@ -32,7 +32,7 @@ public final class BigIntegerMath {
     public static int log2(BigInteger bigInteger, RoundingMode roundingMode) {
         MathPreconditions.checkPositive("x", (BigInteger) Preconditions.checkNotNull(bigInteger));
         int bitLength = bigInteger.bitLength() - 1;
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14351.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(isPowerOfTwo(bigInteger));
                 break;
@@ -53,9 +53,9 @@ public final class BigIntegerMath {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.math.BigIntegerMath$1  reason: invalid class name */
+    /* renamed from: com.google.common.math.BigIntegerMath$1 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class C14351 {
         static final /* synthetic */ int[] $SwitchMap$java$math$RoundingMode;
 
         static {
@@ -128,7 +128,7 @@ public final class BigIntegerMath {
             }
             i = i2;
         }
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14351.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(i == 0);
                 break;
@@ -155,7 +155,7 @@ public final class BigIntegerMath {
             return BigInteger.valueOf(LongMath.sqrt(bigInteger.longValue(), roundingMode));
         }
         BigInteger sqrtFloor = sqrtFloor(bigInteger);
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14351.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(sqrtFloor.pow(2).equals(bigInteger));
                 break;

@@ -30,31 +30,38 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     @Override // com.google.common.collect.ImmutableCollection
     abstract Object writeReplace();
 
-    public static <E> ImmutableMultiset<E> of() {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m175of() {
         return RegularImmutableMultiset.EMPTY;
     }
 
-    public static <E> ImmutableMultiset<E> of(E e) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m174of(E e) {
         return copyFromElements(e);
     }
 
-    public static <E> ImmutableMultiset<E> of(E e, E e2) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m173of(E e, E e2) {
         return copyFromElements(e, e2);
     }
 
-    public static <E> ImmutableMultiset<E> of(E e, E e2, E e3) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m172of(E e, E e2, E e3) {
         return copyFromElements(e, e2, e3);
     }
 
-    public static <E> ImmutableMultiset<E> of(E e, E e2, E e3, E e4) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m171of(E e, E e2, E e3, E e4) {
         return copyFromElements(e, e2, e3, e4);
     }
 
-    public static <E> ImmutableMultiset<E> of(E e, E e2, E e3, E e4, E e5) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m170of(E e, E e2, E e3, E e4, E e5) {
         return copyFromElements(e, e2, e3, e4, e5);
     }
 
-    public static <E> ImmutableMultiset<E> of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
+    /* renamed from: of */
+    public static <E> ImmutableMultiset<E> m169of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
         return new Builder().add((Builder) e).add((Builder<E>) e2).add((Builder<E>) e3).add((Builder<E>) e4).add((Builder<E>) e5).add((Builder<E>) e6).add((Object[]) eArr).build();
     }
 
@@ -196,7 +203,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
     }
 
     private ImmutableSet<Multiset.Entry<E>> createEntrySet() {
-        return isEmpty() ? ImmutableSet.of() : new EntrySet();
+        return isEmpty() ? ImmutableSet.m164of() : new EntrySet();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -387,7 +394,7 @@ public abstract class ImmutableMultiset<E> extends ImmutableMultisetGwtSerializa
         public ImmutableMultiset<E> build() {
             Objects.requireNonNull(this.contents);
             if (this.contents.size() == 0) {
-                return ImmutableMultiset.of();
+                return ImmutableMultiset.m175of();
             }
             if (this.isLinkedHash) {
                 this.contents = new ObjectCountHashMap<>((ObjectCountHashMap<? extends E>) this.contents);

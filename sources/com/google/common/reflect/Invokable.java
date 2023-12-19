@@ -171,7 +171,7 @@ public abstract class Invokable<T, R> implements AnnotatedElement, Member {
     }
 
     public final TypeToken<? extends R> getReturnType() {
-        return (TypeToken<? extends R>) TypeToken.of(getGenericReturnType());
+        return (TypeToken<? extends R>) TypeToken.m57of(getGenericReturnType());
     }
 
     public final ImmutableList<Parameter> getParameters() {
@@ -179,7 +179,7 @@ public abstract class Invokable<T, R> implements AnnotatedElement, Member {
         Annotation[][] parameterAnnotations = getParameterAnnotations();
         ImmutableList.Builder builder = ImmutableList.builder();
         for (int i = 0; i < genericParameterTypes.length; i++) {
-            builder.add((ImmutableList.Builder) new Parameter(this, i, TypeToken.of(genericParameterTypes[i]), parameterAnnotations[i]));
+            builder.add((ImmutableList.Builder) new Parameter(this, i, TypeToken.m57of(genericParameterTypes[i]), parameterAnnotations[i]));
         }
         return builder.build();
     }
@@ -187,13 +187,13 @@ public abstract class Invokable<T, R> implements AnnotatedElement, Member {
     public final ImmutableList<TypeToken<? extends Throwable>> getExceptionTypes() {
         ImmutableList.Builder builder = ImmutableList.builder();
         for (Type type : getGenericExceptionTypes()) {
-            builder.add((ImmutableList.Builder) TypeToken.of(type));
+            builder.add((ImmutableList.Builder) TypeToken.m57of(type));
         }
         return builder.build();
     }
 
     public final <R1 extends R> Invokable<T, R1> returning(Class<R1> cls) {
-        return returning(TypeToken.of((Class) cls));
+        return returning(TypeToken.m58of((Class) cls));
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -212,7 +212,7 @@ public abstract class Invokable<T, R> implements AnnotatedElement, Member {
     }
 
     public TypeToken<T> getOwnerType() {
-        return TypeToken.of((Class) getDeclaringClass());
+        return TypeToken.m58of((Class) getDeclaringClass());
     }
 
     /* loaded from: classes2.dex */

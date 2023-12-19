@@ -27,23 +27,24 @@ public final class MetadataItem extends Table {
         return this;
     }
 
-    public int id() {
+    /* renamed from: id */
+    public int m251id() {
         int __offset = __offset(4);
         if (__offset != 0) {
-            return this.bb.getInt(__offset + this.bb_pos);
+            return this.f180bb.getInt(__offset + this.bb_pos);
         }
         return 0;
     }
 
     public boolean emojiStyle() {
         int __offset = __offset(6);
-        return (__offset == 0 || this.bb.get(__offset + this.bb_pos) == 0) ? false : true;
+        return (__offset == 0 || this.f180bb.get(__offset + this.bb_pos) == 0) ? false : true;
     }
 
     public short sdkAdded() {
         int __offset = __offset(8);
         if (__offset != 0) {
-            return this.bb.getShort(__offset + this.bb_pos);
+            return this.f180bb.getShort(__offset + this.bb_pos);
         }
         return (short) 0;
     }
@@ -51,7 +52,7 @@ public final class MetadataItem extends Table {
     public short compatAdded() {
         int __offset = __offset(10);
         if (__offset != 0) {
-            return this.bb.getShort(__offset + this.bb_pos);
+            return this.f180bb.getShort(__offset + this.bb_pos);
         }
         return (short) 0;
     }
@@ -59,7 +60,7 @@ public final class MetadataItem extends Table {
     public short width() {
         int __offset = __offset(12);
         if (__offset != 0) {
-            return this.bb.getShort(__offset + this.bb_pos);
+            return this.f180bb.getShort(__offset + this.bb_pos);
         }
         return (short) 0;
     }
@@ -67,7 +68,7 @@ public final class MetadataItem extends Table {
     public short height() {
         int __offset = __offset(14);
         if (__offset != 0) {
-            return this.bb.getShort(__offset + this.bb_pos);
+            return this.f180bb.getShort(__offset + this.bb_pos);
         }
         return (short) 0;
     }
@@ -75,7 +76,7 @@ public final class MetadataItem extends Table {
     public int codepoints(int i) {
         int __offset = __offset(16);
         if (__offset != 0) {
-            return this.bb.getInt(__vector(__offset) + (i * 4));
+            return this.f180bb.getInt(__vector(__offset) + (i * 4));
         }
         return 0;
     }
@@ -95,7 +96,7 @@ public final class MetadataItem extends Table {
     public IntVector codepointsVector(IntVector intVector) {
         int __offset = __offset(16);
         if (__offset != 0) {
-            return intVector.__assign(__vector(__offset), this.bb);
+            return intVector.__assign(__vector(__offset), this.f180bb);
         }
         return null;
     }
@@ -180,7 +181,7 @@ public final class MetadataItem extends Table {
         }
 
         public MetadataItem get(MetadataItem metadataItem, int i) {
-            return metadataItem.__assign(MetadataItem.__indirect(__element(i), this.bb), this.bb);
+            return metadataItem.__assign(MetadataItem.__indirect(__element(i), this.f174bb), this.f174bb);
         }
     }
 }

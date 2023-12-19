@@ -14,7 +14,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.textclassifier.TextClassifier;
 import android.widget.EditText;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.view.ContentInfoCompat;
 import androidx.core.view.OnReceiveContentViewBehavior;
 import androidx.core.view.TintableBackgroundView;
@@ -39,7 +39,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     public AppCompatEditText(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.editTextStyle);
+        this(context, attributeSet, C0032R.attr.editTextStyle);
     }
 
     public AppCompatEditText(Context context, AttributeSet attributeSet, int i) {

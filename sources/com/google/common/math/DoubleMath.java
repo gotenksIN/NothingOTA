@@ -21,7 +21,7 @@ public final class DoubleMath {
         if (!DoubleUtils.isFinite(d)) {
             throw new ArithmeticException("input is infinite or NaN");
         }
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14361.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(isMathematicalInteger(d));
                 return d;
@@ -50,9 +50,9 @@ public final class DoubleMath {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.math.DoubleMath$1  reason: invalid class name */
+    /* renamed from: com.google.common.math.DoubleMath$1 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class C14361 {
         static final /* synthetic */ int[] $SwitchMap$java$math$RoundingMode;
 
         static {
@@ -133,7 +133,7 @@ public final class DoubleMath {
         if (!DoubleUtils.isNormal(d)) {
             return log2(d * 4.503599627370496E15d, roundingMode) - 52;
         }
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14361.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(isPowerOfTwo(d));
                 break;

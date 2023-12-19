@@ -301,7 +301,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends AbstractRangeSet<C> i
             if (range.isConnected(this.upperBoundWindow)) {
                 return new RangesByUpperBound(this.rangesByLowerBound, range.intersection(this.upperBoundWindow));
             }
-            return ImmutableSortedMap.of();
+            return ImmutableSortedMap.m151of();
         }
 
         public NavigableMap<Cut<C>, Range<C>> subMap(Cut<C> cut, boolean z, Cut<C> cut2, boolean z2) {
@@ -455,7 +455,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends AbstractRangeSet<C> i
 
         private NavigableMap<Cut<C>, Range<C>> subMap(Range<Cut<C>> range) {
             if (!this.complementLowerBoundWindow.isConnected(range)) {
-                return ImmutableSortedMap.of();
+                return ImmutableSortedMap.m151of();
             }
             return new ComplementRangesByLowerBound(this.positiveRangesByLowerBound, range.intersection(this.complementLowerBoundWindow));
         }
@@ -671,7 +671,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends AbstractRangeSet<C> i
 
         private NavigableMap<Cut<C>, Range<C>> subMap(Range<Cut<C>> range) {
             if (!range.isConnected(this.lowerBoundWindow)) {
-                return ImmutableSortedMap.of();
+                return ImmutableSortedMap.m151of();
             }
             return new SubRangeSetRangesByLowerBound(this.lowerBoundWindow.intersection(range), this.restriction, this.rangesByLowerBound);
         }
@@ -852,7 +852,7 @@ public class TreeRangeSet<C extends Comparable<?>> extends AbstractRangeSet<C> i
             if (range.isConnected(this.restriction)) {
                 return new SubRangeSet(this.restriction.intersection(range));
             }
-            return ImmutableRangeSet.of();
+            return ImmutableRangeSet.m166of();
         }
     }
 }

@@ -20,20 +20,20 @@ import javax.annotation.CheckForNull;
 public abstract class AbstractNetwork<N, E> implements Network<N, E> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.graph.AbstractNetwork$1  reason: invalid class name */
+    /* renamed from: com.google.common.graph.AbstractNetwork$1 */
     /* loaded from: classes2.dex */
-    public class AnonymousClass1 extends AbstractGraph<N> {
-        AnonymousClass1() {
+    public class C13591 extends AbstractGraph<N> {
+        C13591() {
         }
 
         @Override // com.google.common.graph.BaseGraph, com.google.common.graph.PredecessorsFunction, com.google.common.graph.Graph
         public /* bridge */ /* synthetic */ Iterable predecessors(Object obj) {
-            return predecessors((AnonymousClass1) obj);
+            return predecessors((C13591) obj);
         }
 
         @Override // com.google.common.graph.BaseGraph, com.google.common.graph.SuccessorsFunction, com.google.common.graph.Graph
         public /* bridge */ /* synthetic */ Iterable successors(Object obj) {
-            return successors((AnonymousClass1) obj);
+            return successors((C13591) obj);
         }
 
         @Override // com.google.common.graph.BaseGraph, com.google.common.graph.Graph
@@ -52,7 +52,7 @@ public abstract class AbstractNetwork<N, E> implements Network<N, E> {
                     return Iterators.transform(AbstractNetwork.this.edges().iterator(), new Function<E, EndpointPair<N>>() { // from class: com.google.common.graph.AbstractNetwork.1.1.1
                         @Override // com.google.common.base.Function
                         public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                            return apply((C00711) obj);
+                            return apply((C13611) obj);
                         }
 
                         @Override // com.google.common.base.Function
@@ -72,7 +72,7 @@ public abstract class AbstractNetwork<N, E> implements Network<N, E> {
                 public boolean contains(@CheckForNull Object obj) {
                     if (obj instanceof EndpointPair) {
                         EndpointPair<?> endpointPair = (EndpointPair) obj;
-                        return AnonymousClass1.this.isOrderingCompatible(endpointPair) && AnonymousClass1.this.nodes().contains(endpointPair.nodeU()) && AnonymousClass1.this.successors((AnonymousClass1) endpointPair.nodeU()).contains(endpointPair.nodeV());
+                        return C13591.this.isOrderingCompatible(endpointPair) && C13591.this.nodes().contains(endpointPair.nodeU()) && C13591.this.successors((C13591) endpointPair.nodeU()).contains(endpointPair.nodeV());
                     }
                     return false;
                 }
@@ -117,7 +117,7 @@ public abstract class AbstractNetwork<N, E> implements Network<N, E> {
 
     @Override // com.google.common.graph.Network
     public Graph<N> asGraph() {
-        return new AnonymousClass1();
+        return new C13591();
     }
 
     @Override // com.google.common.graph.Network
@@ -141,7 +141,7 @@ public abstract class AbstractNetwork<N, E> implements Network<N, E> {
     @Override // com.google.common.graph.Network
     public Set<E> adjacentEdges(E e) {
         EndpointPair<N> incidentNodes = incidentNodes(e);
-        return Sets.difference(Sets.union(incidentEdges(incidentNodes.nodeU()), incidentEdges(incidentNodes.nodeV())), ImmutableSet.of((Object) e));
+        return Sets.difference(Sets.union(incidentEdges(incidentNodes.nodeU()), incidentEdges(incidentNodes.nodeV())), ImmutableSet.m163of((Object) e));
     }
 
     @Override // com.google.common.graph.Network
@@ -246,7 +246,7 @@ public abstract class AbstractNetwork<N, E> implements Network<N, E> {
         return Maps.asMap(network.edges(), new Function<E, EndpointPair<N>>() { // from class: com.google.common.graph.AbstractNetwork.3
             @Override // com.google.common.base.Function
             public /* bridge */ /* synthetic */ Object apply(Object obj) {
-                return apply((AnonymousClass3) obj);
+                return apply((C13633) obj);
             }
 
             @Override // com.google.common.base.Function

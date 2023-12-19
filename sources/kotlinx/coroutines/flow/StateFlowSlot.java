@@ -7,17 +7,17 @@ import kotlin.Result;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.DebugProbesKt;
+import kotlin.coroutines.jvm.internal.DebugProbes;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CancellableContinuationImpl;
-import kotlinx.coroutines.DebugKt;
+import kotlinx.coroutines.Debug;
 import kotlinx.coroutines.flow.internal.AbstractSharedFlowKt;
 import kotlinx.coroutines.flow.internal.AbstractSharedFlowSlot;
 import kotlinx.coroutines.internal.Symbol;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: StateFlow.kt */
-@Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\b\u0002\u0018\u00002\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00030\u0013B\u0007¢\u0006\u0004\b\u0001\u0010\u0002J\u001b\u0010\u0006\u001a\u00020\u00052\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0013\u0010\t\u001a\u00020\bH\u0086@ø\u0001\u0000¢\u0006\u0004\b\t\u0010\nJ)\u0010\r\u001a\u0010\u0012\f\u0012\n\u0012\u0004\u0012\u00020\b\u0018\u00010\f0\u000b2\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0003H\u0016¢\u0006\u0004\b\r\u0010\u000eJ\r\u0010\u000f\u001a\u00020\b¢\u0006\u0004\b\u000f\u0010\u0002J\r\u0010\u0010\u001a\u00020\u0005¢\u0006\u0004\b\u0010\u0010\u0011\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0012"}, d2 = {"Lkotlinx/coroutines/flow/StateFlowSlot;", "<init>", "()V", "Lkotlinx/coroutines/flow/StateFlowImpl;", "flow", "", "allocateLocked", "(Lkotlinx/coroutines/flow/StateFlowImpl;)Z", "", "awaitPending", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "", "Lkotlin/coroutines/Continuation;", "freeLocked", "(Lkotlinx/coroutines/flow/StateFlowImpl;)[Lkotlin/coroutines/Continuation;", "makePending", "takePending", "()Z", "kotlinx-coroutines-core", "Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\b\u0002\u0018\u00002\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00030\u0013B\u0007¢\u0006\u0004\b\u0001\u0010\u0002J\u001b\u0010\u0006\u001a\u00020\u00052\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u0013\u0010\t\u001a\u00020\bH\u0086@ø\u0001\u0000¢\u0006\u0004\b\t\u0010\nJ)\u0010\r\u001a\u0010\u0012\f\u0012\n\u0012\u0004\u0012\u00020\b\u0018\u00010\f0\u000b2\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0003H\u0016¢\u0006\u0004\b\r\u0010\u000eJ\r\u0010\u000f\u001a\u00020\b¢\u0006\u0004\b\u000f\u0010\u0002J\r\u0010\u0010\u001a\u00020\u0005¢\u0006\u0004\b\u0010\u0010\u0011\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0012"}, m40d2 = {"Lkotlinx/coroutines/flow/StateFlowSlot;", "<init>", "()V", "Lkotlinx/coroutines/flow/StateFlowImpl;", "flow", "", "allocateLocked", "(Lkotlinx/coroutines/flow/StateFlowImpl;)Z", "", "awaitPending", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "", "Lkotlin/coroutines/Continuation;", "freeLocked", "(Lkotlinx/coroutines/flow/StateFlowImpl;)[Lkotlin/coroutines/Continuation;", "makePending", "takePending", "()Z", "kotlinx-coroutines-core", "Lkotlinx/coroutines/flow/internal/AbstractSharedFlowSlot;"}, m39k = 1, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>> {
     static final /* synthetic */ AtomicReferenceFieldUpdater _state$FU = AtomicReferenceFieldUpdater.newUpdater(StateFlowSlot.class, Object.class, "_state");
@@ -47,7 +47,7 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
         symbol = StateFlowKt.NONE;
         Object andSet = atomicReferenceFieldUpdater.getAndSet(this, symbol);
         Intrinsics.checkNotNull(andSet);
-        if (!DebugKt.getASSERTIONS_ENABLED() || (!(andSet instanceof CancellableContinuationImpl))) {
+        if (!Debug.getASSERTIONS_ENABLED() || (!(andSet instanceof CancellableContinuationImpl))) {
             symbol2 = StateFlowKt.PENDING;
             return andSet == symbol2;
         }
@@ -72,15 +72,15 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
             if (obj == symbol2) {
                 AtomicReferenceFieldUpdater atomicReferenceFieldUpdater = _state$FU;
                 symbol3 = StateFlowKt.PENDING;
-                if (MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReferenceFieldUpdater, this, obj, symbol3)) {
+                if (MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(atomicReferenceFieldUpdater, this, obj, symbol3)) {
                     return;
                 }
             } else {
                 AtomicReferenceFieldUpdater atomicReferenceFieldUpdater2 = _state$FU;
                 symbol4 = StateFlowKt.NONE;
-                if (MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReferenceFieldUpdater2, this, obj, symbol4)) {
+                if (MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(atomicReferenceFieldUpdater2, this, obj, symbol4)) {
                     Result.Companion companion = Result.Companion;
-                    ((CancellableContinuationImpl) obj).resumeWith(Result.m5373constructorimpl(Unit.INSTANCE));
+                    ((CancellableContinuationImpl) obj).resumeWith(Result.m5649constructorimpl(Unit.INSTANCE));
                     return;
                 }
             }
@@ -93,11 +93,11 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
         CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt.intercepted(continuation), 1);
         cancellableContinuationImpl.initCancellability();
         CancellableContinuationImpl cancellableContinuationImpl2 = cancellableContinuationImpl;
-        if (!DebugKt.getASSERTIONS_ENABLED() || (!(this._state instanceof CancellableContinuationImpl))) {
+        if (!Debug.getASSERTIONS_ENABLED() || (!(this._state instanceof CancellableContinuationImpl))) {
             AtomicReferenceFieldUpdater atomicReferenceFieldUpdater = _state$FU;
             symbol = StateFlowKt.NONE;
-            if (!MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReferenceFieldUpdater, this, symbol, cancellableContinuationImpl2)) {
-                if (DebugKt.getASSERTIONS_ENABLED()) {
+            if (!MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m293m(atomicReferenceFieldUpdater, this, symbol, cancellableContinuationImpl2)) {
+                if (Debug.getASSERTIONS_ENABLED()) {
                     Object obj = this._state;
                     symbol2 = StateFlowKt.PENDING;
                     if (!(obj == symbol2)) {
@@ -105,11 +105,11 @@ public final class StateFlowSlot extends AbstractSharedFlowSlot<StateFlowImpl<?>
                     }
                 }
                 Result.Companion companion = Result.Companion;
-                cancellableContinuationImpl2.resumeWith(Result.m5373constructorimpl(Unit.INSTANCE));
+                cancellableContinuationImpl2.resumeWith(Result.m5649constructorimpl(Unit.INSTANCE));
             }
             Object result = cancellableContinuationImpl.getResult();
             if (result == IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
-                DebugProbesKt.probeCoroutineSuspended(continuation);
+                DebugProbes.probeCoroutineSuspended(continuation);
             }
             return result == IntrinsicsKt.getCOROUTINE_SUSPENDED() ? result : Unit.INSTANCE;
         }

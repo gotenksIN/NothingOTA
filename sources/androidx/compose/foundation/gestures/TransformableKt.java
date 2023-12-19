@@ -1,16 +1,16 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.input.pointer.SuspendingPointerInputFilterKt;
+import androidx.compose.p002ui.platform.InspectableValueKt;
+import androidx.compose.p002ui.platform.InspectorInfo;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.EffectsKt;
 import androidx.compose.runtime.SnapshotStateKt;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.input.pointer.SuspendingPointerInputFilterKt;
-import androidx.compose.ui.platform.InspectableValueKt;
-import androidx.compose.ui.platform.InspectorInfo;
 import androidx.core.app.NotificationCompat;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -27,7 +27,7 @@ import kotlinx.coroutines.channels.Channel;
 import kotlinx.coroutines.channels.ChannelKt;
 
 /* compiled from: Transformable.kt */
-@Metadata(d1 = {"\u00000\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a1\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00042\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\t\u001a&\u0010\n\u001a\u00020\u000b*\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\b\b\u0002\u0010\u000e\u001a\u00020\u00052\b\b\u0002\u0010\u000f\u001a\u00020\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0010"}, d2 = {"detectZoom", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "panZoomLock", "Landroidx/compose/runtime/State;", "", "channel", "Lkotlinx/coroutines/channels/Channel;", "Landroidx/compose/foundation/gestures/TransformEvent;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/runtime/State;Lkotlinx/coroutines/channels/Channel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "transformable", "Landroidx/compose/ui/Modifier;", "state", "Landroidx/compose/foundation/gestures/TransformableState;", "lockRotationOnZoomPan", "enabled", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00000\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a1\u0010\u0000\u001a\u00020\u0001*\u00020\u00022\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00042\f\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\t\u001a&\u0010\n\u001a\u00020\u000b*\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\b\b\u0002\u0010\u000e\u001a\u00020\u00052\b\b\u0002\u0010\u000f\u001a\u00020\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0010"}, m40d2 = {"detectZoom", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;", "panZoomLock", "Landroidx/compose/runtime/State;", "", "channel", "Lkotlinx/coroutines/channels/Channel;", "Landroidx/compose/foundation/gestures/TransformEvent;", "(Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;Landroidx/compose/runtime/State;Lkotlinx/coroutines/channels/Channel;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "transformable", "Landroidx/compose/ui/Modifier;", "state", "Landroidx/compose/foundation/gestures/TransformableState;", "lockRotationOnZoomPan", "enabled", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TransformableKt {
     public static /* synthetic */ Modifier transformable$default(Modifier modifier, TransformableState transformableState, boolean z, boolean z2, int i, Object obj) {
@@ -42,7 +42,7 @@ public final class TransformableKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:64:0x018e, code lost:
-        if (androidx.compose.ui.geometry.Offset.m2315equalsimpl0(r1, androidx.compose.ui.geometry.Offset.Companion.m2334getZeroF1C5BW0()) != false) goto L41;
+        if (androidx.compose.p002ui.geometry.Offset.m2616equalsimpl0(r1, androidx.compose.p002ui.geometry.Offset.Companion.m2635getZeroF1C5BW0()) != false) goto L41;
      */
     /* JADX WARN: Removed duplicated region for block: B:10:0x002b  */
     /* JADX WARN: Removed duplicated region for block: B:16:0x0070  */
@@ -58,7 +58,7 @@ public final class TransformableKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final java.lang.Object detectZoom(androidx.compose.ui.input.pointer.AwaitPointerEventScope r27, androidx.compose.runtime.State<java.lang.Boolean> r28, kotlinx.coroutines.channels.Channel<androidx.compose.foundation.gestures.TransformEvent> r29, kotlin.coroutines.Continuation<? super kotlin.Unit> r30) {
+    public static final java.lang.Object detectZoom(androidx.compose.p002ui.input.pointer.AwaitPointerEventScope r27, androidx.compose.runtime.State<java.lang.Boolean> r28, kotlinx.coroutines.channels.Channel<androidx.compose.foundation.gestures.Transformable> r29, kotlin.coroutines.Continuation<? super kotlin.Unit> r30) {
         /*
             Method dump skipped, instructions count: 498
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -121,7 +121,7 @@ public final class TransformableKt {
                 composer.startReplaceableGroup(-2015617726);
                 ComposerKt.sourceInformation(composer, "69@3160L822");
                 if (z2) {
-                    EffectsKt.LaunchedEffect(state, new AnonymousClass1(channel, state, null), composer, 64);
+                    EffectsKt.LaunchedEffect(state, new C02431(channel, state, null), composer, 64);
                 }
                 composer.endReplaceableGroup();
                 composer.startReplaceableGroup(-492369756);
@@ -142,12 +142,12 @@ public final class TransformableKt {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Transformable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$1", f = "Transformable.kt", i = {0, 0, 1}, l = {R.styleable.AppCompatTheme_imageButtonStyle, 75}, m = "invokeSuspend", n = {"$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect"}, s = {"L$0", "L$1", "L$0"})
-            /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$1  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$1", m30f = "Transformable.kt", m29i = {0, 0, 1}, m28l = {C0032R.styleable.AppCompatTheme_imageButtonStyle, 75}, m27m = "invokeSuspend", m26n = {"$this$LaunchedEffect", NotificationCompat.CATEGORY_EVENT, "$this$LaunchedEffect"}, m25s = {"L$0", "L$1", "L$0"})
+            /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$1 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-                final /* synthetic */ Channel<TransformEvent> $channel;
+            public static final class C02431 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                final /* synthetic */ Channel<Transformable> $channel;
                 final /* synthetic */ TransformableState $state;
                 private /* synthetic */ Object L$0;
                 Object L$1;
@@ -155,7 +155,7 @@ public final class TransformableKt {
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass1(Channel<TransformEvent> channel, TransformableState transformableState, Continuation<? super AnonymousClass1> continuation) {
+                C02431(Channel<Transformable> channel, TransformableState transformableState, Continuation<? super C02431> continuation) {
                     super(2, continuation);
                     this.$channel = channel;
                     this.$state = transformableState;
@@ -163,31 +163,31 @@ public final class TransformableKt {
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$channel, this.$state, continuation);
-                    anonymousClass1.L$0 = obj;
-                    return anonymousClass1;
+                    C02431 c02431 = new C02431(this.$channel, this.$state, continuation);
+                    c02431.L$0 = obj;
+                    return c02431;
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C02431) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: Transformable.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$1$1", f = "Transformable.kt", i = {0}, l = {R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m = "invokeSuspend", n = {"$this$transform"}, s = {"L$0"})
-                /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$1$1  reason: invalid class name and collision with other inner class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableKt$transformable$2$1$1", m30f = "Transformable.kt", m29i = {0}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemHeightLarge}, m27m = "invokeSuspend", m26n = {"$this$transform"}, m25s = {"L$0"})
+                /* renamed from: androidx.compose.foundation.gestures.TransformableKt$transformable$2$1$1 */
                 /* loaded from: classes.dex */
-                public static final class C00111 extends SuspendLambda implements Function2<TransformScope, Continuation<? super Unit>, Object> {
-                    final /* synthetic */ Channel<TransformEvent> $channel;
-                    final /* synthetic */ Ref.ObjectRef<TransformEvent> $event;
+                public static final class C02441 extends SuspendLambda implements Function2<TransformScope, Continuation<? super Unit>, Object> {
+                    final /* synthetic */ Channel<Transformable> $channel;
+                    final /* synthetic */ Ref.ObjectRef<Transformable> $event;
                     private /* synthetic */ Object L$0;
                     Object L$1;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    C00111(Ref.ObjectRef<TransformEvent> objectRef, Channel<TransformEvent> channel, Continuation<? super C00111> continuation) {
+                    C02441(Ref.ObjectRef<Transformable> objectRef, Channel<Transformable> channel, Continuation<? super C02441> continuation) {
                         super(2, continuation);
                         this.$event = objectRef;
                         this.$channel = channel;
@@ -195,14 +195,14 @@ public final class TransformableKt {
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        C00111 c00111 = new C00111(this.$event, this.$channel, continuation);
-                        c00111.L$0 = obj;
-                        return c00111;
+                        C02441 c02441 = new C02441(this.$event, this.$channel, continuation);
+                        c02441.L$0 = obj;
+                        return c02441;
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(TransformScope transformScope, Continuation<? super Unit> continuation) {
-                        return ((C00111) create(transformScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C02441) create(transformScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     /* JADX WARN: Multi-variable type inference failed */
@@ -246,22 +246,22 @@ public final class TransformableKt {
                         L2c:
                             kotlin.jvm.internal.Ref$ObjectRef<androidx.compose.foundation.gestures.TransformEvent> r1 = r9.$event
                             T r1 = r1.element
-                            boolean r1 = r1 instanceof androidx.compose.foundation.gestures.TransformEvent.TransformStopped
+                            boolean r1 = r1 instanceof androidx.compose.foundation.gestures.Transformable.TransformStopped
                             if (r1 != 0) goto L71
                             kotlin.jvm.internal.Ref$ObjectRef<androidx.compose.foundation.gestures.TransformEvent> r1 = r9.$event
                             T r1 = r1.element
-                            boolean r4 = r1 instanceof androidx.compose.foundation.gestures.TransformEvent.TransformDelta
+                            boolean r4 = r1 instanceof androidx.compose.foundation.gestures.Transformable.TransformDelta
                             if (r4 == 0) goto L3f
-                            androidx.compose.foundation.gestures.TransformEvent$TransformDelta r1 = (androidx.compose.foundation.gestures.TransformEvent.TransformDelta) r1
+                            androidx.compose.foundation.gestures.TransformEvent$TransformDelta r1 = (androidx.compose.foundation.gestures.Transformable.TransformDelta) r1
                             goto L40
                         L3f:
                             r1 = 0
                         L40:
                             if (r1 == 0) goto L51
                             float r4 = r1.getZoomChange()
-                            long r5 = r1.m326getPanChangeF1C5BW0()
+                            long r5 = r1.m627getPanChangeF1C5BW0()
                             float r1 = r1.getRotationChange()
-                            r3.mo226transformByd4ec7I(r4, r5, r1)
+                            r3.mo527transformByd4ec7I(r4, r5, r1)
                         L51:
                             kotlin.jvm.internal.Ref$ObjectRef<androidx.compose.foundation.gestures.TransformEvent> r1 = r9.$event
                             kotlinx.coroutines.channels.Channel<androidx.compose.foundation.gestures.TransformEvent> r4 = r9.$channel
@@ -290,7 +290,7 @@ public final class TransformableKt {
                             kotlin.Unit r9 = kotlin.Unit.INSTANCE
                             return r9
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TransformableKt$transformable$2.AnonymousClass1.C00111.invokeSuspend(java.lang.Object):java.lang.Object");
+                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TransformableKt$transformable$2.C02431.C02441.invokeSuspend(java.lang.Object):java.lang.Object");
                     }
                 }
 
@@ -367,7 +367,7 @@ public final class TransformableKt {
                     L5e:
                         r1.element = r12
                         T r12 = r6.element
-                        boolean r12 = r12 instanceof androidx.compose.foundation.gestures.TransformEvent.TransformStarted
+                        boolean r12 = r12 instanceof androidx.compose.foundation.gestures.Transformable.TransformStarted
                         if (r12 == 0) goto L86
                         androidx.compose.foundation.gestures.TransformableState r12 = r4.$state     // Catch: java.util.concurrent.CancellationException -> L86
                         androidx.compose.foundation.MutatePriority r1 = androidx.compose.foundation.MutatePriority.UserInput     // Catch: java.util.concurrent.CancellationException -> L86
@@ -393,7 +393,7 @@ public final class TransformableKt {
                         kotlin.Unit r12 = kotlin.Unit.INSTANCE
                         return r12
                     */
-                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TransformableKt$transformable$2.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+                    throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.gestures.TransformableKt$transformable$2.C02431.invokeSuspend(java.lang.Object):java.lang.Object");
                 }
             }
         });

@@ -1,7 +1,7 @@
 package com.google.common.math;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.platform.AndroidComposeViewAccessibilityDelegateCompat;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.platform.AndroidComposeViewAccessibilityDelegateCompat;
 import com.google.common.base.Preconditions;
 import com.google.common.primitives.Ints;
 import java.math.RoundingMode;
@@ -18,7 +18,7 @@ public final class IntMath {
     static final int[] powersOf10 = {1, 10, 100, 1000, 10000, AndroidComposeViewAccessibilityDelegateCompat.ParcelSafeTextLength, DurationKt.NANOS_IN_MILLIS, 10000000, 100000000, Http2Connection.DEGRADED_PONG_TIMEOUT_NS};
     static final int[] halfPowersOf10 = {3, 31, 316, 3162, 31622, 316227, 3162277, 31622776, 316227766, Integer.MAX_VALUE};
     private static final int[] factorials = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880, 3628800, 39916800, 479001600};
-    static int[] biggestBinomials = {Integer.MAX_VALUE, Integer.MAX_VALUE, 65536, 2345, 477, 193, R.styleable.AppCompatTheme_textColorAlertDialogListItem, 75, 58, 49, 43, 39, 37, 35, 34, 34, 33};
+    static int[] biggestBinomials = {Integer.MAX_VALUE, Integer.MAX_VALUE, 65536, 2345, 477, 193, C0032R.styleable.AppCompatTheme_textColorAlertDialogListItem, 75, 58, 49, 43, 39, 37, 35, 34, 34, 33};
 
     public static boolean isPowerOfTwo(int i) {
         return (i > 0) & ((i & (i + (-1))) == 0);
@@ -46,9 +46,9 @@ public final class IntMath {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.math.IntMath$1  reason: invalid class name */
+    /* renamed from: com.google.common.math.IntMath$1 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass1 {
+    public static /* synthetic */ class C14371 {
         static final /* synthetic */ int[] $SwitchMap$java$math$RoundingMode;
 
         static {
@@ -92,7 +92,7 @@ public final class IntMath {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int log2(int i, RoundingMode roundingMode) {
         MathPreconditions.checkPositive("x", i);
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14371.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(isPowerOfTwo(i));
                 break;
@@ -118,7 +118,7 @@ public final class IntMath {
         MathPreconditions.checkPositive("x", i);
         int log10Floor = log10Floor(i);
         int i2 = powersOf10[log10Floor];
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14371.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(i == i2);
                 return log10Floor;
@@ -181,7 +181,7 @@ public final class IntMath {
         int lessThanBranchFree;
         MathPreconditions.checkNonNegative("x", i);
         int sqrtFloor = sqrtFloor(i);
-        switch (AnonymousClass1.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
+        switch (C14371.$SwitchMap$java$math$RoundingMode[roundingMode.ordinal()]) {
             case 1:
                 MathPreconditions.checkRoundingUnnecessary(sqrtFloor * sqrtFloor == i);
                 return sqrtFloor;
@@ -237,7 +237,7 @@ public final class IntMath {
             int r5 = r5 >> 31
             r2 = 1
             r5 = r5 | r2
-            int[] r3 = com.google.common.math.IntMath.AnonymousClass1.$SwitchMap$java$math$RoundingMode
+            int[] r3 = com.google.common.math.IntMath.C14371.$SwitchMap$java$math$RoundingMode
             int r4 = r7.ordinal()
             r3 = r3[r4]
             r4 = 0

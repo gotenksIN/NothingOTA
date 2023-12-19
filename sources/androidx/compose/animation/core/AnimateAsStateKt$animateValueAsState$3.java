@@ -24,8 +24,8 @@ import kotlinx.coroutines.channels.Channel;
     */
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: AnimateAsState.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3", f = "AnimateAsState.kt", i = {0}, l = {419}, m = "invokeSuspend", n = {"$this$LaunchedEffect"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3", m30f = "AnimateAsState.kt", m29i = {0}, m28l = {419}, m27m = "invokeSuspend", m26n = {"$this$LaunchedEffect"}, m25s = {"L$0"})
 /* loaded from: classes.dex */
 public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ State<AnimationSpec<T>> $animSpec$delegate;
@@ -66,11 +66,11 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: AnimateAsState.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3$1", f = "AnimateAsState.kt", i = {}, l = {428}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3$1  reason: invalid class name */
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3$1", m30f = "AnimateAsState.kt", m29i = {}, m28l = {428}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.animation.core.AnimateAsStateKt$animateValueAsState$3$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C01501 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ State<AnimationSpec<T>> $animSpec$delegate;
         final /* synthetic */ Animatable<T, V> $animatable;
         final /* synthetic */ State<Function1<T, Unit>> $listener$delegate;
@@ -79,7 +79,7 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(T t, Animatable<T, V> animatable, State<? extends AnimationSpec<T>> state, State<? extends Function1<? super T, Unit>> state2, Continuation<? super AnonymousClass1> continuation) {
+        C01501(T t, Animatable<T, V> animatable, State<? extends AnimationSpec<T>> state, State<? extends Function1<? super T, Unit>> state2, Continuation<? super C01501> continuation) {
             super(2, continuation);
             this.$newTarget = t;
             this.$animatable = animatable;
@@ -89,7 +89,7 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            return new AnonymousClass1(this.$newTarget, this.$animatable, this.$animSpec$delegate, this.$listener$delegate, continuation);
+            return new C01501(this.$newTarget, this.$animatable, this.$animSpec$delegate, this.$listener$delegate, continuation);
         }
 
         @Override // kotlin.jvm.functions.Function2
@@ -99,7 +99,7 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
 
         /* renamed from: invoke  reason: avoid collision after fix types in other method */
         public final Object invoke2(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C01501) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -113,7 +113,7 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
                 if (!Intrinsics.areEqual(this.$newTarget, this.$animatable.getTargetValue())) {
                     Animatable<T, V> animatable = this.$animatable;
                     T t = this.$newTarget;
-                    animateValueAsState$lambda$6 = AnimateAsStateKt.animateValueAsState$lambda$6(this.$animSpec$delegate);
+                    animateValueAsState$lambda$6 = AnimateAsState.animateValueAsState$lambda$6(this.$animSpec$delegate);
                     this.label = 1;
                     if (Animatable.animateTo$default(animatable, t, animateValueAsState$lambda$6, null, null, this, 12, null) == coroutine_suspended) {
                         return coroutine_suspended;
@@ -125,7 +125,7 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
             } else {
                 ResultKt.throwOnFailure(obj);
             }
-            animateValueAsState$lambda$4 = AnimateAsStateKt.animateValueAsState$lambda$4(this.$listener$delegate);
+            animateValueAsState$lambda$4 = AnimateAsState.animateValueAsState$lambda$4(this.$listener$delegate);
             if (animateValueAsState$lambda$4 != null) {
                 animateValueAsState$lambda$4.invoke(this.$animatable.getValue());
             }
@@ -189,8 +189,8 @@ public final class AnimateAsStateKt$animateValueAsState$3 extends SuspendLambda 
             if (r6 == 0) goto L7b
             java.lang.Object r6 = r2.next()
             kotlinx.coroutines.channels.Channel<T> r7 = r5.$channel
-            java.lang.Object r7 = r7.mo6879tryReceivePtdJZtk()
-            java.lang.Object r7 = kotlinx.coroutines.channels.ChannelResult.m6890getOrNullimpl(r7)
+            java.lang.Object r7 = r7.mo7155tryReceivePtdJZtk()
+            java.lang.Object r7 = kotlinx.coroutines.channels.ChannelResult.m7166getOrNullimpl(r7)
             if (r7 != 0) goto L5f
             r9 = r6
             goto L60

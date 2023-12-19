@@ -1,33 +1,33 @@
 package androidx.compose.material3;
 
-import androidx.compose.ui.geometry.CornerRadiusKt;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.geometry.Size;
-import androidx.compose.ui.geometry.SizeKt;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.StrokeCap;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.graphics.drawscope.Fill;
-import androidx.compose.ui.graphics.drawscope.Stroke;
-import androidx.compose.ui.state.ToggleableState;
-import androidx.compose.ui.unit.Dp;
-import androidx.compose.ui.util.MathHelpersKt;
+import androidx.compose.p002ui.geometry.CornerRadiusKt;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.geometry.Size;
+import androidx.compose.p002ui.geometry.SizeKt;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.StrokeCap;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.graphics.drawscope.Fill;
+import androidx.compose.p002ui.graphics.drawscope.Stroke;
+import androidx.compose.p002ui.state.ToggleableState;
+import androidx.compose.p002ui.unit.C0780Dp;
+import androidx.compose.p002ui.util.MathHelpers;
 import kotlin.Metadata;
 
 /* compiled from: Checkbox.kt */
-@Metadata(d1 = {"\u0000h\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aS\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\u0014\u0010\u000e\u001a\u0010\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u000b\u0018\u00010\u000f2\b\b\u0002\u0010\u0010\u001a\u00020\u00112\b\b\u0002\u0010\u0012\u001a\u00020\r2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u0016H\u0007¢\u0006\u0002\u0010\u0017\u001a-\u0010\u0018\u001a\u00020\u000b2\u0006\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u0014H\u0003¢\u0006\u0002\u0010\u001b\u001aM\u0010\u001c\u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u001a2\u000e\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\u001f2\b\b\u0002\u0010\u0010\u001a\u00020\u00112\b\b\u0002\u0010\u0012\u001a\u00020\r2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u0016H\u0007¢\u0006\u0002\u0010 \u001a9\u0010!\u001a\u00020\u000b*\u00020\"2\u0006\u0010#\u001a\u00020$2\u0006\u0010%\u001a\u00020$2\u0006\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020'H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b)\u0010*\u001aA\u0010+\u001a\u00020\u000b*\u00020\"2\u0006\u0010,\u001a\u00020$2\u0006\u0010-\u001a\u00020'2\u0006\u0010.\u001a\u00020'2\u0006\u0010/\u001a\u00020'2\u0006\u00100\u001a\u000201H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b2\u00103\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u0013\u0010\u0004\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\u0007\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\b\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\t\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u00064"}, d2 = {"BoxInDuration", "", "BoxOutDuration", "CheckAnimationDuration", "CheckboxDefaultPadding", "Landroidx/compose/ui/unit/Dp;", "F", "CheckboxSize", "RadiusSize", "StrokeWidth", "Checkbox", "", "checked", "", "onCheckedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "enabled", "colors", "Landroidx/compose/material3/CheckboxColors;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/CheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "CheckboxImpl", "value", "Landroidx/compose/ui/state/ToggleableState;", "(ZLandroidx/compose/ui/state/ToggleableState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/CheckboxColors;Landroidx/compose/runtime/Composer;I)V", "TriStateCheckbox", "state", "onClick", "Lkotlin/Function0;", "(Landroidx/compose/ui/state/ToggleableState;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/CheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "drawBox", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "boxColor", "Landroidx/compose/ui/graphics/Color;", "borderColor", "radius", "", "strokeWidth", "drawBox-1wkBAMs", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;JJFF)V", "drawCheck", "checkColor", "checkFraction", "crossCenterGravitation", "strokeWidthPx", "drawingCache", "Landroidx/compose/material3/CheckDrawingCache;", "drawCheck-3IgeMak", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;JFFFLandroidx/compose/material3/CheckDrawingCache;)V", "material3_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000h\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\u001aS\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\u0014\u0010\u000e\u001a\u0010\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\u000b\u0018\u00010\u000f2\b\b\u0002\u0010\u0010\u001a\u00020\u00112\b\b\u0002\u0010\u0012\u001a\u00020\r2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u0016H\u0007¢\u0006\u0002\u0010\u0017\u001a-\u0010\u0018\u001a\u00020\u000b2\u0006\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0019\u001a\u00020\u001a2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0013\u001a\u00020\u0014H\u0003¢\u0006\u0002\u0010\u001b\u001aM\u0010\u001c\u001a\u00020\u000b2\u0006\u0010\u001d\u001a\u00020\u001a2\u000e\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u000b\u0018\u00010\u001f2\b\b\u0002\u0010\u0010\u001a\u00020\u00112\b\b\u0002\u0010\u0012\u001a\u00020\r2\b\b\u0002\u0010\u0013\u001a\u00020\u00142\b\b\u0002\u0010\u0015\u001a\u00020\u0016H\u0007¢\u0006\u0002\u0010 \u001a9\u0010!\u001a\u00020\u000b*\u00020\"2\u0006\u0010#\u001a\u00020$2\u0006\u0010%\u001a\u00020$2\u0006\u0010&\u001a\u00020'2\u0006\u0010(\u001a\u00020'H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b)\u0010*\u001aA\u0010+\u001a\u00020\u000b*\u00020\"2\u0006\u0010,\u001a\u00020$2\u0006\u0010-\u001a\u00020'2\u0006\u0010.\u001a\u00020'2\u0006\u0010/\u001a\u00020'2\u0006\u00100\u001a\u000201H\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b2\u00103\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u0013\u0010\u0004\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\u0007\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\b\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\"\u0013\u0010\t\u001a\u00020\u0005X\u0082\u0004ø\u0001\u0000¢\u0006\u0004\n\u0002\u0010\u0006\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u00064"}, m40d2 = {"BoxInDuration", "", "BoxOutDuration", "CheckAnimationDuration", "CheckboxDefaultPadding", "Landroidx/compose/ui/unit/Dp;", "F", "CheckboxSize", "RadiusSize", "StrokeWidth", "Checkbox", "", "checked", "", "onCheckedChange", "Lkotlin/Function1;", "modifier", "Landroidx/compose/ui/Modifier;", "enabled", "colors", "Landroidx/compose/material3/CheckboxColors;", "interactionSource", "Landroidx/compose/foundation/interaction/MutableInteractionSource;", "(ZLkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/CheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "CheckboxImpl", "value", "Landroidx/compose/ui/state/ToggleableState;", "(ZLandroidx/compose/ui/state/ToggleableState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/CheckboxColors;Landroidx/compose/runtime/Composer;I)V", "TriStateCheckbox", "state", "onClick", "Lkotlin/Function0;", "(Landroidx/compose/ui/state/ToggleableState;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;ZLandroidx/compose/material3/CheckboxColors;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V", "drawBox", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "boxColor", "Landroidx/compose/ui/graphics/Color;", "borderColor", "radius", "", "strokeWidth", "drawBox-1wkBAMs", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;JJFF)V", "drawCheck", "checkColor", "checkFraction", "crossCenterGravitation", "strokeWidthPx", "drawingCache", "Landroidx/compose/material3/CheckDrawingCache;", "drawCheck-3IgeMak", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;JFFFLandroidx/compose/material3/CheckDrawingCache;)V", "material3_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class CheckboxKt {
     private static final int BoxInDuration = 50;
     private static final int BoxOutDuration = 100;
     private static final int CheckAnimationDuration = 100;
     private static final float CheckboxDefaultPadding;
-    private static final float CheckboxSize = Dp.m5050constructorimpl(20);
+    private static final float CheckboxSize = C0780Dp.m5351constructorimpl(20);
     private static final float RadiusSize;
     private static final float StrokeWidth;
 
     /* compiled from: Checkbox.kt */
-    @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+    @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
     /* loaded from: classes.dex */
     public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -76,7 +76,7 @@ public final class CheckboxKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void Checkbox(final boolean r29, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r30, androidx.compose.ui.Modifier r31, boolean r32, androidx.compose.material3.CheckboxColors r33, androidx.compose.foundation.interaction.MutableInteractionSource r34, androidx.compose.runtime.Composer r35, final int r36, final int r37) {
+    public static final void Checkbox(final boolean r29, final kotlin.jvm.functions.Function1<? super java.lang.Boolean, kotlin.Unit> r30, androidx.compose.p002ui.Modifier r31, boolean r32, androidx.compose.material3.CheckboxColors r33, androidx.compose.foundation.interaction.MutableInteractionSource r34, androidx.compose.runtime.Composer r35, final int r36, final int r37) {
         /*
             Method dump skipped, instructions count: 496
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -109,7 +109,7 @@ public final class CheckboxKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void TriStateCheckbox(final androidx.compose.ui.state.ToggleableState r28, final kotlin.jvm.functions.Function0<kotlin.Unit> r29, androidx.compose.ui.Modifier r30, boolean r31, androidx.compose.material3.CheckboxColors r32, androidx.compose.foundation.interaction.MutableInteractionSource r33, androidx.compose.runtime.Composer r34, final int r35, final int r36) {
+    public static final void TriStateCheckbox(final androidx.compose.p002ui.state.ToggleableState r28, final kotlin.jvm.functions.Functions<kotlin.Unit> r29, androidx.compose.p002ui.Modifier r30, boolean r31, androidx.compose.material3.CheckboxColors r32, androidx.compose.foundation.interaction.MutableInteractionSource r33, androidx.compose.runtime.Composer r34, final int r35, final int r36) {
         /*
             Method dump skipped, instructions count: 545
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -140,7 +140,7 @@ public final class CheckboxKt {
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
     */
-    public static final void CheckboxImpl(final boolean r35, final androidx.compose.ui.state.ToggleableState r36, final androidx.compose.ui.Modifier r37, final androidx.compose.material3.CheckboxColors r38, androidx.compose.runtime.Composer r39, final int r40) {
+    public static final void CheckboxImpl(final boolean r35, final androidx.compose.p002ui.state.ToggleableState r36, final androidx.compose.p002ui.Modifier r37, final androidx.compose.material3.CheckboxColors r38, androidx.compose.runtime.Composer r39, final int r40) {
         /*
             Method dump skipped, instructions count: 786
             To view this dump change 'Code comments level' option to 'DEBUG'
@@ -150,43 +150,43 @@ public final class CheckboxKt {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: drawBox-1wkBAMs  reason: not valid java name */
-    public static final void m955drawBox1wkBAMs(DrawScope drawScope, long j, long j2, float f, float f2) {
+    public static final void m1256drawBox1wkBAMs(DrawScope drawScope, long j, long j2, float f, float f2) {
         float f3 = f2 / 2.0f;
         Stroke stroke = new Stroke(f2, 0.0f, 0, 0, null, 30, null);
-        float m2387getWidthimpl = Size.m2387getWidthimpl(drawScope.mo3096getSizeNHjbRc());
-        if (Color.m2557equalsimpl0(j, j2)) {
-            DrawScope.m3093drawRoundRectuAw5IA$default(drawScope, j, 0L, SizeKt.Size(m2387getWidthimpl, m2387getWidthimpl), CornerRadiusKt.CornerRadius$default(f, 0.0f, 2, null), Fill.INSTANCE, 0.0f, null, 0, 226, null);
+        float m2688getWidthimpl = Size.m2688getWidthimpl(drawScope.mo3397getSizeNHjbRc());
+        if (Color.m2858equalsimpl0(j, j2)) {
+            DrawScope.m3394drawRoundRectuAw5IA$default(drawScope, j, 0L, SizeKt.Size(m2688getWidthimpl, m2688getWidthimpl), CornerRadiusKt.CornerRadius$default(f, 0.0f, 2, null), Fill.INSTANCE, 0.0f, null, 0, 226, null);
             return;
         }
-        float f4 = m2387getWidthimpl - (2 * f2);
-        DrawScope.m3093drawRoundRectuAw5IA$default(drawScope, j, OffsetKt.Offset(f2, f2), SizeKt.Size(f4, f4), CornerRadiusKt.CornerRadius$default(Math.max(0.0f, f - f2), 0.0f, 2, null), Fill.INSTANCE, 0.0f, null, 0, 224, null);
-        float f5 = m2387getWidthimpl - f2;
-        DrawScope.m3093drawRoundRectuAw5IA$default(drawScope, j2, OffsetKt.Offset(f3, f3), SizeKt.Size(f5, f5), CornerRadiusKt.CornerRadius$default(f - f3, 0.0f, 2, null), stroke, 0.0f, null, 0, 224, null);
+        float f4 = m2688getWidthimpl - (2 * f2);
+        DrawScope.m3394drawRoundRectuAw5IA$default(drawScope, j, OffsetKt.Offset(f2, f2), SizeKt.Size(f4, f4), CornerRadiusKt.CornerRadius$default(Math.max(0.0f, f - f2), 0.0f, 2, null), Fill.INSTANCE, 0.0f, null, 0, 224, null);
+        float f5 = m2688getWidthimpl - f2;
+        DrawScope.m3394drawRoundRectuAw5IA$default(drawScope, j2, OffsetKt.Offset(f3, f3), SizeKt.Size(f5, f5), CornerRadiusKt.CornerRadius$default(f - f3, 0.0f, 2, null), stroke, 0.0f, null, 0, 224, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: drawCheck-3IgeMak  reason: not valid java name */
-    public static final void m956drawCheck3IgeMak(DrawScope drawScope, long j, float f, float f2, float f3, CheckDrawingCache checkDrawingCache) {
-        Stroke stroke = new Stroke(f3, 0.0f, StrokeCap.Companion.m2901getSquareKaPHkGw(), 0, null, 26, null);
-        float m2387getWidthimpl = Size.m2387getWidthimpl(drawScope.mo3096getSizeNHjbRc());
-        float lerp = MathHelpersKt.lerp(0.4f, 0.5f, f2);
-        float lerp2 = MathHelpersKt.lerp(0.7f, 0.5f, f2);
-        float lerp3 = MathHelpersKt.lerp(0.5f, 0.5f, f2);
-        float lerp4 = MathHelpersKt.lerp(0.3f, 0.5f, f2);
-        checkDrawingCache.getCheckPath().reset();
-        checkDrawingCache.getCheckPath().moveTo(0.2f * m2387getWidthimpl, lerp3 * m2387getWidthimpl);
-        checkDrawingCache.getCheckPath().lineTo(lerp * m2387getWidthimpl, lerp2 * m2387getWidthimpl);
-        checkDrawingCache.getCheckPath().lineTo(0.8f * m2387getWidthimpl, m2387getWidthimpl * lerp4);
-        checkDrawingCache.getPathMeasure().setPath(checkDrawingCache.getCheckPath(), false);
-        checkDrawingCache.getPathToDraw().reset();
-        checkDrawingCache.getPathMeasure().getSegment(0.0f, checkDrawingCache.getPathMeasure().getLength() * f, checkDrawingCache.getPathToDraw(), true);
-        DrawScope.m3087drawPathLG529CI$default(drawScope, checkDrawingCache.getPathToDraw(), j, 0.0f, stroke, null, 0, 52, null);
+    public static final void m1257drawCheck3IgeMak(DrawScope drawScope, long j, float f, float f2, float f3, Checkbox checkbox) {
+        Stroke stroke = new Stroke(f3, 0.0f, StrokeCap.Companion.m3202getSquareKaPHkGw(), 0, null, 26, null);
+        float m2688getWidthimpl = Size.m2688getWidthimpl(drawScope.mo3397getSizeNHjbRc());
+        float lerp = MathHelpers.lerp(0.4f, 0.5f, f2);
+        float lerp2 = MathHelpers.lerp(0.7f, 0.5f, f2);
+        float lerp3 = MathHelpers.lerp(0.5f, 0.5f, f2);
+        float lerp4 = MathHelpers.lerp(0.3f, 0.5f, f2);
+        checkbox.getCheckPath().reset();
+        checkbox.getCheckPath().moveTo(0.2f * m2688getWidthimpl, lerp3 * m2688getWidthimpl);
+        checkbox.getCheckPath().lineTo(lerp * m2688getWidthimpl, lerp2 * m2688getWidthimpl);
+        checkbox.getCheckPath().lineTo(0.8f * m2688getWidthimpl, m2688getWidthimpl * lerp4);
+        checkbox.getPathMeasure().setPath(checkbox.getCheckPath(), false);
+        checkbox.getPathToDraw().reset();
+        checkbox.getPathMeasure().getSegment(0.0f, checkbox.getPathMeasure().getLength() * f, checkbox.getPathToDraw(), true);
+        DrawScope.m3388drawPathLG529CI$default(drawScope, checkbox.getPathToDraw(), j, 0.0f, stroke, null, 0, 52, null);
     }
 
     static {
         float f = 2;
-        CheckboxDefaultPadding = Dp.m5050constructorimpl(f);
-        StrokeWidth = Dp.m5050constructorimpl(f);
-        RadiusSize = Dp.m5050constructorimpl(f);
+        CheckboxDefaultPadding = C0780Dp.m5351constructorimpl(f);
+        StrokeWidth = C0780Dp.m5351constructorimpl(f);
+        RadiusSize = C0780Dp.m5351constructorimpl(f);
     }
 }

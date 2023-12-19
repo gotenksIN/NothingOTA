@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.activity.ComponentDialog;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.ActionMode;
 import androidx.core.view.KeyEventDispatcher;
 
@@ -139,7 +139,7 @@ public class AppCompatDialog extends ComponentDialog implements AppCompatCallbac
     private static int getThemeResId(Context context, int i) {
         if (i == 0) {
             TypedValue typedValue = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.dialogTheme, typedValue, true);
+            context.getTheme().resolveAttribute(C0032R.attr.dialogTheme, typedValue, true);
             return typedValue.resourceId;
         }
         return i;

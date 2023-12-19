@@ -17,31 +17,33 @@ public final class Insets {
         this.bottom = i4;
     }
 
-    public static Insets of(int i, int i2, int i3, int i4) {
+    /* renamed from: of */
+    public static Insets m282of(int i, int i2, int i3, int i4) {
         if (i == 0 && i2 == 0 && i3 == 0 && i4 == 0) {
             return NONE;
         }
         return new Insets(i, i2, i3, i4);
     }
 
-    public static Insets of(Rect rect) {
-        return of(rect.left, rect.top, rect.right, rect.bottom);
+    /* renamed from: of */
+    public static Insets m281of(Rect rect) {
+        return m282of(rect.left, rect.top, rect.right, rect.bottom);
     }
 
     public static Insets add(Insets insets, Insets insets2) {
-        return of(insets.left + insets2.left, insets.top + insets2.top, insets.right + insets2.right, insets.bottom + insets2.bottom);
+        return m282of(insets.left + insets2.left, insets.top + insets2.top, insets.right + insets2.right, insets.bottom + insets2.bottom);
     }
 
     public static Insets subtract(Insets insets, Insets insets2) {
-        return of(insets.left - insets2.left, insets.top - insets2.top, insets.right - insets2.right, insets.bottom - insets2.bottom);
+        return m282of(insets.left - insets2.left, insets.top - insets2.top, insets.right - insets2.right, insets.bottom - insets2.bottom);
     }
 
     public static Insets max(Insets insets, Insets insets2) {
-        return of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom));
+        return m282of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom));
     }
 
     public static Insets min(Insets insets, Insets insets2) {
-        return of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom));
+        return m282of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom));
     }
 
     public boolean equals(Object obj) {
@@ -69,11 +71,11 @@ public final class Insets {
     }
 
     public static Insets toCompatInsets(android.graphics.Insets insets) {
-        return of(insets.left, insets.top, insets.right, insets.bottom);
+        return m282of(insets.left, insets.top, insets.right, insets.bottom);
     }
 
     public android.graphics.Insets toPlatformInsets() {
-        return Api29Impl.of(this.left, this.top, this.right, this.bottom);
+        return Api29Impl.m280of(this.left, this.top, this.right, this.bottom);
     }
 
     /* loaded from: classes.dex */
@@ -81,7 +83,8 @@ public final class Insets {
         private Api29Impl() {
         }
 
-        static android.graphics.Insets of(int i, int i2, int i3, int i4) {
+        /* renamed from: of */
+        static android.graphics.Insets m280of(int i, int i2, int i3, int i4) {
             return android.graphics.Insets.of(i, i2, i3, i4);
         }
     }

@@ -24,11 +24,11 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.TextAppearanceSpan;
 import android.util.Log;
 import android.widget.RemoteViews;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.app.Person;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.LocusIdCompat;
-import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.p003pm.ShortcutInfoCompat;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.core.text.BidiFormatter;
 import androidx.core.view.ViewCompat;
@@ -1166,7 +1166,7 @@ public class NotificationCompat {
         }
 
         private Bitmap createIconWithBackground(int i, int i2, int i3, int i4) {
-            int i5 = R.drawable.notification_icon_background;
+            int i5 = C0795R.C0796drawable.notification_icon_background;
             if (i4 == 0) {
                 i4 = 0;
             }
@@ -1184,22 +1184,22 @@ public class NotificationCompat {
 
         public void buildIntoRemoteViews(RemoteViews remoteViews, RemoteViews remoteViews2) {
             hideNormalContent(remoteViews);
-            remoteViews.removeAllViews(R.id.notification_main_column);
-            remoteViews.addView(R.id.notification_main_column, remoteViews2.clone());
-            remoteViews.setViewVisibility(R.id.notification_main_column, 0);
-            Api16Impl.setViewPadding(remoteViews, R.id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
+            remoteViews.removeAllViews(C0795R.C0797id.notification_main_column);
+            remoteViews.addView(C0795R.C0797id.notification_main_column, remoteViews2.clone());
+            remoteViews.setViewVisibility(C0795R.C0797id.notification_main_column, 0);
+            Api16Impl.setViewPadding(remoteViews, C0795R.C0797id.notification_main_column_container, 0, calculateTopPadding(), 0, 0);
         }
 
         private void hideNormalContent(RemoteViews remoteViews) {
-            remoteViews.setViewVisibility(R.id.title, 8);
-            remoteViews.setViewVisibility(R.id.text2, 8);
-            remoteViews.setViewVisibility(R.id.text, 8);
+            remoteViews.setViewVisibility(C0795R.C0797id.title, 8);
+            remoteViews.setViewVisibility(C0795R.C0797id.text2, 8);
+            remoteViews.setViewVisibility(C0795R.C0797id.text, 8);
         }
 
         private int calculateTopPadding() {
             Resources resources = this.mBuilder.mContext.getResources();
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.notification_top_pad);
-            int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.notification_top_pad_large_text);
+            int dimensionPixelSize = resources.getDimensionPixelSize(C0795R.dimen.notification_top_pad);
+            int dimensionPixelSize2 = resources.getDimensionPixelSize(C0795R.dimen.notification_top_pad_large_text);
             float constrain = (constrain(resources.getConfiguration().fontScale, 1.0f, 1.3f) - 1.0f) / 0.29999995f;
             return Math.round(((1.0f - constrain) * dimensionPixelSize) + (constrain * dimensionPixelSize2));
         }
@@ -2215,39 +2215,39 @@ public class NotificationCompat {
                     if (i != 3) {
                         return null;
                     }
-                    return this.mBuilder.mContext.getResources().getString(R.string.call_notification_screening_text);
+                    return this.mBuilder.mContext.getResources().getString(C0795R.string.call_notification_screening_text);
                 }
-                return this.mBuilder.mContext.getResources().getString(R.string.call_notification_ongoing_text);
+                return this.mBuilder.mContext.getResources().getString(C0795R.string.call_notification_ongoing_text);
             }
-            return this.mBuilder.mContext.getResources().getString(R.string.call_notification_incoming_text);
+            return this.mBuilder.mContext.getResources().getString(C0795R.string.call_notification_incoming_text);
         }
 
         private Action makeNegativeAction() {
-            int i = R.drawable.ic_call_decline_low;
-            int i2 = R.drawable.ic_call_decline;
+            int i = C0795R.C0796drawable.ic_call_decline_low;
+            int i2 = C0795R.C0796drawable.ic_call_decline;
             if (this.mDeclineIntent == null) {
-                return makeAction(i2, R.string.call_notification_hang_up_action, this.mDeclineButtonColor, R.color.call_notification_decline_color, this.mHangUpIntent);
+                return makeAction(i2, C0795R.string.call_notification_hang_up_action, this.mDeclineButtonColor, C0795R.color.call_notification_decline_color, this.mHangUpIntent);
             }
-            return makeAction(i2, R.string.call_notification_decline_action, this.mDeclineButtonColor, R.color.call_notification_decline_color, this.mDeclineIntent);
+            return makeAction(i2, C0795R.string.call_notification_decline_action, this.mDeclineButtonColor, C0795R.color.call_notification_decline_color, this.mDeclineIntent);
         }
 
         private Action makeAnswerAction() {
             int i;
-            int i2 = R.drawable.ic_call_answer_video_low;
-            int i3 = R.drawable.ic_call_answer_low;
-            int i4 = R.drawable.ic_call_answer_video;
-            int i5 = R.drawable.ic_call_answer;
+            int i2 = C0795R.C0796drawable.ic_call_answer_video_low;
+            int i3 = C0795R.C0796drawable.ic_call_answer_low;
+            int i4 = C0795R.C0796drawable.ic_call_answer_video;
+            int i5 = C0795R.C0796drawable.ic_call_answer;
             if (this.mAnswerIntent == null) {
                 return null;
             }
             boolean z = this.mIsVideo;
             int i6 = z ? i4 : i5;
             if (z) {
-                i = R.string.call_notification_answer_video_action;
+                i = C0795R.string.call_notification_answer_video_action;
             } else {
-                i = R.string.call_notification_answer_action;
+                i = C0795R.string.call_notification_answer_action;
             }
-            return makeAction(i6, i, this.mAnswerButtonColor, R.color.call_notification_answer_color, this.mAnswerIntent);
+            return makeAction(i6, i, this.mAnswerButtonColor, C0795R.color.call_notification_answer_color, this.mAnswerIntent);
         }
 
         private Action makeAction(int i, int i2, Integer num, int i3, PendingIntent pendingIntent) {
@@ -2575,19 +2575,19 @@ public class NotificationCompat {
         private RemoteViews createRemoteViews(RemoteViews remoteViews, boolean z) {
             int min;
             boolean z2 = true;
-            RemoteViews applyStandardTemplate = applyStandardTemplate(true, R.layout.notification_template_custom_big, false);
-            applyStandardTemplate.removeAllViews(R.id.actions);
+            RemoteViews applyStandardTemplate = applyStandardTemplate(true, C0795R.C0798layout.notification_template_custom_big, false);
+            applyStandardTemplate.removeAllViews(C0795R.C0797id.actions);
             List<Action> nonContextualActions = getNonContextualActions(this.mBuilder.mActions);
             if (!z || nonContextualActions == null || (min = Math.min(nonContextualActions.size(), 3)) <= 0) {
                 z2 = false;
             } else {
                 for (int i = 0; i < min; i++) {
-                    applyStandardTemplate.addView(R.id.actions, generateActionButton(nonContextualActions.get(i)));
+                    applyStandardTemplate.addView(C0795R.C0797id.actions, generateActionButton(nonContextualActions.get(i)));
                 }
             }
             int i2 = z2 ? 0 : 8;
-            applyStandardTemplate.setViewVisibility(R.id.actions, i2);
-            applyStandardTemplate.setViewVisibility(R.id.action_divider, i2);
+            applyStandardTemplate.setViewVisibility(C0795R.C0797id.actions, i2);
+            applyStandardTemplate.setViewVisibility(C0795R.C0797id.action_divider, i2);
             buildIntoRemoteViews(applyStandardTemplate, remoteViews);
             return applyStandardTemplate;
         }
@@ -2610,20 +2610,20 @@ public class NotificationCompat {
             boolean z = action.actionIntent == null;
             String packageName = this.mBuilder.mContext.getPackageName();
             if (z) {
-                i = R.layout.notification_action_tombstone;
+                i = C0795R.C0798layout.notification_action_tombstone;
             } else {
-                i = R.layout.notification_action;
+                i = C0795R.C0798layout.notification_action;
             }
             RemoteViews remoteViews = new RemoteViews(packageName, i);
             IconCompat iconCompat = action.getIconCompat();
             if (iconCompat != null) {
-                remoteViews.setImageViewBitmap(R.id.action_image, createColoredBitmap(iconCompat, R.color.notification_action_color_filter));
+                remoteViews.setImageViewBitmap(C0795R.C0797id.action_image, createColoredBitmap(iconCompat, C0795R.color.notification_action_color_filter));
             }
-            remoteViews.setTextViewText(R.id.action_text, action.title);
+            remoteViews.setTextViewText(C0795R.C0797id.action_text, action.title);
             if (!z) {
-                remoteViews.setOnClickPendingIntent(R.id.action_container, action.actionIntent);
+                remoteViews.setOnClickPendingIntent(C0795R.C0797id.action_container, action.actionIntent);
             }
-            Api15Impl.setContentDescription(remoteViews, R.id.action_container, action.title);
+            Api15Impl.setContentDescription(remoteViews, C0795R.C0797id.action_container, action.title);
             return remoteViews;
         }
 
@@ -3047,7 +3047,7 @@ public class NotificationCompat {
             }
 
             /* renamed from: clone */
-            public WearableExtender m5297clone() {
+            public WearableExtender m5598clone() {
                 WearableExtender wearableExtender = new WearableExtender();
                 wearableExtender.mFlags = this.mFlags;
                 wearableExtender.mInProgressLabel = this.mInProgressLabel;
@@ -3326,7 +3326,7 @@ public class NotificationCompat {
         }
 
         /* renamed from: clone */
-        public WearableExtender m5298clone() {
+        public WearableExtender m5599clone() {
             WearableExtender wearableExtender = new WearableExtender();
             wearableExtender.mActions = new ArrayList<>(this.mActions);
             wearableExtender.mFlags = this.mFlags;

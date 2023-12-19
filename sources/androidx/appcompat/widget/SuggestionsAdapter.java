@@ -20,7 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.content.ContextCompat;
 import androidx.cursoradapter.widget.ResourceCursorAdapter;
 import java.io.FileNotFoundException;
@@ -153,7 +153,7 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         View newView = super.newView(context, cursor, viewGroup);
         newView.setTag(new ChildViewCache(newView));
-        ((ImageView) newView.findViewById(R.id.edit_query)).setImageResource(this.mCommitIconResId);
+        ((ImageView) newView.findViewById(C0032R.C0034id.edit_query)).setImageResource(this.mCommitIconResId);
         return newView;
     }
 
@@ -171,7 +171,7 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
             this.mText2 = (TextView) view.findViewById(16908309);
             this.mIcon1 = (ImageView) view.findViewById(16908295);
             this.mIcon2 = (ImageView) view.findViewById(16908296);
-            this.mIconRefine = (ImageView) view.findViewById(R.id.edit_query);
+            this.mIconRefine = (ImageView) view.findViewById(C0032R.C0034id.edit_query);
         }
     }
 
@@ -229,7 +229,7 @@ class SuggestionsAdapter extends ResourceCursorAdapter implements View.OnClickLi
     private CharSequence formatUrl(CharSequence charSequence) {
         if (this.mUrlColor == null) {
             TypedValue typedValue = new TypedValue();
-            this.mProviderContext.getTheme().resolveAttribute(R.attr.textColorSearchUrl, typedValue, true);
+            this.mProviderContext.getTheme().resolveAttribute(C0032R.attr.textColorSearchUrl, typedValue, true);
             this.mUrlColor = this.mProviderContext.getResources().getColorStateList(typedValue.resourceId);
         }
         SpannableString spannableString = new SpannableString(charSequence);

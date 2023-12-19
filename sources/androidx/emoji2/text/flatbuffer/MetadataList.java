@@ -31,7 +31,7 @@ public final class MetadataList extends Table {
     public int version() {
         int __offset = __offset(4);
         if (__offset != 0) {
-            return this.bb.getInt(__offset + this.bb_pos);
+            return this.f180bb.getInt(__offset + this.bb_pos);
         }
         return 0;
     }
@@ -43,7 +43,7 @@ public final class MetadataList extends Table {
     public MetadataItem list(MetadataItem metadataItem, int i) {
         int __offset = __offset(6);
         if (__offset != 0) {
-            return metadataItem.__assign(__indirect(__vector(__offset) + (i * 4)), this.bb);
+            return metadataItem.__assign(__indirect(__vector(__offset) + (i * 4)), this.f180bb);
         }
         return null;
     }
@@ -63,7 +63,7 @@ public final class MetadataList extends Table {
     public MetadataItem.Vector listVector(MetadataItem.Vector vector) {
         int __offset = __offset(6);
         if (__offset != 0) {
-            return vector.__assign(__vector(__offset), 4, this.bb);
+            return vector.__assign(__vector(__offset), 4, this.f180bb);
         }
         return null;
     }
@@ -144,7 +144,7 @@ public final class MetadataList extends Table {
         }
 
         public MetadataList get(MetadataList metadataList, int i) {
-            return metadataList.__assign(MetadataList.__indirect(__element(i), this.bb), this.bb);
+            return metadataList.__assign(MetadataList.__indirect(__element(i), this.f174bb), this.f174bb);
         }
     }
 }

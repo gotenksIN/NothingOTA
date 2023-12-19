@@ -23,8 +23,8 @@ import kotlinx.coroutines.flow.FlowCollector;
     	at jadx.core.dex.visitors.ClassModifier.visit(ClassModifier.java:55)
     */
 /* compiled from: Merge.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3", f = "Merge.kt", i = {}, l = {27}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3", m30f = "Merge.kt", m29i = {}, m28l = {27}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ FlowCollector<R> $collector;
@@ -66,7 +66,7 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
             ResultKt.throwOnFailure(obj);
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
             this.label = 1;
-            if (this.this$0.flow.collect(new AnonymousClass1(objectRef, (CoroutineScope) this.L$0, this.this$0, this.$collector), this) == coroutine_suspended) {
+            if (this.this$0.flow.collect(new C17821(objectRef, (CoroutineScope) this.L$0, this.this$0, this.$collector), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {
@@ -79,17 +79,17 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Merge.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u00032\u0006\u0010\u0004\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, m40d2 = {"<anonymous>", "", "T", "R", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> implements FlowCollector {
+    public static final class C17821<T> implements FlowCollector {
         final /* synthetic */ CoroutineScope $$this$coroutineScope;
         final /* synthetic */ FlowCollector<R> $collector;
         final /* synthetic */ Ref.ObjectRef<Job> $previousFlow;
         final /* synthetic */ ChannelFlowTransformLatest<T, R> this$0;
 
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(Ref.ObjectRef<Job> objectRef, CoroutineScope coroutineScope, ChannelFlowTransformLatest<T, R> channelFlowTransformLatest, FlowCollector<? super R> flowCollector) {
+        C17821(Ref.ObjectRef<Job> objectRef, CoroutineScope coroutineScope, ChannelFlowTransformLatest<T, R> channelFlowTransformLatest, FlowCollector<? super R> flowCollector) {
             this.$previousFlow = objectRef;
             this.$$this$coroutineScope = coroutineScope;
             this.this$0 = channelFlowTransformLatest;
@@ -132,7 +132,7 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
                 kotlinx.coroutines.Job r8 = (kotlinx.coroutines.Job) r8
                 java.lang.Object r8 = r0.L$1
                 java.lang.Object r0 = r0.L$0
-                kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1 r0 = (kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.AnonymousClass1) r0
+                kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1 r0 = (kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.C17821) r0
                 kotlin.ResultKt.throwOnFailure(r9)
                 goto L61
             L34:
@@ -176,16 +176,16 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
                 kotlin.Unit r8 = kotlin.Unit.INSTANCE
                 return r8
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.AnonymousClass1.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3.C17821.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: Merge.kt */
-        @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-        @DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1$2", f = "Merge.kt", i = {}, l = {34}, m = "invokeSuspend", n = {}, s = {})
-        /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1$2  reason: invalid class name */
+        @Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1$2", m30f = "Merge.kt", m29i = {}, m28l = {34}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+        /* renamed from: kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1$2 */
         /* loaded from: classes2.dex */
-        public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+        public static final class C17832 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ FlowCollector<R> $collector;
             final /* synthetic */ T $value;
             int label;
@@ -193,7 +193,7 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             /* JADX WARN: Multi-variable type inference failed */
-            AnonymousClass2(ChannelFlowTransformLatest<T, R> channelFlowTransformLatest, FlowCollector<? super R> flowCollector, T t, Continuation<? super AnonymousClass2> continuation) {
+            C17832(ChannelFlowTransformLatest<T, R> channelFlowTransformLatest, FlowCollector<? super R> flowCollector, T t, Continuation<? super C17832> continuation) {
                 super(2, continuation);
                 this.this$0 = channelFlowTransformLatest;
                 this.$collector = flowCollector;
@@ -202,7 +202,7 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                return new AnonymousClass2(this.this$0, this.$collector, this.$value, continuation);
+                return new C17832(this.this$0, this.$collector, this.$value, continuation);
             }
 
             @Override // kotlin.jvm.functions.Function2
@@ -212,7 +212,7 @@ final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda imple
 
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final Object invoke2(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C17832) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

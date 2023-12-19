@@ -1,6 +1,6 @@
 package kotlin.sequences;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.UByte;
 import kotlin.UInt;
@@ -9,14 +9,14 @@ import kotlin.UShort;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: _USequences.kt */
-@Metadata(d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0007*\b\u0012\u0004\u0012\u00020\u00070\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\n0\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\f"}, d2 = {"sum", "Lkotlin/UInt;", "Lkotlin/sequences/Sequence;", "Lkotlin/UByte;", "sumOfUByte", "(Lkotlin/sequences/Sequence;)I", "sumOfUInt", "Lkotlin/ULong;", "sumOfULong", "(Lkotlin/sequences/Sequence;)J", "Lkotlin/UShort;", "sumOfUShort", "kotlin-stdlib"}, k = 5, mv = {1, 9, 0}, xi = R.styleable.AppCompatTheme_checkedTextViewStyle, xs = "kotlin/sequences/USequencesKt")
+@Metadata(m41d1 = {"\u0000\"\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00010\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0005\u001a\u001c\u0010\u0000\u001a\u00020\u0007*\b\u0012\u0004\u0012\u00020\u00070\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\n0\u0002H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000b\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\f"}, m40d2 = {"sum", "Lkotlin/UInt;", "Lkotlin/sequences/Sequence;", "Lkotlin/UByte;", "sumOfUByte", "(Lkotlin/sequences/Sequence;)I", "sumOfUInt", "Lkotlin/ULong;", "sumOfULong", "(Lkotlin/sequences/Sequence;)J", "Lkotlin/UShort;", "sumOfUShort", "kotlin-stdlib"}, m39k = 5, m38mv = {1, 9, 0}, m36xi = C0032R.styleable.AppCompatTheme_checkedTextViewStyle, m35xs = "kotlin/sequences/USequencesKt")
 /* loaded from: classes2.dex */
 class USequencesKt___USequencesKt {
     public static final int sumOfUInt(Sequence<UInt> sequence) {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int i = 0;
         for (UInt uInt : sequence) {
-            i = UInt.m5468constructorimpl(i + uInt.m5520unboximpl());
+            i = UInt.m5744constructorimpl(i + uInt.m5796unboximpl());
         }
         return i;
     }
@@ -25,7 +25,7 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         long j = 0;
         for (ULong uLong : sequence) {
-            j = ULong.m5547constructorimpl(j + uLong.m5599unboximpl());
+            j = ULong.m5823constructorimpl(j + uLong.m5875unboximpl());
         }
         return j;
     }
@@ -34,7 +34,7 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int i = 0;
         for (UByte uByte : sequence) {
-            i = UInt.m5468constructorimpl(i + UInt.m5468constructorimpl(uByte.m5441unboximpl() & 255));
+            i = UInt.m5744constructorimpl(i + UInt.m5744constructorimpl(uByte.m5717unboximpl() & 255));
         }
         return i;
     }
@@ -43,7 +43,7 @@ class USequencesKt___USequencesKt {
         Intrinsics.checkNotNullParameter(sequence, "<this>");
         int i = 0;
         for (UShort uShort : sequence) {
-            i = UInt.m5468constructorimpl(i + UInt.m5468constructorimpl(uShort.m5704unboximpl() & UShort.MAX_VALUE));
+            i = UInt.m5744constructorimpl(i + UInt.m5744constructorimpl(uShort.m5980unboximpl() & UShort.MAX_VALUE));
         }
         return i;
     }

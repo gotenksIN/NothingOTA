@@ -58,18 +58,20 @@ public abstract class ParameterHandler<T> {
     /* loaded from: classes2.dex */
     static final class RelativeUrl extends ParameterHandler<Object> {
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f315p;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public RelativeUrl(Method method, int i) {
             this.method = method;
-            this.p = i;
+            this.f315p = i;
         }
 
         @Override // retrofit2.ParameterHandler
         void apply(RequestBuilder requestBuilder, @Nullable Object obj) {
             if (obj == null) {
-                throw Utils.parameterError(this.method, this.p, "@Url parameter is null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f315p, "@Url parameter is null.", new Object[0]);
             }
             requestBuilder.setRelativeUrl(obj);
         }
@@ -101,13 +103,15 @@ public abstract class ParameterHandler<T> {
         private final boolean encoded;
         private final Method method;
         private final String name;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f313p;
         private final Converter<T, String> valueConverter;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public Path(Method method, int i, String str, Converter<T, String> converter, boolean z) {
             this.method = method;
-            this.p = i;
+            this.f313p = i;
             this.name = (String) Objects.requireNonNull(str, "name == null");
             this.valueConverter = converter;
             this.encoded = z;
@@ -116,7 +120,7 @@ public abstract class ParameterHandler<T> {
         @Override // retrofit2.ParameterHandler
         void apply(RequestBuilder requestBuilder, @Nullable T t) throws IOException {
             if (t == null) {
-                throw Utils.parameterError(this.method, this.p, "Path parameter \"" + this.name + "\" value must not be null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f313p, "Path parameter \"" + this.name + "\" value must not be null.", new Object[0]);
             }
             requestBuilder.addPathParam(this.name, this.valueConverter.convert(t), this.encoded);
         }
@@ -169,7 +173,9 @@ public abstract class ParameterHandler<T> {
     static final class QueryMap<T> extends ParameterHandler<Map<String, T>> {
         private final boolean encoded;
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f314p;
         private final Converter<T, String> valueConverter;
 
         @Override // retrofit2.ParameterHandler
@@ -180,27 +186,27 @@ public abstract class ParameterHandler<T> {
         /* JADX INFO: Access modifiers changed from: package-private */
         public QueryMap(Method method, int i, Converter<T, String> converter, boolean z) {
             this.method = method;
-            this.p = i;
+            this.f314p = i;
             this.valueConverter = converter;
             this.encoded = z;
         }
 
         void apply(RequestBuilder requestBuilder, @Nullable Map<String, T> map) throws IOException {
             if (map == null) {
-                throw Utils.parameterError(this.method, this.p, "Query map was null", new Object[0]);
+                throw Utils.parameterError(this.method, this.f314p, "Query map was null", new Object[0]);
             }
             for (Map.Entry<String, T> entry : map.entrySet()) {
                 String key = entry.getKey();
                 if (key == null) {
-                    throw Utils.parameterError(this.method, this.p, "Query map contained null key.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f314p, "Query map contained null key.", new Object[0]);
                 }
                 T value = entry.getValue();
                 if (value == null) {
-                    throw Utils.parameterError(this.method, this.p, "Query map contained null value for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f314p, "Query map contained null value for key '" + key + "'.", new Object[0]);
                 }
                 String convert = this.valueConverter.convert(value);
                 if (convert == null) {
-                    throw Utils.parameterError(this.method, this.p, "Query map value '" + value + "' converted to null by " + this.valueConverter.getClass().getName() + " for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f314p, "Query map value '" + value + "' converted to null by " + this.valueConverter.getClass().getName() + " for key '" + key + "'.", new Object[0]);
                 }
                 requestBuilder.addQueryParam(key, convert, this.encoded);
             }
@@ -210,7 +216,9 @@ public abstract class ParameterHandler<T> {
     /* loaded from: classes2.dex */
     static final class HeaderMap<T> extends ParameterHandler<Map<String, T>> {
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f309p;
         private final Converter<T, String> valueConverter;
 
         @Override // retrofit2.ParameterHandler
@@ -221,22 +229,22 @@ public abstract class ParameterHandler<T> {
         /* JADX INFO: Access modifiers changed from: package-private */
         public HeaderMap(Method method, int i, Converter<T, String> converter) {
             this.method = method;
-            this.p = i;
+            this.f309p = i;
             this.valueConverter = converter;
         }
 
         void apply(RequestBuilder requestBuilder, @Nullable Map<String, T> map) throws IOException {
             if (map == null) {
-                throw Utils.parameterError(this.method, this.p, "Header map was null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f309p, "Header map was null.", new Object[0]);
             }
             for (Map.Entry<String, T> entry : map.entrySet()) {
                 String key = entry.getKey();
                 if (key == null) {
-                    throw Utils.parameterError(this.method, this.p, "Header map contained null key.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f309p, "Header map contained null key.", new Object[0]);
                 }
                 T value = entry.getValue();
                 if (value == null) {
-                    throw Utils.parameterError(this.method, this.p, "Header map contained null value for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f309p, "Header map contained null value for key '" + key + "'.", new Object[0]);
                 }
                 requestBuilder.addHeader(key, this.valueConverter.convert(value));
             }
@@ -246,19 +254,21 @@ public abstract class ParameterHandler<T> {
     /* loaded from: classes2.dex */
     static final class Headers extends ParameterHandler<okhttp3.Headers> {
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f310p;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public Headers(Method method, int i) {
             this.method = method;
-            this.p = i;
+            this.f310p = i;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         @Override // retrofit2.ParameterHandler
         public void apply(RequestBuilder requestBuilder, @Nullable okhttp3.Headers headers) {
             if (headers == null) {
-                throw Utils.parameterError(this.method, this.p, "Headers parameter must not be null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f310p, "Headers parameter must not be null.", new Object[0]);
             }
             requestBuilder.addHeaders(headers);
         }
@@ -291,7 +301,9 @@ public abstract class ParameterHandler<T> {
     static final class FieldMap<T> extends ParameterHandler<Map<String, T>> {
         private final boolean encoded;
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f308p;
         private final Converter<T, String> valueConverter;
 
         @Override // retrofit2.ParameterHandler
@@ -302,27 +314,27 @@ public abstract class ParameterHandler<T> {
         /* JADX INFO: Access modifiers changed from: package-private */
         public FieldMap(Method method, int i, Converter<T, String> converter, boolean z) {
             this.method = method;
-            this.p = i;
+            this.f308p = i;
             this.valueConverter = converter;
             this.encoded = z;
         }
 
         void apply(RequestBuilder requestBuilder, @Nullable Map<String, T> map) throws IOException {
             if (map == null) {
-                throw Utils.parameterError(this.method, this.p, "Field map was null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f308p, "Field map was null.", new Object[0]);
             }
             for (Map.Entry<String, T> entry : map.entrySet()) {
                 String key = entry.getKey();
                 if (key == null) {
-                    throw Utils.parameterError(this.method, this.p, "Field map contained null key.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f308p, "Field map contained null key.", new Object[0]);
                 }
                 T value = entry.getValue();
                 if (value == null) {
-                    throw Utils.parameterError(this.method, this.p, "Field map contained null value for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f308p, "Field map contained null value for key '" + key + "'.", new Object[0]);
                 }
                 String convert = this.valueConverter.convert(value);
                 if (convert == null) {
-                    throw Utils.parameterError(this.method, this.p, "Field map value '" + value + "' converted to null by " + this.valueConverter.getClass().getName() + " for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f308p, "Field map value '" + value + "' converted to null by " + this.valueConverter.getClass().getName() + " for key '" + key + "'.", new Object[0]);
                 }
                 requestBuilder.addFormField(key, convert, this.encoded);
             }
@@ -334,12 +346,14 @@ public abstract class ParameterHandler<T> {
         private final Converter<T, RequestBody> converter;
         private final okhttp3.Headers headers;
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f311p;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public Part(Method method, int i, okhttp3.Headers headers, Converter<T, RequestBody> converter) {
             this.method = method;
-            this.p = i;
+            this.f311p = i;
             this.headers = headers;
             this.converter = converter;
         }
@@ -352,7 +366,7 @@ public abstract class ParameterHandler<T> {
             try {
                 requestBuilder.addPart(this.headers, this.converter.convert(t));
             } catch (IOException e) {
-                throw Utils.parameterError(this.method, this.p, "Unable to convert " + t + " to RequestBody", e);
+                throw Utils.parameterError(this.method, this.f311p, "Unable to convert " + t + " to RequestBody", e);
             }
         }
     }
@@ -376,7 +390,9 @@ public abstract class ParameterHandler<T> {
     /* loaded from: classes2.dex */
     static final class PartMap<T> extends ParameterHandler<Map<String, T>> {
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f312p;
         private final String transferEncoding;
         private final Converter<T, RequestBody> valueConverter;
 
@@ -388,25 +404,25 @@ public abstract class ParameterHandler<T> {
         /* JADX INFO: Access modifiers changed from: package-private */
         public PartMap(Method method, int i, Converter<T, RequestBody> converter, String str) {
             this.method = method;
-            this.p = i;
+            this.f312p = i;
             this.valueConverter = converter;
             this.transferEncoding = str;
         }
 
         void apply(RequestBuilder requestBuilder, @Nullable Map<String, T> map) throws IOException {
             if (map == null) {
-                throw Utils.parameterError(this.method, this.p, "Part map was null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f312p, "Part map was null.", new Object[0]);
             }
             for (Map.Entry<String, T> entry : map.entrySet()) {
                 String key = entry.getKey();
                 if (key == null) {
-                    throw Utils.parameterError(this.method, this.p, "Part map contained null key.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f312p, "Part map contained null key.", new Object[0]);
                 }
                 T value = entry.getValue();
                 if (value == null) {
-                    throw Utils.parameterError(this.method, this.p, "Part map contained null value for key '" + key + "'.", new Object[0]);
+                    throw Utils.parameterError(this.method, this.f312p, "Part map contained null value for key '" + key + "'.", new Object[0]);
                 }
-                requestBuilder.addPart(okhttp3.Headers.of(HttpHeaders.CONTENT_DISPOSITION, "form-data; name=\"" + key + "\"", "Content-Transfer-Encoding", this.transferEncoding), this.valueConverter.convert(value));
+                requestBuilder.addPart(okhttp3.Headers.m16of(HttpHeaders.CONTENT_DISPOSITION, "form-data; name=\"" + key + "\"", "Content-Transfer-Encoding", this.transferEncoding), this.valueConverter.convert(value));
             }
         }
     }
@@ -415,24 +431,26 @@ public abstract class ParameterHandler<T> {
     static final class Body<T> extends ParameterHandler<T> {
         private final Converter<T, RequestBody> converter;
         private final Method method;
-        private final int p;
+
+        /* renamed from: p */
+        private final int f307p;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public Body(Method method, int i, Converter<T, RequestBody> converter) {
             this.method = method;
-            this.p = i;
+            this.f307p = i;
             this.converter = converter;
         }
 
         @Override // retrofit2.ParameterHandler
         void apply(RequestBuilder requestBuilder, @Nullable T t) {
             if (t == null) {
-                throw Utils.parameterError(this.method, this.p, "Body parameter value must not be null.", new Object[0]);
+                throw Utils.parameterError(this.method, this.f307p, "Body parameter value must not be null.", new Object[0]);
             }
             try {
                 requestBuilder.setBody(this.converter.convert(t));
             } catch (IOException e) {
-                throw Utils.parameterError(this.method, e, this.p, "Unable to convert " + t + " to RequestBody", new Object[0]);
+                throw Utils.parameterError(this.method, e, this.f307p, "Unable to convert " + t + " to RequestBody", new Object[0]);
             }
         }
     }

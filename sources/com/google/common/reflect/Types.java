@@ -36,7 +36,7 @@ import okhttp3.HttpUrl;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class Types {
-    private static final Joiner COMMA_JOINER = Joiner.on(", ").useForNull("null");
+    private static final Joiner COMMA_JOINER = Joiner.m242on(", ").useForNull("null");
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static Type newArrayType(Type type) {

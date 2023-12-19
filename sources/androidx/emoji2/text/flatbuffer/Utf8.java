@@ -73,7 +73,7 @@ public abstract class Utf8 {
             if (isNotTrailingByte(b2)) {
                 throw new IllegalArgumentException("Invalid UTF-8: Illegal trailing byte in 2 bytes utf");
             }
-            cArr[i] = (char) (((b & Ascii.US) << 6) | trailingByteValue(b2));
+            cArr[i] = (char) (((b & Ascii.f200US) << 6) | trailingByteValue(b2));
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -81,12 +81,12 @@ public abstract class Utf8 {
             if (isNotTrailingByte(b2) || ((b == -32 && b2 < -96) || ((b == -19 && b2 >= -96) || isNotTrailingByte(b3)))) {
                 throw new IllegalArgumentException("Invalid UTF-8");
             }
-            cArr[i] = (char) (((b & Ascii.SI) << 12) | (trailingByteValue(b2) << 6) | trailingByteValue(b3));
+            cArr[i] = (char) (((b & Ascii.f197SI) << 12) | (trailingByteValue(b2) << 6) | trailingByteValue(b3));
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public static void handleFourBytes(byte b, byte b2, byte b3, byte b4, char[] cArr, int i) throws IllegalArgumentException {
-            if (isNotTrailingByte(b2) || (((b << Ascii.FS) + (b2 + 112)) >> 30) != 0 || isNotTrailingByte(b3) || isNotTrailingByte(b4)) {
+            if (isNotTrailingByte(b2) || (((b << Ascii.f191FS) + (b2 + 112)) >> 30) != 0 || isNotTrailingByte(b3) || isNotTrailingByte(b4)) {
                 throw new IllegalArgumentException("Invalid UTF-8");
             }
             int trailingByteValue = ((b & 7) << 18) | (trailingByteValue(b2) << 12) | (trailingByteValue(b3) << 6) | trailingByteValue(b4);

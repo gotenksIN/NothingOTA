@@ -17,52 +17,62 @@ abstract class ImmutableSortedMapFauxverideShim<K, V> extends ImmutableMap<K, V>
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m139of(K k, V v) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m138of(K k, V v, K k2, V v2) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m137of(K k, V v, K k2, V v2, K k3, V v3) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m136of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m135of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m134of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m133of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m132of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m131of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <K, V> ImmutableSortedMap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
+    /* renamed from: of */
+    public static <K, V> ImmutableSortedMap<K, V> m130of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5, K k6, V v6, K k7, V v7, K k8, V v8, K k9, V v9, K k10, V v10) {
         throw new UnsupportedOperationException();
     }
 

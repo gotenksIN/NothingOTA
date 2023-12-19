@@ -1,37 +1,37 @@
 package androidx.compose.animation;
 
 import androidx.compose.animation.core.Transition;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 
 /* compiled from: AnimatedVisibility.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.animation.AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1", f = "AnimatedVisibility.kt", i = {}, l = {748}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.animation.AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1", m30f = "AnimatedVisibility.kt", m29i = {}, m28l = {748}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Transition<EnterExitState> $childTransition;
-    final /* synthetic */ MutableState<Boolean> $isAnimationVisible;
+    final /* synthetic */ SnapshotState<Boolean> $isAnimationVisible;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1(Transition<EnterExitState> transition, MutableState<Boolean> mutableState, Continuation<? super AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1> continuation) {
+    public AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1(Transition<EnterExitState> transition, SnapshotState<Boolean> snapshotState, Continuation<? super AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1> continuation) {
         super(2, continuation);
         this.$childTransition = transition;
-        this.$isAnimationVisible = mutableState;
+        this.$isAnimationVisible = snapshotState;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -51,19 +51,19 @@ final class AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1 extends SuspendLambda
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             final Transition<EnterExitState> transition = this.$childTransition;
-            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Function0<Boolean>() { // from class: androidx.compose.animation.AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1.1
+            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Functions<Boolean>() { // from class: androidx.compose.animation.AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final Boolean invoke() {
                     return Boolean.valueOf(transition.getCurrentState() == EnterExitState.Visible || transition.getTargetState() == EnterExitState.Visible);
                 }
             });
-            final MutableState<Boolean> mutableState = this.$isAnimationVisible;
+            final SnapshotState<Boolean> snapshotState = this.$isAnimationVisible;
             this.label = 1;
             if (snapshotFlow.collect(new FlowCollector<Boolean>() { // from class: androidx.compose.animation.AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1.2
                 @Override // kotlinx.coroutines.flow.FlowCollector
@@ -72,7 +72,7 @@ final class AnimatedVisibilityKt$AnimatedEnterExitImpl$1$1 extends SuspendLambda
                 }
 
                 public final Object emit(boolean z, Continuation<? super Unit> continuation) {
-                    mutableState.setValue(Boxing.boxBoolean(z));
+                    snapshotState.setValue(boxing.boxBoolean(z));
                     return Unit.INSTANCE;
                 }
             }, this) == coroutine_suspended) {

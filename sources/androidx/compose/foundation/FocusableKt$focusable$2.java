@@ -1,28 +1,29 @@
 package androidx.compose.foundation;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.FocusInteraction;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
 import androidx.compose.foundation.relocation.BringIntoViewRequester;
 import androidx.compose.foundation.relocation.BringIntoViewRequesterKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.focus.FocusChangedModifierKt;
+import androidx.compose.p002ui.focus.FocusModifier;
+import androidx.compose.p002ui.focus.FocusRequester;
+import androidx.compose.p002ui.focus.FocusRequesterModifierKt;
+import androidx.compose.p002ui.focus.FocusState;
+import androidx.compose.p002ui.layout.PinnableContainer;
+import androidx.compose.p002ui.layout.PinnableContainerKt;
+import androidx.compose.p002ui.semantics.SemanticsModifierKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertiesKt;
+import androidx.compose.p002ui.semantics.SemanticsPropertyReceiver;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.CompositionScopedCoroutineScopeCanceller;
 import androidx.compose.runtime.DisposableEffectResult;
 import androidx.compose.runtime.DisposableEffectScope;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt__SnapshotStateKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.focus.FocusChangedModifierKt;
-import androidx.compose.ui.focus.FocusModifierKt;
-import androidx.compose.ui.focus.FocusRequester;
-import androidx.compose.ui.focus.FocusRequesterModifierKt;
-import androidx.compose.ui.focus.FocusState;
-import androidx.compose.ui.layout.PinnableContainer;
-import androidx.compose.ui.layout.PinnableContainerKt;
-import androidx.compose.ui.semantics.SemanticsModifierKt;
-import androidx.compose.ui.semantics.SemanticsPropertiesKt;
-import androidx.compose.ui.semantics.SemanticsPropertyReceiver;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -31,10 +32,10 @@ import kotlin.coroutines.EmptyCoroutineContext;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
+import kotlin.jvm.functions.Functions;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlinx.coroutines.BuildersKt__Builders_commonKt;
@@ -42,7 +43,7 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Focusable.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0001H\u000b¢\u0006\u0004\b\u0002\u0010\u0003"}, m40d2 = {"<anonymous>", "Landroidx/compose/ui/Modifier;", "invoke", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)Landroidx/compose/ui/Modifier;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class FocusableKt$focusable$2 extends Lambda implements Function3<Modifier, Composer, Integer, Modifier> {
     final /* synthetic */ boolean $enabled;
@@ -91,7 +92,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
             composer.updateRememberedValue(rememberedValue2);
         }
         composer.endReplaceableGroup();
-        final MutableState mutableState = (MutableState) rememberedValue2;
+        final SnapshotState snapshotState = (SnapshotState) rememberedValue2;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue3 = composer.rememberedValue();
@@ -100,7 +101,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
             composer.updateRememberedValue(rememberedValue3);
         }
         composer.endReplaceableGroup();
-        final MutableState mutableState2 = (MutableState) rememberedValue3;
+        final SnapshotState snapshotState2 = (SnapshotState) rememberedValue3;
         composer.startReplaceableGroup(-492369756);
         ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
         Object rememberedValue4 = composer.rememberedValue();
@@ -122,7 +123,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
         final MutableInteractionSource mutableInteractionSource = this.$interactionSource;
         composer.startReplaceableGroup(511388516);
         ComposerKt.sourceInformation(composer, "CC(remember)P(1,2):Composables.kt#9igjgp");
-        boolean changed = composer.changed(mutableState) | composer.changed(mutableInteractionSource);
+        boolean changed = composer.changed(snapshotState) | composer.changed(mutableInteractionSource);
         Object rememberedValue6 = composer.rememberedValue();
         if (changed || rememberedValue6 == Composer.Companion.getEmpty()) {
             rememberedValue6 = (Function1) new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$1$1
@@ -135,19 +136,19 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                 @Override // kotlin.jvm.functions.Function1
                 public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                     Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
-                    final MutableState<FocusInteraction.Focus> mutableState3 = mutableState;
+                    final SnapshotState<FocusInteraction.Focus> snapshotState3 = snapshotState;
                     final MutableInteractionSource mutableInteractionSource2 = mutableInteractionSource;
                     return new DisposableEffectResult() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$1$1$invoke$$inlined$onDispose$1
                         @Override // androidx.compose.runtime.DisposableEffectResult
                         public void dispose() {
-                            FocusInteraction.Focus focus = (FocusInteraction.Focus) MutableState.this.getValue();
+                            FocusInteraction.Focus focus = (FocusInteraction.Focus) SnapshotState.this.getValue();
                             if (focus != null) {
                                 FocusInteraction.Unfocus unfocus = new FocusInteraction.Unfocus(focus);
                                 MutableInteractionSource mutableInteractionSource3 = mutableInteractionSource2;
                                 if (mutableInteractionSource3 != null) {
                                     mutableInteractionSource3.tryEmit(unfocus);
                                 }
-                                MutableState.this.setValue(null);
+                                SnapshotState.this.setValue(null);
                             }
                         }
                     };
@@ -170,7 +171,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
             public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                 Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
                 if (!z) {
-                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(mutableState, mutableInteractionSource2, null), 3, null);
+                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C01831(snapshotState, mutableInteractionSource2, null), 3, null);
                 }
                 return new DisposableEffectResult() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$2$invoke$$inlined$onDispose$1
                     @Override // androidx.compose.runtime.DisposableEffectResult
@@ -181,37 +182,37 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Focusable.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.FocusableKt$focusable$2$2$1", f = "Focusable.kt", i = {}, l = {androidx.appcompat.R.styleable.AppCompatTheme_spinnerDropDownItemStyle}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$2$1  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.FocusableKt$focusable$2$2$1", m30f = "Focusable.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_spinnerDropDownItemStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$2$1 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-                final /* synthetic */ MutableState<FocusInteraction.Focus> $focusedInteraction;
+            public static final class C01831 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                final /* synthetic */ SnapshotState<FocusInteraction.Focus> $focusedInteraction;
                 final /* synthetic */ MutableInteractionSource $interactionSource;
                 Object L$0;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass1(MutableState<FocusInteraction.Focus> mutableState, MutableInteractionSource mutableInteractionSource, Continuation<? super AnonymousClass1> continuation) {
+                C01831(SnapshotState<FocusInteraction.Focus> snapshotState, MutableInteractionSource mutableInteractionSource, Continuation<? super C01831> continuation) {
                     super(2, continuation);
-                    this.$focusedInteraction = mutableState;
+                    this.$focusedInteraction = snapshotState;
                     this.$interactionSource = mutableInteractionSource;
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass1(this.$focusedInteraction, this.$interactionSource, continuation);
+                    return new C01831(this.$focusedInteraction, this.$interactionSource, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C01831) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Object invokeSuspend(Object obj) {
-                    MutableState<FocusInteraction.Focus> mutableState;
-                    MutableState<FocusInteraction.Focus> mutableState2;
+                    SnapshotState<FocusInteraction.Focus> snapshotState;
+                    SnapshotState<FocusInteraction.Focus> snapshotState2;
                     Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
                     int i = this.label;
                     if (i == 0) {
@@ -219,27 +220,27 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                         FocusInteraction.Focus value = this.$focusedInteraction.getValue();
                         if (value != null) {
                             MutableInteractionSource mutableInteractionSource = this.$interactionSource;
-                            mutableState = this.$focusedInteraction;
+                            snapshotState = this.$focusedInteraction;
                             FocusInteraction.Unfocus unfocus = new FocusInteraction.Unfocus(value);
                             if (mutableInteractionSource != null) {
-                                this.L$0 = mutableState;
+                                this.L$0 = snapshotState;
                                 this.label = 1;
                                 if (mutableInteractionSource.emit(unfocus, this) == coroutine_suspended) {
                                     return coroutine_suspended;
                                 }
-                                mutableState2 = mutableState;
+                                snapshotState2 = snapshotState;
                             }
-                            mutableState.setValue(null);
+                            snapshotState.setValue(null);
                         }
                         return Unit.INSTANCE;
                     } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
-                        mutableState2 = (MutableState) this.L$0;
+                        snapshotState2 = (SnapshotState) this.L$0;
                         ResultKt.throwOnFailure(obj);
                     }
-                    mutableState = mutableState2;
-                    mutableState.setValue(null);
+                    snapshotState = snapshotState2;
+                    snapshotState.setValue(null);
                     return Unit.INSTANCE;
                 }
             }
@@ -247,7 +248,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
         if (this.$enabled) {
             composer.startReplaceableGroup(1407540673);
             ComposerKt.sourceInformation(composer, "108@4661L36");
-            if (invoke$lambda$2(mutableState2)) {
+            if (invoke$lambda$2(snapshotState2)) {
                 composer.startReplaceableGroup(-492369756);
                 ComposerKt.sourceInformation(composer, "CC(remember):Composables.kt#9igjgp");
                 Object rememberedValue7 = composer.rememberedValue();
@@ -273,10 +274,10 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                 composer.updateRememberedValue(rememberedValue8);
             }
             composer.endReplaceableGroup();
-            final MutableState mutableState3 = (MutableState) rememberedValue8;
+            final SnapshotState snapshotState3 = (SnapshotState) rememberedValue8;
             composer.startReplaceableGroup(1618982084);
             ComposerKt.sourceInformation(composer, "CC(remember)P(1,2,3):Composables.kt#9igjgp");
-            boolean changed2 = composer.changed(mutableState2) | composer.changed(mutableState3) | composer.changed(pinnableContainer);
+            boolean changed2 = composer.changed(snapshotState2) | composer.changed(snapshotState3) | composer.changed(pinnableContainer);
             Object rememberedValue9 = composer.rememberedValue();
             if (changed2 || rememberedValue9 == Composer.Companion.getEmpty()) {
                 rememberedValue9 = (Function1) new Function1<DisposableEffectScope, DisposableEffectResult>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$3$1
@@ -289,20 +290,20 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                     @Override // kotlin.jvm.functions.Function1
                     public final DisposableEffectResult invoke(DisposableEffectScope DisposableEffect) {
                         Intrinsics.checkNotNullParameter(DisposableEffect, "$this$DisposableEffect");
-                        if (FocusableKt$focusable$2.invoke$lambda$2(mutableState2)) {
-                            MutableState<PinnableContainer.PinnedHandle> mutableState4 = mutableState3;
+                        if (FocusableKt$focusable$2.invoke$lambda$2(snapshotState2)) {
+                            SnapshotState<PinnableContainer.PinnedHandle> snapshotState4 = snapshotState3;
                             PinnableContainer pinnableContainer2 = PinnableContainer.this;
-                            FocusableKt$focusable$2.invoke$lambda$10(mutableState4, pinnableContainer2 != null ? pinnableContainer2.pin() : null);
+                            FocusableKt$focusable$2.invoke$lambda$10(snapshotState4, pinnableContainer2 != null ? pinnableContainer2.pin() : null);
                         }
-                        final MutableState<PinnableContainer.PinnedHandle> mutableState5 = mutableState3;
+                        final SnapshotState<PinnableContainer.PinnedHandle> snapshotState5 = snapshotState3;
                         return new DisposableEffectResult() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$3$1$invoke$$inlined$onDispose$1
                             @Override // androidx.compose.runtime.DisposableEffectResult
                             public void dispose() {
-                                PinnableContainer.PinnedHandle invoke$lambda$9 = FocusableKt$focusable$2.invoke$lambda$9(MutableState.this);
+                                PinnableContainer.PinnedHandle invoke$lambda$9 = FocusableKt$focusable$2.invoke$lambda$9(SnapshotState.this);
                                 if (invoke$lambda$9 != null) {
                                     invoke$lambda$9.release();
                                 }
-                                FocusableKt$focusable$2.invoke$lambda$10(MutableState.this, null);
+                                FocusableKt$focusable$2.invoke$lambda$10(SnapshotState.this, null);
                             }
                         };
                     }
@@ -314,7 +315,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
             Modifier.Companion companion3 = Modifier.Companion;
             composer.startReplaceableGroup(511388516);
             ComposerKt.sourceInformation(composer, "CC(remember)P(1,2):Composables.kt#9igjgp");
-            boolean changed3 = composer.changed(mutableState2) | composer.changed(focusRequester);
+            boolean changed3 = composer.changed(snapshotState2) | composer.changed(focusRequester);
             Object rememberedValue10 = composer.rememberedValue();
             if (changed3 || rememberedValue10 == Composer.Companion.getEmpty()) {
                 rememberedValue10 = (Function1) new Function1<SemanticsPropertyReceiver, Unit>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$4$1
@@ -333,20 +334,20 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2(SemanticsPropertyReceiver semantics) {
                         Intrinsics.checkNotNullParameter(semantics, "$this$semantics");
-                        SemanticsPropertiesKt.setFocused(semantics, FocusableKt$focusable$2.invoke$lambda$2(mutableState2));
+                        SemanticsPropertiesKt.setFocused(semantics, FocusableKt$focusable$2.invoke$lambda$2(snapshotState2));
                         final FocusRequester focusRequester2 = focusRequester;
-                        final MutableState<Boolean> mutableState4 = mutableState2;
-                        SemanticsPropertiesKt.requestFocus$default(semantics, null, new Function0<Boolean>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$4$1.1
+                        final SnapshotState<Boolean> snapshotState4 = snapshotState2;
+                        SemanticsPropertiesKt.requestFocus$default(semantics, null, new Functions<Boolean>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2$4$1.1
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
                                 super(0);
                             }
 
                             /* JADX WARN: Can't rename method to resolve collision */
-                            @Override // kotlin.jvm.functions.Function0
+                            @Override // kotlin.jvm.functions.Functions
                             public final Boolean invoke() {
                                 FocusRequester.this.requestFocus();
-                                return Boolean.valueOf(FocusableKt$focusable$2.invoke$lambda$2(mutableState4));
+                                return Boolean.valueOf(FocusableKt$focusable$2.invoke$lambda$2(snapshotState4));
                             }
                         }, 1, null);
                     }
@@ -356,7 +357,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
             composer.endReplaceableGroup();
             Modifier then = FocusRequesterModifierKt.focusRequester(BringIntoViewRequesterKt.bringIntoViewRequester(SemanticsModifierKt.semantics$default(companion3, false, (Function1) rememberedValue10, 1, null), bringIntoViewRequester), focusRequester).then(companion2);
             final MutableInteractionSource mutableInteractionSource3 = this.$interactionSource;
-            companion = FocusModifierKt.focusTarget(FocusChangedModifierKt.onFocusChanged(then, new Function1<FocusState, Unit>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2.5
+            companion = FocusModifier.focusTarget(FocusChangedModifierKt.onFocusChanged(then, new Function1<FocusState, Unit>() { // from class: androidx.compose.foundation.FocusableKt$focusable$2.5
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(1);
@@ -371,51 +372,51 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(FocusState it) {
                     Intrinsics.checkNotNullParameter(it, "it");
-                    FocusableKt$focusable$2.invoke$lambda$3(mutableState2, it.isFocused());
-                    if (!FocusableKt$focusable$2.invoke$lambda$2(mutableState2)) {
-                        PinnableContainer.PinnedHandle invoke$lambda$9 = FocusableKt$focusable$2.invoke$lambda$9(mutableState3);
+                    FocusableKt$focusable$2.invoke$lambda$3(snapshotState2, it.isFocused());
+                    if (!FocusableKt$focusable$2.invoke$lambda$2(snapshotState2)) {
+                        PinnableContainer.PinnedHandle invoke$lambda$9 = FocusableKt$focusable$2.invoke$lambda$9(snapshotState3);
                         if (invoke$lambda$9 != null) {
                             invoke$lambda$9.release();
                         }
-                        FocusableKt$focusable$2.invoke$lambda$10(mutableState3, null);
-                        BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass2(mutableState, mutableInteractionSource3, null), 3, null);
+                        FocusableKt$focusable$2.invoke$lambda$10(snapshotState3, null);
+                        BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C01862(snapshotState, mutableInteractionSource3, null), 3, null);
                         return;
                     }
-                    MutableState<PinnableContainer.PinnedHandle> mutableState4 = mutableState3;
+                    SnapshotState<PinnableContainer.PinnedHandle> snapshotState4 = snapshotState3;
                     PinnableContainer pinnableContainer2 = PinnableContainer.this;
-                    FocusableKt$focusable$2.invoke$lambda$10(mutableState4, pinnableContainer2 != null ? pinnableContainer2.pin() : null);
-                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new AnonymousClass1(mutableState, mutableInteractionSource3, bringIntoViewRequester, null), 3, null);
+                    FocusableKt$focusable$2.invoke$lambda$10(snapshotState4, pinnableContainer2 != null ? pinnableContainer2.pin() : null);
+                    BuildersKt__Builders_commonKt.launch$default(coroutineScope, null, null, new C01851(snapshotState, mutableInteractionSource3, bringIntoViewRequester, null), 3, null);
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: Focusable.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.FocusableKt$focusable$2$5$1", f = "Focusable.kt", i = {1}, l = {147, 151, 154}, m = "invokeSuspend", n = {"interaction"}, s = {"L$0"})
-                /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$5$1  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.FocusableKt$focusable$2$5$1", m30f = "Focusable.kt", m29i = {1}, m28l = {147, 151, 154}, m27m = "invokeSuspend", m26n = {"interaction"}, m25s = {"L$0"})
+                /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$5$1 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                public static final class C01851 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ BringIntoViewRequester $bringIntoViewRequester;
-                    final /* synthetic */ MutableState<FocusInteraction.Focus> $focusedInteraction;
+                    final /* synthetic */ SnapshotState<FocusInteraction.Focus> $focusedInteraction;
                     final /* synthetic */ MutableInteractionSource $interactionSource;
                     Object L$0;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    AnonymousClass1(MutableState<FocusInteraction.Focus> mutableState, MutableInteractionSource mutableInteractionSource, BringIntoViewRequester bringIntoViewRequester, Continuation<? super AnonymousClass1> continuation) {
+                    C01851(SnapshotState<FocusInteraction.Focus> snapshotState, MutableInteractionSource mutableInteractionSource, BringIntoViewRequester bringIntoViewRequester, Continuation<? super C01851> continuation) {
                         super(2, continuation);
-                        this.$focusedInteraction = mutableState;
+                        this.$focusedInteraction = snapshotState;
                         this.$interactionSource = mutableInteractionSource;
                         this.$bringIntoViewRequester = bringIntoViewRequester;
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        return new AnonymousClass1(this.$focusedInteraction, this.$interactionSource, this.$bringIntoViewRequester, continuation);
+                        return new C01851(this.$focusedInteraction, this.$interactionSource, this.$bringIntoViewRequester, continuation);
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C01851) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     /* JADX WARN: Removed duplicated region for block: B:24:0x0062  */
@@ -452,7 +453,7 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                             goto L73
                         L27:
                             java.lang.Object r1 = r8.L$0
-                            androidx.compose.runtime.MutableState r1 = (androidx.compose.runtime.MutableState) r1
+                            androidx.compose.runtime.MutableState r1 = (androidx.compose.runtime.SnapshotState) r1
                             kotlin.ResultKt.throwOnFailure(r9)
                             goto L55
                         L2f:
@@ -507,43 +508,43 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                             kotlin.Unit r9 = kotlin.Unit.INSTANCE
                             return r9
                         */
-                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.FocusableKt$focusable$2.AnonymousClass5.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+                        throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.FocusableKt$focusable$2.C01845.C01851.invokeSuspend(java.lang.Object):java.lang.Object");
                     }
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: Focusable.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.FocusableKt$focusable$2$5$2", f = "Focusable.kt", i = {}, l = {162}, m = "invokeSuspend", n = {}, s = {})
-                /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$5$2  reason: invalid class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.FocusableKt$focusable$2$5$2", m30f = "Focusable.kt", m29i = {}, m28l = {162}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                /* renamed from: androidx.compose.foundation.FocusableKt$focusable$2$5$2 */
                 /* loaded from: classes.dex */
-                public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-                    final /* synthetic */ MutableState<FocusInteraction.Focus> $focusedInteraction;
+                public static final class C01862 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                    final /* synthetic */ SnapshotState<FocusInteraction.Focus> $focusedInteraction;
                     final /* synthetic */ MutableInteractionSource $interactionSource;
                     Object L$0;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    AnonymousClass2(MutableState<FocusInteraction.Focus> mutableState, MutableInteractionSource mutableInteractionSource, Continuation<? super AnonymousClass2> continuation) {
+                    C01862(SnapshotState<FocusInteraction.Focus> snapshotState, MutableInteractionSource mutableInteractionSource, Continuation<? super C01862> continuation) {
                         super(2, continuation);
-                        this.$focusedInteraction = mutableState;
+                        this.$focusedInteraction = snapshotState;
                         this.$interactionSource = mutableInteractionSource;
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        return new AnonymousClass2(this.$focusedInteraction, this.$interactionSource, continuation);
+                        return new C01862(this.$focusedInteraction, this.$interactionSource, continuation);
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C01862) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Object invokeSuspend(Object obj) {
-                        MutableState<FocusInteraction.Focus> mutableState;
-                        MutableState<FocusInteraction.Focus> mutableState2;
+                        SnapshotState<FocusInteraction.Focus> snapshotState;
+                        SnapshotState<FocusInteraction.Focus> snapshotState2;
                         Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
                         int i = this.label;
                         if (i == 0) {
@@ -551,27 +552,27 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
                             FocusInteraction.Focus value = this.$focusedInteraction.getValue();
                             if (value != null) {
                                 MutableInteractionSource mutableInteractionSource = this.$interactionSource;
-                                mutableState = this.$focusedInteraction;
+                                snapshotState = this.$focusedInteraction;
                                 FocusInteraction.Unfocus unfocus = new FocusInteraction.Unfocus(value);
                                 if (mutableInteractionSource != null) {
-                                    this.L$0 = mutableState;
+                                    this.L$0 = snapshotState;
                                     this.label = 1;
                                     if (mutableInteractionSource.emit(unfocus, this) == coroutine_suspended) {
                                         return coroutine_suspended;
                                     }
-                                    mutableState2 = mutableState;
+                                    snapshotState2 = snapshotState;
                                 }
-                                mutableState.setValue(null);
+                                snapshotState.setValue(null);
                             }
                             return Unit.INSTANCE;
                         } else if (i != 1) {
                             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                         } else {
-                            mutableState2 = (MutableState) this.L$0;
+                            snapshotState2 = (SnapshotState) this.L$0;
                             ResultKt.throwOnFailure(obj);
                         }
-                        mutableState = mutableState2;
-                        mutableState.setValue(null);
+                        snapshotState = snapshotState2;
+                        snapshotState.setValue(null);
                         return Unit.INSTANCE;
                     }
                 }
@@ -587,22 +588,22 @@ public final class FocusableKt$focusable$2 extends Lambda implements Function3<M
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final boolean invoke$lambda$2(MutableState<Boolean> mutableState) {
-        return mutableState.getValue().booleanValue();
+    public static final boolean invoke$lambda$2(SnapshotState<Boolean> snapshotState) {
+        return snapshotState.getValue().booleanValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$lambda$3(MutableState<Boolean> mutableState, boolean z) {
-        mutableState.setValue(Boolean.valueOf(z));
+    public static final void invoke$lambda$3(SnapshotState<Boolean> snapshotState, boolean z) {
+        snapshotState.setValue(Boolean.valueOf(z));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final PinnableContainer.PinnedHandle invoke$lambda$9(MutableState<PinnableContainer.PinnedHandle> mutableState) {
-        return mutableState.getValue();
+    public static final PinnableContainer.PinnedHandle invoke$lambda$9(SnapshotState<PinnableContainer.PinnedHandle> snapshotState) {
+        return snapshotState.getValue();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void invoke$lambda$10(MutableState<PinnableContainer.PinnedHandle> mutableState, PinnableContainer.PinnedHandle pinnedHandle) {
-        mutableState.setValue(pinnedHandle);
+    public static final void invoke$lambda$10(SnapshotState<PinnableContainer.PinnedHandle> snapshotState, PinnableContainer.PinnedHandle pinnedHandle) {
+        snapshotState.setValue(pinnedHandle);
     }
 }

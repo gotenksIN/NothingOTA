@@ -153,7 +153,7 @@ public class LocalCache<K, V> extends AbstractMap<K, V> implements ConcurrentMap
 
         @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
         public Iterator<Object> iterator() {
-            return ImmutableSet.of().iterator();
+            return ImmutableSet.m164of().iterator();
         }
     };
 

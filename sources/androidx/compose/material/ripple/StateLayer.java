@@ -1,5 +1,6 @@
 package androidx.compose.material.ripple;
 
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.AnimatableKt;
 import androidx.compose.animation.core.AnimationVector1D;
@@ -7,12 +8,12 @@ import androidx.compose.foundation.interaction.DragInteraction;
 import androidx.compose.foundation.interaction.FocusInteraction;
 import androidx.compose.foundation.interaction.HoverInteraction;
 import androidx.compose.foundation.interaction.Interaction;
+import androidx.compose.p002ui.geometry.Size;
+import androidx.compose.p002ui.graphics.ClipOp;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.drawscope.DrawContext;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.geometry.Size;
-import androidx.compose.ui.graphics.ClipOp;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.drawscope.DrawContext;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -23,7 +24,7 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Ripple.kt */
-@Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0002\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\u0010\u0007J\u0016\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0013\u001a\u00020\u0014J'\u0010\u0015\u001a\u00020\u0011*\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001aø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001b\u0010\u001cR\u001a\u0010\b\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000b0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\r0\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u0006\u001d"}, d2 = {"Landroidx/compose/material/ripple/StateLayer;", "", "bounded", "", "rippleAlpha", "Landroidx/compose/runtime/State;", "Landroidx/compose/material/ripple/RippleAlpha;", "(ZLandroidx/compose/runtime/State;)V", "animatedAlpha", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "currentInteraction", "Landroidx/compose/foundation/interaction/Interaction;", "interactions", "", "handleInteraction", "", "interaction", "scope", "Lkotlinx/coroutines/CoroutineScope;", "drawStateLayer", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "radius", "Landroidx/compose/ui/unit/Dp;", "color", "Landroidx/compose/ui/graphics/Color;", "drawStateLayer-H2RKhps", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;FJ)V", "material-ripple_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0002\u0018\u00002\u00020\u0001B\u001b\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\u0010\u0007J\u0016\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\r2\u0006\u0010\u0013\u001a\u00020\u0014J'\u0010\u0015\u001a\u00020\u0011*\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001aø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001b\u0010\u001cR\u001a\u0010\b\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020\u000b0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0014\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\r0\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0005\b¡\u001e0\u0001\n\u0002\b\u0019¨\u0006\u001d"}, m40d2 = {"Landroidx/compose/material/ripple/StateLayer;", "", "bounded", "", "rippleAlpha", "Landroidx/compose/runtime/State;", "Landroidx/compose/material/ripple/RippleAlpha;", "(ZLandroidx/compose/runtime/State;)V", "animatedAlpha", "Landroidx/compose/animation/core/Animatable;", "", "Landroidx/compose/animation/core/AnimationVector1D;", "currentInteraction", "Landroidx/compose/foundation/interaction/Interaction;", "interactions", "", "handleInteraction", "", "interaction", "scope", "Lkotlinx/coroutines/CoroutineScope;", "drawStateLayer", "Landroidx/compose/ui/graphics/drawscope/DrawScope;", "radius", "Landroidx/compose/ui/unit/Dp;", "color", "Landroidx/compose/ui/graphics/Color;", "drawStateLayer-H2RKhps", "(Landroidx/compose/ui/graphics/drawscope/DrawScope;FJ)V", "material-ripple_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class StateLayer {
     private final Animatable<Float, AnimationVector1D> animatedAlpha;
@@ -82,32 +83,32 @@ public final class StateLayer {
     }
 
     /* renamed from: drawStateLayer-H2RKhps  reason: not valid java name */
-    public final void m901drawStateLayerH2RKhps(DrawScope drawStateLayer, float f, long j) {
+    public final void m1202drawStateLayerH2RKhps(DrawScope drawStateLayer, float f, long j) {
         float f2;
         Intrinsics.checkNotNullParameter(drawStateLayer, "$this$drawStateLayer");
         if (Float.isNaN(f)) {
-            f2 = RippleAnimationKt.m892getRippleEndRadiuscSwnlzA(drawStateLayer, this.bounded, drawStateLayer.mo3096getSizeNHjbRc());
+            f2 = RippleAnimationKt.m1193getRippleEndRadiuscSwnlzA(drawStateLayer, this.bounded, drawStateLayer.mo3397getSizeNHjbRc());
         } else {
-            f2 = drawStateLayer.mo302toPx0680j_4(f);
+            f2 = drawStateLayer.mo603toPx0680j_4(f);
         }
         float f3 = f2;
         float floatValue = this.animatedAlpha.getValue().floatValue();
         if (floatValue > 0.0f) {
-            long m2555copywmQWz5c$default = Color.m2555copywmQWz5c$default(j, floatValue, 0.0f, 0.0f, 0.0f, 14, null);
+            long m2856copywmQWz5c$default = Color.m2856copywmQWz5c$default(j, floatValue, 0.0f, 0.0f, 0.0f, 14, null);
             if (!this.bounded) {
-                DrawScope.m3078drawCircleVaOC9Bg$default(drawStateLayer, m2555copywmQWz5c$default, f3, 0L, 0.0f, null, null, 0, androidx.appcompat.R.styleable.AppCompatTheme_windowMinWidthMajor, null);
+                DrawScope.m3379drawCircleVaOC9Bg$default(drawStateLayer, m2856copywmQWz5c$default, f3, 0L, 0.0f, null, null, 0, C0032R.styleable.AppCompatTheme_windowMinWidthMajor, null);
                 return;
             }
-            float m2387getWidthimpl = Size.m2387getWidthimpl(drawStateLayer.mo3096getSizeNHjbRc());
-            float m2384getHeightimpl = Size.m2384getHeightimpl(drawStateLayer.mo3096getSizeNHjbRc());
-            int m2545getIntersectrtfAjoo = ClipOp.Companion.m2545getIntersectrtfAjoo();
+            float m2688getWidthimpl = Size.m2688getWidthimpl(drawStateLayer.mo3397getSizeNHjbRc());
+            float m2685getHeightimpl = Size.m2685getHeightimpl(drawStateLayer.mo3397getSizeNHjbRc());
+            int m2846getIntersectrtfAjoo = ClipOp.Companion.m2846getIntersectrtfAjoo();
             DrawContext drawContext = drawStateLayer.getDrawContext();
-            long mo3021getSizeNHjbRc = drawContext.mo3021getSizeNHjbRc();
+            long mo3322getSizeNHjbRc = drawContext.mo3322getSizeNHjbRc();
             drawContext.getCanvas().save();
-            drawContext.getTransform().mo3024clipRectN_I0leg(0.0f, 0.0f, m2387getWidthimpl, m2384getHeightimpl, m2545getIntersectrtfAjoo);
-            DrawScope.m3078drawCircleVaOC9Bg$default(drawStateLayer, m2555copywmQWz5c$default, f3, 0L, 0.0f, null, null, 0, androidx.appcompat.R.styleable.AppCompatTheme_windowMinWidthMajor, null);
+            drawContext.getTransform().mo3325clipRectN_I0leg(0.0f, 0.0f, m2688getWidthimpl, m2685getHeightimpl, m2846getIntersectrtfAjoo);
+            DrawScope.m3379drawCircleVaOC9Bg$default(drawStateLayer, m2856copywmQWz5c$default, f3, 0L, 0.0f, null, null, 0, C0032R.styleable.AppCompatTheme_windowMinWidthMajor, null);
             drawContext.getCanvas().restore();
-            drawContext.mo3022setSizeuvyYCjk(mo3021getSizeNHjbRc);
+            drawContext.mo3323setSizeuvyYCjk(mo3322getSizeNHjbRc);
         }
     }
 }

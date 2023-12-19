@@ -39,31 +39,31 @@ class SingletonImmutableTable<R, C, V> extends ImmutableTable<R, C, V> {
     public ImmutableMap<R, V> column(C c) {
         Preconditions.checkNotNull(c);
         if (containsColumn(c)) {
-            return ImmutableMap.of(this.singleRowKey, (Object) this.singleValue);
+            return ImmutableMap.m191of(this.singleRowKey, (Object) this.singleValue);
         }
-        return ImmutableMap.of();
+        return ImmutableMap.m192of();
     }
 
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.Table
     public ImmutableMap<C, Map<R, V>> columnMap() {
-        return ImmutableMap.of(this.singleColumnKey, ImmutableMap.of(this.singleRowKey, (Object) this.singleValue));
+        return ImmutableMap.m191of(this.singleColumnKey, ImmutableMap.m191of(this.singleRowKey, (Object) this.singleValue));
     }
 
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.Table
     public ImmutableMap<R, Map<C, V>> rowMap() {
-        return ImmutableMap.of(this.singleRowKey, ImmutableMap.of(this.singleColumnKey, (Object) this.singleValue));
+        return ImmutableMap.m191of(this.singleRowKey, ImmutableMap.m191of(this.singleColumnKey, (Object) this.singleValue));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.AbstractTable
     public ImmutableSet<Table.Cell<R, C, V>> createCellSet() {
-        return ImmutableSet.of(cellOf(this.singleRowKey, this.singleColumnKey, this.singleValue));
+        return ImmutableSet.m163of(cellOf(this.singleRowKey, this.singleColumnKey, this.singleValue));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.google.common.collect.ImmutableTable, com.google.common.collect.AbstractTable
     public ImmutableCollection<V> createValues() {
-        return ImmutableSet.of(this.singleValue);
+        return ImmutableSet.m163of(this.singleValue);
     }
 
     @Override // com.google.common.collect.ImmutableTable

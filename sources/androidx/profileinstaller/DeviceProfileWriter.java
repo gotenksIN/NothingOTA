@@ -30,14 +30,14 @@ public class DeviceProfileWriter {
         this.mExecutor.execute(new Runnable() { // from class: androidx.profileinstaller.DeviceProfileWriter$$ExternalSyntheticLambda0
             @Override // java.lang.Runnable
             public final void run() {
-                DeviceProfileWriter.this.m5327lambda$result$0$androidxprofileinstallerDeviceProfileWriter(i, obj);
+                DeviceProfileWriter.this.m5609lambda$result$0$androidxprofileinstallerDeviceProfileWriter(i, obj);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$result$0$androidx-profileinstaller-DeviceProfileWriter  reason: not valid java name */
-    public /* synthetic */ void m5327lambda$result$0$androidxprofileinstallerDeviceProfileWriter(int i, Object obj) {
+    public /* synthetic */ void m5609lambda$result$0$androidxprofileinstallerDeviceProfileWriter(int i, Object obj) {
         this.mDiagnostics.onResultReceived(i, obj);
     }
 

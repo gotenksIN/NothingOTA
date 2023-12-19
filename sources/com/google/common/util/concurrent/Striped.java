@@ -55,7 +55,7 @@ public abstract class Striped<L> {
     public Iterable<L> bulkGet(Iterable<? extends Object> iterable) {
         ArrayList newArrayList = Lists.newArrayList(iterable);
         if (newArrayList.isEmpty()) {
-            return ImmutableList.of();
+            return ImmutableList.m211of();
         }
         int[] iArr = new int[newArrayList.size()];
         for (int i = 0; i < newArrayList.size(); i++) {
@@ -291,7 +291,7 @@ public abstract class Striped<L> {
             }
             L l3 = this.supplier.get();
             ArrayReference arrayReference2 = new ArrayReference(l3, i, this.queue);
-            while (!MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.locks, i, arrayReference, arrayReference2)) {
+            while (!MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m294m(this.locks, i, arrayReference, arrayReference2)) {
                 arrayReference = this.locks.get(i);
                 if (arrayReference == null) {
                     l = null;
@@ -315,7 +315,7 @@ public abstract class Striped<L> {
                     return;
                 }
                 ArrayReference arrayReference = (ArrayReference) poll;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(this.locks, arrayReference.index, arrayReference, (Object) null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m294m(this.locks, arrayReference.index, arrayReference, (Object) null);
             }
         }
 

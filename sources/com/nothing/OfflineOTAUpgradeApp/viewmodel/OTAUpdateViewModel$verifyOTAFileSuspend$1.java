@@ -7,12 +7,10 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: OTAUpdateViewModel.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel", f = "OTAUpdateViewModel.kt", i = {0, 0}, l = {518}, m = "verifyOTAFileSuspend", n = {"this", "otaFileId"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.viewmodel.OTAUpdateViewModel", m30f = "OTAUpdateViewModel.kt", m29i = {}, m28l = {607}, m27m = "verifyOTAFileSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class OTAUpdateViewModel$verifyOTAFileSuspend$1 extends ContinuationImpl {
-    Object L$0;
-    Object L$1;
     int label;
     /* synthetic */ Object result;
     final /* synthetic */ OTAUpdateViewModel this$0;

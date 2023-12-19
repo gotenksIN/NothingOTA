@@ -3,7 +3,7 @@ package androidx.emoji2.text;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.util.SparseArray;
-import androidx.core.os.TraceCompat;
+import androidx.core.p004os.TraceCompat;
 import androidx.core.util.Preconditions;
 import androidx.emoji2.text.flatbuffer.MetadataList;
 import java.io.IOException;

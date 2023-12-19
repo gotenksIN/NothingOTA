@@ -1,12 +1,12 @@
 package androidx.compose.material3;
 
-import androidx.compose.ui.graphics.Color;
+import androidx.compose.p002ui.graphics.Color;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: TimePicker.kt */
-@Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0016\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\t\b\u0007\u0018\u00002\u00020\u0001Bz\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003\u0012\u0006\u0010\n\u001a\u00020\u0003\u0012\u0006\u0010\u000b\u001a\u00020\u0003\u0012\u0006\u0010\f\u001a\u00020\u0003\u0012\u0006\u0010\r\u001a\u00020\u0003\u0012\u0006\u0010\u000e\u001a\u00020\u0003\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0011J \u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001cJ\u0013\u0010\u001d\u001a\u00020\u001a2\b\u0010\u001e\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u001f\u001a\u00020 H\u0016J \u0010!\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\"\u0010\u001cJ \u0010#\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b$\u0010\u001cJ \u0010%\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b&\u0010\u001cJ \u0010'\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b(\u0010\u001cR\u001f\u0010\u0002\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0012\u0010\u0013R\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u001f\u0010\u0005\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0015\u0010\u0013R\u001f\u0010\u0006\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0016\u0010\u0013R\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\n\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u001f\u0010\u0004\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0017\u0010\u0013R\u0019\u0010\r\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000e\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u0010\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006)"}, d2 = {"Landroidx/compose/material3/TimePickerColors;", "", "clockDialColor", "Landroidx/compose/ui/graphics/Color;", "selectorColor", "containerColor", "periodSelectorBorderColor", "clockDialSelectedContentColor", "clockDialUnselectedContentColor", "periodSelectorSelectedContainerColor", "periodSelectorUnselectedContainerColor", "periodSelectorSelectedContentColor", "periodSelectorUnselectedContentColor", "timeSelectorSelectedContainerColor", "timeSelectorUnselectedContainerColor", "timeSelectorSelectedContentColor", "timeSelectorUnselectedContentColor", "(JJJJJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getClockDialColor-0d7_KjU$material3_release", "()J", "J", "getContainerColor-0d7_KjU$material3_release", "getPeriodSelectorBorderColor-0d7_KjU$material3_release", "getSelectorColor-0d7_KjU$material3_release", "clockDialContentColor", "selected", "", "clockDialContentColor-vNxB06k$material3_release", "(Z)J", "equals", "other", "hashCode", "", "periodSelectorContainerColor", "periodSelectorContainerColor-vNxB06k$material3_release", "periodSelectorContentColor", "periodSelectorContentColor-vNxB06k$material3_release", "timeSelectorContainerColor", "timeSelectorContainerColor-vNxB06k$material3_release", "timeSelectorContentColor", "timeSelectorContentColor-vNxB06k$material3_release", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0016\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\t\b\u0007\u0018\u00002\u00020\u0001Bz\b\u0000\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0003\u0012\u0006\u0010\b\u001a\u00020\u0003\u0012\u0006\u0010\t\u001a\u00020\u0003\u0012\u0006\u0010\n\u001a\u00020\u0003\u0012\u0006\u0010\u000b\u001a\u00020\u0003\u0012\u0006\u0010\f\u001a\u00020\u0003\u0012\u0006\u0010\r\u001a\u00020\u0003\u0012\u0006\u0010\u000e\u001a\u00020\u0003\u0012\u0006\u0010\u000f\u001a\u00020\u0003\u0012\u0006\u0010\u0010\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0011J \u0010\u0018\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001cJ\u0013\u0010\u001d\u001a\u00020\u001a2\b\u0010\u001e\u001a\u0004\u0018\u00010\u0001H\u0096\u0002J\b\u0010\u001f\u001a\u00020 H\u0016J \u0010!\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\"\u0010\u001cJ \u0010#\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b$\u0010\u001cJ \u0010%\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b&\u0010\u001cJ \u0010'\u001a\u00020\u00032\u0006\u0010\u0019\u001a\u00020\u001aH\u0000ø\u0001\u0002ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b(\u0010\u001cR\u001f\u0010\u0002\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0012\u0010\u0013R\u0019\u0010\u0007\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u001f\u0010\u0005\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0015\u0010\u0013R\u001f\u0010\u0006\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0016\u0010\u0013R\u0019\u0010\t\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000b\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\n\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u001f\u0010\u0004\u001a\u00020\u0003X\u0080\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u0014\u001a\u0004\b\u0017\u0010\u0013R\u0019\u0010\r\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000f\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u000e\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014R\u0019\u0010\u0010\u001a\u00020\u0003X\u0082\u0004ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0014\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006)"}, m40d2 = {"Landroidx/compose/material3/TimePickerColors;", "", "clockDialColor", "Landroidx/compose/ui/graphics/Color;", "selectorColor", "containerColor", "periodSelectorBorderColor", "clockDialSelectedContentColor", "clockDialUnselectedContentColor", "periodSelectorSelectedContainerColor", "periodSelectorUnselectedContainerColor", "periodSelectorSelectedContentColor", "periodSelectorUnselectedContentColor", "timeSelectorSelectedContainerColor", "timeSelectorUnselectedContainerColor", "timeSelectorSelectedContentColor", "timeSelectorUnselectedContentColor", "(JJJJJJJJJJJJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getClockDialColor-0d7_KjU$material3_release", "()J", "J", "getContainerColor-0d7_KjU$material3_release", "getPeriodSelectorBorderColor-0d7_KjU$material3_release", "getSelectorColor-0d7_KjU$material3_release", "clockDialContentColor", "selected", "", "clockDialContentColor-vNxB06k$material3_release", "(Z)J", "equals", "other", "hashCode", "", "periodSelectorContainerColor", "periodSelectorContainerColor-vNxB06k$material3_release", "periodSelectorContentColor", "periodSelectorContentColor-vNxB06k$material3_release", "timeSelectorContainerColor", "timeSelectorContainerColor-vNxB06k$material3_release", "timeSelectorContentColor", "timeSelectorContentColor-vNxB06k$material3_release", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TimePickerColors {
     public static final int $stable = 0;
@@ -47,27 +47,27 @@ public final class TimePickerColors {
     }
 
     /* renamed from: getClockDialColor-0d7_KjU$material3_release  reason: not valid java name */
-    public final long m1488getClockDialColor0d7_KjU$material3_release() {
+    public final long m1789getClockDialColor0d7_KjU$material3_release() {
         return this.clockDialColor;
     }
 
     /* renamed from: getSelectorColor-0d7_KjU$material3_release  reason: not valid java name */
-    public final long m1491getSelectorColor0d7_KjU$material3_release() {
+    public final long m1792getSelectorColor0d7_KjU$material3_release() {
         return this.selectorColor;
     }
 
     /* renamed from: getContainerColor-0d7_KjU$material3_release  reason: not valid java name */
-    public final long m1489getContainerColor0d7_KjU$material3_release() {
+    public final long m1790getContainerColor0d7_KjU$material3_release() {
         return this.containerColor;
     }
 
     /* renamed from: getPeriodSelectorBorderColor-0d7_KjU$material3_release  reason: not valid java name */
-    public final long m1490getPeriodSelectorBorderColor0d7_KjU$material3_release() {
+    public final long m1791getPeriodSelectorBorderColor0d7_KjU$material3_release() {
         return this.periodSelectorBorderColor;
     }
 
     /* renamed from: periodSelectorContainerColor-vNxB06k$material3_release  reason: not valid java name */
-    public final long m1492periodSelectorContainerColorvNxB06k$material3_release(boolean z) {
+    public final long m1793periodSelectorContainerColorvNxB06k$material3_release(boolean z) {
         if (z) {
             return this.periodSelectorSelectedContainerColor;
         }
@@ -75,7 +75,7 @@ public final class TimePickerColors {
     }
 
     /* renamed from: periodSelectorContentColor-vNxB06k$material3_release  reason: not valid java name */
-    public final long m1493periodSelectorContentColorvNxB06k$material3_release(boolean z) {
+    public final long m1794periodSelectorContentColorvNxB06k$material3_release(boolean z) {
         if (z) {
             return this.periodSelectorSelectedContentColor;
         }
@@ -83,7 +83,7 @@ public final class TimePickerColors {
     }
 
     /* renamed from: timeSelectorContainerColor-vNxB06k$material3_release  reason: not valid java name */
-    public final long m1494timeSelectorContainerColorvNxB06k$material3_release(boolean z) {
+    public final long m1795timeSelectorContainerColorvNxB06k$material3_release(boolean z) {
         if (z) {
             return this.timeSelectorSelectedContainerColor;
         }
@@ -91,7 +91,7 @@ public final class TimePickerColors {
     }
 
     /* renamed from: timeSelectorContentColor-vNxB06k$material3_release  reason: not valid java name */
-    public final long m1495timeSelectorContentColorvNxB06k$material3_release(boolean z) {
+    public final long m1796timeSelectorContentColorvNxB06k$material3_release(boolean z) {
         if (z) {
             return this.timeSelectorSelectedContentColor;
         }
@@ -99,7 +99,7 @@ public final class TimePickerColors {
     }
 
     /* renamed from: clockDialContentColor-vNxB06k$material3_release  reason: not valid java name */
-    public final long m1487clockDialContentColorvNxB06k$material3_release(boolean z) {
+    public final long m1788clockDialContentColorvNxB06k$material3_release(boolean z) {
         if (z) {
             return this.clockDialSelectedContentColor;
         }
@@ -113,12 +113,12 @@ public final class TimePickerColors {
         if (Intrinsics.areEqual(getClass(), obj != null ? obj.getClass() : null)) {
             Intrinsics.checkNotNull(obj, "null cannot be cast to non-null type androidx.compose.material3.TimePickerColors");
             TimePickerColors timePickerColors = (TimePickerColors) obj;
-            return Color.m2557equalsimpl0(this.clockDialColor, timePickerColors.clockDialColor) && Color.m2557equalsimpl0(this.selectorColor, timePickerColors.selectorColor) && Color.m2557equalsimpl0(this.containerColor, timePickerColors.containerColor) && Color.m2557equalsimpl0(this.periodSelectorBorderColor, timePickerColors.periodSelectorBorderColor) && Color.m2557equalsimpl0(this.periodSelectorSelectedContainerColor, timePickerColors.periodSelectorSelectedContainerColor) && Color.m2557equalsimpl0(this.periodSelectorUnselectedContainerColor, timePickerColors.periodSelectorUnselectedContainerColor) && Color.m2557equalsimpl0(this.periodSelectorSelectedContentColor, timePickerColors.periodSelectorSelectedContentColor) && Color.m2557equalsimpl0(this.periodSelectorUnselectedContentColor, timePickerColors.periodSelectorUnselectedContentColor) && Color.m2557equalsimpl0(this.timeSelectorSelectedContainerColor, timePickerColors.timeSelectorSelectedContainerColor) && Color.m2557equalsimpl0(this.timeSelectorUnselectedContainerColor, timePickerColors.timeSelectorUnselectedContainerColor) && Color.m2557equalsimpl0(this.timeSelectorSelectedContentColor, timePickerColors.timeSelectorSelectedContentColor) && Color.m2557equalsimpl0(this.timeSelectorUnselectedContentColor, timePickerColors.timeSelectorUnselectedContentColor);
+            return Color.m2858equalsimpl0(this.clockDialColor, timePickerColors.clockDialColor) && Color.m2858equalsimpl0(this.selectorColor, timePickerColors.selectorColor) && Color.m2858equalsimpl0(this.containerColor, timePickerColors.containerColor) && Color.m2858equalsimpl0(this.periodSelectorBorderColor, timePickerColors.periodSelectorBorderColor) && Color.m2858equalsimpl0(this.periodSelectorSelectedContainerColor, timePickerColors.periodSelectorSelectedContainerColor) && Color.m2858equalsimpl0(this.periodSelectorUnselectedContainerColor, timePickerColors.periodSelectorUnselectedContainerColor) && Color.m2858equalsimpl0(this.periodSelectorSelectedContentColor, timePickerColors.periodSelectorSelectedContentColor) && Color.m2858equalsimpl0(this.periodSelectorUnselectedContentColor, timePickerColors.periodSelectorUnselectedContentColor) && Color.m2858equalsimpl0(this.timeSelectorSelectedContainerColor, timePickerColors.timeSelectorSelectedContainerColor) && Color.m2858equalsimpl0(this.timeSelectorUnselectedContainerColor, timePickerColors.timeSelectorUnselectedContainerColor) && Color.m2858equalsimpl0(this.timeSelectorSelectedContentColor, timePickerColors.timeSelectorSelectedContentColor) && Color.m2858equalsimpl0(this.timeSelectorUnselectedContentColor, timePickerColors.timeSelectorUnselectedContentColor);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((((((((((((((((((Color.m2563hashCodeimpl(this.clockDialColor) * 31) + Color.m2563hashCodeimpl(this.selectorColor)) * 31) + Color.m2563hashCodeimpl(this.containerColor)) * 31) + Color.m2563hashCodeimpl(this.periodSelectorBorderColor)) * 31) + Color.m2563hashCodeimpl(this.periodSelectorSelectedContainerColor)) * 31) + Color.m2563hashCodeimpl(this.periodSelectorUnselectedContainerColor)) * 31) + Color.m2563hashCodeimpl(this.periodSelectorSelectedContentColor)) * 31) + Color.m2563hashCodeimpl(this.periodSelectorUnselectedContentColor)) * 31) + Color.m2563hashCodeimpl(this.timeSelectorSelectedContainerColor)) * 31) + Color.m2563hashCodeimpl(this.timeSelectorUnselectedContainerColor)) * 31) + Color.m2563hashCodeimpl(this.timeSelectorSelectedContentColor)) * 31) + Color.m2563hashCodeimpl(this.timeSelectorUnselectedContentColor);
+        return (((((((((((((((((((((Color.m2864hashCodeimpl(this.clockDialColor) * 31) + Color.m2864hashCodeimpl(this.selectorColor)) * 31) + Color.m2864hashCodeimpl(this.containerColor)) * 31) + Color.m2864hashCodeimpl(this.periodSelectorBorderColor)) * 31) + Color.m2864hashCodeimpl(this.periodSelectorSelectedContainerColor)) * 31) + Color.m2864hashCodeimpl(this.periodSelectorUnselectedContainerColor)) * 31) + Color.m2864hashCodeimpl(this.periodSelectorSelectedContentColor)) * 31) + Color.m2864hashCodeimpl(this.periodSelectorUnselectedContentColor)) * 31) + Color.m2864hashCodeimpl(this.timeSelectorSelectedContainerColor)) * 31) + Color.m2864hashCodeimpl(this.timeSelectorUnselectedContainerColor)) * 31) + Color.m2864hashCodeimpl(this.timeSelectorSelectedContentColor)) * 31) + Color.m2864hashCodeimpl(this.timeSelectorUnselectedContentColor);
     }
 }

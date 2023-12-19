@@ -10,6 +10,6 @@ public final class DoubleVector extends BaseVector {
     }
 
     public double get(int i) {
-        return this.bb.getDouble(__element(i));
+        return this.f174bb.getDouble(__element(i));
     }
 }

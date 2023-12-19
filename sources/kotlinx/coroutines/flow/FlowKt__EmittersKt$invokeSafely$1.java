@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Emitters.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__EmittersKt", f = "Emitters.kt", i = {0}, l = {216}, m = "invokeSafely$FlowKt__EmittersKt", n = {"cause"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__EmittersKt", m30f = "Emitters.kt", m29i = {0}, m28l = {216}, m27m = "invokeSafely$FlowKt__EmittersKt", m26n = {"cause"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class FlowKt__EmittersKt$invokeSafely$1<T> extends ContinuationImpl {
     Object L$0;
@@ -25,7 +25,7 @@ public final class FlowKt__EmittersKt$invokeSafely$1<T> extends ContinuationImpl
         Object invokeSafely$FlowKt__EmittersKt;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        invokeSafely$FlowKt__EmittersKt = FlowKt__EmittersKt.invokeSafely$FlowKt__EmittersKt(null, null, null, this);
+        invokeSafely$FlowKt__EmittersKt = Emitters.invokeSafely$FlowKt__EmittersKt(null, null, null, this);
         return invokeSafely$FlowKt__EmittersKt;
     }
 }

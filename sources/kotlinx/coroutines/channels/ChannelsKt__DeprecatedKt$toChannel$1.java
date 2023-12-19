@@ -8,8 +8,8 @@ import kotlinx.coroutines.channels.SendChannel;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Deprecated.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", f = "Deprecated.kt", i = {0, 0, 1, 1}, l = {487, 278}, m = "toChannel", n = {"destination", "$this$consume$iv$iv", "destination", "$this$consume$iv$iv"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__DeprecatedKt", m30f = "Deprecated.kt", m29i = {0, 0, 1, 1}, m28l = {487, 278}, m27m = "toChannel", m26n = {"destination", "$this$consume$iv$iv", "destination", "$this$consume$iv$iv"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__DeprecatedKt$toChannel$1<E, C extends SendChannel<? super E>> extends ContinuationImpl {
     Object L$0;

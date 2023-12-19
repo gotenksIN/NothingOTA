@@ -1,7 +1,7 @@
 package androidx.compose.foundation.text;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LongPressTextDragObserver.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.LongPressTextDragObserverKt$detectPreDragGesturesWithObserver$2", f = "LongPressTextDragObserver.kt", i = {0, 1, 1}, l = {R.styleable.AppCompatTheme_selectableItemBackgroundBorderless, 102}, m = "invokeSuspend", n = {"$this$awaitEachGesture", "$this$awaitEachGesture", "down"}, s = {"L$0", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.LongPressTextDragObserverKt$detectPreDragGesturesWithObserver$2", m30f = "LongPressTextDragObserver.kt", m29i = {0, 1, 1}, m28l = {C0032R.styleable.AppCompatTheme_selectableItemBackgroundBorderless, 102}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture", "$this$awaitEachGesture", "down"}, m25s = {"L$0", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ TextDragObserver $observer;
@@ -67,9 +67,9 @@ public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver
             if (r2 == r4) goto L27
             if (r2 != r3) goto L1f
             java.lang.Object r2 = r0.L$1
-            androidx.compose.ui.input.pointer.PointerInputChange r2 = (androidx.compose.ui.input.pointer.PointerInputChange) r2
+            androidx.compose.ui.input.pointer.PointerInputChange r2 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r2
             java.lang.Object r5 = r0.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r5 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r5
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r5 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r5
             kotlin.ResultKt.throwOnFailure(r18)
             r7 = r18
             r6 = r0
@@ -81,14 +81,14 @@ public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver
             throw r1
         L27:
             java.lang.Object r2 = r0.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r2
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r2
             kotlin.ResultKt.throwOnFailure(r18)
             r5 = r18
             goto L4b
         L31:
             kotlin.ResultKt.throwOnFailure(r18)
             java.lang.Object r2 = r0.L$0
-            androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r2
+            androidx.compose.ui.input.pointer.AwaitPointerEventScope r2 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r2
             r6 = 0
             r7 = 0
             r8 = r0
@@ -102,10 +102,10 @@ public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver
             if (r5 != r1) goto L4b
             return r1
         L4b:
-            androidx.compose.ui.input.pointer.PointerInputChange r5 = (androidx.compose.ui.input.pointer.PointerInputChange) r5
+            androidx.compose.ui.input.pointer.PointerInputChange r5 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r5
             androidx.compose.foundation.text.TextDragObserver r6 = r0.$observer
-            long r7 = r5.m3957getPositionF1C5BW0()
-            r6.mo755onDownk4lQ0M(r7)
+            long r7 = r5.m4258getPositionF1C5BW0()
+            r6.mo1056onDownk4lQ0M(r7)
             r6 = r0
             r16 = r5
             r5 = r2
@@ -117,11 +117,11 @@ public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver
             r6.L$1 = r2
             r6.label = r3
             r8 = 0
-            java.lang.Object r7 = androidx.compose.ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r5, r8, r7, r4, r8)
+            java.lang.Object r7 = androidx.compose.p002ui.input.pointer.AwaitPointerEventScope.awaitPointerEvent$default(r5, r8, r7, r4, r8)
             if (r7 != r1) goto L6d
             return r1
         L6d:
-            androidx.compose.ui.input.pointer.PointerEvent r7 = (androidx.compose.ui.input.pointer.PointerEvent) r7
+            androidx.compose.ui.input.pointer.PointerEvent r7 = (androidx.compose.p002ui.input.pointer.PointerEvent) r7
             java.util.List r7 = r7.getChanges()
             int r8 = r7.size()
             r9 = 0
@@ -129,10 +129,10 @@ public final class LongPressTextDragObserverKt$detectPreDragGesturesWithObserver
         L79:
             if (r10 >= r8) goto L9f
             java.lang.Object r11 = r7.get(r10)
-            androidx.compose.ui.input.pointer.PointerInputChange r11 = (androidx.compose.ui.input.pointer.PointerInputChange) r11
-            long r12 = r11.m3956getIdJ3iCeTQ()
-            long r14 = r2.m3956getIdJ3iCeTQ()
-            boolean r12 = androidx.compose.ui.input.pointer.PointerId.m3942equalsimpl0(r12, r14)
+            androidx.compose.ui.input.pointer.PointerInputChange r11 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r11
+            long r12 = r11.m4257getIdJ3iCeTQ()
+            long r14 = r2.m4257getIdJ3iCeTQ()
+            boolean r12 = androidx.compose.p002ui.input.pointer.PointerId.m4243equalsimpl0(r12, r14)
             if (r12 == 0) goto L97
             boolean r11 = r11.getPressed()
             if (r11 == 0) goto L97

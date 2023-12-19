@@ -6,8 +6,12 @@ import java.util.BitSet;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes.dex */
 final class SmallCharMatcher extends CharMatcher.NamedFastMatcher {
-    private static final int C1 = -862048943;
-    private static final int C2 = 461845907;
+
+    /* renamed from: C1 */
+    private static final int f206C1 = -862048943;
+
+    /* renamed from: C2 */
+    private static final int f207C2 = 461845907;
     private static final double DESIRED_LOAD_FACTOR = 0.5d;
     static final int MAX_SIZE = 1023;
     private final boolean containsZero;
@@ -22,7 +26,7 @@ final class SmallCharMatcher extends CharMatcher.NamedFastMatcher {
     }
 
     static int smear(int i) {
-        return Integer.rotateLeft(i * C1, 15) * C2;
+        return Integer.rotateLeft(i * f206C1, 15) * f207C2;
     }
 
     private boolean checkFilter(int i) {

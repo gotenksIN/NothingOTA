@@ -12,7 +12,7 @@ import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.util.DisplayMetrics;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 
 /* loaded from: classes.dex */
 public abstract class RoundedBitmapDrawable extends Drawable {
@@ -24,7 +24,7 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     private float mCornerRadius;
     private boolean mIsCircular;
     private int mTargetDensity;
-    private int mGravity = R.styleable.AppCompatTheme_windowActionModeOverlay;
+    private int mGravity = C0032R.styleable.AppCompatTheme_windowActionModeOverlay;
     private final Paint mPaint = new Paint(3);
     private final Matrix mShaderMatrix = new Matrix();
     final Rect mDstRect = new Rect();

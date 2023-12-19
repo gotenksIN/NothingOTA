@@ -8,8 +8,8 @@ import okhttp3.internal.http.StatusLine;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Scrollable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.ScrollingLogic", f = "Scrollable.kt", i = {0, 1}, l = {419, StatusLine.HTTP_MISDIRECTED_REQUEST}, m = "onDragStopped-sF-c-tU", n = {"this", "this"}, s = {"L$0", "L$0"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.ScrollingLogic", m30f = "Scrollable.kt", m29i = {0, 1}, m28l = {419, StatusLine.HTTP_MISDIRECTED_REQUEST}, m27m = "onDragStopped-sF-c-tU", m26n = {"this", "this"}, m25s = {"L$0", "L$0"})
 /* loaded from: classes.dex */
 public final class ScrollingLogic$onDragStopped$1 extends ContinuationImpl {
     Object L$0;
@@ -28,6 +28,6 @@ public final class ScrollingLogic$onDragStopped$1 extends ContinuationImpl {
     public final Object invokeSuspend(Object obj) {
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        return this.this$0.m313onDragStoppedsFctU(0L, this);
+        return this.this$0.m614onDragStoppedsFctU(0L, this);
     }
 }

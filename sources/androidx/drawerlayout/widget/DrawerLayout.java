@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowInsets;
 import android.view.accessibility.AccessibilityEvent;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
@@ -737,7 +737,7 @@ public class DrawerLayout extends ViewGroup {
                         i6 = i7 - ((int) (layoutParams.onScreen * f3));
                     }
                     boolean z3 = f != layoutParams.onScreen ? z2 : false;
-                    int i9 = layoutParams.gravity & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+                    int i9 = layoutParams.gravity & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
                     if (i9 == 16) {
                         int i10 = i4 - i2;
                         int i11 = (i10 - measuredHeight) / 2;

@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.lang.ref.WeakReference;
 
 /* loaded from: classes.dex */
@@ -39,10 +39,10 @@ public final class ViewStubCompat extends View {
     public ViewStubCompat(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mLayoutResource = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ViewStubCompat, i, 0);
-        this.mInflatedId = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_inflatedId, -1);
-        this.mLayoutResource = obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_layout, 0);
-        setId(obtainStyledAttributes.getResourceId(R.styleable.ViewStubCompat_android_id, -1));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, C0032R.styleable.ViewStubCompat, i, 0);
+        this.mInflatedId = obtainStyledAttributes.getResourceId(C0032R.styleable.ViewStubCompat_android_inflatedId, -1);
+        this.mLayoutResource = obtainStyledAttributes.getResourceId(C0032R.styleable.ViewStubCompat_android_layout, 0);
+        setId(obtainStyledAttributes.getResourceId(C0032R.styleable.ViewStubCompat_android_id, -1));
         obtainStyledAttributes.recycle();
         setVisibility(8);
         setWillNotDraw(true);

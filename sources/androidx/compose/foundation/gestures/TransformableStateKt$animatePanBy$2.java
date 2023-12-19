@@ -4,9 +4,9 @@ import androidx.compose.animation.core.AnimationScope;
 import androidx.compose.animation.core.AnimationSpec;
 import androidx.compose.animation.core.AnimationState;
 import androidx.compose.animation.core.AnimationVector2D;
-import androidx.compose.animation.core.SuspendAnimationKt;
+import androidx.compose.animation.core.SuspendAnimation;
 import androidx.compose.animation.core.VectorConvertersKt;
-import androidx.compose.ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.Offset;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -20,8 +20,8 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 
 /* compiled from: TransformableState.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/TransformScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TransformableStateKt$animatePanBy$2", f = "TransformableState.kt", i = {}, l = {182}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/foundation/gestures/TransformScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformableStateKt$animatePanBy$2", m30f = "TransformableState.kt", m29i = {}, m28l = {182}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class TransformableStateKt$animatePanBy$2 extends SuspendLambda implements Function2<TransformScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ AnimationSpec<Offset> $animationSpec;
@@ -58,12 +58,12 @@ final class TransformableStateKt$animatePanBy$2 extends SuspendLambda implements
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             final TransformScope transformScope = (TransformScope) this.L$0;
-            AnimationState animationState = new AnimationState(VectorConvertersKt.getVectorConverter(Offset.Companion), Offset.m2307boximpl(this.$previous.element), null, 0L, 0L, false, 60, null);
-            Offset m2307boximpl = Offset.m2307boximpl(this.$offset);
+            AnimationState animationState = new AnimationState(VectorConvertersKt.getVectorConverter(Offset.Companion), Offset.m2608boximpl(this.$previous.element), null, 0L, 0L, false, 60, null);
+            Offset m2608boximpl = Offset.m2608boximpl(this.$offset);
             AnimationSpec<Offset> animationSpec = this.$animationSpec;
             final Ref.LongRef longRef = this.$previous;
             this.label = 1;
-            if (SuspendAnimationKt.animateTo$default(animationState, m2307boximpl, animationSpec, false, new Function1<AnimationScope<Offset, AnimationVector2D>, Unit>() { // from class: androidx.compose.foundation.gestures.TransformableStateKt$animatePanBy$2.1
+            if (SuspendAnimation.animateTo$default(animationState, m2608boximpl, animationSpec, false, new Function1<AnimationScope<Offset, AnimationVector2D>, Unit>() { // from class: androidx.compose.foundation.gestures.TransformableStateKt$animatePanBy$2.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(1);
@@ -78,8 +78,8 @@ final class TransformableStateKt$animatePanBy$2 extends SuspendLambda implements
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(AnimationScope<Offset, AnimationVector2D> animateTo) {
                     Intrinsics.checkNotNullParameter(animateTo, "$this$animateTo");
-                    TransformScope.m328transformByd4ec7I$default(transformScope, 0.0f, Offset.m2322minusMKHz9U(animateTo.getValue().m2328unboximpl(), Ref.LongRef.this.element), 0.0f, 5, null);
-                    Ref.LongRef.this.element = animateTo.getValue().m2328unboximpl();
+                    TransformScope.m629transformByd4ec7I$default(transformScope, 0.0f, Offset.m2623minusMKHz9U(animateTo.getValue().m2629unboximpl(), Ref.LongRef.this.element), 0.0f, 5, null);
+                    Ref.LongRef.this.element = animateTo.getValue().m2629unboximpl();
                 }
             }, this, 4, null) == coroutine_suspended) {
                 return coroutine_suspended;

@@ -65,28 +65,34 @@ public abstract class ImmutableMultimap<K, V> extends BaseImmutableMultimap<K, V
         return super.toString();
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of() {
-        return ImmutableListMultimap.of();
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m181of() {
+        return ImmutableListMultimap.m198of();
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of(K k, V v) {
-        return ImmutableListMultimap.of((Object) k, (Object) v);
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m180of(K k, V v) {
+        return ImmutableListMultimap.m197of((Object) k, (Object) v);
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2);
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m179of(K k, V v, K k2, V v2) {
+        return ImmutableListMultimap.m196of((Object) k, (Object) v, (Object) k2, (Object) v2);
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3);
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m178of(K k, V v, K k2, V v2, K k3, V v3) {
+        return ImmutableListMultimap.m195of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3);
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4);
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m177of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4) {
+        return ImmutableListMultimap.m194of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4);
     }
 
-    public static <K, V> ImmutableMultimap<K, V> of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
-        return ImmutableListMultimap.of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4, (Object) k5, (Object) v5);
+    /* renamed from: of */
+    public static <K, V> ImmutableMultimap<K, V> m176of(K k, V v, K k2, V v2, K k3, V v3, K k4, V v4, K k5, V v5) {
+        return ImmutableListMultimap.m193of((Object) k, (Object) v, (Object) k2, (Object) v2, (Object) k3, (Object) v3, (Object) k4, (Object) v4, (Object) k5, (Object) v5);
     }
 
     public static <K, V> Builder<K, V> builder() {

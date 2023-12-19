@@ -10,6 +10,6 @@ public final class UnionVector extends BaseVector {
     }
 
     public Table get(Table table, int i) {
-        return Table.__union(table, __element(i), this.bb);
+        return Table.__union(table, __element(i), this.f174bb);
     }
 }

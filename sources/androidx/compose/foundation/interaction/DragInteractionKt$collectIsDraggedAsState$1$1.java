@@ -1,37 +1,37 @@
 package androidx.compose.foundation.interaction;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.interaction.DragInteraction;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 
 /* compiled from: DragInteraction.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.interaction.DragInteractionKt$collectIsDraggedAsState$1$1", f = "DragInteraction.kt", i = {}, l = {R.styleable.AppCompatTheme_listPreferredItemPaddingRight}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.interaction.DragInteractionKt$collectIsDraggedAsState$1$1", m30f = "DragInteraction.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemPaddingRight}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class DragInteractionKt$collectIsDraggedAsState$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ MutableState<Boolean> $isDragged;
+    final /* synthetic */ SnapshotState<Boolean> $isDragged;
     final /* synthetic */ InteractionSource $this_collectIsDraggedAsState;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DragInteractionKt$collectIsDraggedAsState$1$1(InteractionSource interactionSource, MutableState<Boolean> mutableState, Continuation<? super DragInteractionKt$collectIsDraggedAsState$1$1> continuation) {
+    public DragInteractionKt$collectIsDraggedAsState$1$1(InteractionSource interactionSource, SnapshotState<Boolean> snapshotState, Continuation<? super DragInteractionKt$collectIsDraggedAsState$1$1> continuation) {
         super(2, continuation);
         this.$this_collectIsDraggedAsState = interactionSource;
-        this.$isDragged = mutableState;
+        this.$isDragged = snapshotState;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -52,7 +52,7 @@ final class DragInteractionKt$collectIsDraggedAsState$1$1 extends SuspendLambda 
             ResultKt.throwOnFailure(obj);
             final ArrayList arrayList = new ArrayList();
             Flow<Interaction> interactions = this.$this_collectIsDraggedAsState.getInteractions();
-            final MutableState<Boolean> mutableState = this.$isDragged;
+            final SnapshotState<Boolean> snapshotState = this.$isDragged;
             this.label = 1;
             if (interactions.collect(new FlowCollector<Interaction>() { // from class: androidx.compose.foundation.interaction.DragInteractionKt$collectIsDraggedAsState$1$1.1
                 @Override // kotlinx.coroutines.flow.FlowCollector
@@ -69,7 +69,7 @@ final class DragInteractionKt$collectIsDraggedAsState$1$1 extends SuspendLambda 
                     } else if (interaction instanceof DragInteraction.Cancel) {
                         arrayList.remove(((DragInteraction.Cancel) interaction).getStart());
                     }
-                    mutableState.setValue(Boxing.boxBoolean(!arrayList.isEmpty()));
+                    snapshotState.setValue(boxing.boxBoolean(!arrayList.isEmpty()));
                     return Unit.INSTANCE;
                 }
             }, this) == coroutine_suspended) {

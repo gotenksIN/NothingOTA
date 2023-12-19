@@ -33,7 +33,7 @@ public abstract class AbstractBaseGraph<N> implements BaseGraph<N> {
         return new AbstractSet<EndpointPair<N>>() { // from class: com.google.common.graph.AbstractBaseGraph.1
             @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, java.util.Set
             public UnmodifiableIterator<EndpointPair<N>> iterator() {
-                return EndpointPairIterator.of(AbstractBaseGraph.this);
+                return EndpointPairIterator.m96of(AbstractBaseGraph.this);
             }
 
             @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
@@ -66,14 +66,14 @@ public abstract class AbstractBaseGraph<N> implements BaseGraph<N> {
     public Set<EndpointPair<N>> incidentEdges(N n) {
         Preconditions.checkNotNull(n);
         Preconditions.checkArgument(nodes().contains(n), "Node %s is not an element of this graph.", n);
-        return new AnonymousClass2(this, this, n);
+        return new C13572(this, this, n);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.common.graph.AbstractBaseGraph$2  reason: invalid class name */
+    /* renamed from: com.google.common.graph.AbstractBaseGraph$2 */
     /* loaded from: classes2.dex */
-    public class AnonymousClass2 extends IncidentEdgeSet<N> {
-        AnonymousClass2(AbstractBaseGraph abstractBaseGraph, BaseGraph baseGraph, Object obj) {
+    public class C13572 extends IncidentEdgeSet<N> {
+        C13572(AbstractBaseGraph abstractBaseGraph, BaseGraph baseGraph, Object obj) {
             super(baseGraph, obj);
         }
 
@@ -83,38 +83,38 @@ public abstract class AbstractBaseGraph<N> implements BaseGraph<N> {
                 return Iterators.unmodifiableIterator(Iterators.concat(Iterators.transform(this.graph.predecessors((BaseGraph<N>) this.node).iterator(), new Function() { // from class: com.google.common.graph.AbstractBaseGraph$2$$ExternalSyntheticLambda0
                     @Override // com.google.common.base.Function
                     public final Object apply(Object obj) {
-                        return AbstractBaseGraph.AnonymousClass2.this.m5331lambda$iterator$0$comgooglecommongraphAbstractBaseGraph$2(obj);
+                        return AbstractBaseGraph.C13572.this.m5612lambda$iterator$0$comgooglecommongraphAbstractBaseGraph$2(obj);
                     }
-                }), Iterators.transform(Sets.difference(this.graph.successors((BaseGraph<N>) this.node), ImmutableSet.of(this.node)).iterator(), new Function() { // from class: com.google.common.graph.AbstractBaseGraph$2$$ExternalSyntheticLambda1
+                }), Iterators.transform(Sets.difference(this.graph.successors((BaseGraph<N>) this.node), ImmutableSet.m163of(this.node)).iterator(), new Function() { // from class: com.google.common.graph.AbstractBaseGraph$2$$ExternalSyntheticLambda1
                     @Override // com.google.common.base.Function
                     public final Object apply(Object obj) {
-                        return AbstractBaseGraph.AnonymousClass2.this.m5332lambda$iterator$1$comgooglecommongraphAbstractBaseGraph$2(obj);
+                        return AbstractBaseGraph.C13572.this.m5613lambda$iterator$1$comgooglecommongraphAbstractBaseGraph$2(obj);
                     }
                 })));
             }
             return Iterators.unmodifiableIterator(Iterators.transform(this.graph.adjacentNodes(this.node).iterator(), new Function() { // from class: com.google.common.graph.AbstractBaseGraph$2$$ExternalSyntheticLambda2
                 @Override // com.google.common.base.Function
                 public final Object apply(Object obj) {
-                    return AbstractBaseGraph.AnonymousClass2.this.m5333lambda$iterator$2$comgooglecommongraphAbstractBaseGraph$2(obj);
+                    return AbstractBaseGraph.C13572.this.m5614lambda$iterator$2$comgooglecommongraphAbstractBaseGraph$2(obj);
                 }
             }));
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$iterator$0$com-google-common-graph-AbstractBaseGraph$2  reason: not valid java name */
-        public /* synthetic */ EndpointPair m5331lambda$iterator$0$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
+        public /* synthetic */ EndpointPair m5612lambda$iterator$0$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
             return EndpointPair.ordered(obj, this.node);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$iterator$1$com-google-common-graph-AbstractBaseGraph$2  reason: not valid java name */
-        public /* synthetic */ EndpointPair m5332lambda$iterator$1$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
+        public /* synthetic */ EndpointPair m5613lambda$iterator$1$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
             return EndpointPair.ordered(this.node, obj);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: lambda$iterator$2$com-google-common-graph-AbstractBaseGraph$2  reason: not valid java name */
-        public /* synthetic */ EndpointPair m5333lambda$iterator$2$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
+        public /* synthetic */ EndpointPair m5614lambda$iterator$2$comgooglecommongraphAbstractBaseGraph$2(Object obj) {
             return EndpointPair.unordered(this.node, obj);
         }
     }

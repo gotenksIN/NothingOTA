@@ -6,7 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.SeekBar;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.view.ViewCompat;
 
@@ -33,20 +33,20 @@ class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     @Override // androidx.appcompat.widget.AppCompatProgressBarHelper
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
         super.loadFromAttributes(attributeSet, i);
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R.styleable.AppCompatSeekBar, i, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, C0032R.styleable.AppCompatSeekBar, i, 0);
         SeekBar seekBar = this.mView;
-        ViewCompat.saveAttributeDataForStyleable(seekBar, seekBar.getContext(), R.styleable.AppCompatSeekBar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
-        Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(R.styleable.AppCompatSeekBar_android_thumb);
+        ViewCompat.saveAttributeDataForStyleable(seekBar, seekBar.getContext(), C0032R.styleable.AppCompatSeekBar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+        Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(C0032R.styleable.AppCompatSeekBar_android_thumb);
         if (drawableIfKnown != null) {
             this.mView.setThumb(drawableIfKnown);
         }
-        setTickMark(obtainStyledAttributes.getDrawable(R.styleable.AppCompatSeekBar_tickMark));
-        if (obtainStyledAttributes.hasValue(R.styleable.AppCompatSeekBar_tickMarkTintMode)) {
-            this.mTickMarkTintMode = DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(R.styleable.AppCompatSeekBar_tickMarkTintMode, -1), this.mTickMarkTintMode);
+        setTickMark(obtainStyledAttributes.getDrawable(C0032R.styleable.AppCompatSeekBar_tickMark));
+        if (obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatSeekBar_tickMarkTintMode)) {
+            this.mTickMarkTintMode = DrawableUtils.parseTintMode(obtainStyledAttributes.getInt(C0032R.styleable.AppCompatSeekBar_tickMarkTintMode, -1), this.mTickMarkTintMode);
             this.mHasTickMarkTintMode = true;
         }
-        if (obtainStyledAttributes.hasValue(R.styleable.AppCompatSeekBar_tickMarkTint)) {
-            this.mTickMarkTintList = obtainStyledAttributes.getColorStateList(R.styleable.AppCompatSeekBar_tickMarkTint);
+        if (obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatSeekBar_tickMarkTint)) {
+            this.mTickMarkTintList = obtainStyledAttributes.getColorStateList(C0032R.styleable.AppCompatSeekBar_tickMarkTint);
             this.mHasTickMarkTint = true;
         }
         obtainStyledAttributes.recycle();

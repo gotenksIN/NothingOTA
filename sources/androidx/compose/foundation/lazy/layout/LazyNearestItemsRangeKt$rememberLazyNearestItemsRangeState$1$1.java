@@ -1,7 +1,7 @@
 package androidx.compose.foundation.lazy.layout;
 
-import androidx.appcompat.R;
-import androidx.compose.runtime.MutableState;
+import androidx.appcompat.C0032R;
+import androidx.compose.runtime.SnapshotState;
 import androidx.compose.runtime.SnapshotStateKt;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -10,8 +10,8 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Functions;
 import kotlin.ranges.IntRange;
 import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.flow.Flow;
@@ -19,24 +19,24 @@ import kotlinx.coroutines.flow.FlowCollector;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: LazyNearestItemsRange.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1", f = "LazyNearestItemsRange.kt", i = {}, l = {R.styleable.AppCompatTheme_dropDownListViewStyle}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1", m30f = "LazyNearestItemsRange.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_dropDownListViewStyle}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
-    final /* synthetic */ Function0<Integer> $extraItemCount;
-    final /* synthetic */ Function0<Integer> $firstVisibleItemIndex;
-    final /* synthetic */ Function0<Integer> $slidingWindowSize;
-    final /* synthetic */ MutableState<IntRange> $state;
+    final /* synthetic */ Functions<Integer> $extraItemCount;
+    final /* synthetic */ Functions<Integer> $firstVisibleItemIndex;
+    final /* synthetic */ Functions<Integer> $slidingWindowSize;
+    final /* synthetic */ SnapshotState<IntRange> $state;
     int label;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1(Function0<Integer> function0, Function0<Integer> function02, Function0<Integer> function03, MutableState<IntRange> mutableState, Continuation<? super LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1> continuation) {
+    public LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1(Functions<Integer> functions, Functions<Integer> functions2, Functions<Integer> functions3, SnapshotState<IntRange> snapshotState, Continuation<? super LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1> continuation) {
         super(2, continuation);
-        this.$firstVisibleItemIndex = function0;
-        this.$slidingWindowSize = function02;
-        this.$extraItemCount = function03;
-        this.$state = mutableState;
+        this.$firstVisibleItemIndex = functions;
+        this.$slidingWindowSize = functions2;
+        this.$extraItemCount = functions3;
+        this.$state = snapshotState;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -55,21 +55,21 @@ public final class LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            final Function0<Integer> function0 = this.$firstVisibleItemIndex;
-            final Function0<Integer> function02 = this.$slidingWindowSize;
-            final Function0<Integer> function03 = this.$extraItemCount;
-            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Function0<IntRange>() { // from class: androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1.1
+            final Functions<Integer> functions = this.$firstVisibleItemIndex;
+            final Functions<Integer> functions2 = this.$slidingWindowSize;
+            final Functions<Integer> functions3 = this.$extraItemCount;
+            Flow snapshotFlow = SnapshotStateKt.snapshotFlow(new Functions<IntRange>() { // from class: androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1.1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
                     super(0);
                 }
 
-                @Override // kotlin.jvm.functions.Function0
+                @Override // kotlin.jvm.functions.Functions
                 public final IntRange invoke() {
-                    return LazyNearestItemsRangeKt.calculateNearestItemsRange(function0.invoke().intValue(), function02.invoke().intValue(), function03.invoke().intValue());
+                    return LazyNearestItemsRange.calculateNearestItemsRange(functions.invoke().intValue(), functions2.invoke().intValue(), functions3.invoke().intValue());
                 }
             });
-            final MutableState<IntRange> mutableState = this.$state;
+            final SnapshotState<IntRange> snapshotState = this.$state;
             this.label = 1;
             if (snapshotFlow.collect(new FlowCollector<IntRange>() { // from class: androidx.compose.foundation.lazy.layout.LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$1.2
                 @Override // kotlinx.coroutines.flow.FlowCollector
@@ -79,7 +79,7 @@ public final class LazyNearestItemsRangeKt$rememberLazyNearestItemsRangeState$1$
 
                 /* renamed from: emit  reason: avoid collision after fix types in other method */
                 public final Object emit2(IntRange intRange, Continuation<? super Unit> continuation) {
-                    mutableState.setValue(intRange);
+                    snapshotState.setValue(intRange);
                     return Unit.INSTANCE;
                 }
             }, this) == coroutine_suspended) {

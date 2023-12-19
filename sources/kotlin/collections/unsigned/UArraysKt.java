@@ -1,11 +1,11 @@
 package kotlin.collections.unsigned;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 
-@Metadata(d1 = {"kotlin/collections/unsigned/UArraysKt___UArraysJvmKt", "kotlin/collections/unsigned/UArraysKt___UArraysKt"}, k = 4, mv = {1, 9, 0}, pn = "kotlin.collections", xi = R.styleable.AppCompatTheme_checkedTextViewStyle)
+@Metadata(m41d1 = {"kotlin/collections/unsigned/UArraysKt___UArraysJvmKt", "kotlin/collections/unsigned/UArraysKt___UArraysKt"}, m39k = 4, m38mv = {1, 9, 0}, m37pn = "kotlin.collections", m36xi = C0032R.styleable.AppCompatTheme_checkedTextViewStyle)
 /* loaded from: classes2.dex */
-public final class UArraysKt extends UArraysKt___UArraysKt {
+public final class UArraysKt extends _UArrays {
     private UArraysKt() {
     }
 }

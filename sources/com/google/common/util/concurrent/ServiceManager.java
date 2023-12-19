@@ -76,7 +76,7 @@ public final class ServiceManager implements ServiceManagerBridge {
         ImmutableList<Service> copyOf = ImmutableList.copyOf(iterable);
         if (copyOf.isEmpty()) {
             logger.log(Level.WARNING, "ServiceManager configured with no services.  Is your application configured properly?", (Throwable) new EmptyServiceManagerWarning());
-            copyOf = ImmutableList.of(new NoOpService());
+            copyOf = ImmutableList.m210of(new NoOpService());
         }
         ServiceManagerState serviceManagerState = new ServiceManagerState(copyOf);
         this.state = serviceManagerState;
@@ -263,7 +263,7 @@ public final class ServiceManager implements ServiceManagerBridge {
             this.monitor.enter();
             try {
                 if (!this.monitor.waitForUninterruptibly(this.awaitHealthGuard, j, timeUnit)) {
-                    String valueOf = String.valueOf(Multimaps.filterKeys((SetMultimap) this.servicesByState, Predicates.in(ImmutableSet.of(Service.State.NEW, Service.State.STARTING))));
+                    String valueOf = String.valueOf(Multimaps.filterKeys((SetMultimap) this.servicesByState, Predicates.m240in(ImmutableSet.m162of(Service.State.NEW, Service.State.STARTING))));
                     throw new TimeoutException(new StringBuilder(String.valueOf(valueOf).length() + 93).append("Timeout waiting for the services to become healthy. The following services have not started: ").append(valueOf).toString());
                 } else {
                     checkHealthy();
@@ -284,7 +284,7 @@ public final class ServiceManager implements ServiceManagerBridge {
                 if (this.monitor.waitForUninterruptibly(this.stoppedGuard, j, timeUnit)) {
                     return;
                 }
-                String valueOf = String.valueOf(Multimaps.filterKeys((SetMultimap) this.servicesByState, Predicates.not(Predicates.in(EnumSet.of(Service.State.TERMINATED, Service.State.FAILED)))));
+                String valueOf = String.valueOf(Multimaps.filterKeys((SetMultimap) this.servicesByState, Predicates.not(Predicates.m240in(EnumSet.of(Service.State.TERMINATED, Service.State.FAILED)))));
                 throw new TimeoutException(new StringBuilder(String.valueOf(valueOf).length() + 83).append("Timeout waiting for the services to stop. The following services have not stopped: ").append(valueOf).toString());
             } finally {
                 this.monitor.leave();

@@ -1,13 +1,13 @@
 package androidx.compose.material3.tokens;
 
-import androidx.compose.ui.text.font.FontWeight;
-import androidx.compose.ui.text.font.GenericFontFamily;
-import androidx.compose.ui.unit.TextUnit;
-import androidx.compose.ui.unit.TextUnitKt;
+import androidx.compose.p002ui.text.font.FontWeight;
+import androidx.compose.p002ui.text.font.GenericFontFamily;
+import androidx.compose.p002ui.unit.TextUnit;
+import androidx.compose.p002ui.unit.TextUnitKt;
 import kotlin.Metadata;
 
 /* compiled from: TypeScaleTokens.kt */
-@Metadata(d1 = {"\u0000%\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0003\b\u008f\u0001\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0007\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\t\u0010\nR\u001c\u0010\f\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\r\u0010\nR\u001c\u0010\u000e\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u000f\u0010\nR\u0011\u0010\u0010\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u0011\u0010\u0014\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0006R\u001c\u0010\u0016\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u0017\u0010\nR\u001c\u0010\u0018\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u0019\u0010\nR\u001c\u0010\u001a\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u001b\u0010\nR\u0011\u0010\u001c\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0013R\u0011\u0010\u001e\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0006R\u001c\u0010 \u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b!\u0010\nR\u001c\u0010\"\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b#\u0010\nR\u001c\u0010$\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b%\u0010\nR\u0011\u0010&\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u0011\u0010(\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b)\u0010\u0006R\u001c\u0010*\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b+\u0010\nR\u001c\u0010,\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b-\u0010\nR\u001c\u0010.\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b/\u0010\nR\u0011\u00100\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b1\u0010\u0013R\u0011\u00102\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u0006R\u001c\u00104\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b5\u0010\nR\u001c\u00106\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b7\u0010\nR\u001c\u00108\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b9\u0010\nR\u0011\u0010:\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b;\u0010\u0013R\u0011\u0010<\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b=\u0010\u0006R\u001c\u0010>\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b?\u0010\nR\u001c\u0010@\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bA\u0010\nR\u001c\u0010B\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bC\u0010\nR\u0011\u0010D\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0013R\u0011\u0010F\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bG\u0010\u0006R\u001c\u0010H\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bI\u0010\nR\u001c\u0010J\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bK\u0010\nR\u001c\u0010L\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bM\u0010\nR\u0011\u0010N\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bO\u0010\u0013R\u0011\u0010P\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bQ\u0010\u0006R\u001c\u0010R\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bS\u0010\nR\u001c\u0010T\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bU\u0010\nR\u001c\u0010V\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bW\u0010\nR\u0011\u0010X\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bY\u0010\u0013R\u0011\u0010Z\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b[\u0010\u0006R\u001c\u0010\\\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b]\u0010\nR\u001c\u0010^\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b_\u0010\nR\u001c\u0010`\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\ba\u0010\nR\u0011\u0010b\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bc\u0010\u0013R\u0011\u0010d\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\be\u0010\u0006R\u001c\u0010f\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bg\u0010\nR\u001c\u0010h\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bi\u0010\nR\u001c\u0010j\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bk\u0010\nR\u0011\u0010l\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bm\u0010\u0013R\u0011\u0010n\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bo\u0010\u0006R\u001c\u0010p\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bq\u0010\nR\u001c\u0010r\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bs\u0010\nR\u001c\u0010t\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bu\u0010\nR\u0011\u0010v\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bw\u0010\u0013R\u0011\u0010x\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\by\u0010\u0006R\u001c\u0010z\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b{\u0010\nR\u001c\u0010|\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b}\u0010\nR\u001c\u0010~\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u007f\u0010\nR\u0013\u0010\u0080\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u0081\u0001\u0010\u0013R\u0013\u0010\u0082\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u0083\u0001\u0010\u0006R\u001e\u0010\u0084\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0085\u0001\u0010\nR\u001e\u0010\u0086\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0087\u0001\u0010\nR\u001e\u0010\u0088\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0089\u0001\u0010\nR\u0013\u0010\u008a\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u008b\u0001\u0010\u0013R\u0013\u0010\u008c\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u008d\u0001\u0010\u0006R\u001e\u0010\u008e\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u008f\u0001\u0010\nR\u001e\u0010\u0090\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0091\u0001\u0010\nR\u001e\u0010\u0092\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0093\u0001\u0010\nR\u0013\u0010\u0094\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u0095\u0001\u0010\u0013R\u0013\u0010\u0096\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u0097\u0001\u0010\u0006R\u001e\u0010\u0098\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0099\u0001\u0010\nR\u001e\u0010\u009a\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u009b\u0001\u0010\nR\u001e\u0010\u009c\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u009d\u0001\u0010\nR\u0013\u0010\u009e\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u009f\u0001\u0010\u0013\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006 \u0001"}, d2 = {"Landroidx/compose/material3/tokens/TypeScaleTokens;", "", "()V", "BodyLargeFont", "Landroidx/compose/ui/text/font/GenericFontFamily;", "getBodyLargeFont", "()Landroidx/compose/ui/text/font/GenericFontFamily;", "BodyLargeLineHeight", "Landroidx/compose/ui/unit/TextUnit;", "getBodyLargeLineHeight-XSAIIZE", "()J", "J", "BodyLargeSize", "getBodyLargeSize-XSAIIZE", "BodyLargeTracking", "getBodyLargeTracking-XSAIIZE", "BodyLargeWeight", "Landroidx/compose/ui/text/font/FontWeight;", "getBodyLargeWeight", "()Landroidx/compose/ui/text/font/FontWeight;", "BodyMediumFont", "getBodyMediumFont", "BodyMediumLineHeight", "getBodyMediumLineHeight-XSAIIZE", "BodyMediumSize", "getBodyMediumSize-XSAIIZE", "BodyMediumTracking", "getBodyMediumTracking-XSAIIZE", "BodyMediumWeight", "getBodyMediumWeight", "BodySmallFont", "getBodySmallFont", "BodySmallLineHeight", "getBodySmallLineHeight-XSAIIZE", "BodySmallSize", "getBodySmallSize-XSAIIZE", "BodySmallTracking", "getBodySmallTracking-XSAIIZE", "BodySmallWeight", "getBodySmallWeight", "DisplayLargeFont", "getDisplayLargeFont", "DisplayLargeLineHeight", "getDisplayLargeLineHeight-XSAIIZE", "DisplayLargeSize", "getDisplayLargeSize-XSAIIZE", "DisplayLargeTracking", "getDisplayLargeTracking-XSAIIZE", "DisplayLargeWeight", "getDisplayLargeWeight", "DisplayMediumFont", "getDisplayMediumFont", "DisplayMediumLineHeight", "getDisplayMediumLineHeight-XSAIIZE", "DisplayMediumSize", "getDisplayMediumSize-XSAIIZE", "DisplayMediumTracking", "getDisplayMediumTracking-XSAIIZE", "DisplayMediumWeight", "getDisplayMediumWeight", "DisplaySmallFont", "getDisplaySmallFont", "DisplaySmallLineHeight", "getDisplaySmallLineHeight-XSAIIZE", "DisplaySmallSize", "getDisplaySmallSize-XSAIIZE", "DisplaySmallTracking", "getDisplaySmallTracking-XSAIIZE", "DisplaySmallWeight", "getDisplaySmallWeight", "HeadlineLargeFont", "getHeadlineLargeFont", "HeadlineLargeLineHeight", "getHeadlineLargeLineHeight-XSAIIZE", "HeadlineLargeSize", "getHeadlineLargeSize-XSAIIZE", "HeadlineLargeTracking", "getHeadlineLargeTracking-XSAIIZE", "HeadlineLargeWeight", "getHeadlineLargeWeight", "HeadlineMediumFont", "getHeadlineMediumFont", "HeadlineMediumLineHeight", "getHeadlineMediumLineHeight-XSAIIZE", "HeadlineMediumSize", "getHeadlineMediumSize-XSAIIZE", "HeadlineMediumTracking", "getHeadlineMediumTracking-XSAIIZE", "HeadlineMediumWeight", "getHeadlineMediumWeight", "HeadlineSmallFont", "getHeadlineSmallFont", "HeadlineSmallLineHeight", "getHeadlineSmallLineHeight-XSAIIZE", "HeadlineSmallSize", "getHeadlineSmallSize-XSAIIZE", "HeadlineSmallTracking", "getHeadlineSmallTracking-XSAIIZE", "HeadlineSmallWeight", "getHeadlineSmallWeight", "LabelLargeFont", "getLabelLargeFont", "LabelLargeLineHeight", "getLabelLargeLineHeight-XSAIIZE", "LabelLargeSize", "getLabelLargeSize-XSAIIZE", "LabelLargeTracking", "getLabelLargeTracking-XSAIIZE", "LabelLargeWeight", "getLabelLargeWeight", "LabelMediumFont", "getLabelMediumFont", "LabelMediumLineHeight", "getLabelMediumLineHeight-XSAIIZE", "LabelMediumSize", "getLabelMediumSize-XSAIIZE", "LabelMediumTracking", "getLabelMediumTracking-XSAIIZE", "LabelMediumWeight", "getLabelMediumWeight", "LabelSmallFont", "getLabelSmallFont", "LabelSmallLineHeight", "getLabelSmallLineHeight-XSAIIZE", "LabelSmallSize", "getLabelSmallSize-XSAIIZE", "LabelSmallTracking", "getLabelSmallTracking-XSAIIZE", "LabelSmallWeight", "getLabelSmallWeight", "TitleLargeFont", "getTitleLargeFont", "TitleLargeLineHeight", "getTitleLargeLineHeight-XSAIIZE", "TitleLargeSize", "getTitleLargeSize-XSAIIZE", "TitleLargeTracking", "getTitleLargeTracking-XSAIIZE", "TitleLargeWeight", "getTitleLargeWeight", "TitleMediumFont", "getTitleMediumFont", "TitleMediumLineHeight", "getTitleMediumLineHeight-XSAIIZE", "TitleMediumSize", "getTitleMediumSize-XSAIIZE", "TitleMediumTracking", "getTitleMediumTracking-XSAIIZE", "TitleMediumWeight", "getTitleMediumWeight", "TitleSmallFont", "getTitleSmallFont", "TitleSmallLineHeight", "getTitleSmallLineHeight-XSAIIZE", "TitleSmallSize", "getTitleSmallSize-XSAIIZE", "TitleSmallTracking", "getTitleSmallTracking-XSAIIZE", "TitleSmallWeight", "getTitleSmallWeight", "material3_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000%\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0003\b\u008f\u0001\bÀ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001c\u0010\u0007\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\t\u0010\nR\u001c\u0010\f\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\r\u0010\nR\u001c\u0010\u000e\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u000f\u0010\nR\u0011\u0010\u0010\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u0013R\u0011\u0010\u0014\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0006R\u001c\u0010\u0016\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u0017\u0010\nR\u001c\u0010\u0018\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u0019\u0010\nR\u001c\u0010\u001a\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u001b\u0010\nR\u0011\u0010\u001c\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0013R\u0011\u0010\u001e\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0006R\u001c\u0010 \u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b!\u0010\nR\u001c\u0010\"\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b#\u0010\nR\u001c\u0010$\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b%\u0010\nR\u0011\u0010&\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b'\u0010\u0013R\u0011\u0010(\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b)\u0010\u0006R\u001c\u0010*\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b+\u0010\nR\u001c\u0010,\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b-\u0010\nR\u001c\u0010.\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b/\u0010\nR\u0011\u00100\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b1\u0010\u0013R\u0011\u00102\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b3\u0010\u0006R\u001c\u00104\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b5\u0010\nR\u001c\u00106\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b7\u0010\nR\u001c\u00108\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b9\u0010\nR\u0011\u0010:\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\b;\u0010\u0013R\u0011\u0010<\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b=\u0010\u0006R\u001c\u0010>\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b?\u0010\nR\u001c\u0010@\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bA\u0010\nR\u001c\u0010B\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bC\u0010\nR\u0011\u0010D\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bE\u0010\u0013R\u0011\u0010F\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bG\u0010\u0006R\u001c\u0010H\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bI\u0010\nR\u001c\u0010J\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bK\u0010\nR\u001c\u0010L\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bM\u0010\nR\u0011\u0010N\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bO\u0010\u0013R\u0011\u0010P\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bQ\u0010\u0006R\u001c\u0010R\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bS\u0010\nR\u001c\u0010T\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bU\u0010\nR\u001c\u0010V\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bW\u0010\nR\u0011\u0010X\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bY\u0010\u0013R\u0011\u0010Z\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b[\u0010\u0006R\u001c\u0010\\\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b]\u0010\nR\u001c\u0010^\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b_\u0010\nR\u001c\u0010`\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\ba\u0010\nR\u0011\u0010b\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bc\u0010\u0013R\u0011\u0010d\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\be\u0010\u0006R\u001c\u0010f\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bg\u0010\nR\u001c\u0010h\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bi\u0010\nR\u001c\u0010j\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bk\u0010\nR\u0011\u0010l\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bm\u0010\u0013R\u0011\u0010n\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\bo\u0010\u0006R\u001c\u0010p\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bq\u0010\nR\u001c\u0010r\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bs\u0010\nR\u001c\u0010t\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\bu\u0010\nR\u0011\u0010v\u001a\u00020\u0011¢\u0006\b\n\u0000\u001a\u0004\bw\u0010\u0013R\u0011\u0010x\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\by\u0010\u0006R\u001c\u0010z\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b{\u0010\nR\u001c\u0010|\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b}\u0010\nR\u001c\u0010~\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\u000b\u001a\u0004\b\u007f\u0010\nR\u0013\u0010\u0080\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u0081\u0001\u0010\u0013R\u0013\u0010\u0082\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u0083\u0001\u0010\u0006R\u001e\u0010\u0084\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0085\u0001\u0010\nR\u001e\u0010\u0086\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0087\u0001\u0010\nR\u001e\u0010\u0088\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0089\u0001\u0010\nR\u0013\u0010\u008a\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u008b\u0001\u0010\u0013R\u0013\u0010\u008c\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u008d\u0001\u0010\u0006R\u001e\u0010\u008e\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u008f\u0001\u0010\nR\u001e\u0010\u0090\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0091\u0001\u0010\nR\u001e\u0010\u0092\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0093\u0001\u0010\nR\u0013\u0010\u0094\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u0095\u0001\u0010\u0013R\u0013\u0010\u0096\u0001\u001a\u00020\u0004¢\u0006\t\n\u0000\u001a\u0005\b\u0097\u0001\u0010\u0006R\u001e\u0010\u0098\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u0099\u0001\u0010\nR\u001e\u0010\u009a\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u009b\u0001\u0010\nR\u001e\u0010\u009c\u0001\u001a\u00020\bø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u000b\n\u0002\u0010\u000b\u001a\u0005\b\u009d\u0001\u0010\nR\u0013\u0010\u009e\u0001\u001a\u00020\u0011¢\u0006\t\n\u0000\u001a\u0005\b\u009f\u0001\u0010\u0013\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006 \u0001"}, m40d2 = {"Landroidx/compose/material3/tokens/TypeScaleTokens;", "", "()V", "BodyLargeFont", "Landroidx/compose/ui/text/font/GenericFontFamily;", "getBodyLargeFont", "()Landroidx/compose/ui/text/font/GenericFontFamily;", "BodyLargeLineHeight", "Landroidx/compose/ui/unit/TextUnit;", "getBodyLargeLineHeight-XSAIIZE", "()J", "J", "BodyLargeSize", "getBodyLargeSize-XSAIIZE", "BodyLargeTracking", "getBodyLargeTracking-XSAIIZE", "BodyLargeWeight", "Landroidx/compose/ui/text/font/FontWeight;", "getBodyLargeWeight", "()Landroidx/compose/ui/text/font/FontWeight;", "BodyMediumFont", "getBodyMediumFont", "BodyMediumLineHeight", "getBodyMediumLineHeight-XSAIIZE", "BodyMediumSize", "getBodyMediumSize-XSAIIZE", "BodyMediumTracking", "getBodyMediumTracking-XSAIIZE", "BodyMediumWeight", "getBodyMediumWeight", "BodySmallFont", "getBodySmallFont", "BodySmallLineHeight", "getBodySmallLineHeight-XSAIIZE", "BodySmallSize", "getBodySmallSize-XSAIIZE", "BodySmallTracking", "getBodySmallTracking-XSAIIZE", "BodySmallWeight", "getBodySmallWeight", "DisplayLargeFont", "getDisplayLargeFont", "DisplayLargeLineHeight", "getDisplayLargeLineHeight-XSAIIZE", "DisplayLargeSize", "getDisplayLargeSize-XSAIIZE", "DisplayLargeTracking", "getDisplayLargeTracking-XSAIIZE", "DisplayLargeWeight", "getDisplayLargeWeight", "DisplayMediumFont", "getDisplayMediumFont", "DisplayMediumLineHeight", "getDisplayMediumLineHeight-XSAIIZE", "DisplayMediumSize", "getDisplayMediumSize-XSAIIZE", "DisplayMediumTracking", "getDisplayMediumTracking-XSAIIZE", "DisplayMediumWeight", "getDisplayMediumWeight", "DisplaySmallFont", "getDisplaySmallFont", "DisplaySmallLineHeight", "getDisplaySmallLineHeight-XSAIIZE", "DisplaySmallSize", "getDisplaySmallSize-XSAIIZE", "DisplaySmallTracking", "getDisplaySmallTracking-XSAIIZE", "DisplaySmallWeight", "getDisplaySmallWeight", "HeadlineLargeFont", "getHeadlineLargeFont", "HeadlineLargeLineHeight", "getHeadlineLargeLineHeight-XSAIIZE", "HeadlineLargeSize", "getHeadlineLargeSize-XSAIIZE", "HeadlineLargeTracking", "getHeadlineLargeTracking-XSAIIZE", "HeadlineLargeWeight", "getHeadlineLargeWeight", "HeadlineMediumFont", "getHeadlineMediumFont", "HeadlineMediumLineHeight", "getHeadlineMediumLineHeight-XSAIIZE", "HeadlineMediumSize", "getHeadlineMediumSize-XSAIIZE", "HeadlineMediumTracking", "getHeadlineMediumTracking-XSAIIZE", "HeadlineMediumWeight", "getHeadlineMediumWeight", "HeadlineSmallFont", "getHeadlineSmallFont", "HeadlineSmallLineHeight", "getHeadlineSmallLineHeight-XSAIIZE", "HeadlineSmallSize", "getHeadlineSmallSize-XSAIIZE", "HeadlineSmallTracking", "getHeadlineSmallTracking-XSAIIZE", "HeadlineSmallWeight", "getHeadlineSmallWeight", "LabelLargeFont", "getLabelLargeFont", "LabelLargeLineHeight", "getLabelLargeLineHeight-XSAIIZE", "LabelLargeSize", "getLabelLargeSize-XSAIIZE", "LabelLargeTracking", "getLabelLargeTracking-XSAIIZE", "LabelLargeWeight", "getLabelLargeWeight", "LabelMediumFont", "getLabelMediumFont", "LabelMediumLineHeight", "getLabelMediumLineHeight-XSAIIZE", "LabelMediumSize", "getLabelMediumSize-XSAIIZE", "LabelMediumTracking", "getLabelMediumTracking-XSAIIZE", "LabelMediumWeight", "getLabelMediumWeight", "LabelSmallFont", "getLabelSmallFont", "LabelSmallLineHeight", "getLabelSmallLineHeight-XSAIIZE", "LabelSmallSize", "getLabelSmallSize-XSAIIZE", "LabelSmallTracking", "getLabelSmallTracking-XSAIIZE", "LabelSmallWeight", "getLabelSmallWeight", "TitleLargeFont", "getTitleLargeFont", "TitleLargeLineHeight", "getTitleLargeLineHeight-XSAIIZE", "TitleLargeSize", "getTitleLargeSize-XSAIIZE", "TitleLargeTracking", "getTitleLargeTracking-XSAIIZE", "TitleLargeWeight", "getTitleLargeWeight", "TitleMediumFont", "getTitleMediumFont", "TitleMediumLineHeight", "getTitleMediumLineHeight-XSAIIZE", "TitleMediumSize", "getTitleMediumSize-XSAIIZE", "TitleMediumTracking", "getTitleMediumTracking-XSAIIZE", "TitleMediumWeight", "getTitleMediumWeight", "TitleSmallFont", "getTitleSmallFont", "TitleSmallLineHeight", "getTitleSmallLineHeight-XSAIIZE", "TitleSmallSize", "getTitleSmallSize-XSAIIZE", "TitleSmallTracking", "getTitleSmallTracking-XSAIIZE", "TitleSmallWeight", "getTitleSmallWeight", "material3_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TypeScaleTokens {
     private static final long DisplayLargeTracking;
@@ -92,8 +92,8 @@ public final class TypeScaleTokens {
 
     static {
         long sp = TextUnitKt.getSp(0.2d);
-        TextUnitKt.m5244checkArithmeticR2X_6o(sp);
-        DisplayLargeTracking = TextUnitKt.pack(TextUnit.m5229getRawTypeimpl(sp), -TextUnit.m5231getValueimpl(sp));
+        TextUnitKt.m5545checkArithmeticR2X_6o(sp);
+        DisplayLargeTracking = TextUnitKt.pack(TextUnit.m5530getRawTypeimpl(sp), -TextUnit.m5532getValueimpl(sp));
         DisplayLargeWeight = TypefaceTokens.INSTANCE.getWeightRegular();
         DisplayMediumFont = TypefaceTokens.INSTANCE.getBrand();
         DisplayMediumLineHeight = TextUnitKt.getSp(52.0d);
@@ -157,17 +157,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getBodyLargeLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2124getBodyLargeLineHeightXSAIIZE() {
+    public final long m2425getBodyLargeLineHeightXSAIIZE() {
         return BodyLargeLineHeight;
     }
 
     /* renamed from: getBodyLargeSize-XSAIIZE  reason: not valid java name */
-    public final long m2125getBodyLargeSizeXSAIIZE() {
+    public final long m2426getBodyLargeSizeXSAIIZE() {
         return BodyLargeSize;
     }
 
     /* renamed from: getBodyLargeTracking-XSAIIZE  reason: not valid java name */
-    public final long m2126getBodyLargeTrackingXSAIIZE() {
+    public final long m2427getBodyLargeTrackingXSAIIZE() {
         return BodyLargeTracking;
     }
 
@@ -180,17 +180,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getBodyMediumLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2127getBodyMediumLineHeightXSAIIZE() {
+    public final long m2428getBodyMediumLineHeightXSAIIZE() {
         return BodyMediumLineHeight;
     }
 
     /* renamed from: getBodyMediumSize-XSAIIZE  reason: not valid java name */
-    public final long m2128getBodyMediumSizeXSAIIZE() {
+    public final long m2429getBodyMediumSizeXSAIIZE() {
         return BodyMediumSize;
     }
 
     /* renamed from: getBodyMediumTracking-XSAIIZE  reason: not valid java name */
-    public final long m2129getBodyMediumTrackingXSAIIZE() {
+    public final long m2430getBodyMediumTrackingXSAIIZE() {
         return BodyMediumTracking;
     }
 
@@ -203,17 +203,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getBodySmallLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2130getBodySmallLineHeightXSAIIZE() {
+    public final long m2431getBodySmallLineHeightXSAIIZE() {
         return BodySmallLineHeight;
     }
 
     /* renamed from: getBodySmallSize-XSAIIZE  reason: not valid java name */
-    public final long m2131getBodySmallSizeXSAIIZE() {
+    public final long m2432getBodySmallSizeXSAIIZE() {
         return BodySmallSize;
     }
 
     /* renamed from: getBodySmallTracking-XSAIIZE  reason: not valid java name */
-    public final long m2132getBodySmallTrackingXSAIIZE() {
+    public final long m2433getBodySmallTrackingXSAIIZE() {
         return BodySmallTracking;
     }
 
@@ -226,17 +226,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getDisplayLargeLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2133getDisplayLargeLineHeightXSAIIZE() {
+    public final long m2434getDisplayLargeLineHeightXSAIIZE() {
         return DisplayLargeLineHeight;
     }
 
     /* renamed from: getDisplayLargeSize-XSAIIZE  reason: not valid java name */
-    public final long m2134getDisplayLargeSizeXSAIIZE() {
+    public final long m2435getDisplayLargeSizeXSAIIZE() {
         return DisplayLargeSize;
     }
 
     /* renamed from: getDisplayLargeTracking-XSAIIZE  reason: not valid java name */
-    public final long m2135getDisplayLargeTrackingXSAIIZE() {
+    public final long m2436getDisplayLargeTrackingXSAIIZE() {
         return DisplayLargeTracking;
     }
 
@@ -249,17 +249,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getDisplayMediumLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2136getDisplayMediumLineHeightXSAIIZE() {
+    public final long m2437getDisplayMediumLineHeightXSAIIZE() {
         return DisplayMediumLineHeight;
     }
 
     /* renamed from: getDisplayMediumSize-XSAIIZE  reason: not valid java name */
-    public final long m2137getDisplayMediumSizeXSAIIZE() {
+    public final long m2438getDisplayMediumSizeXSAIIZE() {
         return DisplayMediumSize;
     }
 
     /* renamed from: getDisplayMediumTracking-XSAIIZE  reason: not valid java name */
-    public final long m2138getDisplayMediumTrackingXSAIIZE() {
+    public final long m2439getDisplayMediumTrackingXSAIIZE() {
         return DisplayMediumTracking;
     }
 
@@ -272,17 +272,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getDisplaySmallLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2139getDisplaySmallLineHeightXSAIIZE() {
+    public final long m2440getDisplaySmallLineHeightXSAIIZE() {
         return DisplaySmallLineHeight;
     }
 
     /* renamed from: getDisplaySmallSize-XSAIIZE  reason: not valid java name */
-    public final long m2140getDisplaySmallSizeXSAIIZE() {
+    public final long m2441getDisplaySmallSizeXSAIIZE() {
         return DisplaySmallSize;
     }
 
     /* renamed from: getDisplaySmallTracking-XSAIIZE  reason: not valid java name */
-    public final long m2141getDisplaySmallTrackingXSAIIZE() {
+    public final long m2442getDisplaySmallTrackingXSAIIZE() {
         return DisplaySmallTracking;
     }
 
@@ -295,17 +295,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getHeadlineLargeLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2142getHeadlineLargeLineHeightXSAIIZE() {
+    public final long m2443getHeadlineLargeLineHeightXSAIIZE() {
         return HeadlineLargeLineHeight;
     }
 
     /* renamed from: getHeadlineLargeSize-XSAIIZE  reason: not valid java name */
-    public final long m2143getHeadlineLargeSizeXSAIIZE() {
+    public final long m2444getHeadlineLargeSizeXSAIIZE() {
         return HeadlineLargeSize;
     }
 
     /* renamed from: getHeadlineLargeTracking-XSAIIZE  reason: not valid java name */
-    public final long m2144getHeadlineLargeTrackingXSAIIZE() {
+    public final long m2445getHeadlineLargeTrackingXSAIIZE() {
         return HeadlineLargeTracking;
     }
 
@@ -318,17 +318,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getHeadlineMediumLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2145getHeadlineMediumLineHeightXSAIIZE() {
+    public final long m2446getHeadlineMediumLineHeightXSAIIZE() {
         return HeadlineMediumLineHeight;
     }
 
     /* renamed from: getHeadlineMediumSize-XSAIIZE  reason: not valid java name */
-    public final long m2146getHeadlineMediumSizeXSAIIZE() {
+    public final long m2447getHeadlineMediumSizeXSAIIZE() {
         return HeadlineMediumSize;
     }
 
     /* renamed from: getHeadlineMediumTracking-XSAIIZE  reason: not valid java name */
-    public final long m2147getHeadlineMediumTrackingXSAIIZE() {
+    public final long m2448getHeadlineMediumTrackingXSAIIZE() {
         return HeadlineMediumTracking;
     }
 
@@ -341,17 +341,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getHeadlineSmallLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2148getHeadlineSmallLineHeightXSAIIZE() {
+    public final long m2449getHeadlineSmallLineHeightXSAIIZE() {
         return HeadlineSmallLineHeight;
     }
 
     /* renamed from: getHeadlineSmallSize-XSAIIZE  reason: not valid java name */
-    public final long m2149getHeadlineSmallSizeXSAIIZE() {
+    public final long m2450getHeadlineSmallSizeXSAIIZE() {
         return HeadlineSmallSize;
     }
 
     /* renamed from: getHeadlineSmallTracking-XSAIIZE  reason: not valid java name */
-    public final long m2150getHeadlineSmallTrackingXSAIIZE() {
+    public final long m2451getHeadlineSmallTrackingXSAIIZE() {
         return HeadlineSmallTracking;
     }
 
@@ -364,17 +364,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getLabelLargeLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2151getLabelLargeLineHeightXSAIIZE() {
+    public final long m2452getLabelLargeLineHeightXSAIIZE() {
         return LabelLargeLineHeight;
     }
 
     /* renamed from: getLabelLargeSize-XSAIIZE  reason: not valid java name */
-    public final long m2152getLabelLargeSizeXSAIIZE() {
+    public final long m2453getLabelLargeSizeXSAIIZE() {
         return LabelLargeSize;
     }
 
     /* renamed from: getLabelLargeTracking-XSAIIZE  reason: not valid java name */
-    public final long m2153getLabelLargeTrackingXSAIIZE() {
+    public final long m2454getLabelLargeTrackingXSAIIZE() {
         return LabelLargeTracking;
     }
 
@@ -387,17 +387,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getLabelMediumLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2154getLabelMediumLineHeightXSAIIZE() {
+    public final long m2455getLabelMediumLineHeightXSAIIZE() {
         return LabelMediumLineHeight;
     }
 
     /* renamed from: getLabelMediumSize-XSAIIZE  reason: not valid java name */
-    public final long m2155getLabelMediumSizeXSAIIZE() {
+    public final long m2456getLabelMediumSizeXSAIIZE() {
         return LabelMediumSize;
     }
 
     /* renamed from: getLabelMediumTracking-XSAIIZE  reason: not valid java name */
-    public final long m2156getLabelMediumTrackingXSAIIZE() {
+    public final long m2457getLabelMediumTrackingXSAIIZE() {
         return LabelMediumTracking;
     }
 
@@ -410,17 +410,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getLabelSmallLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2157getLabelSmallLineHeightXSAIIZE() {
+    public final long m2458getLabelSmallLineHeightXSAIIZE() {
         return LabelSmallLineHeight;
     }
 
     /* renamed from: getLabelSmallSize-XSAIIZE  reason: not valid java name */
-    public final long m2158getLabelSmallSizeXSAIIZE() {
+    public final long m2459getLabelSmallSizeXSAIIZE() {
         return LabelSmallSize;
     }
 
     /* renamed from: getLabelSmallTracking-XSAIIZE  reason: not valid java name */
-    public final long m2159getLabelSmallTrackingXSAIIZE() {
+    public final long m2460getLabelSmallTrackingXSAIIZE() {
         return LabelSmallTracking;
     }
 
@@ -433,17 +433,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getTitleLargeLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2160getTitleLargeLineHeightXSAIIZE() {
+    public final long m2461getTitleLargeLineHeightXSAIIZE() {
         return TitleLargeLineHeight;
     }
 
     /* renamed from: getTitleLargeSize-XSAIIZE  reason: not valid java name */
-    public final long m2161getTitleLargeSizeXSAIIZE() {
+    public final long m2462getTitleLargeSizeXSAIIZE() {
         return TitleLargeSize;
     }
 
     /* renamed from: getTitleLargeTracking-XSAIIZE  reason: not valid java name */
-    public final long m2162getTitleLargeTrackingXSAIIZE() {
+    public final long m2463getTitleLargeTrackingXSAIIZE() {
         return TitleLargeTracking;
     }
 
@@ -456,17 +456,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getTitleMediumLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2163getTitleMediumLineHeightXSAIIZE() {
+    public final long m2464getTitleMediumLineHeightXSAIIZE() {
         return TitleMediumLineHeight;
     }
 
     /* renamed from: getTitleMediumSize-XSAIIZE  reason: not valid java name */
-    public final long m2164getTitleMediumSizeXSAIIZE() {
+    public final long m2465getTitleMediumSizeXSAIIZE() {
         return TitleMediumSize;
     }
 
     /* renamed from: getTitleMediumTracking-XSAIIZE  reason: not valid java name */
-    public final long m2165getTitleMediumTrackingXSAIIZE() {
+    public final long m2466getTitleMediumTrackingXSAIIZE() {
         return TitleMediumTracking;
     }
 
@@ -479,17 +479,17 @@ public final class TypeScaleTokens {
     }
 
     /* renamed from: getTitleSmallLineHeight-XSAIIZE  reason: not valid java name */
-    public final long m2166getTitleSmallLineHeightXSAIIZE() {
+    public final long m2467getTitleSmallLineHeightXSAIIZE() {
         return TitleSmallLineHeight;
     }
 
     /* renamed from: getTitleSmallSize-XSAIIZE  reason: not valid java name */
-    public final long m2167getTitleSmallSizeXSAIIZE() {
+    public final long m2468getTitleSmallSizeXSAIIZE() {
         return TitleSmallSize;
     }
 
     /* renamed from: getTitleSmallTracking-XSAIIZE  reason: not valid java name */
-    public final long m2168getTitleSmallTrackingXSAIIZE() {
+    public final long m2469getTitleSmallTrackingXSAIIZE() {
         return TitleSmallTracking;
     }
 

@@ -1,6 +1,6 @@
 package com.google.gson.stream;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
 import java.io.Closeable;
@@ -39,7 +39,9 @@ public class JsonReader implements Closeable {
     private static final int PEEKED_TRUE = 5;
     private static final int PEEKED_UNQUOTED = 10;
     private static final int PEEKED_UNQUOTED_NAME = 14;
-    private final Reader in;
+
+    /* renamed from: in */
+    private final Reader f277in;
     private int[] pathIndices;
     private String[] pathNames;
     private long peekedLong;
@@ -89,7 +91,7 @@ public class JsonReader implements Closeable {
         if (reader == null) {
             throw new NullPointerException("in == null");
         }
-        this.in = reader;
+        this.f277in = reader;
     }
 
     public final void setLenient(boolean z) {
@@ -463,10 +465,10 @@ public class JsonReader implements Closeable {
                 }
                 if (c != ';') {
                     switch (c) {
-                        case R.styleable.AppCompatTheme_radioButtonStyle /* 91 */:
-                        case R.styleable.AppCompatTheme_ratingBarStyleIndicator /* 93 */:
+                        case C0032R.styleable.AppCompatTheme_radioButtonStyle /* 91 */:
+                        case C0032R.styleable.AppCompatTheme_ratingBarStyleIndicator /* 93 */:
                             return false;
-                        case R.styleable.AppCompatTheme_ratingBarStyle /* 92 */:
+                        case C0032R.styleable.AppCompatTheme_ratingBarStyle /* 92 */:
                             break;
                         default:
                             return true;
@@ -1012,7 +1014,7 @@ public class JsonReader implements Closeable {
         this.peeked = 0;
         this.stack[0] = 8;
         this.stackSize = 1;
-        this.in.close();
+        this.f277in.close();
     }
 
     public void skipValue() throws IOException {
@@ -1093,7 +1095,7 @@ public class JsonReader implements Closeable {
         }
         this.pos = 0;
         do {
-            Reader reader = this.in;
+            Reader reader = this.f277in;
             int i8 = this.limit;
             int read = reader.read(cArr, i8, cArr.length - i8);
             if (read == -1) {

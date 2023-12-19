@@ -1,8 +1,8 @@
 package androidx.compose.foundation;
 
-import androidx.compose.foundation.gestures.ForEachGestureKt;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
+import androidx.compose.foundation.gestures.ForEachGesture;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -15,19 +15,19 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: AndroidOverscroll.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1", f = "AndroidOverscroll.kt", i = {}, l = {316}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1", m30f = "AndroidOverscroll.kt", m29i = {}, m28l = {316}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class AndroidEdgeEffectOverscrollEffect$effectModifier$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
     private /* synthetic */ Object L$0;
     int label;
-    final /* synthetic */ AndroidEdgeEffectOverscrollEffect this$0;
+    final /* synthetic */ AndroidOverscroll this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AndroidEdgeEffectOverscrollEffect$effectModifier$1(AndroidEdgeEffectOverscrollEffect androidEdgeEffectOverscrollEffect, Continuation<? super AndroidEdgeEffectOverscrollEffect$effectModifier$1> continuation) {
+    public AndroidEdgeEffectOverscrollEffect$effectModifier$1(AndroidOverscroll androidOverscroll, Continuation<? super AndroidEdgeEffectOverscrollEffect$effectModifier$1> continuation) {
         super(2, continuation);
-        this.this$0 = androidEdgeEffectOverscrollEffect;
+        this.this$0 = androidOverscroll;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -44,31 +44,31 @@ public final class AndroidEdgeEffectOverscrollEffect$effectModifier$1 extends Su
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: AndroidOverscroll.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1$1", f = "AndroidOverscroll.kt", i = {0, 1}, l = {317, 321}, m = "invokeSuspend", n = {"$this$awaitEachGesture", "$this$awaitEachGesture"}, s = {"L$0", "L$0"})
-    /* renamed from: androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1$1", m30f = "AndroidOverscroll.kt", m29i = {0, 1}, m28l = {317, 321}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture", "$this$awaitEachGesture"}, m25s = {"L$0", "L$0"})
+    /* renamed from: androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+    public static final class C01621 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
         private /* synthetic */ Object L$0;
         int label;
-        final /* synthetic */ AndroidEdgeEffectOverscrollEffect this$0;
+        final /* synthetic */ AndroidOverscroll this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        AnonymousClass1(AndroidEdgeEffectOverscrollEffect androidEdgeEffectOverscrollEffect, Continuation<? super AnonymousClass1> continuation) {
+        C01621(AndroidOverscroll androidOverscroll, Continuation<? super C01621> continuation) {
             super(2, continuation);
-            this.this$0 = androidEdgeEffectOverscrollEffect;
+            this.this$0 = androidOverscroll;
         }
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.this$0, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C01621 c01621 = new C01621(this.this$0, continuation);
+            c01621.L$0 = obj;
+            return c01621;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C01621) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:16:0x006f A[RETURN] */
@@ -91,7 +91,7 @@ public final class AndroidEdgeEffectOverscrollEffect$effectModifier$1 extends Su
                 Method dump skipped, instructions count: 259
                 To view this dump change 'Code comments level' option to 'DEBUG'
             */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.AndroidEdgeEffectOverscrollEffect$effectModifier$1.C01621.invokeSuspend(java.lang.Object):java.lang.Object");
         }
     }
 
@@ -102,7 +102,7 @@ public final class AndroidEdgeEffectOverscrollEffect$effectModifier$1 extends Su
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (ForEachGestureKt.awaitEachGesture((PointerInputScope) this.L$0, new AnonymousClass1(this.this$0, null), this) == coroutine_suspended) {
+            if (ForEachGesture.awaitEachGesture((PointerInputScope) this.L$0, new C01621(this.this$0, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

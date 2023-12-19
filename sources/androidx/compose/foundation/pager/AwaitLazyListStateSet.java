@@ -7,7 +7,7 @@ import kotlin.coroutines.Continuation;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: PagerState.kt */
-@Metadata(d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\b\u001a\u00020\u0005J\u0011\u0010\t\u001a\u00020\u0005H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\nR\u0016\u0010\u0003\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000b"}, d2 = {"Landroidx/compose/foundation/pager/AwaitLazyListStateSet;", "", "()V", "continuation", "Lkotlin/coroutines/Continuation;", "", "stateWasLoaded", "", "onStateLoaded", "waitFinalLazyListSetting", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "foundation_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\b\u001a\u00020\u0005J\u0011\u0010\t\u001a\u00020\u0005H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\nR\u0016\u0010\u0003\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u000b"}, m40d2 = {"Landroidx/compose/foundation/pager/AwaitLazyListStateSet;", "", "()V", "continuation", "Lkotlin/coroutines/Continuation;", "", "stateWasLoaded", "", "onStateLoaded", "waitFinalLazyListSetting", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "foundation_release"}, m39k = 1, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class AwaitLazyListStateSet {
     private Continuation<? super Unit> continuation;
@@ -74,7 +74,7 @@ public final class AwaitLazyListStateSet {
             java.lang.Object r2 = r2.getOrThrow()
             java.lang.Object r3 = kotlin.coroutines.intrinsics.IntrinsicsKt.getCOROUTINE_SUSPENDED()
             if (r2 != r3) goto L66
-            kotlin.coroutines.jvm.internal.DebugProbesKt.probeCoroutineSuspended(r0)
+            kotlin.coroutines.jvm.internal.DebugProbes.probeCoroutineSuspended(r0)
         L66:
             if (r2 != r1) goto L69
             return r1
@@ -84,7 +84,7 @@ public final class AwaitLazyListStateSet {
             if (r1 == 0) goto L77
             kotlin.Result$Companion r5 = kotlin.Result.Companion
             kotlin.Unit r5 = kotlin.Unit.INSTANCE
-            java.lang.Object r5 = kotlin.Result.m5373constructorimpl(r5)
+            java.lang.Object r5 = kotlin.Result.m5649constructorimpl(r5)
             r1.resumeWith(r5)
         L77:
             kotlin.Unit r5 = kotlin.Unit.INSTANCE
@@ -101,7 +101,7 @@ public final class AwaitLazyListStateSet {
         Continuation<? super Unit> continuation = this.continuation;
         if (continuation != null) {
             Result.Companion companion = Result.Companion;
-            continuation.resumeWith(Result.m5373constructorimpl(Unit.INSTANCE));
+            continuation.resumeWith(Result.m5649constructorimpl(Unit.INSTANCE));
         }
         this.continuation = null;
     }

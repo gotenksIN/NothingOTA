@@ -52,7 +52,7 @@ public class TypefaceEmojiRasterizer {
     }
 
     public int getId() {
-        return getMetadataItem().id();
+        return getMetadataItem().m251id();
     }
 
     public int getWidth() {

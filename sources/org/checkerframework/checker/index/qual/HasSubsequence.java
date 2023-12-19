@@ -19,5 +19,6 @@ public @interface HasSubsequence {
     String subsequence();
 
     @JavaExpression
-    String to();
+    /* renamed from: to */
+    String m5to();
 }

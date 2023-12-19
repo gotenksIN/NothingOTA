@@ -1,7 +1,7 @@
 package androidx.compose.foundation.text.selection;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TextSelectionMouseDetector.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.selection.TextSelectionMouseDetectorKt$mouseSelectionDetector$2", f = "TextSelectionMouseDetector.kt", i = {0, 0, 1, 1, 2, 2}, l = {R.styleable.AppCompatTheme_popupMenuStyle, R.styleable.AppCompatTheme_seekBarStyle, R.styleable.AppCompatTheme_textColorSearchUrl}, m = "invokeSuspend", n = {"$this$awaitEachGesture", "clicksCounter", "$this$awaitEachGesture", "clicksCounter", "$this$awaitEachGesture", "clicksCounter"}, s = {"L$0", "L$1", "L$0", "L$1", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.selection.TextSelectionMouseDetectorKt$mouseSelectionDetector$2", m30f = "TextSelectionMouseDetector.kt", m29i = {0, 0, 1, 1, 2, 2}, m28l = {C0032R.styleable.AppCompatTheme_popupMenuStyle, C0032R.styleable.AppCompatTheme_seekBarStyle, C0032R.styleable.AppCompatTheme_textColorSearchUrl}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture", "clicksCounter", "$this$awaitEachGesture", "clicksCounter", "$this$awaitEachGesture", "clicksCounter"}, m25s = {"L$0", "L$1", "L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class TextSelectionMouseDetectorKt$mouseSelectionDetector$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ MouseSelectionObserver $observer;

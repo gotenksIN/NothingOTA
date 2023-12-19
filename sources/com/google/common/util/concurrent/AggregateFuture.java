@@ -80,7 +80,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AggregateFutureSt
                 next.addListener(new Runnable() { // from class: com.google.common.util.concurrent.AggregateFuture$$ExternalSyntheticLambda0
                     @Override // java.lang.Runnable
                     public final void run() {
-                        AggregateFuture.this.m5335lambda$init$0$comgooglecommonutilconcurrentAggregateFuture(next, i);
+                        AggregateFuture.this.m5616lambda$init$0$comgooglecommonutilconcurrentAggregateFuture(next, i);
                     }
                 }, MoreExecutors.directExecutor());
                 i++;
@@ -90,7 +90,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AggregateFutureSt
             Runnable runnable = new Runnable() { // from class: com.google.common.util.concurrent.AggregateFuture$$ExternalSyntheticLambda1
                 @Override // java.lang.Runnable
                 public final void run() {
-                    AggregateFuture.this.m5336lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(immutableCollection);
+                    AggregateFuture.this.m5617lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(immutableCollection);
                 }
             };
             UnmodifiableIterator<? extends ListenableFuture<? extends InputT>> it2 = this.futures.iterator();
@@ -102,7 +102,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AggregateFutureSt
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: lambda$init$0$com-google-common-util-concurrent-AggregateFuture  reason: not valid java name */
-    public /* synthetic */ void m5335lambda$init$0$comgooglecommonutilconcurrentAggregateFuture(ListenableFuture listenableFuture, int i) {
+    public /* synthetic */ void m5616lambda$init$0$comgooglecommonutilconcurrentAggregateFuture(ListenableFuture listenableFuture, int i) {
         try {
             if (listenableFuture.isCancelled()) {
                 this.futures = null;
@@ -111,7 +111,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AggregateFutureSt
                 collectValueFromNonCancelledFuture(i, listenableFuture);
             }
         } finally {
-            m5336lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(null);
+            m5617lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(null);
         }
     }
 
@@ -150,7 +150,7 @@ public abstract class AggregateFuture<InputT, OutputT> extends AggregateFutureSt
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: decrementCountAndMaybeComplete */
-    public void m5336lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(@CheckForNull ImmutableCollection<? extends Future<? extends InputT>> immutableCollection) {
+    public void m5617lambda$init$1$comgooglecommonutilconcurrentAggregateFuture(@CheckForNull ImmutableCollection<? extends Future<? extends InputT>> immutableCollection) {
         int decrementRemainingAndGet = decrementRemainingAndGet();
         Preconditions.checkState(decrementRemainingAndGet >= 0, "Less than 0 remaining futures");
         if (decrementRemainingAndGet == 0) {

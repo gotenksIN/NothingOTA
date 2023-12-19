@@ -1,6 +1,6 @@
 package kotlinx.coroutines;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Await.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.AwaitKt", f = "Await.kt", i = {0}, l = {R.styleable.AppCompatTheme_colorControlHighlight}, m = "joinAll", n = {"$this$forEach$iv"}, s = {"L$0"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.AwaitKt", m30f = "Await.kt", m29i = {0}, m28l = {C0032R.styleable.AppCompatTheme_colorControlHighlight}, m27m = "joinAll", m26n = {"$this$forEach$iv"}, m25s = {"L$0"})
 /* loaded from: classes2.dex */
 public final class AwaitKt$joinAll$1 extends ContinuationImpl {
     int I$0;

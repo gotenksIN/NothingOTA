@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Draggable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.DragLogic", f = "Draggable.kt", i = {0, 0, 0}, l = {414, 417}, m = "processDragStop", n = {"this", "$this$processDragStop", NotificationCompat.CATEGORY_EVENT}, s = {"L$0", "L$1", "L$2"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.DragLogic", m30f = "Draggable.kt", m29i = {0, 0, 0}, m28l = {414, 417}, m27m = "processDragStop", m26n = {"this", "$this$processDragStop", NotificationCompat.CATEGORY_EVENT}, m25s = {"L$0", "L$1", "L$2"})
 /* loaded from: classes.dex */
 public final class DragLogic$processDragStop$1 extends ContinuationImpl {
     Object L$0;

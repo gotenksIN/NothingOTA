@@ -8,8 +8,8 @@ import kotlinx.coroutines.channels.ReceiveChannel;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Channel.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ReceiveChannel$DefaultImpls", f = "Channel.kt", i = {}, l = {354}, m = "receiveOrNull", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ReceiveChannel$DefaultImpls", m30f = "Channel.kt", m29i = {}, m28l = {354}, m27m = "receiveOrNull", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class ReceiveChannel$receiveOrNull$1<E> extends ContinuationImpl {
     int label;

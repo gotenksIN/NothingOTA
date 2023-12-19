@@ -11,9 +11,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Transformation;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 import androidx.core.view.OneShotPreDrawListener;
-import androidx.fragment.R;
+import androidx.fragment.C0894R;
 import androidx.fragment.app.FragmentTransition;
 
 /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,8 +28,8 @@ public class FragmentAnim {
         int nextAnim = getNextAnim(fragment, z, z2);
         boolean z3 = false;
         fragment.setAnimations(0, 0, 0, 0);
-        if (fragment.mContainer != null && fragment.mContainer.getTag(R.id.visible_removing_fragment_view_tag) != null) {
-            fragment.mContainer.setTag(R.id.visible_removing_fragment_view_tag, null);
+        if (fragment.mContainer != null && fragment.mContainer.getTag(C0894R.C0896id.visible_removing_fragment_view_tag) != null) {
+            fragment.mContainer.setTag(C0894R.C0896id.visible_removing_fragment_view_tag, null);
         }
         if (fragment.mContainer == null || fragment.mContainer.getLayoutTransition() == null) {
             Animation onCreateAnimation = fragment.onCreateAnimation(nextTransition, z, nextAnim);
@@ -99,7 +99,7 @@ public class FragmentAnim {
         viewGroup.startViewTransition(view);
         final CancellationSignal cancellationSignal = new CancellationSignal();
         cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener() { // from class: androidx.fragment.app.FragmentAnim.1
-            @Override // androidx.core.os.CancellationSignal.OnCancelListener
+            @Override // androidx.core.p004os.CancellationSignal.OnCancelListener
             public void onCancel() {
                 if (Fragment.this.getAnimatingAway() != null) {
                     View animatingAway = Fragment.this.getAnimatingAway();
@@ -158,13 +158,13 @@ public class FragmentAnim {
 
     private static int transitToAnimResourceId(int i, boolean z) {
         if (i == 4097) {
-            return z ? R.animator.fragment_open_enter : R.animator.fragment_open_exit;
+            return z ? C0894R.animator.fragment_open_enter : C0894R.animator.fragment_open_exit;
         } else if (i == 4099) {
-            return z ? R.animator.fragment_fade_enter : R.animator.fragment_fade_exit;
+            return z ? C0894R.animator.fragment_fade_enter : C0894R.animator.fragment_fade_exit;
         } else if (i != 8194) {
             return -1;
         } else {
-            return z ? R.animator.fragment_close_enter : R.animator.fragment_close_exit;
+            return z ? C0894R.animator.fragment_close_enter : C0894R.animator.fragment_close_exit;
         }
     }
 

@@ -7,7 +7,7 @@ import android.os.SystemProperties;
 import android.util.Log;
 import com.nothing.OfflineOTAUpgradeApp.PayloadSpec;
 import com.nothing.OfflineOTAUpgradeApp.UpdateManager;
-import com.nothing.OfflineOTAUpgradeApp.ui.MainActivity;
+import com.nothing.OfflineOTAUpgradeApp.p007ui.MainActivity;
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +17,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: UpdateUtils.kt */
-@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0007\u0018\u0000 \u001d2\u00020\u0001:\u0002\u001d\u001eB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\f\u001a\u00020\rJ\u0016\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J\u0006\u0010\u0014\u001a\u00020\u000fJ\u001c\u0010\u0015\u001a\u00020\u000f2\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u0017H\u0002J\u0006\u0010\u0018\u001a\u00020\rJ\u001c\u0010\u0019\u001a\u00020\u001a2\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u001bH\u0002J\u000e\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u0010\u001a\u00020\u0011R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\b\u0018\u00010\nR\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils;", "", "appContext", "Landroid/content/Context;", "updateManager", "Lcom/nothing/OfflineOTAUpgradeApp/UpdateManager;", "otaPrefs", "Lcom/nothing/OfflineOTAUpgradeApp/util/OTAPrefs;", "(Landroid/content/Context;Lcom/nothing/OfflineOTAUpgradeApp/UpdateManager;Lcom/nothing/OfflineOTAUpgradeApp/util/OTAPrefs;)V", "wakeLock", "Landroid/os/PowerManager$WakeLock;", "Landroid/os/PowerManager;", "acquireWakeLock", "", "applyOTAFile", "", "otaFileId", "", "otaApplyMetadata", "Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata;", "deleteOtaFile", "isHardwareAndVersionVerifyFail", "metaFileMap", "", "releaseWakeLock", "verifyMetaDataFile", "", "Ljava/util/HashMap;", "verifyOTAFile", "Companion", "OTAApplyMetadata", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010$\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0007\u0018\u0000 \u001d2\u00020\u0001:\u0002\u001d\u001eB\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\f\u001a\u00020\rJ\u0016\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J\u0006\u0010\u0014\u001a\u00020\u000fJ\u001c\u0010\u0015\u001a\u00020\u000f2\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u0017H\u0002J\u0006\u0010\u0018\u001a\u00020\rJ\u001c\u0010\u0019\u001a\u00020\u001a2\u0012\u0010\u0016\u001a\u000e\u0012\u0004\u0012\u00020\u0011\u0012\u0004\u0012\u00020\u00110\u001bH\u0002J\u000e\u0010\u001c\u001a\u00020\u00132\u0006\u0010\u0010\u001a\u00020\u0011R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\b\u0018\u00010\nR\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001f"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils;", "", "appContext", "Landroid/content/Context;", "updateManager", "Lcom/nothing/OfflineOTAUpgradeApp/UpdateManager;", "otaPrefs", "Lcom/nothing/OfflineOTAUpgradeApp/util/OTAPrefs;", "(Landroid/content/Context;Lcom/nothing/OfflineOTAUpgradeApp/UpdateManager;Lcom/nothing/OfflineOTAUpgradeApp/util/OTAPrefs;)V", "wakeLock", "Landroid/os/PowerManager$WakeLock;", "Landroid/os/PowerManager;", "acquireWakeLock", "", "applyOTAFile", "", "otaFileId", "", "otaApplyMetadata", "Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata;", "deleteOtaFile", "isHardwareAndVersionVerifyFail", "metaFileMap", "", "releaseWakeLock", "verifyMetaDataFile", "", "Ljava/util/HashMap;", "verifyOTAFile", "Companion", "OTAApplyMetadata", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class UpdateUtils {
     public static final String KEY_POST_OTA_VERSION = "POST_OTA_VERSION";
@@ -45,7 +45,7 @@ public final class UpdateUtils {
     }
 
     /* compiled from: UpdateUtils.kt */
-    @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\b\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \r*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000e"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$Companion;", "", "()V", "KEY_POST_OTA_VERSION", "", "METADATA_VERIFY_STATE_ERROR_1", "", "METADATA_VERIFY_STATE_ERROR_2", "METADATA_VERIFY_STATE_ERROR_3", "METADATA_VERIFY_STATE_ERROR_FILE", "METADATA_VERIFY_STATE_SUCCESS", "SDCARD_DATA_PATH", "TAG", "kotlin.jvm.PlatformType", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\b\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u0016\u0010\f\u001a\n \r*\u0004\u0018\u00010\u00040\u0004X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u000e"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$Companion;", "", "()V", "KEY_POST_OTA_VERSION", "", "METADATA_VERIFY_STATE_ERROR_1", "", "METADATA_VERIFY_STATE_ERROR_2", "METADATA_VERIFY_STATE_ERROR_3", "METADATA_VERIFY_STATE_ERROR_FILE", "METADATA_VERIFY_STATE_SUCCESS", "SDCARD_DATA_PATH", "TAG", "kotlin.jvm.PlatformType", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class Companion {
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -57,7 +57,7 @@ public final class UpdateUtils {
     }
 
     /* compiled from: UpdateUtils.kt */
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0012\n\u0002\u0010\u000b\n\u0002\b\u0005\b\u0087\b\u0018\u0000  2\u00020\u0001:\u0001 B;\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0005\u0012\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b\u0012\b\b\u0002\u0010\n\u001a\u00020\t¢\u0006\u0002\u0010\u000bJ\t\u0010\u0015\u001a\u00020\u0003HÆ\u0003J\t\u0010\u0016\u001a\u00020\u0005HÆ\u0003J\t\u0010\u0017\u001a\u00020\u0005HÆ\u0003J\u000f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\t0\bHÆ\u0003J\t\u0010\u0019\u001a\u00020\tHÆ\u0003JA\u0010\u001a\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b2\b\b\u0002\u0010\n\u001a\u00020\tHÆ\u0001J\u0013\u0010\u001b\u001a\u00020\u001c2\b\u0010\u001d\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001e\u001a\u00020\u0003HÖ\u0001J\t\u0010\u001f\u001a\u00020\tHÖ\u0001R\u0011\u0010\n\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u000fR\u0017\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014¨\u0006!"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata;", "", "verifyState", "", "payloadOffset", "", "payloadSize", "properties", "", "", "buildNumber", "(IJJLjava/util/List;Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "getPayloadOffset", "()J", "getPayloadSize", "getProperties", "()Ljava/util/List;", "getVerifyState", "()I", "component1", "component2", "component3", "component4", "component5", "copy", "equals", "", "other", "hashCode", "toString", "Companion", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m41d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0012\n\u0002\u0010\u000b\n\u0002\b\u0005\b\u0087\b\u0018\u0000  2\u00020\u0001:\u0001 B;\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0005\u0012\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b\u0012\b\b\u0002\u0010\n\u001a\u00020\t¢\u0006\u0002\u0010\u000bJ\t\u0010\u0015\u001a\u00020\u0003HÆ\u0003J\t\u0010\u0016\u001a\u00020\u0005HÆ\u0003J\t\u0010\u0017\u001a\u00020\u0005HÆ\u0003J\u000f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\t0\bHÆ\u0003J\t\u0010\u0019\u001a\u00020\tHÆ\u0003JA\u0010\u001a\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00052\u000e\b\u0002\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b2\b\b\u0002\u0010\n\u001a\u00020\tHÆ\u0001J\u0013\u0010\u001b\u001a\u00020\u001c2\b\u0010\u001d\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001e\u001a\u00020\u0003HÖ\u0001J\t\u0010\u001f\u001a\u00020\tHÖ\u0001R\u0011\u0010\n\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000e\u0010\u000fR\u0011\u0010\u0006\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u000fR\u0017\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\b¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014¨\u0006!"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata;", "", "verifyState", "", "payloadOffset", "", "payloadSize", "properties", "", "", "buildNumber", "(IJJLjava/util/List;Ljava/lang/String;)V", "getBuildNumber", "()Ljava/lang/String;", "getPayloadOffset", "()J", "getPayloadSize", "getProperties", "()Ljava/util/List;", "getVerifyState", "()I", "component1", "component2", "component3", "component4", "component5", "copy", "equals", "", "other", "hashCode", "toString", "Companion", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public static final class OTAApplyMetadata {
         private final String buildNumber;
@@ -171,7 +171,7 @@ public final class UpdateUtils {
         }
 
         /* compiled from: UpdateUtils.kt */
-        @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002¨\u0006\u0003"}, d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata$Companion;", "", "()V", "NothingOfflineOtaUpdate_nothingRelease"}, k = 1, mv = {1, 9, 0}, xi = 48)
+        @Metadata(m41d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002¨\u0006\u0003"}, m40d2 = {"Lcom/nothing/OfflineOTAUpgradeApp/util/UpdateUtils$OTAApplyMetadata$Companion;", "", "()V", "NothingOfflineOtaUpdate_nothingRelease"}, m39k = 1, m38mv = {1, 9, 0}, m36xi = 48)
         /* loaded from: classes2.dex */
         public static final class Companion {
             public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {
@@ -217,8 +217,8 @@ public final class UpdateUtils {
         return -1;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x008c  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x0099 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x008e  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009b A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -232,97 +232,98 @@ public final class UpdateUtils {
             java.lang.String r3 = "ro.boot.hardware.sku"
             java.lang.String r4 = ""
             java.lang.String r3 = android.os.SystemProperties.get(r3, r4)
-            java.lang.String r4 = "EEA"
-            java.lang.String r5 = "IND"
+            java.lang.String r4 = "IND"
+            java.lang.String r5 = "JPN"
             java.lang.String r6 = "ROW"
-            java.lang.String[] r4 = new java.lang.String[]{r6, r4, r5}
+            java.lang.String r7 = "EEA"
+            java.lang.String[] r4 = new java.lang.String[]{r6, r7, r4, r5}
             r5 = 1
             r6 = 0
-            boolean r7 = r14.containsKey(r1)     // Catch: java.lang.NumberFormatException -> L87
-            if (r7 == 0) goto L87
-            java.lang.Object r14 = r14.get(r1)     // Catch: java.lang.NumberFormatException -> L87
-            kotlin.jvm.internal.Intrinsics.checkNotNull(r14)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.CharSequence r14 = (java.lang.CharSequence) r14     // Catch: java.lang.NumberFormatException -> L87
-            kotlin.text.Regex r1 = new kotlin.text.Regex     // Catch: java.lang.NumberFormatException -> L87
+            boolean r7 = r14.containsKey(r1)     // Catch: java.lang.NumberFormatException -> L89
+            if (r7 == 0) goto L89
+            java.lang.Object r14 = r14.get(r1)     // Catch: java.lang.NumberFormatException -> L89
+            kotlin.jvm.internal.Intrinsics.checkNotNull(r14)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.CharSequence r14 = (java.lang.CharSequence) r14     // Catch: java.lang.NumberFormatException -> L89
+            kotlin.text.Regex r1 = new kotlin.text.Regex     // Catch: java.lang.NumberFormatException -> L89
             java.lang.String r7 = "/"
-            r1.<init>(r7)     // Catch: java.lang.NumberFormatException -> L87
-            java.util.List r14 = r1.split(r14, r6)     // Catch: java.lang.NumberFormatException -> L87
+            r1.<init>(r7)     // Catch: java.lang.NumberFormatException -> L89
+            java.util.List r14 = r1.split(r14, r6)     // Catch: java.lang.NumberFormatException -> L89
             r1 = 2
-            java.lang.Object r14 = r14.get(r1)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.String r14 = (java.lang.String) r14     // Catch: java.lang.NumberFormatException -> L87
+            java.lang.Object r14 = r14.get(r1)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.String r14 = (java.lang.String) r14     // Catch: java.lang.NumberFormatException -> L89
             r1 = r14
-            java.lang.CharSequence r1 = (java.lang.CharSequence) r1     // Catch: java.lang.NumberFormatException -> L87
-            kotlin.text.Regex r7 = new kotlin.text.Regex     // Catch: java.lang.NumberFormatException -> L87
+            java.lang.CharSequence r1 = (java.lang.CharSequence) r1     // Catch: java.lang.NumberFormatException -> L89
+            kotlin.text.Regex r7 = new kotlin.text.Regex     // Catch: java.lang.NumberFormatException -> L89
             java.lang.String r8 = ":"
-            r7.<init>(r8)     // Catch: java.lang.NumberFormatException -> L87
-            java.util.List r1 = r7.split(r1, r6)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.Object r1 = r1.get(r5)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.NumberFormatException -> L87
-            int r1 = java.lang.Integer.parseInt(r1)     // Catch: java.lang.NumberFormatException -> L87
-            com.nothing.OfflineOTAUpgradeApp.util.LogUtil r7 = com.nothing.OfflineOTAUpgradeApp.util.LogUtil.INSTANCE     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.String r8 = com.nothing.OfflineOTAUpgradeApp.util.UpdateUtils.TAG     // Catch: java.lang.NumberFormatException -> L87
-            kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r8, r0)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.NumberFormatException -> L87
-            r9.<init>(r2)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.StringBuilder r2 = r9.append(r3)     // Catch: java.lang.NumberFormatException -> L87
+            r7.<init>(r8)     // Catch: java.lang.NumberFormatException -> L89
+            java.util.List r1 = r7.split(r1, r6)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.Object r1 = r1.get(r5)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.NumberFormatException -> L89
+            int r1 = java.lang.Integer.parseInt(r1)     // Catch: java.lang.NumberFormatException -> L89
+            com.nothing.OfflineOTAUpgradeApp.util.LogUtil r7 = com.nothing.OfflineOTAUpgradeApp.util.LogUtil.INSTANCE     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.String r8 = com.nothing.OfflineOTAUpgradeApp.util.UpdateUtils.TAG     // Catch: java.lang.NumberFormatException -> L89
+            kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r8, r0)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.NumberFormatException -> L89
+            r9.<init>(r2)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.StringBuilder r2 = r9.append(r3)     // Catch: java.lang.NumberFormatException -> L89
             java.lang.String r9 = " ,post-build="
-            java.lang.StringBuilder r2 = r2.append(r9)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.StringBuilder r14 = r2.append(r14)     // Catch: java.lang.NumberFormatException -> L87
+            java.lang.StringBuilder r2 = r2.append(r9)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.StringBuilder r14 = r2.append(r14)     // Catch: java.lang.NumberFormatException -> L89
             java.lang.String r2 = " ,metaDataAndroidVersion="
-            java.lang.StringBuilder r14 = r14.append(r2)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.StringBuilder r14 = r14.append(r1)     // Catch: java.lang.NumberFormatException -> L87
-            java.lang.String r9 = r14.toString()     // Catch: java.lang.NumberFormatException -> L87
+            java.lang.StringBuilder r14 = r14.append(r2)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.StringBuilder r14 = r14.append(r1)     // Catch: java.lang.NumberFormatException -> L89
+            java.lang.String r9 = r14.toString()     // Catch: java.lang.NumberFormatException -> L89
             r10 = 0
             r11 = 4
             r12 = 0
-            com.nothing.OfflineOTAUpgradeApp.util.LogUtil.d$default(r7, r8, r9, r10, r11, r12)     // Catch: java.lang.NumberFormatException -> L87
+            com.nothing.OfflineOTAUpgradeApp.util.LogUtil.d$default(r7, r8, r9, r10, r11, r12)     // Catch: java.lang.NumberFormatException -> L89
             r14 = 13
-            if (r1 < r14) goto L87
+            if (r1 < r14) goto L89
             r14 = r5
-            goto L88
-        L87:
-            r14 = r6
-        L88:
-            r1 = r6
+            goto L8a
         L89:
-            r2 = 3
-            if (r1 >= r2) goto L99
+            r14 = r6
+        L8a:
+            r1 = r6
+        L8b:
+            r2 = 4
+            if (r1 >= r2) goto L9b
             r2 = r4[r1]
             boolean r2 = kotlin.jvm.internal.Intrinsics.areEqual(r3, r2)
-            if (r2 == 0) goto L96
+            if (r2 == 0) goto L98
             r1 = r5
-            goto L9a
-        L96:
+            goto L9c
+        L98:
             int r1 = r1 + 1
-            goto L89
-        L99:
+            goto L8b
+        L9b:
             r1 = r6
-        L9a:
+        L9c:
             com.nothing.OfflineOTAUpgradeApp.util.LogUtil r7 = com.nothing.OfflineOTAUpgradeApp.util.LogUtil.INSTANCE
             java.lang.String r8 = com.nothing.OfflineOTAUpgradeApp.util.UpdateUtils.TAG
             kotlin.jvm.internal.Intrinsics.checkNotNullExpressionValue(r8, r0)
             java.lang.StringBuilder r0 = new java.lang.StringBuilder
             java.lang.String r2 = "isHardwareAndVersionVerify state="
             r0.<init>(r2)
-            if (r1 != 0) goto Lae
-            if (r14 == 0) goto Lae
+            if (r1 != 0) goto Lb0
+            if (r14 == 0) goto Lb0
             r2 = r5
-            goto Laf
-        Lae:
+            goto Lb1
+        Lb0:
             r2 = r6
-        Laf:
+        Lb1:
             java.lang.StringBuilder r0 = r0.append(r2)
             java.lang.String r9 = r0.toString()
             r10 = 0
             r11 = 4
             r12 = 0
             com.nothing.OfflineOTAUpgradeApp.util.LogUtil.d$default(r7, r8, r9, r10, r11, r12)
-            if (r1 != 0) goto Lc2
-            if (r14 == 0) goto Lc2
-            goto Lc3
-        Lc2:
+            if (r1 != 0) goto Lc4
+            if (r14 == 0) goto Lc4
+            goto Lc5
+        Lc4:
             r5 = r6
-        Lc3:
+        Lc5:
             return r5
         */
         throw new UnsupportedOperationException("Method not decompiled: com.nothing.OfflineOTAUpgradeApp.util.UpdateUtils.isHardwareAndVersionVerifyFail(java.util.Map):boolean");

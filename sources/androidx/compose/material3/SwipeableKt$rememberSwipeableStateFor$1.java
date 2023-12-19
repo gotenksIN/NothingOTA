@@ -12,8 +12,8 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: Swipeable.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableKt$rememberSwipeableStateFor$1", f = "Swipeable.kt", i = {}, l = {512}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableKt$rememberSwipeableStateFor$1", m30f = "Swipeable.kt", m29i = {}, m28l = {512}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SwipeableKt$rememberSwipeableStateFor$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ SwipeableState<T> $swipeableState;

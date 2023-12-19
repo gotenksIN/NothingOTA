@@ -141,7 +141,7 @@ public final class TypeAdapters {
                 Le:
                     com.google.gson.stream.JsonToken r4 = com.google.gson.stream.JsonToken.END_ARRAY
                     if (r1 == r4) goto L71
-                    int[] r4 = com.google.gson.internal.bind.TypeAdapters.AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken
+                    int[] r4 = com.google.gson.internal.bind.TypeAdapters.C163236.$SwitchMap$com$google$gson$stream$JsonToken
                     int r5 = r1.ordinal()
                     r4 = r4[r5]
                     r5 = 1
@@ -192,7 +192,7 @@ public final class TypeAdapters {
                     r8.endArray()
                     return r0
                 */
-                throw new UnsupportedOperationException("Method not decompiled: com.google.gson.internal.bind.TypeAdapters.AnonymousClass2.read(com.google.gson.stream.JsonReader):java.util.BitSet");
+                throw new UnsupportedOperationException("Method not decompiled: com.google.gson.internal.bind.TypeAdapters.C16122.read(com.google.gson.stream.JsonReader):java.util.BitSet");
             }
 
             @Override // com.google.gson.TypeAdapter
@@ -431,7 +431,7 @@ public final class TypeAdapters {
             @Override // com.google.gson.TypeAdapter
             public Number read(JsonReader jsonReader) throws IOException {
                 JsonToken peek = jsonReader.peek();
-                int i = AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[peek.ordinal()];
+                int i = C163236.$SwitchMap$com$google$gson$stream$JsonToken[peek.ordinal()];
                 if (i == 1 || i == 3) {
                     return new LazilyParsedNumber(jsonReader.nextString());
                 }
@@ -778,7 +778,7 @@ public final class TypeAdapters {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.google.gson.TypeAdapter
             public JsonElement read(JsonReader jsonReader) throws IOException {
-                switch (AnonymousClass36.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
+                switch (C163236.$SwitchMap$com$google$gson$stream$JsonToken[jsonReader.peek().ordinal()]) {
                     case 1:
                         return new JsonPrimitive((Number) new LazilyParsedNumber(jsonReader.nextString()));
                     case 2:
@@ -859,9 +859,9 @@ public final class TypeAdapters {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
+    /* renamed from: com.google.gson.internal.bind.TypeAdapters$36 */
     /* loaded from: classes2.dex */
-    public static /* synthetic */ class AnonymousClass36 {
+    public static /* synthetic */ class C163236 {
         static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 
         static {

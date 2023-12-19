@@ -1,32 +1,32 @@
 package androidx.compose.foundation.text;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.foundation.layout.SizeKt;
-import androidx.compose.foundation.layout.SpacerKt;
+import androidx.compose.foundation.layout.Spacer;
 import androidx.compose.foundation.text.selection.AndroidSelectionHandles_androidKt;
 import androidx.compose.foundation.text.selection.HandleReferencePoint;
 import androidx.compose.foundation.text.selection.TextSelectionColors;
 import androidx.compose.foundation.text.selection.TextSelectionColorsKt;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.draw.CacheDrawScope;
+import androidx.compose.p002ui.draw.DrawModifierKt;
+import androidx.compose.p002ui.draw.DrawResult;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.geometry.Size;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.ColorFilter;
+import androidx.compose.p002ui.graphics.ImageBitmap;
+import androidx.compose.p002ui.graphics.drawscope.ContentDrawScope;
+import androidx.compose.p002ui.graphics.drawscope.DrawContext;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.graphics.drawscope.DrawTransform;
+import androidx.compose.p002ui.unit.C0780Dp;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.RecomposeScopeImplKt;
 import androidx.compose.runtime.ScopeUpdateScope;
 import androidx.compose.runtime.internal.ComposableLambdaKt;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.draw.CacheDrawScope;
-import androidx.compose.ui.draw.DrawModifierKt;
-import androidx.compose.ui.draw.DrawResult;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.geometry.Size;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.ColorFilter;
-import androidx.compose.ui.graphics.ImageBitmap;
-import androidx.compose.ui.graphics.drawscope.ContentDrawScope;
-import androidx.compose.ui.graphics.drawscope.DrawContext;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.graphics.drawscope.DrawTransform;
-import androidx.compose.ui.unit.Dp;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -35,7 +35,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: AndroidCursorHandle.android.kt */
-@Metadata(d1 = {"\u0000.\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a:\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0013\u0010\u000f\u001a\u000f\u0012\u0004\u0012\u00020\n\u0018\u00010\u0010¢\u0006\u0002\b\u0011H\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013\u001a\u0015\u0010\u0014\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\u000eH\u0001¢\u0006\u0002\u0010\u0015\u001a\f\u0010\u0016\u001a\u00020\u000e*\u00020\u000eH\u0000\"\u0019\u0010\u0000\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0002\u0010\u0003\"\u0019\u0010\u0005\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0006\u0010\u0003\"\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006\u0017"}, d2 = {"CursorHandleHeight", "Landroidx/compose/ui/unit/Dp;", "getCursorHandleHeight", "()F", "F", "CursorHandleWidth", "getCursorHandleWidth", "Sqrt2", "", "CursorHandle", "", "handlePosition", "Landroidx/compose/ui/geometry/Offset;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "CursorHandle-ULxng0E", "(JLandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "DefaultCursorHandle", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V", "drawCursorHandle", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000.\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\u001a:\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0013\u0010\u000f\u001a\u000f\u0012\u0004\u0012\u00020\n\u0018\u00010\u0010¢\u0006\u0002\b\u0011H\u0001ø\u0001\u0001ø\u0001\u0000¢\u0006\u0004\b\u0012\u0010\u0013\u001a\u0015\u0010\u0014\u001a\u00020\n2\u0006\u0010\r\u001a\u00020\u000eH\u0001¢\u0006\u0002\u0010\u0015\u001a\f\u0010\u0016\u001a\u00020\u000e*\u00020\u000eH\u0000\"\u0019\u0010\u0000\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0002\u0010\u0003\"\u0019\u0010\u0005\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0006\u0010\u0003\"\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001¨\u0006\u0017"}, m40d2 = {"CursorHandleHeight", "Landroidx/compose/ui/unit/Dp;", "getCursorHandleHeight", "()F", "F", "CursorHandleWidth", "getCursorHandleWidth", "Sqrt2", "", "CursorHandle", "", "handlePosition", "Landroidx/compose/ui/geometry/Offset;", "modifier", "Landroidx/compose/ui/Modifier;", "content", "Lkotlin/Function0;", "Landroidx/compose/runtime/Composable;", "CursorHandle-ULxng0E", "(JLandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V", "DefaultCursorHandle", "(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;I)V", "drawCursorHandle", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class AndroidCursorHandle_androidKt {
     private static final float CursorHandleHeight;
@@ -51,7 +51,7 @@ public final class AndroidCursorHandle_androidKt {
     }
 
     /* renamed from: CursorHandle-ULxng0E  reason: not valid java name */
-    public static final void m692CursorHandleULxng0E(final long j, final Modifier modifier, final Function2<? super Composer, ? super Integer, Unit> function2, Composer composer, final int i) {
+    public static final void m993CursorHandleULxng0E(final long j, final Modifier modifier, final Function2<? super Composer, ? super Integer, Unit> function2, Composer composer, final int i) {
         final int i2;
         Intrinsics.checkNotNullParameter(modifier, "modifier");
         Composer startRestartGroup = composer.startRestartGroup(-5185995);
@@ -61,7 +61,7 @@ public final class AndroidCursorHandle_androidKt {
         } else {
             i2 = i;
         }
-        if ((i & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
+        if ((i & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle) == 0) {
             i2 |= startRestartGroup.changed(modifier) ? 32 : 16;
         }
         if ((i & 896) == 0) {
@@ -71,7 +71,7 @@ public final class AndroidCursorHandle_androidKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(-5185995, i2, -1, "androidx.compose.foundation.text.CursorHandle (AndroidCursorHandle.android.kt:38)");
             }
-            AndroidSelectionHandles_androidKt.m801HandlePopupULxng0E(j, HandleReferencePoint.TopMiddle, ComposableLambdaKt.composableLambda(startRestartGroup, -1458480226, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.foundation.text.AndroidCursorHandle_androidKt$CursorHandle$1
+            AndroidSelectionHandles_androidKt.m1102HandlePopupULxng0E(j, HandleReferencePoint.TopMiddle, ComposableLambdaKt.composableLambda(startRestartGroup, -1458480226, true, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.foundation.text.AndroidCursorHandle_androidKt$CursorHandle$1
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 /* JADX WARN: Multi-variable type inference failed */
@@ -136,7 +136,7 @@ public final class AndroidCursorHandle_androidKt {
             }
 
             public final void invoke(Composer composer2, int i3) {
-                AndroidCursorHandle_androidKt.m692CursorHandleULxng0E(j, modifier, function2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
+                AndroidCursorHandle_androidKt.m993CursorHandleULxng0E(j, modifier, function2, composer2, RecomposeScopeImplKt.updateChangedFlags(i | 1));
             }
         });
     }
@@ -155,7 +155,7 @@ public final class AndroidCursorHandle_androidKt {
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventStart(694251107, i, -1, "androidx.compose.foundation.text.DefaultCursorHandle (AndroidCursorHandle.android.kt:57)");
             }
-            SpacerKt.Spacer(drawCursorHandle(SizeKt.m460sizeVpY3zN4(modifier, CursorHandleWidth, CursorHandleHeight)), startRestartGroup, 0);
+            Spacer.Spacer(drawCursorHandle(SizeKt.m761sizeVpY3zN4(modifier, CursorHandleWidth, CursorHandleHeight)), startRestartGroup, 0);
             if (ComposerKt.isTraceInProgress()) {
                 ComposerKt.traceEventEnd();
             }
@@ -203,12 +203,12 @@ public final class AndroidCursorHandle_androidKt {
                 ComposerKt.sourceInformationMarkerStart(composer, 2023513938, "CC:CompositionLocal.kt#9igjgp");
                 Object consume = composer.consume(TextSelectionColorsKt.getLocalTextSelectionColors());
                 ComposerKt.sourceInformationMarkerEnd(composer);
-                final long m885getHandleColor0d7_KjU = ((TextSelectionColors) consume).m885getHandleColor0d7_KjU();
+                final long m1186getHandleColor0d7_KjU = ((TextSelectionColors) consume).m1186getHandleColor0d7_KjU();
                 Modifier.Companion companion = Modifier.Companion;
-                Color m2546boximpl = Color.m2546boximpl(m885getHandleColor0d7_KjU);
+                Color m2847boximpl = Color.m2847boximpl(m1186getHandleColor0d7_KjU);
                 composer.startReplaceableGroup(1157296644);
                 ComposerKt.sourceInformation(composer, "CC(remember)P(1):Composables.kt#9igjgp");
-                boolean changed = composer.changed(m2546boximpl);
+                boolean changed = composer.changed(m2847boximpl);
                 Object rememberedValue = composer.rememberedValue();
                 if (changed || rememberedValue == Composer.Companion.getEmpty()) {
                     rememberedValue = (Function1) new Function1<CacheDrawScope, DrawResult>() { // from class: androidx.compose.foundation.text.AndroidCursorHandle_androidKt$drawCursorHandle$1$1$1
@@ -221,9 +221,9 @@ public final class AndroidCursorHandle_androidKt {
                         @Override // kotlin.jvm.functions.Function1
                         public final DrawResult invoke(CacheDrawScope drawWithCache) {
                             Intrinsics.checkNotNullParameter(drawWithCache, "$this$drawWithCache");
-                            final float m2387getWidthimpl = Size.m2387getWidthimpl(drawWithCache.m2228getSizeNHjbRc()) / 2.0f;
-                            final ImageBitmap createHandleImage = AndroidSelectionHandles_androidKt.createHandleImage(drawWithCache, m2387getWidthimpl);
-                            final ColorFilter m2597tintxETnrds$default = ColorFilter.Companion.m2597tintxETnrds$default(ColorFilter.Companion, m885getHandleColor0d7_KjU, 0, 2, null);
+                            final float m2688getWidthimpl = Size.m2688getWidthimpl(drawWithCache.m2529getSizeNHjbRc()) / 2.0f;
+                            final ImageBitmap createHandleImage = AndroidSelectionHandles_androidKt.createHandleImage(drawWithCache, m2688getWidthimpl);
+                            final ColorFilter m2898tintxETnrds$default = ColorFilter.Companion.m2898tintxETnrds$default(ColorFilter.Companion, m1186getHandleColor0d7_KjU, 0, 2, null);
                             return drawWithCache.onDrawWithContent(new Function1<ContentDrawScope, Unit>() { // from class: androidx.compose.foundation.text.AndroidCursorHandle_androidKt$drawCursorHandle$1$1$1.1
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                 {
@@ -241,18 +241,18 @@ public final class AndroidCursorHandle_androidKt {
                                     Intrinsics.checkNotNullParameter(onDrawWithContent, "$this$onDrawWithContent");
                                     onDrawWithContent.drawContent();
                                     ContentDrawScope contentDrawScope = onDrawWithContent;
-                                    float f = m2387getWidthimpl;
+                                    float f = m2688getWidthimpl;
                                     ImageBitmap imageBitmap = createHandleImage;
-                                    ColorFilter colorFilter = m2597tintxETnrds$default;
+                                    ColorFilter colorFilter = m2898tintxETnrds$default;
                                     DrawContext drawContext = contentDrawScope.getDrawContext();
-                                    long mo3021getSizeNHjbRc = drawContext.mo3021getSizeNHjbRc();
+                                    long mo3322getSizeNHjbRc = drawContext.mo3322getSizeNHjbRc();
                                     drawContext.getCanvas().save();
                                     DrawTransform transform = drawContext.getTransform();
                                     DrawTransform.translate$default(transform, f, 0.0f, 2, null);
-                                    transform.mo3027rotateUv8p0NA(45.0f, Offset.Companion.m2334getZeroF1C5BW0());
-                                    DrawScope.m3081drawImagegbVJVH8$default(contentDrawScope, imageBitmap, 0L, 0.0f, null, colorFilter, 0, 46, null);
+                                    transform.mo3328rotateUv8p0NA(45.0f, Offset.Companion.m2635getZeroF1C5BW0());
+                                    DrawScope.m3382drawImagegbVJVH8$default(contentDrawScope, imageBitmap, 0L, 0.0f, null, colorFilter, 0, 46, null);
                                     drawContext.getCanvas().restore();
-                                    drawContext.mo3022setSizeuvyYCjk(mo3021getSizeNHjbRc);
+                                    drawContext.mo3323setSizeuvyYCjk(mo3322getSizeNHjbRc);
                                 }
                             });
                         }
@@ -271,8 +271,8 @@ public final class AndroidCursorHandle_androidKt {
     }
 
     static {
-        float m5050constructorimpl = Dp.m5050constructorimpl(25);
-        CursorHandleHeight = m5050constructorimpl;
-        CursorHandleWidth = Dp.m5050constructorimpl(Dp.m5050constructorimpl(m5050constructorimpl * 2.0f) / 2.4142137f);
+        float m5351constructorimpl = C0780Dp.m5351constructorimpl(25);
+        CursorHandleHeight = m5351constructorimpl;
+        CursorHandleWidth = C0780Dp.m5351constructorimpl(C0780Dp.m5351constructorimpl(m5351constructorimpl * 2.0f) / 2.4142137f);
     }
 }

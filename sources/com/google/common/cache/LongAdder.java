@@ -12,7 +12,8 @@ final class LongAdder extends Striped64 implements Serializable, LongAddable {
     private static final long serialVersionUID = 7249069246863182397L;
 
     @Override // com.google.common.cache.Striped64
-    final long fn(long j, long j2) {
+    /* renamed from: fn */
+    final long mo228fn(long j, long j2) {
         return j + j2;
     }
 

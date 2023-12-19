@@ -8,13 +8,13 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 /* compiled from: SearchBar.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class ComposableSingletons$SearchBarKt {
     public static final ComposableSingletons$SearchBarKt INSTANCE = new ComposableSingletons$SearchBarKt();
 
     /* renamed from: lambda-1  reason: not valid java name */
-    public static Function2<Composer, Integer, Unit> f30lambda1 = ComposableLambdaKt.composableLambdaInstance(-325163922, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$SearchBarKt$lambda-1$1
+    public static Function2<Composer, Integer, Unit> f346lambda1 = ComposableLambdaKt.composableLambdaInstance(-325163922, false, new Function2<Composer, Integer, Unit>() { // from class: androidx.compose.material3.ComposableSingletons$SearchBarKt$lambda-1$1
         @Override // kotlin.jvm.functions.Function2
         public /* bridge */ /* synthetic */ Unit invoke(Composer composer, Integer num) {
             invoke(composer, num.intValue());
@@ -37,7 +37,7 @@ public final class ComposableSingletons$SearchBarKt {
     });
 
     /* renamed from: getLambda-1$material3_release  reason: not valid java name */
-    public final Function2<Composer, Integer, Unit> m1056getLambda1$material3_release() {
-        return f30lambda1;
+    public final Function2<Composer, Integer, Unit> m1357getLambda1$material3_release() {
+        return f346lambda1;
     }
 }

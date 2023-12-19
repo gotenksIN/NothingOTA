@@ -118,7 +118,9 @@ public final class HttpHeaders {
     public static final String SET_COOKIE2 = "Set-Cookie2";
     public static final String SOURCE_MAP = "SourceMap";
     public static final String STRICT_TRANSPORT_SECURITY = "Strict-Transport-Security";
-    public static final String TE = "TE";
+
+    /* renamed from: TE */
+    public static final String f275TE = "TE";
     public static final String TIMING_ALLOW_ORIGIN = "Timing-Allow-Origin";
     public static final String TRAILER = "Trailer";
     public static final String TRANSFER_ENCODING = "Transfer-Encoding";

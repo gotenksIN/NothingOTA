@@ -40,7 +40,7 @@ public final class ProfileVerifier {
         r3 = 1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:69:0x00cf, code lost:
-        r3 = androidx.profileinstaller.ProfileVerifier.CompilationStatus.RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE;
+        r3 = androidx.profileinstaller.ProfileVerifier.CompilationStatus.f184xf2722a21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -145,7 +145,9 @@ public final class ProfileVerifier {
         public static final int RESULT_CODE_COMPILED_WITH_PROFILE = 1;
         public static final int RESULT_CODE_COMPILED_WITH_PROFILE_NON_MATCHING = 3;
         public static final int RESULT_CODE_ERROR_CACHE_FILE_EXISTS_BUT_CANNOT_BE_READ = 131072;
-        public static final int RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE = 196608;
+
+        /* renamed from: RESULT_CODE_ERROR_CANT_WRITE_PROFILE_VERIFICATION_RESULT_CACHE_FILE */
+        public static final int f184xf2722a21 = 196608;
         private static final int RESULT_CODE_ERROR_CODE_BIT_SHIFT = 16;
         public static final int RESULT_CODE_ERROR_PACKAGE_NAME_DOES_NOT_EXIST = 65536;
         public static final int RESULT_CODE_ERROR_UNSUPPORTED_API_VERSION = 262144;

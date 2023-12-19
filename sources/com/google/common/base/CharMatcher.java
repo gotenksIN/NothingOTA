@@ -78,8 +78,9 @@ public abstract class CharMatcher implements Predicate<Character> {
         return SingleWidth.INSTANCE;
     }
 
-    public static CharMatcher is(char c) {
-        return new Is(c);
+    /* renamed from: is */
+    public static CharMatcher m245is(char c) {
+        return new C1063Is(c);
     }
 
     public static CharMatcher isNot(char c) {
@@ -95,7 +96,7 @@ public abstract class CharMatcher implements Predicate<Character> {
                 }
                 return new AnyOf(charSequence);
             }
-            return is(charSequence.charAt(0));
+            return m245is(charSequence.charAt(0));
         }
         return none();
     }
@@ -123,8 +124,9 @@ public abstract class CharMatcher implements Predicate<Character> {
         return new And(this, charMatcher);
     }
 
-    public CharMatcher or(CharMatcher charMatcher) {
-        return new Or(this, charMatcher);
+    /* renamed from: or */
+    public CharMatcher mo244or(CharMatcher charMatcher) {
+        return new C1064Or(this, charMatcher);
     }
 
     public CharMatcher precomputed() {
@@ -169,7 +171,7 @@ public abstract class CharMatcher implements Predicate<Character> {
                     return new BitSetMatcher(bitSet, str);
                 }
             }
-            return is((char) bitSet.nextSetBit(0));
+            return m245is((char) bitSet.nextSetBit(0));
         }
         return none();
     }
@@ -567,7 +569,8 @@ public abstract class CharMatcher implements Predicate<Character> {
         }
 
         @Override // com.google.common.base.CharMatcher
-        public CharMatcher or(CharMatcher charMatcher) {
+        /* renamed from: or */
+        public CharMatcher mo244or(CharMatcher charMatcher) {
             Preconditions.checkNotNull(charMatcher);
             return this;
         }
@@ -670,7 +673,8 @@ public abstract class CharMatcher implements Predicate<Character> {
         }
 
         @Override // com.google.common.base.CharMatcher
-        public CharMatcher or(CharMatcher charMatcher) {
+        /* renamed from: or */
+        public CharMatcher mo244or(CharMatcher charMatcher) {
             return (CharMatcher) Preconditions.checkNotNull(charMatcher);
         }
 
@@ -1075,8 +1079,9 @@ public abstract class CharMatcher implements Predicate<Character> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.google.common.base.CharMatcher$Or */
     /* loaded from: classes.dex */
-    public static final class Or extends CharMatcher {
+    public static final class C1064Or extends CharMatcher {
         final CharMatcher first;
         final CharMatcher second;
 
@@ -1086,7 +1091,7 @@ public abstract class CharMatcher implements Predicate<Character> {
             return super.apply(ch);
         }
 
-        Or(CharMatcher charMatcher, CharMatcher charMatcher2) {
+        C1064Or(CharMatcher charMatcher, CharMatcher charMatcher2) {
             this.first = (CharMatcher) Preconditions.checkNotNull(charMatcher);
             this.second = (CharMatcher) Preconditions.checkNotNull(charMatcher2);
         }
@@ -1111,11 +1116,12 @@ public abstract class CharMatcher implements Predicate<Character> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.google.common.base.CharMatcher$Is */
     /* loaded from: classes.dex */
-    public static final class Is extends FastMatcher {
+    public static final class C1063Is extends FastMatcher {
         private final char match;
 
-        Is(char c) {
+        C1063Is(char c) {
             this.match = c;
         }
 
@@ -1135,8 +1141,9 @@ public abstract class CharMatcher implements Predicate<Character> {
         }
 
         @Override // com.google.common.base.CharMatcher
-        public CharMatcher or(CharMatcher charMatcher) {
-            return charMatcher.matches(this.match) ? charMatcher : super.or(charMatcher);
+        /* renamed from: or */
+        public CharMatcher mo244or(CharMatcher charMatcher) {
+            return charMatcher.matches(this.match) ? charMatcher : super.mo244or(charMatcher);
         }
 
         @Override // com.google.common.base.CharMatcher.FastMatcher, com.google.common.base.CharMatcher
@@ -1176,7 +1183,8 @@ public abstract class CharMatcher implements Predicate<Character> {
         }
 
         @Override // com.google.common.base.CharMatcher
-        public CharMatcher or(CharMatcher charMatcher) {
+        /* renamed from: or */
+        public CharMatcher mo244or(CharMatcher charMatcher) {
             return charMatcher.matches(this.match) ? any() : this;
         }
 
@@ -1188,7 +1196,7 @@ public abstract class CharMatcher implements Predicate<Character> {
 
         @Override // com.google.common.base.CharMatcher.FastMatcher, com.google.common.base.CharMatcher
         public CharMatcher negate() {
-            return is(this.match);
+            return m245is(this.match);
         }
 
         @Override // com.google.common.base.CharMatcher

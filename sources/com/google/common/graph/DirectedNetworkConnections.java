@@ -15,7 +15,8 @@ final class DirectedNetworkConnections<N, E> extends AbstractDirectedNetworkConn
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static <N, E> DirectedNetworkConnections<N, E> of() {
+    /* renamed from: of */
+    public static <N, E> DirectedNetworkConnections<N, E> m99of() {
         return new DirectedNetworkConnections<>(HashBiMap.create(2), HashBiMap.create(2), 0);
     }
 

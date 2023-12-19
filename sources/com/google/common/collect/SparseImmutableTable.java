@@ -13,7 +13,7 @@ import java.util.Objects;
 @ElementTypesAreNonnullByDefault
 /* loaded from: classes2.dex */
 public final class SparseImmutableTable<R, C, V> extends RegularImmutableTable<R, C, V> {
-    static final ImmutableTable<Object, Object, Object> EMPTY = new SparseImmutableTable(ImmutableList.of(), ImmutableSet.of(), ImmutableSet.of());
+    static final ImmutableTable<Object, Object, Object> EMPTY = new SparseImmutableTable(ImmutableList.m211of(), ImmutableSet.m164of(), ImmutableSet.m164of());
     private final int[] cellColumnInRowIndices;
     private final int[] cellRowIndices;
     private final ImmutableMap<C, ImmutableMap<R, V>> columnMap;

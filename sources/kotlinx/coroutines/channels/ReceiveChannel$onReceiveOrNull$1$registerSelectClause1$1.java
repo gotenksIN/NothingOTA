@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Add missing generic type declarations: [R, E] */
 /* compiled from: Channel.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0004\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001\"\u0006\b\u0001\u0010\u0002 \u00012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "R", "E", "it", "Lkotlinx/coroutines/channels/ChannelResult;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1", f = "Channel.kt", i = {}, l = {375}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0004\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001\"\u0006\b\u0001\u0010\u0002 \u00012\f\u0010\u0003\u001a\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "R", "E", "it", "Lkotlinx/coroutines/channels/ChannelResult;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1", m30f = "Channel.kt", m29i = {}, m28l = {375}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1<E, R> extends SuspendLambda implements Function2<ChannelResult<? extends E>, Continuation<? super R>, Object> {
     final /* synthetic */ Function2<E, Continuation<? super R>, Object> $block;
@@ -36,12 +36,12 @@ final class ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1<E, R> exten
 
     @Override // kotlin.jvm.functions.Function2
     public /* bridge */ /* synthetic */ Object invoke(Object obj, Object obj2) {
-        return m6901invokeWpGqRn0(((ChannelResult) obj).m6897unboximpl(), (Continuation) obj2);
+        return m7177invokeWpGqRn0(((ChannelResult) obj).m7173unboximpl(), (Continuation) obj2);
     }
 
     /* renamed from: invoke-WpGqRn0  reason: not valid java name */
-    public final Object m6901invokeWpGqRn0(Object obj, Continuation<? super R> continuation) {
-        return ((ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1) create(ChannelResult.m6885boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
+    public final Object m7177invokeWpGqRn0(Object obj, Continuation<? super R> continuation) {
+        return ((ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1) create(ChannelResult.m7161boximpl(obj), continuation)).invokeSuspend(Unit.INSTANCE);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -51,14 +51,14 @@ final class ReceiveChannel$onReceiveOrNull$1$registerSelectClause1$1<E, R> exten
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            Object m6897unboximpl = ((ChannelResult) this.L$0).m6897unboximpl();
-            Throwable m6889exceptionOrNullimpl = ChannelResult.m6889exceptionOrNullimpl(m6897unboximpl);
-            if (m6889exceptionOrNullimpl != null) {
-                throw m6889exceptionOrNullimpl;
+            Object m7173unboximpl = ((ChannelResult) this.L$0).m7173unboximpl();
+            Throwable m7165exceptionOrNullimpl = ChannelResult.m7165exceptionOrNullimpl(m7173unboximpl);
+            if (m7165exceptionOrNullimpl != null) {
+                throw m7165exceptionOrNullimpl;
             }
-            Object m6890getOrNullimpl = ChannelResult.m6890getOrNullimpl(m6897unboximpl);
+            Object m7166getOrNullimpl = ChannelResult.m7166getOrNullimpl(m7173unboximpl);
             this.label = 1;
-            obj = this.$block.invoke(m6890getOrNullimpl, this);
+            obj = this.$block.invoke(m7166getOrNullimpl, this);
             if (obj == coroutine_suspended) {
                 return coroutine_suspended;
             }

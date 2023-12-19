@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TapGestureDetector.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.PressGestureScopeImpl", f = "TapGestureDetector.kt", i = {}, l = {363}, m = "awaitRelease", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.PressGestureScopeImpl", m30f = "TapGestureDetector.kt", m29i = {}, m28l = {363}, m27m = "awaitRelease", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class PressGestureScopeImpl$awaitRelease$1 extends ContinuationImpl {
     int label;

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 
 /* loaded from: classes.dex */
 public class AppCompatRatingBar extends RatingBar {
@@ -16,7 +16,7 @@ public class AppCompatRatingBar extends RatingBar {
     }
 
     public AppCompatRatingBar(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.ratingBarStyle);
+        this(context, attributeSet, C0032R.attr.ratingBarStyle);
     }
 
     public AppCompatRatingBar(Context context, AttributeSet attributeSet, int i) {

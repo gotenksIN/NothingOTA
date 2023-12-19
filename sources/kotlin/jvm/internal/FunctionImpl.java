@@ -4,7 +4,6 @@ import java.io.Serializable;
 import kotlin.Deprecated;
 import kotlin.DeprecationLevel;
 import kotlin.Function;
-import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function10;
 import kotlin.jvm.functions.Function11;
@@ -27,11 +26,12 @@ import kotlin.jvm.functions.Function6;
 import kotlin.jvm.functions.Function7;
 import kotlin.jvm.functions.Function8;
 import kotlin.jvm.functions.Function9;
+import kotlin.jvm.functions.Functions;
 
 @Deprecated(level = DeprecationLevel.ERROR, message = "This class is no longer supported, do not use it.")
 @Deprecated
 /* loaded from: classes2.dex */
-public abstract class FunctionImpl implements Function, Serializable, Function0, Function1, Function2, Function3, Function4, Function5, Function6, Function7, Function8, Function9, Function10, Function11, Function12, Function13, Function14, Function15, Function16, Function17, Function18, Function19, Function20, Function21, Function22 {
+public abstract class FunctionImpl implements Function, Serializable, Functions, Function1, Function2, Function3, Function4, Function5, Function6, Function7, Function8, Function9, Function10, Function11, Function12, Function13, Function14, Function15, Function16, Function17, Function18, Function19, Function20, Function21, Function22 {
     public abstract int getArity();
 
     public Object invokeVararg(Object... objArr) {
@@ -48,7 +48,7 @@ public abstract class FunctionImpl implements Function, Serializable, Function0,
         throw new IllegalStateException("Wrong function arity, expected: " + i + ", actual: " + getArity());
     }
 
-    @Override // kotlin.jvm.functions.Function0
+    @Override // kotlin.jvm.functions.Functions
     public Object invoke() {
         checkArity(0);
         return invokeVararg(new Object[0]);

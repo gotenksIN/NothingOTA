@@ -1,39 +1,39 @@
 package androidx.compose.foundation.text;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.compose.animation.core.Animatable;
 import androidx.compose.animation.core.AnimatableKt;
 import androidx.compose.animation.core.AnimationSpec;
 import androidx.compose.animation.core.AnimationSpecKt;
 import androidx.compose.animation.core.AnimationVector1D;
 import androidx.compose.animation.core.KeyframesSpec;
+import androidx.compose.p002ui.ComposedModifierKt;
+import androidx.compose.p002ui.Modifier;
+import androidx.compose.p002ui.draw.DrawModifierKt;
+import androidx.compose.p002ui.geometry.OffsetKt;
+import androidx.compose.p002ui.geometry.Rect;
+import androidx.compose.p002ui.geometry.Size;
+import androidx.compose.p002ui.graphics.Brush;
+import androidx.compose.p002ui.graphics.Color;
+import androidx.compose.p002ui.graphics.SolidColor;
+import androidx.compose.p002ui.graphics.drawscope.ContentDrawScope;
+import androidx.compose.p002ui.graphics.drawscope.DrawScope;
+import androidx.compose.p002ui.text.TextLayoutResult;
+import androidx.compose.p002ui.text.TextRange;
+import androidx.compose.p002ui.text.input.OffsetMapping;
+import androidx.compose.p002ui.text.input.TextFieldValue;
+import androidx.compose.p002ui.unit.C0780Dp;
 import androidx.compose.runtime.Composer;
 import androidx.compose.runtime.ComposerKt;
 import androidx.compose.runtime.EffectsKt;
-import androidx.compose.ui.ComposedModifierKt;
-import androidx.compose.ui.Modifier;
-import androidx.compose.ui.draw.DrawModifierKt;
-import androidx.compose.ui.geometry.OffsetKt;
-import androidx.compose.ui.geometry.Rect;
-import androidx.compose.ui.geometry.Size;
-import androidx.compose.ui.graphics.Brush;
-import androidx.compose.ui.graphics.Color;
-import androidx.compose.ui.graphics.SolidColor;
-import androidx.compose.ui.graphics.drawscope.ContentDrawScope;
-import androidx.compose.ui.graphics.drawscope.DrawScope;
-import androidx.compose.ui.text.TextLayoutResult;
-import androidx.compose.ui.text.TextRange;
-import androidx.compose.ui.text.input.OffsetMapping;
-import androidx.compose.ui.text.input.TextFieldValue;
-import androidx.compose.ui.unit.Dp;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.functions.Function3;
@@ -43,10 +43,10 @@ import kotlinx.coroutines.BuildersKt;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: TextFieldCursor.kt */
-@Metadata(d1 = {"\u00008\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\u001a4\u0010\b\u001a\u00020\t*\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013H\u0000\"\u0019\u0010\u0000\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0002\u0010\u0003\"\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0014"}, d2 = {"DefaultCursorThickness", "Landroidx/compose/ui/unit/Dp;", "getDefaultCursorThickness", "()F", "F", "cursorAnimationSpec", "Landroidx/compose/animation/core/AnimationSpec;", "", "cursor", "Landroidx/compose/ui/Modifier;", "state", "Landroidx/compose/foundation/text/TextFieldState;", "value", "Landroidx/compose/ui/text/input/TextFieldValue;", "offsetMapping", "Landroidx/compose/ui/text/input/OffsetMapping;", "cursorBrush", "Landroidx/compose/ui/graphics/Brush;", "enabled", "", "foundation_release"}, k = 2, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"\u00008\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\u001a4\u0010\b\u001a\u00020\t*\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\r2\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013H\u0000\"\u0019\u0010\u0000\u001a\u00020\u0001X\u0080\u0004ø\u0001\u0000¢\u0006\n\n\u0002\u0010\u0004\u001a\u0004\b\u0002\u0010\u0003\"\u0014\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0014"}, m40d2 = {"DefaultCursorThickness", "Landroidx/compose/ui/unit/Dp;", "getDefaultCursorThickness", "()F", "F", "cursorAnimationSpec", "Landroidx/compose/animation/core/AnimationSpec;", "", "cursor", "Landroidx/compose/ui/Modifier;", "state", "Landroidx/compose/foundation/text/TextFieldState;", "value", "Landroidx/compose/ui/text/input/TextFieldValue;", "offsetMapping", "Landroidx/compose/ui/text/input/OffsetMapping;", "cursorBrush", "Landroidx/compose/ui/graphics/Brush;", "enabled", "", "foundation_release"}, m39k = 2, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class TextFieldCursorKt {
-    private static final AnimationSpec<Float> cursorAnimationSpec = AnimationSpecKt.m92infiniteRepeatable9IiC70o$default(AnimationSpecKt.keyframes(new Function1<KeyframesSpec.KeyframesSpecConfig<Float>, Unit>() { // from class: androidx.compose.foundation.text.TextFieldCursorKt$cursorAnimationSpec$1
+    private static final AnimationSpec<Float> cursorAnimationSpec = AnimationSpecKt.m393infiniteRepeatable9IiC70o$default(AnimationSpecKt.keyframes(new Function1<KeyframesSpec.KeyframesSpecConfig<Float>, Unit>() { // from class: androidx.compose.foundation.text.TextFieldCursorKt$cursorAnimationSpec$1
         @Override // kotlin.jvm.functions.Function1
         public /* bridge */ /* synthetic */ Unit invoke(KeyframesSpec.KeyframesSpecConfig<Float> keyframesSpecConfig) {
             invoke2(keyframesSpecConfig);
@@ -58,14 +58,14 @@ public final class TextFieldCursorKt {
             Intrinsics.checkNotNullParameter(keyframes, "$this$keyframes");
             keyframes.setDurationMillis(1000);
             Float valueOf = Float.valueOf(1.0f);
-            keyframes.at(valueOf, 0);
-            keyframes.at(valueOf, 499);
+            keyframes.m296at(valueOf, 0);
+            keyframes.m296at(valueOf, 499);
             Float valueOf2 = Float.valueOf(0.0f);
-            keyframes.at(valueOf2, 500);
-            keyframes.at(valueOf2, 999);
+            keyframes.m296at(valueOf2, 500);
+            keyframes.m296at(valueOf2, 999);
         }
     }), null, 0, 6, null);
-    private static final float DefaultCursorThickness = Dp.m5050constructorimpl(2);
+    private static final float DefaultCursorThickness = C0780Dp.m5351constructorimpl(2);
 
     public static final Modifier cursor(Modifier modifier, final TextFieldState state, final TextFieldValue value, final OffsetMapping offsetMapping, final Brush cursorBrush, boolean z) {
         Intrinsics.checkNotNullParameter(modifier, "<this>");
@@ -105,12 +105,12 @@ public final class TextFieldCursorKt {
                 Brush brush = Brush.this;
                 boolean z2 = true;
                 if (brush instanceof SolidColor) {
-                    if (((SolidColor) brush).m2881getValue0d7_KjU() == Color.Companion.m2592getUnspecified0d7_KjU()) {
+                    if (((SolidColor) brush).m3182getValue0d7_KjU() == Color.Companion.m2893getUnspecified0d7_KjU()) {
                         z2 = false;
                     }
                 }
-                if (state.getHasFocus() && TextRange.m4581getCollapsedimpl(value.m4796getSelectiond9O1mEE()) && z2) {
-                    EffectsKt.LaunchedEffect(value.getAnnotatedString(), TextRange.m4575boximpl(value.m4796getSelectiond9O1mEE()), new AnonymousClass1(animatable, null), composer, 512);
+                if (state.getHasFocus() && TextRange.m4882getCollapsedimpl(value.m5097getSelectiond9O1mEE()) && z2) {
+                    EffectsKt.LaunchedEffect(value.getAnnotatedString(), TextRange.m4876boximpl(value.m5097getSelectiond9O1mEE()), new C04151(animatable, null), composer, 512);
                     final OffsetMapping offsetMapping2 = offsetMapping;
                     final TextFieldValue textFieldValue = value;
                     final TextFieldState textFieldState = state;
@@ -137,15 +137,15 @@ public final class TextFieldCursorKt {
                             if (coerceIn == 0.0f) {
                                 return;
                             }
-                            int originalToTransformed = offsetMapping2.originalToTransformed(TextRange.m4587getStartimpl(textFieldValue.m4796getSelectiond9O1mEE()));
+                            int originalToTransformed = offsetMapping2.originalToTransformed(TextRange.m4888getStartimpl(textFieldValue.m5097getSelectiond9O1mEE()));
                             TextLayoutResultProxy layoutResult = textFieldState.getLayoutResult();
                             if (layoutResult == null || (value2 = layoutResult.getValue()) == null || (rect = value2.getCursorRect(originalToTransformed)) == null) {
                                 rect = new Rect(0.0f, 0.0f, 0.0f, 0.0f);
                             }
-                            float f = drawWithContent.mo302toPx0680j_4(TextFieldCursorKt.getDefaultCursorThickness());
+                            float f = drawWithContent.mo603toPx0680j_4(TextFieldCursorKt.getDefaultCursorThickness());
                             float f2 = f / 2;
-                            float coerceAtMost = RangesKt.coerceAtMost(rect.getLeft() + f2, Size.m2387getWidthimpl(drawWithContent.mo3096getSizeNHjbRc()) - f2);
-                            DrawScope.m3082drawLine1RTmtNc$default(drawWithContent, brush2, OffsetKt.Offset(coerceAtMost, rect.getTop()), OffsetKt.Offset(coerceAtMost, rect.getBottom()), f, 0, null, coerceIn, null, 0, 432, null);
+                            float coerceAtMost = RangesKt.coerceAtMost(rect.getLeft() + f2, Size.m2688getWidthimpl(drawWithContent.mo3397getSizeNHjbRc()) - f2);
+                            DrawScope.m3383drawLine1RTmtNc$default(drawWithContent, brush2, OffsetKt.Offset(coerceAtMost, rect.getTop()), OffsetKt.Offset(coerceAtMost, rect.getBottom()), f, 0, null, coerceIn, null, 0, 432, null);
                         }
                     });
                 } else {
@@ -160,54 +160,54 @@ public final class TextFieldCursorKt {
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: TextFieldCursor.kt */
-            @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1", f = "TextFieldCursor.kt", i = {}, l = {52}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1  reason: invalid class name */
+            @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1", m30f = "TextFieldCursor.kt", m29i = {}, m28l = {52}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+            public static final class C04151 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ Animatable<Float, AnimationVector1D> $cursorAlpha;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass1(Animatable<Float, AnimationVector1D> animatable, Continuation<? super AnonymousClass1> continuation) {
+                C04151(Animatable<Float, AnimationVector1D> animatable, Continuation<? super C04151> continuation) {
                     super(2, continuation);
                     this.$cursorAlpha = animatable;
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass1(this.$cursorAlpha, continuation);
+                    return new C04151(this.$cursorAlpha, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C04151) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 /* JADX INFO: Access modifiers changed from: package-private */
                 /* compiled from: TextFieldCursor.kt */
-                @Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-                @DebugMetadata(c = "androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1$1", f = "TextFieldCursor.kt", i = {}, l = {R.styleable.AppCompatTheme_colorControlHighlight, R.styleable.AppCompatTheme_colorError}, m = "invokeSuspend", n = {}, s = {})
-                /* renamed from: androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1$1  reason: invalid class name and collision with other inner class name */
+                @Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+                @DebugMetadata(m31c = "androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1$1", m30f = "TextFieldCursor.kt", m29i = {}, m28l = {C0032R.styleable.AppCompatTheme_colorControlHighlight, C0032R.styleable.AppCompatTheme_colorError}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+                /* renamed from: androidx.compose.foundation.text.TextFieldCursorKt$cursor$1$1$1 */
                 /* loaded from: classes.dex */
-                public static final class C00231 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+                public static final class C04161 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                     final /* synthetic */ Animatable<Float, AnimationVector1D> $cursorAlpha;
                     int label;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    C00231(Animatable<Float, AnimationVector1D> animatable, Continuation<? super C00231> continuation) {
+                    C04161(Animatable<Float, AnimationVector1D> animatable, Continuation<? super C04161> continuation) {
                         super(2, continuation);
                         this.$cursorAlpha = animatable;
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                     public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                        return new C00231(this.$cursorAlpha, continuation);
+                        return new C04161(this.$cursorAlpha, continuation);
                     }
 
                     @Override // kotlin.jvm.functions.Function2
                     public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                        return ((C00231) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                        return ((C04161) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                     }
 
                     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -218,7 +218,7 @@ public final class TextFieldCursorKt {
                         if (i == 0) {
                             ResultKt.throwOnFailure(obj);
                             this.label = 1;
-                            if (this.$cursorAlpha.snapTo(Boxing.boxFloat(1.0f), this) == coroutine_suspended) {
+                            if (this.$cursorAlpha.snapTo(boxing.boxFloat(1.0f), this) == coroutine_suspended) {
                                 return coroutine_suspended;
                             }
                         } else if (i != 1) {
@@ -231,7 +231,7 @@ public final class TextFieldCursorKt {
                             ResultKt.throwOnFailure(obj);
                         }
                         Animatable<Float, AnimationVector1D> animatable = this.$cursorAlpha;
-                        Float boxFloat = Boxing.boxFloat(0.0f);
+                        Float boxFloat = boxing.boxFloat(0.0f);
                         animationSpec = TextFieldCursorKt.cursorAnimationSpec;
                         this.label = 2;
                         if (Animatable.animateTo$default(animatable, boxFloat, animationSpec, null, null, this, 12, null) == coroutine_suspended) {
@@ -248,7 +248,7 @@ public final class TextFieldCursorKt {
                     if (i == 0) {
                         ResultKt.throwOnFailure(obj);
                         this.label = 1;
-                        if (BuildersKt.withContext(FixedMotionDurationScale.INSTANCE, new C00231(this.$cursorAlpha, null), this) == coroutine_suspended) {
+                        if (BuildersKt.withContext(TextFieldCursor.INSTANCE, new C04161(this.$cursorAlpha, null), this) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
                     } else if (i != 1) {

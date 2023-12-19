@@ -39,7 +39,7 @@ public final class Platform {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static <T extends Enum<T>> Optional<T> getEnumIfPresent(Class<T> cls, String str) {
         WeakReference<? extends Enum<?>> weakReference = Enums.getEnumConstants(cls).get(str);
-        return weakReference == null ? Optional.absent() : Optional.of(cls.cast(weakReference.get()));
+        return weakReference == null ? Optional.absent() : Optional.m241of(cls.cast(weakReference.get()));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -7,17 +7,19 @@ import kotlin.jvm.internal.Ref;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Count.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, m40d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class FlowKt__CountKt$count$4<T> implements FlowCollector {
-    final /* synthetic */ Ref.IntRef $i;
+
+    /* renamed from: $i */
+    final /* synthetic */ Ref.IntRef f297$i;
     final /* synthetic */ Function2<T, Continuation<? super Boolean>, Object> $predicate;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Multi-variable type inference failed */
     public FlowKt__CountKt$count$4(Function2<? super T, ? super Continuation<? super Boolean>, ? extends Object> function2, Ref.IntRef intRef) {
         this.$predicate = function2;
-        this.$i = intRef;
+        this.f297$i = intRef;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
@@ -76,11 +78,11 @@ public final class FlowKt__CountKt$count$4<T> implements FlowCollector {
             java.lang.Boolean r6 = (java.lang.Boolean) r6
             boolean r6 = r6.booleanValue()
             if (r6 == 0) goto L5a
-            kotlin.jvm.internal.Ref$IntRef r6 = r5.$i
+            kotlin.jvm.internal.Ref$IntRef r6 = r5.f297$i
             int r0 = r6.element
             int r0 = r0 + r3
             r6.element = r0
-            kotlin.jvm.internal.Ref$IntRef r5 = r5.$i
+            kotlin.jvm.internal.Ref$IntRef r5 = r5.f297$i
             int r5 = r5.element
         L5a:
             kotlin.Unit r5 = kotlin.Unit.INSTANCE

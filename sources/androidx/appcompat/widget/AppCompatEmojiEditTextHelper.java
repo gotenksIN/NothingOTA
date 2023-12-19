@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.widget.EditText;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.emoji2.viewsintegration.EmojiEditTextHelper;
 
 /* loaded from: classes.dex */
@@ -23,9 +23,9 @@ class AppCompatEmojiEditTextHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void loadFromAttributes(AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = this.mView.getContext().obtainStyledAttributes(attributeSet, R.styleable.AppCompatTextView, i, 0);
+        TypedArray obtainStyledAttributes = this.mView.getContext().obtainStyledAttributes(attributeSet, C0032R.styleable.AppCompatTextView, i, 0);
         try {
-            boolean z = obtainStyledAttributes.hasValue(R.styleable.AppCompatTextView_emojiCompatEnabled) ? obtainStyledAttributes.getBoolean(R.styleable.AppCompatTextView_emojiCompatEnabled, true) : true;
+            boolean z = obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTextView_emojiCompatEnabled) ? obtainStyledAttributes.getBoolean(C0032R.styleable.AppCompatTextView_emojiCompatEnabled, true) : true;
             obtainStyledAttributes.recycle();
             setEnabled(z);
         } catch (Throwable th) {

@@ -13,8 +13,8 @@ import kotlinx.coroutines.CoroutineScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Channels.kt */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001\"\u0004\b\u0000\u0010\u0003*\u00020\u0004H\u008a@"}, d2 = {"<anonymous>", "Lkotlinx/coroutines/channels/ChannelResult;", "", "E", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__ChannelsKt$trySendBlocking$2", f = "Channels.kt", i = {}, l = {39}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001\"\u0004\b\u0000\u0010\u0003*\u00020\u0004H\u008a@"}, m40d2 = {"<anonymous>", "Lkotlinx/coroutines/channels/ChannelResult;", "", "E", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.ChannelsKt__ChannelsKt$trySendBlocking$2", m30f = "Channels.kt", m29i = {}, m28l = {39}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class ChannelsKt__ChannelsKt$trySendBlocking$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super ChannelResult<? extends Unit>>, Object> {
     final /* synthetic */ E $element;
@@ -50,7 +50,7 @@ public final class ChannelsKt__ChannelsKt$trySendBlocking$2 extends SuspendLambd
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        Object m5373constructorimpl;
+        Object m5649constructorimpl;
         Object coroutine_suspended = IntrinsicsKt.getCOROUTINE_SUSPENDED();
         int i = this.label;
         try {
@@ -69,11 +69,11 @@ public final class ChannelsKt__ChannelsKt$trySendBlocking$2 extends SuspendLambd
             } else {
                 ResultKt.throwOnFailure(obj);
             }
-            m5373constructorimpl = Result.m5373constructorimpl(Unit.INSTANCE);
+            m5649constructorimpl = Result.m5649constructorimpl(Unit.INSTANCE);
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m5373constructorimpl = Result.m5373constructorimpl(ResultKt.createFailure(th));
+            m5649constructorimpl = Result.m5649constructorimpl(ResultKt.createFailure(th));
         }
-        return ChannelResult.m6885boximpl(Result.m5380isSuccessimpl(m5373constructorimpl) ? ChannelResult.Companion.m6900successJP2dKIU(Unit.INSTANCE) : ChannelResult.Companion.m6898closedJP2dKIU(Result.m5376exceptionOrNullimpl(m5373constructorimpl)));
+        return ChannelResult.m7161boximpl(Result.m5656isSuccessimpl(m5649constructorimpl) ? ChannelResult.Companion.m7176successJP2dKIU(Unit.INSTANCE) : ChannelResult.Companion.m7174closedJP2dKIU(Result.m5652exceptionOrNullimpl(m5649constructorimpl)));
     }
 }

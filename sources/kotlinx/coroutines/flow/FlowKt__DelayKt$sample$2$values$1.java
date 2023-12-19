@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.channels.ProducerScope;
 
 /* compiled from: Delay.kt */
-@Metadata(d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u00020\u00040\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/channels/ProducerScope;", ""}, k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1", f = "Delay.kt", i = {}, l = {280}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0010\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0000\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\b\u0012\u0004\u0012\u00020\u00040\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Lkotlinx/coroutines/channels/ProducerScope;", ""}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1", m30f = "Delay.kt", m29i = {}, m28l = {280}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 final class FlowKt__DelayKt$sample$2$values$1 extends SuspendLambda implements Function2<ProducerScope<? super Object>, Continuation<? super Unit>, Object> {
     final /* synthetic */ Flow<T> $this_sample;
@@ -46,13 +46,13 @@ final class FlowKt__DelayKt$sample$2$values$1 extends SuspendLambda implements F
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Delay.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, k = 3, mv = {1, 6, 0}, xi = 48)
-    /* renamed from: kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u0002H\u008a@¢\u0006\u0004\b\u0004\u0010\u0005"}, m40d2 = {"<anonymous>", "", "T", "value", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;"}, m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+    /* renamed from: kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1$1 */
     /* loaded from: classes2.dex */
-    public static final class AnonymousClass1<T> implements FlowCollector {
+    public static final class C17171<T> implements FlowCollector {
         final /* synthetic */ ProducerScope<Object> $$this$produce;
 
-        AnonymousClass1(ProducerScope<Object> producerScope) {
+        C17171(ProducerScope<Object> producerScope) {
             this.$$this$produce = producerScope;
         }
 
@@ -99,7 +99,7 @@ final class FlowKt__DelayKt$sample$2$values$1 extends SuspendLambda implements F
                 kotlin.ResultKt.throwOnFailure(r6)
                 kotlinx.coroutines.channels.ProducerScope<java.lang.Object> r6 = r4.$$this$produce
                 if (r5 != 0) goto L3b
-                kotlinx.coroutines.internal.Symbol r5 = kotlinx.coroutines.flow.internal.NullSurrogateKt.NULL
+                kotlinx.coroutines.internal.Symbol r5 = kotlinx.coroutines.flow.internal.NullSurrogate.NULL
             L3b:
                 r0.label = r3
                 java.lang.Object r5 = r6.send(r5, r0)
@@ -109,7 +109,7 @@ final class FlowKt__DelayKt$sample$2$values$1 extends SuspendLambda implements F
                 kotlin.Unit r5 = kotlin.Unit.INSTANCE
                 return r5
             */
-            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1.AnonymousClass1.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: kotlinx.coroutines.flow.FlowKt__DelayKt$sample$2$values$1.C17171.emit(java.lang.Object, kotlin.coroutines.Continuation):java.lang.Object");
         }
     }
 
@@ -120,7 +120,7 @@ final class FlowKt__DelayKt$sample$2$values$1 extends SuspendLambda implements F
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
             this.label = 1;
-            if (this.$this_sample.collect(new AnonymousClass1((ProducerScope) this.L$0), this) == coroutine_suspended) {
+            if (this.$this_sample.collect(new C17171((ProducerScope) this.L$0), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {

@@ -3,7 +3,7 @@ package androidx.core.hardware.fingerprint;
 import android.content.Context;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Handler;
-import androidx.core.os.CancellationSignal;
+import androidx.core.p004os.CancellationSignal;
 import java.security.Signature;
 import javax.crypto.Cipher;
 import javax.crypto.Mac;

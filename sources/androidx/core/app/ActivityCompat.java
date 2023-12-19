@@ -22,7 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.SharedElementCallback;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.LocusIdCompat;
-import androidx.core.os.BuildCompat;
+import androidx.core.p004os.BuildCompat;
 import androidx.core.view.DragAndDropPermissionsCompat;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -148,14 +148,14 @@ public class ActivityCompat extends ContextCompat {
         }
     }
 
-    /* renamed from: androidx.core.app.ActivityCompat$1  reason: invalid class name */
+    /* renamed from: androidx.core.app.ActivityCompat$1 */
     /* loaded from: classes.dex */
-    class AnonymousClass1 implements Runnable {
+    class RunnableC08001 implements Runnable {
         final /* synthetic */ Activity val$activity;
         final /* synthetic */ String[] val$permissionsArray;
         final /* synthetic */ int val$requestCode;
 
-        AnonymousClass1(String[] strArr, Activity activity, int i) {
+        RunnableC08001(String[] strArr, Activity activity, int i) {
             this.val$permissionsArray = strArr;
             this.val$activity = activity;
             this.val$requestCode = i;

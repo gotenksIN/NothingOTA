@@ -1,6 +1,6 @@
 package org.apache.commons.codec.language;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
@@ -61,23 +61,23 @@ public class Metaphone implements StringEncoder {
             char charAt = stringBuffer.charAt(i);
             if (charAt == 'C' || !isPreviousChar(stringBuffer, i, charAt)) {
                 switch (charAt) {
-                    case R.styleable.AppCompatTheme_dividerVertical /* 65 */:
-                    case R.styleable.AppCompatTheme_editTextColor /* 69 */:
-                    case R.styleable.AppCompatTheme_listChoiceBackgroundIndicator /* 73 */:
-                    case R.styleable.AppCompatTheme_listPreferredItemHeight /* 79 */:
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingStart /* 85 */:
+                    case C0032R.styleable.AppCompatTheme_dividerVertical /* 65 */:
+                    case C0032R.styleable.AppCompatTheme_editTextColor /* 69 */:
+                    case C0032R.styleable.AppCompatTheme_listChoiceBackgroundIndicator /* 73 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeight /* 79 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingStart /* 85 */:
                         if (i == 0) {
                             stringBuffer2.append(charAt);
                             break;
                         }
                         break;
-                    case R.styleable.AppCompatTheme_dropDownListViewStyle /* 66 */:
+                    case C0032R.styleable.AppCompatTheme_dropDownListViewStyle /* 66 */:
                         if (!isPreviousChar(stringBuffer, i, 'M') || !isLastChar(length, i)) {
                             stringBuffer2.append(charAt);
                             break;
                         }
                         break;
-                    case R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
+                    case C0032R.styleable.AppCompatTheme_dropdownListPreferredItemHeight /* 67 */:
                         if (!isPreviousChar(stringBuffer, i, 'S') || isLastChar(length, i) || FRONTV.indexOf(stringBuffer.charAt(i + 1)) < 0) {
                             if (regionMatch(stringBuffer, i, "CIA")) {
                                 stringBuffer2.append('X');
@@ -102,7 +102,7 @@ public class Metaphone implements StringEncoder {
                             }
                         }
                         break;
-                    case R.styleable.AppCompatTheme_editTextBackground /* 68 */:
+                    case C0032R.styleable.AppCompatTheme_editTextBackground /* 68 */:
                         if (!isLastChar(length, i + 1) && isNextChar(stringBuffer, i, 'G')) {
                             int i2 = i + 2;
                             if (FRONTV.indexOf(stringBuffer.charAt(i2)) >= 0) {
@@ -113,15 +113,15 @@ public class Metaphone implements StringEncoder {
                         }
                         stringBuffer2.append('T');
                         break;
-                    case R.styleable.AppCompatTheme_editTextStyle /* 70 */:
-                    case R.styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated /* 74 */:
+                    case C0032R.styleable.AppCompatTheme_editTextStyle /* 70 */:
+                    case C0032R.styleable.AppCompatTheme_listChoiceIndicatorMultipleAnimated /* 74 */:
                     case 'L':
-                    case R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
-                    case R.styleable.AppCompatTheme_listPopupWindowStyle /* 78 */:
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingEnd /* 82 */:
+                    case C0032R.styleable.AppCompatTheme_listMenuViewStyle /* 77 */:
+                    case C0032R.styleable.AppCompatTheme_listPopupWindowStyle /* 78 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingEnd /* 82 */:
                         stringBuffer2.append(charAt);
                         break;
-                    case R.styleable.AppCompatTheme_homeAsUpIndicator /* 71 */:
+                    case C0032R.styleable.AppCompatTheme_homeAsUpIndicator /* 71 */:
                         int i3 = i + 1;
                         if ((!isLastChar(length, i3) || !isNextChar(stringBuffer, i, 'H')) && ((isLastChar(length, i3) || !isNextChar(stringBuffer, i, 'H') || isVowel(stringBuffer, i + 2)) && (i <= 0 || (!regionMatch(stringBuffer, i, "GN") && !regionMatch(stringBuffer, i, "GNED"))))) {
                             boolean isPreviousChar = isPreviousChar(stringBuffer, i, 'G');
@@ -134,7 +134,7 @@ public class Metaphone implements StringEncoder {
                             }
                         }
                         break;
-                    case R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
+                    case C0032R.styleable.AppCompatTheme_imageButtonStyle /* 72 */:
                         if (!isLastChar(length, i) && ((i <= 0 || VARSON.indexOf(stringBuffer.charAt(i - 1)) < 0) && isVowel(stringBuffer, i + 1))) {
                             stringBuffer2.append('H');
                             break;
@@ -151,7 +151,7 @@ public class Metaphone implements StringEncoder {
                             break;
                         }
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemHeightLarge /* 80 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeightLarge /* 80 */:
                         if (isNextChar(stringBuffer, i, 'H')) {
                             stringBuffer2.append('F');
                             break;
@@ -159,10 +159,10 @@ public class Metaphone implements StringEncoder {
                             stringBuffer2.append(charAt);
                             break;
                         }
-                    case R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemHeightSmall /* 81 */:
                         stringBuffer2.append('K');
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingLeft /* 83 */:
                         if (regionMatch(stringBuffer, i, "SH") || regionMatch(stringBuffer, i, "SIO") || regionMatch(stringBuffer, i, "SIA")) {
                             stringBuffer2.append('X');
                             break;
@@ -171,7 +171,7 @@ public class Metaphone implements StringEncoder {
                             break;
                         }
                         break;
-                    case R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
+                    case C0032R.styleable.AppCompatTheme_listPreferredItemPaddingRight /* 84 */:
                         if (regionMatch(stringBuffer, i, "TIA") || regionMatch(stringBuffer, i, "TIO")) {
                             stringBuffer2.append('X');
                             break;
@@ -185,21 +185,21 @@ public class Metaphone implements StringEncoder {
                             }
                         }
                         break;
-                    case R.styleable.AppCompatTheme_panelBackground /* 86 */:
+                    case C0032R.styleable.AppCompatTheme_panelBackground /* 86 */:
                         stringBuffer2.append('F');
                         break;
-                    case R.styleable.AppCompatTheme_panelMenuListTheme /* 87 */:
-                    case R.styleable.AppCompatTheme_popupMenuStyle /* 89 */:
+                    case C0032R.styleable.AppCompatTheme_panelMenuListTheme /* 87 */:
+                    case C0032R.styleable.AppCompatTheme_popupMenuStyle /* 89 */:
                         if (!isLastChar(length, i) && isVowel(stringBuffer, i + 1)) {
                             stringBuffer2.append(charAt);
                             break;
                         }
                         break;
-                    case R.styleable.AppCompatTheme_panelMenuListWidth /* 88 */:
+                    case C0032R.styleable.AppCompatTheme_panelMenuListWidth /* 88 */:
                         stringBuffer2.append('K');
                         stringBuffer2.append('S');
                         break;
-                    case R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
+                    case C0032R.styleable.AppCompatTheme_popupWindowStyle /* 90 */:
                         stringBuffer2.append('S');
                         break;
                 }

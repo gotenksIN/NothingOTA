@@ -1,6 +1,5 @@
 package com.nothing.OfflineOTAUpgradeApp.util;
 
-import androidx.appcompat.R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: EncryptUtil.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "com.nothing.OfflineOTAUpgradeApp.util.EncryptUtil", f = "EncryptUtil.kt", i = {}, l = {R.styleable.AppCompatTheme_colorSwitchThumbNormal}, m = "encryptData", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "com.nothing.OfflineOTAUpgradeApp.util.EncryptUtil", m30f = "EncryptUtil.kt", m29i = {}, m28l = {61}, m27m = "encryptData", m26n = {}, m25s = {})
 /* loaded from: classes2.dex */
 public final class EncryptUtil$encryptData$1 extends ContinuationImpl {
     int label;

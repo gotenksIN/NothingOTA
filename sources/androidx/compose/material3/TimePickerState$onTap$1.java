@@ -7,8 +7,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TimePicker.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.TimePickerState", f = "TimePicker.kt", i = {0, 0, 0, 0, 0, 1, 1}, l = {621, 629, 630, 633}, m = "onTap$material3_release", n = {"this", "x", "y", "maxDist", "autoSwitchToMinute", "this", "targetValue"}, s = {"L$0", "F$0", "F$1", "F$2", "Z$0", "L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.TimePickerState", m30f = "TimePicker.kt", m29i = {0, 0, 0, 0, 0, 1, 1}, m28l = {621, 629, 630, 633}, m27m = "onTap$material3_release", m26n = {"this", "x", "y", "maxDist", "autoSwitchToMinute", "this", "targetValue"}, m25s = {"L$0", "F$0", "F$1", "F$2", "Z$0", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class TimePickerState$onTap$1 extends ContinuationImpl {
     float F$0;

@@ -1,8 +1,8 @@
 package androidx.compose.foundation.gestures;
 
-import androidx.appcompat.R;
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
+import androidx.appcompat.C0032R;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -13,8 +13,8 @@ import kotlin.jvm.functions.Function4;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TransformGestureDetector.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.gestures.TransformGestureDetectorKt$detectTransformGestures$2", f = "TransformGestureDetector.kt", i = {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, l = {R.styleable.AppCompatTheme_colorSwitchThumbNormal, 61}, m = "invokeSuspend", n = {"$this$awaitEachGesture", "rotation", "zoom", "pan", "pastTouchSlop", "touchSlop", "lockedToPanZoom", "$this$awaitEachGesture", "rotation", "zoom", "pan", "pastTouchSlop", "touchSlop", "lockedToPanZoom"}, s = {"L$0", "F$0", "F$1", "J$0", "I$0", "F$2", "I$1", "L$0", "F$0", "F$1", "J$0", "I$0", "F$2", "I$1"})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.gestures.TransformGestureDetectorKt$detectTransformGestures$2", m30f = "TransformGestureDetector.kt", m29i = {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, m28l = {C0032R.styleable.AppCompatTheme_colorSwitchThumbNormal, 61}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture", "rotation", "zoom", "pan", "pastTouchSlop", "touchSlop", "lockedToPanZoom", "$this$awaitEachGesture", "rotation", "zoom", "pan", "pastTouchSlop", "touchSlop", "lockedToPanZoom"}, m25s = {"L$0", "F$0", "F$1", "J$0", "I$0", "F$2", "I$1", "L$0", "F$0", "F$1", "J$0", "I$0", "F$2", "I$1"})
 /* loaded from: classes.dex */
 public final class TransformGestureDetectorKt$detectTransformGestures$2 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function4<Offset, Offset, Float, Float, Unit> $onGesture;
@@ -50,7 +50,7 @@ public final class TransformGestureDetectorKt$detectTransformGestures$2 extends 
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:59:0x014f, code lost:
-        if (androidx.compose.ui.geometry.Offset.m2315equalsimpl0(r6, androidx.compose.ui.geometry.Offset.Companion.m2334getZeroF1C5BW0()) != false) goto L37;
+        if (androidx.compose.p002ui.geometry.Offset.m2616equalsimpl0(r6, androidx.compose.p002ui.geometry.Offset.Companion.m2635getZeroF1C5BW0()) != false) goto L37;
      */
     /* JADX WARN: Removed duplicated region for block: B:17:0x00a5 A[RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x00b3  */

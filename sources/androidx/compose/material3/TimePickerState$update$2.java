@@ -7,15 +7,15 @@ import kotlin.ResultKt;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt;
-import kotlin.coroutines.jvm.internal.Boxing;
 import kotlin.coroutines.jvm.internal.DebugMetadata;
 import kotlin.coroutines.jvm.internal.SuspendLambda;
+import kotlin.coroutines.jvm.internal.boxing;
 import kotlin.jvm.functions.Function1;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TimePicker.kt */
-@Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0010\u0002\u0010\u0000\u001a\u00020\u0001H\u008a@"}, d2 = {"<anonymous>", ""}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.TimePickerState$update$2", f = "TimePicker.kt", i = {}, l = {571, 573}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\u0006\n\u0000\n\u0002\u0010\u0002\u0010\u0000\u001a\u00020\u0001H\u008a@"}, m40d2 = {"<anonymous>", ""}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.TimePickerState$update$2", m30f = "TimePicker.kt", m29i = {}, m28l = {571, 573}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class TimePickerState$update$2 extends SuspendLambda implements Function1<Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $fromTap;
@@ -53,7 +53,7 @@ public final class TimePickerState$update$2 extends SuspendLambda implements Fun
         int i = this.label;
         if (i == 0) {
             ResultKt.throwOnFailure(obj);
-            if (Selection.m1307equalsimpl0(this.this$0.m1524getSelectionJiIwxys$material3_release(), Selection.Companion.m1311getHourJiIwxys())) {
+            if (Selection.m1608equalsimpl0(this.this$0.m1825getSelectionJiIwxys$material3_release(), Selection.Companion.m1612getHourJiIwxys())) {
                 TimePickerState timePickerState = this.this$0;
                 hour = timePickerState.toHour(this.$value);
                 timePickerState.setHourAngle$material3_release((hour % 12) * 0.5235988f);
@@ -69,14 +69,14 @@ public final class TimePickerState$update$2 extends SuspendLambda implements Fun
             }
             if (this.$fromTap) {
                 this.label = 1;
-                if (this.this$0.getCurrentAngle$material3_release().snapTo(Boxing.boxFloat(this.this$0.getMinuteAngle$material3_release()), this) == coroutine_suspended) {
+                if (this.this$0.getCurrentAngle$material3_release().snapTo(boxing.boxFloat(this.this$0.getMinuteAngle$material3_release()), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else {
                 Animatable<Float, AnimationVector1D> currentAngle$material3_release = this.this$0.getCurrentAngle$material3_release();
                 offsetHour = this.this$0.offsetHour(this.$value);
                 this.label = 2;
-                if (currentAngle$material3_release.snapTo(Boxing.boxFloat(offsetHour), this) == coroutine_suspended) {
+                if (currentAngle$material3_release.snapTo(boxing.boxFloat(offsetHour), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             }

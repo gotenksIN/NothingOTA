@@ -437,7 +437,7 @@ public final class Iterators {
         while (it.hasNext()) {
             T next = it.next();
             if (predicate.apply(next)) {
-                return Optional.of(next);
+                return Optional.m241of(next);
             }
         }
         return Optional.absent();

@@ -1,7 +1,7 @@
 package androidx.compose.material3;
 
 import androidx.compose.foundation.gestures.DragScope;
-import androidx.compose.runtime.MutableState;
+import androidx.compose.runtime.SnapshotState;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -13,8 +13,8 @@ import kotlin.jvm.functions.Function2;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Swipeable.kt */
-@Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "", "T", "Landroidx/compose/foundation/gestures/DragScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SwipeableState$snapInternalToOffset$2", f = "Swipeable.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\f\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "Landroidx/compose/foundation/gestures/DragScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SwipeableState$snapInternalToOffset$2", m30f = "Swipeable.kt", m29i = {}, m28l = {}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class SwipeableState$snapInternalToOffset$2 extends SuspendLambda implements Function2<DragScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ float $target;
@@ -44,15 +44,15 @@ public final class SwipeableState$snapInternalToOffset$2 extends SuspendLambda i
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
-        MutableState mutableState;
+        SnapshotState snapshotState;
         IntrinsicsKt.getCOROUTINE_SUSPENDED();
         if (this.label != 0) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         }
         ResultKt.throwOnFailure(obj);
         float f = this.$target;
-        mutableState = ((SwipeableState) this.this$0).absoluteOffset;
-        ((DragScope) this.L$0).dragBy(f - ((Number) mutableState.getValue()).floatValue());
+        snapshotState = ((SwipeableState) this.this$0).absoluteOffset;
+        ((DragScope) this.L$0).dragBy(f - ((Number) snapshotState.getValue()).floatValue());
         return Unit.INSTANCE;
     }
 }

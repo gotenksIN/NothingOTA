@@ -1,11 +1,11 @@
 package androidx.compose.material3;
 
-import androidx.compose.foundation.gestures.ForEachGestureKt;
+import androidx.compose.foundation.gestures.ForEachGesture;
 import androidx.compose.foundation.interaction.DragInteraction;
 import androidx.compose.foundation.interaction.MutableInteractionSource;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import androidx.compose.runtime.State;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerInputScope;
 import androidx.core.app.NotificationCompat;
 import kotlin.Metadata;
 import kotlin.ResultKt;
@@ -23,8 +23,8 @@ import kotlinx.coroutines.CoroutineScopeKt;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Slider.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1", f = "Slider.kt", i = {}, l = {1249}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/PointerInputScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1", m30f = "Slider.kt", m29i = {}, m28l = {1249}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda implements Function2<PointerInputScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ MutableInteractionSource $endInteractionSource;
@@ -74,7 +74,7 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
             PointerInputScope pointerInputScope = (PointerInputScope) this.L$0;
             RangeSliderLogic rangeSliderLogic = new RangeSliderLogic(this.$startInteractionSource, this.$endInteractionSource, this.$rawOffsetStart, this.$rawOffsetEnd, this.$onDrag);
             this.label = 1;
-            if (CoroutineScopeKt.coroutineScope(new AnonymousClass1(pointerInputScope, this.$isRtl, this.$maxPx, rangeSliderLogic, this.$rawOffsetStart, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, null), this) == coroutine_suspended) {
+            if (CoroutineScopeKt.coroutineScope(new C06001(pointerInputScope, this.$isRtl, this.$maxPx, rangeSliderLogic, this.$rawOffsetStart, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {
@@ -87,11 +87,11 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: Slider.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1", f = "Slider.kt", i = {}, l = {1250}, m = "invokeSuspend", n = {}, s = {})
-    /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1", m30f = "Slider.kt", m29i = {}, m28l = {1250}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+    /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+    public static final class C06001 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ PointerInputScope $$this$pointerInput;
         final /* synthetic */ State<Function1<Boolean, Unit>> $gestureEndAction;
         final /* synthetic */ boolean $isRtl;
@@ -105,7 +105,7 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(PointerInputScope pointerInputScope, boolean z, int i, RangeSliderLogic rangeSliderLogic, State<Float> state, State<? extends Function1<? super Boolean, Unit>> state2, State<Float> state3, State<? extends Function2<? super Boolean, ? super Float, Unit>> state4, Continuation<? super AnonymousClass1> continuation) {
+        C06001(PointerInputScope pointerInputScope, boolean z, int i, RangeSliderLogic rangeSliderLogic, State<Float> state, State<? extends Function1<? super Boolean, Unit>> state2, State<Float> state3, State<? extends Function2<? super Boolean, ? super Float, Unit>> state4, Continuation<? super C06001> continuation) {
             super(2, continuation);
             this.$$this$pointerInput = pointerInputScope;
             this.$isRtl = z;
@@ -119,23 +119,23 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$$this$pointerInput, this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C06001 c06001 = new C06001(this.$$this$pointerInput, this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, continuation);
+            c06001.L$0 = obj;
+            return c06001;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C06001) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* compiled from: Slider.kt */
-        @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-        @DebugMetadata(c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1", f = "Slider.kt", i = {0, 1, 1, 1, 1, 1, 2, 2}, l = {1251, 1261, 1280}, m = "invokeSuspend", n = {"$this$awaitEachGesture", "$this$awaitEachGesture", NotificationCompat.CATEGORY_EVENT, "interaction", "posX", "draggingStart", "interaction", "draggingStart"}, s = {"L$0", "L$0", "L$1", "L$2", "L$3", "L$4", "L$0", "L$1"})
-        /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1  reason: invalid class name and collision with other inner class name */
+        @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+        @DebugMetadata(m31c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1", m30f = "Slider.kt", m29i = {0, 1, 1, 1, 1, 1, 2, 2}, m28l = {1251, 1261, 1280}, m27m = "invokeSuspend", m26n = {"$this$awaitEachGesture", "$this$awaitEachGesture", NotificationCompat.CATEGORY_EVENT, "interaction", "posX", "draggingStart", "interaction", "draggingStart"}, m25s = {"L$0", "L$0", "L$1", "L$2", "L$3", "L$4", "L$0", "L$1"})
+        /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1 */
         /* loaded from: classes.dex */
-        public static final class C00401 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+        public static final class C06011 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
             final /* synthetic */ CoroutineScope $$this$coroutineScope;
             final /* synthetic */ State<Function1<Boolean, Unit>> $gestureEndAction;
             final /* synthetic */ boolean $isRtl;
@@ -153,7 +153,7 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             /* JADX WARN: Multi-variable type inference failed */
-            C00401(boolean z, int i, RangeSliderLogic rangeSliderLogic, State<Float> state, CoroutineScope coroutineScope, State<? extends Function1<? super Boolean, Unit>> state2, State<Float> state3, State<? extends Function2<? super Boolean, ? super Float, Unit>> state4, Continuation<? super C00401> continuation) {
+            C06011(boolean z, int i, RangeSliderLogic rangeSliderLogic, State<Float> state, CoroutineScope coroutineScope, State<? extends Function1<? super Boolean, Unit>> state2, State<Float> state3, State<? extends Function2<? super Boolean, ? super Float, Unit>> state4, Continuation<? super C06011> continuation) {
                 super(2, continuation);
                 this.$isRtl = z;
                 this.$maxPx = i;
@@ -167,14 +167,14 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
             @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
             public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                C00401 c00401 = new C00401(this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, this.$$this$coroutineScope, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, continuation);
-                c00401.L$0 = obj;
-                return c00401;
+                C06011 c06011 = new C06011(this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, this.$$this$coroutineScope, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, continuation);
+                c06011.L$0 = obj;
+                return c06011;
             }
 
             @Override // kotlin.jvm.functions.Function2
             public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-                return ((C00401) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                return ((C06011) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
             }
 
             /* JADX WARN: Removed duplicated region for block: B:35:0x00e6  */
@@ -192,23 +192,23 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
                     Method dump skipped, instructions count: 466
                     To view this dump change 'Code comments level' option to 'DEBUG'
                 */
-                throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1.AnonymousClass1.C00401.invokeSuspend(java.lang.Object):java.lang.Object");
+                throw new UnsupportedOperationException("Method not decompiled: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1.C06001.C06011.invokeSuspend(java.lang.Object):java.lang.Object");
             }
 
             /* JADX INFO: Access modifiers changed from: package-private */
             /* compiled from: Slider.kt */
-            @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-            @DebugMetadata(c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1$2", f = "Slider.kt", i = {}, l = {1297}, m = "invokeSuspend", n = {}, s = {})
-            /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1$2  reason: invalid class name */
+            @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+            @DebugMetadata(m31c = "androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1$2", m30f = "Slider.kt", m29i = {}, m28l = {1297}, m27m = "invokeSuspend", m26n = {}, m25s = {})
+            /* renamed from: androidx.compose.material3.SliderKt$rangeSliderPressDragModifier$1$1$1$2 */
             /* loaded from: classes.dex */
-            public static final class AnonymousClass2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
+            public static final class C06022 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
                 final /* synthetic */ Ref.BooleanRef $draggingStart;
                 final /* synthetic */ DragInteraction $finishInteraction;
                 final /* synthetic */ RangeSliderLogic $rangeSliderLogic;
                 int label;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                AnonymousClass2(RangeSliderLogic rangeSliderLogic, Ref.BooleanRef booleanRef, DragInteraction dragInteraction, Continuation<? super AnonymousClass2> continuation) {
+                C06022(RangeSliderLogic rangeSliderLogic, Ref.BooleanRef booleanRef, DragInteraction dragInteraction, Continuation<? super C06022> continuation) {
                     super(2, continuation);
                     this.$rangeSliderLogic = rangeSliderLogic;
                     this.$draggingStart = booleanRef;
@@ -217,12 +217,12 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
                 public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-                    return new AnonymousClass2(this.$rangeSliderLogic, this.$draggingStart, this.$finishInteraction, continuation);
+                    return new C06022(this.$rangeSliderLogic, this.$draggingStart, this.$finishInteraction, continuation);
                 }
 
                 @Override // kotlin.jvm.functions.Function2
                 public final Object invoke(CoroutineScope coroutineScope, Continuation<? super Unit> continuation) {
-                    return ((AnonymousClass2) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
+                    return ((C06022) create(coroutineScope, continuation)).invokeSuspend(Unit.INSTANCE);
                 }
 
                 @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -253,7 +253,7 @@ public final class SliderKt$rangeSliderPressDragModifier$1 extends SuspendLambda
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
                 this.label = 1;
-                if (ForEachGestureKt.awaitEachGesture(this.$$this$pointerInput, new C00401(this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, coroutineScope, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, null), this) == coroutine_suspended) {
+                if (ForEachGesture.awaitEachGesture(this.$$this$pointerInput, new C06011(this.$isRtl, this.$maxPx, this.$rangeSliderLogic, this.$rawOffsetStart, coroutineScope, this.$gestureEndAction, this.$rawOffsetEnd, this.$onDrag, null), this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
             } else if (i != 1) {

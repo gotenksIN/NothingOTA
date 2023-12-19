@@ -23,7 +23,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.Scroller;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.OnApplyWindowInsetsListener;
@@ -995,7 +995,7 @@ public class ViewPager extends ViewGroup {
             View childAt = getChildAt(i7);
             if (childAt.getVisibility() != 8 && (layoutParams2 = (LayoutParams) childAt.getLayoutParams()) != null && layoutParams2.isDecor) {
                 int i9 = layoutParams2.gravity & 7;
-                int i10 = layoutParams2.gravity & R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+                int i10 = layoutParams2.gravity & C0032R.styleable.AppCompatTheme_toolbarNavigationButtonStyle;
                 boolean z3 = (i10 == 48 || i10 == 80) ? true : z;
                 if (i9 != 3 && i9 != 5) {
                     z2 = z;

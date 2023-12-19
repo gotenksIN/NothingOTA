@@ -1,9 +1,9 @@
 package androidx.compose.foundation.text;
 
-import androidx.compose.ui.geometry.Offset;
-import androidx.compose.ui.input.pointer.AwaitPointerEventScope;
-import androidx.compose.ui.input.pointer.PointerEventPass;
-import androidx.compose.ui.input.pointer.PointerInputScope;
+import androidx.compose.p002ui.geometry.Offset;
+import androidx.compose.p002ui.input.pointer.AwaitPointerEventScope;
+import androidx.compose.p002ui.input.pointer.PointerEventPass;
+import androidx.compose.p002ui.input.pointer.PointerInputScope;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -18,8 +18,8 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.CoroutineScope;
 
 /* compiled from: PointerMoveDetector.kt */
-@Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2", f = "PointerMoveDetector.kt", i = {}, l = {41}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2", m30f = "PointerMoveDetector.kt", m29i = {}, m28l = {41}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ Function1<Offset, Unit> $onMove;
@@ -55,7 +55,7 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
             ResultKt.throwOnFailure(obj);
             CoroutineContext context = getContext();
             this.label = 1;
-            if (this.$this_detectMoves.awaitPointerEventScope(new AnonymousClass1(context, this.$pointerEventPass, this.$onMove, null), this) == coroutine_suspended) {
+            if (this.$this_detectMoves.awaitPointerEventScope(new C04131(context, this.$pointerEventPass, this.$onMove, null), this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
         } else if (i != 1) {
@@ -68,11 +68,11 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* compiled from: PointerMoveDetector.kt */
-    @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-    @DebugMetadata(c = "androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2$1", f = "PointerMoveDetector.kt", i = {0, 0}, l = {44}, m = "invokeSuspend", n = {"$this$awaitPointerEventScope", "previousPosition"}, s = {"L$0", "L$1"})
-    /* renamed from: androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2$1  reason: invalid class name */
+    @Metadata(m41d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Landroidx/compose/ui/input/pointer/AwaitPointerEventScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+    @DebugMetadata(m31c = "androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2$1", m30f = "PointerMoveDetector.kt", m29i = {0, 0}, m28l = {44}, m27m = "invokeSuspend", m26n = {"$this$awaitPointerEventScope", "previousPosition"}, m25s = {"L$0", "L$1"})
+    /* renamed from: androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2$1 */
     /* loaded from: classes.dex */
-    public static final class AnonymousClass1 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
+    public static final class C04131 extends RestrictedSuspendLambda implements Function2<AwaitPointerEventScope, Continuation<? super Unit>, Object> {
         final /* synthetic */ CoroutineContext $currentContext;
         final /* synthetic */ Function1<Offset, Unit> $onMove;
         final /* synthetic */ PointerEventPass $pointerEventPass;
@@ -82,7 +82,7 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         /* JADX WARN: Multi-variable type inference failed */
-        AnonymousClass1(CoroutineContext coroutineContext, PointerEventPass pointerEventPass, Function1<? super Offset, Unit> function1, Continuation<? super AnonymousClass1> continuation) {
+        C04131(CoroutineContext coroutineContext, PointerEventPass pointerEventPass, Function1<? super Offset, Unit> function1, Continuation<? super C04131> continuation) {
             super(2, continuation);
             this.$currentContext = coroutineContext;
             this.$pointerEventPass = pointerEventPass;
@@ -91,14 +91,14 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
 
         @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
         public final Continuation<Unit> create(Object obj, Continuation<?> continuation) {
-            AnonymousClass1 anonymousClass1 = new AnonymousClass1(this.$currentContext, this.$pointerEventPass, this.$onMove, continuation);
-            anonymousClass1.L$0 = obj;
-            return anonymousClass1;
+            C04131 c04131 = new C04131(this.$currentContext, this.$pointerEventPass, this.$onMove, continuation);
+            c04131.L$0 = obj;
+            return c04131;
         }
 
         @Override // kotlin.jvm.functions.Function2
         public final Object invoke(AwaitPointerEventScope awaitPointerEventScope, Continuation<? super Unit> continuation) {
-            return ((AnonymousClass1) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
+            return ((C04131) create(awaitPointerEventScope, continuation)).invokeSuspend(Unit.INSTANCE);
         }
 
         /* JADX WARN: Removed duplicated region for block: B:11:0x0039  */
@@ -126,7 +126,7 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
                 java.lang.Object r1 = r9.L$1
                 kotlin.jvm.internal.Ref$ObjectRef r1 = (kotlin.jvm.internal.Ref.ObjectRef) r1
                 java.lang.Object r3 = r9.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r3 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r3
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r3 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r3
                 kotlin.ResultKt.throwOnFailure(r10)
                 r4 = r3
                 r3 = r1
@@ -141,7 +141,7 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
             L23:
                 kotlin.ResultKt.throwOnFailure(r10)
                 java.lang.Object r10 = r9.L$0
-                androidx.compose.ui.input.pointer.AwaitPointerEventScope r10 = (androidx.compose.ui.input.pointer.AwaitPointerEventScope) r10
+                androidx.compose.ui.input.pointer.AwaitPointerEventScope r10 = (androidx.compose.p002ui.input.pointer.AwaitPointerEventScope) r10
                 kotlin.jvm.internal.Ref$ObjectRef r1 = new kotlin.jvm.internal.Ref$ObjectRef
                 r1.<init>()
                 r3 = r10
@@ -167,36 +167,36 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
                 r3 = r1
                 r1 = r8
             L51:
-                androidx.compose.ui.input.pointer.PointerEvent r10 = (androidx.compose.ui.input.pointer.PointerEvent) r10
-                int r5 = r10.m3902getType7fucELk()
-                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-                int r6 = r6.m3915getMove7fucELk()
-                boolean r6 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r5, r6)
+                androidx.compose.ui.input.pointer.PointerEvent r10 = (androidx.compose.p002ui.input.pointer.PointerEvent) r10
+                int r5 = r10.m4203getType7fucELk()
+                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+                int r6 = r6.m4216getMove7fucELk()
+                boolean r6 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r5, r6)
                 if (r6 == 0) goto L65
                 r6 = r2
                 goto L6f
             L65:
-                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-                int r6 = r6.m3913getEnter7fucELk()
-                boolean r6 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r5, r6)
+                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+                int r6 = r6.m4214getEnter7fucELk()
+                boolean r6 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r5, r6)
             L6f:
                 if (r6 == 0) goto L73
                 r5 = r2
                 goto L7d
             L73:
-                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.ui.input.pointer.PointerEventType.Companion
-                int r6 = r6.m3914getExit7fucELk()
-                boolean r5 = androidx.compose.ui.input.pointer.PointerEventType.m3909equalsimpl0(r5, r6)
+                androidx.compose.ui.input.pointer.PointerEventType$Companion r6 = androidx.compose.p002ui.input.pointer.PointerEventType.Companion
+                int r6 = r6.m4215getExit7fucELk()
+                boolean r5 = androidx.compose.p002ui.input.pointer.PointerEventType.m4210equalsimpl0(r5, r6)
             L7d:
                 if (r5 == 0) goto Lb4
                 java.util.List r10 = r10.getChanges()
                 java.lang.Object r10 = kotlin.collections.CollectionsKt.first(r10)
-                androidx.compose.ui.input.pointer.PointerInputChange r10 = (androidx.compose.ui.input.pointer.PointerInputChange) r10
-                long r5 = r10.m3957getPositionF1C5BW0()
-                androidx.compose.ui.geometry.Offset r10 = androidx.compose.ui.geometry.Offset.m2307boximpl(r5)
-                long r5 = r10.m2328unboximpl()
+                androidx.compose.ui.input.pointer.PointerInputChange r10 = (androidx.compose.p002ui.input.pointer.PointerInputChange) r10
+                long r5 = r10.m4258getPositionF1C5BW0()
+                androidx.compose.ui.geometry.Offset r10 = androidx.compose.p002ui.geometry.Offset.m2608boximpl(r5)
+                long r5 = r10.m2629unboximpl()
                 T r7 = r3.element
-                boolean r5 = androidx.compose.ui.geometry.Offset.m2314equalsimpl(r5, r7)
+                boolean r5 = androidx.compose.p002ui.geometry.Offset.m2615equalsimpl(r5, r7)
                 if (r5 != 0) goto L9e
                 goto L9f
             L9e:
@@ -204,10 +204,10 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
             L9f:
                 if (r10 == 0) goto Lb4
                 kotlin.jvm.functions.Function1<androidx.compose.ui.geometry.Offset, kotlin.Unit> r5 = r0.$onMove
-                long r6 = r10.m2328unboximpl()
-                androidx.compose.ui.geometry.Offset r10 = androidx.compose.ui.geometry.Offset.m2307boximpl(r6)
+                long r6 = r10.m2629unboximpl()
+                androidx.compose.ui.geometry.Offset r10 = androidx.compose.p002ui.geometry.Offset.m2608boximpl(r6)
                 r3.element = r10
-                androidx.compose.ui.geometry.Offset r10 = androidx.compose.ui.geometry.Offset.m2307boximpl(r6)
+                androidx.compose.ui.geometry.Offset r10 = androidx.compose.p002ui.geometry.Offset.m2608boximpl(r6)
                 r5.invoke(r10)
             Lb4:
                 r10 = r0
@@ -219,7 +219,7 @@ final class PointerMoveDetectorKt$detectMoves$2 extends SuspendLambda implements
                 kotlin.Unit r10 = kotlin.Unit.INSTANCE
                 return r10
             */
-            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2.AnonymousClass1.invokeSuspend(java.lang.Object):java.lang.Object");
+            throw new UnsupportedOperationException("Method not decompiled: androidx.compose.foundation.text.PointerMoveDetectorKt$detectMoves$2.C04131.invokeSuspend(java.lang.Object):java.lang.Object");
         }
     }
 }

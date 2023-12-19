@@ -6,7 +6,7 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: TypesJVM.kt */
-@Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
+@Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 /* synthetic */ class TypesJVMKt$typeToString$unwrap$1 extends FunctionReferenceImpl implements Function1<Class<?>, Class<?>> {
     public static final TypesJVMKt$typeToString$unwrap$1 INSTANCE = new TypesJVMKt$typeToString$unwrap$1();

@@ -25,11 +25,11 @@ public abstract class FluentIterable<E> implements Iterable<E> {
     }
 
     FluentIterable(Iterable<E> iterable) {
-        this.iterableDelegate = Optional.of(iterable);
+        this.iterableDelegate = Optional.m241of(iterable);
     }
 
     private Iterable<E> getDelegate() {
-        return this.iterableDelegate.or((Optional<Iterable<E>>) this);
+        return this.iterableDelegate.mo234or((Optional<Iterable<E>>) this);
     }
 
     public static <E> FluentIterable<E> from(final Iterable<E> iterable) {
@@ -96,11 +96,13 @@ public abstract class FluentIterable<E> implements Iterable<E> {
         };
     }
 
-    public static <E> FluentIterable<E> of() {
+    /* renamed from: of */
+    public static <E> FluentIterable<E> m226of() {
         return from(Collections.emptyList());
     }
 
-    public static <E> FluentIterable<E> of(@ParametricNullness E e, E... eArr) {
+    /* renamed from: of */
+    public static <E> FluentIterable<E> m225of(@ParametricNullness E e, E... eArr) {
         return from(Lists.asList(e, eArr));
     }
 
@@ -159,7 +161,7 @@ public abstract class FluentIterable<E> implements Iterable<E> {
 
     public final Optional<E> first() {
         Iterator<E> it = getDelegate().iterator();
-        return it.hasNext() ? Optional.of(it.next()) : Optional.absent();
+        return it.hasNext() ? Optional.m241of(it.next()) : Optional.absent();
     }
 
     public final Optional<E> last() {
@@ -170,19 +172,19 @@ public abstract class FluentIterable<E> implements Iterable<E> {
             if (list.isEmpty()) {
                 return Optional.absent();
             }
-            return Optional.of(list.get(list.size() - 1));
+            return Optional.m241of(list.get(list.size() - 1));
         }
         Iterator<E> it = delegate.iterator();
         if (!it.hasNext()) {
             return Optional.absent();
         }
         if (delegate instanceof SortedSet) {
-            return Optional.of(((SortedSet) delegate).last());
+            return Optional.m241of(((SortedSet) delegate).last());
         }
         do {
             next = it.next();
         } while (it.hasNext());
-        return Optional.of(next);
+        return Optional.m241of(next);
     }
 
     public final FluentIterable<E> skip(int i) {

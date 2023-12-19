@@ -2,7 +2,7 @@ package androidx.core.view;
 
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.coroutines.Continuation;
@@ -13,8 +13,8 @@ import kotlin.sequences.SequenceScope;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: ViewGroup.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Landroid/view/View;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.core.view.ViewGroupKt$descendants$1", f = "ViewGroup.kt", i = {0, 0, 0, 0, 1, 1, 1}, l = {R.styleable.AppCompatTheme_windowActionModeOverlay, R.styleable.AppCompatTheme_windowFixedHeightMinor}, m = "invokeSuspend", n = {"$this$sequence", "$this$forEach$iv", "child", "index$iv", "$this$sequence", "$this$forEach$iv", "index$iv"}, s = {"L$0", "L$1", "L$2", "I$0", "L$0", "L$1", "I$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, m40d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Landroid/view/View;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.core.view.ViewGroupKt$descendants$1", m30f = "ViewGroup.kt", m29i = {0, 0, 0, 0, 1, 1, 1}, m28l = {C0032R.styleable.AppCompatTheme_windowActionModeOverlay, C0032R.styleable.AppCompatTheme_windowFixedHeightMinor}, m27m = "invokeSuspend", m26n = {"$this$sequence", "$this$forEach$iv", "child", "index$iv", "$this$sequence", "$this$forEach$iv", "index$iv"}, m25s = {"L$0", "L$1", "L$2", "I$0", "L$0", "L$1", "I$0"})
 /* loaded from: classes.dex */
 public final class ViewGroupKt$descendants$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super View>, Continuation<? super Unit>, Object> {
     final /* synthetic */ ViewGroup $this_descendants;
@@ -125,7 +125,7 @@ public final class ViewGroupKt$descendants$1 extends RestrictedSuspendLambda imp
             boolean r8 = r5 instanceof android.view.ViewGroup
             if (r8 == 0) goto L98
             android.view.ViewGroup r5 = (android.view.ViewGroup) r5
-            kotlin.sequences.Sequence r5 = androidx.core.view.ViewGroupKt.getDescendants(r5)
+            kotlin.sequences.Sequence r5 = androidx.core.view.ViewGroup.getDescendants(r5)
             r12.L$0 = r7
             r12.L$1 = r6
             r8 = 0

@@ -1,6 +1,6 @@
 package androidx.compose.material3;
 
-import androidx.compose.ui.focus.FocusManager;
+import androidx.compose.p002ui.focus.FocusManager;
 import kotlin.Metadata;
 import kotlin.ResultKt;
 import kotlin.Unit;
@@ -13,8 +13,8 @@ import kotlinx.coroutines.CoroutineScope;
 import kotlinx.coroutines.DelayKt;
 
 /* compiled from: SearchBar.kt */
-@Metadata(k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.SearchBarKt$SearchBar$5", f = "SearchBar.kt", i = {}, l = {287}, m = "invokeSuspend", n = {}, s = {})
+@Metadata(m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.SearchBarKt$SearchBar$5", m30f = "SearchBar.kt", m29i = {}, m28l = {287}, m27m = "invokeSuspend", m26n = {}, m25s = {})
 /* loaded from: classes.dex */
 final class SearchBarKt$SearchBar$5 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     final /* synthetic */ boolean $active;

@@ -12,11 +12,13 @@ import javax.annotation.CheckForNull;
 public class Joiner {
     private final String separator;
 
-    public static Joiner on(String str) {
+    /* renamed from: on */
+    public static Joiner m242on(String str) {
         return new Joiner(str);
     }
 
-    public static Joiner on(char c) {
+    /* renamed from: on */
+    public static Joiner m243on(char c) {
         return new Joiner(String.valueOf(c));
     }
 

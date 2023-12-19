@@ -11,7 +11,7 @@ import android.view.WindowInsetsAnimation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.PathInterpolator;
-import androidx.core.R;
+import androidx.core.C0795R;
 import androidx.core.graphics.Insets;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
@@ -226,9 +226,9 @@ public final class WindowInsetsAnimationCompat {
         }
 
         static void setCallback(View view, Callback callback) {
-            Object tag = view.getTag(R.id.tag_on_apply_window_listener);
+            Object tag = view.getTag(C0795R.C0797id.tag_on_apply_window_listener);
             if (callback == null) {
-                view.setTag(R.id.tag_window_insets_animation_callback, null);
+                view.setTag(C0795R.C0797id.tag_window_insets_animation_callback, null);
                 if (tag == null) {
                     view.setOnApplyWindowInsetsListener(null);
                     return;
@@ -236,7 +236,7 @@ public final class WindowInsetsAnimationCompat {
                 return;
             }
             View.OnApplyWindowInsetsListener createProxyListener = createProxyListener(view, callback);
-            view.setTag(R.id.tag_window_insets_animation_callback, createProxyListener);
+            view.setTag(C0795R.C0797id.tag_window_insets_animation_callback, createProxyListener);
             if (tag == null) {
                 view.setOnApplyWindowInsetsListener(createProxyListener);
             }
@@ -249,7 +249,7 @@ public final class WindowInsetsAnimationCompat {
         static BoundsCompat computeAnimationBounds(WindowInsetsCompat windowInsetsCompat, WindowInsetsCompat windowInsetsCompat2, int i) {
             Insets insets = windowInsetsCompat.getInsets(i);
             Insets insets2 = windowInsetsCompat2.getInsets(i);
-            return new BoundsCompat(Insets.of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom)), Insets.of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom)));
+            return new BoundsCompat(Insets.m282of(Math.min(insets.left, insets2.left), Math.min(insets.top, insets2.top), Math.min(insets.right, insets2.right), Math.min(insets.bottom, insets2.bottom)), Insets.m282of(Math.max(insets.left, insets2.left), Math.max(insets.top, insets2.top), Math.max(insets.right, insets2.right), Math.max(insets.bottom, insets2.bottom)));
         }
 
         static int buildAnimationMask(WindowInsetsCompat windowInsetsCompat, WindowInsetsCompat windowInsetsCompat2) {
@@ -355,7 +355,7 @@ public final class WindowInsetsAnimationCompat {
         }
 
         static WindowInsets forwardToViewIfNeeded(View view, WindowInsets windowInsets) {
-            return view.getTag(R.id.tag_on_apply_window_listener) != null ? windowInsets : view.onApplyWindowInsets(windowInsets);
+            return view.getTag(C0795R.C0797id.tag_on_apply_window_listener) != null ? windowInsets : view.onApplyWindowInsets(windowInsets);
         }
 
         static void dispatchOnPrepare(View view, WindowInsetsAnimationCompat windowInsetsAnimationCompat, WindowInsets windowInsets, boolean z) {
@@ -424,7 +424,7 @@ public final class WindowInsetsAnimationCompat {
         }
 
         static Callback getCallback(View view) {
-            Object tag = view.getTag(R.id.tag_window_insets_animation_callback);
+            Object tag = view.getTag(C0795R.C0797id.tag_window_insets_animation_callback);
             if (tag instanceof Impl21OnApplyWindowInsetsListener) {
                 return ((Impl21OnApplyWindowInsetsListener) tag).mCallback;
             }

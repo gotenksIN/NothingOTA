@@ -4,11 +4,11 @@ import kotlin.Metadata;
 import kotlin.reflect.KProperty;
 
 /* compiled from: SnapshotIntState.kt */
-@Metadata(d1 = {"androidx/compose/runtime/SnapshotIntStateKt__SnapshotIntStateKt"}, k = 4, mv = {1, 8, 0}, xi = 48)
+@Metadata(m41d1 = {"androidx/compose/runtime/SnapshotIntStateKt__SnapshotIntStateKt"}, m39k = 4, m38mv = {1, 8, 0}, m36xi = 48)
 /* loaded from: classes.dex */
 public final class SnapshotIntStateKt {
-    public static final int getValue(IntState intState, Object obj, KProperty<?> kProperty) {
-        return SnapshotIntStateKt__SnapshotIntStateKt.getValue(intState, obj, kProperty);
+    public static final int getValue(SnapshotIntState snapshotIntState, Object obj, KProperty<?> kProperty) {
+        return SnapshotIntStateKt__SnapshotIntStateKt.getValue(snapshotIntState, obj, kProperty);
     }
 
     public static final MutableIntState mutableIntStateOf(int i) {

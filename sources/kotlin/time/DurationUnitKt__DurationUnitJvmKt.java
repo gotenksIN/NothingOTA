@@ -1,6 +1,6 @@
 package kotlin.time;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
 import kotlin.NoWhenBranchMatchedException;
@@ -8,12 +8,12 @@ import kotlin.jvm.internal.Intrinsics;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: DurationUnitJvm.kt */
-@Metadata(d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a \u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0000\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a\f\u0010\b\u001a\u00020\u0004*\u00020\tH\u0007\u001a\f\u0010\n\u001a\u00020\t*\u00020\u0004H\u0007¨\u0006\u000b"}, d2 = {"convertDurationUnit", "", "value", "sourceUnit", "Lkotlin/time/DurationUnit;", "targetUnit", "", "convertDurationUnitOverflow", "toDurationUnit", "Ljava/util/concurrent/TimeUnit;", "toTimeUnit", "kotlin-stdlib"}, k = 5, mv = {1, 9, 0}, xi = R.styleable.AppCompatTheme_checkedTextViewStyle, xs = "kotlin/time/DurationUnitKt")
+@Metadata(m41d1 = {"\u0000 \n\u0000\n\u0002\u0010\u0006\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a \u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0000\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a \u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0002\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0001\u001a\f\u0010\b\u001a\u00020\u0004*\u00020\tH\u0007\u001a\f\u0010\n\u001a\u00020\t*\u00020\u0004H\u0007¨\u0006\u000b"}, m40d2 = {"convertDurationUnit", "", "value", "sourceUnit", "Lkotlin/time/DurationUnit;", "targetUnit", "", "convertDurationUnitOverflow", "toDurationUnit", "Ljava/util/concurrent/TimeUnit;", "toTimeUnit", "kotlin-stdlib"}, m39k = 5, m38mv = {1, 9, 0}, m36xi = C0032R.styleable.AppCompatTheme_checkedTextViewStyle, m35xs = "kotlin/time/DurationUnitKt")
 /* loaded from: classes2.dex */
 public class DurationUnitKt__DurationUnitJvmKt {
 
     /* compiled from: DurationUnitJvm.kt */
-    @Metadata(k = 3, mv = {1, 9, 0}, xi = 48)
+    @Metadata(m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
     /* loaded from: classes2.dex */
     public /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
@@ -52,47 +52,47 @@ public class DurationUnitKt__DurationUnitJvmKt {
         }
     }
 
-    public static final TimeUnit toTimeUnit(DurationUnit durationUnit) {
-        Intrinsics.checkNotNullParameter(durationUnit, "<this>");
-        return durationUnit.getTimeUnit$kotlin_stdlib();
+    public static final TimeUnit toTimeUnit(DurationUnitJvm durationUnitJvm) {
+        Intrinsics.checkNotNullParameter(durationUnitJvm, "<this>");
+        return durationUnitJvm.getTimeUnit$kotlin_stdlib();
     }
 
-    public static final DurationUnit toDurationUnit(TimeUnit timeUnit) {
+    public static final DurationUnitJvm toDurationUnit(TimeUnit timeUnit) {
         Intrinsics.checkNotNullParameter(timeUnit, "<this>");
         switch (WhenMappings.$EnumSwitchMapping$0[timeUnit.ordinal()]) {
             case 1:
-                return DurationUnit.NANOSECONDS;
+                return DurationUnitJvm.NANOSECONDS;
             case 2:
-                return DurationUnit.MICROSECONDS;
+                return DurationUnitJvm.MICROSECONDS;
             case 3:
-                return DurationUnit.MILLISECONDS;
+                return DurationUnitJvm.MILLISECONDS;
             case 4:
-                return DurationUnit.SECONDS;
+                return DurationUnitJvm.SECONDS;
             case 5:
-                return DurationUnit.MINUTES;
+                return DurationUnitJvm.MINUTES;
             case 6:
-                return DurationUnit.HOURS;
+                return DurationUnitJvm.HOURS;
             case 7:
-                return DurationUnit.DAYS;
+                return DurationUnitJvm.DAYS;
             default:
                 throw new NoWhenBranchMatchedException();
         }
     }
 
-    public static final double convertDurationUnit(double d, DurationUnit sourceUnit, DurationUnit targetUnit) {
+    public static final double convertDurationUnit(double d, DurationUnitJvm sourceUnit, DurationUnitJvm targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
         long convert = targetUnit.getTimeUnit$kotlin_stdlib().convert(1L, sourceUnit.getTimeUnit$kotlin_stdlib());
         return convert > 0 ? d * convert : d / sourceUnit.getTimeUnit$kotlin_stdlib().convert(1L, targetUnit.getTimeUnit$kotlin_stdlib());
     }
 
-    public static final long convertDurationUnitOverflow(long j, DurationUnit sourceUnit, DurationUnit targetUnit) {
+    public static final long convertDurationUnitOverflow(long j, DurationUnitJvm sourceUnit, DurationUnitJvm targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
         return targetUnit.getTimeUnit$kotlin_stdlib().convert(j, sourceUnit.getTimeUnit$kotlin_stdlib());
     }
 
-    public static final long convertDurationUnit(long j, DurationUnit sourceUnit, DurationUnit targetUnit) {
+    public static final long convertDurationUnit(long j, DurationUnitJvm sourceUnit, DurationUnitJvm targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
         return targetUnit.getTimeUnit$kotlin_stdlib().convert(j, sourceUnit.getTimeUnit$kotlin_stdlib());

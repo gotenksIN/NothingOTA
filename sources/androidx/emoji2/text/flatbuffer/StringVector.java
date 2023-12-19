@@ -12,6 +12,6 @@ public final class StringVector extends BaseVector {
     }
 
     public String get(int i) {
-        return Table.__string(__element(i), this.bb, this.utf8);
+        return Table.__string(__element(i), this.f174bb, this.utf8);
     }
 }

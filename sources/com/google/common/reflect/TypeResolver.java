@@ -186,7 +186,7 @@ public final class TypeResolver {
         private final ImmutableMap<TypeVariableKey, Type> map;
 
         TypeTable() {
-            this.map = ImmutableMap.of();
+            this.map = ImmutableMap.m192of();
         }
 
         private TypeTable(ImmutableMap<TypeVariableKey, Type> immutableMap) {
@@ -293,14 +293,16 @@ public final class TypeResolver {
     /* loaded from: classes2.dex */
     private static class WildcardCapturer {
         static final WildcardCapturer INSTANCE = new WildcardCapturer();
-        private final AtomicInteger id;
+
+        /* renamed from: id */
+        private final AtomicInteger f276id;
 
         private WildcardCapturer() {
             this(new AtomicInteger());
         }
 
         private WildcardCapturer(AtomicInteger atomicInteger) {
-            this.id = atomicInteger;
+            this.f276id = atomicInteger;
         }
 
         final Type capture(Type type) {
@@ -329,13 +331,13 @@ public final class TypeResolver {
         }
 
         TypeVariable<?> captureAsTypeVariable(Type[] typeArr) {
-            int incrementAndGet = this.id.incrementAndGet();
-            String join = Joiner.on((char) Typography.amp).join(typeArr);
+            int incrementAndGet = this.f276id.incrementAndGet();
+            String join = Joiner.m243on((char) Typography.amp).join(typeArr);
             return Types.newArtificialTypeVariable(WildcardCapturer.class, new StringBuilder(String.valueOf(join).length() + 33).append("capture#").append(incrementAndGet).append("-of ? extends ").append(join).toString(), typeArr);
         }
 
         private WildcardCapturer forTypeVariable(final TypeVariable<?> typeVariable) {
-            return new WildcardCapturer(this, this.id) { // from class: com.google.common.reflect.TypeResolver.WildcardCapturer.1
+            return new WildcardCapturer(this, this.f276id) { // from class: com.google.common.reflect.TypeResolver.WildcardCapturer.1
                 @Override // com.google.common.reflect.TypeResolver.WildcardCapturer
                 TypeVariable<?> captureAsTypeVariable(Type[] typeArr) {
                     LinkedHashSet linkedHashSet = new LinkedHashSet(Arrays.asList(typeArr));
@@ -349,7 +351,7 @@ public final class TypeResolver {
         }
 
         private WildcardCapturer notForTypeVariable() {
-            return new WildcardCapturer(this.id);
+            return new WildcardCapturer(this.f276id);
         }
 
         @CheckForNull

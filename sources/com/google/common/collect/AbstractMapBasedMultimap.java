@@ -1071,7 +1071,7 @@ public abstract class AbstractMapBasedMultimap<K, V> extends AbstractMultimap<K,
         return new AbstractMapBasedMultimap<K, V>.Itr<Map.Entry<K, V>>(this) { // from class: com.google.common.collect.AbstractMapBasedMultimap.2
             @Override // com.google.common.collect.AbstractMapBasedMultimap.Itr
             /* bridge */ /* synthetic */ Object output(@ParametricNullness Object obj, @ParametricNullness Object obj2) {
-                return output((AnonymousClass2) obj, obj2);
+                return output((C11302) obj, obj2);
             }
 
             @Override // com.google.common.collect.AbstractMapBasedMultimap.Itr

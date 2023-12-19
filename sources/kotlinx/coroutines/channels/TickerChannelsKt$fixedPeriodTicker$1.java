@@ -1,6 +1,6 @@
 package kotlinx.coroutines.channels;
 
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import kotlin.Metadata;
 import kotlin.coroutines.Continuation;
 import kotlin.coroutines.jvm.internal.ContinuationImpl;
@@ -8,8 +8,8 @@ import kotlin.coroutines.jvm.internal.DebugMetadata;
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: TickerChannels.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.channels.TickerChannelsKt", f = "TickerChannels.kt", i = {0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3}, l = {R.styleable.AppCompatTheme_listPreferredItemPaddingRight, R.styleable.AppCompatTheme_panelMenuListWidth, R.styleable.AppCompatTheme_ratingBarStyleSmall, R.styleable.AppCompatTheme_seekBarStyle}, m = "fixedPeriodTicker", n = {"channel", "delayMillis", "deadline", "channel", "deadline", "delayNs", "channel", "deadline", "delayNs", "channel", "deadline", "delayNs"}, s = {"L$0", "J$0", "J$1", "L$0", "J$0", "J$1", "L$0", "J$0", "J$1", "L$0", "J$0", "J$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.channels.TickerChannelsKt", m30f = "TickerChannels.kt", m29i = {0, 0, 0, 1, 1, 1, 2, 2, 2, 3, 3, 3}, m28l = {C0032R.styleable.AppCompatTheme_listPreferredItemPaddingRight, C0032R.styleable.AppCompatTheme_panelMenuListWidth, C0032R.styleable.AppCompatTheme_ratingBarStyleSmall, C0032R.styleable.AppCompatTheme_seekBarStyle}, m27m = "fixedPeriodTicker", m26n = {"channel", "delayMillis", "deadline", "channel", "deadline", "delayNs", "channel", "deadline", "delayNs", "channel", "deadline", "delayNs"}, m25s = {"L$0", "J$0", "J$1", "L$0", "J$0", "J$1", "L$0", "J$0", "J$1", "L$0", "J$0", "J$1"})
 /* loaded from: classes2.dex */
 public final class TickerChannelsKt$fixedPeriodTicker$1 extends ContinuationImpl {
     long J$0;
@@ -28,7 +28,7 @@ public final class TickerChannelsKt$fixedPeriodTicker$1 extends ContinuationImpl
         Object fixedPeriodTicker;
         this.result = obj;
         this.label |= Integer.MIN_VALUE;
-        fixedPeriodTicker = TickerChannelsKt.fixedPeriodTicker(0L, 0L, null, this);
+        fixedPeriodTicker = TickerChannels.fixedPeriodTicker(0L, 0L, null, this);
         return fixedPeriodTicker;
     }
 }

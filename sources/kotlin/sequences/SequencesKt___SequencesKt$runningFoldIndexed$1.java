@@ -11,8 +11,8 @@ import kotlin.jvm.functions.Function3;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: _Sequences.kt */
-@Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlin/sequences/SequenceScope;"}, k = 3, mv = {1, 9, 0}, xi = 48)
-@DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningFoldIndexed$1", f = "_Sequences.kt", i = {0, 1, 1, 1}, l = {2336, 2341}, m = "invokeSuspend", n = {"$this$sequence", "$this$sequence", "accumulator", "index"}, s = {"L$0", "L$0", "L$1", "I$0"})
+@Metadata(m41d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@"}, m40d2 = {"<anonymous>", "", "T", "R", "Lkotlin/sequences/SequenceScope;"}, m39k = 3, m38mv = {1, 9, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlin.sequences.SequencesKt___SequencesKt$runningFoldIndexed$1", m30f = "_Sequences.kt", m29i = {0, 1, 1, 1}, m28l = {2336, 2341}, m27m = "invokeSuspend", m26n = {"$this$sequence", "$this$sequence", "accumulator", "index"}, m25s = {"L$0", "L$0", "L$1", "I$0"})
 /* loaded from: classes2.dex */
 public final class SequencesKt___SequencesKt$runningFoldIndexed$1<R> extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
     final /* synthetic */ R $initial;
@@ -117,7 +117,7 @@ public final class SequencesKt___SequencesKt$runningFoldIndexed$1<R> extends Res
             if (r4 >= 0) goto L66
             kotlin.collections.CollectionsKt.throwIndexOverflow()
         L66:
-            java.lang.Integer r4 = kotlin.coroutines.jvm.internal.Boxing.boxInt(r4)
+            java.lang.Integer r4 = kotlin.coroutines.jvm.internal.boxing.boxInt(r4)
             java.lang.Object r4 = r7.invoke(r4, r10, r6)
             r10 = r1
             kotlin.coroutines.Continuation r10 = (kotlin.coroutines.Continuation) r10

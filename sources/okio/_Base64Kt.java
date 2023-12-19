@@ -6,7 +6,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 
 /* compiled from: -Base64.kt */
-@Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0012\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0003\u001a\u000e\u0010\t\u001a\u0004\u0018\u00010\u0001*\u00020\nH\u0000\u001a\u0016\u0010\u000b\u001a\u00020\n*\u00020\u00012\b\b\u0002\u0010\f\u001a\u00020\u0001H\u0000\"\u001c\u0010\u0000\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u001c\u0010\u0006\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0007\u0010\u0003\u001a\u0004\b\b\u0010\u0005¨\u0006\r"}, d2 = {"BASE64", "", "getBASE64$annotations", "()V", "getBASE64", "()[B", "BASE64_URL_SAFE", "getBASE64_URL_SAFE$annotations", "getBASE64_URL_SAFE", "decodeBase64ToArray", "", "encodeBase64", "map", "okio"}, k = 2, mv = {1, 6, 0}, xi = 48)
+@Metadata(m41d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0012\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0003\u001a\u000e\u0010\t\u001a\u0004\u0018\u00010\u0001*\u00020\nH\u0000\u001a\u0016\u0010\u000b\u001a\u00020\n*\u00020\u00012\b\b\u0002\u0010\f\u001a\u00020\u0001H\u0000\"\u001c\u0010\u0000\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0002\u0010\u0003\u001a\u0004\b\u0004\u0010\u0005\"\u001c\u0010\u0006\u001a\u00020\u00018\u0000X\u0081\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0007\u0010\u0003\u001a\u0004\b\b\u0010\u0005¨\u0006\r"}, m40d2 = {"BASE64", "", "getBASE64$annotations", "()V", "getBASE64", "()[B", "BASE64_URL_SAFE", "getBASE64_URL_SAFE$annotations", "getBASE64_URL_SAFE", "decodeBase64ToArray", "", "encodeBase64", "map", "okio"}, m39k = 2, m38mv = {1, 6, 0}, m36xi = 48)
 /* loaded from: classes2.dex */
 public final class _Base64Kt {
     private static final byte[] BASE64 = ByteString.Companion.encodeUtf8("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/").getData$okio();
@@ -126,7 +126,7 @@ public final class _Base64Kt {
             int i7 = i6 + 1;
             bArr2[i6] = map[((b & 3) << 4) | ((b2 & 255) >> 4)];
             int i8 = i7 + 1;
-            bArr2[i7] = map[((b2 & Ascii.SI) << 2) | ((b3 & 255) >> 6)];
+            bArr2[i7] = map[((b2 & Ascii.f197SI) << 2) | ((b3 & 255) >> 6)];
             i2 = i8 + 1;
             bArr2[i8] = map[b3 & Utf8.REPLACEMENT_BYTE];
             i = i5;
@@ -149,7 +149,7 @@ public final class _Base64Kt {
             bArr2[i2] = map[(b6 & 255) >> 2];
             int i13 = i12 + 1;
             bArr2[i12] = map[((b6 & 3) << 4) | ((b7 & 255) >> 4)];
-            bArr2[i13] = map[(b7 & Ascii.SI) << 2];
+            bArr2[i13] = map[(b7 & Ascii.f197SI) << 2];
             bArr2[i13 + 1] = (byte) 61;
         }
         return _JvmPlatformKt.toUtf8String(bArr2);

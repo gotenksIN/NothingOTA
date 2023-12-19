@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3
 
 /* JADX INFO: Access modifiers changed from: package-private */
 /* compiled from: Merge.kt */
-@Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-@DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1", f = "Merge.kt", i = {0, 0}, l = {30}, m = "emit", n = {"this", "value"}, s = {"L$0", "L$1"})
+@Metadata(m39k = 3, m38mv = {1, 6, 0}, m36xi = 48)
+@DebugMetadata(m31c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3$1", m30f = "Merge.kt", m29i = {0, 0}, m28l = {30}, m27m = "emit", m26n = {"this", "value"}, m25s = {"L$0", "L$1"})
 /* loaded from: classes2.dex */
 public final class ChannelFlowTransformLatest$flowCollect$3$1$emit$1 extends ContinuationImpl {
     Object L$0;
@@ -17,14 +17,14 @@ public final class ChannelFlowTransformLatest$flowCollect$3$1$emit$1 extends Con
     Object L$2;
     int label;
     /* synthetic */ Object result;
-    final /* synthetic */ ChannelFlowTransformLatest$flowCollect$3.AnonymousClass1<T> this$0;
+    final /* synthetic */ ChannelFlowTransformLatest$flowCollect$3.C17821<T> this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     /* JADX WARN: Multi-variable type inference failed */
-    public ChannelFlowTransformLatest$flowCollect$3$1$emit$1(ChannelFlowTransformLatest$flowCollect$3.AnonymousClass1<? super T> anonymousClass1, Continuation<? super ChannelFlowTransformLatest$flowCollect$3$1$emit$1> continuation) {
+    public ChannelFlowTransformLatest$flowCollect$3$1$emit$1(ChannelFlowTransformLatest$flowCollect$3.C17821<? super T> c17821, Continuation<? super ChannelFlowTransformLatest$flowCollect$3$1$emit$1> continuation) {
         super(continuation);
-        this.this$0 = anonymousClass1;
+        this.this$0 = c17821;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl

@@ -16,32 +16,38 @@ abstract class ImmutableSortedSetFauxverideShim<E> extends ImmutableSet<E> {
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m109of(E e) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e, E e2) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m108of(E e, E e2) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e, E e2, E e3) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m107of(E e, E e2, E e3) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e, E e2, E e3, E e4) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m106of(E e, E e2, E e3, E e4) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e, E e2, E e3, E e4, E e5) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m105of(E e, E e2, E e3, E e4, E e5) {
         throw new UnsupportedOperationException();
     }
 
     @Deprecated
-    public static <E> ImmutableSortedSet<E> of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
+    /* renamed from: of */
+    public static <E> ImmutableSortedSet<E> m104of(E e, E e2, E e3, E e4, E e5, E e6, E... eArr) {
         throw new UnsupportedOperationException();
     }
 

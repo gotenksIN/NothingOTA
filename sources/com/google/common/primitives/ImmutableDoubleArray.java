@@ -21,35 +21,43 @@ public final class ImmutableDoubleArray implements Serializable {
     private final int end;
     private final transient int start;
 
-    public static ImmutableDoubleArray of() {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m85of() {
         return EMPTY;
     }
 
-    public static ImmutableDoubleArray of(double d) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m84of(double d) {
         return new ImmutableDoubleArray(new double[]{d});
     }
 
-    public static ImmutableDoubleArray of(double d, double d2) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m83of(double d, double d2) {
         return new ImmutableDoubleArray(new double[]{d, d2});
     }
 
-    public static ImmutableDoubleArray of(double d, double d2, double d3) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m82of(double d, double d2, double d3) {
         return new ImmutableDoubleArray(new double[]{d, d2, d3});
     }
 
-    public static ImmutableDoubleArray of(double d, double d2, double d3, double d4) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m81of(double d, double d2, double d3, double d4) {
         return new ImmutableDoubleArray(new double[]{d, d2, d3, d4});
     }
 
-    public static ImmutableDoubleArray of(double d, double d2, double d3, double d4, double d5) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m80of(double d, double d2, double d3, double d4, double d5) {
         return new ImmutableDoubleArray(new double[]{d, d2, d3, d4, d5});
     }
 
-    public static ImmutableDoubleArray of(double d, double d2, double d3, double d4, double d5, double d6) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m79of(double d, double d2, double d3, double d4, double d5, double d6) {
         return new ImmutableDoubleArray(new double[]{d, d2, d3, d4, d5, d6});
     }
 
-    public static ImmutableDoubleArray of(double d, double... dArr) {
+    /* renamed from: of */
+    public static ImmutableDoubleArray m78of(double d, double... dArr) {
         Preconditions.checkArgument(dArr.length <= 2147483646, "the total number of elements must fit in an int");
         double[] dArr2 = new double[dArr.length + 1];
         dArr2[0] = d;

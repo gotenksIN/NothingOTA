@@ -7,7 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.PopupWindow;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.appcompat.view.SupportMenuInflater;
 import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
@@ -38,7 +38,7 @@ public class PopupMenu {
     }
 
     public PopupMenu(Context context, View view, int i) {
-        this(context, view, i, R.attr.popupMenuStyle, 0);
+        this(context, view, i, C0032R.attr.popupMenuStyle, 0);
     }
 
     public PopupMenu(Context context, View view, int i, int i2, int i3) {

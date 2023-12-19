@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import androidx.appcompat.R;
+import androidx.appcompat.C0032R;
 import androidx.core.graphics.ColorUtils;
 
 /* loaded from: classes.dex */
@@ -78,9 +78,9 @@ public class ThemeUtils {
     }
 
     public static void checkAppCompatTheme(View view, Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R.styleable.AppCompatTheme);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(C0032R.styleable.AppCompatTheme);
         try {
-            if (!obtainStyledAttributes.hasValue(R.styleable.AppCompatTheme_windowActionBar)) {
+            if (!obtainStyledAttributes.hasValue(C0032R.styleable.AppCompatTheme_windowActionBar)) {
                 Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
             }
         } finally {

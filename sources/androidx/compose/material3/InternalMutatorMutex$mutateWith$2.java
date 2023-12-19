@@ -21,8 +21,8 @@ import kotlinx.coroutines.sync.Mutex;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* JADX INFO: Add missing generic type declarations: [R] */
 /* compiled from: InternalMutatorMutex.kt */
-@Metadata(d1 = {"\u0000\b\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0001*\u00020\u0003H\u008a@"}, d2 = {"<anonymous>", "R", "T", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 8, 0}, xi = 48)
-@DebugMetadata(c = "androidx.compose.material3.InternalMutatorMutex$mutateWith$2", f = "InternalMutatorMutex.kt", i = {0, 0, 1, 1}, l = {177, 138}, m = "invokeSuspend", n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, s = {"L$0", "L$1", "L$0", "L$1"})
+@Metadata(m41d1 = {"\u0000\b\n\u0002\b\u0003\n\u0002\u0018\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0001*\u00020\u0003H\u008a@"}, m40d2 = {"<anonymous>", "R", "T", "Lkotlinx/coroutines/CoroutineScope;"}, m39k = 3, m38mv = {1, 8, 0}, m36xi = 48)
+@DebugMetadata(m31c = "androidx.compose.material3.InternalMutatorMutex$mutateWith$2", m30f = "InternalMutatorMutex.kt", m29i = {0, 0, 1, 1}, m28l = {177, 138}, m27m = "invokeSuspend", m26n = {"mutator", "$this$withLock_u24default$iv", "mutator", "$this$withLock_u24default$iv"}, m25s = {"L$0", "L$1", "L$0", "L$1"})
 /* loaded from: classes.dex */
 public final class InternalMutatorMutex$mutateWith$2<R> extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super R>, Object> {
     final /* synthetic */ Function2<T, Continuation<? super R>, Object> $block;
@@ -112,13 +112,13 @@ public final class InternalMutatorMutex$mutateWith$2<R> extends SuspendLambda im
                         try {
                             ResultKt.throwOnFailure(obj);
                             atomicReference2 = internalMutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                             mutex2.unlock(null);
                             return obj;
                         } catch (Throwable th2) {
                             th = th2;
                             atomicReference = internalMutatorMutex2.currentMutator;
-                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                            MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                             throw th;
                         }
                     }
@@ -146,7 +146,7 @@ public final class InternalMutatorMutex$mutateWith$2<R> extends SuspendLambda im
                 obj = invoke;
                 mutator2 = mutator;
                 atomicReference2 = internalMutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference2, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference2, mutator2, null);
                 mutex2.unlock(null);
                 return obj;
             } catch (Throwable th3) {
@@ -154,7 +154,7 @@ public final class InternalMutatorMutex$mutateWith$2<R> extends SuspendLambda im
                 th = th3;
                 internalMutatorMutex2 = internalMutatorMutex;
                 atomicReference = internalMutatorMutex2.currentMutator;
-                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m(atomicReference, mutator2, null);
+                MutatorMutex$$ExternalSyntheticBackportWithForwarding0.m295m(atomicReference, mutator2, null);
                 throw th;
             }
         } catch (Throwable th4) {
